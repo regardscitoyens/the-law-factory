@@ -6,7 +6,7 @@ software developed for the law factory project
 ##Installation
 In order to try the web application in a locale environment, follow this steps:
 
-* Install node.js 
+* Install [Node.js](http://nodejs.org/)
 
 * Checkout the project from git:
 <pre><code>https://github.com/regardscitoyens/the-law-factory.git</code></pre>
@@ -17,4 +17,4 @@ In order to try the web application in a locale environment, follow this steps:
 * Run the application in localhost with:
 <pre><code>node app.js</code></pre> 
 
-* You may now try the application on your brwoser at the address *localhost:3000*
+* You may now try the application on your browser at the address *localhost:3000*
