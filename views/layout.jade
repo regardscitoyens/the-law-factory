@@ -1,0 +1,39 @@
+!!!
+html(ng-app="myApp")
+  head
+    meta(charset='utf8')
+    base(href='/')
+    title The Law Factory
+    link(rel='stylesheet', href='/css/app.css')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    script(src="/js/jquery-1.10.2.min.js")
+    script(src='/js/bootstrap.min.js')
+    
+  body
+    
+    nav.navbar.navbar-custom(role="navigation")
+      
+      .navbar-header
+        button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-ex1-collapse")
+          span.sr-only 
+            Toggle navigation
+          span(icon-bar)
+          span(icon-bar)
+          span(icon-bar)
+        
+        a.navbar-brand(href="#") 
+          img(src="/img/logo.png")
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href="#") ABOUT
+             
+                
+          li
+            a(href="#") CONTACTS
+             
+                
+
+    
+    block subheader
+  
+    block body

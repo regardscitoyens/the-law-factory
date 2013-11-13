@@ -1,0 +1,51 @@
+extends layout
+
+
+block subheader
+  ul.nav.nav-tabs.nav-justified.subheader
+    li
+      a(href='mod1') MODULE 1
+    li.selected
+      a(href='mod2') MODULE 2
+    li
+      a(href='mod3') MODULE 3
+
+block body
+  script(src='/js/d3.v3.min.js')
+
+  .row
+    .col-md-8.col-md-offset-2.title
+      h4 CHANGES ON ARTICLES
+  .row
+    .col-md-8.col-md-offset-2.separator
+  .row
+    .col-md-10.viz-container
+      .labels
+        h4 STEPS
+      .main
+        .stages
+          .stage STAGE 1
+           
+          .stage STAGE 2
+           
+          .stage STAGE 3
+            
+          .stage STAGE 4
+            
+          .stage STAGE 5
+           
+          .stage STAGE 6
+           
+        #viz
+      .text
+        h4#law-title Select an article
+        p
+  
+  script(src='js/jsdiff.js')
+  script(src='/js/modules/module1bis.js',charset="utf-8")
+  script(src='js/lib/angular/angular.js')
+  script(src='js/app.js')
+  script(src='js/services.js')
+  script(src='js/controllers.js')
+  script(src='js/filters.js')
+  script(src='js/directives.js')
