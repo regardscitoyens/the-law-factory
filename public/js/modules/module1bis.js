@@ -16,6 +16,10 @@ console.log("stages",stages)
 console.log("sections", sections)
 setCoordinates();
 
+function zoom() {
+  svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+}
+
 var margin = {
 	top : 10,
 	right : 10,
@@ -24,7 +28,7 @@ var margin = {
 }, width = $("#viz").width(), height = 800 - margin.top - margin.bottom;
 
 
-var svg = d3.select("#viz").append("svg").attr("width", "100%" ).attr("height", maxy+200).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var svg = d3.select("#viz").append("svg").attr("width", "100%" ).attr("height", maxy+200).append("g").call(d3.behavior.zoom().scaleExtent([1, 8]).on("zoom", zoom)).attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var layer = svg.selectAll(".layer").data(art_values).enter().append("g").attr("class", function(d,i) {return "layer"+" "+"n_"+i})
 .attr("transform", function(d,i) {
