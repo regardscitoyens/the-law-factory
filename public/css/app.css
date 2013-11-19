@@ -151,8 +151,13 @@ body{
 	padding:0 !important;
 	border-bottom:1px solid #716259;
 	width:25%;
-	min-height:100%;
 	float:left;
+}
+
+.text-container{
+	clear:both;
+	height:700px;
+	overflow:auto;
 }
 .viz-container{
 	height:800px;
@@ -198,4 +203,10 @@ body{
 	width:90%;
 	margin:0 auto;
 	color:#333;
+	margin-bottom:15px;
+}
+.stick{
+	position:fixed;
+    top:0px;
+    right:0;
 }

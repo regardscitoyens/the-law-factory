@@ -94,7 +94,7 @@ var myrects = rect.append("rect")
 		
 		//add text
 		$("#law-title").text(datum.datum().titre);
-		$(".text p").text(d.text)
+		$(".text-container p").text(d.text)
 		
 		});
 		
@@ -238,3 +238,24 @@ function findSection(s) {
 	res= sections.indexOf(s);
 	return res
 } 
+
+
+$(document).ready(function() {
+    var s = $(".text");
+    var pos = s.offset();
+    var w=s.width();
+    console.log("pos",pos)                    
+    $(window).scroll(function() {
+        var windowpos = $(window).scrollTop();
+        if (windowpos >= pos.top) {
+            s.addClass("stick");
+            s.css("left",pos.left);
+            s.css("width",w);
+        } else {
+            s.removeClass("stick"); 
+            s.css("left","");
+            s.css("width","25%");
+        }
+    });
+});
+
