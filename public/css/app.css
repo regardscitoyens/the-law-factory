@@ -164,7 +164,7 @@ body{
 	padding: 0 !important;
 }
 
-.viz-container H4{
+.viz-container h4{
 	text-align:center;
 	padding:20px 4px;
 	width:40%;
@@ -182,6 +182,7 @@ body{
 	color:#fff;
 	font-weight: normal;
 	font-size:13px;
+	margin-top:0;
 }
 .labels div{
 	position: relative;
