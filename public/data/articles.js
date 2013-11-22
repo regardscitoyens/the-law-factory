@@ -1,4 +1,4 @@
-var dat={
+{
     "articles": {
         "id_10 bis_T1C2": {
             "id": "id_10 bis_T1C2", 

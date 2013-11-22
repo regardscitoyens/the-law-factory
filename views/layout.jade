@@ -1,13 +1,17 @@
 !!!
-html(ng-app="myApp")
+html(ng-app="theLawFactory")
   head
     meta(charset='utf8')
     base(href='.')
     title The Law Factory
-    link(rel='stylesheet', href='./css/app.css')
-    link(rel='stylesheet', href='./css/bootstrap.min.css')
-    script(src='./js/jquery-1.10.2.min.js')
-    script(src='./js/bootstrap.min.js')
+
+    // CSS
+    link(rel='stylesheet', href='css/app.css')
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+
+    // google fonts
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700')
     
   body
     
@@ -25,15 +29,8 @@ html(ng-app="myApp")
           img(src="./img/logo.png")
         ul.nav.navbar-nav.navbar-right
           li
-            a(href="#") ABOUT
-             
-                
+            a(href="#") ABOUT      
           li
             a(href="#") CONTACTS
-             
-                
 
-    
     block subheader
-  
-    block body

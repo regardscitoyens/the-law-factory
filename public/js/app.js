@@ -2,25 +2,17 @@
 
 // Declare app level module which depends on filters, and services
 
-angular.module('myApp', [
-  'myApp.controllers',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives'
+angular.module('theLawFactory', [
+  'theLawFactory.controllers',
+  'theLawFactory.filters',
+  'theLawFactory.services',
+  'theLawFactory.directives'
 ]).
 config(function ($routeProvider, $locationProvider) {
-  $routeProvider.
-    when('/view1', {
-      templateUrl: 'partials/partial1',
-      controller: 'MyCtrl1'
-    }).
-    when('/view2', {
-      templateUrl: 'partials/partial2',
-      controller: 'MyCtrl2'
-    }).
-    otherwise({
-      redirectTo: '/view1'
-    });
-
+  $routeProvider
+    .when('/',{redirectTo: '/', templateUrl: 'partials/main', controller: 'mainCtrl'})
+    .when('/mod1',{templateUrl: 'partials/mod1', controller: 'mainCtrl'})
+    //.when('/mod0',{templateUrl: 'partials/mod2', controller: 'mainCtrl'})
+    .otherwise({redirectTo: '/'});
   $locationProvider.html5Mode(true);
 });

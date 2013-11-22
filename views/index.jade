@@ -1,42 +1,29 @@
 extends layout
 
-
 block subheader
   ul.nav.nav-tabs.nav-justified.subheader
     li
-      a(href='mod1') MODULE 1
-    li.selected
-      a(href='mod2') MODULE 2
+      a(href='/mod1') MODULE 1
     li
-      a(href='mod3') MODULE 3
+      a(href='/mod2') MODULE 2
+    li
+      a(href='/mod3') MODULE 3
 
-block body
-  script(src='./js/d3.v3.min.js')
+  div(ng-view)
 
-  .row
-    .col-md-8.col-md-offset-2.title
-      h4 CHANGES ON ARTICLES
-  .row
-    .col-md-8.col-md-offset-2.separator
-  .row
-    .col-md-10.viz-container
-      .labels
-        h4 STEPS
-      .main
-        .stages
-           
-        #viz
-      .text
-        h4#law-title Select an article
-        .text-container
-          p
-  
-  script(src='./js/articles.js', charset="utf-8")
-  script(src='./js/jsdiff.js')
-  script(src='./js/modules/module1bis.js')
-  script(src='./js/lib/angular/angular.js')
-  script(src='./js/app.js')
-  script(src='./js/services.js')
-  script(src='./js/controllers.js')
-  script(src='./js/filters.js')
-  script(src='./js/directives.js')
+  script(src='js/lib/jquery/jquery-1.10.2.min.js')
+  script(src='js/lib/bootstrap/bootstrap.min.js')
+  script(src='js/lib/d3/d3.v3.min.js')
+  script(src='js/lib/jsdiff/jsdiff.js')
+  script(src='js/lib/angular/angular.js')
+
+  //script(src='data/articles.js', charset="utf-8")
+
+  //script(src='js/lib/thelawfactory/module1bis.js')
+  script(src='js/lib/thelawfactory/mod1.js')
+
+  script(src='js/app.js')
+  script(src='js/services.js')
+  script(src='js/controllers.js')
+  script(src='js/filters.js')
+  script(src='js/directives.js')

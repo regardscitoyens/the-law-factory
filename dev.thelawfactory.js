@@ -17,7 +17,7 @@ var app = module.exports = express();
  */
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.logger('dev'));
@@ -46,7 +46,7 @@ app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 
 // JSON API
-app.get('/api/name', api.name);
+app.get('/laws/:id', api.law); //to be done
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
