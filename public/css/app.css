@@ -122,7 +122,8 @@ body{
 }
 .stage{
 	float:left;
-	width:16.66%;
+	padding:0px 5px;
+	text-transform:capitalize;
 	height:100%;
 	/* Internet Explorer 10 */
 	display:-ms-flexbox;

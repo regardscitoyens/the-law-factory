@@ -204,6 +204,14 @@ function computeStages() {
 			if(stag.indexOf(f)<0) stag.push(f)
 		})
 	})
+	
+	for(s in stag) {
+		console.log(stag[s])
+		stag_name=stag[s].split("_",3).splice(1, 2).join(" ");
+		console.log(stag_name);
+		$(".stages").append('<div class="stage" style="width:'+100/stag.length+'%">'+stag_name+'</div>')	
+	}
+	
 	return stag
 }
 
