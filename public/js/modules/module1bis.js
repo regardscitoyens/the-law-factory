@@ -64,9 +64,9 @@ var myrects = rect.append("rect")
 	.style("stroke-width",1)
 	.style("fill", function(d) {
 		if(d.diff=="none") return '#fff';
-		else if(d.diff=="add") return '#94ECAC';
-		else if(d.diff=="rem") return '#FDC2C2';
-		else if(d.diff=="both") return '#eee';
+		else if(d.diff=="add") return '#CFF7DA';
+		else if(d.diff=="rem") return '#FDE2E2';
+		else if(d.diff=="both") return '#FCFCEF';
 	})
 	.attr("y", function(d) {
 		return d.y;
@@ -91,9 +91,9 @@ var myrects = rect.append("rect")
 		//Reset Colors
 		myrects.style("fill", function(d) {
 		if(d.diff=="none") return '#fff';
-		else if(d.diff=="add") return '#94ECAC';
-		else if(d.diff=="rem") return '#FDC2C2';
-		else if(d.diff=="both") return '#eee';
+		else if(d.diff=="add") return '#CFF7DA';
+		else if(d.diff=="rem") return '#FDE2E2';
+		else if(d.diff=="both") return '#FCFCEF';
 		});
 		
 		//Color the elements in same group
@@ -102,7 +102,12 @@ var myrects = rect.append("rect")
 		d3.selectAll(datum[0][0].childNodes).filter("rect")
 		
 		.style("fill",function(d) {
-		return d3.rgb(d3.select(this).style("fill")).darker(0.5);
+			hsl=d3.rgb(d3.select(this).style("fill")).hsl()
+			console.log("hsl",hsl)
+			hsl.l-=0.1;
+			hsl.s+=0.1;
+			console.log("hsl2",hsl)
+		return hsl.rgb()
 		})
 		
 		
