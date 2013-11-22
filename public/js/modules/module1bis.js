@@ -93,8 +93,8 @@ var myrects = rect.append("rect")
 		d3.select(this).style("fill","#716259");
 		
 		//add text
-		$("#law-title").text(datum.datum().titre);
-		$(".text-container p").text(d.text)
+		$("#law-title").text("Article "+datum.datum().titre);
+		$(".text-container p").html(d.text.join("<br/><br/>"))
 		
 		});
 		
