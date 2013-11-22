@@ -8,12 +8,24 @@ art_values.sort(function(a, b) {
     else return al[1] - b[1];
 });
 
+var maxlen=d3.max(art_values,function(d){
+	return d3.max(d.steps,function(e) {
+		return e.length;	
+	})
+});
+
+//linear mapper for article height
+var lerp = d3.scale.linear()
+  .domain([0,1,maxlen])
+  .range([0,6,120]);
+
+//compute stages and sections
 var stages=computeStages()
 var columns=stages.length
 var sections=computeSections()
 var maxy=0;
-console.log("stages",stages)
-console.log("sections", sections)
+
+//set coordinates for the blocks
 setCoordinates();
 
 var margin = {
@@ -28,7 +40,7 @@ var svg = d3.select("#viz").append("svg").attr("width", "100%" ).attr("height", 
 
 var layer = svg.selectAll(".layer").data(art_values).enter().append("g").attr("class", function(d,i) {return "layer"+" "+"n_"+i})
 .attr("transform", function(d,i) {
-	return "translate(0,"+parseInt(findSection(d.section))*10+")"
+	return "translate(0,"+parseInt(findSection(d.section))*20+")"
 	});
 
 //Define lines layer
@@ -52,8 +64,8 @@ var myrects = rect.append("rect")
 	.style("stroke-width",1)
 	.style("fill", function(d) {
 		if(d.diff=="none") return '#fff';
-		else if(d.diff=="add") return '#4cefb6';
-		else if(d.diff=="rem") return '#f45a5a';
+		else if(d.diff=="add") return '#94ECAC';
+		else if(d.diff=="rem") return '#FDC2C2';
 		else if(d.diff=="both") return '#eee';
 	})
 	.attr("y", function(d) {
@@ -65,28 +77,40 @@ var myrects = rect.append("rect")
 	})
 	.attr("height", function(d) {
 		
-		return (d.length*artHeight);
+		return (lerp(d.length));
 	})
 	.attr("width", width/columns-20)
 	.attr("opacity", 1.0)
 	.on("click", function (d) {
 		console.log(d)
 		
+		d3.selectAll("line")
+		.style("stroke","#f2f2f2")
+		
 		//STYLE OF CLICKED ELEMENT AND ROW
 		//Reset Colors
 		myrects.style("fill", function(d) {
 		if(d.diff=="none") return '#fff';
-		else if(d.diff=="add") return '#4cefb6';
-		else if(d.diff=="rem") return '#f45a5a';
+		else if(d.diff=="add") return '#94ECAC';
+		else if(d.diff=="rem") return '#FDC2C2';
 		else if(d.diff=="both") return '#eee';
 		});
 		
 		//Color the elements in same group
 		datum=d3.select(this.parentNode)
-		d3.selectAll(datum[0][0].childNodes)
-		.style("fill","#DAD1CB");
 		
-		d3.select(this).style("fill","#716259");
+		d3.selectAll(datum[0][0].childNodes).filter("rect")
+		
+		.style("fill",function(d) {
+		return d3.rgb(d3.select(this).style("fill")).darker(0.5);
+		})
+		
+		
+		d3.selectAll(datum[0][0].childNodes).filter("g")
+		.selectAll("line")
+		.style("stroke","#999");
+		
+		d3.rgb(d3.select(this).style("fill")).darker(2);
 		
 		//add text
 		$("#law-title").text("Article "+datum.datum().titre);
@@ -109,7 +133,7 @@ var myrects = rect.append("rect")
 			return (1+findStage(d.id_step))*width/columns-10
 		})
 		.attr("y1", function(d){
-			return d.y+(d.length*artHeight)/2 
+			return d.y+(lerp(d.length))/2 
 		})
 		.attr("x2", function(d,i){
 			
@@ -119,7 +143,7 @@ var myrects = rect.append("rect")
 		})
 		.attr("y2", function(d,i){
 			datum=d3.select(this.parentNode).datum()
-			if (i+1<datum.steps.length) return datum.steps[i+1].y+(datum.steps[i+1].length*artHeight)/2
+			if (i+1<datum.steps.length) return datum.steps[i+1].y+(lerp(datum.steps[i+1].length))/2
 			else return null
 		})
 		.style("stroke", "#f2f2f2")
@@ -140,23 +164,27 @@ $.each(d3.values(art_values), function( index, value ) {
 		changed=true;
 	}
 		
-  $.each(value.steps, function( st_ind, step ) { 	
+  $.each(value.steps, function( st_ind, step ) { 
+  		
   	if(index==0) {
   		art_values[index].steps[st_ind]['y'] = 0;
   	}
   	else {
   		lasty=findLast(index-1,art_values[index].steps[st_ind]['id_step'])
   		if (lasty) {
-  			art_values[index].steps[st_ind]['y'] = lasty.y + lasty.length*artHeight
-  			if(art_values[index].steps[st_ind]['y']+art_values[index].steps[st_ind]['length']*artHeight>maxy) maxy = art_values[index].steps[st_ind]['y']+art_values[index].steps[st_ind]['length']*artHeight
+  			art_values[index].steps[st_ind]['y'] = lasty.y + lerp(lasty.length)
+  			if(art_values[index].steps[st_ind]['y']+lerp(art_values[index].steps[st_ind]['length'])>maxy) maxy = art_values[index].steps[st_ind]['y']+lerp(art_values[index].steps[st_ind]['length'])
   		}
   		else {
   			art_values[index].steps[st_ind]['y']=0
   		}
   	}
   	if(st_ind+1==value.steps.length) step.last=true
-  	if(findStage(step.id_step)==0 && st_ind==0 && changed) {
-  		value.first=true
+  	//if(findStage(step.id_step)==0 && st_ind==0 && changed) {
+  	if(st_ind==0) {
+  		console.log("first",st_ind)
+  		step.first=true;
+  		
   	}
   })
 });

@@ -123,6 +123,7 @@ body{
 .stage{
 	float:left;
 	padding:0px 5px;
+	font-size: 12px;
 	text-transform:capitalize;
 	height:100%;
 	/* Internet Explorer 10 */
