@@ -14,6 +14,9 @@ In order to try the web application in a locale environment, follow this steps:
 * Install the node modules by executing in the project directory:
 <pre><code>npm install</code></pre>
 
+* If you need to install the app in a subdirectory in *dev.thelawfactory.js* set:
+<pre><code>var relPath="/my-path"</code></pre> 
+
 * Run the application in localhost with:
 <pre><code>node dev.thelawfactory.js</code></pre> 
 

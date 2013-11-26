@@ -22,8 +22,11 @@ app.set('view engine', 'jade');
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(app.router);
+
+var relPath = "/" //if different from root set your relative path eg: "/my-path"
+app.use(relPath, express.static(path.join(__dirname, 'public')));
+app.use(relPath, app.router);
+
 
 // development only
 if (app.get('env') === 'development') {
