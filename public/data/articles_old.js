@@ -7,8 +7,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 952-6-1 est ainsi modifié :", 
                         "1° Au premier alinéa, après les mots : \"enseignement supérieur\" sont insérés les mots : \"et des dérogations prévues par les statuts particuliers des corps d'enseignants-chercheurs ou par les statuts des établissements\", et les mots : \"conseil d'administration\" sont remplacés par les mots : \"conseil académique ou, pour les établissements qui n'en disposent pas, du conseil d'administration,\" ;", 
@@ -22,13 +20,11 @@
                     "length": 1135, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 952-6-1 du même code est ainsi modifié :", 
                         "1° Le premier alinéa est ainsi modifié :", 
@@ -44,13 +40,11 @@
                     "length": 1157, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 952-6-1 du même code est ainsi modifié :", 
                         "1° Le premier alinéa est ainsi modifié :", 
@@ -66,13 +60,11 @@
                     "length": 1157, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 952-6-1 du même code est ainsi modifié :", 
                         "1° Le premier alinéa est ainsi modifié :", 
@@ -88,13 +80,11 @@
                     "length": 1157, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 952-6-1 du même code est ainsi modifié :", 
                         "1° Le premier alinéa est ainsi modifié :", 
@@ -112,13 +102,11 @@
                     "length": 1358, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 952-6-1 du code de l'éducation est ainsi modifié :", 
                         "1° Le premier alinéa est ainsi modifié :", 
@@ -136,13 +124,11 @@
                     "length": 1420, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "L'article L. 952-6-1 du code de l'éducation est ainsi modifié :", 
@@ -160,14 +146,12 @@
                     ], 
                     "length": 1437, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 952-6-1 du code de l'éducation est ainsi modifié :", 
                         "1° Le premier alinéa est ainsi modifié :", 
@@ -184,9 +168,9 @@
                     ], 
                     "length": 1420, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_44_T5"
@@ -197,9 +181,7 @@
             "num": 88, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "I. - L'ordonnance n° 2008-1305 du 11 décembre 2008 modifiant la partie législative du code de la recherche est ratifiée.", 
                         "II. - À la première phrase de l'article L. 114-5 du code de la recherche, la référence : \"L. 321-5\" est remplacée par la référence : \"L. 313-1\"."
@@ -207,13 +189,11 @@
                     "length": 265, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "I. - L'ordonnance n° 2008-1305 du 11 décembre 2008 modifiant la partie législative du code de la recherche est ratifiée.", 
                         "II. - À la première phrase de l'article L. 114-5 du code de la recherche, la référence : \"L. 321-5\" est remplacée par la référence : \"L. 313-1\"."
@@ -221,13 +201,11 @@
                     "length": 265, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "I. - L'ordonnance n° 2008-1305 du 11 décembre 2008 modifiant la partie législative du code de la recherche est ratifiée.", 
                         "II. - À la première phrase de l'article L. 114-5 du code de la recherche, la référence : \"L. 321-5\" est remplacée par la référence : \"L. 313-1\"."
@@ -235,13 +213,11 @@
                     "length": 265, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'ordonnance n° 2008-1305 du 11 décembre 2008 modifiant la partie législative du code de la recherche est ratifiée.", 
                         "II. - À la première phrase de l'article L. 114-5 du code de la recherche, la référence : \"L. 321-5\" est remplacée par la référence : \"L. 313-1\"."
@@ -249,8 +225,8 @@
                     "length": 265, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_70_T7C2"
@@ -262,8 +238,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Au titre II du livre Ier du code de la recherche, il est rétabli un chapitre préliminaire ainsi rédigé :", 
                         "\"Chapitre préliminaire", 
@@ -277,13 +251,11 @@
                     "length": 776, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Au début du titre II du livre Ier du code de la recherche, il est rétabli un chapitre préliminaire ainsi rédigé :", 
                         "\"Chapitre préliminaire", 
@@ -298,13 +270,11 @@
                     "length": 1022, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Au début du titre II du livre Ier du code de la recherche, il est rétabli un chapitre préliminaire ainsi rédigé :", 
                         "\"Chapitre prÉliminaire", 
@@ -319,13 +289,11 @@
                     "length": 946, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Au début du titre II du livre Ier du code de la recherche, il est rétabli un chapitre préliminaire ainsi rédigé :", 
                         "\"Chapitre PRÉLIMINAIRE", 
@@ -340,13 +308,11 @@
                     "length": 946, 
                     "step": "depot", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Au début du titre II du livre Ier du code de la recherche, il est rétabli un chapitre préliminaire ainsi rédigé :", 
                         "\"Chapitre PRÉLIMINAIRE", 
@@ -361,13 +327,11 @@
                     "length": 1015, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Au début du titre II du livre Ier du code de la recherche, il est rétabli un chapitre préliminaire ainsi rédigé :", 
                         "\"Chapitre PRÉLIMINAIRE", 
@@ -382,13 +346,11 @@
                     "length": 1015, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "Au début du titre II du livre Ier du code de la recherche, il est rétabli un chapitre préliminaire ainsi rédigé :", 
@@ -404,13 +366,11 @@
                     "length": 1132, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Au début du titre II du livre Ier du code de la recherche, il est rétabli un chapitre préliminaire ainsi rédigé :", 
                         "\"Chapitre PRÉLIMINAIRE", 
@@ -424,9 +384,9 @@
                     ], 
                     "length": 1091, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_53_T6C1"
@@ -438,71 +398,59 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "true", 
                     "text": [
                         "Le livre Ier du code de la recherche est modifié conformément aux dispositions du présent chapitre."
                     ], 
                     "length": 99, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "true", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "commission", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "true", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "true", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "true", 
+                    "status": "suppression maintenue", 
                     "text": [], 
                     "length": 0, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "suppression conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_9_T1C2"
@@ -514,8 +462,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 123-4-1 devient l'article L. 123-4-2.", 
                         "II. - Il est rétabli un article L. 123-4-1 ainsi rédigé :", 
@@ -524,13 +470,11 @@
                     "length": 269, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 123-4-1 du même code devient l'article L. 123-4-2.", 
                         "II. - Au même code, il est rétabli un article L. 123-4-1 ainsi rédigé :", 
@@ -539,13 +483,11 @@
                     "length": 458, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 123-4-1 du même code devient l'article L. 123-4-2.", 
                         "II. - Au même code, il est rétabli un article L. 123-4-1 ainsi rédigé :", 
@@ -554,13 +496,11 @@
                     "length": 458, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 123-4-1 du même code devient l'article L. 123-4-2.", 
                         "II. - Au même code, il est rétabli un article L. 123-4-1 ainsi rédigé :", 
@@ -569,13 +509,11 @@
                     "length": 458, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 123-4-1 du même code devient l'article L. 123-4-2.", 
                         "II. - Au même code, il est rétabli un article L. 123-4-1 ainsi rédigé :", 
@@ -585,13 +523,11 @@
                     "length": 437, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. -", 
                         "II. - Au même code de l'éducation, il est rétabli un article L. 123-4-1 ainsi rédigé :", 
@@ -602,13 +538,11 @@
                     "length": 447, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "I. - L'article L. 123-4-1 du même code devient l'article L. 123-4-2.", 
@@ -620,13 +554,11 @@
                     "length": 543, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 123-4-1 du code de l'éducation devient l'article L. 123-4-2.", 
                         "II. - L'article L. 123-4-1 du même code est ainsi rétabli :", 
@@ -637,8 +569,8 @@
                     "length": 485, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_6_T1C1"
@@ -649,9 +581,7 @@
             "num": 12, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le I de l'article L. 241-2 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"Les vérifications de l'inspection générale de l'administration de l'éducation nationale et de la recherche portent également sur la gestion des ressources humaines des établissements.\""
@@ -659,13 +589,11 @@
                     "length": 277, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le I de l'article L. 241-2 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"Les vérifications de l'inspection générale de l'administration de l'éducation nationale et de la recherche portent également sur la gestion des ressources humaines des établissements.\""
@@ -673,13 +601,11 @@
                     "length": 277, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "Le I de l'article L. 241-2 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"Les vérifications de l'inspection générale de l'administration de l'éducation nationale et de la recherche portent également sur la gestion des ressources humaines des établissements.\""
@@ -687,19 +613,17 @@
                     "length": 277, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_8 bis_T1C1"
@@ -711,8 +635,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le conseil d'administration de l'université en exercice à la date de publication de la présente loi adopte dans un délai d'un an, par délibération statutaire, des statuts en conformité avec les dispositions de la présente loi et, notamment, la composition du nouveau conseil d'administration et du conseil académique.", 
                         "II. - Le conseil d'administration, le conseil académique et le président d'université sont désignés conformément aux dispositions de la présente loi à l'échéance du mandat des représentants élus des personnels du conseil d'administration en exercice à la date de publication de la présente loi.", 
@@ -724,13 +646,11 @@
                     "length": 2775, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le conseil d'administration de l'université en exercice à la date de publication de la présente loi adopte dans un délai d'un an, par délibération statutaire, des statuts en conformité avec les dispositions de cette même loi et, notamment, la composition du nouveau conseil d'administration et du conseil académique.", 
                         "II. - Le conseil d'administration, le conseil académique et le président d'université sont désignés conformément à la présente loi à l'échéance du mandat des représentants élus des personnels du conseil d'administration en exercice à la date de publication de cette même loi.", 
@@ -742,13 +662,11 @@
                     "length": 3002, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le conseil d'administration de l'université en exercice à la date de publication de la présente loi adopte dans un délai d'un an, par délibération statutaire, des statuts en conformité avec les dispositions de cette même loi et, notamment, la composition du nouveau conseil d'administration et du conseil académique.", 
                         "II. - Le conseil d'administration, le conseil académique et le président d'université sont désignés conformément à la présente loi à l'échéance du mandat des représentants élus des personnels du conseil d'administration en exercice à la date de publication de cette même loi.", 
@@ -760,13 +678,11 @@
                     "length": 3002, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le conseil d'administration de l'université en exercice à la date de publication de la présente loi adopte dans un délai d'un an, par délibération statutaire, des statuts en conformité avec les dispositions de cette même loi et, notamment, la composition du nouveau conseil d'administration et du conseil académique.", 
                         "II. - Le conseil d'administration, le conseil académique et le président d'université sont désignés conformément à la présente loi à l'échéance du mandat des représentants élus des personnels du conseil d'administration en exercice à la date de publication de cette même loi.", 
@@ -778,13 +694,11 @@
                     "length": 3002, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le conseil d'administration de l'université en exercice à la date de publication de la présente loi adopte dans un délai d'un an, par délibération statutaire, des statuts en conformité avec les dispositions de cette même loi et, notamment, la composition du nouveau conseil d'administration et du conseil académique.", 
                         "II. - Le conseil d'administration, le conseil académique et le président d'université sont désignés conformément à la présente loi à l'échéance du mandat des représentants élus des personnels du conseil d'administration en exercice à la date de publication de cette même loi.", 
@@ -796,13 +710,11 @@
                     "length": 3083, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I et II. - (Non modifiés)", 
                         "III. - À compter de la publication de la présente loi, la commission de la recherche du conseil académique est constituée des membres du conseil scientifique et la commission de la formation et de la vie universitaire de ce même conseil est constituée des membres du conseil des études et de la vie universitaire. Le conseil scientifique exerce les compétences de la commission de la recherche et le conseil des études et de la vie universitaire celles de la commission de la formation et de la vie universitaire. Les membres des deux conseils siègent ensemble pour exercer les compétences du conseil académique en formation plénière. La section compétente du conseil académique prévue au IV de l'article L. 712-6-1 du code de l'éducation est constituée des enseignants-chercheurs et personnels assimilés membres élus du conseil scientifique et du conseil des études et de la vie universitaire.", 
@@ -812,13 +724,11 @@
                     "length": 1655, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "I. - Le conseil d'administration de l'université en exercice à la date de publication de la présente loi adopte dans un délai d'un an, par délibération statutaire, des statuts en conformité avec les dispositions de cette même loi et notamment, la composition du nouveau conseil d'administration et du conseil académique.", 
@@ -831,13 +741,11 @@
                     "length": 3099, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le conseil d'administration de l'université en exercice à la date de publication de la présente loi adopte dans un délai d'un an, par délibération statutaire, des statuts en conformité avec les dispositions de cette même loi et, notamment, la composition du nouveau conseil d'administration et du conseil académique.", 
                         "II. - Le conseil d'administration, le conseil académique et le président d'université sont désignés conformément à la présente loi à l'échéance du mandat des représentants élus des personnels du conseil d'administration en exercice à la date de publication de cette même loi.", 
@@ -849,8 +757,8 @@
                     "length": 3082, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_58_T7C2"
@@ -862,8 +770,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 135 D du livre des procédures fiscales est ainsi modifié :", 
                         "1° À la première phrase du II, les mots : \"soit pour des besoins de recherche scientifique, soit\" sont supprimés ;", 
@@ -880,13 +786,11 @@
                     "length": 1704, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 135 D du livre des procédures fiscales est ainsi modifié :", 
                         "1° À la première phrase du II, les mots : \"soit pour des besoins de recherche scientifique, soit\" sont supprimés ;", 
@@ -903,13 +807,11 @@
                     "length": 1698, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 135 D du livre des procédures fiscales est ainsi modifié :", 
                         "1° À la première phrase du II, les mots : \"soit pour des besoins de recherche scientifique, soit\" sont supprimés ;", 
@@ -926,13 +828,11 @@
                     "length": 1698, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 135 D du livre des procédures fiscales est ainsi modifié :", 
                         "1° À la première phrase du II, les mots : \"soit pour des besoins de recherche scientifique, soit\" sont supprimés ;", 
@@ -949,13 +849,11 @@
                     "length": 1698, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 135 D du livre des procédures fiscales est ainsi modifié :", 
                         "1° À la première phrase du II, les mots : \"soit pour des besoins de recherche scientifique, soit\" sont supprimés ;", 
@@ -972,19 +870,17 @@
                     "length": 1698, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_56_T7C1"
@@ -995,57 +891,49 @@
             "num": 85, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Dans un délai de six mois après la promulgation de la présente loi, le Gouvernement remet au Parlement un rapport sur l'évolution du statut d'attaché temporaire d'enseignement et de recherche afin d'étudier la possibilité de créer deux types d'attaché : l'un destiné aux doctorats en fin de thèse qui vise à leur donner une première expérience d'enseignement tout en leur permettant de finir leur thèse, l'autre destiné aux docteurs en attente de poste ayant pour but de leur permettre de parfaire leurs compétences d'enseignement."
                     ], 
                     "length": 531, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Dans un délai de six mois après la promulgation de la présente loi, le Gouvernement remet au Parlement un rapport sur l'évolution du statut d'attaché temporaire d'enseignement et de recherche afin d'étudier la possibilité de créer deux types d'attaché : l'un destiné aux doctorants en fin de thèse qui vise à leur donner une première expérience d'enseignement tout en leur permettant de finir leur thèse, l'autre destiné aux docteurs en attente de poste ayant pour but de leur permettre de parfaire leurs compétences d'enseignement."
                     ], 
                     "length": 532, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Dans un délai de six mois après la promulgation de la présente loi, le Gouvernement remet au Parlement un rapport sur l'évolution du statut d'attaché temporaire d'enseignement et de recherche afin d'étudier la possibilité de créer deux types d'attaché : l'un destiné aux doctorants en fin de thèse qui vise à leur donner une première expérience d'enseignement tout en leur permettant de finir leur thèse, l'autre destiné aux docteurs en attente de poste ayant pour but de leur permettre de parfaire leurs compétences d'enseignement."
                     ], 
                     "length": 549, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Dans un délai de six mois après la promulgation de la présente loi, le Gouvernement remet au Parlement un rapport sur l'évolution du statut d'attaché temporaire d'enseignement et de recherche afin d'étudier la possibilité de créer deux types d'attaché : l'un destiné aux doctorants en fin de thèse qui vise à leur donner une première expérience d'enseignement tout en leur permettant de finir leur thèse, l'autre destiné aux docteurs en attente de poste ayant pour but de leur permettre de parfaire leurs compétences d'enseignement."
                     ], 
                     "length": 532, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_47 quinquies A_T5"
@@ -1057,8 +945,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - À l'article L. 719-12 du code de l'éducation, les mots : \"et les établissements publics de coopération scientifique\" sont supprimés.", 
                         "II. - À l'article L. 719-13 du même code, les mots : \", les établissements publics à caractère scientifique et technologique et les établissements publics de coopération scientifique\" sont remplacés par les mots : \"et les établissements publics à caractère scientifique et technologique\".", 
@@ -1067,13 +953,11 @@
                     "length": 623, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au premier alinéa de l'article L. 719-12 du code de l'éducation, les mots : \"et les établissements publics de coopération scientifique\" sont supprimés.", 
                         "II. - À la première phrase du premier alinéa de l'article L. 719-13 du même code, les mots : \", les établissements publics à caractère scientifique et technologique et les établissements publics de coopération scientifique\" sont remplacés par les mots : \"et les établissements publics à caractère scientifique et technologique\".", 
@@ -1082,13 +966,11 @@
                     "length": 682, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au premier alinéa de l'article L. 719-12 du code de l'éducation, les mots : \"et les établissements publics de coopération scientifique\" sont supprimés.", 
                         "II. - L'article L. 719-13 du même code est ainsi modifié :", 
@@ -1101,13 +983,11 @@
                     "length": 1372, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au premier alinéa de l'article L. 719-12 du code de l'éducation, les mots : \"et les établissements publics de coopération scientifique\" sont supprimés.", 
                         "II. - L'article L. 719-13 du même code est ainsi modifié :", 
@@ -1120,13 +1000,11 @@
                     "length": 1372, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "I. - Au premier alinéa de l'article L. 719-12 du code de l'éducation, les mots : \"et les établissements publics de coopération scientifique\" sont supprimés.", 
                         "II. - L'article L. 719-13 du même code est ainsi modifié :", 
@@ -1139,13 +1017,11 @@
                     "length": 1372, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de l'Assemblée nationale)", 
                         "I. - Au premier alinéa de l'article L. 719-12 du code de l'éducation, les mots : \"et les établissements publics de coopération scientifique\" sont supprimés.", 
@@ -1158,14 +1034,12 @@
                     ], 
                     "length": 1405, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au premier alinéa de l'article L. 719-12 du code de l'éducation, les mots : \"et les établissements publics de coopération scientifique\" sont supprimés.", 
                         "II. - L'article L. 719-13 du même code est ainsi modifié :", 
@@ -1178,8 +1052,8 @@
                     "length": 1349, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_41_T4C2"
@@ -1191,8 +1065,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Dans les conditions prévues par l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnances, dans un délai de dix-huit mois suivant la publication de la présente loi, les mesures législatives nécessaires à l'extension et à l'adaptation à la Nouvelle-Calédonie, à la Polynésie française et aux îles Wallis et Futuna des dispositions de la présente loi autres que celles mentionnées au I de l'article 64 et des dispositions de la loi n° 2009-879 du 21 juillet 2009 portant réforme de l'hôpital et relative aux patients, à la santé et aux territoires modifiant le code de l'éducation.", 
                         "Les projets de loi de ratification sont déposés devant le Parlement au plus tard six mois après la publication des ordonnances."
@@ -1200,13 +1072,11 @@
                     "length": 737, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnances, dans un délai de dix-huit mois à compter de la promulgation de la présente loi, les mesures législatives nécessaires à l'extension et à l'adaptation à la Nouvelle-Calédonie, à la Polynésie française et aux îles Wallis et Futuna des dispositions de la présente loi autres que celles mentionnées au I de l'article 64 et des dispositions de la loi n° 2009-879 du 21 juillet 2009 portant réforme de l'hôpital et relative aux patients, à la santé et aux territoires modifiant le code de l'éducation.", 
                         "Les projets de loi de ratification sont déposés devant le Parlement au plus tard six mois après la publication des ordonnances."
@@ -1214,13 +1084,11 @@
                     "length": 741, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnances, dans un délai de dix-huit mois à compter de la promulgation de la présente loi, les mesures législatives nécessaires à l'extension et à l'adaptation à la Nouvelle-Calédonie, à la Polynésie française et aux îles Wallis et Futuna des dispositions de la présente loi, autres que celles mentionnées au I de l'article 64, et des dispositions de la loi n° 2009-879 du 21 juillet 2009 portant réforme de l'hôpital et relative aux patients, à la santé et aux territoires modifiant le code de l'éducation.", 
                         "Les projets de loi de ratification sont déposés devant le Parlement au plus tard six mois après la publication des ordonnances."
@@ -1228,13 +1096,11 @@
                     "length": 743, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnances, dans un délai de dix-huit mois à compter de la promulgation de la présente loi, les mesures législatives nécessaires à l'extension et à l'adaptation à la Nouvelle-Calédonie, à la Polynésie française et aux îles Wallis et Futuna des dispositions de la présente loi, autres que celles mentionnées au I de l'article 64, et des dispositions de la loi n° 2009-879 du 21 juillet 2009 portant réforme de l'hôpital et relative aux patients, à la santé et aux territoires modifiant le code de l'éducation.", 
                         "Les projets de loi de ratification sont déposés devant le Parlement au plus tard six mois après la publication des ordonnances."
@@ -1242,13 +1108,11 @@
                     "length": 743, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnances, dans un délai de dix-huit mois à compter de la promulgation de la présente loi, les mesures législatives nécessaires à l'extension et à l'adaptation à la Nouvelle-Calédonie, à la Polynésie française et aux îles Wallis et Futuna des dispositions de la présente loi, autres que celles mentionnées au I de l'article 65, et des dispositions de la loi n° 2009-879 du 21 juillet 2009 portant réforme de l'hôpital et relative aux patients, à la santé et aux territoires modifiant le code de l'éducation.", 
                         "Les projets de loi de ratification sont déposés devant le Parlement au plus tard six mois après la publication des ordonnances."
@@ -1256,13 +1120,11 @@
                     "length": 743, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnances, dans un délai de dix-huit mois à compter de la promulgation de la présente loi, les mesures législatives nécessaires à l'extension et à l'adaptation à la Nouvelle-Calédonie, à la Polynésie française et aux îles Wallis et Futuna des dispositions de la présente loi, autres que celles mentionnées au I de l'article 65, et des dispositions de la loi n° 2009-879 du 21 juillet 2009 portant réforme de l'hôpital et relative aux patients, à la santé et aux territoires modifiant le code de l'éducation.", 
                         "Les projets de loi de ratification sont déposés devant le Parlement au plus tard six mois après la publication des ordonnances."
@@ -1270,13 +1132,11 @@
                     "length": 743, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnances, dans un délai de dix-huit mois à compter de la promulgation de la présente loi, les mesures législatives nécessaires à l'extension et à l'adaptation à la Nouvelle-Calédonie, à la Polynésie française et aux îles Wallis et Futuna des dispositions de la présente loi, autres que celles mentionnées au I de l'article 65, et des dispositions de la loi n° 2009-879 du 21 juillet 2009 portant réforme de l'hôpital et relative aux patients, à la santé et aux territoires modifiant le code de l'éducation.", 
@@ -1284,14 +1144,12 @@
                     ], 
                     "length": 760, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnances, dans un délai de dix-huit mois à compter de la promulgation de la présente loi, les mesures législatives nécessaires à l'extension et à l'adaptation à la Nouvelle-Calédonie, à la Polynésie française et aux îles Wallis et Futuna des dispositions de la présente loi, autres que celles mentionnées au I de l'article 66, et des dispositions de la loi n° 2009-879 du 21 juillet 2009 portant réforme de l'hôpital et relative aux patients, à la santé et aux territoires modifiant le code de l'éducation.", 
                         "Les projets de loi de ratification sont déposés devant le Parlement au plus tard six mois après la publication des ordonnances."
@@ -1299,8 +1157,8 @@
                     "length": 743, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_67_T7C2"
@@ -1312,8 +1170,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-7 est ainsi modifié :", 
                         "1° Après la première phrase du premier alinéa, il est inséré une phrase ainsi rédigée : \"Il favorise le développement de parcours comprenant des périodes d'études et d'activités à l'étranger\" ;", 
@@ -1322,13 +1178,11 @@
                     "length": 323, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-7 du même code est ainsi modifié :", 
                         "1° Le premier alinéa est ainsi modifié :", 
@@ -1341,13 +1195,11 @@
                     "length": 792, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-7 du même code est ainsi modifié :", 
                         "1° Le premier alinéa est ainsi modifié :", 
@@ -1365,13 +1217,11 @@
                     "length": 1248, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-7 du même code est ainsi modifié :", 
                         "1° Le premier alinéa est ainsi modifié :", 
@@ -1389,13 +1239,11 @@
                     "length": 1248, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-7 du même code est ainsi modifié :", 
                         "1° Le premier alinéa est ainsi modifié :", 
@@ -1415,13 +1263,11 @@
                     "length": 2003, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-7 du code de l'éducation est ainsi modifié :", 
                         "1° Le premier alinéa est ainsi modifié :", 
@@ -1441,13 +1287,11 @@
                     "length": 2022, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 123-7 du code de l'éducation est ainsi modifié :", 
@@ -1468,13 +1312,11 @@
                     "length": 2191, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-7 du code de l'éducation est ainsi modifié :", 
                         "1° Le premier alinéa est ainsi modifié :", 
@@ -1493,9 +1335,9 @@
                     ], 
                     "length": 2150, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_8_T1C1"
@@ -1506,57 +1348,49 @@
             "num": 90, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Au second alinéa de l'article L. 114-1 du code de la recherche, après le mot : \"scientifique\", la fin de la phrase est ainsi rédigée : \"et les actions en faveur de la participation du public à la prospection, à la collecte de données et au progrès de la connaissance scientifique sont prises en compte.\""
                     ], 
                     "length": 303, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Au second alinéa de l'article L. 114-1 du code de la recherche, après le mot : \"scientifique\", la fin de la phrase est ainsi rédigée : \"et les actions en faveur de la participation du public à la prospection, à la collecte de données et au progrès de la connaissance scientifique sont prises en compte.\""
                     ], 
                     "length": 303, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Au second alinéa de l'article L. 114-1 du code de la recherche, après le mot : \"scientifique\", la fin de la phrase est ainsi rédigée : \"et les actions en faveur de la participation du public à la prospection, à la collecte de données et au progrès de la connaissance scientifique sont prises en compte.\""
                     ], 
                     "length": 320, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Après le mot : \"scientifique\", la fin du second alinéa de l'article L. 114-1 du code de la recherche est ainsi rédigée : \"et les actions en faveur de la participation du public à la prospection, à la collecte de données et au progrès de la connaissance scientifique sont prises en compte.\""
                     ], 
                     "length": 289, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_48 B_T6C1"
@@ -1568,79 +1402,67 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'intitulé de la section 2 du chapitre IV du titre Ier du livre Ier du code de la recherche est remplacé par l'intitulé suivant : \"Le Haut conseil de l'évaluation de la recherche et de l'enseignement supérieur\"."
                     ], 
                     "length": 211, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'intitulé de la section 2 du chapitre IV du titre Ier du livre Ier du code de la recherche est ainsi rédigé : \"Le Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur\"."
                     ], 
                     "length": 192, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'intitulé de la section 2 du chapitre IV du titre Ier du livre Ier du code de la recherche est ainsi rédigé : \"Le Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur\"."
                     ], 
                     "length": 192, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'intitulé de la section 2 du chapitre IV du titre Ier du livre Ier du code de la recherche est ainsi rédigé : \"Le Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur\"."
                     ], 
                     "length": 192, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'intitulé de la section 2 du chapitre IV du titre Ier du livre Ier du code de la recherche est ainsi rédigé : \"Le Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur\"."
                     ], 
                     "length": 192, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_48_T6C1"
@@ -1652,21 +1474,17 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "À l'article L. 111-1, les mots : \"des résultats de la recherche\" sont remplacés par les mots : \"et au transfert des résultats de la recherche vers les secteurs socio-économiques\"."
                     ], 
                     "length": 179, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 111-1 du code de la recherche est ainsi modifié :", 
                         "1° Les mots : \"des résultats de la recherche\" sont remplacés par les mots : \"et au transfert des résultats de la recherche au service de la société\".", 
@@ -1675,13 +1493,11 @@
                     "length": 339, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 111-1 du code de la recherche est ainsi modifié :", 
                         "1° Les mots : \"des résultats de la recherche\" sont remplacés par les mots : \"et au transfert des résultats de la recherche au service de la société\" ;", 
@@ -1690,13 +1506,11 @@
                     "length": 340, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 111-1 du code de la recherche est ainsi modifié :", 
                         "1° Les mots : \"des résultats de la recherche\" sont remplacés par les mots : \"et au transfert des résultats de la recherche au service de la société\" ;", 
@@ -1705,13 +1519,11 @@
                     "length": 340, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 111-1 du code de la recherche est ainsi rédigé :", 
                         "\"Art. L. 111-1. - La politique nationale de la recherche et du développement technologique vise à :", 
@@ -1723,13 +1535,11 @@
                     "length": 640, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 111-1 du code de la recherche est ainsi rédigé :", 
                         "Art. L. 111-1. - La politique nationale de la recherche et du développement technologique vise à :", 
@@ -1741,13 +1551,11 @@
                     "length": 670, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 111-1 du code de la recherche est ainsi rédigé :", 
@@ -1760,13 +1568,11 @@
                     "length": 789, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 111-1 du code de la recherche est ainsi rédigé :", 
                         "\"Art. L. 111-1. - La politique nationale de la recherche et du développement technologique vise à :", 
@@ -1777,9 +1583,9 @@
                     ], 
                     "length": 748, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_10_T1C2"
@@ -1790,48 +1596,40 @@
             "num": 27, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À la deuxième phrase du deuxième alinéa de l'article L. 612-7 du même code, les mots : \"étudiants, à préparer\" sont remplacés par les mots : \"doctorants, à poursuivre\"."
                     ], 
                     "length": 168, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À la deuxième phrase du deuxième alinéa de l'article L. 612-7 du même code, les mots : \"étudiants, à préparer\" sont remplacés par les mots : \"doctorants, à poursuivre\"."
                     ], 
                     "length": 168, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À la deuxième phrase du deuxième alinéa de l'article L. 612-7 du même code, les mots : \"étudiants, à préparer\" sont remplacés par les mots : \"doctorants, à poursuivre\"."
                     ], 
                     "length": 168, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-7 du même code est ainsi modifié :", 
                         "1° À la première phrase du premier alinéa, après le mot : \"formation\", sont insérés les mots : \"à la recherche et\" ;", 
@@ -1842,13 +1640,11 @@
                     "length": 576, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-7 du code de l'éducation est ainsi modifié :", 
                         "1° À la première phrase du premier alinéa, après le mot : \"formation\", sont insérés les mots : \"à la recherche et\" ;", 
@@ -1859,13 +1655,11 @@
                     "length": 586, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "L'article L. 612-7 du code de l'éducation est ainsi modifié :", 
@@ -1876,14 +1670,12 @@
                     ], 
                     "length": 603, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-7 du code de l'éducation est ainsi modifié :", 
                         "1° À la première phrase du premier alinéa, après le mot : \"formation\", sont insérés les mots : \"à la recherche et\" ;", 
@@ -1893,9 +1685,9 @@
                     ], 
                     "length": 586, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_19 bis_T3"
@@ -1906,9 +1698,7 @@
             "num": 61, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le deuxième alinéa de l'article L. 411-3 du code de la recherche est complété par une phrase ainsi rédigée :", 
                         "\"Les missions réalisées dans le cadre du dispositif prévu aux articles L. 413-1 et suivants sont intégrées à l'évaluation du personnel de recherche lors de sa réintégration au sein de son corps d'origine.\""
@@ -1916,13 +1706,11 @@
                     "length": 314, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le deuxième alinéa de l'article L. 411-3 du code de la recherche est complété par une phrase ainsi rédigée :", 
                         "\"Les missions réalisées dans le cadre du dispositif prévu aux articles L. 413-1 et suivants sont intégrées à l'évaluation du personnel de recherche lors de sa réintégration au sein de son corps d'origine.\""
@@ -1930,13 +1718,11 @@
                     "length": 314, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le deuxième alinéa de l'article L. 411-3 du code de la recherche est complété par une phrase ainsi rédigée :", 
                         "\"Les missions réalisées dans le cadre du dispositif prévu aux articles L. 413-1 et suivants sont intégrées à l'évaluation du personnel de recherche lors de sa réintégration au sein de son corps d'origine.\""
@@ -1944,13 +1730,11 @@
                     "length": 314, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "Le deuxième alinéa de l'article L. 411-3 du code de la recherche est complété par une phrase ainsi rédigée :", 
                         "\"Les missions réalisées dans le cadre du dispositif prévu aux articles L. 413-1 et suivants sont intégrées à l'évaluation du personnel de recherche lors de sa réintégration au sein de son corps d'origine.\""
@@ -1958,8 +1742,8 @@
                     "length": 314, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_47 ter_T5"
@@ -1970,9 +1754,7 @@
             "num": 17, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le code de l'éducation est ainsi modifié :", 
                         "1° L'article L. 214-2 est ainsi rédigé :", 
@@ -1986,13 +1768,11 @@
                     "length": 1451, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le code de l'éducation est ainsi modifié :", 
                         "1° L'article L. 214-2 est ainsi rédigé :", 
@@ -2006,13 +1786,11 @@
                     "length": 1455, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le code de l'éducation est ainsi modifié :", 
                         "1° L'article L. 214-2 est ainsi rédigé :", 
@@ -2026,13 +1804,11 @@
                     "length": 1455, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Le code de l'éducation est ainsi modifié :", 
                         "1° L'article L. 214-2 est ainsi rédigé :", 
@@ -2047,13 +1823,11 @@
                     "length": 1700, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Le code de l'éducation est ainsi modifié :", 
                         "1° L'article L. 214-2 est ainsi rédigé :", 
@@ -2069,13 +1843,11 @@
                     "length": 1863, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "Le code de l'éducation est ainsi modifié :", 
@@ -2092,13 +1864,11 @@
                     "length": 1909, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Le code de l'éducation est ainsi modifié :", 
                         "1° L'article L. 214-2 est ainsi rédigé :", 
@@ -2114,8 +1884,8 @@
                     "length": 1863, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_12 ter_T1C2"
@@ -2127,8 +1897,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 952-24 est complété par un alinéa ainsi rédigé :", 
                         "\"Les chercheurs exerçant dans les établissements et les organismes de recherche sont assimilés aux enseignants-chercheurs pour la mise en oeuvre des articles L. 952-6 et L. 952-6-1.\""
@@ -2136,13 +1904,11 @@
                     "length": 244, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 952-24 du même code est complété par un alinéa ainsi rédigé :", 
                         "\"Les chercheurs exerçant dans les établissements et les organismes de recherche sont assimilés aux enseignants-chercheurs pour la mise en oeuvre des articles L. 952-6 et L. 952-6-1.\""
@@ -2150,13 +1916,11 @@
                     "length": 257, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 952-24 du même code est complété par un alinéa ainsi rédigé :", 
                         "\"Les chercheurs exerçant dans les établissements et les organismes de recherche sont assimilés aux enseignants-chercheurs pour la mise en oeuvre des articles L. 952-6 et L. 952-6-1.\""
@@ -2164,13 +1928,11 @@
                     "length": 257, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 952-24 du même code est complété par un alinéa ainsi rédigé :", 
                         "\"Les chercheurs exerçant dans les établissements et les organismes de recherche sont assimilés aux enseignants-chercheurs pour la mise en oeuvre des articles L. 952-6 et L. 952-6-1.\""
@@ -2178,13 +1940,11 @@
                     "length": 257, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "L'article L. 952-24 du même code est complété par un alinéa ainsi rédigé :", 
                         "\"Les chercheurs exerçant dans les établissements et les organismes de recherche sont assimilés aux enseignants-chercheurs pour la mise en oeuvre des articles L. 952-6 et L. 952-6-1.\""
@@ -2192,8 +1952,8 @@
                     "length": 257, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_46_T5"
@@ -2205,8 +1965,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Après l'article L. 611-7, il est inséré un article L. 611-8 ainsi rédigé :", 
                         "\"Art. L. 611-8. - Les établissements d'enseignement supérieur rendent disponibles, pour les formations dont les méthodes pédagogiques le permettent, leurs enseignements sous forme numérique dans les conditions définies par la législation sur la propriété intellectuelle.", 
@@ -2216,13 +1974,11 @@
                     "length": 678, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "\"Art. L. 611-8. - Les établissements d'enseignement supérieur rendent disponibles, pour les formations dont les méthodes pédagogiques le permettent, leurs enseignements sous forme numérique, dans les conditions définies par la législation sur la propriété intellectuelle. Cette mise à disposition ne peut se substituer aux enseignements dispensés en présence des étudiants sans justification pédagogique.", 
                         "\"Une formation à l'utilisation des outils et des ressources numériques et à la compréhension des enjeux qui leur sont associés, adaptée aux spécificités du parcours suivi par l'étudiant, est dispensée dès l'entrée dans l'enseignement supérieur dans la continuité des formations dispensées dans l'enseignement du second degré.", 
@@ -2232,13 +1988,11 @@
                     "length": 999, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre II de la troisième partie du même code est complété par un article L. 611-8 ainsi rédigé :", 
                         "\"Art. L. 611-8. - Les établissements d'enseignement supérieur rendent disponibles, pour les formations dont les méthodes pédagogiques le permettent, leurs enseignements sous forme numérique, dans les conditions définies par la législation sur la propriété intellectuelle. Cette mise à disposition ne peut se substituer aux enseignements dispensés en présence des étudiants sans justification pédagogique.", 
@@ -2249,13 +2003,11 @@
                     "length": 1153, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre II de la troisième partie du même code est complété par un article L. 611-8 ainsi rédigé :", 
                         "\"Art. L. 611-8. - Les établissements d'enseignement supérieur rendent disponibles, pour les formations dont les méthodes pédagogiques le permettent, leurs enseignements sous forme numérique, dans les conditions définies par la législation sur la propriété intellectuelle. Cette mise à disposition ne peut se substituer aux enseignements dispensés en présence des étudiants sans justification pédagogique.", 
@@ -2266,13 +2018,11 @@
                     "length": 1153, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre VI de la troisième partie du même code est complété par un article L. 611-8 ainsi rédigé :", 
                         "\"Art. L. 611-8. - Les établissements d'enseignement supérieur rendent disponibles, pour les formations dont les méthodes pédagogiques le permettent, leurs enseignements sous forme numérique, dans des conditions déterminées par leur conseil académique ou par l'organe en tenant lieu et conformes aux dispositions du code de la propriété intellectuelle. Cette mise à disposition ne peut se substituer aux enseignements dispensés en présence des étudiants sans justification pédagogique.", 
@@ -2284,13 +2034,11 @@
                     "length": 1528, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre VI de la troisième partie du code de l'éducation est complété par un article L. 611-8 ainsi rédigé :", 
                         "\"Art. L. 611-8. - Les établissements d'enseignement supérieur rendent disponibles, pour les formations dont les méthodes pédagogiques le permettent, leurs enseignements sous forme numérique, dans des conditions déterminées par leur conseil académique ou par l'organe en tenant lieu et conformes aux dispositions du code de la propriété intellectuelle. Cette mise à disposition ne peut se substituer aux enseignements dispensés en présence des étudiants sans justification pédagogique.", 
@@ -2302,13 +2050,11 @@
                     "length": 1436, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "I. - Le chapitre Ier du titre Ier du livre VI de la troisième partie du code de l'éducation est complété par un article L. 611-8 ainsi rédigé :", 
@@ -2321,13 +2067,11 @@
                     "length": 1466, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre VI de la troisième partie du code de l'éducation est complété par un article L. 611-8 ainsi rédigé :", 
                         "\"Art. L. 611-8. - Les établissements d'enseignement supérieur rendent disponibles, pour les formations dont les méthodes pédagogiques le permettent, leurs enseignements sous forme numérique, dans des conditions déterminées par leur conseil académique ou par l'organe en tenant lieu et conformes aux dispositions du code de la propriété intellectuelle. Cette mise à disposition ne peut se substituer aux enseignements dispensés en présence des étudiants sans justification pédagogique.", 
@@ -2339,8 +2083,8 @@
                     "length": 1436, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_16_T3"
@@ -2351,57 +2095,49 @@
             "num": 121, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À l'avant-dernier alinéa de l'article 6 de la loi n° 2008-596 du 25 juin 2008 portant modernisation du marché du travail, le mot : \"cinq\" est remplacé par le mot : \"six\"."
                     ], 
                     "length": 170, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À l'avant-dernier alinéa de l'article 6 de la loi n° 2008-596 du 25 juin 2008 portant modernisation du marché du travail, le mot : \"cinq\" est remplacé par le mot : \"six\"."
                     ], 
                     "length": 170, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "À l'avant-dernier alinéa de l'article 6 de la loi n° 2008-596 du 25 juin 2008 portant modernisation du marché du travail, le mot : \"cinq\" est remplacé par le mot : \"six\"."
                     ], 
                     "length": 187, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "À l'avant-dernier alinéa de l'article 6 de la loi n° 2008-596 du 25 juin 2008 portant modernisation du marché du travail, le mot : \"cinq\" est remplacé par le mot : \"six\"."
                     ], 
                     "length": 170, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_64 bis_T7C2"
@@ -2412,9 +2148,7 @@
             "num": 13, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 111-5 du même code est complété par un alinéa ainsi rédigé :", 
                         "\"L'innovation est reconnue comme \"service à la société\". Elle est favorisée par la promotion des activités de transfert.\""
@@ -2422,13 +2156,11 @@
                     "length": 195, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 111-5 du même code est complété par un alinéa ainsi rédigé :", 
                         "\"L'innovation est reconnue comme \"service à la société\". Elle est favorisée par la promotion des activités de transfert.\""
@@ -2436,13 +2168,11 @@
                     "length": 195, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "true", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 111-5 du même code est complété par un alinéa ainsi rédigé :", 
                         "\"L'innovation est reconnue comme \"service à la société\". Elle est favorisée par la promotion des activités de transfert.\""
@@ -2450,52 +2180,44 @@
                     "length": 195, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
+                    "status": "supprimé ", 
+                    "text": [], 
+                    "length": 0, 
+                    "step": "commission", 
+                    "diff": "rem", 
                     "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "true", 
-                    "text": [], 
-                    "length": 0, 
-                    "step": "commission", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
+                    "status": "supprimé", 
+                    "text": [], 
+                    "length": 0, 
+                    "step": "hemicycle", 
+                    "diff": "none", 
                     "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "true", 
-                    "text": [], 
-                    "length": 0, 
-                    "step": "hemicycle", 
-                    "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "true", 
+                    "status": "suppression maintenue", 
                     "text": [], 
                     "length": 0, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "suppression conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_10 bis_T1C2"
@@ -2506,57 +2228,49 @@
             "num": 53, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À la première phrase du premier alinéa et au dernier alinéa de l'article L. 953-2 du même code, les mots : \"secrétaire général\" sont remplacés par les mots : \"directeur général des services\"."
                     ], 
                     "length": 191, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À la première phrase du premier alinéa et au dernier alinéa de l'article L. 953-2 du code de l'éducation, les mots : \"secrétaire général\" sont remplacés par les mots : \"directeur général des services\"."
                     ], 
                     "length": 201, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "À la première phrase du premier alinéa et au dernier alinéa de l'article L. 953-2 du code de l'éducation, les mots : \"secrétaire général\" sont remplacés par les mots : \"directeur général des services\"."
                     ], 
                     "length": 218, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "À la première phrase du premier alinéa et au dernier alinéa de l'article L. 953-2 du code de l'éducation, les mots : \"secrétaire général\" sont remplacés par les mots : \"directeur général des services\"."
                     ], 
                     "length": 201, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_26 bis_T4C1S1"
@@ -2567,9 +2281,7 @@
             "num": 75, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article 83 de la loi n° 2013-595 du 8 juillet 2013 d'orientation et de programmation pour la refondation de l'école de la République est ainsi modifié :", 
                         "1° À la seconde phrase du cinquième alinéa, les mots : \"ou de l'établissement public de coopération scientifique\" sont supprimés ;", 
@@ -2578,8 +2290,8 @@
                     "length": 392, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_56 AA_T7C1"
@@ -2590,9 +2302,7 @@
             "num": 76, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 721-1 du code de l'éducation est ainsi modifié :", 
                         "1° À la fin du premier alinéa, les mots : \"soit au sein d'un établissement public à caractère scientifique, culturel et professionnel, soit au sein d'un établissement public de coopération scientifique\" sont remplacés par les mots : \"au sein d'un établissement public à caractère scientifique, culturel et professionnel\" ;", 
@@ -2601,8 +2311,8 @@
                     "length": 499, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_56 AB_T7C1"
@@ -2613,15 +2323,13 @@
             "num": 66, 
             "steps": [
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "supprimés", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_40 et 41_T4C2"
@@ -2633,8 +2341,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 114-3-1 du même code est remplacé par les dispositions suivantes :", 
                         "Art. L. 114-3-1. - Le Haut conseil de l'évaluation de la recherche et de l'enseignement supérieur est une autorité administrative indépendante.", 
@@ -2650,13 +2356,11 @@
                     "length": 2333, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 114-3-1 du même code est ainsi rédigé :", 
                         "\"Art. L. 114-3-1 - Le Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur est une autorité administrative indépendante.", 
@@ -2674,13 +2378,11 @@
                     "length": 2969, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 114-3-1 du même code est ainsi rédigé :", 
                         "\"Art. L. 114-3-1. - Le Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur est une autorité administrative indépendante.", 
@@ -2700,13 +2402,11 @@
                     "length": 3702, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 114-3-1 du même code est ainsi rédigé :", 
                         "\"Art. L. 114-3-1. - Le Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur est une autorité administrative indépendante.", 
@@ -2726,13 +2426,11 @@
                     "length": 3702, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 114-3-1 du même code est ainsi rédigé :", 
                         "\"Art. L. 114-3-1. - Le Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur est une autorité administrative indépendante.", 
@@ -2752,13 +2450,11 @@
                     "length": 4027, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 114-3-1 du code de la recherche est ainsi rédigé :", 
                         "\"Art. L. 114-3-1. - Le Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur est une autorité administrative indépendante.", 
@@ -2778,13 +2474,11 @@
                     "length": 4057, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "L'article L. 114-3-1 du code de la recherche est ainsi rédigé :", 
@@ -2804,14 +2498,12 @@
                     ], 
                     "length": 4074, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 114-3-1 du code de la recherche est ainsi rédigé :", 
                         "\"Art. L. 114-3-1. - Le Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur est une autorité administrative indépendante.", 
@@ -2831,8 +2523,8 @@
                     "length": 4059, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_49_T6C1"
@@ -2844,68 +2536,58 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Les biens, droits et obligations, y compris les contrats des personnels, de l'Agence d'évaluation de la recherche et de l'enseignement supérieur sont transférés au Haut conseil de l'évaluation de la recherche et de l'enseignement supérieur à compter de la date de publication du décret en Conseil d'État prévu à l'article L. 114-3-6 du code de la recherche dans sa rédaction issue de la présente loi."
                     ], 
                     "length": 400, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Les biens, droits et obligations, y compris les contrats des personnels, de l'Agence d'évaluation de la recherche et de l'enseignement supérieur sont transférés au Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur à compter de la date de publication du décret en Conseil d'État prévu à l'article L. 114-3-6 du code de la recherche dans sa rédaction résultant de la présente loi."
                     ], 
                     "length": 404, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Les biens, droits et obligations, y compris les contrats des personnels, de l'Agence d'évaluation de la recherche et de l'enseignement supérieur sont transférés au Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur à compter de la date de publication du décret en Conseil d'État prévu à l'article L. 114-3-6 du code de la recherche dans sa rédaction résultant de la présente loi."
                     ], 
                     "length": 404, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Les biens, droits et obligations, y compris les contrats des personnels, de l'Agence d'évaluation de la recherche et de l'enseignement supérieur sont transférés au Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur à compter de la date de publication du décret en Conseil d'État prévu à l'article L. 114-3-6 du code de la recherche dans sa rédaction résultant de la présente loi."
                     ], 
                     "length": 404, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Les biens, droits et obligations, y compris les contrats des personnels, de l'Agence d'évaluation de la recherche et de l'enseignement supérieur sont transférés au Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur à compter de la date de publication du décret en Conseil d'État prévu à l'article L. 114-3-6 du code de la recherche dans sa rédaction résultant de la présente loi."
                     ], 
                     "length": 404, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_61_T7C2"
@@ -2917,8 +2599,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Dans les conditions prévues par l'article 38 de la Constitution, le Gouvernement est autorisé à modifier par ordonnance la partie législative du code de la recherche afin :", 
                         "1° D'adapter le code, notamment son plan et les renvois à des dispositions codifiées, afin d'y créer un nouveau livre relatif à l'exercice des activités de transfert pour la création de valeur économique ;", 
@@ -2936,13 +2616,11 @@
                     "length": 1960, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à modifier par ordonnance le code de la recherche afin :", 
                         "1° D'adapter le code, afin d'y créer un nouveau livre relatif à l'exercice des activités de transfert pour la création de valeur économique ;", 
@@ -2960,13 +2638,11 @@
                     "length": 1804, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à modifier par ordonnance le code de la recherche afin :", 
                         "1° D'adapter le code, afin d'y créer un nouveau livre relatif à l'exercice des activités de transfert pour la création de valeur économique ;", 
@@ -2984,13 +2660,11 @@
                     "length": 1803, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à modifier par ordonnance le code de la recherche afin :", 
                         "1° D'adapter le code, afin d'y créer un nouveau livre relatif à l'exercice des activités de transfert pour la création de valeur économique ;", 
@@ -3008,13 +2682,11 @@
                     "length": 1803, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à modifier par ordonnance le code de la recherche afin :", 
                         "1° D'adapter le code, afin d'y créer un nouveau livre relatif à l'exercice des activités de transfert pour la création de valeur économique ;", 
@@ -3032,13 +2704,11 @@
                     "length": 1803, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à modifier par ordonnance le code de la recherche afin :", 
                         "1° D'adapter le code, à droit constant, afin d'y créer un nouveau livre relatif à la valorisation et au transfert de la recherche en direction du monde économique, des structures associatives et fondations, reconnues d'utilité publique ;", 
@@ -3050,13 +2720,11 @@
                     "length": 944, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "I. - Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à modifier par ordonnance le code de la recherche afin :", 
@@ -3075,13 +2743,11 @@
                     "length": 1930, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à modifier par ordonnance le code de la recherche afin :", 
                         "1° D'adapter le code, à droit constant, afin d'y créer un nouveau livre relatif à la valorisation et au transfert de la recherche en direction du monde économique, des associations et fondations, reconnues d'utilité publique ;", 
@@ -3098,9 +2764,9 @@
                     ], 
                     "length": 1889, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_65_T7C2"
@@ -3112,68 +2778,58 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Les dispositions du 2° de l'article 18 de la présente loi sont mises en oeuvre dans un délai de deux ans à compter de la publication de la loi."
                     ], 
                     "length": 143, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Le 2° de l'article 18 de la présente loi est mis en oeuvre dans un délai de deux ans à compter de la publication de cette même loi."
                     ], 
                     "length": 131, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Le 2° du I de l'article 18 de la présente loi est mis en oeuvre dans un délai de deux ans à compter de la publication de cette même loi."
                     ], 
                     "length": 136, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Le 2° du I de l'article 18 de la présente loi est mis en oeuvre dans un délai de deux ans à compter de la publication de cette même loi."
                     ], 
                     "length": 136, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Le 2° du I de l'article 18 de la présente loi est mis en oeuvre dans un délai de deux ans à compter de la publication de cette même loi."
                     ], 
                     "length": 136, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_62_T7C2"
@@ -3185,71 +2841,59 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "true", 
                     "text": [
                         "Le livre IX du code de l'éducation est modifié conformément aux articles 44 à 46 du présent titre."
                     ], 
                     "length": 98, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "true", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "commission", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "true", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "true", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "true", 
+                    "status": "suppression maintenue", 
                     "text": [], 
                     "length": 0, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "suppression conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_43_T5"
@@ -3260,9 +2904,7 @@
             "num": 42, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "La seconde phrase de l'article L. 612-9 du même code est ainsi rédigée :", 
                         "\"Un décret fixe les formations pour lesquelles il peut être dérogé à cette durée de stage compte tenu des spécificités, nécessitant une durée de pratique supérieure, des professions auxquelles préparent ces formations.\""
@@ -3270,13 +2912,11 @@
                     "length": 292, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "La seconde phrase de l'article L. 612-9 du code de l'éducation est ainsi rédigée :", 
                         "\"Un décret fixe les formations pour lesquelles il peut être dérogé à cette durée de stage compte tenu des spécificités, nécessitant une durée de pratique supérieure, des professions auxquelles préparent ces formations.\""
@@ -3284,13 +2924,11 @@
                     "length": 302, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "La seconde phrase de l'article L. 612-9 du code de l'éducation est ainsi rédigée :", 
@@ -3299,22 +2937,20 @@
                     "length": 342, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "La seconde phrase de l'article L. 612-9 du code de l'éducation est ainsi rédigée :", 
                         "\"Un décret fixe les formations pour lesquelles il peut être dérogé à cette durée de stage compte tenu des spécificités des professions nécessitant une durée de pratique supérieure, auxquelles préparent ces formations.\""
                     ], 
                     "length": 301, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_19 ter_T3"
@@ -3326,8 +2962,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 713-1 du même code est ainsi modifié :", 
                         "1° Au 1°, après les mots : \"centres de recherche,\", sont ajoutés les mots : \"et d'autres types de composantes\" et le mot : \"scientifique\" est remplacé par le mot : \"académique\" ;", 
@@ -3338,13 +2972,11 @@
                     "length": 956, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 713-1 du même code est ainsi modifié :", 
                         "1° Au 1°, après les mots : \"centres de recherche,\", sont ajoutés les mots : \"et d'autres types de composantes\" et le mot : \"scientifique\" est remplacé par le mot : \"académique\" ;", 
@@ -3358,13 +2990,11 @@
                     "length": 1734, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 713-1 du même code est ainsi modifié :", 
                         "1° Au 1°, après les mots : \"centres de recherche,\", sont insérés les mots : \"et d'autres types de composantes\" et le mot : \"scientifique\" est remplacé par le mot : \"académique\" ;", 
@@ -3377,13 +3007,11 @@
                     "length": 1680, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 713-1 du même code est ainsi modifié :", 
                         "1° Au 1°, après les mots : \"centres de recherche,\", sont insérés les mots : \"et d'autres types de composantes\" et le mot : \"scientifique\" est remplacé par le mot : \"académique\" ;", 
@@ -3396,13 +3024,11 @@
                     "length": 1680, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "L'article L. 713-1 du même code est ainsi modifié :", 
                         "1° Au 1°, après les mots : \"centres de recherche,\", sont insérés les mots : \"et d'autres types de composantes\" et le mot : \"scientifique\" est remplacé par le mot : \"académique\" ;", 
@@ -3415,8 +3041,8 @@
                     "length": 1680, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_30_T4C1S1"
@@ -3427,54 +3053,46 @@
             "num": 26, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À la fin de l'intitulé de la section 4 du chapitre II du titre Ier du livre VI de la troisième partie du code de l'éducation, le mot : \"entreprise\" est remplacé par les mots : \"milieu professionnel\"."
                     ], 
                     "length": 199, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À la fin de l'intitulé de la section 4 du chapitre II du titre Ier du livre VI de la troisième partie du code de l'éducation, le mot : \"entreprise\" est remplacé par les mots : \"milieu professionnel\"."
                     ], 
                     "length": 199, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié ", 
                     "text": [
                         "À la fin de l'intitulé de la section 4 du chapitre II du titre Ier du livre VI de la troisième partie du code de l'éducation, le mot : \"entreprise\" est remplacé par les mots : \"milieu professionnel\"."
                     ], 
                     "length": 199, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_15 ter_T3"
@@ -3485,22 +3103,18 @@
             "num": 47, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À la seconde phrase du quatrième alinéa de l'article L. 632-2 du code de l'éducation, le mot : \"nationales\" est remplacé par le mot : \"interrégionales\"."
                     ], 
                     "length": 152, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "Dans un délai de six mois suivant la promulgation de la loi n° du relative à l'enseignement supérieur et à la recherche, le Gouvernement remet au Parlement un rapport formulant des propositions en vue d'améliorer le mode de sélection et de formation des futurs médecins et d'élargir les origines sociales et géographiques des étudiants. Ce rapport analyse la faisabilité de l'organisation d'épreuves classantes interrégionales pour les études de médecine."
@@ -3508,21 +3122,19 @@
                     "length": 496, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Dans un délai de six mois suivant la promulgation de la présente loi, le Gouvernement remet au Parlement un rapport formulant des propositions en vue d'améliorer le mode de sélection et de formation des futurs médecins et d'élargir les origines sociales et géographiques des étudiants. Ce rapport analyse la faisabilité de l'organisation d'épreuves classantes interrégionales pour les études de médecine."
                     ], 
                     "length": 404, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_22 ter_T3"
@@ -3533,54 +3145,46 @@
             "num": 18, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "La stratégie nationale de l'enseignement supérieur mentionnée à l'article L. 123-1 du code de l'éducation et la stratégie nationale de recherche mentionnée à l'article L. 111-6 du code de la recherche sont présentées sous la forme d'un livre blanc de l'enseignement supérieur et de la recherche par le Gouvernement au Parlement tous les cinq ans."
                     ], 
                     "length": 346, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "La stratégie nationale de l'enseignement supérieur mentionnée à l'article L. 123-1 du code de l'éducation et la stratégie nationale de recherche mentionnée à l'article L. 111-6 du code de la recherche sont présentées sous la forme d'un livre blanc de l'enseignement supérieur et de la recherche par le Gouvernement au Parlement tous les cinq ans."
                     ], 
                     "length": 346, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié ", 
                     "text": [
                         "La stratégie nationale de l'enseignement supérieur mentionnée à l'article L. 123-1 du code de l'éducation et la stratégie nationale de recherche mentionnée à l'article L. 111-6 du code de la recherche sont présentées sous la forme d'un livre blanc de l'enseignement supérieur et de la recherche par le Gouvernement au Parlement tous les cinq ans."
                     ], 
                     "length": 346, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_12 bis A_T1C2"
@@ -3591,15 +3195,13 @@
             "num": 79, 
             "steps": [
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conformes", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_47 bis, 47 ter et 47 quater_T5"
@@ -3611,8 +3213,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le titre IV n'est pas applicable à Mayotte.", 
                         "II. - Dans les conditions prévues par l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnance, dans un délai de dix-huit mois suivant la publication de la présente loi, les mesures relevant du domaine de la loi nécessaires pour étendre et, le cas échéant, adapter à Mayotte les dispositions de la présente loi, notamment son titre IV.", 
@@ -3621,13 +3221,11 @@
                     "length": 542, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le titre IV de la présente loi n'est pas applicable à Mayotte.", 
                         "II. - Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnance, dans un délai de dix-huit mois à compter de la promulgation de la présente loi, les mesures législatives nécessaires pour étendre et, le cas échéant, adapter à Mayotte les dispositions de la présente loi, notamment son titre IV.", 
@@ -3636,13 +3234,11 @@
                     "length": 548, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le titre IV de la présente loi n'est pas applicable à Mayotte.", 
                         "II. - Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnance, dans un délai de dix-huit mois à compter de la promulgation de la présente loi, les mesures législatives nécessaires pour étendre et, le cas échéant, adapter à Mayotte les dispositions de la présente loi, notamment son titre IV.", 
@@ -3651,13 +3247,11 @@
                     "length": 548, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le titre IV de la présente loi n'est pas applicable à Mayotte.", 
                         "II. - Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnance, dans un délai de dix-huit mois à compter de la promulgation de la présente loi, les mesures législatives nécessaires pour étendre et, le cas échéant, adapter à Mayotte les dispositions de la présente loi, notamment son titre IV.", 
@@ -3666,13 +3260,11 @@
                     "length": 548, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le titre IV de la présente loi n'est pas applicable à Mayotte.", 
                         "II. - Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnance, dans un délai de dix-huit mois à compter de la promulgation de la présente loi, les mesures législatives nécessaires pour étendre et, le cas échéant, adapter à Mayotte les dispositions de la présente loi, notamment son titre IV.", 
@@ -3681,8 +3273,8 @@
                     "length": 548, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_68_T7C2"
@@ -3693,9 +3285,7 @@
             "num": 75, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "I. - L'Académie nationale de médecine, créée par ordonnance royale du 20 décembre 1820, est une personne morale de droit public à statut particulier, placée sous la protection du Président du République.", 
                         "Elle a pour mission de répondre, à titre non lucratif, aux demandes du Gouvernement sur tout ce qui concerne la santé publique et de s'occuper de tous les objets d'étude et de recherche qui peuvent contribuer aux progrès de l'art de guérir.", 
@@ -3709,13 +3299,11 @@
                     "length": 1182, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "I. - L'Académie nationale de médecine est une personne morale de droit public à statut particulier, placée sous la protection du Président du République.", 
                         "Elle a pour mission de répondre, à titre non lucratif, aux demandes du Gouvernement sur toute question concernant la santé publique et de s'occuper de tous les objets d'étude et de recherche qui peuvent contribuer aux progrès de l'art de guérir.", 
@@ -3729,13 +3317,11 @@
                     "length": 1228, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "I. - L'Académie nationale de médecine est une personne morale de droit public à statut particulier, placée sous la protection du Président du République.", 
                         "Elle a pour mission de répondre, à titre non lucratif, aux demandes du Gouvernement sur toute question concernant la santé publique et de s'occuper de tous les objets d'étude et de recherche qui peuvent contribuer aux progrès de l'art de guérir.", 
@@ -3749,13 +3335,11 @@
                     "length": 1228, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'Académie nationale de médecine est une personne morale de droit public à statut particulier, placée sous la protection du Président du République.", 
                         "Elle a pour mission de répondre, à titre non lucratif, aux demandes du Gouvernement sur toute question concernant la santé publique et de s'occuper de tous les objets d'étude et de recherche qui peuvent contribuer aux progrès de l'art de guérir.", 
@@ -3769,13 +3353,11 @@
                     "length": 1233, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I et II. - (Non modifiés)", 
                         "III. - Au 2° du I de l'article 3 de l'ordonnance n° 2005-649 du 6 juin 2005 relative aux marchés passés par certaines personnes publiques ou privées non soumises au code des marchés publics, après les mots : \"beaux-arts\", sont insérés les mots : \", l'Académie nationale de médecine\".", 
@@ -3784,13 +3366,11 @@
                     "length": 315, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "I. - L'Académie nationale de médecine est une personne morale de droit public à statut particulier, placée sous la protection du Président du République.", 
@@ -3805,13 +3385,11 @@
                     "length": 1250, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'Académie nationale de médecine est une personne morale de droit public à statut particulier, placée sous la protection du Président du République.", 
                         "Elle a pour mission de répondre, à titre non lucratif, aux demandes du Gouvernement sur toute question concernant la santé publique et de s'occuper de tous les objets d'étude et de recherche qui peuvent contribuer aux progrès de l'art de guérir.", 
@@ -3825,8 +3403,8 @@
                     "length": 1233, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_57 bis_T7C1"
@@ -3837,9 +3415,7 @@
             "num": 71, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 342-2 du même code est complété par un alinéa ainsi rédigé :", 
                         "\"Les centres techniques industriels fonctionnent en réseau et sont tenus de communiquer à l'instance de coordination des centres, avec l'accord des entreprises concernées par une demande de recherche et d'innovation, les informations susceptibles de contribuer à l'implication de tous les centres du réseau. À ce titre, ils veillent à ce que les secrets d'affaires dont ils ont connaissance ne soient pas divulgués, sauf dans les cas où la loi en dispose autrement.\""
@@ -3847,13 +3423,11 @@
                     "length": 540, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 342-2 du même code est complété par un alinéa ainsi rédigé :", 
                         "\"Les centres techniques industriels fonctionnent en réseau et sont tenus de communiquer à l'instance de coordination des centres, avec l'accord des entreprises concernées par une demande de recherche et d'innovation, les informations susceptibles de contribuer à l'implication de tous les centres du réseau. À ce titre, ils veillent à ce que les secrets d'affaires dont ils ont connaissance ne soient pas divulgués, sauf dans les cas où la loi en dispose autrement.\""
@@ -3861,13 +3435,11 @@
                     "length": 540, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 342-2 du même code est complété par un alinéa ainsi rédigé :", 
                         "\"Les centres techniques industriels fonctionnent en réseau et sont tenus de communiquer à l'instance de coordination des centres, avec l'accord des entreprises concernées par une demande de recherche et d'innovation, les informations susceptibles de contribuer à l'implication de tous les centres du réseau. À ce titre, ils veillent à ce que les secrets d'affaires dont ils ont connaissance ne soient pas divulgués, sauf dans les cas où la loi en dispose autrement.\""
@@ -3875,13 +3447,11 @@
                     "length": 540, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 342-2 du même code est complété par un alinéa ainsi rédigé :", 
                         "\"Les centres techniques industriels fonctionnent en réseau et sont tenus de communiquer à l'instance de coordination des centres, avec l'accord des entreprises concernées par une demande de recherche et d'innovation, les informations susceptibles de contribuer à l'implication de tous les centres du réseau. À ce titre, ils veillent à ce que les secrets d'affaires dont ils ont connaissance ne soient pas divulgués, sauf dans les cas où la loi en dispose autrement.\""
@@ -3889,19 +3459,17 @@
                     "length": 540, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_55 bis_T6C2"
@@ -3913,8 +3481,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - La section 4 du chapitre IX du titre Ier du livre VII du même code et l'article L. 719-10 sont abrogés et la section 5 du même chapitre devient la section 4.", 
                         "II. - À l'article L. 613-7, la référence : \"L. 719-10\" est remplacée par la référence : \"L. 718-2-14\"."
@@ -3922,13 +3488,11 @@
                     "length": 265, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - La section 4 du chapitre IX du titre Ier du livre VII de la troisième partie du même code est abrogée.", 
                         "II. - À la première phrase de l'article L. 613-7, la référence : \"L. 719-10\" est remplacée par la référence : \"L. 718-15\"."
@@ -3936,13 +3500,11 @@
                     "length": 230, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - La section 4 du chapitre IX du titre Ier du livre VII de la troisième partie du même code est abrogée.", 
                         "II. - À la première phrase de l'article L. 613-7 du même code, la référence : \"L. 719-10\" est remplacée par la référence : \"L. 718-15\"."
@@ -3950,13 +3512,11 @@
                     "length": 243, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - La section 4 du chapitre IX du titre Ier du livre VII de la troisième partie du même code est abrogée.", 
                         "II. - À la première phrase de l'article L. 613-7 du même code, la référence : \"L. 719-10\" est remplacée par la référence : \"L. 718-15\"."
@@ -3964,13 +3524,11 @@
                     "length": 243, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - La section 4 du chapitre IX du titre Ier du livre VII de la troisième partie du même code est abrogée.", 
                         "II. - À la première phrase de l'article L. 613-7 du même code, la référence : \"L. 719-10\" est remplacée par la référence : \"L. 718-15\".", 
@@ -3978,14 +3536,12 @@
                     ], 
                     "length": 431, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I et II. - (Non modifiés)", 
                         "III. - Au troisième alinéa du a du 4° du 4 de l'article 261 et au 1° de l'article 1460 du code général des impôts, la référence : \"L. 719-10\" est remplacée par la référence : \"L. 718-15\"."
@@ -3993,13 +3549,11 @@
                     "length": 213, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "I. - La section 4 du chapitre IX du titre Ier du livre VII de la troisième partie du même code est abrogée.", 
@@ -4009,13 +3563,11 @@
                     "length": 448, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - La section 4 du chapitre IX du titre Ier du livre VII de la troisième partie du code de l'éducation est abrogée.", 
                         "II. - À la première phrase de l'article L. 613-7 du même code, la référence : \"L. 719-10\" est remplacée par la référence : \"L. 718-15\".", 
@@ -4024,8 +3576,8 @@
                     "length": 441, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_39_T4C2"
@@ -4037,8 +3589,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 717-1 du même code est ainsi modifié :", 
                         "1° Avant le premier alinéa, sont insérés deux alinéas ainsi rédigés :", 
@@ -4051,13 +3601,11 @@
                     "length": 1415, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 717-1 du même code est ainsi modifié :", 
                         "1° Au début, sont insérés six alinéas ainsi rédigés", 
@@ -4074,13 +3622,11 @@
                     "length": 2866, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 717-1 du même code est ainsi modifié :", 
                         "1° Au début, sont insérés deux alinéas ainsi rédigés :", 
@@ -4093,13 +3639,11 @@
                     "length": 1583, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 717-1 du même code est ainsi modifié :", 
                         "1° Au début, sont insérés deux alinéas ainsi rédigés :", 
@@ -4112,13 +3656,11 @@
                     "length": 1583, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "L'article L. 717-1 du même code est ainsi modifié :", 
                         "1° Au début, sont insérés deux alinéas ainsi rédigés :", 
@@ -4131,8 +3673,8 @@
                     "length": 1583, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_35_T4C1S2"
@@ -4143,57 +3685,49 @@
             "num": 106, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Au second alinéa de l'article L. 311-8 du code de l'entrée et du séjour des étrangers et du droit d'asile, après les mots : \"travailleur temporaire\", sont insérés les mots : \", \"scientifique-chercheur\"\"."
                     ], 
                     "length": 203, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Au second alinéa de l'article L. 311-8 du code de l'entrée et du séjour des étrangers et du droit d'asile, après les mots : \"\"travailleur temporaire\"\", sont insérés les mots : \", \"scientifique-chercheur\"\"."
                     ], 
                     "length": 205, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Au second alinéa de l'article L. 311-8 du code de l'entrée et du séjour des étrangers et du droit d'asile, après les mots : \"\"travailleur temporaire\"\", sont insérés les mots : \", \"scientifique-chercheur\"\"."
                     ], 
                     "length": 222, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Au second alinéa de l'article L. 311-8 du code de l'entrée et du séjour des étrangers et du droit d'asile, après les mots : \"\"travailleur temporaire\"\", sont insérés les mots : \", \"scientifique-chercheur\"\"."
                     ], 
                     "length": 205, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_57 bis A_T7C1"
@@ -4205,8 +3739,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-5 est ainsi modifié :", 
                         "1° Après le premier alinéa, il est inséré un alinéa ainsi rédigé :", 
@@ -4218,13 +3750,11 @@
                     "length": 929, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-5 du même code est ainsi modifié :", 
                         "1° Après le premier alinéa, il est inséré un alinéa ainsi rédigé :", 
@@ -4241,13 +3771,11 @@
                     "length": 1374, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-5 du même code est ainsi modifié :", 
                         "1° Après le premier alinéa, il est inséré un alinéa ainsi rédigé :", 
@@ -4265,13 +3793,11 @@
                     "length": 1484, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-5 du même code est ainsi modifié :", 
                         "1° Après le premier alinéa, il est inséré un alinéa ainsi rédigé :", 
@@ -4289,13 +3815,11 @@
                     "length": 1484, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-5 du même code est ainsi modifié :", 
                         "1° Après le premier alinéa, il est inséré un alinéa ainsi rédigé :", 
@@ -4313,13 +3837,11 @@
                     "length": 1651, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-5 du code de l'éducation est ainsi modifié :", 
                         "1° Après le premier alinéa, il est inséré un alinéa ainsi rédigé :", 
@@ -4337,13 +3859,11 @@
                     "length": 1624, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 123-5 du code de l'éducation est ainsi modifié :", 
@@ -4362,13 +3882,11 @@
                     "length": 1809, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-5 du code de l'éducation est ainsi modifié :", 
                         "1° Après le premier alinéa, il est inséré un alinéa ainsi rédigé :", 
@@ -4386,8 +3904,8 @@
                     "length": 1753, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_7_T1C1"
@@ -4398,15 +3916,13 @@
             "num": 57, 
             "steps": [
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conformes", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_29, 30 et 31_T4C1S1"
@@ -4417,9 +3933,7 @@
             "num": 89, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le chapitre III du titre Ier du livre Ier du code de la recherche est complété par un article L. 113-4 ainsi rédigé :", 
                         "\"Art. L. 113-4. - La délégation mentionnée à l'article 6 ter de l'ordonnance n° 58-1100 du 17 novembre 1958 relative au fonctionnement des assemblées parlementaires procède, tous les trois ans, à une analyse de l'efficacité de la dépense publique, budgétaire ou fiscale, consentie par l'État à la recherche conduite dans le secteur privé, y compris la recherche partenariale associant des structures publiques et privées. Les résultats de cette étude font l'objet d'un rapport transmis au Gouvernement et aux commissions permanentes compétentes de l'Assemblée nationale et du Sénat.\""
@@ -4427,13 +3941,11 @@
                     "length": 701, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le chapitre III du titre Ier du livre Ier du code de la recherche est complété par un article L. 113-4 ainsi rédigé :", 
                         "\"Art. L. 113-4. - La délégation mentionnée à l'article 6 ter de l'ordonnance n° 58-1100 du 17 novembre 1958 relative au fonctionnement des assemblées parlementaires procède, tous les trois ans, à une analyse de l'efficacité de la dépense publique, budgétaire ou fiscale, consentie par l'État à la recherche conduite dans le secteur privé, y compris la recherche partenariale associant des structures publiques et privées. Les résultats de cette étude font l'objet d'un rapport transmis au Gouvernement et aux commissions permanentes compétentes de l'Assemblée nationale et du Sénat.\""
@@ -4441,13 +3953,11 @@
                     "length": 701, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "Le chapitre III du titre Ier du livre Ier du code de la recherche est complété par un article L. 113-4 ainsi rédigé :", 
@@ -4456,13 +3966,11 @@
                     "length": 818, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Le chapitre III du titre Ier du livre Ier du code de la recherche est complété par un article L. 113-4 ainsi rédigé :", 
                         "\"Art. L. 113-4. - L'Office parlementaire d'évaluation des choix scientifiques et technologiques, délégation mentionnée à l'article 6 ter de l'ordonnance n° 58-1100 du 17 novembre 1958 relative au fonctionnement des assemblées parlementaires, procède tous les trois ans à une analyse de l'efficacité de la dépense publique, budgétaire ou fiscale consentie par l'État à la recherche conduite dans le secteur privé, y compris la recherche partenariale associant des structures publiques et privées. Les résultats de cette étude font l'objet d'un rapport transmis au Gouvernement et aux commissions permanentes compétentes de l'Assemblée nationale et du Sénat.\""
@@ -4470,8 +3978,8 @@
                     "length": 775, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_48 A_T6C1"
@@ -4482,9 +3990,7 @@
             "num": 77, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 412-1 du code de la recherche est complété par un alinéa ainsi rédigé :", 
                         "\"Le titre de docteur est exclusivement réservé à l'usage des personnes titulaires d'un doctorat délivré par un établissement d'enseignement supérieur reconnu par l'État. Les titulaires d'un doctorat peuvent faire usage du titre de docteur dans tout emploi et toute circonstance professionnelle qui le justifient.\""
@@ -4492,13 +3998,11 @@
                     "length": 398, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "true", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 412-1 du code de la recherche est complété par un alinéa ainsi rédigé :", 
                         "\"Le titre de docteur est exclusivement réservé à l'usage des personnes titulaires d'un doctorat délivré par un établissement d'enseignement supérieur reconnu par l'État. Les titulaires d'un doctorat peuvent faire usage du titre de docteur dans tout emploi et toute circonstance professionnelle qui le justifient.\""
@@ -4506,52 +4010,44 @@
                     "length": 398, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
+                    "status": "supprimé", 
+                    "text": [], 
+                    "length": 0, 
+                    "step": "commission", 
+                    "diff": "rem", 
                     "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "true", 
-                    "text": [], 
-                    "length": 0, 
-                    "step": "commission", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
+                    "status": "supprimé", 
+                    "text": [], 
+                    "length": 0, 
+                    "step": "hemicycle", 
+                    "diff": "none", 
                     "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "true", 
-                    "text": [], 
-                    "length": 0, 
-                    "step": "hemicycle", 
-                    "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "true", 
+                    "status": "suppression maintenue", 
                     "text": [], 
                     "length": 0, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "suppression conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_47 quinquies_T5"
@@ -4563,8 +4059,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Dans les conditions prévues par l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnance, dans un délai d'un an suivant la publication de la présente loi, des mesures modifiant le chapitre unique du titre VIII du livre VII du code de l'éducation relatif aux dispositions applicables à l'Université des Antilles et de la Guyane pour y adapter le titre IV de la présente loi.", 
                         "Le projet de loi de ratification est déposé au plus tard six mois après la publication de l'ordonnance.", 
@@ -4573,13 +4067,11 @@
                     "length": 724, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnance, dans un délai d'un an à compter de la promulgation de la présente loi, des mesures législatives modifiant le chapitre unique du titre VIII du livre VII de la troisième partie du code de l'éducation relatif aux dispositions applicables à l'université des Antilles et de la Guyane pour y adapter le titre IV de la présente loi.", 
                         "Le projet de loi de ratification est déposé au plus tard six mois après la publication de l'ordonnance.", 
@@ -4588,13 +4080,11 @@
                     "length": 737, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnance, dans un délai d'un an à compter de la promulgation de la présente loi, des mesures législatives modifiant le chapitre unique du titre VIII du livre VII de la troisième partie du code de l'éducation relatif aux dispositions applicables à l'université des Antilles et de la Guyane pour y adapter le titre IV de la présente loi.", 
                         "Le projet de loi de ratification est déposé au plus tard six mois après la publication de l'ordonnance.", 
@@ -4603,13 +4093,11 @@
                     "length": 737, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnance, dans un délai d'un an à compter de la promulgation de la présente loi, des mesures législatives modifiant le chapitre unique du titre VIII du livre VII de la troisième partie du code de l'éducation relatif aux dispositions applicables à l'université des Antilles et de la Guyane pour y adapter le titre IV de la présente loi.", 
                         "Le projet de loi de ratification est déposé au plus tard six mois après la publication de l'ordonnance.", 
@@ -4618,13 +4106,11 @@
                     "length": 737, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Dans les conditions prévues à l'article 38 de la Constitution, le Gouvernement est autorisé à prendre par ordonnance, dans un délai d'un an à compter de la promulgation de la présente loi, des mesures législatives modifiant le chapitre unique du titre VIII du livre VII de la troisième partie du code de l'éducation relatif aux dispositions applicables à l'université des Antilles et de la Guyane pour y adapter le titre IV de la présente loi.", 
                         "Le projet de loi de ratification est déposé au plus tard six mois après la publication de l'ordonnance.", 
@@ -4633,8 +4119,8 @@
                     "length": 737, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_69_T7C2"
@@ -4645,44 +4131,38 @@
             "num": 106, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le transfert de compétence prévu à l'article 12 ter entre en vigueur au 1er janvier 2014 sous réserve de l'inscription en loi de finances des dispositions relatives au transfert aux régions des crédits précédemment accordés par l'État aux personnes morales de droit privé ou de droit public au titre des opérations mises en oeuvre par les acteurs régionaux de la culture scientifique, technique et industrielle. Ces crédits sont calculés sur la base de la moyenne actualisée des crédits attribués au cours des trois années précédant le transfert."
                     ], 
                     "length": 546, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Le transfert de compétence prévu à l'article 12 ter entre en vigueur au 1er janvier 2014 sous réserve de l'inscription en loi de finances des dispositions relatives au transfert aux régions des crédits précédemment accordés par l'État aux personnes morales de droit privé ou de droit public au titre des opérations mises en oeuvre par les acteurs régionaux de la culture scientifique, technique et industrielle. Ces crédits sont calculés sur la base de la moyenne actualisée des crédits attribués au cours des trois années précédant le transfert."
                     ], 
                     "length": 563, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Le transfert de compétence prévu à l'article 12 ter entre en vigueur au 1er janvier 2014, sous réserve de l'inscription en loi de finances des dispositions relatives au transfert aux régions des crédits précédemment accordés par l'État aux personnes morales de droit privé ou de droit public au titre des opérations mises en oeuvre par les acteurs régionaux de la culture scientifique, technique et industrielle. Ces crédits sont calculés sur la base de la moyenne actualisée des crédits attribués au cours des trois années précédant le transfert."
                     ], 
                     "length": 547, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_57 bis AA_T7C1"
@@ -4693,22 +4173,18 @@
             "num": 104, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le cinquième alinéa de l'article L. 822-1 du code de l'éducation est supprimé."
                     ], 
                     "length": 78, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 822-1 du code de l'éducation est ainsi modifié :", 
                         "1° Le premier alinéa est ainsi rédigé :", 
@@ -4727,13 +4203,11 @@
                     "length": 3136, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "L'article L. 822-1 du code de l'éducation est ainsi modifié :", 
@@ -4752,14 +4226,12 @@
                     ], 
                     "length": 3153, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 822-1 du code de l'éducation est ainsi modifié :", 
                         "1° Le premier alinéa est ainsi rédigé :", 
@@ -4778,8 +4250,8 @@
                     "length": 3137, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_56 ter_T7C1"
@@ -4790,44 +4262,38 @@
             "num": 78, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le Gouvernement transmet chaque année au Parlement un rapport sur les mesures d'application de l'article 47 de la loi n° du relative à l'enseignement supérieur et à la recherche. Ce rapport recense les corps et cadres d'emplois de catégorie A relevant du statut général de la fonction publique dont les statuts particuliers ont été modifiés pour permettre aux titulaires d'un doctorat d'y accéder."
                     ], 
                     "length": 397, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Le Gouvernement transmet chaque année au Parlement un rapport sur les mesures d'application de l'article 47 de la loi n° du relative à l'enseignement supérieur et à la recherche. Ce rapport recense les corps et cadres d'emplois de catégorie A relevant du statut général de la fonction publique dont les statuts particuliers ont été modifiés pour permettre aux titulaires d'un doctorat d'y accéder."
                     ], 
                     "length": 414, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Le Gouvernement transmet chaque année au Parlement un rapport sur les mesures d'application de l'article 47 de la présente loi. Ce rapport recense les corps et cadres d'emplois de catégorie A relevant du statut général de la fonction publique dont les statuts particuliers ont été modifiés pour permettre aux titulaires d'un doctorat d'y accéder."
                     ], 
                     "length": 346, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_47 bis A_T5"
@@ -4839,8 +4305,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-3 du même code est ainsi modifié :", 
                         "1° Au premier alinéa du I, les mots : \"vingt à trente\" sont remplacés par les mots : \"vingt-quatre à trente-six\" ;", 
@@ -4866,13 +4330,11 @@
                     "length": 2532, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-3 du même code est ainsi modifié :", 
                         "1° Le I est ainsi modifié :", 
@@ -4899,13 +4361,11 @@
                     "length": 2457, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-3 du même code est ainsi modifié :", 
                         "1° Le I est ainsi modifié :", 
@@ -4934,13 +4394,11 @@
                     "length": 2889, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-3 du même code est ainsi modifié :", 
                         "1° Le I est ainsi modifié :", 
@@ -4969,13 +4427,11 @@
                     "length": 2889, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-3 du même code est ainsi modifié :", 
                         "1° Le I est ainsi modifié :", 
@@ -5012,13 +4468,11 @@
                     "length": 4152, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-3 du code de l'éducation est ainsi modifié :", 
                         "1° Le I est ainsi modifié :", 
@@ -5055,13 +4509,11 @@
                     "length": 4587, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 712-3 du code de l'éducation est ainsi modifié :", 
@@ -5101,13 +4553,11 @@
                     "length": 4644, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-3 du code de l'éducation est ainsi modifié :", 
                         "1° Le I est ainsi modifié :", 
@@ -5148,8 +4598,8 @@
                     "length": 4637, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_26_T4C1S1"
@@ -5160,56 +4610,48 @@
             "num": 60, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À l'article L. 952-24 du code de l'éducation, après le mot : \"référence\", sont insérés les mots : \"ou qu'ils effectuent, en tant que docteurs, une activité de recherche à temps plein\"."
                     ], 
                     "length": 184, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À l'article L. 952-24 du code de l'éducation, après le mot : \"référence\", sont insérés les mots : \"ou qu'ils effectuent, en tant que docteurs, une activité de recherche à temps plein\"."
                     ], 
                     "length": 184, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À l'article L. 952-24 du code de l'éducation, après le mot : \"référence\", sont insérés les mots : \"ou qu'ils effectuent, en tant que docteurs, une activité de recherche à temps plein\"."
                     ], 
                     "length": 184, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "À la première phrase de l'article L. 952-24 du code de l'éducation, après le mot : \"référence\", sont insérés les mots : \"ou qu'ils effectuent, en tant que docteurs, une activité de recherche à temps plein\"."
                     ], 
                     "length": 206, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_47 bis_T5"
@@ -5220,15 +4662,13 @@
             "num": 60, 
             "steps": [
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conformes", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_33, 34, 35 et 36_T4C1S2"
@@ -5240,8 +4680,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 711-1 du code de l'éducation est ainsi modifié :", 
                         "1° Le cinquième alinéa est supprimé ;", 
@@ -5257,13 +4695,11 @@
                     "length": 1882, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I A . - À la deuxième phrase de l'article L. 611-6 du code de l'éducation, les mots : \"l'agence\" sont remplacés par les mots : \"le Haut Conseil\".", 
                         "I. - L'article L. 711-1 du même code est ainsi modifié :", 
@@ -5282,13 +4718,11 @@
                     "length": 1705, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I A . - À la deuxième phrase de l'article L. 611-6 du code de l'éducation, les mots : \"l'agence\" sont remplacés par les mots : \"le Haut Conseil\".", 
                         "I. - L'article L. 711-1 du même code est ainsi modifié :", 
@@ -5308,14 +4742,12 @@
                     ], 
                     "length": 1865, 
                     "step": "hemicycle", 
-                    "diff": "rem", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I A . - À la deuxième phrase de l'article L. 611-6 du code de l'éducation, les mots : \"l'agence\" sont remplacés par les mots : \"le Haut Conseil\".", 
                         "I. - L'article L. 711-1 du même code est ainsi modifié :", 
@@ -5336,13 +4768,11 @@
                     "length": 1865, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I A. - À la seconde phrase de l'article L. 611-6 du code de l'éducation, les mots : \"l'agence mentionnée\" sont remplacés par les mots : \"le Haut Conseil mentionné\".", 
                         "I. - L'article L. 711-1 du même code est ainsi modifié :", 
@@ -5363,13 +4793,11 @@
                     "length": 1884, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I A. - À la seconde phrase de l'article L. 611-6 du code de l'éducation, les mots : \"l'agence mentionnée\" sont remplacés par les mots : \"le Haut Conseil mentionné\".", 
                         "I et II. - (Non modifiés)."
@@ -5377,13 +4805,11 @@
                     "length": 191, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "I A. - À la seconde phrase de l'article L. 611-6 du code de l'éducation, les mots : \"l'agence mentionnée\" sont remplacés par les mots : \"le Haut Conseil mentionné\".", 
@@ -5405,13 +4831,11 @@
                     "length": 1901, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I A. - À la seconde phrase de l'article L. 611-6 du code de l'éducation, les mots : \"l'agence mentionnée\" sont remplacés par les mots : \"le Haut Conseil mentionné\".", 
                         "I. - L'article L. 711-1 du même code est ainsi modifié :", 
@@ -5431,9 +4855,9 @@
                     ], 
                     "length": 1884, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_52_T6C1"
@@ -5444,9 +4868,7 @@
             "num": 48, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le dernier alinéa de l'article L. 719-3 du même code est complété par une phrase ainsi rédigée :", 
                         "\"Ce décret fixe les conditions dans lesquelles est assurée la parité entre les femmes et les hommes dans la désignation des personnalités extérieures.\""
@@ -5454,13 +4876,11 @@
                     "length": 248, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le dernier alinéa de l'article L. 719-3 du même code est complété par deux phrases ainsi rédigées :", 
                         "\"Ce décret fixe les conditions dans lesquelles est assurée la parité entre les femmes et les hommes. À cette fin, il précise le nombre et la répartition par sexe, éventuellement dans le temps, des candidats proposés par chacune des instances compétentes.\""
@@ -5468,13 +4888,11 @@
                     "length": 355, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le dernier alinéa de l'article L. 719-3 du même code est complété par deux phrases ainsi rédigées :", 
                         "\"Ce décret fixe les conditions dans lesquelles est assurée la parité entre les femmes et les hommes. À cette fin, il précise le nombre et la répartition par sexe, éventuellement dans le temps, des candidats proposés par chacune des instances compétentes.\""
@@ -5482,13 +4900,11 @@
                     "length": 355, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Le dernier alinéa de l'article L. 719-3 du même code est complété par deux phrases ainsi rédigées :", 
                         "\"Ce décret fixe les conditions dans lesquelles est assurée la parité entre les femmes et les hommes. À cette fin, il précise le nombre et la répartition par sexe, éventuellement dans le temps, des candidats proposés par chacune des instances compétentes.\""
@@ -5496,19 +4912,17 @@
                     "length": 355, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_37 bis_T4C1S3"
@@ -5519,9 +4933,7 @@
             "num": 33, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre VIII de la troisième partie du code de l'éducation est complété par un article L. 711-10 ainsi rédigé :", 
                         "\"Art. L. 711-10. - En l'absence de dispositions particulières prévues par les textes législatifs ou réglementaires régissant l'établissement ou ses personnels, la limite d'âge des présidents, des directeurs et des personnes qui, quel que soit leur titre, exercent la fonction de chef d'établissement des établissements publics à caractère scientifique, culturel et professionnel est fixée à soixante-huit ans. Ils peuvent rester en fonction jusqu'au 31 août suivant la date à laquelle ils ont atteint cet âge.\"", 
@@ -5530,13 +4942,11 @@
                     "length": 784, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre VIII de la troisième partie du code de l'éducation est complété par un article L. 711-10 ainsi rédigé :", 
                         "\"Art. L. 711-10. - En l'absence de dispositions particulières prévues par les textes législatifs ou réglementaires régissant l'établissement ou ses personnels, la limite d'âge des présidents, des directeurs et des personnes qui, quel que soit leur titre, exercent la fonction de chef d'établissement des établissements publics à caractère scientifique, culturel et professionnel est fixée à soixante-huit ans. Ils peuvent rester en fonction jusqu'au 31 août suivant la date à laquelle ils ont atteint cet âge.\"", 
@@ -5545,13 +4955,11 @@
                     "length": 784, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre VIII de la troisième partie du code de l'éducation est complété par un article L. 711-10 ainsi rédigé :", 
                         "\"Art. L. 711-10. - En l'absence de dispositions particulières prévues par les textes législatifs ou réglementaires régissant l'établissement ou ses personnels, la limite d'âge des présidents, des directeurs et des personnes qui, quel que soit leur titre, exercent la fonction de chef d'établissement des établissements publics à caractère scientifique, culturel et professionnel est fixée à soixante-huit ans. Ils peuvent rester en fonction jusqu'au 31 août suivant la date à laquelle ils ont atteint cet âge.\"", 
@@ -5560,13 +4968,11 @@
                     "length": 784, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre VII de la troisième partie du code de l'éducation est complété par un article L. 711-10 ainsi rédigé :", 
                         "\"Art. L. 711-10. - En l'absence de dispositions particulières prévues par les textes législatifs ou réglementaires régissant l'établissement ou ses personnels, la limite d'âge des présidents, des directeurs et des personnes qui, quel que soit leur titre, exercent la fonction de chef d'établissement des établissements publics à caractère scientifique, culturel et professionnel est fixée à soixante-huit ans. Ils peuvent rester en fonction jusqu'au 31 août suivant la date à laquelle ils ont atteint cet âge.\"", 
@@ -5575,13 +4981,11 @@
                     "length": 783, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre VII de la troisième partie du code de l'éducation est complété par un article L. 711-10 ainsi rédigé :", 
                         "\"Art. L. 711-10. - En l'absence de dispositions particulières prévues par les textes législatifs ou réglementaires régissant l'établissement ou ses personnels, la limite d'âge des présidents, des directeurs et des personnes qui, quel que soit leur titre, exercent la fonction de chef d'établissement des établissements publics à caractère scientifique, culturel et professionnel est fixée à soixante-huit ans. Ils peuvent rester en fonction jusqu'au 31 août suivant la date à laquelle ils ont atteint cet âge.\"", 
@@ -5590,13 +4994,11 @@
                     "length": 662, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "I. - Le chapitre Ier du titre Ier du livre VII de la troisième partie du code de l'éducation est complété par un article L. 711-10 ainsi rédigé :", 
@@ -5606,13 +5008,11 @@
                     "length": 800, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre VII de la troisième partie du code de l'éducation est complété par un article L. 711-10 ainsi rédigé :", 
                         "\"Art. L. 711-10. - En l'absence de dispositions particulières prévues par les textes législatifs ou réglementaires régissant l'établissement ou ses personnels, la limite d'âge des présidents, des directeurs et des personnes qui, quel que soit leur titre, exercent la fonction de chef d'établissement des établissements publics à caractère scientifique, culturel et professionnel est fixée à soixante-huit ans. Ils peuvent rester en fonction jusqu'au 31 août suivant la date à laquelle ils ont atteint cet âge.\"", 
@@ -5620,9 +5020,9 @@
                     ], 
                     "length": 783, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_23 bis_T4C1"
@@ -5634,8 +5034,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier, le titre II, le titre III à l'exception de l'article 18, du V de l'article 21 et de l'article 22 de la présente loi s'appliquent dans les îles Wallis et Futuna, en Polynésie française et en Nouvelle-Calédonie.", 
                         "II. - Aux articles L. 681-1, L. 683-1 et L. 684-1 du code de l'éducation, après la référence : \"L. 611-5\" est insérée la référence : \", L. 611-8\".", 
@@ -5644,13 +5042,11 @@
                     "length": 662, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier, le titre II et le titre III de la présente loi, à l'exception de l'article 18, du V de l'article 21 et de l'article 22, s'appliquent dans les îles Wallis et Futuna, en Polynésie française et en Nouvelle-Calédonie.", 
                         "II. - Aux articles L. 681-1, L. 683-1 et L. 684-1 du code de l'éducation, après la référence : \"L. 611-5,\", est insérée la référence : \"L. 611-8,\".", 
@@ -5659,13 +5055,11 @@
                     "length": 667, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier, le titre II et le titre III de la présente loi, à l'exception de l'article 18, du V de l'article 21 et de l'article 22, s'appliquent dans les îles Wallis et Futuna.", 
                         "Le chapitre Ier du titre Ier, le titre II et le titre III de la présente loi, à l'exception du V de l'article 21 et de l'article 22, s'appliquent en Polynésie française et en Nouvelle-Calédonie.", 
@@ -5675,13 +5069,11 @@
                     "length": 815, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier, le titre II et le titre III de la présente loi, à l'exception de l'article 18, du V de l'article 21 et de l'article 22, s'appliquent dans les îles Wallis et Futuna.", 
                         "Le chapitre Ier du titre Ier, le titre II et le titre III de la présente loi, à l'exception du V de l'article 21 et de l'article 22, s'appliquent en Polynésie française et en Nouvelle-Calédonie.", 
@@ -5691,13 +5083,11 @@
                     "length": 815, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier, le titre II et le titre III de la présente loi, à l'exception de l'article 18, du V de l'article 21 et de l'article 22, s'appliquent dans les îles Wallis et Futuna.", 
                         "Le chapitre Ier du titre Ier, le titre II et le titre III de la présente loi, à l'exception du V de l'article 21 et de l'article 22, s'appliquent en Polynésie française et en Nouvelle-Calédonie.", 
@@ -5707,19 +5097,17 @@
                     "length": 815, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_66_T7C2"
@@ -5730,15 +5118,13 @@
             "num": 45, 
             "steps": [
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conformes", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_21 et 22_T3"
@@ -5749,15 +5135,13 @@
             "num": 118, 
             "steps": [
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conformes", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_68, 69 et 70_T7C2"
@@ -5769,8 +5153,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - À la fin de l'article L. 715-1 du même code, il est ajouté une phrase ainsi rédigée : \"Ce décret peut prévoir la création d'un conseil académique disposant de tout ou partie des compétences prévues aux articles L. 712-6-1 et L. 712-6-2.\"", 
                         "II. - L'article L. 715-2 du même code est ainsi modifié :", 
@@ -5781,13 +5163,11 @@
                     "length": 1239, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 715-1 du même code est complété par une phrase ainsi rédigée :", 
                         "\"Ce décret peut prévoir la création d'un conseil académique disposant de tout ou partie des compétences prévues aux articles L. 712-6-1 et L. 712-6-2.\"", 
@@ -5802,13 +5182,11 @@
                     "length": 1575, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 715-1 du code de l'éducation est complété par une phrase ainsi rédigée :", 
                         "\"Ce décret peut prévoir la création d'un conseil académique disposant de tout ou partie des compétences prévues aux articles L. 712-6-1 et L. 712-6-2.\"", 
@@ -5823,13 +5201,11 @@
                     "length": 1612, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 715-1 du code de l'éducation est complété par une phrase ainsi rédigée :", 
                         "\"Ce décret peut prévoir la création d'un conseil académique disposant de tout ou partie des compétences prévues aux articles L. 712-6-1 et L. 712-6-2.\"", 
@@ -5844,13 +5220,11 @@
                     "length": 1612, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "I. - L'article L. 715-1 du code de l'éducation est complété par une phrase ainsi rédigée :", 
                         "\"Ce décret peut prévoir la création d'un conseil académique disposant de tout ou partie des compétences prévues aux articles L. 712-6-1 et L. 712-6-2.\"", 
@@ -5865,8 +5239,8 @@
                     "length": 1612, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_33_T4C1S2"
@@ -5878,8 +5252,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 712-4 du même code devient l'article L. 712-6-2.", 
                         "II. - Il est rétabli un article L. 712-4 ainsi rédigé :", 
@@ -5893,13 +5265,11 @@
                     "length": 1427, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 712-4 du même code devient l'article L. 712-6-2.", 
                         "II. - Au même code, il est rétabli un article L. 712-4 ainsi rédigé :", 
@@ -5915,13 +5285,11 @@
                     "length": 2128, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 712-4 du même code devient l'article L. 712-6-2.", 
                         "II. - Il est rétabli un article L. 712-4 du même code ainsi rédigé :", 
@@ -5943,13 +5311,11 @@
                     "length": 2386, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 712-4 du même code devient l'article L. 712-6-2.", 
                         "II. - Il est rétabli un article L. 712-4 du même code ainsi rédigé :", 
@@ -5971,13 +5337,11 @@
                     "length": 2386, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 712-4 du même code devient l'article L. 712-6-2.", 
                         "II. - Il est rétabli un article L. 712-4 du même code ainsi rédigé :", 
@@ -6000,13 +5364,11 @@
                     "length": 2583, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. -", 
                         "II. - Il est rétabli un article L. 712-4 du code de l'éducation ainsi rédigé :", 
@@ -6027,13 +5389,11 @@
                     "length": 2055, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "I. - L'article L. 712-4 du même code devient l'article L. 712-6-2.", 
@@ -6057,13 +5417,11 @@
                     "length": 2761, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 712-4 du code de l'éducation devient l'article L. 712-6-2.", 
                         "II. - L'article L. 712-4 du même code est ainsi rétabli :", 
@@ -6086,8 +5444,8 @@
                     "length": 2709, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_27_T4C1S1"
@@ -6099,71 +5457,59 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "true", 
                     "text": [
                         "Le livre VI du code de l'éducation est modifié conformément aux dispositions du présent titre."
                     ], 
                     "length": 94, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "true", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "commission", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "true", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "true", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "true", 
+                    "status": "suppression maintenue", 
                     "text": [], 
                     "length": 0, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "suppression conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_14_T3"
@@ -6175,8 +5521,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Les établissements publics de coopération scientifique créés conformément à l'article L. 344-4 du code de la recherche dans sa rédaction en vigueur avant la publication de la présente loi deviennent des communautés d'universités et établissements à la date de publication de la présente loi.", 
                         "Le conseil d'administration de l'établissement public de coopération scientifique en exercice à la date de publication de la présente loi adopte dans un délai d'un an à compter de la même date les nouveaux statuts de l'établissement pour les mettre en conformité avec les dispositions des articles L. 718-2-5 à L. 718-2-13 du code de l'éducation, dans leur rédaction issue de la présente loi.", 
@@ -6187,13 +5531,11 @@
                     "length": 1884, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Les établissements publics de coopération scientifique créés conformément à l'article L. 344-4 du code de la recherche, dans sa rédaction antérieure à la publication de la présente loi, deviennent des communautés d'universités et établissements à la date de publication de la présente loi.", 
                         "Le conseil d'administration de l'établissement public de coopération scientifique en exercice à la date de publication de la présente loi adopte, dans un délai d'un an à compter de la même date, les nouveaux statuts de l'établissement pour les mettre en conformité avec les dispositions des articles L. 718-6 à L. 718-14 du code de l'éducation, dans leur rédaction résultant de la présente loi.", 
@@ -6204,13 +5546,11 @@
                     "length": 1862, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Les établissements publics de coopération scientifique créés conformément à l'article L. 344-4 du code de la recherche, dans sa rédaction antérieure à la publication de la présente loi, deviennent des communautés d'universités et établissements à la date de publication de la présente loi.", 
                         "Le conseil d'administration de l'établissement public de coopération scientifique en exercice à la date de publication de la présente loi adopte, dans un délai d'un an à compter de la même date, les nouveaux statuts de l'établissement pour les mettre en conformité avec les articles L. 718-6 à L. 718-14 du code de l'éducation, dans leur rédaction résultant de la présente loi. Le président de l'établissement public de coopération scientifique en exercice à la date de publication de la présente loi est maintenu en fonction jusqu'à l'approbation des nouveaux statuts de la communauté d'universités et établissements.", 
@@ -6221,13 +5561,11 @@
                     "length": 2086, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Les établissements publics de coopération scientifique créés conformément à l'article L. 344-4 du code de la recherche, dans sa rédaction antérieure à la publication de la présente loi, deviennent des communautés d'universités et établissements à la date de publication de la présente loi.", 
                         "Le conseil d'administration de l'établissement public de coopération scientifique en exercice à la date de publication de la présente loi adopte, dans un délai d'un an à compter de la même date, les nouveaux statuts de l'établissement pour les mettre en conformité avec les articles L. 718-6 à L. 718-14 du code de l'éducation, dans leur rédaction résultant de la présente loi. Le président de l'établissement public de coopération scientifique en exercice à la date de publication de la présente loi est maintenu en fonction jusqu'à l'approbation des nouveaux statuts de la communauté d'universités et établissements.", 
@@ -6238,13 +5576,11 @@
                     "length": 2086, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Les établissements publics de coopération scientifique créés conformément à l'article L. 344-4 du code de la recherche, dans sa rédaction antérieure à la publication de la présente loi, deviennent des communautés d'universités et établissements à la date de publication de la présente loi.", 
                         "Le conseil d'administration de l'établissement public de coopération scientifique en exercice à la date de publication de la présente loi adopte, dans un délai d'un an à compter de la même date, les nouveaux statuts de l'établissement pour les mettre en conformité avec les articles L. 718-6 à L. 718-14 du code de l'éducation, dans leur rédaction résultant de la présente loi. Le président de l'établissement public de coopération scientifique en exercice à la date de publication de la présente loi est maintenu en fonction jusqu'à l'élection du président de la communauté d'universités et établissements dans les conditions prévues par l'article L. 718-9 du code de l'éducation, dans sa rédaction résultant de la présente loi. Les membres du conseil d'administration de l'établissement public de coopération scientifique en exercice à la date de publication de la présente loi continuent à siéger jusqu'à la désignation des membres du conseil d'administration de la communauté d'universités et établissements conformément à ses nouveaux statuts.", 
@@ -6255,13 +5591,11 @@
                     "length": 2516, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Les établissements publics de coopération scientifique créés conformément à l'article L. 344-4 du code de la recherche, dans sa rédaction antérieure à la publication de la présente loi, deviennent des communautés d'universités et établissements à la date de publication de la présente loi.", 
                         "Le conseil d'administration de l'établissement public de coopération scientifique en exercice à la date de publication de la présente loi adopte, dans un délai d'un an à compter de la même date, les nouveaux statuts de l'établissement pour les mettre en conformité avec les articles L. 718-6 à L. 718-14 du code de l'éducation, dans leur rédaction résultant de la présente loi. Le président de l'établissement public de coopération scientifique en exercice à la date de publication de la présente loi est maintenu en fonction jusqu'à l'élection du président de la communauté d'universités et établissements dans les conditions prévues à l'article L. 718-9 du code de l'éducation, dans sa rédaction résultant de la présente loi. Les membres du conseil d'administration de l'établissement public de coopération scientifique en exercice à la date de publication de la présente loi continuent à siéger jusqu'à la désignation des membres du conseil d'administration de la communauté d'universités et établissements conformément à ses nouveaux statuts.", 
@@ -6272,13 +5606,11 @@
                     "length": 2184, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "I. - Les établissements publics de coopération scientifique créés conformément à l'article L. 344-4 du code de la recherche, dans sa rédaction antérieure à la publication de la présente loi, deviennent des communautés d'universités et établissements à la date de publication de la présente loi.", 
@@ -6290,13 +5622,11 @@
                     "length": 2531, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Les établissements publics de coopération scientifique créés conformément à l'article L. 344-4 du code de la recherche, dans sa rédaction antérieure à la publication de la présente loi, deviennent des communautés d'universités et établissements à la date de publication de la présente loi.", 
                         "Le conseil d'administration de l'établissement public de coopération scientifique en exercice à la date de publication de la présente loi adopte, dans un délai d'un an à compter de la même date, les nouveaux statuts de l'établissement pour les mettre en conformité avec les articles L. 718-6 à L. 718-14 du code de l'éducation, dans leur rédaction résultant de la présente loi. Le président de l'établissement public de coopération scientifique en exercice à la date de publication de la présente loi est maintenu en fonction jusqu'à l'élection du président de la communauté d'universités et établissements dans les conditions prévues à l'article L. 718-9 du même code, dans sa rédaction résultant de la présente loi. Les membres du conseil d'administration de l'établissement public de coopération scientifique en exercice à la date de publication de la présente loi continuent à siéger jusqu'à la désignation des membres du conseil d'administration de la communauté d'universités et établissements conformément à ses nouveaux statuts.", 
@@ -6307,8 +5637,8 @@
                     "length": 2505, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_59_T7C2"
@@ -6320,8 +5650,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 719-1 du code de l'éducation est ainsi modifié :", 
                         "1° Le premier alinéa est complété par une phrase ainsi rédigée : \"Les membres des conseils siègent valablement jusqu'à la désignation de leurs successeurs.\" ;", 
@@ -6346,13 +5674,11 @@
                     "length": 3993, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 719-1 du code de l'éducation est ainsi modifié :", 
                         "1° Le premier alinéa est complété par une phrase ainsi rédigée :", 
@@ -6375,13 +5701,11 @@
                     "length": 2450, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 719-1 du code de l'éducation est ainsi modifié :", 
                         "1° Le premier alinéa est complété par une phrase ainsi rédigée :", 
@@ -6404,13 +5728,11 @@
                     "length": 2656, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 719-1 du code de l'éducation est ainsi modifié :", 
                         "1° Le premier alinéa est complété par une phrase ainsi rédigée :", 
@@ -6433,13 +5755,11 @@
                     "length": 2656, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 719-1 du code de l'éducation est ainsi modifié :", 
                         "1° Le premier alinéa est complété par une phrase ainsi rédigée :", 
@@ -6463,13 +5783,11 @@
                     "length": 2928, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 719-1 du code de l'éducation est ainsi modifié :", 
                         "1° Le premier alinéa est complété par une phrase ainsi rédigée :", 
@@ -6493,13 +5811,11 @@
                     "length": 2939, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "L'article L. 719-1 du code de l'éducation est ainsi modifié :", 
@@ -6523,14 +5839,12 @@
                     ], 
                     "length": 2956, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 719-1 du code de l'éducation est ainsi modifié :", 
                         "1° Le premier alinéa est complété par une phrase ainsi rédigée :", 
@@ -6553,9 +5867,9 @@
                     ], 
                     "length": 2939, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_37_T4C1S3"
@@ -6566,9 +5880,7 @@
             "num": 53, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 714-1 du code de l'éducation est complété par un 5° ainsi rédigé :", 
                         "\"5° L'organisation des actions impliquées par la responsabilité sociale de l'établissement.\""
@@ -6576,13 +5888,11 @@
                     "length": 172, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 714-1 du code de l'éducation est complété par un 5° ainsi rédigé :", 
                         "\"5° L'organisation des actions impliquées par la responsabilité sociale de l'établissement.\""
@@ -6590,13 +5900,11 @@
                     "length": 172, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "L'article L. 714-1 du code de l'éducation est complété par un 5° ainsi rédigé :", 
                         "\"5° L'organisation des actions impliquées par la responsabilité sociale de l'établissement.\""
@@ -6604,19 +5912,17 @@
                     "length": 172, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_32 bis_T4C1S1"
@@ -6628,8 +5934,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-1 est ainsi modifié :", 
                         "1° À la fin du premier alinéa, il est ajouté la phrase suivante : \"le ministre chargé de l'enseignement supérieur en assure la coordination\" ;", 
@@ -6640,13 +5944,11 @@
                     "length": 957, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-1 du code de l'éducation est complété par deux phrases et quatre alinéas ainsi rédigés :", 
                         "\"Le ministre chargé de l'enseignement supérieur en assure la coordination. Il assure la cotutelle des établissements d'enseignement supérieur ne relevant pas de son département et participe à la définition de leur projet pédagogique.", 
@@ -6658,13 +5960,11 @@
                     "length": 1799, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-1 du code de l'éducation est complété par cinq phrases et quatre alinéas ainsi rédigés :", 
                         "\"Le ministre chargé de l'enseignement supérieur en assure la coordination. Il assure la cotutelle des établissements d'enseignement supérieur ne relevant pas de son département et participe à la définition de leur projet pédagogique. À cette fin, il est représenté à leur conseil d'administration. Il est associé aux accréditations et habilitations de ces établissements. Des modalités complémentaires peuvent être prévues dans les statuts des établissements.", 
@@ -6676,13 +5976,11 @@
                     "length": 2013, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-1 du code de l'éducation est complété par cinq phrases et quatre alinéas ainsi rédigés :", 
                         "\"Le ministre chargé de l'enseignement supérieur en assure la coordination. Il assure la cotutelle des établissements d'enseignement supérieur ne relevant pas de son département et participe à la définition de leur projet pédagogique. À cette fin, il est représenté à leur conseil d'administration. Il est associé aux accréditations et habilitations de ces établissements. Des modalités complémentaires peuvent être prévues dans les statuts des établissements.", 
@@ -6694,13 +5992,11 @@
                     "length": 2013, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-1 du code de l'éducation est complété par cinq phrases et cinq alinéas ainsi rédigés :", 
                         "\"Le ministre chargé de l'enseignement supérieur en assure la coordination. Il assure la cotutelle des établissements d'enseignement supérieur ne relevant pas de son département et participe à la définition de leur projet pédagogique. À cette fin, il est représenté à leur conseil d'administration. Il est associé aux accréditations et habilitations de ces établissements. Des modalités complémentaires peuvent être prévues dans les statuts des établissements.", 
@@ -6713,13 +6009,11 @@
                     "length": 2738, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-1 du code de l'éducation est complété par cinq phrases et cinq alinéas ainsi rédigés :", 
                         "\"Le ministre chargé de l'enseignement supérieur en assure la coordination. Il assure la cotutelle des établissements d'enseignement supérieur ne relevant pas de son département et participe à la définition de leur projet pédagogique. À cette fin, il peut être représenté à leur conseil d'administration. Il est associé aux accréditations et habilitations de ces établissements. Des modalités complémentaires peuvent être prévues dans les statuts des établissements.", 
@@ -6732,13 +6026,11 @@
                     "length": 2744, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 123-1 du code de l'éducation est complété par cinq phrases et cinq alinéas ainsi rédigés :", 
@@ -6752,13 +6044,11 @@
                     "length": 2833, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-1 du code de l'éducation est complété par cinq phrases et cinq alinéas ainsi rédigés :", 
                         "\"Le ministre chargé de l'enseignement supérieur en assure la coordination. Il assure, conjointement avec les autres ministres concernés, la tutelle des établissements d'enseignement supérieur relevant d'un autre département ministériel et participe à la définition de leur projet pédagogique. À cette fin, il peut être représenté à leur conseil d'administration. Il est associé aux accréditations et habilitations de ces établissements. Des modalités complémentaires peuvent être prévues dans les statuts des établissements.", 
@@ -6770,9 +6060,9 @@
                     ], 
                     "length": 2792, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_3_T1C1"
@@ -6784,8 +6074,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 111-6 est remplacé par les dispositions suivantes :", 
                         "\"Art. L. 111-6. - Une stratégie nationale de recherche est élaborée et révisée périodiquement sous la coordination du ministre chargé de la recherche. Cette stratégie vise à répondre aux défis scientifiques, technologiques et sociétaux.", 
@@ -6797,13 +6085,11 @@
                     "length": 1209, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 111-6 du même code est ainsi rédigé :", 
                         "\"Art. L. 111-6. - Une stratégie nationale de recherche est élaborée et révisée tous les cinq ans sous la coordination du ministre chargé de la recherche. Cette stratégie vise à répondre aux défis scientifiques, technologiques, environnementaux et sociétaux. Elle inclut la valorisation de la recherche par le transfert et l'innovation.", 
@@ -6816,13 +6102,11 @@
                     "length": 1617, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 111-6 du même code est ainsi rédigé :", 
                         "\"Art. L. 111-6. - Une stratégie nationale de recherche, comportant une programmation pluriannuelle des moyens, est élaborée et révisée tous les cinq ans sous la coordination du ministre chargé de la recherche. Cette stratégie vise à répondre aux défis scientifiques, technologiques, environnementaux et sociétaux en maintenant une recherche fondamentale de haut niveau. Elle inclut la valorisation de la recherche par le transfert et encourage l'innovation.", 
@@ -6835,13 +6119,11 @@
                     "length": 1953, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 111-6 du même code est ainsi rédigé :", 
                         "\"Art. L. 111-6. - Une stratégie nationale de recherche, comportant une programmation pluriannuelle des moyens, est élaborée et révisée tous les cinq ans sous la coordination du ministre chargé de la recherche. Cette stratégie vise à répondre aux défis scientifiques, technologiques, environnementaux et sociétaux en maintenant une recherche fondamentale de haut niveau. Elle inclut la valorisation de la recherche par le transfert et encourage l'innovation.", 
@@ -6854,13 +6136,11 @@
                     "length": 1953, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 111-6 du même code est ainsi rédigé :", 
                         "\"Art. L. 111-6. - Une stratégie nationale de recherche, comportant une programmation pluriannuelle des moyens, est élaborée et révisée tous les cinq ans sous la coordination du ministre chargé de la recherche en concertation avec la société civile. Cette stratégie vise à répondre aux défis scientifiques, technologiques, environnementaux et sociétaux en maintenant une recherche fondamentale de haut niveau. Elle comprend la valorisation des résultats de la recherche au service de la société. À cet effet, elle veille au développement de l'innovation, du transfert de technologie, de la capacité d'expertise et d'appui aux politiques publiques. La culture scientifique, technique et industrielle fait partie de la stratégie nationale de la recherche et est prise en compte dans sa mise en oeuvre.", 
@@ -6872,13 +6152,11 @@
                     "length": 2155, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 111-6 du code de la recherche est ainsi rédigé :", 
                         "\"Art. L. 111-6. - Une stratégie nationale de recherche, comportant une programmation pluriannuelle des moyens, est élaborée et révisée tous les cinq ans sous la coordination du ministre chargé de la recherche en concertation avec la société civile. Cette stratégie vise à répondre aux défis scientifiques, technologiques, environnementaux et sociétaux en maintenant une recherche fondamentale de haut niveau. Elle comprend la valorisation des résultats de la recherche au service de la société. À cet effet, elle veille au développement de l'innovation, du transfert de technologie, de la capacité d'expertise et d'appui aux politiques publiques et aux structures associatives. La culture scientifique, technique et industrielle fait partie de la stratégie nationale de la recherche et est prise en compte dans sa mise en oeuvre.", 
@@ -6890,13 +6168,11 @@
                     "length": 2358, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 111-6 du code de la recherche est ainsi rédigé :", 
@@ -6909,13 +6185,11 @@
                     "length": 2595, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 111-6 du code de la recherche est ainsi rédigé :", 
                         "\"Art. L. 111-6. - Une stratégie nationale de recherche, comportant une programmation pluriannuelle des moyens, est élaborée et révisée tous les cinq ans sous la coordination du ministre chargé de la recherche en concertation avec la société civile. Cette stratégie vise à répondre aux défis scientifiques, technologiques, environnementaux et sociétaux en maintenant une recherche fondamentale de haut niveau. Elle comprend la valorisation des résultats de la recherche au service de la société. À cet effet, elle veille au développement de l'innovation, du transfert de technologie, de la capacité d'expertise et d'appui aux politiques publiques et aux associations et fondations, reconnues d'utilité publique. La culture scientifique, technique et industrielle fait partie de la stratégie nationale de recherche et est prise en compte dans sa mise en oeuvre.", 
@@ -6927,8 +6201,8 @@
                     "length": 2552, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_11_T1C2"
@@ -6939,9 +6213,7 @@
             "num": 97, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Dans le cadre du projet de fusion entre l'école centrale des arts et manufactures et l'école supérieure d'électricité pour créer un nouvel établissement public à caractère scientifique, culturel et professionnel, les personnels issus de l'école supérieure d'électricité peuvent conserver leur contrat de droit privé ou opter pour sa transformation en contrat de droit public, conformément à l'article L. 1224-3 du code du travail. Ce droit d'option peut s'exercer pendant une durée de quinze ans à dater de la création du nouvel établissement.", 
                         "Au sein du nouvel établissement, les personnels contractuels de droit privé sont représentés, au même titre que les personnels de droit public, par le comité technique, le comité d'hygiène, de sécurité et des conditions de travail et la commission consultative paritaire de l'établissement. Les livres Ier et III de la deuxième partie du code du travail ne s'appliquent pas."
@@ -6949,13 +6221,11 @@
                     "length": 918, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Dans le cadre du projet de fusion entre l'école centrale des arts et manufactures et l'école supérieure d'électricité pour créer un nouvel établissement public à caractère scientifique, culturel et professionnel, les personnels issus de l'école supérieure d'électricité peuvent conserver leur contrat de droit privé ou opter pour sa transformation en contrat de droit public, conformément à l'article L. 1224-3 du code du travail. Ce droit d'option peut s'exercer pendant une durée de quinze ans à dater de la création du nouvel établissement.", 
                         "Au sein du nouvel établissement, les personnels contractuels de droit privé sont représentés, au même titre que les personnels de droit public, par le comité technique, le comité d'hygiène, de sécurité et des conditions de travail et la commission consultative paritaire de l'établissement. Les livres Ier et III de la deuxième partie du code du travail ne s'appliquent pas."
@@ -6963,13 +6233,11 @@
                     "length": 918, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Dans le cadre du projet de fusion entre l'école centrale des arts et manufactures et l'école supérieure d'électricité pour créer un nouvel établissement public à caractère scientifique, culturel et professionnel, les personnels issus de l'école supérieure d'électricité peuvent conserver leur contrat de droit privé ou opter pour sa transformation en contrat de droit public, conformément à l'article L. 1224-3 du code du travail. Ce droit d'option peut s'exercer pendant une durée de quinze ans à dater de la création du nouvel établissement.", 
                         "Au sein du nouvel établissement, les personnels contractuels de droit privé sont représentés, au même titre que les personnels de droit public, par le comité technique, le comité d'hygiène, de sécurité et des conditions de travail et la commission consultative paritaire de l'établissement. Les livres Ier et III de la deuxième partie du code du travail ne s'appliquent pas."
@@ -6977,8 +6245,8 @@
                     "length": 918, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_57 octies_T7C1"
@@ -6989,57 +6257,49 @@
             "num": 9, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Au 1° de l'article L. 123-4 du même code, après les mots : \"et concourt\", sont insérés les mots : \"à leur réussite et\"."
                     ], 
                     "length": 119, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Au 1° de l'article L. 123-4 du code de l'éducation, après les mots : \"et concourt\", sont insérés les mots : \"à leur réussite et\"."
                     ], 
                     "length": 129, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Au 1° de l'article L. 123-4 du code de l'éducation, après les mots : \"et concourt\", sont insérés les mots : \"à leur réussite et\"."
                     ], 
                     "length": 146, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Au 1° de l'article L. 123-4 du code de l'éducation, après les mots : \"et concourt\", sont insérés les mots : \"à leur réussite et\"."
                     ], 
                     "length": 129, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_5 bis_T1C1"
@@ -7050,15 +6310,13 @@
             "num": 64, 
             "steps": [
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conformes", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_38 bis et 38 ter_T4C2"
@@ -7069,9 +6327,7 @@
             "num": 95, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article 42 de la loi n° 2009-972 du 3 août 2009 relative à la mobilité et aux parcours professionnels dans la fonction publique est complété par des V et VI ainsi rédigés :", 
                         "\"V. - Dans la limite du nombre d'emplois résultant de l'affectation mentionnée au I du présent article, des concours internes de recrutement dans les corps régis par le décret n°85-1534 du 31 décembre 1985 fixant les dispositions statutaires applicables aux ingénieurs et aux personnels techniques et administratifs de recherche et de formation du ministère chargé de l'enseignement supérieur peuvent être organisés au sein de l'établissement. Les lauréats de ces concours sont, à titre dérogatoire, affectés auprès de l'établissement.", 
@@ -7081,13 +6337,11 @@
                     "length": 1093, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article 42 de la loi n° 2009-972 du 3 août 2009 relative à la mobilité et aux parcours professionnels dans la fonction publique est complété par des V et VI ainsi rédigés :", 
                         "\"V. - Dans la limite du nombre d'emplois résultant de l'affectation mentionnée au I du présent article, des concours internes de recrutement dans les corps régis par le décret n°85-1534 du 31 décembre 1985 fixant les dispositions statutaires applicables aux ingénieurs et aux personnels techniques et administratifs de recherche et de formation du ministère chargé de l'enseignement supérieur peuvent être organisés au sein de l'établissement. Les lauréats de ces concours sont, à titre dérogatoire, affectés auprès de l'établissement.", 
@@ -7097,13 +6351,11 @@
                     "length": 1093, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article 42 de la loi n° 2009-972 du 3 août 2009 relative à la mobilité et aux parcours professionnels dans la fonction publique est complété par des V et VI ainsi rédigés :", 
                         "\"V. - Dans la limite du nombre d'emplois résultant de l'affectation mentionnée au I du présent article, des concours internes de recrutement dans les corps régis par le décret n°85-1534 du 31 décembre 1985 fixant les dispositions statutaires applicables aux ingénieurs et aux personnels techniques et administratifs de recherche et de formation du ministère chargé de l'enseignement supérieur peuvent être organisés au sein de l'établissement. Les lauréats de ces concours sont, à titre dérogatoire, affectés auprès de l'établissement.", 
@@ -7113,8 +6365,8 @@
                     "length": 1093, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_57 sexies_T7C1"
@@ -7125,9 +6377,7 @@
             "num": 55, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Après l'article L. 952-2 du code de l'éducation, il est inséré un article L. 952-2-1 ainsi rédigé :", 
                         "\"Art. L. 952-2-1. - Les enseignants-chercheurs, les enseignants et les chercheurs participent aux missions du service public de l'enseignement supérieur définies à l'article L.123-3.", 
@@ -7138,13 +6388,11 @@
                     "length": 1278, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Après l'article L. 952-2 du code de l'éducation, il est inséré un article L. 952-2-1 ainsi rédigé :", 
                         "\"Art. L. 952-2-1. - Les personnels mentionnés à l'article L. 952-1 participent aux missions du service public de l'enseignement supérieur définies à l'article L. 123-3.", 
@@ -7156,13 +6404,11 @@
                     "length": 1811, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Après l'article L. 952-2 du code de l'éducation, il est inséré un article L. 952-2-1 ainsi rédigé :", 
                         "\"Art. L. 952-2-1. - Les personnels mentionnés à l'article L. 952-1 participent aux missions du service public de l'enseignement supérieur définies à l'article L. 123-3.", 
@@ -7174,13 +6420,11 @@
                     "length": 1811, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "Après l'article L. 952-2 du code de l'éducation, il est inséré un article L. 952-2-1 ainsi rédigé :", 
                         "\"Art. L. 952-2-1. - Les personnels mentionnés à l'article L. 952-1 participent aux missions du service public de l'enseignement supérieur définies à l'article L. 123-3.", 
@@ -7192,13 +6436,11 @@
                     "length": 1811, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Après l'article L. 952-2 du code de l'éducation, il est inséré un article L. 952-2-1 ainsi rédigé :", 
                         "\"Art. L. 952-2-1. - Les personnels mentionnés à l'article L. 952-1 participent aux missions du service public de l'enseignement supérieur définies à l'article L. 123-3.", 
@@ -7210,13 +6452,11 @@
                     "length": 1830, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Après l'article L. 952-2 du code de l'éducation, il est inséré un article L. 952-2-1 ainsi rédigé :", 
@@ -7228,14 +6468,12 @@
                     ], 
                     "length": 1847, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Après l'article L. 952-2 du code de l'éducation, il est inséré un article L. 952-2-1 ainsi rédigé :", 
                         "\"Art. L. 952-2-1. - Les personnels mentionnés à l'article L. 952-1 participent aux missions du service public de l'enseignement supérieur définies à l'article L. 123-3.", 
@@ -7246,9 +6484,9 @@
                     ], 
                     "length": 1830, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_43 bis_T5"
@@ -7259,9 +6497,7 @@
             "num": 27, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 611-3 du code de l'éducation est ainsi modifié :", 
                         "1° À la première phrase, après le mot : \"capacités\" sont insérés les mots : \"ainsi que des perspectives professionnelles liées aux besoins prévisibles de la société, de l'économie et de l'aménagement du territoire\" ;", 
@@ -7271,13 +6507,11 @@
                     "length": 451, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 611-3 du code de l'éducation est ainsi modifié :", 
                         "1° À la première phrase, après le mot : \"capacités\", sont insérés les mots : \"ainsi que des perspectives professionnelles liées aux besoins prévisibles de la société, de l'économie et de l'aménagement du territoire\" ;", 
@@ -7287,13 +6521,11 @@
                     "length": 452, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "L'article L. 611-3 du code de l'éducation est ainsi modifié :", 
@@ -7303,14 +6535,12 @@
                     ], 
                     "length": 469, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 611-3 du code de l'éducation est ainsi modifié :", 
                         "1° À la première phrase, après le mot : \"capacités\", sont insérés les mots : \"ainsi que des perspectives professionnelles liées aux besoins prévisibles de la société, de l'économie et de l'aménagement du territoire\" ;", 
@@ -7319,9 +6549,9 @@
                     ], 
                     "length": 452, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_15 bis A_T3"
@@ -7332,57 +6562,49 @@
             "num": 87, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le Gouvernement remet aux commissions permanentes compétentes de l'Assemblée nationale et du Sénat, au plus tard le 30 juin 2014, un rapport évaluant les conditions d'alignement du statut des enseignants des écoles territoriales d'art sur celui des enseignants des écoles nationales d'art et comprenant une analyse de la mise en oeuvre de leurs activités de recherche."
                     ], 
                     "length": 368, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le Gouvernement remet aux commissions permanentes compétentes de l'Assemblée nationale et du Sénat, au plus tard le 30 juin 2014, un rapport évaluant les conditions d'alignement du statut des enseignants des écoles territoriales d'art sur celui des enseignants des écoles nationales d'art et comprenant une analyse de la mise en oeuvre de leurs activités de recherche."
                     ], 
                     "length": 368, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Le Gouvernement remet aux commissions permanentes compétentes de l'Assemblée nationale et du Sénat, au plus tard le 30 juin 2014, un rapport évaluant les conditions d'alignement du statut des enseignants des écoles territoriales d'art sur celui des enseignants des écoles nationales d'art et comprenant une analyse de la mise en oeuvre de leurs activités de recherche."
                     ], 
                     "length": 385, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Le Gouvernement remet aux commissions permanentes compétentes de l'Assemblée nationale et du Sénat, au plus tard le 30 juin 2014, un rapport évaluant les conditions d'alignement du statut des enseignants des écoles territoriales d'art sur celui des enseignants des écoles nationales d'art et comprenant une analyse de la mise en oeuvre de leurs activités de recherche."
                     ], 
                     "length": 368, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_47 sexies_T5"
@@ -7394,8 +6616,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 114-3-3 du même code est remplacé par les dispositions suivantes :", 
                         "Art. L. 114-3-3. - Le Haut conseil est administré par un conseil, assisté d'un conseil d'orientation scientifique, garant de la qualité des travaux du Haut conseil.", 
@@ -7413,13 +6633,11 @@
                     "length": 2385, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 114-3-3 du même code est ainsi rédigé :", 
                         "\"Art. L. 114-3-3.- I.- Le Haut Conseil est administré par un conseil garant de la qualité de ses travaux, assisté d'un comité d'orientation scientifique.", 
@@ -7437,13 +6655,11 @@
                     "length": 2531, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 114-3-3 du même code est ainsi rédigé :", 
                         "\"Art. L. 114-3-3. - I. - Le Haut Conseil est administré par un conseil garant de la qualité de ses travaux, assisté d'un comité d'orientation scientifique.", 
@@ -7461,13 +6677,11 @@
                     "length": 2535, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 114-3-3 du même code est ainsi rédigé :", 
                         "\"Art. L. 114-3-3. - I. - Le Haut Conseil est administré par un conseil garant de la qualité de ses travaux, assisté d'un comité d'orientation scientifique.", 
@@ -7485,13 +6699,11 @@
                     "length": 2535, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 114-3-3 du même code est ainsi rédigé :", 
                         "\"Art. L. 114-3-3. - I. - Le Haut Conseil est administré par un conseil garant de la qualité de ses travaux, assisté d'un comité d'orientation scientifique.", 
@@ -7509,13 +6721,11 @@
                     "length": 2535, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 114-3-3 du code de la recherche est ainsi rédigé :", 
                         "\"Art. L. 114-3-3. - I. - Le Haut Conseil est administré par un conseil garant de la qualité de ses travaux.", 
@@ -7533,13 +6743,11 @@
                     "length": 2233, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 114-3-3 du code de la recherche est ainsi rédigé :", 
@@ -7558,13 +6766,11 @@
                     "length": 2242, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 114-3-3 du code de la recherche est ainsi rédigé :", 
                         "\"Art. L. 114-3-3. - I. - Le Haut Conseil est administré par un conseil garant de la qualité de ses travaux.", 
@@ -7582,8 +6788,8 @@
                     "length": 2182, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_50_T6C1"
@@ -7595,21 +6801,17 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Les présidents et directeurs d'établissements publics d'enseignement supérieur doivent rendre publique sur leur site Internet la liste des diplômes universitaires proposés par leur établissement et des enseignants intervenant dans ces formations."
                     ], 
                     "length": 246, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 613-2 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"Les présidents et directeurs d'établissements publics d'enseignement supérieur rendent publique sur leur site internet la liste des diplômes qui leur sont propres et des enseignants intervenant dans ces formations.\""
@@ -7617,13 +6819,11 @@
                     "length": 300, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "L'article L. 613-2 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
@@ -7631,23 +6831,21 @@
                     ], 
                     "length": 317, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 613-2 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"Les présidents et directeurs d'établissements publics d'enseignement supérieur rendent publique sur leur site internet la liste des diplômes qui leur sont propres et des enseignants intervenant dans ces formations.\""
                     ], 
                     "length": 300, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_23 ter_T4C1"
@@ -7658,9 +6856,7 @@
             "num": 66, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le code de l'éducation est ainsi modifié :", 
                         "1° L'article L. 731-1 est ainsi modifié :", 
@@ -7681,13 +6877,11 @@
                     "length": 2461, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le code de l'éducation est ainsi modifié :", 
                         "1° L'article L. 731-1 est ainsi modifié :", 
@@ -7708,13 +6902,11 @@
                     "length": 2461, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "Le code de l'éducation est ainsi modifié :", 
                         "1° L'article L. 731-1 est ainsi modifié :", 
@@ -7735,19 +6927,17 @@
                     "length": 2461, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_42 A_T4C3"
@@ -7759,8 +6949,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Le chapitre IV du titre IV du livre III du code de la recherche est ainsi modifié :", 
                         "1° L'intitulé est remplacé par l'intitulé suivant : \"Les fondations de coopération scientifique\" ;", 
@@ -7772,13 +6960,11 @@
                     "length": 857, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre IV du titre IV du livre III du code de la recherche est ainsi modifié :", 
                         "1° L'intitulé est ainsi rédigé : \"Les fondations de coopération scientifique\" ;", 
@@ -7800,13 +6986,11 @@
                     "length": 1934, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre IV du titre IV du livre III du code de la recherche est ainsi modifié :", 
                         "1° L'intitulé est ainsi rédigé : \"Les fondations de coopération scientifique\" ;", 
@@ -7828,13 +7012,11 @@
                     "length": 1950, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre IV du titre IV du livre III du code de la recherche est ainsi modifié :", 
                         "1° L'intitulé est ainsi rédigé : \"Les fondations de coopération scientifique\" ;", 
@@ -7856,13 +7038,11 @@
                     "length": 1950, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "I. - Le chapitre IV du titre IV du livre III du code de la recherche est ainsi modifié :", 
                         "1° L'intitulé est ainsi rédigé : \"Les fondations de coopération scientifique\" ;", 
@@ -7884,13 +7064,11 @@
                     "length": 1950, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de l'Assemblée nationale)", 
                         "I. - Le chapitre IV du titre IV du livre III du code de la recherche est ainsi modifié :", 
@@ -7912,14 +7090,12 @@
                     ], 
                     "length": 1983, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le chapitre IV du titre IV du livre III du code de la recherche est ainsi modifié :", 
                         "1° L'intitulé est ainsi rédigé : \"Les fondations de coopération scientifique\" ;", 
@@ -7941,8 +7117,8 @@
                     "length": 1968, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_40_T4C2"
@@ -7954,8 +7130,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 329-7 du même code est remplacé par les dispositions suivantes :", 
                         "Art. L. 329-7. - I. - Les agents de l'État et des personnes publiques investies d'une mission de recherche auteurs, dans le cadre de recherches financées par dotations de l'État et des collectivités territoriales ou par subventions d'agences de financement nationales, d'une invention dans les conditions prévues au 1 de l'article L. 611-7 du code de la propriété intellectuelle en font immédiatement déclaration auprès de la personne publique employeur dont ils relèvent.", 
@@ -7966,13 +7140,11 @@
                     "length": 1618, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 329-7 du code de la recherche est ainsi rédigé :", 
                         "\"Art. L. 329-7. - I. - Les agents de l'État et des personnes publiques investies d'une mission de recherche, auteurs, dans le cadre de recherches financées par des dotations de l'État et des collectivités territoriales ou par des subventions d'agences de financement nationales, d'une invention dans les conditions prévues au 1 de l'article L. 611-7 du code de la propriété intellectuelle, en font immédiatement déclaration auprès de la personne publique employeur dont ils relèvent.", 
@@ -7983,13 +7155,11 @@
                     "length": 1571, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 329-7 du code de la recherche est ainsi rédigé :", 
                         "\"Art. L. 329-7. - I. - Les agents de l'État et des personnes publiques investies d'une mission de recherche, auteurs, dans le cadre de recherches financées par des dotations de l'État et des collectivités territoriales ou par des subventions d'agences de financement nationales, d'une invention dans les conditions prévues au 1 de l'article L. 611-7 du code de la propriété intellectuelle, en font immédiatement déclaration auprès de la personne publique employeur dont ils relèvent.", 
@@ -8000,13 +7170,11 @@
                     "length": 1572, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 329-7 du code de la recherche est ainsi rédigé :", 
                         "\"Art. L. 329-7. - I. - Les agents de l'État et des personnes publiques investies d'une mission de recherche, auteurs, dans le cadre de recherches financées par des dotations de l'État et des collectivités territoriales ou par des subventions d'agences de financement nationales, d'une invention dans les conditions prévues au 1 de l'article L. 611-7 du code de la propriété intellectuelle, en font immédiatement déclaration auprès de la personne publique employeur dont ils relèvent.", 
@@ -8017,13 +7185,11 @@
                     "length": 1572, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 329-7 du code de la recherche est ainsi rédigé :", 
                         "\"Art. L. 329-7. - I. - Les agents de l'État et des personnes publiques investies d'une mission de recherche, auteurs, dans le cadre de recherches financées par des dotations de l'État et des collectivités territoriales ou par des subventions d'agences de financement nationales, d'une invention dans les conditions prévues au 1 de l'article L. 611-7 du code de la propriété intellectuelle en font immédiatement déclaration auprès de la personne publique employeur dont ils relèvent.", 
@@ -8035,13 +7201,11 @@
                     "length": 1966, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 329-7 du code de la recherche est ainsi rédigé :", 
                         "\"Art. L. 329-7. - I. - Les agents de l'État et des personnes publiques investies d'une mission de recherche, auteurs, dans le cadre de recherches financées par des dotations de l'État et des collectivités territoriales ou par des subventions d'agences de financement nationales, d'une invention dans les conditions prévues au 1 de l'article L. 611-7 du code de la propriété intellectuelle en font immédiatement déclaration auprès de la personne publique employeur dont ils relèvent.", 
@@ -8054,13 +7218,11 @@
                     "length": 2280, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 329-7 du code de la recherche est ainsi rédigé :", 
@@ -8074,13 +7236,11 @@
                     "length": 2443, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 329-7 du code de la recherche est ainsi rédigé :", 
                         "\"Art. L. 329-7. - I. - Les agents de l'État et des personnes publiques investies d'une mission de recherche, auteurs, dans le cadre de recherches financées par des dotations de l'État et des collectivités territoriales ou par des subventions d'agences de financement nationales, d'une invention dans les conditions prévues au 1 de l'article L. 611-7 du code de la propriété intellectuelle en font immédiatement déclaration auprès de la personne publique employeur dont ils relèvent.", 
@@ -8092,9 +7252,9 @@
                     ], 
                     "length": 2402, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_55_T6C2"
@@ -8106,68 +7266,58 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Dans le titre de la section 2 du chapitre III du titre Ier du livre VII du même code, les mots : \"et odontologie\" sont remplacés par les mots : \", odontologie et maïeutique\"."
                     ], 
                     "length": 174, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "À la fin de l'intitulé de la section 2 du chapitre III du titre Ier du livre VII de la troisième partie du même code, les mots : \"et odontologie\" sont remplacés par les mots : \", odontologie et maïeutique\"."
                     ], 
                     "length": 206, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "À la fin de l'intitulé de la section 2 du chapitre III du titre Ier du livre VII de la troisième partie du même code, les mots : \"et odontologie\" sont remplacés par les mots : \", odontologie et maïeutique\"."
                     ], 
                     "length": 206, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "À la fin de l'intitulé de la section 2 du chapitre III du titre Ier du livre VII de la troisième partie du même code, les mots : \"et odontologie\" sont remplacés par les mots : \", odontologie et maïeutique\"."
                     ], 
                     "length": 206, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "À la fin de l'intitulé de la section 2 du chapitre III du titre Ier du livre VII de la troisième partie du même code, les mots : \"et odontologie\" sont remplacés par les mots : \", odontologie et maïeutique\"."
                     ], 
                     "length": 206, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_31_T4C1S1"
@@ -8179,68 +7329,58 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Les décrets pris pour l'application du deuxième alinéa de l'article L. 719-10 dans sa rédaction en vigueur antérieurement à la publication de la présente loi sont modifiés dans le délai de deux ans à compter de la publication de la présente loi pour mentionner les compétences mises en commun entre l'établissement de rattachement et les établissements rattachés conformément à l'article L. 718-2-14 du code de l'éducation."
                     ], 
                     "length": 423, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Les décrets pris pour l'application du deuxième alinéa de l'article L. 719-10 du code de l'éducation, dans sa rédaction antérieure à la publication de la présente loi, sont modifiés dans un délai de deux ans à compter de la publication de la présente loi pour mentionner les compétences mises en commun entre l'établissement de rattachement et les établissements rattachés conformément à l'article L. 718-15 du même code."
                     ], 
                     "length": 421, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Les décrets pris pour l'application du deuxième alinéa de l'article L. 719-10 du code de l'éducation, dans sa rédaction antérieure à la publication de la présente loi, sont modifiés dans un délai de deux ans à compter de cette même publication pour mentionner les compétences mises en commun entre l'établissement de rattachement et les établissements rattachés conformément à l'article L. 718-15 du même code."
                     ], 
                     "length": 410, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Les décrets pris pour l'application du deuxième alinéa de l'article L. 719-10 du code de l'éducation, dans sa rédaction antérieure à la publication de la présente loi, sont modifiés dans un délai de deux ans à compter de cette même publication pour mentionner les compétences mises en commun entre l'établissement de rattachement et les établissements rattachés conformément à l'article L. 718-15 du même code."
                     ], 
                     "length": 410, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Les décrets pris pour l'application du deuxième alinéa de l'article L. 719-10 du code de l'éducation, dans sa rédaction antérieure à la publication de la présente loi, sont modifiés dans un délai de deux ans à compter de cette même publication pour mentionner les compétences mises en commun entre l'établissement de rattachement et les établissements rattachés conformément à l'article L. 718-15 du même code."
                     ], 
                     "length": 410, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_60_T7C2"
@@ -8252,8 +7392,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-2 du même code est ainsi modifié :", 
                         "1° Dans la première phrase du premier alinéa, le mot : \"élus\" est supprimé ;", 
@@ -8267,13 +7405,11 @@
                     "length": 1222, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-2 du même code est ainsi modifié :", 
                         "1° À la première phrase du premier alinéa, le mot : \"élus\" est supprimé ;", 
@@ -8290,13 +7426,11 @@
                     "length": 1492, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-2 du même code est ainsi modifié :", 
                         "1° À la première phrase du premier alinéa, le mot : \"élus\" est supprimé ;", 
@@ -8313,13 +7447,11 @@
                     "length": 1411, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-2 du même code est ainsi modifié :", 
                         "1° À la première phrase du premier alinéa, le mot : \"élus\" est supprimé ;", 
@@ -8336,13 +7468,11 @@
                     "length": 1411, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "true", 
                     "text": [
                         "L'article L. 712-2 du même code est ainsi modifié :", 
                         "1° À la première phrase du premier alinéa, le mot : \"élus\" est supprimé ;", 
@@ -8359,24 +7489,20 @@
                     "length": 1543, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 712-2 du code de l'éducation est ainsi modifié :", 
@@ -8393,14 +7519,12 @@
                     ], 
                     "length": 2002, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-2 du code de l'éducation est ainsi modifié :", 
                         "1° À la première phrase du premier alinéa, le mot : \"élus\" est supprimé ;", 
@@ -8416,9 +7540,9 @@
                     ], 
                     "length": 1961, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_25_T4C1S1"
@@ -8430,79 +7554,67 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "À l'article L. 712-1 du même code, les mots : \", le conseil scientifique et le conseil des études et de la vie universitaire par leurs avis\" sont remplacés par les mots : \"et le conseil académique, par ses délibérations et avis,\"."
                     ], 
                     "length": 230, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "À l'article L. 712-1 du code de l'éducation, les mots : \", le conseil scientifique et le conseil des études et de la vie universitaire par leurs avis\" sont remplacés par les mots : \"et le conseil académique, par ses délibérations et avis,\"."
                     ], 
                     "length": 240, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "À l'article L. 712-1 du code de l'éducation, les mots : \", le conseil scientifique et le conseil des études et de la vie universitaire par leurs avis\" sont remplacés par les mots : \"et le conseil académique, par ses délibérations et avis,\"."
                     ], 
                     "length": 240, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "À l'article L. 712-1 du code de l'éducation, les mots : \", le conseil scientifique et le conseil des études et de la vie universitaire par leurs avis\" sont remplacés par les mots : \"et le conseil académique, par ses délibérations et avis,\"."
                     ], 
                     "length": 240, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "À l'article L. 712-1 du code de l'éducation, les mots : \", le conseil scientifique et le conseil des études et de la vie universitaire par leurs avis\" sont remplacés par les mots : \"et le conseil académique, par ses délibérations et avis,\"."
                     ], 
                     "length": 240, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_24_T4C1S1"
@@ -8514,8 +7626,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au troisième alinéa de l'article L. 233-1 du code de l'éducation, le mot : \"habilités\" est remplacé par le mot : \"accrédités\".", 
                         "II. - Au deuxième alinéa de l'article L. 612-7 du même code, le mot : \"habilité\" est remplacé par le mot : \"accrédité\".", 
@@ -8526,13 +7636,11 @@
                     "length": 979, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au troisième alinéa du I de l'article L. 233-1 du code de l'éducation, le mot : \"habilités\" est remplacé par le mot : \"accrédités\".", 
                         "II. - À la dernière phrase du deuxième alinéa de l'article L. 612-7 du même code, le mot : \"habilité\" est remplacé par le mot : \"accrédité\".", 
@@ -8545,13 +7653,11 @@
                     "length": 1086, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au troisième alinéa du I de l'article L. 233-1 du code de l'éducation, le mot : \"habilités\" est remplacé par le mot : \"accrédités\".", 
                         "II. - À la dernière phrase du deuxième alinéa de l'article L. 612-7 du même code, le mot : \"habilité\" est remplacé par le mot : \"accrédité\".", 
@@ -8569,13 +7675,11 @@
                     "length": 1807, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au troisième alinéa du I de l'article L. 233-1 du code de l'éducation, le mot : \"habilités\" est remplacé par le mot : \"accrédités\".", 
                         "II. - À la dernière phrase du deuxième alinéa de l'article L. 612-7 du même code, le mot : \"habilité\" est remplacé par le mot : \"accrédité\".", 
@@ -8593,13 +7697,11 @@
                     "length": 1807, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "I. - Au troisième alinéa du I de l'article L. 233-1 du code de l'éducation, le mot : \"habilités\" est remplacé par le mot : \"accrédités\".", 
                         "II. - À la dernière phrase du deuxième alinéa de l'article L. 612-7 du même code, le mot : \"habilité\" est remplacé par le mot : \"accrédité\".", 
@@ -8617,8 +7719,8 @@
                     "length": 1802, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_21_T3"
@@ -8629,74 +7731,62 @@
             "num": 35, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À l'article L. 132-2 du même code, les mots : \"aux grandes écoles et\" sont supprimés."
                     ], 
                     "length": 85, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "true", 
+                    "status": "nouveau", 
                     "text": [
                         "À l'article L. 132-2 du même code, les mots : \"aux grandes écoles et\" sont supprimés."
                     ], 
                     "length": 85, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
+                    "status": "supprimé ", 
+                    "text": [], 
+                    "length": 0, 
+                    "step": "commission", 
+                    "diff": "rem", 
                     "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "true", 
-                    "text": [], 
-                    "length": 0, 
-                    "step": "commission", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
+                    "status": "supprimé", 
+                    "text": [], 
+                    "length": 0, 
+                    "step": "hemicycle", 
+                    "diff": "none", 
                     "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "true", 
-                    "text": [], 
-                    "length": 0, 
-                    "step": "hemicycle", 
-                    "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "true", 
+                    "status": "suppression maintenue", 
                     "text": [], 
                     "length": 0, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "suppression conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_18 bis_T3"
@@ -8707,43 +7797,37 @@
             "num": 96, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Dans l'hypothèse où les agents de Supélec seraient transférés, dans le cadre de l'article L. 1224-3 du code du travail, à un établissement public résultant de la fusion de l'école centrale de Paris et de l'association Supélec, les services effectués au titre des contrats antérieurs conclus avec Supélec sont assimilés à des services publics pour le calcul des services requis pour se présenter aux concours internes des corps de fonctionnaires de l'État, ainsi que pour le classement dans l'un de ces corps."
                     ], 
                     "length": 508, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Dans l'hypothèse où les agents de Supélec seraient transférés, dans le cadre de l'article L. 1224-3 du code du travail, à un établissement public résultant de la fusion de l'école centrale de Paris et de l'association Supélec, les services effectués au titre des contrats antérieurs conclus avec Supélec sont assimilés à des services publics pour le calcul des services requis pour se présenter aux concours internes des corps de fonctionnaires de l'État, ainsi que pour le classement dans l'un de ces corps."
                     ], 
                     "length": 508, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Dans l'hypothèse où les agents de Supélec seraient transférés, dans le cadre de l'article L. 1224-3 du code du travail, à un établissement public résultant de la fusion de l'école centrale de Paris et de l'association Supélec, les services effectués au titre des contrats antérieurs conclus avec Supélec sont assimilés à des services publics pour le calcul des services requis pour se présenter aux concours internes des corps de fonctionnaires de l'État, ainsi que pour le classement dans l'un de ces corps."
                     ], 
                     "length": 508, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_57 septies_T7C1"
@@ -8754,9 +7838,7 @@
             "num": 62, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le dernier alinéa de l'article L. 411-4 du même code est ainsi modifié :", 
                         "1° Les mots : \"peut être\" sont remplacés par le mot : \"est\" ;", 
@@ -8765,13 +7847,11 @@
                     "length": 192, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le dernier alinéa de l'article L. 411-4 du même code est ainsi modifié :", 
                         "1° Les mots : \"peut être\" sont remplacés par le mot : \"est\" ;", 
@@ -8780,13 +7860,11 @@
                     "length": 192, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le dernier alinéa de l'article L. 411-4 du même code est ainsi modifié :", 
                         "1° Les mots : \"peut être\" sont remplacés par le mot : \"est\" ;", 
@@ -8795,13 +7873,11 @@
                     "length": 192, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "Le dernier alinéa de l'article L. 411-4 du même code est ainsi modifié :", 
                         "1° Les mots : \"peut être\" sont remplacés par le mot : \"est\" ;", 
@@ -8810,8 +7886,8 @@
                     "length": 192, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_47 quater_T5"
@@ -8822,9 +7898,7 @@
             "num": 29, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "La section 4 du chapitre II du titre Ier du livre VI de la troisième partie du code de l'éducation est complétée par un article L. 612-14 ainsi rédigé :", 
                         "\"Art. L. 612-14. - L'établissement d'enseignement prévoit un dispositif spécifique et obligatoire au travers duquel tout étudiant ayant achevé son stage informe le bureau d'aide à l'insertion professionnelle des étudiants sur la qualité de l'accueil dont il a bénéficié au sein de l'organisme, sans que cela puisse avoir de conséquence, directe ou indirecte, sur son évaluation ou sur l'obtention de son diplôme.\""
@@ -8832,13 +7906,11 @@
                     "length": 566, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "La section 4 du chapitre II du titre Ier du livre VI de la troisième partie du code de l'éducation est complétée par un article L. 612-14 ainsi rédigé :", 
                         "\"Art. L. 612-14. - L'établissement d'enseignement prévoit un dispositif spécifique et obligatoire au travers duquel tout étudiant ayant achevé son stage informe le bureau d'aide à l'insertion professionnelle des étudiants sur la qualité de l'accueil dont il a bénéficié au sein de l'organisme, sans que cela puisse avoir de conséquence, directe ou indirecte, sur son évaluation ou sur l'obtention de son diplôme.\""
@@ -8846,13 +7918,11 @@
                     "length": 566, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "La section 4 du chapitre II du titre Ier du livre VI de la troisième partie du code de l'éducation est complétée par un article L. 612-14 ainsi rédigé :", 
                         "\"Art. L. 612-14. - Tout élève ou étudiant ayant achevé son stage transmet aux services de son établissement d'enseignement chargés de l'accompagner dans son projet d'études et d'insertion professionnelle un document dans lequel il évalue la qualité de l'accueil dont il a bénéficié au sein de l'organisme. Ce document est distinct de la restitution mentionnée à l'article 1er du décret n° 2006-1093 du 29 août 2006 et n'est pas pris en compte dans son évaluation ou dans l'obtention de son diplôme.\""
@@ -8860,13 +7930,11 @@
                     "length": 652, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "La section 4 du chapitre II du titre Ier du livre VI de la troisième partie du code de l'éducation est complétée par un article L. 612-14 ainsi rédigé :", 
                         "\"Art. L. 612-14. - Tout élève ou étudiant ayant achevé son stage transmet aux services de son établissement d'enseignement chargés de l'accompagner dans son projet d'études et d'insertion professionnelle un document dans lequel il évalue la qualité de l'accueil dont il a bénéficié au sein de l'organisme. Ce document n'est pas pris en compte dans son évaluation ou dans l'obtention de son diplôme.\""
@@ -8874,13 +7942,11 @@
                     "length": 552, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "La section 4 du chapitre II du titre Ier du livre VI de la troisième partie du code de l'éducation est complétée par un article L. 612-14 ainsi rédigé :", 
@@ -8888,23 +7954,21 @@
                     ], 
                     "length": 569, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "La section 4 du chapitre II du titre Ier du livre VI de la troisième partie du code de l'éducation est complétée par un article L. 612-14 ainsi rédigé :", 
                         "\"Art. L. 612-14. - Tout élève ou étudiant ayant achevé son stage transmet aux services de son établissement d'enseignement chargés de l'accompagner dans son projet d'études et d'insertion professionnelle un document dans lequel il évalue la qualité de l'accueil dont il a bénéficié au sein de l'organisme. Ce document n'est pas pris en compte dans son évaluation ou dans l'obtention de son diplôme.\""
                     ], 
                     "length": 552, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_15 sexies_T3"
@@ -8915,9 +7979,7 @@
             "num": 69, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le titre III du livre VII de la troisième partie du code de l'éducation est ainsi modifié :", 
                         "1° Le chapitre unique est ainsi modifié :", 
@@ -8939,13 +8001,11 @@
                     "length": 3300, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "Le titre III du livre VII de la troisième partie du code de l'éducation est ainsi modifié :", 
@@ -8968,13 +8028,11 @@
                     "length": 3324, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Le titre III du livre VII de la troisième partie du code de l'éducation est ainsi modifié :", 
                         "1° Le chapitre unique devient un chapitre Ier intitulé : \"Ouverture des établissements d'enseignement supérieur privés\" et est complété par un article L. 731-19 ainsi rédigé :", 
@@ -8994,8 +8052,8 @@
                     "length": 3290, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_42 C_T4C3"
@@ -9006,83 +8064,71 @@
             "num": 32, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À la seconde phrase du premier alinéa du même article L. 612-1, après le mot : \"professionnelle\", sont insérés les mots : \", à la formation à l'entreprenariat\"."
                     ], 
                     "length": 160, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À la seconde phrase du premier alinéa du même article L. 612-1, après le mot : \"professionnelle\", sont insérés les mots : \", à la formation à l'entreprenariat\"."
                     ], 
                     "length": 160, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié ", 
                     "text": [
                         "À la seconde phrase du premier alinéa du même article L. 612-1, après le mot : \"professionnelle\", sont insérés les mots : \", à la formation à l'entreprenariat\"."
                     ], 
                     "length": 160, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "À la dernière phrase du premier alinéa de l'article L. 612-1 du code de l'éducation, après le mot : \"professionnelle\", sont insérés les mots : \", à la formation à l'entreprenariat\"."
                     ], 
                     "length": 181, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "À la dernière phrase du premier alinéa de l'article L. 612-1 du code de l'éducation, après le mot : \"professionnelle\", sont insérés les mots : \", à la formation à l'entreprenariat\"."
                     ], 
                     "length": 198, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "À la dernière phrase du premier alinéa de l'article L. 612-1 du code de l'éducation, après le mot : \"professionnelle\", sont insérés les mots : \", à la formation à l'entreprenariat\"."
                     ], 
                     "length": 181, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_16 ter_T3"
@@ -9093,89 +8139,75 @@
             "num": 72, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Afin de simplifier et d'accélérer le transfert des titres de propriété intellectuelle acquis en application du II de l'article L. 329-7 du code de la recherche, dans les cas de copropriété publique constatée au dépôt des titres, un mandataire unique, chargé de la gestion, de l'exploitation et de la négociation de ces titres, est désigné par les déposants avant leur publication. Les missions et conditions de désignation du mandataire sont définies par décret."
                     ], 
                     "length": 462, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Afin de simplifier et d'accélérer le transfert des titres de propriété intellectuelle acquis en application du II de l'article L. 329-7 du code de la recherche, dans les cas de copropriété publique constatée au dépôt des titres, un mandataire unique, chargé de la gestion, de l'exploitation et de la négociation de ces titres, est désigné par les déposants avant leur publication. Les missions et conditions de désignation du mandataire sont définies par décret."
                     ], 
                     "length": 462, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Afin de simplifier et d'accélérer le transfert des titres de propriété intellectuelle acquis en application du II de l'article L. 329-7 du code de la recherche, dans les cas de copropriété publique constatée au dépôt des titres, un mandataire unique, chargé de la gestion, de l'exploitation et de la négociation de ces titres, est désigné par les déposants avant leur publication. Les missions et conditions de désignation du mandataire sont définies par décret."
                     ], 
                     "length": 462, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "true", 
                     "text": [
                         "(Supprimé)"
                     ], 
                     "length": 10, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "true", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "true", 
+                    "status": "suppression maintenue", 
                     "text": [], 
                     "length": 0, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "suppression conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_55 ter_T6C2"
@@ -9187,8 +8219,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 232-1 du code de l'éducation est ainsi modifié :", 
                         "1° Au premier alinéa, après le mot : \"professionnel\" sont insérés les mots : \"et des établissements publics de recherche\" ;", 
@@ -9205,13 +8235,11 @@
                     "length": 1913, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 232-1 du code de l'éducation est ainsi modifié :", 
                         "1° Au premier alinéa, après le mot : \"professionnel\", sont insérés les mots : \"et des établissements publics de recherche\" ;", 
@@ -9235,13 +8263,11 @@
                     "length": 1739, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 232-1 du code de l'éducation est ainsi modifié :", 
                         "1° Au premier alinéa, après le mot : \"professionnel\", sont insérés les mots : \"et des établissements publics de recherche\" ;", 
@@ -9265,13 +8291,11 @@
                     "length": 1739, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 232-1 du code de l'éducation est ainsi modifié :", 
                         "1° Au premier alinéa, après le mot : \"professionnel\", sont insérés les mots : \"et des établissements publics de recherche\" ;", 
@@ -9295,13 +8319,11 @@
                     "length": 1739, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 232-1 du code de l'éducation est ainsi modifié :", 
                         "1° Au premier alinéa, après le mot : \"professionnel\", sont insérés les mots : \"et des établissements publics de recherche\" ;", 
@@ -9326,14 +8348,12 @@
                     ], 
                     "length": 1877, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 232-1 du code de l'éducation est ainsi modifié :", 
                         "1° Au premier alinéa, après le mot : \"professionnel\", sont insérés les mots : \"et des établissements publics de recherche\" ;", 
@@ -9359,13 +8379,11 @@
                     "length": 2256, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 232-1 du code de l'éducation est ainsi modifié :", 
@@ -9392,13 +8410,11 @@
                     "length": 2339, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 232-1 du code de l'éducation est ainsi modifié :", 
                         "1° Au premier alinéa, après le mot : \"professionnel\", sont insérés les mots : \"et des établissements publics de recherche\" ;", 
@@ -9424,8 +8440,8 @@
                     "length": 2301, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_13_T2"
@@ -9436,9 +8452,7 @@
             "num": 16, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "La première phrase du troisième alinéa de l'article L. 112-3 du même code est ainsi rédigée :", 
                         "\"Il assure la liaison nécessaire entre les activités d'enseignement, de recherche et d'innovation.\""
@@ -9446,13 +8460,11 @@
                     "length": 193, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "La première phrase du troisième alinéa de l'article L. 112-3 du code de la recherche est ainsi rédigée :", 
                         "\"Il assure la liaison nécessaire entre les activités d'enseignement, de recherche et d'innovation.\""
@@ -9460,13 +8472,11 @@
                     "length": 204, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "La première phrase du troisième alinéa de l'article L. 112-3 du code de la recherche est ainsi rédigée :", 
                         "\"Il assure la liaison nécessaire entre les activités d'enseignement, de recherche et d'innovation.\""
@@ -9474,13 +8484,11 @@
                     "length": 204, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié ", 
                     "text": [
                         "La première phrase du troisième alinéa de l'article L. 112-3 du code de la recherche est ainsi rédigée :", 
                         "\"Il assure la liaison nécessaire entre les activités d'enseignement, de recherche et d'innovation.\""
@@ -9488,48 +8496,42 @@
                     "length": 204, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Après les mots : \"aux dispositions de l'article L. 123-5\", la fin de l'article L. 112-3 du code de la recherche est supprimée."
                     ], 
                     "length": 126, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Après les mots : \"aux dispositions de l'article L. 123-5\", la fin de l'article L. 112-3 du code de la recherche est supprimée."
                     ], 
                     "length": 143, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Après les mots : \"aux dispositions de l'article L. 123-5\", la fin de l'article L. 112-3 du code de la recherche est supprimée."
                     ], 
                     "length": 126, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_12 bis_T1C2"
@@ -9540,48 +8542,40 @@
             "num": 28, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À la première phrase de l'article L. 612-11 du code de l'éducation, après le mot : \"entreprise\", sont insérés les mots : \", administration publique ou association ou de tout autre organisme d'accueil\"."
                     ], 
                     "length": 201, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À la première phrase de l'article L. 612-11 du code de l'éducation, après le mot : \"entreprise\", sont insérés les mots : \", administration publique ou association ou de tout autre organisme d'accueil\"."
                     ], 
                     "length": 201, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié ", 
                     "text": [
                         "À la première phrase de l'article L. 612-11 du code de l'éducation, après le mot : \"entreprise\", sont insérés les mots : \", administration publique ou association ou de tout autre organisme d'accueil\"."
                     ], 
                     "length": 201, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-11 du code de l'éducation est ainsi modifié :", 
                         "1° À la première phrase, après le mot : \"entreprise\", sont insérés les mots : \", administration publique ou assemblée parlementaire ou assemblée consultative ou association ou de tout autre organisme d'accueil\" ;", 
@@ -9591,13 +8585,11 @@
                     "length": 429, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 612-11 du code de l'éducation est ainsi modifié :", 
@@ -9608,13 +8600,11 @@
                     "length": 476, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-11 du code de l'éducation est ainsi modifié :", 
                         "1° À la première phrase, après le mot : \"entreprise\", sont insérés les mots : \", administration publique, assemblée parlementaire, assemblée consultative, association ou au sein de tout autre organisme d'accueil\" ;", 
@@ -9623,9 +8613,9 @@
                     ], 
                     "length": 435, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_15 quinquies_T3"
@@ -9636,9 +8626,7 @@
             "num": 102, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "true", 
+                    "status": "nouveau", 
                     "text": [
                         "I. - L'article 244 quater B du code général des impôts est ainsi modifié :", 
                         "1° Le premier alinéa du d ter du II est ainsi rédigé :", 
@@ -9649,30 +8637,26 @@
                     "length": 780, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "true", 
+                    "status": "supprimé par la commission mixte paritaire", 
                     "text": [], 
                     "length": 0, 
                     "step": "commission", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_56 bis B_T7C1"
@@ -9683,17 +8667,15 @@
             "num": 77, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À la troisième phrase du II, et aux première et seconde phrases du deuxième alinéa et au dernier alinéa du III de l'article L. 721-3 du code de l'éducation, les mots : \"ou de l'établissement public de coopération scientifique\" sont supprimés."
                     ], 
                     "length": 242, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_56 AC_T7C1"
@@ -9704,43 +8686,37 @@
             "num": 93, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 328-1 du code de la recherche est complété par les mots : \"placé sous la protection du Président de la République\"."
                     ], 
                     "length": 128, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 328-1 du code de la recherche est complété par les mots : \"placé sous la protection du Président de la République\"."
                     ], 
                     "length": 128, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 328-1 du code de la recherche est complété par les mots : \"placé sous la protection du Président de la République\"."
                     ], 
                     "length": 128, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_57 quater_T7C1"
@@ -9751,15 +8727,13 @@
             "num": 113, 
             "steps": [
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conformes", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_60, 61, 62, 63 et 64_T7C2"
@@ -9770,9 +8744,7 @@
             "num": 4, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "true", 
+                    "status": "nouveau", 
                     "text": [
                         "La troisième phrase du premier alinéa de l'article L. 123-7 du même code est ainsi rédigée :", 
                         "\"Il soutient le développement des établissements français et des enseignements en langue française à l'étranger, ainsi que le développement de services et ressources pédagogiques numériques favorisant la connaissance et la promotion de la langue française.\""
@@ -9780,19 +8752,17 @@
                     "length": 350, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_2 bis A_T1C1"
@@ -9803,9 +8773,7 @@
             "num": 81, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le chapitre Ier du titre Ier du livre VII de la troisième partie du code de l'éducation est complété par un article L. 711-11 ainsi rédigé :", 
                         "\"Art. L. 711-11. - Les établissements publics à caractère scientifique, culturel et professionnel contractent librement avec les institutions étrangères ou internationales, universitaires ou non.", 
@@ -9817,13 +8785,11 @@
                     "length": 924, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Le chapitre Ier du titre Ier du livre VII de la troisième partie du code de l'éducation est complété par un article L. 711-11 ainsi rédigé :", 
@@ -9835,14 +8801,12 @@
                     ], 
                     "length": 941, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Le chapitre Ier du titre Ier du livre VII de la troisième partie du code de l'éducation est complété par un article L. 711-11 ainsi rédigé :", 
                         "\"Art. L. 711-11. - Les établissements publics à caractère scientifique, culturel et professionnel contractent librement avec les institutions étrangères ou internationales, universitaires ou non.", 
@@ -9853,9 +8817,9 @@
                     ], 
                     "length": 924, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_47 quinquies B_T5"
@@ -9866,9 +8830,7 @@
             "num": 75, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 471-3 du code de l'éducation est ainsi modifié :", 
                         "1° À la seconde phrase du premier alinéa, après le mot \"moyenne\", sont insérés les mots \", les diplômes\" ;", 
@@ -9878,13 +8840,11 @@
                     "length": 457, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 471-3 du code de l'éducation est ainsi modifié :", 
                         "1° À la seconde phrase du premier alinéa, après le mot : \"moyenne\", sont insérés les mots : \", les diplômes\" ;", 
@@ -9894,13 +8854,11 @@
                     "length": 463, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "L'article L. 471-3 du code de l'éducation est ainsi modifié :", 
@@ -9910,14 +8868,12 @@
                     ], 
                     "length": 480, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 471-3 du code de l'éducation est ainsi modifié :", 
                         "1° À la seconde phrase du premier alinéa, après le mot : \"moyenne\", sont insérés les mots : \", les diplômes\" ;", 
@@ -9927,8 +8883,8 @@
                     "length": 443, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_42 bis_T4C3"
@@ -9940,8 +8896,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-6-1 du même code est remplacé par les dispositions suivantes :", 
                         "\"Art. L. 712-6-1. - I. - La commission de la formation du conseil académique adopte les règles relatives aux examens. Elle est consultée sur les programmes de formation des composantes. Elle répartit l'enveloppe des moyens destinée à la formation telle qu'allouée par le conseil d'administration. Elle fixe les règles d'évaluation des enseignements. Elle adopte les mesures de nature à permettre la mise en oeuvre de l'orientation des étudiants et de la validation des acquis, à faciliter leur entrée dans la vie active et à favoriser les activités culturelles, sportives, sociales ou associatives offertes aux étudiants, ainsi que les mesures de nature à améliorer les conditions de vie et de travail, notamment les mesures relatives aux activités de soutien, aux oeuvres universitaires et scolaires, aux services médicaux et sociaux, aux bibliothèques et aux centres de documentation. Elle adopte enfin les mesures d'aménagement de nature à favoriser l'accueil des étudiants handicapés.", 
@@ -9953,13 +8907,11 @@
                     "length": 2809, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-6-1 du même code est ainsi rédigé :", 
                         "Art. L. 712-6-1. - I. - La commission de la formation du conseil académique adopte les règles relatives aux examens. Elle est consultée sur les programmes de formation des composantes. Elle répartit l'enveloppe des moyens destinée à la formation telle qu'allouée par le conseil d'administration et sous réserve du respect du cadre stratégique de sa répartition, tel que défini par le conseil d'administration. Elle fixe les règles d'évaluation des enseignements. Elle adopte des mesures recherchant la réussite du plus grand nombre d'étudiants. Elle adopte les mesures de nature à permettre la mise en oeuvre de l'orientation des étudiants et de la validation des acquis, à faciliter leur entrée dans la vie active et à favoriser les activités culturelles, sportives, sociales ou associatives offertes aux étudiants, ainsi que les mesures de nature à améliorer les conditions de vie et de travail, notamment les mesures relatives aux activités de soutien, aux oeuvres universitaires et scolaires, aux services médicaux et sociaux, aux bibliothèques et aux centres de documentation. La commission de la formation du conseil académique propose un schéma directeur pluriannuel en matière de politique du handicap qui couvre l'ensemble des domaines concernés par le handicap, notamment l'accompagnement des étudiants en situation de handicap, la formation des personnels et l'accessibilité. La commission propose par ailleurs les mesures d'accompagnement nécessaires à l'accès et à l'accompagnement des étudiants en situation de handicap.", 
@@ -9971,13 +8923,11 @@
                     "length": 3678, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-6-1 du même code est ainsi rédigé :", 
                         "\"Art. L. 712-6-1. - I. - La commission de la formation du conseil académique adopte les règles relatives aux examens. Elle est consultée sur les programmes de formation des composantes. Elle répartit l'enveloppe des moyens destinée à la formation telle qu'allouée par le conseil d'administration et sous réserve du respect du cadre stratégique de sa répartition, tel que défini par le conseil d'administration. Elle fixe les règles d'évaluation des enseignements. Elle adopte des mesures recherchant la réussite du plus grand nombre d'étudiants. Elle adopte les mesures de nature à permettre la mise en oeuvre de l'orientation des étudiants et de la validation des acquis, à faciliter leur entrée dans la vie active et à favoriser les activités culturelles, sportives, sociales ou associatives offertes aux étudiants, ainsi que les mesures de nature à améliorer les conditions de vie et de travail, notamment les mesures relatives aux activités de soutien, aux oeuvres universitaires et scolaires, aux services médicaux et sociaux, aux bibliothèques et aux centres de documentation et à l'accès au numérique. Elle adopte des mesures visant à promouvoir et développer des interactions entre sciences et société, initiées et animées par des étudiants ou des enseignants-chercheurs, au sein des établissements comme sur le territoire de rayonnement de l'établissement. La commission de la formation du conseil académique propose un schéma directeur pluriannuel en matière de politique du handicap, qui couvre l'ensemble des domaines concernés par le handicap, notamment l'accompagnement des étudiants en situation de handicap, la formation des personnels et l'accessibilité. La commission propose par ailleurs les mesures d'accompagnement nécessaires à l'accès et à l'accompagnement des étudiants en situation de handicap.", 
@@ -9989,13 +8939,11 @@
                     "length": 3965, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-6-1 du même code est ainsi rédigé :", 
                         "\"Art. L. 712-6-1. - I. - La commission de la formation du conseil académique adopte les règles relatives aux examens. Elle est consultée sur les programmes de formation des composantes. Elle répartit l'enveloppe des moyens destinée à la formation telle qu'allouée par le conseil d'administration et sous réserve du respect du cadre stratégique de sa répartition, tel que défini par le conseil d'administration. Elle fixe les règles d'évaluation des enseignements. Elle adopte des mesures recherchant la réussite du plus grand nombre d'étudiants. Elle adopte les mesures de nature à permettre la mise en oeuvre de l'orientation des étudiants et de la validation des acquis, à faciliter leur entrée dans la vie active et à favoriser les activités culturelles, sportives, sociales ou associatives offertes aux étudiants, ainsi que les mesures de nature à améliorer les conditions de vie et de travail, notamment les mesures relatives aux activités de soutien, aux oeuvres universitaires et scolaires, aux services médicaux et sociaux, aux bibliothèques et aux centres de documentation et à l'accès au numérique. Elle adopte des mesures visant à promouvoir et développer des interactions entre sciences et société, initiées et animées par des étudiants ou des enseignants-chercheurs, au sein des établissements comme sur le territoire de rayonnement de l'établissement. La commission de la formation du conseil académique propose un schéma directeur pluriannuel en matière de politique du handicap, qui couvre l'ensemble des domaines concernés par le handicap, notamment l'accompagnement des étudiants en situation de handicap, la formation des personnels et l'accessibilité. La commission propose par ailleurs les mesures d'accompagnement nécessaires à l'accès et à l'accompagnement des étudiants en situation de handicap.", 
@@ -10007,13 +8955,11 @@
                     "length": 3965, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-6-1 du même code est ainsi rédigé :", 
                         "\"Art. L. 712-6-1. - I. - La commission de la formation et de la vie universitaire du conseil académique est consultée sur les programmes de formation des composantes.", 
@@ -10033,13 +8979,11 @@
                     "length": 4177, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-6-1 du code de l'éducation est ainsi rédigé :", 
                         "\"Art. L. 712-6-1. - I. - La commission de la formation et de la vie universitaire du conseil académique est consultée sur les programmes de formation des composantes.", 
@@ -10059,13 +9003,11 @@
                     "length": 4187, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 712-6-1 du code de l'éducation est ainsi rédigé :", 
@@ -10086,13 +9028,11 @@
                     "length": 4243, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 712-6-1 du code de l'éducation est ainsi rédigé :", 
                         "\"Art. L. 712-6-1. - I. - La commission de la formation et de la vie universitaire du conseil académique est consultée sur les programmes de formation des composantes.", 
@@ -10112,8 +9052,8 @@
                     "length": 4231, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_28_T4C1S1"
@@ -10125,8 +9065,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-4 est ainsi modifié :", 
                         "1° Au premier alinéa, les mots : \"sont mis en mesure de\" sont remplacés par le mot : \"peuvent\" et les mots : \"en deuxième cycle\" sont remplacés par les mots : \"en vue, notamment, de l'obtention d'un diplôme de fin de premier cycle\" ;", 
@@ -10135,13 +9073,11 @@
                     "length": 306, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-4 du même code est ainsi modifié :", 
                         "1° Au premier alinéa, les mots : \"sont mis en mesure de\" sont remplacés par le mot : \"peuvent\", les mots : \"en deuxième cycle\" sont remplacés par les mots : \"en vue, notamment, de l'obtention d'un diplôme de fin de premier cycle\" et les mots : \"être orientés\" sont remplacés par les mots : \"s'orienter\" ;", 
@@ -10150,13 +9086,11 @@
                     "length": 390, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-4 du même code est ainsi modifié :", 
                         "1° Au premier alinéa, les mots : \"sont mis en mesure de\" sont remplacés par le mot : \"peuvent\", les mots : \"en deuxième cycle\" sont remplacés par les mots : \"en vue, notamment, de l'obtention d'un diplôme de fin de premier cycle\" et les mots : \"être orientés\" sont remplacés par les mots : \"s'orienter\" ;", 
@@ -10165,13 +9099,11 @@
                     "length": 390, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-4 du même code est ainsi modifié :", 
                         "1° Au premier alinéa, les mots : \"sont mis en mesure de\" sont remplacés par le mot : \"peuvent\", les mots : \"en deuxième cycle\" sont remplacés par les mots : \"en vue, notamment, de l'obtention d'un diplôme de fin de premier cycle\" et les mots : \"être orientés\" sont remplacés par les mots : \"s'orienter\" ;", 
@@ -10180,13 +9112,11 @@
                     "length": 390, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-4 du même code est ainsi modifié :", 
                         "1° Au premier alinéa, les mots : \"sont mis en mesure de\" sont remplacés par le mot : \"peuvent\", les mots : \"en deuxième cycle\" sont remplacés par les mots : \"en vue de l'obtention d'un diplôme de fin de premier cycle ou, le cas échéant, de fin de deuxième cycle\" et les mots : \"être orientés\" sont remplacés par les mots : \"s'orienter\" ;", 
@@ -10195,13 +9125,11 @@
                     "length": 423, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-4 du code de l'éducation est ainsi modifié :", 
                         "1° Au premier alinéa, les mots : \"sont mis en mesure de\" sont remplacés par le mot : \"peuvent\", les mots : \"en deuxième cycle\" sont remplacés par les mots : \"en vue de l'obtention d'un diplôme de fin de premier cycle ou, le cas échéant, de fin de deuxième cycle\" et les mots : \"être orientés\" sont remplacés par les mots : \"s'orienter\" ;", 
@@ -10210,13 +9138,11 @@
                     "length": 433, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "L'article L. 612-4 du code de l'éducation est ainsi modifié :", 
@@ -10225,14 +9151,12 @@
                     ], 
                     "length": 450, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-4 du code de l'éducation est ainsi modifié :", 
                         "1° Au premier alinéa, les mots : \"sont mis en mesure de\" sont remplacés par le mot : \"peuvent\", les mots : \"en deuxième cycle\" sont remplacés par les mots : \"en vue de l'obtention d'un diplôme de fin de premier cycle ou, le cas échéant, de fin de deuxième cycle\" et les mots : \"être orientés\" sont remplacés par les mots : \"s'orienter\" ;", 
@@ -10240,9 +9164,9 @@
                     ], 
                     "length": 433, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_19_T3"
@@ -10253,9 +9177,7 @@
             "num": 10, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Avant le dernier alinéa de l'article L. 123-6 du code de l'éducation, sont insérés deux alinéas ainsi rédigés :", 
                         "\"Il veille à promouvoir des valeurs d'éthique, de responsabilité et d'exemplarité.", 
@@ -10264,13 +9186,11 @@
                     "length": 344, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Avant le dernier alinéa de l'article L. 123-6 du code de l'éducation, sont insérés deux alinéas ainsi rédigés :", 
                         "\"Il veille à promouvoir des valeurs d'éthique, de responsabilité et d'exemplarité.", 
@@ -10279,13 +9199,11 @@
                     "length": 344, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Avant le dernier alinéa de l'article L. 123-6 du code de l'éducation, sont insérés deux alinéas ainsi rédigés :", 
                         "\"Il promeut des valeurs d'éthique, de responsabilité et d'exemplarité.", 
@@ -10294,13 +9212,11 @@
                     "length": 332, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Avant le dernier alinéa de l'article L. 123-6 du code de l'éducation, sont insérés deux alinéas ainsi rédigés :", 
                         "\"Il promeut des valeurs d'éthique, de responsabilité et d'exemplarité.", 
@@ -10309,13 +9225,11 @@
                     "length": 332, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Avant le dernier alinéa de l'article L. 123-6 du code de l'éducation, sont insérés deux alinéas ainsi rédigés :", 
@@ -10324,14 +9238,12 @@
                     ], 
                     "length": 349, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Avant le dernier alinéa de l'article L. 123-6 du code de l'éducation, sont insérés deux alinéas ainsi rédigés :", 
                         "\"Il promeut des valeurs d'éthique, de responsabilité et d'exemplarité.", 
@@ -10339,9 +9251,9 @@
                     ], 
                     "length": 332, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_7 bis_T1C1"
@@ -10353,8 +9265,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "La première phrase du premier alinéa de l'article L. 952-7 est ainsi modifiée :", 
                         "1° Les mots : \"conseils d'administration\" sont remplacés par les mots : \"conseils académiques\" ;", 
@@ -10363,13 +9273,11 @@
                     "length": 252, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "La première phrase du premier alinéa de l'article L. 952-7 du même code est ainsi modifiée :", 
                         "1° Les mots : \"d'administration\" sont remplacés par le mot : \"académiques\" ;", 
@@ -10378,13 +9286,11 @@
                     "length": 245, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "La première phrase du premier alinéa de l'article L. 952-7 du même code est ainsi modifiée :", 
                         "1° Les mots : \"d'administration\" sont remplacés par le mot : \"académiques\" ;", 
@@ -10393,13 +9299,11 @@
                     "length": 245, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "La première phrase du premier alinéa de l'article L. 952-7 du même code est ainsi modifiée :", 
                         "1° Les mots : \"d'administration\" sont remplacés par le mot : \"académiques\" ;", 
@@ -10408,13 +9312,11 @@
                     "length": 245, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "La première phrase du premier alinéa de l'article L. 952-7 du même code est ainsi modifiée :", 
                         "1° Les mots : \"d'administration\" sont remplacés par le mot : \"académiques\" ;", 
@@ -10423,8 +9325,8 @@
                     "length": 245, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_45_T5"
@@ -10435,9 +9337,7 @@
             "num": 102, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "I. - L'article 244 quater B du code général des impôts est ainsi modifié :", 
                         "1° À la seconde phrase du b du II, les mots : \"l'effectif salarié de l'entreprise ne soit pas inférieur à celui\" sont remplacés par les mots : \"les dépenses visées à la première phrase, avant prise en compte de cette majoration, ne soient pas inférieures à celles\" ;", 
@@ -10454,13 +9354,11 @@
                     "length": 1961, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "true", 
+                    "status": "nouveau", 
                     "text": [
                         "I. - L'article 244 quater B du code général des impôts est ainsi modifié :", 
                         "1° À la seconde phrase du b du II, les mots : \"l'effectif salarié de l'entreprise ne soit pas inférieur à celui\" sont remplacés par les mots : \"les dépenses visées à la première phrase, avant prise en compte de cette majoration, ne soient pas inférieures à celles\" ;", 
@@ -10471,30 +9369,26 @@
                     "length": 1166, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "true", 
+                    "status": "supprimé par la commission mixte paritaire", 
                     "text": [], 
                     "length": 0, 
                     "step": "commission", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_56 bis A_T7C1"
@@ -10505,22 +9399,18 @@
             "num": 74, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le premier alinéa de l'article L. 952-6 du code de l'éducation est supprimé."
                     ], 
                     "length": 76, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "Dans un délai de deux ans suivant la promulgation de la présente loi, le Gouvernement remet au Parlement un rapport formulant des propositions en vue d'améliorer le recrutement, la formation et le déroulement de la carrière des enseignants-chercheurs. Ce rapport analyse les mesures mises en oeuvre ou envisagées afin de renforcer la transparence des procédures de sélection des enseignants-chercheurs et lutter contre le phénomène de localisme dans leur recrutement."
@@ -10528,21 +9418,19 @@
                     "length": 508, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Dans un délai de deux ans suivant la promulgation de la présente loi, le Gouvernement remet au Parlement un rapport formulant des propositions en vue d'améliorer le recrutement, la formation et le déroulement de la carrière des enseignants-chercheurs. Ce rapport analyse les mesures mises en oeuvre ou envisagées afin de renforcer la transparence des procédures de sélection des enseignants-chercheurs et de lutter contre le phénomène de localisme dans leur recrutement."
                     ], 
                     "length": 470, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_43 ter_T5"
@@ -10553,9 +9441,7 @@
             "num": 89, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 811-3 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"Ces études et informations font l'objet d'un rapport annuel remis au Parlement incluant des recommandations pour agir contre les inégalités sociales repérées.\""
@@ -10563,13 +9449,11 @@
                     "length": 244, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 811-3 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"Ces études et informations font l'objet d'un rapport annuel remis au Parlement incluant des recommandations pour agir contre les inégalités sociales repérées.\""
@@ -10577,13 +9461,11 @@
                     "length": 244, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 811-3 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"Ces études et informations font l'objet d'un rapport annuel remis au Parlement incluant des recommandations pour agir contre les inégalités sociales repérées.\""
@@ -10591,19 +9473,17 @@
                     "length": 244, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_56 bis_T7C1"
@@ -10614,9 +9494,7 @@
             "num": 7, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le code de l'éducation est ainsi modifié :", 
                         "1° À l'article L. 741-1, les mots : \"ministre chargé de l'enseignement supérieur\" sont remplacés par les mots : \"seul ministre chargé de l'enseignement supérieur ou du ministre chargé de l'enseignement supérieur en cotutelle avec le ministre chargé de l'agriculture\" ;", 
@@ -10625,13 +9503,11 @@
                     "length": 631, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "Le code de l'éducation est ainsi modifié :", 
@@ -10641,13 +9517,11 @@
                     "length": 674, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Le code de l'éducation est ainsi modifié :", 
                         "1° À l'article L. 741-1, les mots : \"ministre chargé de l'enseignement supérieur\" sont remplacés par les mots : \"seul ministre chargé de l'enseignement supérieur ou du ministre chargé de l'enseignement supérieur conjointement avec le ministre chargé de l'agriculture\" ;", 
@@ -10655,9 +9529,9 @@
                     ], 
                     "length": 633, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_3 bis_T1C1"
@@ -10669,8 +9543,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au premier alinéa de l'article L. 611-5 du même code, les mots : \"du conseil des études et de la vie universitaire\" sont remplacés par les mots : \"de la commission de la formation du conseil académique\". Au troisième alinéa du même article, les mots : \"au conseil des études et de la vie universitaire\" sont remplacés par les mots : \"à la commission de la formation du conseil académique\".", 
                         "II. - Dans le premier et le troisième alinéas de l'article L. 712-6-2 du même code, les mots : \"d'administration\" sont remplacés par le mot : \"académique\" et la référence : \"L. 719-10\" est remplacée par la référence : \"L. 718-2-14\".", 
@@ -10680,13 +9552,11 @@
                     "length": 1125, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 611-5 du même code est ainsi modifié :", 
                         "1° À la fin de la première phrase du premier alinéa, les mots : \"du conseil des études et de la vie universitaire\" sont remplacés par les mots : \"de la commission de la formation du conseil académique\" ;", 
@@ -10698,13 +9568,11 @@
                     "length": 1362, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 611-5 du même code est ainsi modifié :", 
                         "1° À la fin de la première phrase du premier alinéa, les mots : \"du conseil des études et de la vie universitaire\" sont remplacés par les mots : \"de la commission de la formation du conseil académique\" ;", 
@@ -10717,13 +9585,11 @@
                     "length": 1578, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 611-5 du même code est ainsi modifié :", 
                         "1° À la fin de la première phrase du premier alinéa, les mots : \"du conseil des études et de la vie universitaire\" sont remplacés par les mots : \"de la commission de la formation du conseil académique\" ;", 
@@ -10736,13 +9602,11 @@
                     "length": 1578, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "I. - L'article L. 611-5 du même code est ainsi modifié :", 
                         "1° À la fin de la première phrase du premier alinéa, les mots : \"du conseil des études et de la vie universitaire\" sont remplacés par les mots : \"de la commission de la formation du conseil académique\" ;", 
@@ -10757,8 +9621,8 @@
                     "length": 1583, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_29_T4C1S1"
@@ -10769,9 +9633,7 @@
             "num": 88, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "I. - Le premier alinéa de l'article L. 311-11 du code de l'entrée et du séjour des étrangers et du droit d'asile est ainsi modifié :", 
                         "1° La première phrase est ainsi modifiée :", 
@@ -10800,13 +9662,11 @@
                     "length": 3801, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "I. - Le premier alinéa de l'article L. 311-11 du code de l'entrée et du séjour des étrangers et du droit d'asile est ainsi modifié :", 
                         "1° La première phrase est ainsi modifiée :", 
@@ -10835,13 +9695,11 @@
                     "length": 3809, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "I. - Le premier alinéa de l'article L. 311-11 du code de l'entrée et du séjour des étrangers et du droit d'asile est ainsi modifié :", 
@@ -10857,13 +9715,11 @@
                     "length": 1011, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le premier alinéa de l'article L. 311-11 du code de l'entrée et du séjour des étrangers et du droit d'asile est ainsi modifié :", 
                         "1° La première phrase est ainsi modifiée :", 
@@ -10878,8 +9734,8 @@
                     "length": 980, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_47 septies_T5"
@@ -10891,8 +9747,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-2 est ainsi modifié :", 
                         "1° Au début du premier alinéa, sont insérés les mots : \"Dans la continuité des enseignements dispensés dans le second cycle de l'enseignement du second degré, qui préparent à la poursuite d'études dans l'enseignement supérieur,\" ;", 
@@ -10903,13 +9757,11 @@
                     "length": 496, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-2 du même code est ainsi modifié :", 
                         "1° Au début du premier alinéa, sont ajoutés les mots : \"Dans la continuité des enseignements dispensés dans le second cycle de l'enseignement du second degré, qui préparent à la poursuite d'études dans l'enseignement supérieur,\" ;", 
@@ -10920,13 +9772,11 @@
                     "length": 556, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-2 du même code est ainsi modifié :", 
                         "1° Au début du premier alinéa, sont ajoutés les mots : \"Dans la continuité des enseignements dispensés dans le second cycle de l'enseignement du second degré, qui préparent à la poursuite d'études dans l'enseignement supérieur,\" ;", 
@@ -10937,13 +9787,11 @@
                     "length": 578, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-2 du même code est ainsi modifié :", 
                         "1° Au début du premier alinéa, sont ajoutés les mots : \"Dans la continuité des enseignements dispensés dans le second cycle de l'enseignement du second degré, qui préparent à la poursuite d'études dans l'enseignement supérieur,\" ;", 
@@ -10954,13 +9802,11 @@
                     "length": 578, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié ", 
                     "text": [
                         "L'article L. 612-2 du même code est ainsi modifié :", 
                         "1° Au début du premier alinéa, sont ajoutés les mots : \"Dans la continuité des enseignements dispensés dans le second cycle de l'enseignement du second degré, qui préparent à la poursuite d'études dans l'enseignement supérieur,\" ;", 
@@ -10971,19 +9817,17 @@
                     "length": 578, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_17_T3"
@@ -10995,8 +9839,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Après l'article L. 631-1, il est inséré un article L. 631-1-1 ainsi rédigé :", 
                         "\"Art. L. 631-1-1. - À titre expérimental, pour une durée de six ans, et par dérogation aux dispositions du I de l'article L. 631-1, des modalités particulières d'admission dans les études médicales, odontologiques, pharmaceutiques et de maïeutique peuvent être fixées par décret sous la forme :", 
@@ -11007,13 +9849,11 @@
                     "length": 1729, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "À titre expérimental, pour une durée de six ans, et par dérogation aux dispositions du I de l'article L. 631-1 du code de l'éducation, des modalités particulières d'admission dans les études médicales, odontologiques, pharmaceutiques et de maïeutique peuvent être fixées par décret sous la forme :", 
                         "1° D'une réorientation des étudiants de la première année commune aux études de santé à l'issue d'épreuves organisées au plus tôt huit semaines après le début de celles-ci, portant sur les enseignements dispensés au cours de cette période. Seuls les étudiants considérés, sur la base de ces épreuves, comme n'étant pas susceptibles d'être classés en rang utile à l'issue de la première année peuvent être réorientés. La réorientation peut être systématique, le nombre de ces réorientations ne pouvant alors excéder un pourcentage du nombre d'inscrits, déterminé par arrêté après consultation des organisations représentatives concernées. Une réorientation facultative peut également être proposée aux étudiants au-delà de ce pourcentage. L'université assure dans tous les cas la réorientation de ces étudiants en les inscrivant dans une formation qui les accueille dès l'année universitaire en cours ;", 
@@ -11023,13 +9863,11 @@
                     "length": 2165, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "À titre expérimental, pour une durée de six ans, et par dérogation aux dispositions du I de l'article L. 631-1 du code de l'éducation, des modalités particulières d'admission dans les études médicales, odontologiques, pharmaceutiques et de maïeutique peuvent être fixées par décret sous la forme :", 
                         "1° D'une réorientation des étudiants de la première année commune aux études de santé à l'issue d'épreuves organisées au plus tôt huit semaines après le début de celles-ci, portant sur les enseignements dispensés au cours de cette période. Seuls les étudiants considérés, sur la base de ces épreuves, comme n'étant pas susceptibles d'être classés en rang utile à l'issue de la première année peuvent être réorientés. La réorientation peut être systématique, le nombre de ces réorientations ne pouvant alors excéder un pourcentage du nombre d'inscrits, déterminé par arrêté après consultation des organisations représentatives concernées. Une réorientation facultative peut également être proposée aux étudiants au-delà de ce pourcentage. L'université assure dans tous les cas la réorientation de ces étudiants en leur proposant une inscription dans une formation qui les accueille dès l'année universitaire en cours ;", 
@@ -11039,13 +9877,11 @@
                     "length": 2181, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "À titre expérimental, pour une durée de six ans, et par dérogation aux dispositions du I de l'article L. 631-1 du code de l'éducation, des modalités particulières d'admission dans les études médicales, odontologiques, pharmaceutiques et de maïeutique peuvent être fixées par décret sous la forme :", 
                         "1° D'une réorientation des étudiants de la première année commune aux études de santé à l'issue d'épreuves organisées au plus tôt huit semaines après le début de celles-ci, portant sur les enseignements dispensés au cours de cette période. Seuls les étudiants considérés, sur la base de ces épreuves, comme n'étant pas susceptibles d'être classés en rang utile à l'issue de la première année peuvent être réorientés. La réorientation peut être systématique, le nombre de ces réorientations ne pouvant alors excéder un pourcentage du nombre d'inscrits, déterminé par arrêté après consultation des organisations représentatives concernées. Une réorientation facultative peut également être proposée aux étudiants au-delà de ce pourcentage. L'université assure dans tous les cas la réorientation de ces étudiants en leur proposant une inscription dans une formation qui les accueille dès l'année universitaire en cours ;", 
@@ -11055,13 +9891,11 @@
                     "length": 2181, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "À titre expérimental, pour une durée de six ans, et par dérogation aux dispositions du I de l'article L. 631-1 du code de l'éducation, des modalités particulières d'admission dans les études médicales, odontologiques, pharmaceutiques et de maïeutique peuvent être fixées par décret sous la forme :", 
                         "1° D'une réorientation des étudiants de la première année commune aux études de santé à l'issue d'épreuves organisées au plus tôt huit semaines après le début de celles-ci, portant sur les enseignements dispensés au cours de cette période. Seuls les étudiants considérés, sur la base de ces épreuves, comme n'étant pas susceptibles d'être classés en rang utile à l'issue de la première année peuvent être réorientés. Le niveau permettant d'apprécier la capacité des étudiants à être classés en rang utile à l'issue de la première année est déterminé par le conseil de l'unité de formation et de recherche de médecine, pharmacie, odontologie et maïeutique de l'université, en tenant compte, le cas échéant, du nombre visé au 2° du I de l'article L. 631-1 du code de l'éducation. La réorientation peut être systématique, le nombre de ces réorientations ne pouvant alors excéder un pourcentage du nombre d'inscrits, déterminé par arrêté après consultation des organisations représentatives concernées. Une réorientation facultative peut également être proposée aux étudiants au-delà de ce pourcentage. L'université assure dans tous les cas la réorientation de ces étudiants en leur proposant une inscription dans une formation qui les accueille dès l'année universitaire en cours ;", 
@@ -11071,8 +9905,8 @@
                     "length": 2542, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_22_T3"
@@ -11083,9 +9917,7 @@
             "num": 27, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 612-8 du code de l'éducation est ainsi rédigé :", 
                         "\"Art. L. 612-8. - Les stages en milieu professionnel ne relevant ni de l'article L. 4153-1 du code du travail, ni de la formation professionnelle tout au long de la vie, telle que définie à la sixième partie du même code, font l'objet d'une convention entre le stagiaire, l'organisme d'accueil et l'établissement d'enseignement, dont les modalités sont déterminées par décret.", 
@@ -11096,13 +9928,11 @@
                     "length": 1350, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 612-8 du code de l'éducation est ainsi rédigé :", 
                         "\"Art. L. 612-8. - Les stages en milieu professionnel ne relevant ni de l'article L. 4153-1 du code du travail, ni de la formation professionnelle tout au long de la vie, telle que définie à la sixième partie du même code, font l'objet d'une convention entre le stagiaire, l'organisme d'accueil et l'établissement d'enseignement, dont les modalités sont déterminées par décret.", 
@@ -11113,13 +9943,11 @@
                     "length": 1350, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié ", 
                     "text": [
                         "L'article L. 612-8 du code de l'éducation est ainsi rédigé :", 
                         "\"Art. L. 612-8. - Les stages en milieu professionnel ne relevant ni de l'article L. 4153-1 du code du travail, ni de la formation professionnelle tout au long de la vie, telle que définie à la sixième partie du même code, font l'objet d'une convention entre le stagiaire, l'organisme d'accueil et l'établissement d'enseignement, dont les modalités sont déterminées par décret.", 
@@ -11130,13 +9958,11 @@
                     "length": 1350, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-8 du code de l'éducation est ainsi rédigé :", 
                         "\"Art. L. 612-8. - Les stages en milieu professionnel ne relevant ni de l'article L. 4153-1 du code du travail, ni de la formation professionnelle tout au long de la vie, telle que définie à la sixième partie du même code, font l'objet d'une convention entre le stagiaire, l'organisme d'accueil et l'établissement d'enseignement, dont les modalités sont déterminées par décret.", 
@@ -11148,13 +9974,11 @@
                     "length": 1583, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 612-8 du code de l'éducation est ainsi rédigé :", 
@@ -11168,13 +9992,11 @@
                     "length": 1774, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-8 du code de l'éducation est ainsi rédigé :", 
                         "\"Art. L. 612-8. - Les stages en milieu professionnel ne relevant ni de l'article L. 4153-1 du code du travail, ni de la formation professionnelle tout au long de la vie, telle que définie à la sixième partie du même code, font l'objet d'une convention entre le stagiaire, l'organisme d'accueil et l'établissement d'enseignement, dont les modalités sont déterminées par décret.", 
@@ -11186,9 +10008,9 @@
                     ], 
                     "length": 1733, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_15 quater_T3"
@@ -11199,15 +10021,13 @@
             "num": 110, 
             "steps": [
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conformes", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_57 quater, 57 quinquies, 57 sexies, 57 septies et 57 octies_T7C1"
@@ -11219,8 +10039,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-2 est ainsi modifié :", 
                         "1° Le 2° est remplacé par les dispositions suivantes :", 
@@ -11231,13 +10049,11 @@
                     "length": 368, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-2 du même code est ainsi modifié :", 
                         "1° A Au 1°, après le mot : \"dispensées,\", sont insérés les mots : \"à la diffusion des connaissances dans leur diversité\" ;", 
@@ -11252,13 +10068,11 @@
                     "length": 835, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-2 du même code est ainsi modifié :", 
                         "1° A Au 1°, après le mot : \"dispensées,\", sont insérés les mots : \"à la diffusion des connaissances dans leur diversité\" ;", 
@@ -11275,13 +10089,11 @@
                     "length": 1039, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-2 du même code est ainsi modifié :", 
                         "1° A Au 1°, après le mot : \"dispensées,\", sont insérés les mots : \"à la diffusion des connaissances dans leur diversité\" ;", 
@@ -11298,13 +10110,11 @@
                     "length": 1039, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-2 du même code est ainsi modifié :", 
                         "1°AA Avant le 1°, il est inséré un 1°A ainsi rédigé :", 
@@ -11326,13 +10136,11 @@
                     "length": 1797, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-2 du code de l'éducation est ainsi modifié :", 
                         "1° AA Avant le 1°, il est inséré un 1° A ainsi rédigé :", 
@@ -11354,13 +10162,11 @@
                     "length": 1698, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 123-2 du code de l'éducation est ainsi modifié :", 
@@ -11383,13 +10189,11 @@
                     "length": 1742, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-2 du code de l'éducation est ainsi modifié :", 
                         "1° AA Avant le 1°, il est ajouté un 1° A ainsi rédigé :", 
@@ -11411,8 +10215,8 @@
                     "length": 1701, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_4_T1C1"
@@ -11423,35 +10227,29 @@
             "num": 25, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À la seconde phrase du premier alinéa de l'article L. 611-5 du code de l'éducation, après le mot : \"bureau\", sont insérés les mots : \"a pour mission de favoriser un égal accès aux stages à tous ses étudiants. Il\"."
                     ], 
                     "length": 213, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À la seconde phrase du premier alinéa de l'article L. 611-5 du code de l'éducation, après le mot : \"bureau\", sont insérés les mots : \"a pour mission de favoriser un égal accès aux stages à tous ses étudiants. Il\"."
                     ], 
                     "length": 213, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 611-5 du code de l'éducation est ainsi modifié :", 
                         "1° À la seconde phrase du premier alinéa, après le mot : \"bureau\", sont insérés les mots : \"a pour mission de favoriser un égal accès aux stages à tous ses étudiants. Il\" ;", 
@@ -11461,13 +10259,11 @@
                     "length": 625, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 611-5 du code de l'éducation est ainsi modifié :", 
                         "1° À la seconde phrase du premier alinéa, après le mot : \"bureau\", sont insérés les mots : \"a pour mission de favoriser un égal accès aux stages à tous ses étudiants. Il\" ;", 
@@ -11478,14 +10274,12 @@
                     ], 
                     "length": 972, 
                     "step": "hemicycle", 
-                    "diff": "rem", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "L'article L. 611-5 du code de l'éducation est ainsi modifié :", 
@@ -11497,14 +10291,12 @@
                     ], 
                     "length": 989, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 611-5 du code de l'éducation est ainsi modifié :", 
                         "1° À la seconde phrase du premier alinéa, après le mot : \"bureau\", sont insérés les mots : \"a pour mission de favoriser un égal accès aux stages à tous ses étudiants. Il\" ;", 
@@ -11516,8 +10308,8 @@
                     "length": 974, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_15 bis_T3"
@@ -11529,8 +10321,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 112-1 est ainsi modifié :", 
                         "1° Au b les mots : \"des résultats de la recherche\" sont remplacés par les mots : \"et le transfert des résultats de la recherche vers les secteurs socio-économiques\" ;", 
@@ -11539,13 +10329,11 @@
                     "length": 347, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 112-1 du même code est ainsi modifié :", 
                         "1° À la fin du b, les mots : \"des résultats de la recherche\" sont remplacés par les mots : \"et le transfert des résultats de la recherche vers les secteurs socio-économiques\" ;", 
@@ -11556,13 +10344,11 @@
                     "length": 477, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 112-1 du même code est ainsi modifié :", 
                         "1° À la fin du b, les mots : \"des résultats de la recherche\" sont remplacés par les mots : \"et le transfert des résultats de la recherche vers les secteurs socio-économiques\" ;", 
@@ -11573,14 +10359,12 @@
                     ], 
                     "length": 568, 
                     "step": "hemicycle", 
-                    "diff": "rem", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 112-1 du même code est ainsi modifié :", 
                         "1° À la fin du b, les mots : \"des résultats de la recherche\" sont remplacés par les mots : \"et le transfert des résultats de la recherche vers les secteurs socio-économiques\" ;", 
@@ -11592,13 +10376,11 @@
                     "length": 568, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 112-1 du même code est ainsi modifié :", 
                         "1° Le b est complété par les mots : \"au service de la société, qui s'appuie sur l'innovation et le transfert de technologie\" ;", 
@@ -11610,13 +10392,11 @@
                     "length": 518, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 112-1 du code de la recherche est ainsi modifié :", 
                         "1° Le b est complété par les mots : \"au service de la société, qui s'appuie sur l'innovation et le transfert de technologie\" ;", 
@@ -11630,13 +10410,11 @@
                     "length": 1312, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 112-1 du code de la recherche est ainsi modifié :", 
@@ -11651,13 +10429,11 @@
                     "length": 1356, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 112-1 du code de la recherche est ainsi modifié :", 
                         "1° Le b est complété par les mots : \"au service de la société, qui s'appuie sur l'innovation et le transfert de technologie\" ;", 
@@ -11671,8 +10447,8 @@
                     "length": 1313, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_12_T1C2"
@@ -11683,9 +10459,7 @@
             "num": 92, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le premier alinéa de l'article L. 822-1 du code de l'éducation est complété par une phrase ainsi rédigée :", 
                         "\"Il contribue à assurer aux étudiants une qualité d'accueil et de vie propice à la réussite de leur parcours de formation.\""
@@ -11693,13 +10467,11 @@
                     "length": 230, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le premier alinéa de l'article L. 822-1 du code de l'éducation est complété par une phrase ainsi rédigée :", 
                         "\"Il contribue à assurer aux étudiants une qualité d'accueil et de vie propice à la réussite de leur parcours de formation.\""
@@ -11707,13 +10479,11 @@
                     "length": 230, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 822-1 du code de l'éducation est ainsi modifié :", 
                         "1° Le premier alinéa est complété par une phrase ainsi rédigée :", 
@@ -11724,13 +10494,11 @@
                     "length": 430, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "true", 
                     "text": [
                         "L'article L. 822-1 du code de l'éducation est ainsi modifié :", 
                         "1° Le premier alinéa est complété par une phrase ainsi rédigée :", 
@@ -11741,30 +10509,26 @@
                     "length": 432, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "true", 
+                    "status": "supprimé par la commission mixte paritaire", 
                     "text": [], 
                     "length": 0, 
                     "step": "commission", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_57 ter_T7C1"
@@ -11776,8 +10540,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-3 est ainsi modifié :", 
                         "1° Au 1°, les mots : \"initiale et continue\" sont remplacés par les mots : \"tout au long de la vie\" ;", 
@@ -11786,13 +10548,11 @@
                     "length": 273, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-3 du même code est ainsi modifié :", 
                         "1° Le 1°est complété par les mots : \"tout au long de la vie\" ;", 
@@ -11804,13 +10564,11 @@
                     "length": 467, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-3 du même code est ainsi modifié :", 
                         "1° Le 1° est complété par les mots : \"tout au long de la vie\" ;", 
@@ -11822,13 +10580,11 @@
                     "length": 572, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-3 du même code est ainsi modifié :", 
                         "1° Le 1° est complété par les mots : \"tout au long de la vie\" ;", 
@@ -11840,13 +10596,11 @@
                     "length": 572, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-3 du même code est ainsi modifié :", 
                         "1° Le 1° est complété par les mots : \"tout au long de la vie\" ;", 
@@ -11858,13 +10612,11 @@
                     "length": 752, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-3 du code de l'éducation est ainsi modifié :", 
                         "1° Le 1° est complété par les mots : \"tout au long de la vie\" ;", 
@@ -11876,13 +10628,11 @@
                     "length": 824, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 123-3 du code de l'éducation est ainsi modifié :", 
@@ -11895,13 +10645,11 @@
                     "length": 911, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 123-3 du code de l'éducation est ainsi modifié :", 
                         "1° Le 1° est complété par les mots : \"tout au long de la vie\" ;", 
@@ -11912,9 +10660,9 @@
                     ], 
                     "length": 870, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_5_T1C1"
@@ -11926,8 +10674,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au troisième alinéa des articles L. 716-1 et L. 718-1 et à l'article L. 741-1 du même code la référence à l'article L. 712-4 est remplacée par la référence à l'article L. 712-6-2.", 
                         "II. - À la fin des articles L. 716-1, L. 718-1 et L. 741-1, il est ajouté un alinéa ainsi rédigé :", 
@@ -11936,13 +10682,11 @@
                     "length": 638, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au dernier alinéa des articles L. 716-1 et L. 718-1 et à l'article L. 741-1 du même code, la référence : \"L. 712-4\" est remplacée par la référence : \"L. 712-6-2\".", 
                         "II. - Les articles L. 716-1, L. 718-1 et L. 741-1 du même code sont complétés par un alinéa ainsi rédigé :", 
@@ -11952,13 +10696,11 @@
                     "length": 835, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au dernier alinéa des articles L. 716-1 et L. 718-1 et à l'article L. 741-1 du même code, la référence : \"L. 712-4\" est remplacée par la référence : \"L. 712-6-2\".", 
                         "II. - Les articles L. 716-1 et L. 718-1 du même code sont complétés par un alinéa ainsi rédigé :", 
@@ -11970,13 +10712,11 @@
                     "length": 1320, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au dernier alinéa des articles L. 716-1 et L. 718-1 et à l'article L. 741-1 du même code, la référence : \"L. 712-4\" est remplacée par la référence : \"L. 712-6-2\".", 
                         "II. - Les articles L. 716-1 et L. 718-1 du même code sont complétés par un alinéa ainsi rédigé :", 
@@ -11988,13 +10728,11 @@
                     "length": 1320, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "I. - Au dernier alinéa des articles L. 716-1 et L. 718-1 et à l'article L. 741-1 du même code, la référence : \"L. 712-4\" est remplacée par la référence : \"L. 712-6-2\".", 
                         "II. - Les articles L. 716-1 et L. 718-1 du même code sont complétés par un alinéa ainsi rédigé :", 
@@ -12006,8 +10744,8 @@
                     "length": 1319, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_34_T4C1S2"
@@ -12018,9 +10756,7 @@
             "num": 99, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le début du deuxième alinéa de l'article L. 831-1 du code de l'éducation est ainsi rédigé :", 
                         "\"Les établissements auxquels ils sont rattachés concluent une convention avec l'agence mentionnée à l'article L. 1431-1 du code de la santé publique pour concourir à la mise en oeuvre ... (le reste sans changement)\"."
@@ -12028,13 +10764,11 @@
                     "length": 308, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Le début du deuxième alinéa de l'article L. 831-1 du code de l'éducation est ainsi rédigé :", 
@@ -12042,14 +10776,12 @@
                     ], 
                     "length": 325, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Le début du deuxième alinéa de l'article L. 831-1 du code de l'éducation est ainsi rédigé :", 
                         "\"Les établissements auxquels ils sont rattachés concluent une convention avec l'agence mentionnée à l'article L. 1431-1 du code de la santé publique pour concourir à la mise en oeuvre ... (le reste sans changement).\""
@@ -12057,8 +10789,8 @@
                     "length": 308, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_56 B_T7C1"
@@ -12069,9 +10801,7 @@
             "num": 68, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 731-5 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"Les établissements d'enseignement supérieur privés doivent préciser sur leurs documents d'inscription les formations sanctionnées par un diplôme qui fait l'objet d'une reconnaissance par l'État.\""
@@ -12079,13 +10809,11 @@
                     "length": 280, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "L'article L. 731-5 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
@@ -12093,23 +10821,21 @@
                     ], 
                     "length": 297, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 731-5 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"Les établissements d'enseignement supérieur privés doivent préciser sur leurs documents d'inscription les formations sanctionnées par un diplôme qui fait l'objet d'une reconnaissance par l'État.\""
                     ], 
                     "length": 280, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_42 B_T4C3"
@@ -12120,9 +10846,7 @@
             "num": 23, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le dernier alinéa de l'article L. 612-1 du même code est complété par une phrase ainsi rédigée :", 
                         "\"Chaque étudiant en dispose en amont de son orientation dans une formation supérieure.\""
@@ -12130,13 +10854,11 @@
                     "length": 184, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le dernier alinéa de l'article L. 612-1 du même code est complété par une phrase ainsi rédigée :", 
                         "\"Chaque étudiant en dispose avant son orientation dans une formation supérieure.\""
@@ -12144,13 +10866,11 @@
                     "length": 178, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le dernier alinéa de l'article L. 612-1 du même code est complété par une phrase ainsi rédigée :", 
                         "\"Chaque étudiant en dispose avant son orientation dans une formation supérieure.\""
@@ -12158,13 +10878,11 @@
                     "length": 178, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Le dernier alinéa de l'article L. 612-1 du même code est complété par deux phrases ainsi rédigées :", 
                         "\"Chaque étudiant en dispose avant son orientation dans une formation supérieure. Dans l'élaboration et la communication de ces statistiques, les établissements bénéficient du concours du Centre d'études et de recherches sur les qualifications, de l'établissement public mentionné à l'article L. 313-6 et des services chargés des études statistiques du ministère de l'enseignement supérieur, qui peuvent, à cette fin, leur fournir un soutien méthodologique et valider la fiabilité des enquêtes conduites.\""
@@ -12172,13 +10890,11 @@
                     "length": 604, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Le dernier alinéa de l'article L. 612-1 du code de l'éducation est ainsi modifié :", 
                         "1° Après les mots : \"des indicateurs\", sont insérés les mots : \"d'inscription des étudiants dans toutes les formations dispensées,\" ;", 
@@ -12188,13 +10904,11 @@
                     "length": 650, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Le dernier alinéa de l'article L. 612-1 du code de l'éducation est ainsi modifié :", 
@@ -12204,14 +10918,12 @@
                     ], 
                     "length": 667, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Le dernier alinéa de l'article L. 612-1 du code de l'éducation est ainsi modifié :", 
                         "1° Après les mots : \"des indicateurs\", sont insérés les mots : \"d'inscription des étudiants dans toutes les formations dispensées,\" ;", 
@@ -12220,9 +10932,9 @@
                     ], 
                     "length": 650, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_16 bis_T3"
@@ -12234,8 +10946,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "À l'article L. 731-14 du même code, il est ajouté un troisième alinéa ainsi rédigé :", 
                         "\"Est puni de la même peine le responsable d'un établissement qui décerne des diplômes portant le nom de master, alors qu'il n'a pas été autorisé, dans les conditions fixées par décret, à délivrer, au nom de l'État, des diplômes conférant le grade de master.\""
@@ -12243,13 +10953,11 @@
                     "length": 343, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 731-14 du code de l'éducation est complété par cinq alinéas ainsi rédigés :", 
                         "\"Est puni de la même peine le responsable d'un établissement qui décerne des diplômes portant le nom de master alors que ces diplômes n'ont pas été autorisés, dans les conditions fixées par décret, à conférer, au nom de l'État, le grade de master.", 
@@ -12261,13 +10969,11 @@
                     "length": 1083, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 731-14 du code de l'éducation est complété par cinq alinéas ainsi rédigés :", 
                         "\"Est puni de la même peine le responsable d'un établissement qui décerne des diplômes portant le nom de master alors que ces diplômes n'ont pas été autorisés, dans les conditions fixées par décret, à conférer, au nom de l'État, le grade de master.", 
@@ -12279,13 +10985,11 @@
                     "length": 1082, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 731-14 du code de l'éducation est complété par cinq alinéas ainsi rédigés :", 
                         "\"Est puni de la même peine le responsable d'un établissement qui décerne des diplômes portant le nom de master alors que ces diplômes n'ont pas été autorisés, dans les conditions fixées par décret, à conférer, au nom de l'État, le grade de master.", 
@@ -12297,13 +11001,11 @@
                     "length": 1082, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "L'article L. 731-14 du code de l'éducation est complété par cinq alinéas ainsi rédigés :", 
                         "\"Est puni de la même peine le responsable d'un établissement qui décerne des diplômes portant le nom de master alors que ces diplômes n'ont pas été autorisés, dans les conditions fixées par décret, à conférer, au nom de l'État, le grade de master.", 
@@ -12315,13 +11017,11 @@
                     "length": 1082, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 731-14 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"Est puni de la même peine le responsable d'un établissement qui décerne des diplômes portant le nom de master, ou qui décerne des diplômes en référence au grade de master sans avoir été accrédité ou autorisé par l'État, dans l'un ou l'autre cas."
@@ -12329,13 +11029,11 @@
                     "length": 331, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "L'article L. 731-14 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
@@ -12343,23 +11041,21 @@
                     ], 
                     "length": 348, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 731-14 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"Est puni de la même peine le responsable d'un établissement qui décerne des diplômes portant le nom de master, ou qui décerne des diplômes en référence au grade de master sans avoir été accrédité ou autorisé par l'État, dans l'un ou l'autre cas."
                     ], 
                     "length": 331, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_42_T4C3"
@@ -12370,9 +11066,7 @@
             "num": 62, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 951-1-1 du code de l'éducation est complété un alinéa ainsi rédigé :", 
                         "\"Les bilans sociaux des établissements sont rendus publics chaque année, dans des conditions fixées par décret.\""
@@ -12380,13 +11074,11 @@
                     "length": 194, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 951-1-1 du code de l'éducation est complété un alinéa ainsi rédigé :", 
                         "\"Les bilans sociaux des établissements sont rendus publics chaque année, dans des conditions fixées par décret.\""
@@ -12394,13 +11086,11 @@
                     "length": 194, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "L'article L. 951-1-1 du code de l'éducation est complété un alinéa ainsi rédigé :", 
                         "\"Les bilans sociaux des établissements sont rendus publics chaque année, dans des conditions fixées par décret.\""
@@ -12408,8 +11098,8 @@
                     "length": 194, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_38 ter_T4C2"
@@ -12420,43 +11110,37 @@
             "num": 61, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "La seconde phrase du premier alinéa de l'article L. 719-9 du code de l'éducation est complétée par les mots : \", contrôle portant notamment sur la politique de ressources humaines des établissements\"."
                     ], 
                     "length": 200, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "La seconde phrase du premier alinéa de l'article L. 719-9 du code de l'éducation est complétée par les mots : \", contrôle portant notamment sur la politique de ressources humaines des établissements\"."
                     ], 
                     "length": 200, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "La seconde phrase du premier alinéa de l'article L. 719-9 du code de l'éducation est complétée par les mots : \", contrôle portant notamment sur la politique de ressources humaines des établissements\"."
                     ], 
                     "length": 200, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_38 bis_T4C2"
@@ -12468,8 +11152,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Il est inséré après le premier alinéa de l'article L. 412-1 du code de la recherche un alinéa ainsi rédigé :", 
                         "\"Lorsque les besoins du service public et la nature des missions le justifient, les statuts particuliers de certains corps de fonctionnaires de l'État de catégorie A peuvent prévoir un concours externe réservé sur titres ou sur titres et épreuves ouvert aux candidats titulaires d'un diplôme de doctorat.\""
@@ -12477,13 +11159,11 @@
                     "length": 414, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 412-1 du code de la recherche est complété par deux alinéas ainsi rédigés :", 
                         "\"Les concours et procédures de recrutement dans les corps, cadres d'emplois et emplois de la fonction publique de catégorie A sont adaptés, dans les conditions fixées par les statuts particuliers des corps, cadres d'emplois et emplois concernés, afin d'assurer la reconnaissance des acquis de l'expérience professionnelle résultant de la formation à la recherche et par la recherche lorsqu'elle a été sanctionnée par la délivrance du doctorat.", 
@@ -12492,13 +11172,11 @@
                     "length": 663, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 412-1 du code de la recherche est complété par deux alinéas ainsi rédigés :", 
                         "\"Les concours et procédures de recrutement dans les corps, cadres d'emplois et emplois de la fonction publique de catégorie A sont adaptés, dans les conditions fixées par les statuts particuliers des corps, cadres d'emplois et emplois concernés, afin d'assurer la reconnaissance des acquis de l'expérience professionnelle résultant de la formation à la recherche et par la recherche lorsqu'elle a été sanctionnée par la délivrance du doctorat.", 
@@ -12507,13 +11185,11 @@
                     "length": 663, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 412-1 du code de la recherche est complété par deux alinéas ainsi rédigés :", 
                         "\"Les concours et procédures de recrutement dans les corps, cadres d'emplois et emplois de la fonction publique de catégorie A sont adaptés, dans les conditions fixées par les statuts particuliers des corps, cadres d'emplois et emplois concernés, afin d'assurer la reconnaissance des acquis de l'expérience professionnelle résultant de la formation à la recherche et par la recherche lorsqu'elle a été sanctionnée par la délivrance du doctorat.", 
@@ -12522,13 +11198,11 @@
                     "length": 663, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 412-1 du code de la recherche est complété par quatre alinéas ainsi rédigés :", 
                         "\"Les concours et procédures de recrutement dans les corps et cadres d'emplois de catégorie A relevant du statut général de la fonction publique sont adaptés, dans les conditions fixées par les statuts particuliers des corps, cadres d'emplois et emplois concernés, afin d'assurer la reconnaissance des acquis de l'expérience professionnelle résultant de la formation à la recherche et par la recherche lorsqu'elle a été sanctionnée par la délivrance du doctorat.", 
@@ -12539,13 +11213,11 @@
                     "length": 1270, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 412-1 du code de la recherche est complété par six alinéas ainsi rédigés :", 
                         "\"Les concours et procédures de recrutement dans les corps et cadres d'emplois de catégorie A relevant du statut général de la fonction publique sont adaptés, dans les conditions fixées par les statuts particuliers des corps et cadres d'emplois concernés, afin d'assurer la reconnaissance des acquis de l'expérience professionnelle résultant de la formation à la recherche et par la recherche lorsqu'elle a été sanctionnée par la délivrance du doctorat.", 
@@ -12558,13 +11230,11 @@
                     "length": 2086, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "L'article L. 412-1 du code de la recherche est complété par six alinéas ainsi rédigés :", 
@@ -12577,14 +11247,12 @@
                     ], 
                     "length": 2103, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 412-1 du code de la recherche est complété par six alinéas ainsi rédigés :", 
                         "\"Les concours et procédures de recrutement dans les corps et cadres d'emplois de catégorie A relevant du statut général de la fonction publique sont adaptés, dans les conditions fixées par les statuts particuliers des corps et cadres d'emplois concernés, afin d'assurer la reconnaissance des acquis de l'expérience professionnelle résultant de la formation à la recherche et par la recherche lorsqu'elle a été sanctionnée par la délivrance du doctorat.", 
@@ -12597,8 +11265,8 @@
                     "length": 2084, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_47_T5"
@@ -12610,8 +11278,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-3 est ainsi modifié :", 
                         "1° Le troisième alinéa est complété par une phrase ainsi rédigée : \"En tenant compte de la spécialité du diplôme préparé et des demandes enregistrées dans le cadre de la procédure de préinscription mentionnée au deuxième alinéa, le recteur d'académie, chancelier des universités, peut prévoir, pour l'accès aux sections de techniciens supérieurs et aux instituts universitaires de technologie, respectivement un pourcentage minimal de bacheliers professionnels et un pourcentage minimal de bacheliers technologiques, ainsi que des critères appropriés de vérification de leurs aptitudes.\" ;", 
@@ -12620,13 +11286,11 @@
                     "length": 1061, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 612-3 du même code est ainsi modifié :", 
                         "1° Le troisième alinéa est complété par deux phrases ainsi rédigées :", 
@@ -12637,13 +11301,11 @@
                     "length": 1693, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 612-3 du même code est ainsi modifié :", 
                         "1° Le troisième alinéa est complété par deux phrases ainsi rédigées :", 
@@ -12656,13 +11318,11 @@
                     "length": 2363, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 612-3 du même code est ainsi modifié :", 
                         "1° Le troisième alinéa est complété par deux phrases ainsi rédigées :", 
@@ -12675,13 +11335,11 @@
                     "length": 2363, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 612-3 du même code est ainsi modifié :", 
                         "1° Le troisième alinéa est complété par deux phrases ainsi rédigées :", 
@@ -12696,13 +11354,11 @@
                     "length": 2921, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 612-3 du code de l'éducation est ainsi modifié :", 
                         "1° Le troisième alinéa est complété par deux phrases ainsi rédigées :", 
@@ -12717,13 +11373,11 @@
                     "length": 3517, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "I. - L'article L. 612-3 du code de l'éducation est ainsi modifié :", 
@@ -12741,13 +11395,11 @@
                     "length": 4001, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - L'article L. 612-3 du code de l'éducation est ainsi modifié :", 
                         "1° Le troisième alinéa est complété par deux phrases ainsi rédigées :", 
@@ -12763,9 +11415,9 @@
                     ], 
                     "length": 3960, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_18_T3"
@@ -12776,43 +11428,37 @@
             "num": 94, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Les a à d et g du 4° du I de l'article 7 de l'ordonnance n° 2004-545 du 11 juin 2004 relative à la partie législative du code de la recherche sont abrogés."
                     ], 
                     "length": 155, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Les a à d et g du 4° du I de l'article 7 de l'ordonnance n° 2004-545 du 11 juin 2004 relative à la partie législative du code de la recherche sont abrogés."
                     ], 
                     "length": 155, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Les a à d et g du 4° du I de l'article 7 de l'ordonnance n° 2004-545 du 11 juin 2004 relative à la partie législative du code de la recherche sont abrogés."
                     ], 
                     "length": 155, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_57 quinquies_T7C1"
@@ -12824,68 +11470,58 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Les procédures de recrutement et d'affectation des personnels enseignants-chercheurs issues des dispositions de la présente loi s'appliquent pour les emplois publiés postérieurement à la publication de la loi."
                     ], 
                     "length": 209, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Les modalités d'examen des questions individuelles relatives au recrutement, à l'affectation et la carrière des enseignants-chercheurs et des enseignants introduites par la présente loi au IV de l'article L. 712-6-1 et à l'article L. 952-6-1 du code de l'éducation sont applicables à compter de l'entrée en vigueur des modifications des textes réglementaires régissant les différentes catégories de personnels enseignants-chercheurs et enseignants rendues nécessaires par la présente loi."
                     ], 
                     "length": 488, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Les modalités d'examen des questions individuelles relatives au recrutement, à l'affectation et la carrière des enseignants-chercheurs et des enseignants prévues au IV de l'article L. 712-6-1 et à l'article L. 952-6-1 du code de l'éducation, dans leur rédaction résultant de la présente loi, sont applicables à compter de l'entrée en vigueur des modifications des textes réglementaires régissant les différentes catégories de personnels enseignants-chercheurs et enseignants rendues nécessaires par la présente loi."
                     ], 
                     "length": 515, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Les modalités d'examen des questions individuelles relatives au recrutement, à l'affectation et la carrière des enseignants-chercheurs et des enseignants prévues au IV de l'article L. 712-6-1 et à l'article L. 952-6-1 du code de l'éducation, dans leur rédaction résultant de la présente loi, sont applicables à compter de l'entrée en vigueur des modifications des textes réglementaires régissant les différentes catégories de personnels enseignants-chercheurs et enseignants rendues nécessaires par la présente loi."
                     ], 
                     "length": 515, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Les modalités d'examen des questions individuelles relatives au recrutement, à l'affectation et la carrière des enseignants-chercheurs et des enseignants prévues au IV de l'article L. 712-6-1 et à l'article L. 952-6-1 du code de l'éducation, dans leur rédaction résultant de la présente loi, sont applicables à compter de l'entrée en vigueur des modifications des textes réglementaires régissant les différentes catégories de personnels enseignants-chercheurs et enseignants rendues nécessaires par la présente loi."
                     ], 
                     "length": 515, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_64_T7C2"
@@ -12897,53 +11533,45 @@
             "steps": [
                 {
                     "status": "none", 
+                    "text": [
+                        "Le dernier alinéa de l'article L. 612-3 du code de l'éducation est ainsi rédigé :", 
+                        "\"La préparation aux écoles, aux formations de l'enseignement supérieur qui font l'objet d'une sélection à l'entrée et aux concours de la fonction publique est assurée dans les classes préparatoires des lycées et dans les établissements publics à caractère scientifique, culturel et professionnel, dans des conditions fixées par décret. Les étudiants boursiers bénéficient de la gratuité d'accès à ces préparations.\""
+                    ], 
+                    "length": 497, 
+                    "step": "commission", 
+                    "diff": "none", 
                     "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "stage": "1ère lecture"
+                }, 
+                {
+                    "status": "nouveau", 
                     "text": [
                         "Le dernier alinéa de l'article L. 612-3 du code de l'éducation est ainsi rédigé :", 
                         "\"La préparation aux écoles, aux formations de l'enseignement supérieur qui font l'objet d'une sélection à l'entrée et aux concours de la fonction publique est assurée dans les classes préparatoires des lycées et dans les établissements publics à caractère scientifique, culturel et professionnel, dans des conditions fixées par décret. Les étudiants boursiers bénéficient de la gratuité d'accès à ces préparations.\""
                     ], 
                     "length": 497, 
-                    "step": "commission", 
+                    "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
-                }, 
-                {
-                    "status": "new", 
                     "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "true", 
-                    "text": [
-                        "Le dernier alinéa de l'article L. 612-3 du code de l'éducation est ainsi rédigé :", 
-                        "\"La préparation aux écoles, aux formations de l'enseignement supérieur qui font l'objet d'une sélection à l'entrée et aux concours de la fonction publique est assurée dans les classes préparatoires des lycées et dans les établissements publics à caractère scientifique, culturel et professionnel, dans des conditions fixées par décret. Les étudiants boursiers bénéficient de la gratuité d'accès à ces préparations.\""
-                    ], 
-                    "length": 497, 
-                    "step": "hemicycle", 
-                    "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "true", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "commission", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_19 A_T3"
@@ -12955,8 +11583,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 613-1 est ainsi modifié :", 
                         "1° À la deuxième phrase du deuxième alinéa, le mot : \"habilités\" est remplacé par le mot : \"accrédités\" ;", 
@@ -12969,13 +11595,11 @@
                     "length": 1480, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 613-1 du même code est ainsi modifié :", 
                         "1° À la deuxième phrase du deuxième alinéa, le mot : \"habilités\" est remplacé par le mot : \"accrédités\" ;", 
@@ -12988,13 +11612,11 @@
                     "length": 1551, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 613-1 du même code est ainsi modifié :", 
                         "1° À la deuxième phrase du deuxième alinéa, le mot : \"habilités\" est remplacé par le mot : \"accrédités\" ;", 
@@ -13007,13 +11629,11 @@
                     "length": 1622, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 613-1 du même code est ainsi modifié :", 
                         "1° À la deuxième phrase du deuxième alinéa, le mot : \"habilités\" est remplacé par le mot : \"accrédités\" ;", 
@@ -13026,13 +11646,11 @@
                     "length": 1622, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 613-1 du même code est ainsi modifié :", 
                         "1° À la deuxième phrase du deuxième alinéa, le mot : \"habilités\" est remplacé par le mot : \"accrédités\" ;", 
@@ -13047,13 +11665,11 @@
                     "length": 1962, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 613-1 du code de l'éducation est ainsi modifié :", 
                         "1° À la deuxième phrase du deuxième alinéa, le mot : \"habilités\" est remplacé par le mot : \"accrédités\" ;", 
@@ -13068,13 +11684,11 @@
                     "length": 1897, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "L'article L. 613-1 du code de l'éducation est ainsi modifié :", 
@@ -13089,14 +11703,12 @@
                     ], 
                     "length": 1914, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 613-1 du code de l'éducation est ainsi modifié :", 
                         "1° À la deuxième phrase du deuxième alinéa, le mot : \"habilités\" est remplacé par le mot : \"accrédités\" ;", 
@@ -13110,9 +11722,9 @@
                     ], 
                     "length": 1897, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_20_T3"
@@ -13123,74 +11735,62 @@
             "num": 4, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Dans un délai de deux ans à compter de la promulgation de la présente loi, le Gouvernement remet au Parlement un rapport évaluant l'impact de l'article 2 sur l'emploi du français dans les établissements publics et privés d'enseignement et sur l'évolution de l'offre d'enseignement du français langue étrangère à destination des étudiants étrangers."
                     ], 
                     "length": 348, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Dans un délai de deux ans à compter de la promulgation de la présente loi, le Gouvernement remet au Parlement un rapport évaluant l'impact de l'article 2 sur l'emploi du français dans les établissements publics et privés d'enseignement et sur l'évolution de l'offre d'enseignement du français langue étrangère à destination des étudiants étrangers."
                     ], 
                     "length": 348, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Dans un délai de deux ans à compter de la promulgation de la présente loi, le Gouvernement remet au Parlement un rapport évaluant l'impact de l'article 2 sur l'emploi du français dans les établissements publics et privés d'enseignement et sur l'évolution de l'offre d'enseignement du français langue étrangère à destination des étudiants étrangers."
                     ], 
                     "length": 348, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Dans un délai de trois ans à compter de la promulgation de la présente loi, le Gouvernement remet aux commissions permanentes compétentes de l'Assemblée nationale et du Sénat un rapport évaluant l'impact, dans les établissements publics et privés d'enseignement supérieur, de l'article 2 de la présente loi sur l'emploi du français, l'évolution de l'offre de formations en langues étrangères, la mise en place d'enseignements de la langue et de la culture françaises à destination des étudiants étrangers et l'évolution de l'offre d'enseignements en langue française dans des établissements étrangers."
                     ], 
                     "length": 601, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Dans un délai de trois ans à compter de la promulgation de la présente loi, le Gouvernement remet aux commissions permanentes compétentes de l'Assemblée nationale et du Sénat un rapport évaluant l'impact, dans les établissements publics et privés d'enseignement supérieur, de l'article 2 de la présente loi sur l'emploi du français, l'évolution de l'offre de formations en langue étrangère, la mise en place d'enseignements de la langue française à destination des étudiants étrangers et l'évolution de l'offre d'enseignements en langue française dans des établissements étrangers."
                     ], 
                     "length": 581, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "Dans un délai de trois ans à compter de la promulgation de la loi n° du relative à l'enseignement supérieur et à la recherche, le Gouvernement remet aux commissions permanentes compétentes de l'Assemblée nationale et du Sénat un rapport évaluant l'impact, dans les établissements publics et privés d'enseignement supérieur, de l'article 2 de la présente loi sur l'emploi du français, l'évolution de l'offre de formations en langue étrangère, la mise en place d'enseignements de la langue française à destination des étudiants étrangers et l'évolution de l'offre d'enseignements en langue française dans des établissements étrangers."
@@ -13198,21 +11798,19 @@
                     "length": 673, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Dans un délai de trois ans à compter de la promulgation de la présente loi, le Gouvernement remet aux commissions permanentes compétentes de l'Assemblée nationale et du Sénat un rapport évaluant l'impact, dans les établissements publics et privés d'enseignement supérieur, de l'article 2 de la présente loi sur l'emploi du français, l'évolution de l'offre de formations en langue étrangère, la mise en place d'enseignements de la langue française à destination des étudiants étrangers et l'évolution de l'offre d'enseignements en langue française dans des établissements étrangers."
                     ], 
                     "length": 581, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_2 bis_T1C1"
@@ -13224,84 +11822,70 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "true", 
                     "text": [
                         "Le livre Ier du code de l'éducation est modifié conformément aux dispositions du présent chapitre."
                     ], 
                     "length": 98, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "true", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "commission", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "true", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "true", 
+                    "status": "supprimé", 
                     "text": [], 
                     "length": 0, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "true", 
+                    "status": "suppression maintenue", 
                     "text": [], 
                     "length": 0, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "sup", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "suppression conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_1er_T1C1"
         }, 
         "id_1er bis_T1C1": {
-            "titre": "1 bis", 
+            "titre": "1er bis", 
             "section": "T1C1", 
             "num": 2, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 111-5 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"L'État est le garant de l'égalité sur l'ensemble du territoire du service public de l'enseignement supérieur.\""
@@ -13309,13 +11893,11 @@
                     "length": 195, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 111-5 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"L'État est le garant de l'égalité du service public de l'enseignement supérieur sur l'ensemble du territoire.\""
@@ -13323,13 +11905,11 @@
                     "length": 195, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "L'article L. 111-5 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"L'État est le garant de l'égalité du service public de l'enseignement supérieur sur l'ensemble du territoire.\""
@@ -13337,13 +11917,11 @@
                     "length": 195, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 111-5 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"L'État est le garant de l'égalité devant le service public de l'enseignement supérieur sur l'ensemble du territoire.\""
@@ -13351,13 +11929,11 @@
                     "length": 202, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 111-5 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"L'État est le garant de l'égalité devant le service public de l'enseignement supérieur sur l'ensemble du territoire.\""
@@ -13365,13 +11941,11 @@
                     "length": 202, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "L'article L. 111-5 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
@@ -13379,23 +11953,21 @@
                     ], 
                     "length": 219, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 111-5 du code de l'éducation est complété par un alinéa ainsi rédigé :", 
                         "\"L'État est le garant de l'égalité devant le service public de l'enseignement supérieur sur l'ensemble du territoire.\""
                     ], 
                     "length": 202, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_1er bis_T1C1"
@@ -13406,22 +11978,18 @@
             "num": 89, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Dans un délai de deux ans après la publication du décret mentionné à l'article L.114-3-6 du code de la recherche, le Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur transmet au Parlement un rapport faisant le bilan de son fonctionnement. Ce rapport doit notamment retracer les méthodologies utilisées et préciser l'équilibre entre les missions d'évaluation directe par le Haut Conseil et de validation des évaluations réalisées par d'autres instances."
                     ], 
                     "length": 479, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Dans un délai de deux ans après la publication du décret mentionné à l'article L. 114-3-6 du code de la recherche, le Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur transmet au Parlement un rapport faisant le bilan de son fonctionnement. Ce rapport doit notamment retracer les méthodologies utilisées et préciser l'équilibre entre les missions d'évaluation directe par le Haut Conseil et de validation des évaluations réalisées par d'autres instances."
@@ -13429,21 +11997,19 @@
                     "length": 497, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Dans un délai de deux ans après la publication du décret en Conseil d'État mentionné à l'article L. 114-3-6 du code de la recherche, le Haut Conseil de l'évaluation de la recherche et de l'enseignement supérieur transmet au Parlement un rapport faisant le bilan de son fonctionnement. Ce rapport doit notamment retracer les méthodologies utilisées et préciser l'équilibre entre les missions d'évaluation directe par le Haut Conseil et de validation des évaluations réalisées par d'autres instances."
                     ], 
                     "length": 498, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_49 bis_T6C1"
@@ -13455,68 +12021,58 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Pour la première accréditation prévue à l'article L. 613-1 du code de l'éducation, lorsque la durée du contrat liant l'État à l'établissement public d'enseignement supérieur restant à courir est inférieure à un an, les établissements sont accrédités jusqu'au terme du contrat suivant."
                     ], 
                     "length": 284, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Pour la première accréditation prévue à l'article L. 613-1 du code de l'éducation, dans sa rédaction résultant de la présente loi, lorsque la durée du contrat liant l'État à l'établissement public d'enseignement supérieur restant à courir est inférieure à un an, les établissements sont accrédités jusqu'au terme du contrat suivant."
                     ], 
                     "length": 332, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Pour la première accréditation prévue à l'article L. 613-1 du code de l'éducation, dans sa rédaction résultant de la présente loi, lorsque la durée du contrat liant l'État à l'établissement public d'enseignement supérieur restant à courir est inférieure à un an, les établissements sont accrédités jusqu'au terme du contrat suivant."
                     ], 
                     "length": 332, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Pour la première accréditation prévue à l'article L. 613-1 du code de l'éducation, dans sa rédaction résultant de la présente loi, lorsque la durée du contrat liant l'État à l'établissement public d'enseignement supérieur restant à courir est inférieure à un an, les établissements sont accrédités jusqu'au terme du contrat suivant."
                     ], 
                     "length": 332, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Pour la première accréditation prévue à l'article L. 613-1 du code de l'éducation, dans sa rédaction résultant de la présente loi, lorsque la durée du contrat liant l'État à l'établissement public d'enseignement supérieur restant à courir est inférieure à un an, les établissements sont accrédités jusqu'au terme du contrat suivant."
                     ], 
                     "length": 332, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_63_T7C2"
@@ -13528,8 +12084,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Aux articles L. 114-3-2, L. 114-3-5 et L. 114-3-7 du même code, les mots : \"L'Agence d'évaluation de la recherche et de l'enseignement supérieur\" sont remplacés par les mots : \"Le Haut conseil de l'évaluation de la recherche et de l'enseignement supérieur\".", 
                         "II. - Au deuxième alinéa de l'article L. 114-3-2 du même code, les mots : \"à l'agence\" sont remplacés par les mots : \"au Haut conseil\".", 
@@ -13542,13 +12096,11 @@
                     "length": 1202, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au début du premier alinéa de l'article L. 114-3-2 et au début de la première phrase des articles L. 114-3-5 et L. 114-3-7 du même code, les mots : \"L'Agence d'évaluation\" sont remplacés par les mots : \"Le Haut Conseil de l'évaluation\".", 
                         "II. - Au deuxième alinéa de l'article L. 114-3-2 du même code, les mots : \"à l'agence\" sont remplacés par les mots : \"au Haut Conseil\".", 
@@ -13561,13 +12113,11 @@
                     "length": 1038, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au début du premier alinéa de l'article L. 114-3-2 et au début de la première phrase des articles L. 114-3-5 et L. 114-3-7 du même code, les mots : \"L'Agence d'évaluation\" sont remplacés par les mots : \"Le Haut Conseil de l'évaluation\".", 
                         "II. - Au deuxième alinéa de l'article L. 114-3-2 du même code, les mots : \"à l'agence\" sont remplacés par les mots : \"au Haut Conseil\".", 
@@ -13580,13 +12130,11 @@
                     "length": 1038, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au début du premier alinéa de l'article L. 114-3-2 et au début de la première phrase des articles L. 114-3-5 et L. 114-3-7 du même code, les mots : \"L'Agence d'évaluation\" sont remplacés par les mots : \"Le Haut Conseil de l'évaluation\".", 
                         "II. - Au deuxième alinéa de l'article L. 114-3-2 du même code, les mots : \"à l'agence\" sont remplacés par les mots : \"au Haut Conseil\".", 
@@ -13599,13 +12147,11 @@
                     "length": 1038, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Au début du premier alinéa de l'article L. 114-3-2 et au début de la première phrase des articles L. 114-3-5 et L. 114-3-7 du même code, les mots : \"L'Agence d'évaluation\" sont remplacés par les mots : \"Le Haut Conseil de l'évaluation\".", 
                         "II. - Au deuxième alinéa de l'article L. 114-3-2 du même code, les mots : \"à l'agence\" sont remplacés par les mots : \"au Haut Conseil\".", 
@@ -13618,19 +12164,17 @@
                     "length": 1038, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_51_T6C1"
@@ -13641,15 +12185,13 @@
             "num": 76, 
             "steps": [
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conformes", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_45 et 46_T5"
@@ -13661,8 +12203,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Après l'article L. 812-4 du code rural et de la pêche maritime, il est inséré un article L. 812-5 ainsi rédigé :", 
                         "Art. L. 812-5. - Le pouvoir disciplinaire à l'égard des enseignants-chercheurs, enseignants et usagers est exercé en premier ressort par le conseil d'administration de l'établissement constitué en section disciplinaire.", 
@@ -13672,13 +12212,11 @@
                     "length": 656, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Le chapitre II du titre Ier du livre VIII du code rural et de la pêche maritime est complété par un article L. 812-5 ainsi rétabli :", 
                         "\"Art. L. 812-5. - Le pouvoir disciplinaire à l'égard des enseignants-chercheurs, enseignants et usagers est exercé en premier ressort par le conseil d'administration de l'établissement constitué en section disciplinaire.", 
@@ -13688,13 +12226,11 @@
                     "length": 691, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Le chapitre II du titre Ier du livre VIII du code rural et de la pêche maritime est complété par un article L. 812-5 ainsi rétabli :", 
                         "\"Art. L. 812-5. - Le pouvoir disciplinaire à l'égard des enseignants-chercheurs, enseignants et usagers est exercé en premier ressort par le conseil d'administration de l'établissement constitué en section disciplinaire.", 
@@ -13704,13 +12240,11 @@
                     "length": 691, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Le chapitre II du titre Ier du livre VIII du code rural et de la pêche maritime est complété par un article L. 812-5 ainsi rétabli :", 
                         "\"Art. L. 812-5. - Le pouvoir disciplinaire à l'égard des enseignants-chercheurs, enseignants et usagers est exercé en premier ressort par le conseil d'administration de l'établissement constitué en section disciplinaire.", 
@@ -13720,13 +12254,11 @@
                     "length": 691, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié", 
                     "text": [
                         "Le chapitre II du titre Ier du livre VIII du code rural et de la pêche maritime est complété par un article L. 812-5 ainsi rétabli :", 
                         "\"Art. L. 812-5. - Le pouvoir disciplinaire à l'égard des enseignants-chercheurs, enseignants et usagers est exercé en premier ressort par le conseil d'administration de l'établissement constitué en section disciplinaire.", 
@@ -13736,8 +12268,8 @@
                     "length": 691, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_36_T4C1S2"
@@ -13749,8 +12281,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 311-1 du code de la recherche est complété par un alinéa ainsi rédigé :", 
                         "\"Les dirigeants des établissements publics à caractère scientifique et technologique et le directeur général de l'Agence nationale de la recherche sont choisis après un appel public à candidatures et l'examen de ces candidatures par une commission dont la composition et le fonctionnement sont fixés par les statuts de l'établissement et dont les membres sont nommés par les ministres de tutelle.\""
@@ -13758,13 +12288,11 @@
                     "length": 482, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 311-1 du code de la recherche est complété par un alinéa ainsi rédigé :", 
                         "\"Les dirigeants des établissements publics à caractère scientifique et technologique et le directeur général de l'Agence nationale de la recherche sont choisis après un appel public à candidatures et l'examen de ces candidatures par une commission dont la composition et le fonctionnement sont fixés par les statuts de l'établissement et dont les membres sont nommés par les ministres de tutelle.\""
@@ -13772,13 +12300,11 @@
                     "length": 482, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Le chapitre Ier du titre Ier du livre III code de la recherche est ainsi modifié :", 
                         "1° L'article L. 311-1 est complété par un alinéa ainsi rédigé :", 
@@ -13789,13 +12315,11 @@
                     "length": 954, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Le chapitre Ier du titre Ier du livre III code de la recherche est ainsi modifié :", 
                         "1° L'article L. 311-1 est complété par un alinéa ainsi rédigé :", 
@@ -13806,13 +12330,11 @@
                     "length": 954, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Le chapitre Ier du titre Ier du livre III code de la recherche est ainsi modifié :", 
                         "1° L'article L. 311-1 est complété par un alinéa ainsi rédigé :", 
@@ -13823,19 +12345,17 @@
                     "length": 954, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_54_T6C1"
@@ -13847,79 +12367,67 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "À l'article L. 821-1 du code de l'éducation, les mots : \"des organismes spécialisés\" sont remplacés par les mots : \"le réseau des oeuvres universitaires mentionné à l'article L. 822-1\"."
                     ], 
                     "length": 185, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "À la première phrase du premier alinéa de l'article L. 821-1 du code de l'éducation, les mots : \"des organismes spécialisés\" sont remplacés par les mots : \"le réseau des oeuvres universitaires mentionné à l'article L. 822-1\"."
                     ], 
                     "length": 225, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "À la première phrase du premier alinéa de l'article L. 821-1 du code de l'éducation, les mots : \"des organismes spécialisés\" sont remplacés par les mots : \"le réseau des oeuvres universitaires mentionné à l'article L. 822-1\"."
                     ], 
                     "length": 225, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "À la première phrase du premier alinéa de l'article L. 821-1 du code de l'éducation, les mots : \"des organismes spécialisés\" sont remplacés par les mots : \"le réseau des oeuvres universitaires mentionné à l'article L. 822-1\"."
                     ], 
                     "length": 225, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "À la première phrase du premier alinéa de l'article L. 821-1 du code de l'éducation, les mots : \"des organismes spécialisés\" sont remplacés par les mots : \"le réseau des oeuvres universitaires mentionné à l'article L. 822-1\"."
                     ], 
                     "length": 225, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_57_T7C1"
@@ -13931,8 +12439,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "À l'article L. 711-2 du code de l'éducation, après le quatrième alinéa, il est inséré un 4° ainsi rédigé :", 
                         "\"4° Les communautés d'universités et établissements\"."
@@ -13940,13 +12446,11 @@
                     "length": 160, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Après le 3° de l'article L. 711-2 du code de l'éducation, il est inséré un 4° ainsi rédigé :", 
                         "\"4° Les communautés d'universités et établissements.\""
@@ -13954,13 +12458,11 @@
                     "length": 146, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Après le 3° de l'article L. 711-2 du code de l'éducation, il est inséré un 4° ainsi rédigé :", 
                         "\"4° Les communautés d'universités et établissements.\""
@@ -13968,13 +12470,11 @@
                     "length": 146, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Après le 3° de l'article L. 711-2 du code de l'éducation, il est inséré un 4° ainsi rédigé :", 
                         "\"4° Les communautés d'universités et établissements.\""
@@ -13982,13 +12482,11 @@
                     "length": 146, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié ", 
                     "text": [
                         "Après le 3° de l'article L. 711-2 du code de l'éducation, il est inséré un 4° ainsi rédigé :", 
                         "\"4° Les communautés d'universités et établissements.\""
@@ -13996,19 +12494,17 @@
                     "length": 146, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "conforme", 
                     "text": [], 
                     "length": 0, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }
             ], 
             "id": "id_23_T4C1"
@@ -14019,9 +12515,7 @@
             "num": 98, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Après le premier alinéa de l'article L. 831-1 du code de l'éducation, il est inséré un alinéa ainsi rédigé :", 
                         "\"Ils assurent le suivi vaccinal des étudiants.\""
@@ -14029,13 +12523,11 @@
                     "length": 156, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Après le premier alinéa de l'article L. 831-1 du code de l'éducation, il est inséré un alinéa ainsi rédigé :", 
@@ -14043,23 +12535,21 @@
                     ], 
                     "length": 173, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Après le premier alinéa de l'article L. 831-1 du code de l'éducation, il est inséré un alinéa ainsi rédigé :", 
                         "\"Ils assurent le suivi vaccinal des étudiants.\""
                     ], 
                     "length": 156, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_56 A_T7C1"
@@ -14070,9 +12560,7 @@
             "num": 19, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Après l'article L. 401-2 du code de l'éducation, il est inséré un article L. 401-2-1 ainsi rédigé :", 
                         "\"Art. L. 401-2-1. - Les établissements d'enseignement scolaire disposant d'une formation d'enseignement supérieur rendent publiques des statistiques comportant des indicateurs de réussite aux examens et aux diplômes qu'ils délivrent pour ces formations, de poursuite d'études et d'insertion professionnelle. Chaque élève ou apprenti en est obligatoirement informé en amont de son orientation dans un nouveau cycle ou une formation supérieure.\""
@@ -14080,13 +12568,11 @@
                     "length": 543, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Après l'article L. 401-2 du code de l'éducation, il est inséré un article L. 401-2-1 ainsi rédigé :", 
                         "\"Art. L. 401-2-1. - Les établissements d'enseignement scolaire disposant d'une formation d'enseignement supérieur rendent publiques des statistiques comportant des indicateurs de réussite aux examens et aux diplômes qu'ils délivrent pour ces formations, de poursuite d'études et d'insertion professionnelle. Chaque élève ou apprenti en est obligatoirement informé avant son orientation dans un nouveau cycle ou une formation supérieure.\""
@@ -14094,13 +12580,11 @@
                     "length": 537, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Après l'article L. 401-2 du code de l'éducation, il est inséré un article L. 401-2-1 ainsi rédigé :", 
                         "\"Art. L. 401-2-1. - Les établissements d'enseignement scolaire disposant d'une formation d'enseignement supérieur rendent publiques des statistiques comportant des indicateurs de réussite aux examens et aux diplômes qu'ils délivrent pour ces formations, de poursuite d'études et d'insertion professionnelle. Chaque élève ou apprenti en est obligatoirement informé avant son orientation dans un nouveau cycle ou une formation supérieure.\""
@@ -14108,13 +12592,11 @@
                     "length": 537, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié ", 
                     "text": [
                         "Après l'article L. 401-2 du code de l'éducation, il est inséré un article L. 401-2-1 ainsi rédigé :", 
                         "\"Art. L. 401-2-1. - Les établissements d'enseignement scolaire disposant d'une formation d'enseignement supérieur rendent publiques des statistiques comportant des indicateurs de réussite aux examens et aux diplômes qu'ils délivrent pour ces formations, de poursuite d'études et d'insertion professionnelle. Chaque élève ou apprenti en est obligatoirement informé avant son orientation dans un nouveau cycle ou une formation supérieure.\""
@@ -14122,13 +12604,11 @@
                     "length": 537, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Après l'article L. 401-2 du code de l'éducation, il est inséré un article L. 401-2-1 ainsi rédigé :", 
                         "\"Art. L. 401-2-1. - Les établissements d'enseignement scolaire disposant d'une formation d'enseignement supérieur rendent publiques des statistiques comportant des indicateurs de réussite de leurs élèves ou apprentis aux examens, concours et diplômes qu'ils préparent. Ces établissements diffusent également une information générale sur les taux de poursuite d'études et d'insertion professionnelle dans chacun des domaines qui les concernent. Chaque élève ou apprenti est obligatoirement informé de ces données statistiques avant son orientation dans un nouveau cycle ou une formation supérieure.\""
@@ -14136,13 +12616,11 @@
                     "length": 698, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "Après l'article L. 401-2 du code de l'éducation, il est inséré un article L. 401-2-1 ainsi rédigé :", 
@@ -14150,23 +12628,21 @@
                     ], 
                     "length": 715, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Après l'article L. 401-2 du code de l'éducation, il est inséré un article L. 401-2-1 ainsi rédigé :", 
                         "\"Art. L. 401-2-1. - Les établissements d'enseignement scolaire disposant d'une formation d'enseignement supérieur rendent publiques des statistiques comportant des indicateurs de réussite de leurs élèves ou apprentis aux examens, concours et diplômes qu'ils préparent. Ces établissements diffusent également une information générale sur les taux de poursuite d'études et d'insertion professionnelle dans chacun des domaines qui les concernent. Chaque élève ou apprenti est obligatoirement informé de ces données statistiques avant son orientation dans un nouveau cycle ou une formation supérieure.\""
                     ], 
                     "length": 698, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_14 A_T3"
@@ -14178,8 +12654,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Après le premier alinéa du II de l'article L. 121-3, est inséré un alinéa ainsi rédigé :", 
                         "\"Des exceptions peuvent également être justifiées par la nature de certains enseignements lorsque ceux-ci sont dispensés pour la mise en oeuvre d'un accord avec une institution étrangère ou internationale tel que prévu à l'article L. 123-7 ou dans le cadre d'un programme européen.\""
@@ -14187,13 +12661,11 @@
                     "length": 371, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Après le premier alinéa du II de l'article L. 121-3 du même code, il est inséré un alinéa ainsi rédigé :", 
                         "\"Des exceptions peuvent également être justifiées par la nature de certains enseignements lorsque ceux-ci sont dispensés pour la mise en oeuvre d'un accord avec une institution étrangère ou internationale tel que prévu à l'article L. 123-7 ou dans le cadre d'un programme européen et pour faciliter le développement de cursus et de diplômes transfrontaliers multilingues. Dans ces hypothèses, les formations ne peuvent être que partiellement proposées en langue étrangère. Les étudiants étrangers auxquels sont dispensés ces enseignements bénéficient d'un apprentissage de la langue française. Leur niveau de maîtrise de la langue française est pris en compte pour l'obtention du diplôme.\""
@@ -14201,13 +12673,11 @@
                     "length": 794, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Après le premier alinéa du II de l'article L. 121-3 du même code, il est inséré un alinéa ainsi rédigé :", 
                         "\"Des exceptions peuvent également être admises pour certains enseignements lorsqu'elles sont justifiées par des nécessités pédagogiques et que ces enseignements sont dispensés dans le cadre d'un accord avec une institution étrangère ou internationale tel que prévu à l'article L. 123-7 ou dans le cadre d'un programme européen et pour faciliter le développement de cursus et de diplômes transfrontaliers multilingues. Dans ces hypothèses, les formations ne peuvent être que partiellement proposées en langue étrangère. Les étudiants étrangers auxquels sont dispensés ces enseignements bénéficient d'un apprentissage de la langue française. Leur niveau de maîtrise de la langue française est pris en compte pour l'obtention du diplôme.\""
@@ -14215,13 +12685,11 @@
                     "length": 840, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Après le premier alinéa du II de l'article L. 121-3 du même code, il est inséré un alinéa ainsi rédigé :", 
                         "\"Des exceptions peuvent également être admises pour certains enseignements lorsqu'elles sont justifiées par des nécessités pédagogiques et que ces enseignements sont dispensés dans le cadre d'un accord avec une institution étrangère ou internationale tel que prévu à l'article L. 123-7 ou dans le cadre d'un programme européen et pour faciliter le développement de cursus et de diplômes transfrontaliers multilingues. Dans ces hypothèses, les formations ne peuvent être que partiellement proposées en langue étrangère. Les étudiants étrangers auxquels sont dispensés ces enseignements bénéficient d'un apprentissage de la langue française. Leur niveau de maîtrise de la langue française est pris en compte pour l'obtention du diplôme.\""
@@ -14229,13 +12697,11 @@
                     "length": 840, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Le premier alinéa du II de l'article L. 121-3 du même code est remplacé par six alinéas ainsi rédigés :", 
                         "\"La langue de l'enseignement, des examens et concours, ainsi que des thèses et mémoires dans les établissements publics et privés d'enseignement est le français. Des exceptions peuvent être justifiées :", 
@@ -14248,13 +12714,11 @@
                     "length": 1115, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le premier alinéa du II de l'article L. 121-3 du code de l'éducation est remplacé par huit alinéas ainsi rédigés :", 
                         "\"La langue de l'enseignement, des examens et concours, ainsi que des thèses et mémoires dans les établissements publics et privés d'enseignement est le français. Des exceptions peuvent être justifiées :", 
@@ -14270,13 +12734,11 @@
                     "length": 1803, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "I. - Le premier alinéa du II de l'article L. 121-3 du code de l'éducation est remplacé par huit alinéas ainsi rédigés :", 
@@ -14293,13 +12755,11 @@
                     "length": 1869, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "I. - Le premier alinéa du II de l'article L. 121-3 du code de l'éducation est remplacé par huit alinéas ainsi rédigés :", 
                         "\"La langue de l'enseignement, des examens et concours, ainsi que des thèses et mémoires dans les établissements publics et privés d'enseignement est le français. Des exceptions peuvent être justifiées :", 
@@ -14315,8 +12775,8 @@
                     "length": 1826, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_2_T1C1"
@@ -14328,8 +12788,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 713-4 du même code est ainsi modifié :", 
                         "1° Au premier alinéa du I, les références : \", L. 712-5 et L. 712-6\" sont remplacées par la référence : \"et L. 712-6-1\", les mots : \"et d'odontologie\" sont remplacés par les mots : \", d'odontologie et de maïeutique\" et le mot : \"départements\" est remplacé par le mot : \"composantes\" ;", 
@@ -14339,13 +12797,11 @@
                     "length": 676, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 713-4 du même code est ainsi modifié :", 
                         "1° Le I est ainsi modifié :", 
@@ -14356,13 +12812,11 @@
                     "length": 715, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 713-4 du même code est ainsi modifié :", 
                         "1° Le I est ainsi modifié :", 
@@ -14373,13 +12827,11 @@
                     "length": 715, 
                     "step": "hemicycle", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 713-4 du même code est ainsi modifié :", 
                         "1° Le I est ainsi modifié :", 
@@ -14390,13 +12842,11 @@
                     "length": 715, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 713-4 du même code est ainsi modifié :", 
                         "1° Le I est ainsi modifié :", 
@@ -14407,13 +12857,11 @@
                     "length": 824, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 713-4 du code de l'éducation est ainsi modifié :", 
                         "1° Le I est ainsi modifié :", 
@@ -14424,13 +12872,11 @@
                     "length": 834, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte du Sénat)", 
                         "L'article L. 713-4 du code de l'éducation est ainsi modifié :", 
@@ -14441,14 +12887,12 @@
                     ], 
                     "length": 851, 
                     "step": "commission", 
-                    "diff": "rem", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "add", 
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 713-4 du code de l'éducation est ainsi modifié :", 
                         "1° Le I est ainsi modifié :", 
@@ -14459,8 +12903,8 @@
                     "length": 835, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_32_T4C1S1"
@@ -14472,8 +12916,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Au titre Ier du livre VII du même code est créé un chapitre VIII bis ainsi rédigé :", 
                         "\"Chapitre VIII bis", 
@@ -14535,13 +12977,11 @@
                     "length": 11808, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Après le chapitre VIII du titre Ier du livre VII de la troisième partie du même code, il est inséré un chapitre VIII bis ainsi rédigé :", 
                         "\"Chapitre VIII bis", 
@@ -14607,13 +13047,11 @@
                     "length": 13768, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Après le chapitre VIII du titre Ier du livre VII de la troisième partie du code de l'éducation, il est inséré un chapitre VIII bis ainsi rédigé :", 
                         "\"Chapitre VIII bis", 
@@ -14681,13 +13119,11 @@
                     "length": 15012, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "Après le chapitre VIII du titre Ier du livre VII de la troisième partie du code de l'éducation, il est inséré un chapitre VIII bis ainsi rédigé :", 
                         "\"Chapitre VIII BIS", 
@@ -14755,13 +13191,11 @@
                     "length": 15012, 
                     "step": "depot", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "Après le chapitre VIII du titre Ier du livre VII de la troisième partie du code de l'éducation, il est inséré un chapitre VIII bis ainsi rédigé :", 
                         "\"Chapitre VIII BIS", 
@@ -14831,13 +13265,11 @@
                     "length": 16412, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Après le chapitre VIII du titre Ier du livre VII de la troisième partie du code de l'éducation, il est inséré un chapitre VIII bis ainsi rédigé :", 
                         "\"Chapitre VIII BIS", 
@@ -14909,13 +13341,11 @@
                     "length": 16689, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "Après le chapitre VIII du titre Ier du livre VII de la troisième partie du code de l'éducation, il est inséré un chapitre VIII bis ainsi rédigé :", 
@@ -14988,13 +13418,11 @@
                     "length": 17344, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "Après le chapitre VIII du titre Ier du livre VII de la troisième partie du code de l'éducation, il est inséré un chapitre VIII bis ainsi rédigé :", 
                         "\"Chapitre VIII BIS", 
@@ -15066,8 +13494,8 @@
                     "length": 17439, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_38_T4C2"
@@ -15079,8 +13507,6 @@
             "steps": [
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 611-2 est ainsi modifié :", 
                         "1° Au 3°, les mots : \"ainsi que des enseignements par alternance\" et les mots : \"dans ce cas\" sont supprimés, et après le mot : \"doivent\" sont insérés les mots : \"être en cohérence avec la formation suivie par l'étudiant et\" ;", 
@@ -15090,13 +13516,11 @@
                     "length": 364, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 611-2 du code de l'éducation est ainsi modifié :", 
                         "1° Le 3° est ainsi modifié :", 
@@ -15109,13 +13533,11 @@
                     "length": 528, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 611-2 du code de l'éducation est ainsi modifié :", 
                         "1° A Le 1° est complété par les mots : \", notamment au sein des conseils de perfectionnement des formations\" ;", 
@@ -15129,13 +13551,11 @@
                     "length": 633, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 611-2 du code de l'éducation est ainsi modifié :", 
                         "1° A Le 1° est complété par les mots : \", notamment au sein des conseils de perfectionnement des formations\" ;", 
@@ -15149,13 +13569,11 @@
                     "length": 633, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 611-2 du code de l'éducation est ainsi modifié :", 
                         "1°AA Avant le premier alinéa, il est inséré un alinéa ainsi rédigé :", 
@@ -15171,13 +13589,11 @@
                     "length": 994, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 611-2 du code de l'éducation est ainsi modifié :", 
                         "1° AA Avant le premier alinéa, il est inséré un alinéa ainsi rédigé :", 
@@ -15193,13 +13609,11 @@
                     "length": 995, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "false"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "L'article L. 611-2 du code de l'éducation est ainsi modifié :", 
@@ -15216,13 +13630,11 @@
                     "length": 1052, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "L'article L. 611-2 du code de l'éducation est ainsi modifié :", 
                         "1° AA Avant le premier alinéa, il est inséré un alinéa ainsi rédigé :", 
@@ -15237,9 +13649,9 @@
                     ], 
                     "length": 1011, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "false"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_15_T3"
@@ -15250,9 +13662,7 @@
             "num": 31, 
             "steps": [
                 {
-                    "status": "new", 
-                    "id_step": "1ère lecture_assemblee_commission", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "Le chapitre Ier du titre VIII du livre III de la quatrième partie du code de la santé publique est complété par un article L. 4381-5 ainsi rédigé :", 
                         "\"Art. L. 4381-5. - À titre expérimental, pour une durée de six ans, des modalités particulières d'admission dans des formations paramédicales, dont la liste est définie par arrêté conjoint des ministres chargés de la santé et de l'enseignement supérieur, après consultation des représentants, étudiants et professionnels, des spécialités concernées, peuvent être fixées par décret sous la forme d'une première année commune à ces formations.", 
@@ -15261,13 +13671,11 @@
                     "length": 1009, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_assemblee_hemicycle", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À titre expérimental, pour une durée de six ans, des modalités particulières d'admission dans des formations paramédicales dont la liste est définie par arrêté conjoint des ministres chargés de la santé et de l'enseignement supérieur, après consultation des représentants, étudiants et professionnels, des spécialités concernées, peuvent être fixées par décret sous la forme d'une première année commune à ces formations.", 
                         "Au cours de la cinquième année de l'expérimentation, les ministres chargés de l'enseignement supérieur et de la santé présentent conjointement au Conseil national de l'enseignement supérieur et de la recherche un rapport d'évaluation des expérimentations menées au titre du présent article. Ce rapport, accompagné de l'avis du Conseil national de l'enseignement supérieur et de la recherche, est adressé au Parlement."
@@ -15275,13 +13683,11 @@
                     "length": 839, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_assemblee_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_depot", 
-                    "last_s": "false", 
+                    "status": "nouveau", 
                     "text": [
                         "À titre expérimental, pour une durée de six ans, des modalités particulières d'admission dans des formations paramédicales dont la liste est définie par arrêté conjoint des ministres chargés de la santé et de l'enseignement supérieur, après consultation des représentants, étudiants et professionnels, des spécialités concernées, peuvent être fixées par décret sous la forme d'une première année commune à ces formations.", 
                         "Au cours de la cinquième année de l'expérimentation, les ministres chargés de l'enseignement supérieur et de la santé présentent conjointement au Conseil national de l'enseignement supérieur et de la recherche un rapport d'évaluation des expérimentations menées au titre du présent article. Ce rapport, accompagné de l'avis du Conseil national de l'enseignement supérieur et de la recherche, est adressé au Parlement."
@@ -15289,13 +13695,11 @@
                     "length": 839, 
                     "step": "depot", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_depot", 
+                    "stage": "1ère lecture"
                 }, 
                 {
-                    "status": "none", 
-                    "id_step": "1ère lecture_senat_commission", 
-                    "last_s": "false", 
+                    "status": "non modifié ", 
                     "text": [
                         "À titre expérimental, pour une durée de six ans, des modalités particulières d'admission dans des formations paramédicales dont la liste est définie par arrêté conjoint des ministres chargés de la santé et de l'enseignement supérieur, après consultation des représentants, étudiants et professionnels, des spécialités concernées, peuvent être fixées par décret sous la forme d'une première année commune à ces formations.", 
                         "Au cours de la cinquième année de l'expérimentation, les ministres chargés de l'enseignement supérieur et de la santé présentent conjointement au Conseil national de l'enseignement supérieur et de la recherche un rapport d'évaluation des expérimentations menées au titre du présent article. Ce rapport, accompagné de l'avis du Conseil national de l'enseignement supérieur et de la recherche, est adressé au Parlement."
@@ -15303,13 +13707,11 @@
                     "length": 839, 
                     "step": "commission", 
                     "diff": "none", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_commission", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "1ère lecture_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "À titre expérimental, pour une durée de six ans, à l'exception des formations préparant au diplôme français d'État d'infirmier ou d'infirmière mentionné à l'article L. 4311-3 du code de la santé publique, des modalités particulières d'admission dans des formations paramédicales dont la liste est définie par arrêté conjoint des ministres chargés de la santé et de l'enseignement supérieur, après consultation des représentants, étudiants et professionnels des spécialités concernées, peuvent être fixées par décret sous la forme d'une première année commune à ces formations.", 
                         "Au cours de la cinquième année de l'expérimentation, les ministres chargés de l'enseignement supérieur et de la santé présentent conjointement au Conseil national de l'enseignement supérieur et de la recherche un rapport d'évaluation des expérimentations menées au titre du présent article. Ce rapport, accompagné de l'avis du Conseil national de l'enseignement supérieur et de la recherche, est adressé au Parlement."
@@ -15317,13 +13719,11 @@
                     "length": 994, 
                     "step": "hemicycle", 
                     "diff": "both", 
-                    "stage": "1ère lecture", 
-                    "first_s": "true"
+                    "id_step": "1ère lecture_senat_hemicycle", 
+                    "stage": "1ère lecture"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_CMP_commission", 
-                    "last_s": "false", 
                     "text": [
                         "(Texte de la commission mixte paritaire)", 
                         "À titre expérimental, pour une durée de six ans, des modalités particulières d'admission dans des formations paramédicales dont la liste est définie par arrêté conjoint des ministres chargés de la santé et de l'enseignement supérieur, après consultation des représentants, étudiants et professionnels des spécialités concernées, peuvent être fixées par décret sous la forme d'une première année commune à ces formations. Sont exclues de cette expérimentation les formations préparant au diplôme français d'État d'infirmier ou d'infirmière mentionné à l'article L. 4311-3 du code de la santé publique.", 
@@ -15332,22 +13732,20 @@
                     "length": 1059, 
                     "step": "commission", 
                     "diff": "both", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "id_step": "CMP_CMP_commission", 
+                    "stage": "CMP"
                 }, 
                 {
                     "status": "none", 
-                    "id_step": "CMP_senat_hemicycle", 
-                    "last_s": "false", 
                     "text": [
                         "À titre expérimental, pour une durée de six ans, des modalités particulières d'admission dans des formations paramédicales dont la liste est définie par arrêté conjoint des ministres chargés de la santé et de l'enseignement supérieur, après consultation des représentants, étudiants et professionnels des spécialités concernées, peuvent être fixées par décret sous la forme d'une première année commune à ces formations. Sont exclues de cette expérimentation les formations préparant au diplôme français d'État d'infirmier ou d'infirmière mentionné à l'article L. 4311-3 du code de la santé publique.", 
                         "Au cours de la cinquième année de l'expérimentation, les ministres chargés de l'enseignement supérieur et de la santé présentent conjointement au Conseil national de l'enseignement supérieur et de la recherche un rapport d'évaluation des expérimentations menées au titre du présent article. Ce rapport, accompagné de l'avis du Conseil national de l'enseignement supérieur et de la recherche, est adressé au Parlement."
                     ], 
                     "length": 1018, 
                     "step": "hemicycle", 
-                    "diff": "add", 
-                    "stage": "CMP", 
-                    "first_s": "true"
+                    "diff": "rem", 
+                    "id_step": "CMP_senat_hemicycle", 
+                    "stage": "CMP"
                 }
             ], 
             "id": "id_22 bis_T3"

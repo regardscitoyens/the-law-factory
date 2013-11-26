@@ -213,3 +213,11 @@ body{
     top:0px;
     right:0;
 }
+
+del {
+	background:#FFE6E6;
+	}
+
+ins {
+	background:#E6FFE6;
+}

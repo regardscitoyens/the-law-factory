@@ -6,6 +6,24 @@
 
   	function vis(selection){
     	selection.each(function(data){
+        
+        var try_diff = d3.values(data.articles);
+        try_diff.forEach(function(d,i){
+          d.steps.forEach(function(f,j){  
+            if(j != 0){
+              f.textDiff = []
+              f.text.forEach(function(g,k){
+
+                if(d.steps[j-1].text[k]){
+                f.textDiff[k] = diffString(d.steps[j-1].text[k], g)
+                }
+                else{f.textDiff[k] = g}
+              })
+             }
+            else{f.textDiff = f.text }
+          });
+        })
+
         var artHeight=0.01;
         var art_values=d3.values(data.articles)
         art_values.sort(function(a, b) {
@@ -48,6 +66,7 @@
 
         var layer = svg.selectAll(".layer").data(art_values).enter().append("g").attr("class", function(d,i) {return "layer"+" "+"n_"+i})
         .attr("transform", function(d,i) {
+          console.log(parseInt(findSection(d.section)))
           return "translate(0,"+parseInt(findSection(d.section))*20+")"
           });
 
@@ -71,10 +90,16 @@
           .style("stroke", "#ccc")
           .style("stroke-width",1)
           .style("fill", function(d) {
-            if(d.diff=="none") return '#fff';
+          /*if(d.diff=="none") return '#fff';
             else if(d.diff=="add") return '#CFF7DA';
             else if(d.diff=="rem") return '#FDE2E2';
             else if(d.diff=="both") return '#FCFCEF';
+            */
+           if(d.last_s == 'true') return '#FDE2E2'
+            else if (d.status == 'new') return '#CFF7DA';
+            else if (d.diff == 'none') return '#fff';
+            else return '#D3D3D3';
+
           })
           .attr("y", function(d) {
             return d.y;
@@ -90,7 +115,6 @@
           .attr("width", width/columns-20)
           .attr("opacity", 1.0)
           .on("click", function (d) {
-            console.log(d)
             
             d3.selectAll("line")
             .style("stroke","#f2f2f2")
@@ -98,12 +122,17 @@
             //STYLE OF CLICKED ELEMENT AND ROW
             //Reset Colors
             myrects.style("fill", function(d) {
-            if(d.diff=="none") return '#fff';
+         /*if(d.diff=="none") return '#fff';
             else if(d.diff=="add") return '#CFF7DA';
             else if(d.diff=="rem") return '#FDE2E2';
-            else if(d.diff=="both") return '#FCFCEF';
-            });
-            
+            else if(d.diff=="both") return '#FCFCEF';*/
+             if(d.last_s == 'true') return '#FDE2E2'
+            else if (d.status == 'new') return '#CFF7DA';
+            else if (d.diff == 'none') return '#fff';
+            else return '#D3D3D3';
+  
+            })
+
             //Color the elements in same group
             datum=d3.select(this.parentNode)
             
@@ -111,10 +140,10 @@
             
             .style("fill",function(d) {
               hsl=d3.rgb(d3.select(this).style("fill")).hsl()
-              console.log("hsl",hsl)
+              //console.log("hsl",hsl)
               hsl.l-=0.1;
               hsl.s+=0.1;
-              console.log("hsl2",hsl)
+              //console.log("hsl2",hsl)
             return hsl.rgb()
             })
             
@@ -127,9 +156,37 @@
             
             //add text
             $("#law-title").text("Article "+datum.datum().titre);
-            $(".text-container p").html(d.text.join("<br/><br/>"))
+            $(".text-container p").html(d.textDiff.join("<br/><br/>"))
+            //$(".text-container p").html(d.textDiff)
             
+            }).popover(function(d){
+
+              var datum=d3.select(this.parentNode).datum()
+
+              var titre = datum.titre,
+                  section = datum.section,
+                  status = d['id_step'].replace(/_/g, ", "),
+                  length = d['length'];
+
+              var div;
+              div = d3.select(document.createElement("div"))
+                    .style("height", "100px")
+                    .style("width", "100%")
+
+              div.append("p").text("Section: " + section )
+              div.append("p").text("Status: " + status)
+              div.append("p").text("Text length: " + length)
+
+              return {        
+              title: "Article" + titre,
+              content: div ,
+              placement: "mouse",
+              gravity: "right",
+              displacement: [10, -85],          
+              mousemove: true
+              };
             });
+            
             
 
         //ADD THE LINES
@@ -194,11 +251,11 @@
             }
             if(st_ind+1==value.steps.length) step.last=true
             //if(findStage(step.id_step)==0 && st_ind==0 && changed) {
-            if(st_ind==0) {
-              console.log("first",st_ind)
-              step.first=true;
+             if(st_ind==0) {
+               //console.log("first",st_ind)
+               step.first=true;
               
-            }
+             }
           })
         });
         }
@@ -247,9 +304,9 @@
           })
           
           for(s in stag) {
-            console.log(stag[s])
+            //console.log(stag[s])
             stag_name=stag[s].split("_",3).splice(1, 2).join(" ");
-            console.log(stag_name);
+            //console.log(stag_name);
             $(".stages").append('<div class="stage" style="width:'+100/stag.length+'%">'+stag_name+'</div>')  
           }
           
@@ -289,7 +346,7 @@
             var s = $(".text");
             var pos = s.offset();
             var w=s.width();
-            console.log("pos",pos)                    
+            //console.log("pos",pos)                    
             $(window).scroll(function() {
                 var windowpos = $(window).scrollTop();
                 if (windowpos >= pos.top) {
