@@ -7,7 +7,7 @@ angular.module('theLawFactory.directives', [])
     return {
       restrict: 'A',
       replace: false,
-      templateUrl: '../templates/mod1.html',
+      templateUrl: 'templates/mod1.html',
       link: function postLink(scope, element, attrs) {
 
       	var mod1 = thelawfactory.mod1();
