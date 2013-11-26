@@ -62,12 +62,14 @@
         }, width = $("#viz").width(), height = 800 - margin.top - margin.bottom;
 
 
-        var svg = d3.select("#viz").append("svg").attr("width", "100%" ).attr("height", maxy+200).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        var svg = d3.select("#viz").append("svg").attr("width", "100%" ).attr("height", maxy+sections.length*30+100).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        var sects=svg.append("g").attr("class","sections")
 
         var layer = svg.selectAll(".layer").data(art_values).enter().append("g").attr("class", function(d,i) {return "layer"+" "+"n_"+i})
         .attr("transform", function(d,i) {
           console.log(parseInt(findSection(d.section)))
-          return "translate(0,"+parseInt(findSection(d.section))*20+")"
+          return "translate(0,"+(20+parseInt(findSection(d.section))*30)+")"
           });
 
         //Define lines layer
@@ -85,16 +87,15 @@
           .filter(function(d) {
             if (d.length>0) return true;
                 else return false;
-          })
+          });
+
+          myrects
+          .attr("class","article")
           .style("fill","#fff")
           .style("stroke", "#ccc")
           .style("stroke-width",1)
           .style("fill", function(d) {
-          /*if(d.diff=="none") return '#fff';
-            else if(d.diff=="add") return '#CFF7DA';
-            else if(d.diff=="rem") return '#FDE2E2';
-            else if(d.diff=="both") return '#FCFCEF';
-            */
+ 
            if(d.last_s == 'true') return '#FDE2E2'
             else if (d.status == 'new') return '#CFF7DA';
             else if (d.diff == 'none') return '#fff';
@@ -122,10 +123,7 @@
             //STYLE OF CLICKED ELEMENT AND ROW
             //Reset Colors
             myrects.style("fill", function(d) {
-         /*if(d.diff=="none") return '#fff';
-            else if(d.diff=="add") return '#CFF7DA';
-            else if(d.diff=="rem") return '#FDE2E2';
-            else if(d.diff=="both") return '#FCFCEF';*/
+
              if(d.last_s == 'true') return '#FDE2E2'
             else if (d.status == 'new') return '#CFF7DA';
             else if (d.diff == 'none') return '#fff';
@@ -136,7 +134,7 @@
             //Color the elements in same group
             datum=d3.select(this.parentNode)
             
-            d3.selectAll(datum[0][0].childNodes).filter("rect")
+            d3.selectAll(datum[0][0].childNodes).filter("rect.article")
             
             .style("fill",function(d) {
               hsl=d3.rgb(d3.select(this).style("fill")).hsl()
@@ -187,7 +185,27 @@
               };
             });
             
-            
+        //ADD THE SECTION TITLES
+        myrects.filter(function(d){
+          return d['section-head']
+        }).each(function(e){
+            d3.select(this.parentNode).append("rect")
+            .attr("x",findStage(e.id_step)*width/columns+10)
+            .attr("y",e.y-15)
+            .attr("width",width/columns-20)
+            .attr("height",15)
+            .style("fill","#D80053")
+            .style("stroke","none")
+
+            d3.select(this.parentNode)
+            .append("text")
+            .attr("x",findStage(e.id_step)*width/columns+15)
+            .attr("y",e.y-4)
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "10px")
+            .style("fill","white")
+            .text("Sect. "+e['section']);
+        })
 
         //ADD THE LINES
             lines
@@ -231,6 +249,7 @@
           changed = false
           if (value.section!=section) { 
             section=value.section;
+            value["section-head"]=true
             changed=true;
           }
             
@@ -238,14 +257,29 @@
               
             if(index==0) {
               art_values[index].steps[st_ind]['y'] = 0;
+              art_values[index].steps[st_ind]['section']=value.section
+              art_values[index].steps[st_ind]["section-head"]=true
             }
             else {
+              art_values[index].steps[st_ind]['section']=value.section
+
               lasty=findLast(index-1,art_values[index].steps[st_ind]['id_step'])
+              
+              //Checks previous element of vertical stack
               if (lasty) {
+                
                 art_values[index].steps[st_ind]['y'] = lasty.y + lerp(lasty.length)
-                if(art_values[index].steps[st_ind]['y']+lerp(art_values[index].steps[st_ind]['length'])>maxy) maxy = art_values[index].steps[st_ind]['y']+lerp(art_values[index].steps[st_ind]['length'])
+                
+                if(art_values[index].steps[st_ind]['y']+lerp(art_values[index].steps[st_ind]['length'])>maxy) {
+                  maxy = art_values[index].steps[st_ind]['y']+lerp(art_values[index].steps[st_ind]['length'])
+                }
+                
+                if(art_values[index].steps[st_ind].section!==lasty.section) {
+                  art_values[index].steps[st_ind]["section-head"]=true
+                }
               }
               else {
+                art_values[index].steps[st_ind]["section-head"]=true
                 art_values[index].steps[st_ind]['y']=0
               }
             }
@@ -258,6 +292,7 @@
              }
           })
         });
+        console.log(art_values);
         }
 
         //FIND THE ABOVE RECTANGLE - RECURSIVE
@@ -268,7 +303,7 @@
           }
           ret=null;
           $.each(art_values[i1].steps, function( st_ind, step ) { 
-          if(step.id_step==i2) {
+          if(step.id_step==i2 && step.length>0) {
             ret=step;
             return false;
             }
