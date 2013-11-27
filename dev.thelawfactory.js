@@ -19,13 +19,12 @@ var app = module.exports = express();
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
+app.locals({rootUrl: process.env.ROOTURL || '/'});
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-
-var relPath = "/" //if different from root set your relative path eg: "/my-path"
-app.use(relPath, express.static(path.join(__dirname, 'public')));
-app.use(relPath, app.router);
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(app.router);
 
 
 // development only
