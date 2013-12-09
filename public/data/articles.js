@@ -320,7 +320,7 @@
                     "last_s": "false",
                     "text": [
                         "Au d\u00e9but du titre II du livre Ier du code de la recherche, il est r\u00e9tabli un chapitre pr\u00e9liminaire ainsi r\u00e9dig\u00e9 :",
-                        "\"Chapitre pr\u00e9liminaire",
+                        "\"Chapitre pr\u00c9liminaire",
                         "\"Le Conseil strat\u00e9gique de la recherche",
                         "\"Art. L. 120-1. - Il est cr\u00e9\u00e9 un Conseil strat\u00e9gique de la recherche plac\u00e9 aupr\u00e8s du Premier ministre et comprenant autant de femmes que d'hommes.",
                         "\"Le Conseil strat\u00e9gique de la recherche propose les grandes orientations de la strat\u00e9gie nationale de recherche d\u00e9finie \u00e0 l'article L. 111-6 et participe \u00e0 l'\u00e9valuation de leur mise en oeuvre.",
@@ -329,7 +329,7 @@
                         "\"Il comprend un repr\u00e9sentant des r\u00e9gions.",
                         "\"un d\u00e9cret pr\u00e9cise la composition et les missions, l'organisation et le fonctionnement du Conseil strat\u00e9gique de la recherche.\""
                     ],
-                    "n_diff": 0.03861788617886175,
+                    "n_diff": 0.03963414634146345,
                     "step": "hemicycle",
                     "length": 946,
                     "diff": "both",
@@ -342,7 +342,7 @@
                     "last_s": "false",
                     "text": [
                         "Au d\u00e9but du titre II du livre Ier du code de la recherche, il est r\u00e9tabli un chapitre pr\u00e9liminaire ainsi r\u00e9dig\u00e9 :",
-                        "\"Chapitre pr\u00e9liminaire",
+                        "\"Chapitre pr\u00c9liminaire",
                         "\"Le Conseil strat\u00e9gique de la recherche",
                         "\"Art. L. 120-1. - Il est cr\u00e9\u00e9 un Conseil strat\u00e9gique de la recherche plac\u00e9 aupr\u00e8s du Premier ministre et comprenant autant de femmes que d'hommes.",
                         "\"Le Conseil strat\u00e9gique de la recherche propose les grandes orientations de la strat\u00e9gie nationale de recherche d\u00e9finie \u00e0 l'article L. 111-6 et participe \u00e0 l'\u00e9valuation de leur mise en oeuvre.",
@@ -364,7 +364,7 @@
                     "last_s": "false",
                     "text": [
                         "Au d\u00e9but du titre II du livre Ier du code de la recherche, il est r\u00e9tabli un chapitre pr\u00e9liminaire ainsi r\u00e9dig\u00e9 :",
-                        "\"Chapitre pr\u00e9liminaire",
+                        "\"Chapitre pr\u00c9liminaire",
                         "\"Le Conseil strat\u00e9gique de la recherche",
                         "\"Art. L. 120-1. - Il est cr\u00e9\u00e9 un Conseil strat\u00e9gique de la recherche plac\u00e9 aupr\u00e8s du Premier ministre et comprenant autant de femmes que d'hommes.",
                         "\"Le Conseil strat\u00e9gique de la recherche propose les grandes orientations de la strat\u00e9gie nationale de recherche d\u00e9finie \u00e0 l'article L. 111-6 et participe \u00e0 l'\u00e9valuation de leur mise en oeuvre.",
@@ -386,7 +386,7 @@
                     "last_s": "false",
                     "text": [
                         "Au d\u00e9but du titre II du livre Ier du code de la recherche, il est r\u00e9tabli un chapitre pr\u00e9liminaire ainsi r\u00e9dig\u00e9 :",
-                        "\"Chapitre pr\u00e9liminaire",
+                        "\"Chapitre pr\u00c9liminaire",
                         "\"Le Conseil strat\u00e9gique de la recherche",
                         "\"Art. L. 120-1. - Il est cr\u00e9\u00e9 un Conseil strat\u00e9gique de la recherche plac\u00e9 aupr\u00e8s du Premier ministre et comprenant autant de femmes que d'hommes.",
                         "\"Le Conseil strat\u00e9gique de la recherche propose les grandes orientations de la strat\u00e9gie nationale de recherche d\u00e9finie \u00e0 l'article L. 111-6 et participe \u00e0 l'\u00e9valuation de leur mise en oeuvre.",
@@ -408,7 +408,7 @@
                     "last_s": "false",
                     "text": [
                         "Au d\u00e9but du titre II du livre Ier du code de la recherche, il est r\u00e9tabli un chapitre pr\u00e9liminaire ainsi r\u00e9dig\u00e9 :",
-                        "\"Chapitre pr\u00e9liminaire",
+                        "\"Chapitre pr\u00c9liminaire",
                         "\"Le Conseil strat\u00e9gique de la recherche",
                         "\"Art. L. 120-1. - Il est cr\u00e9\u00e9 un Conseil strat\u00e9gique de la recherche plac\u00e9 aupr\u00e8s du Premier ministre et comprenant autant de femmes que d'hommes.",
                         "\"Le Conseil strat\u00e9gique de la recherche propose les grandes orientations de la strat\u00e9gie nationale de recherche d\u00e9finie \u00e0 l'article L. 111-6 et participe \u00e0 l'\u00e9valuation de leur mise en oeuvre.",
@@ -430,7 +430,7 @@
                     "last_s": "false",
                     "text": [
                         "Au d\u00e9but du titre II du livre Ier du code de la recherche, il est r\u00e9tabli un chapitre pr\u00e9liminaire ainsi r\u00e9dig\u00e9 :",
-                        "\"Chapitre pr\u00e9liminaire",
+                        "\"Chapitre pr\u00c9liminaire",
                         "\"Le Conseil strat\u00e9gique de la recherche",
                         "\"Art. L. 120-1. - Il est cr\u00e9\u00e9 un Conseil strat\u00e9gique de la recherche plac\u00e9 aupr\u00e8s du Premier ministre et comprenant autant de femmes que d'hommes.",
                         "\"Le Conseil strat\u00e9gique de la recherche propose les grandes orientations de la strat\u00e9gie nationale de recherche d\u00e9finie \u00e0 l'article L. 111-6 et participe \u00e0 l'\u00e9valuation de leur mise en oeuvre.",
@@ -481,7 +481,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "true",
                     "text": [],
@@ -493,7 +493,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "true",
                     "text": [],
@@ -505,7 +505,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "true",
                     "text": [],
@@ -517,7 +517,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "false",
                     "text": [],
@@ -779,14 +779,16 @@
                     "first_s": "false",
                     "last_s": "false",
                     "text": [
-                        "I et II. - (non modifi\u00e9s)",
+                        "I. - Le conseil d'administration de l'universit\u00e9 en exercice \u00e0 la date de publication de la pr\u00e9sente loi adopte dans un d\u00e9lai d'un an, par d\u00e9lib\u00e9ration statutaire, des statuts en conformit\u00e9 avec les dispositions de cette m\u00eame loi et, notamment, la composition du nouveau conseil d'administration et du conseil acad\u00e9mique.",
+                        "II. - Le conseil d'administration, le conseil acad\u00e9mique et le pr\u00e9sident d'universit\u00e9 sont d\u00e9sign\u00e9s conform\u00e9ment \u00e0 la pr\u00e9sente loi \u00e0 l'\u00e9ch\u00e9ance du mandat des repr\u00e9sentants \u00e9lus des personnels du conseil d'administration en exercice \u00e0 la date de publication de cette m\u00eame loi.",
+                        "Toutefois, dans le cas o\u00f9 le pr\u00e9sident de l'universit\u00e9 cesse ses fonctions, pour quelque cause que ce soit, il est mis fin au mandat des membres du conseil d'administration, du conseil scientifique et du conseil des \u00e9tudes et de la vie universitaire et un conseil d'administration, un conseil acad\u00e9mique et un pr\u00e9sident sont d\u00e9sign\u00e9s dans les conditions pr\u00e9vues par la pr\u00e9sente loi, si les statuts de l'\u00e9tablissement ont \u00e9t\u00e9 modifi\u00e9s conform\u00e9ment au I. Dans le cas contraire, un administrateur provisoire d\u00e9sign\u00e9 par le recteur d'acad\u00e9mie, chancelier des universit\u00e9s, pr\u00e9side le conseil d'administration. Il est charg\u00e9 notamment d'assurer la mise en conformit\u00e9 des statuts de l'universit\u00e9 dans les conditions pr\u00e9vues au I. Lorsque ces statuts sont adopt\u00e9s par le conseil d'administration, il est proc\u00e9d\u00e9 comme pr\u00e9vu \u00e0 la premi\u00e8re phrase du pr\u00e9sent alin\u00e9a.",
                         "III. - \u00c0 compter de la publication de la pr\u00e9sente loi, la commission de la recherche du conseil acad\u00e9mique est constitu\u00e9e des membres du conseil scientifique et la commission de la formation et de la vie universitaire de ce m\u00eame conseil est constitu\u00e9e des membres du conseil des \u00e9tudes et de la vie universitaire. Le conseil scientifique exerce les comp\u00e9tences de la commission de la recherche et le conseil des \u00e9tudes et de la vie universitaire celles de la commission de la formation et de la vie universitaire. Les membres des deux conseils si\u00e8gent ensemble pour exercer les comp\u00e9tences du conseil acad\u00e9mique en formation pl\u00e9ni\u00e8re. La section comp\u00e9tente du conseil acad\u00e9mique pr\u00e9vue au IV de l'article L. 712-6-1 du code de l'\u00e9ducation est constitu\u00e9e des enseignants-chercheurs et personnels assimil\u00e9s membres \u00e9lus du conseil scientifique et du conseil des \u00e9tudes et de la vie universitaire.",
                         "Jusqu'\u00e0 la mise en place du conseil acad\u00e9mique dans les conditions fix\u00e9es par la pr\u00e9sente loi, le pr\u00e9sident de l'universit\u00e9 pr\u00e9side la commission de la recherche, la commission de la formation et de la vie universitaire et le conseil acad\u00e9mique en formation pl\u00e9ni\u00e8re.",
                         "Les sections disciplinaires du conseil d'administration restent en fonction jusqu'\u00e0 l'\u00e9ch\u00e9ance du mandat des membres du conseil d'administration en exercice \u00e0 la date de publication de la pr\u00e9sente loi. Le conseil d'administration est comp\u00e9tent pour proc\u00e9der \u00e0 leur renouvellement jusqu'\u00e0 la d\u00e9signation des membres du conseil acad\u00e9mique conform\u00e9ment aux articles L. 712-4, L. 712-5 et L. 712-6 du code de l'\u00e9ducation dans leur r\u00e9daction r\u00e9sultant de la pr\u00e9sente loi."
                     ],
-                    "n_diff": 0.30814689742507384,
+                    "n_diff": 0.01331142152834841,
                     "step": "hemicycle",
-                    "length": 1655,
+                    "length": 3083,
                     "diff": "both",
                     "id_step": "1\u00e8re lecture_senat_hemicycle",
                     "stage": "1\u00e8re lecture"
@@ -803,7 +805,7 @@
                         "Jusqu'\u00e0 la mise en place du conseil acad\u00e9mique dans les conditions fix\u00e9es par la pr\u00e9sente loi, le pr\u00e9sident de l'universit\u00e9 pr\u00e9side la commission de la recherche, la commission de la formation et de la vie universitaire et le conseil acad\u00e9mique en formation pl\u00e9ni\u00e8re.",
                         "Les sections disciplinaires du conseil d'administration restent en fonction jusqu'\u00e0 l'\u00e9ch\u00e9ance du mandat des membres du conseil d'administration en exercice \u00e0 la date de publication de la pr\u00e9sente loi. Le conseil d'administration est comp\u00e9tent pour proc\u00e9der \u00e0 leur renouvellement jusqu'\u00e0 la d\u00e9signation des membres du conseil acad\u00e9mique conform\u00e9ment aux articles L. 712-4, L. 712-5 et L. 712-6 du code de l'\u00e9ducation dans leur r\u00e9daction r\u00e9sultant de la pr\u00e9sente loi."
                     ],
-                    "n_diff": 0.30800084441629727,
+                    "n_diff": 0.00016220600162208942,
                     "step": "commission",
                     "length": 3082,
                     "diff": "both",
@@ -2318,12 +2320,12 @@
                         "\"une formation \u00e0 l'utilisation des outils et des ressources num\u00e9riques et \u00e0 la compr\u00e9hension des enjeux qui leur sont associ\u00e9s, adapt\u00e9e aux sp\u00e9cificit\u00e9s du parcours suivi par l'\u00e9tudiant, est dispens\u00e9e d\u00e8s l'entr\u00e9e dans l'enseignement sup\u00e9rieur, dans la continuit\u00e9 des formations dispens\u00e9es dans l'enseignement du second degr\u00e9.",
                         "\"\u00c0 leur demande, les enseignants peuvent suivre une formation qui leur permet d'acqu\u00e9rir les comp\u00e9tences n\u00e9cessaires \u00e0 la mise \u00e0 disposition de leurs enseignements sous forme num\u00e9rique et les initie aux m\u00e9thodes p\u00e9dagogiques innovantes sollicitant l'usage des technologies de l'information et de la communication.",
                         "\"Les modalit\u00e9s de mise en oeuvre des deux premiers alin\u00e9as du pr\u00e9sent article sont fix\u00e9es par le contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 711-1.\"",
-                        "II. - (Suppression maintenue)"
+                        "II. - (Supprim\u00e9)"
                     ],
-                    "n_diff": 0.006585788561525141,
+                    "n_diff": 0,
                     "step": "commission",
-                    "length": 1449,
-                    "diff": "both",
+                    "length": 1436,
+                    "diff": "none",
                     "id_step": "CMP_CMP_commission",
                     "stage": "CMP"
                 },
@@ -2339,10 +2341,10 @@
                         "\"Les modalit\u00e9s de mise en oeuvre des deux premiers alin\u00e9as du pr\u00e9sent article sont fix\u00e9es par le contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 711-1.\"",
                         "II. - (Supprim\u00e9)"
                     ],
-                    "n_diff": 0.006585788561525141,
+                    "n_diff": 0,
                     "step": "hemicycle",
                     "length": 1436,
-                    "diff": "both",
+                    "diff": "none",
                     "id_step": "CMP_senat_hemicycle",
                     "stage": "CMP"
                 }
@@ -2476,7 +2478,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "none",
+                    "status": "new",
                     "first_s": "true",
                     "last_s": "true",
                     "text": [],
@@ -2488,7 +2490,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "none",
+                    "status": "new",
                     "first_s": "true",
                     "last_s": "true",
                     "text": [],
@@ -2500,7 +2502,7 @@
                     "stage": "CMP"
                 },
                 {
-                    "status": "none",
+                    "status": "new",
                     "first_s": "true",
                     "last_s": "false",
                     "text": [],
@@ -2924,7 +2926,7 @@
                     "stage": "CMP"
                 },
                 {
-                    "status": "none",
+                    "status": "new",
                     "first_s": "true",
                     "last_s": "false",
                     "text": [],
@@ -3238,7 +3240,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "true",
                     "text": [],
@@ -3250,7 +3252,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "true",
                     "text": [],
@@ -3262,7 +3264,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "true",
                     "text": [],
@@ -3274,7 +3276,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "false",
                     "text": [],
@@ -3856,13 +3858,18 @@
                     "first_s": "true",
                     "last_s": "false",
                     "text": [
-                        "I et II. - (non modifi\u00e9s)",
+                        "I. - L'Acad\u00e9mie nationale de m\u00e9decine est une personne morale de droit public \u00e0 statut particulier, plac\u00e9e sous la protection du Pr\u00e9sident du R\u00e9publique.",
+                        "Elle a pour mission de r\u00e9pondre, \u00e0 titre non lucratif, aux demandes du Gouvernement sur toute question concernant la sant\u00e9 publique et de s'occuper de tous les objets d'\u00e9tude et de recherche qui peuvent contribuer aux progr\u00e8s de l'art de gu\u00e9rir.",
+                        "Ses membres sont \u00e9lus par leurs pairs. Toutes les fonctions y sont \u00e9lectives.",
+                        "II. - L'Acad\u00e9mie nationale de m\u00e9decine s'administre librement. Ses d\u00e9cisions entrent en vigueur sans autorisation pr\u00e9alable. Elle b\u00e9n\u00e9ficie de l'autonomie financi\u00e8re sous le seul contr\u00f4le de la Cour des comptes.",
+                        "L'administration de l'acad\u00e9mie est assur\u00e9e par un secr\u00e9taire perp\u00e9tuel, un bureau et un conseil d'administration.",
+                        "L'acad\u00e9mie peut recevoir des dons et des legs.",
                         "III. - Au 2\u00b0 du I de l'article 3 de l'ordonnance n\u00b0 2005-649 du 6 juin 2005 relative aux march\u00e9s pass\u00e9s par certaines personnes publiques ou priv\u00e9es non soumises au code des march\u00e9s publics, apr\u00e8s les mots : \"beaux-arts\", sont ins\u00e9r\u00e9s les mots : \", l'Acad\u00e9mie nationale de m\u00e9decine\".",
                         "IV. -"
                     ],
-                    "n_diff": 0.6162790697674418,
+                    "n_diff": 0.04138513513513509,
                     "step": "hemicycle",
-                    "length": 315,
+                    "length": 1140,
                     "diff": "both",
                     "id_step": "1\u00e8re lecture_senat_hemicycle",
                     "stage": "1\u00e8re lecture"
@@ -3881,7 +3888,7 @@
                         "III. - Au 2\u00b0 du I de l'article 3 de l'ordonnance n\u00b0 2005-649 du 6 juin 2005 relative aux march\u00e9s pass\u00e9s par certaines personnes publiques ou priv\u00e9es non soumises au code des march\u00e9s publics, apr\u00e8s les mots : \"beaux-arts\", sont ins\u00e9r\u00e9s les mots : \", l'Acad\u00e9mie nationale de m\u00e9decine\".",
                         "IV. - Les statuts de l'Acad\u00e9mie nationale de m\u00e9decine sont approuv\u00e9s par d\u00e9cret en Conseil d'\u00c9tat."
                     ],
-                    "n_diff": 0.6124031007751938,
+                    "n_diff": 0.04087652760219129,
                     "step": "commission",
                     "length": 1233,
                     "diff": "both",
@@ -4118,12 +4125,13 @@
                     "first_s": "false",
                     "last_s": "false",
                     "text": [
-                        "I et II. - (non modifi\u00e9s)",
+                        "I. - La section 4 du chapitre IX du titre Ier du livre VII de la troisi\u00e8me partie du code de l'\u00e9ducation est abrog\u00e9e.",
+                        "II. - \u00c0 la premi\u00e8re phrase de l'article L. 613-7, la r\u00e9f\u00e9rence : \"L. 719-10\" est remplac\u00e9e par la r\u00e9f\u00e9rence : \"L. 718-15\".",
                         "III. - Au troisi\u00e8me alin\u00e9a du a du 4\u00b0 du 4 de l'article 261 et au 1\u00b0 de l'article 1460 du code g\u00e9n\u00e9ral des imp\u00f4ts, la r\u00e9f\u00e9rence : \"L. 719-10\" est remplac\u00e9e par la r\u00e9f\u00e9rence : \"L. 718-15\"."
                     ],
-                    "n_diff": 0.40993788819875776,
+                    "n_diff": 0.32826747720364746,
                     "step": "hemicycle",
-                    "length": 213,
+                    "length": 428,
                     "diff": "both",
                     "id_step": "1\u00e8re lecture_senat_hemicycle",
                     "stage": "1\u00e8re lecture"
@@ -4137,7 +4145,7 @@
                         "II. - \u00c0 la premi\u00e8re phrase de l'article L. 613-7 du m\u00eame code, la r\u00e9f\u00e9rence : \"L. 719-10\" est remplac\u00e9e par la r\u00e9f\u00e9rence : \"L. 718-15\".",
                         "III. - Au troisi\u00e8me alin\u00e9a du a du 4\u00b0 du 4 de l'article 261 et au 1\u00b0 de l'article 1460 du code g\u00e9n\u00e9ral des imp\u00f4ts, la r\u00e9f\u00e9rence : \"L. 719-10\" est remplac\u00e9e par la r\u00e9f\u00e9rence : \"L. 718-15\"."
                     ],
-                    "n_diff": 0.40993788819875776,
+                    "n_diff": 0.13853317811408616,
                     "step": "commission",
                     "length": 431,
                     "diff": "both",
@@ -4303,11 +4311,17 @@
                         "2\u00b0 De rem\u00e9dier aux \u00e9ventuelles erreurs de codification ;",
                         "3\u00b0 D'abroger les dispositions devenues sans objet ;",
                         "4\u00b0 D'\u00e9tendre, le cas \u00e9ch\u00e9ant avec les adaptations n\u00e9cessaires, l'application des dispositions du code de la recherche en Nouvelle-Cal\u00e9donie, en Polyn\u00e9sie fran\u00e7aise, dans les \u00eeles Wallis et Futuna et dans les terres australes et antarctiques fran\u00e7aises ainsi que de permettre les adaptations n\u00e9cessaires \u00e0 l'application de ces dispositions \u00e0 Mayotte, \u00e0 Saint-Barth\u00e9lemy, \u00e0 Saint-Martin et \u00e0 Saint-Pierre-et-Miquelon.",
-                        "II et III. - (non modifi\u00e9s)"
+                        "II. - Dans les conditions pr\u00e9vues \u00e0 l'article 38 de la Constitution, le Gouvernement est autoris\u00e9 \u00e0 modifier par ordonnance la partie l\u00e9gislative du code de l'\u00e9ducation afin :",
+                        "1\u00b0 D'adapter le code, afin, notamment, d'introduire des dispositions relatives aux \u00e9tudes de ma\u00efeutique et de modifier celles relatives aux \u00e9tablissements d'enseignement sup\u00e9rieur sp\u00e9cialis\u00e9s ;",
+                        "2\u00b0 De rem\u00e9dier aux \u00e9ventuelles erreurs de codification ;",
+                        "3\u00b0 D'abroger les dispositions devenues sans objet ;",
+                        "4\u00b0 D'\u00e9tendre, le cas \u00e9ch\u00e9ant avec les adaptations n\u00e9cessaires, l'application de ces dispositions du code de l'\u00e9ducation \u00e0 Mayotte, en Nouvelle-Cal\u00e9donie, en Polyn\u00e9sie fran\u00e7aise et dans les \u00eeles Wallis et Futuna.",
+                        "III. - Les ordonnances pr\u00e9vues aux I et II doivent \u00eatre prises dans un d\u00e9lai d'un an \u00e0 compter de la promulgation de la pr\u00e9sente loi.",
+                        "Pour chaque ordonnance, un projet de loi de ratification est d\u00e9pos\u00e9 devant le Parlement dans un d\u00e9lai de six mois \u00e0 compter de la publication de l'ordonnance."
                     ],
-                    "n_diff": 0.44230069166363306,
+                    "n_diff": 0.06317494600431961,
                     "step": "hemicycle",
-                    "length": 944,
+                    "length": 1900,
                     "diff": "both",
                     "id_step": "1\u00e8re lecture_senat_hemicycle",
                     "stage": "1\u00e8re lecture"
@@ -4330,7 +4344,7 @@
                         "III. - Les ordonnances pr\u00e9vues aux I et II doivent \u00eatre prises dans un d\u00e9lai d'un an \u00e0 compter de la promulgation de la pr\u00e9sente loi.",
                         "Pour chaque ordonnance, un projet de loi de ratification est d\u00e9pos\u00e9 devant le Parlement dans un d\u00e9lai de six mois \u00e0 compter de la publication de l'ordonnance."
                     ],
-                    "n_diff": 0.3589834098129192,
+                    "n_diff": 0.008709422011084711,
                     "step": "commission",
                     "length": 1889,
                     "diff": "both",
@@ -4698,7 +4712,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "none",
+                    "status": "new",
                     "first_s": "true",
                     "last_s": "true",
                     "text": [],
@@ -4710,7 +4724,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "none",
+                    "status": "new",
                     "first_s": "true",
                     "last_s": "true",
                     "text": [],
@@ -4722,7 +4736,7 @@
                     "stage": "CMP"
                 },
                 {
-                    "status": "none",
+                    "status": "new",
                     "first_s": "true",
                     "last_s": "false",
                     "text": [],
@@ -5270,7 +5284,7 @@
                         "e) Au d\u00e9but du 4\u00b0, les mots : \"Deux ou trois\" sont remplac\u00e9s par les mots : \"quatre ou six\" ;",
                         "2\u00b0 Le II est ainsi r\u00e9dig\u00e9 :",
                         "\"II. - Les personnalit\u00e9s ext\u00e9rieures \u00e0 l'\u00e9tablissement, de nationalit\u00e9 fran\u00e7aise ou \u00e9trang\u00e8re, membres du conseil d'administration, sont, \u00e0 l'exception des personnalit\u00e9s d\u00e9sign\u00e9es au titre du 4\u00b0 du pr\u00e9sent II, d\u00e9sign\u00e9es avant la premi\u00e8re r\u00e9union du conseil d'administration. Elles comprennent autant de femmes que d'hommes. un d\u00e9cret fixe les conditions dans lesquelles est assur\u00e9e cette parit\u00e9. Il pr\u00e9cise le nombre et la r\u00e9partition par sexe, \u00e9ventuellement dans le temps, des candidats propos\u00e9s par chacune des instances comp\u00e9tentes. Ces personnalit\u00e9s comprennent, par d\u00e9rogation \u00e0 l'article L. 719-3 :",
-                        "\"1\u00b0 (Suppression maintenue)",
+                        "\"1\u00b0 (Supprim\u00e9)",
                         "\"2\u00b0 Au moins deux repr\u00e9sentants des collectivit\u00e9s territoriales ou de leurs groupements, dont au moins un repr\u00e9sentant de la r\u00e9gion, d\u00e9sign\u00e9s par ces collectivit\u00e9s ou groupements ;",
                         "\"3\u00b0 Au moins un repr\u00e9sentant des organismes de recherche, d\u00e9sign\u00e9 par un ou plusieurs organismes entretenant des relations de coop\u00e9ration avec l'\u00e9tablissement ;",
                         "\"4\u00b0 Au plus cinq personnalit\u00e9s d\u00e9sign\u00e9es apr\u00e8s un appel public \u00e0 candidatures par les membres \u00e9lus du conseil et les personnalit\u00e9s d\u00e9sign\u00e9es aux 2\u00b0 et 3\u00b0, dont au moins :",
@@ -5295,9 +5309,9 @@
                         "\"Sous r\u00e9serve des dispositions statutaires relatives \u00e0 la premi\u00e8re affectation des personnels recrut\u00e9s par concours national d'agr\u00e9gation de l'enseignement sup\u00e9rieur, aucune affectation d'un candidat \u00e0 un emploi d'enseignant-chercheur ne peut \u00eatre prononc\u00e9e si le conseil d'administration, en formation restreinte aux enseignants-chercheurs et personnels assimil\u00e9s, \u00e9met un avis d\u00e9favorable motiv\u00e9.\" ;",
                         "b) Au dixi\u00e8me alin\u00e9a, apr\u00e8s la r\u00e9f\u00e9rence : \"4\u00b0\", la fin de la premi\u00e8re phrase est ainsi r\u00e9dig\u00e9e : \", 7\u00b0, 7\u00b0 bis, 8\u00b0 et 9\u00b0\"."
                     ],
-                    "n_diff": 0.21131664853101195,
+                    "n_diff": 0.2091097308488613,
                     "step": "commission",
-                    "length": 4603,
+                    "length": 4590,
                     "diff": "both",
                     "id_step": "CMP_CMP_commission",
                     "stage": "CMP"
@@ -5343,7 +5357,7 @@
                         "\"Sous r\u00e9serve des dispositions statutaires relatives \u00e0 la premi\u00e8re affectation des personnels recrut\u00e9s par concours national d'agr\u00e9gation de l'enseignement sup\u00e9rieur, aucune affectation d'un candidat \u00e0 un emploi d'enseignant-chercheur ne peut \u00eatre prononc\u00e9e si le conseil d'administration, en formation restreinte aux enseignants-chercheurs et personnels assimil\u00e9s, \u00e9met un avis d\u00e9favorable motiv\u00e9.\" ;",
                         "b) Au dixi\u00e8me alin\u00e9a, apr\u00e8s la r\u00e9f\u00e9rence : \"4\u00b0\", la fin de la premi\u00e8re phrase est ainsi r\u00e9dig\u00e9e : \", 7\u00b0, 7\u00b0 bis, 8\u00b0 et 9\u00b0.\""
                     ],
-                    "n_diff": 0.013852813852813894,
+                    "n_diff": 0.011813157039124333,
                     "step": "hemicycle",
                     "length": 4637,
                     "diff": "both",
@@ -5581,11 +5595,25 @@
                     "last_s": "false",
                     "text": [
                         "I A. - \u00c0 la seconde phrase de l'article L. 611-6 du code de l'\u00e9ducation, les mots : \"l'agence mentionn\u00e9e\" sont remplac\u00e9s par les mots : \"le Haut Conseil mentionn\u00e9\".",
-                        "I et II. - (non modifi\u00e9s)."
+                        "I A. - \u00c0 la seconde phrase de l'article L. 611-6 du code de l'\u00e9ducation, les mots : \"l'agence mentionn\u00e9e\" sont remplac\u00e9s par les mots : \"le Haut Conseil mentionn\u00e9\".",
+                        "I. - L'article L. 711-1 du m\u00eame code est ainsi modifi\u00e9 :",
+                        "1\u00b0 Le cinqui\u00e8me alin\u00e9a est supprim\u00e9 ;",
+                        "2\u00b0 Le sixi\u00e8me alin\u00e9a est ainsi modifi\u00e9 :",
+                        "a) Apr\u00e8s les mots : \"code de la recherche\", la fin de la troisi\u00e8me phrase est supprim\u00e9e ;",
+                        "b) \u00c0 la derni\u00e8re phrase, les mots : \"\u00e0 l'Agence d'\u00e9valuation de la recherche et de l'enseignement sup\u00e9rieur mentionn\u00e9e\" sont remplac\u00e9s par les mots : \"au Haut Conseil de l'\u00e9valuation de la recherche et de l'enseignement sup\u00e9rieur mentionn\u00e9\" ;",
+                        "2\u00b0 bis Le septi\u00e8me alin\u00e9a est compl\u00e9t\u00e9 par une phrase ainsi r\u00e9dig\u00e9e :",
+                        "\"Ils rendent publiques les mesures concernant la gestion de leurs ressources humaines.\" ;",
+                        "3\u00b0 Au dernier alin\u00e9a, les mots : \"l'Agence d'\u00e9valuation\" sont remplac\u00e9s par les mots : \"le Haut Conseil de l'\u00e9valuation\".",
+                        "II. - Le II de l'article L. 711-4 du m\u00eame code est ainsi modifi\u00e9 :",
+                        "1\u00b0 Au premier alin\u00e9a, les r\u00e9f\u00e9rences : \"L. 712-3, L. 712-5 \u00e0\" sont remplac\u00e9es par la r\u00e9f\u00e9rence : \"L. 712-6-1,\" ;",
+                        "2\u00b0 Le troisi\u00e8me alin\u00e9a est ainsi modifi\u00e9 :",
+                        "a) \u00c0 la premi\u00e8re phrase, les mots : \"l'Agence d'\u00e9valuation de la recherche et de l'enseignement sup\u00e9rieur mentionn\u00e9e\" sont remplac\u00e9s par les mots : \"le Haut Conseil de l'\u00e9valuation de la recherche et de l'enseignement sup\u00e9rieur mentionn\u00e9\" ;",
+                        "b) \u00c0 la seconde phrase, les mots : \"L'agence\" sont remplac\u00e9s par les mots : \"Le Haut Conseil\" et le mot : \"elle\" est remplac\u00e9 par le mot : \"il\" ;",
+                        "3\u00b0 Au dernier alin\u00e9a, les mots : \"l'Agence d'\u00e9valuation de la recherche et de l'enseignement sup\u00e9rieur mentionn\u00e9e\" sont remplac\u00e9s par les mots : \"le Haut Conseil de l'\u00e9valuation de la recherche et de l'enseignement sup\u00e9rieur mentionn\u00e9\", les mots : \"cette derni\u00e8re\" sont remplac\u00e9s par les mots : \"ce dernier\" et le mot : \"elle\" est remplac\u00e9 par le mot : \"il\"."
                     ],
-                    "n_diff": 0.8236144578313254,
+                    "n_diff": 0.09589770911028239,
                     "step": "hemicycle",
-                    "length": 191,
+                    "length": 2049,
                     "diff": "both",
                     "id_step": "1\u00e8re lecture_senat_hemicycle",
                     "stage": "1\u00e8re lecture"
@@ -5611,7 +5639,7 @@
                         "b) \u00c0 la seconde phrase, les mots : \"L'agence\" sont remplac\u00e9s par les mots : \"Le Haut Conseil\" et le mot : \"elle\" est remplac\u00e9 par le mot : \"il\" ;",
                         "3\u00b0 Au dernier alin\u00e9a, les mots : \"l'Agence d'\u00e9valuation de la recherche et de l'enseignement sup\u00e9rieur mentionn\u00e9e\" sont remplac\u00e9s par les mots : \"le Haut Conseil de l'\u00e9valuation de la recherche et de l'enseignement sup\u00e9rieur mentionn\u00e9\", les mots : \"cette derni\u00e8re\" sont remplac\u00e9s par les mots : \"ce dernier\" et le mot : \"elle\" est remplac\u00e9 par le mot : \"il\"."
                     ],
-                    "n_diff": 0.8236144578313254,
+                    "n_diff": 0.04195270785659799,
                     "step": "commission",
                     "length": 1884,
                     "diff": "both",
@@ -7807,11 +7835,11 @@
                         "\"3\u00b0 Deux membres repr\u00e9sentant les \u00e9tudiants, sur proposition des associations d'\u00e9tudiants en fonction du nombre de voix obtenues par ces associations lors de l'\u00e9lection des repr\u00e9sentants des \u00e9tudiants au Conseil national de l'enseignement sup\u00e9rieur et de la recherche ;",
                         "\"4\u00b0 Neuf personnalit\u00e9s qualifi\u00e9es fran\u00e7aises et \u00e9trang\u00e8res, dont au moins trois issues du secteur de la recherche priv\u00e9e et trois appartenant \u00e0 des agences d'accr\u00e9ditation ou d'\u00e9valuation \u00e9trang\u00e8res ;",
                         "\"5\u00b0 un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par la commission permanente comp\u00e9tente en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche de chaque assembl\u00e9e.",
-                        "\"III. - (Suppression maintenue)\""
+                        "\"III. - (Supprim\u00e9)\""
                     ],
-                    "n_diff": 0.021199819576003587,
+                    "n_diff": 0.016964487672472273,
                     "step": "commission",
-                    "length": 2201,
+                    "length": 2188,
                     "diff": "both",
                     "id_step": "CMP_CMP_commission",
                     "stage": "CMP"
@@ -7834,7 +7862,7 @@
                         "\"5\u00b0 un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par la commission permanente comp\u00e9tente en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche de chaque assembl\u00e9e.",
                         "\"III. - (Supprim\u00e9)\""
                     ],
-                    "n_diff": 0.006616472735569201,
+                    "n_diff": 0.0022883295194507935,
                     "step": "hemicycle",
                     "length": 2182,
                     "diff": "both",
@@ -8646,7 +8674,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "none",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "false",
                     "text": [
@@ -8662,10 +8690,10 @@
                         "\"10\u00b0 Il installe, sur proposition conjointe du conseil d'administration et du conseil acad\u00e9mique, une mission \"\u00e9galit\u00e9 entre les hommes et les femmes\".\" ;",
                         "6\u00b0 Au dernier alin\u00e9a, les mots : \"des trois conseils\" sont remplac\u00e9s par les mots : \"du conseil d'administration\" et les mots : \"secr\u00e9taire g\u00e9n\u00e9ral\" sont remplac\u00e9s par les mots : \"directeur g\u00e9n\u00e9ral des services\"."
                     ],
-                    "n_diff": 1.0,
+                    "n_diff": 0,
                     "step": "commission",
                     "length": 1961,
-                    "diff": "both",
+                    "diff": "rem",
                     "id_step": "CMP_CMP_commission",
                     "stage": "CMP"
                 },
@@ -9197,7 +9225,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "none",
+                    "status": "new",
                     "first_s": "true",
                     "last_s": "true",
                     "text": [],
@@ -9209,7 +9237,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "none",
+                    "status": "new",
                     "first_s": "true",
                     "last_s": "true",
                     "text": [],
@@ -9221,7 +9249,7 @@
                     "stage": "CMP"
                 },
                 {
-                    "status": "none",
+                    "status": "new",
                     "first_s": "true",
                     "last_s": "false",
                     "text": [],
@@ -9593,30 +9621,28 @@
                     "status": "none",
                     "first_s": "true",
                     "last_s": "true",
-                    "text": [
-                        "(Supprim\u00e9)"
-                    ],
-                    "n_diff": 0.978813559322034,
+                    "text": [],
+                    "n_diff": 1.0,
                     "step": "commission",
-                    "length": 10,
+                    "length": 0,
                     "diff": "both",
                     "id_step": "1\u00e8re lecture_senat_commission",
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "none",
+                    "status": "new",
                     "first_s": "true",
                     "last_s": "true",
                     "text": [],
-                    "n_diff": 1.0,
+                    "n_diff": 0,
                     "step": "hemicycle",
                     "length": 0,
-                    "diff": "both",
+                    "diff": "add",
                     "id_step": "1\u00e8re lecture_senat_hemicycle",
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "none",
+                    "status": "new",
                     "first_s": "true",
                     "last_s": "true",
                     "text": [],
@@ -9628,7 +9654,7 @@
                     "stage": "CMP"
                 },
                 {
-                    "status": "none",
+                    "status": "new",
                     "first_s": "true",
                     "last_s": "false",
                     "text": [],
@@ -10065,7 +10091,7 @@
                     "stage": "CMP"
                 },
                 {
-                    "status": "none",
+                    "status": "new",
                     "first_s": "true",
                     "last_s": "false",
                     "text": [],
@@ -11413,7 +11439,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "true",
                     "text": [],
@@ -11425,7 +11451,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "true",
                     "text": [],
@@ -11437,7 +11463,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "true",
                     "text": [],
@@ -11449,7 +11475,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "false",
                     "text": [],
@@ -13453,7 +13479,7 @@
                     "stage": "CMP"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "false",
                     "text": [],
@@ -13995,7 +14021,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "true",
                     "text": [],
@@ -14007,7 +14033,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "true",
                     "text": [],
@@ -14019,7 +14045,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "true",
                     "text": [],
@@ -14031,7 +14057,7 @@
                     "stage": "1\u00e8re lecture"
                 },
                 {
-                    "status": "sup",
+                    "status": "new",
                     "first_s": "false",
                     "last_s": "false",
                     "text": [],
@@ -15263,7 +15289,7 @@
                     "stage": "CMP"
                 },
                 {
-                    "status": "none",
+                    "status": "new",
                     "first_s": "true",
                     "last_s": "false",
                     "text": [],
