@@ -96,11 +96,13 @@
           .style("stroke-width",1)
           .style("fill", function(d) {
  
-           if(d.last_s == 'true') return '#FDE2E2'
-            else if (d.status == 'new') return '#CFF7DA';
-            else if (d.diff == 'none') return '#fff';
-            else return '#D3D3D3';
-
+           if(d.last_s == 'true') return '#FDC9C9'
+           else if (d.status == 'new') return '#BDF7C8';
+           else if (d.diff == 'none') return '#fff';
+           else {
+            var lev = ~~(239 - 128 * d.n_diff);
+            return 'rgb('+lev+','+lev+','+lev+')';
+           };
           })
           .attr("y", function(d) {
             return d.y;
@@ -124,18 +126,19 @@
             //Reset Colors
             myrects.style("fill", function(d) {
 
-             if(d.last_s == 'true') return '#FDE2E2'
-            else if (d.status == 'new') return '#CFF7DA';
+            if(d.last_s == 'true') return '#FDC9C9'
+            else if (d.status == 'new') return '#BDF7C8';
             else if (d.diff == 'none') return '#fff';
-            else return '#D3D3D3';
-  
+            else {
+             var lev = ~~(239 - 128 * d.n_diff);
+             return 'rgb('+lev+','+lev+','+lev+')';
+            };
             })
 
             //Color the elements in same group
             datum=d3.select(this.parentNode)
             
             d3.selectAll(datum[0][0].childNodes).filter("rect.article")
-            
             .style("fill",function(d) {
               hsl=d3.rgb(d3.select(this).style("fill")).hsl()
               //console.log("hsl",hsl)
@@ -176,7 +179,7 @@
               div.append("p").text("Text length: " + length)
 
               return {        
-              title: "Article" + titre,
+              title: "Article " + titre,
               content: div ,
               placement: "mouse",
               gravity: "right",
