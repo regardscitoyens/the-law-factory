@@ -179,7 +179,7 @@
               div.append("p").text("Text length: " + length)
 
               return {        
-              title: "Article" + titre,
+              title: "Article " + titre,
               content: div ,
               placement: "mouse",
               gravity: "right",
