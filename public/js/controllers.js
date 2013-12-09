@@ -7,6 +7,7 @@ angular.module('theLawFactory.controllers', []).
 
     $scope.error = {}
     $scope.dataUrl = 'data/articles.js'
+    $scope.amdUrl = 'data/amendements.js'
     $scope.dataSample = {}
     
   })
