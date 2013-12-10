@@ -89,13 +89,7 @@
 		  .attr("rx",2)
 		  .attr("ry",2)
 		  .attr("class","amd")
-		  .style("fill", function (d){console.log(d.sort); 
-		    if(d.sort=="Satisfait") return "#91CF60"; 
-		    else if(d.sort=="Adopté") return "#229850";
-		    else if(d.sort=="Indéfini") return "#FEE08B";
-		    else if(d.sort=="Retiré") return "#FB8D59";
-		    else if(d.sort=="Rejeté") return "#D73127";
-		    else return "#E6E6E6"})
+		  .style("fill", color)
   			.popover(function(d){
 
               var titre = d.numero,
@@ -132,6 +126,13 @@
 		
         
 		function select(d) {
+			d3.selectAll(".actv-amd")
+			.style("fill",color)
+			.classed("actv-amd",false);
+			
+			d3.select(this)
+			.attr("class","actv-amd")
+			.style("fill","#716259")
 			$("#law-title").text("Amendement "+d.numero)
 			
 			$(".text-container").html(
@@ -142,6 +143,15 @@
 				"<p><b>Expose:</b> " + d.expose+"<br/><br/></p>" +
 				"<p><b>Text:</b> " + d.texte+"<br/><br/>");
 		}
+		
+		
+		function color(d) { 
+		    if(d.sort=="Satisfait") return "#91CF60"; 
+		    else if(d.sort=="Adopté") return "#229850";
+		    else if(d.sort=="Indéfini") return "#FEE08B";
+		    else if(d.sort=="Retiré") return "#FB8D59";
+		    else if(d.sort=="Rejeté") return "#D73127";
+		    else return "#E6E6E6"};
 
         $(document).ready(function() {
             var s = $(".text");
