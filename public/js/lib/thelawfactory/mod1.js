@@ -120,40 +120,23 @@
           .on("click", function (d) {
             
             d3.selectAll("line")
-            .style("stroke","#f2f2f2")
+            .style("stroke","#f2f2f2");
             
             //STYLE OF CLICKED ELEMENT AND ROW
-            //Reset Colors
-            myrects.style("fill", function(d) {
+            //Reset rectangles
+            myrects.style("stroke", "#ccc")
+            .style("stroke-width", 1);
 
-            if(d.last_s == 'true') return '#FDC9C9'
-            else if (d.status == 'new') return '#BDF7C8';
-            else if (d.diff == 'none') return '#fff';
-            else {
-             var lev = ~~(239 - 128 * d.n_diff);
-             return 'rgb('+lev+','+lev+','+lev+')';
-            };
-            })
-
-            //Color the elements in same group
+            //Select the elements in same group
             datum=d3.select(this.parentNode)
             
             d3.selectAll(datum[0][0].childNodes).filter("rect.article")
-            .style("fill",function(d) {
-              hsl=d3.rgb(d3.select(this).style("fill")).hsl()
-              //console.log("hsl",hsl)
-              hsl.l-=0.1;
-              hsl.s+=0.1;
-              //console.log("hsl2",hsl)
-            return hsl.rgb()
-            })
-            
-            
+            .style("stroke", "#77D3D3")
+            .style("stroke-width", 2);
+
             d3.selectAll(datum[0][0].childNodes).filter("g")
             .selectAll("line")
             .style("stroke","#999");
-            
-            d3.rgb(d3.select(this).style("fill")).darker(2);
             
             //add text
             $("#law-title").text("Article "+datum.datum().titre);
