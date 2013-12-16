@@ -63,6 +63,13 @@
 	margin:0 auto;	
 }
 
+.article {
+box-shadow: inset 10px 10px 10px #000;
+-webkit-box-shadow: inset 10px 10px 10px #000;
+-moz-box-shadow: inset 10px 10px 10px #000;
+-o-box-shadow: inset 10px 10px 10px #000;
+}
+
 .subheader li{
 	background-color:##dad1cb;
 	font-weight:bold;
@@ -191,15 +198,17 @@ body{
 	clear: both;
 	display: inline-block;
 	width: auto;
-	text-align: right;
+	text-align: left;
 	float: right;
 	margin: 0;
-	background-color: #F9F7F8;
+	
 }
 .labels p{
 	margin:0;
+	margin-top:10px;
 	padding: 0 5px;
 	font-style: italic;
+	background-color: #F9F7F8;
 }
 .text p{
 	display:block;
@@ -220,4 +229,13 @@ del {
 
 ins {
 	background:#E6FFE6;
+}
+.popup-mod2 p{
+  margin:0;
+  padding:0;
+  display: inline;
+  font-size:12px;
+}
+.art-list{
+	margin-top:-4px !important;
 }

@@ -108,7 +108,9 @@ for art in data['articles']:
                     step['diff'] = 'none'
                 else:
                     step['diff'] = 'both'
-                    step['n_diff'] = 1 - SequenceMatcher(None, oldtxt, txt).ratio()
+                    a = SequenceMatcher(None, oldtxt, txt).ratio()
+                    b = SequenceMatcher(None, txt, oldtxt).ratio()
+                    step['n_diff'] = 1 - (a + b)/2
 
 
 with open("%s.new" % sys.argv[1], 'w') as output:

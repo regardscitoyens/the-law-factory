@@ -63,7 +63,9 @@
 
 
         var svg = d3.select("#viz").append("svg").attr("width", "100%" ).attr("height", maxy+sections.length*30+100).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+		
+		
+		
         var sects=svg.append("g").attr("class","sections")
 
         var layer = svg.selectAll(".layer").data(art_values).enter().append("g").attr("class", function(d,i) {return "layer"+" "+"n_"+i})
@@ -95,7 +97,7 @@
           .style("stroke-width",1)
           .style("fill", function(d) {
  
-           
+           //if(d.last_s == 'true') return '#FDC9C9'
            if (d.status == 'new') return '#fff';
            else if (d.diff == 'none') return '#fff';
            else {
@@ -107,26 +109,30 @@
             return d.y;
           })
           .attr("x", function(d) {
+            //console.log(layer.data())
             return (findStage(d.id_step))*width/columns+10;
           })
           .attr("height", function(d) {
             
-            return (lerp(d.length)-1);
+            return (lerp(d.length));
           })
           .attr("width", width/columns-20)
           .attr("opacity", 1.0)
           .on("click", function (d) {
             
             d3.selectAll("line")
-            .style("stroke","#f2f2f2")
+            .style("stroke","#f2f2f2");
             
             //STYLE OF CLICKED ELEMENT AND ROW
             //Reset rectangles
             myrects.style("stroke", "#ccc")
-            .style("stroke-width", 1)
-            .style("stroke-dasharray","none")
-            .style("fill", function(d) {
+            .style("stroke-width", 1);
 
+<<<<<<< HEAD
+            //Select the elements in same group
+=======
+            //if(d.last_s == 'true') return '#FDC9C9'
+            //else if (d.status == 'new') return '#BDF7C8';
             if (d.diff == 'none') return '#fff';
             else {
              var lev = ~~(239 - 128 * d.n_diff);
@@ -134,26 +140,17 @@
             };
             })
 
-            //Select the elements in same group
+            //Color the elements in same group
+>>>>>>> master
             datum=d3.select(this.parentNode)
             
             d3.selectAll(datum[0][0].childNodes).filter("rect.article")
-            .style("stroke", "#D80053")
-            .style("stroke-width", 1)
-            .style("fill",function(d) {
-              hsl=d3.rgb(d3.select(this).style("fill")).hsl()
-              hsl.s+=0.1;
-            return hsl.rgb()
-            })
+            .style("stroke", "#77D3D3")
+            .style("stroke-width", 2);
 
             d3.selectAll(datum[0][0].childNodes).filter("g")
             .selectAll("line")
-            .style("stroke","#D80053");
-            
-            d3.rgb(d3.select(this).style("fill")).darker(2)
-            
-            d3.select(this)
-            .style("stroke-dasharray",[3,3])
+            .style("stroke","#999");
             
             //add text
             $("#law-title").text("Article "+datum.datum().titre);
@@ -219,10 +216,10 @@
         .attr("class","first")
           .style("stroke", "none")
           .style("fill", '#BDF7C8')
-          .attr("y",  d.y+1)
-          .attr("x", findStage(d.id_step)*width/columns+11)
-          .attr("height", lerp(d.length)-3)
-          .attr("width", 8)
+          .attr("y",  d.y)
+          .attr("x", findStage(d.id_step)*width/columns+10)
+          .attr("height", lerp(d.length))
+          .attr("width", 5)
           .attr("opacity", 1.0);
         })
         
@@ -235,10 +232,10 @@
         .attr("class","last")
           .style("stroke", "none")
           .style("fill", '#FDC9C9')
-          .attr("y",  d.y+1)
-          .attr("x", findStage(d.id_step)*width/columns+width/columns-18)
-          .attr("height", lerp(d.length)-3)
-          .attr("width", 8)
+          .attr("y",  d.y)
+          .attr("x", findStage(d.id_step)*width/columns+width/columns-15)
+          .attr("height", lerp(d.length))
+          .attr("width", 5)
           .attr("opacity", 1.0);
         })
         
