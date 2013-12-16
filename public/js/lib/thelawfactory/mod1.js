@@ -32,7 +32,7 @@
           bl=b.titre.split(" ")
           
           if (parseInt(al[0]) != parseInt(bl[0])) {
-          	console.log(al[0])
+          	
           	return parseInt(al[0]) - parseInt(bl[0])
           }
           
@@ -334,7 +334,7 @@
              }
           })
         });
-        console.log(art_values);
+       
         }
 
         //FIND THE ABOVE RECTANGLE - RECURSIVE
@@ -391,7 +391,7 @@
             //console.log(stag_name);
             $(".stages").append('<div class="stage" style="width:'+100/stag.length+'%">'+stag_name+'</div>')  
           }
-          console.log(stag)
+          
           return stag
         }
 
