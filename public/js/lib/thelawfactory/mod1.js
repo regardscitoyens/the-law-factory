@@ -63,7 +63,9 @@
 
 
         var svg = d3.select("#viz").append("svg").attr("width", "100%" ).attr("height", maxy+sections.length*30+100).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+		
+		
+		
         var sects=svg.append("g").attr("class","sections")
 
         var layer = svg.selectAll(".layer").data(art_values).enter().append("g").attr("class", function(d,i) {return "layer"+" "+"n_"+i})
@@ -91,13 +93,12 @@
 
           myrects
           .attr("class","article")
-          .style("fill","#fff")
           .style("stroke", "#ccc")
           .style("stroke-width",1)
           .style("fill", function(d) {
  
-           if(d.last_s == 'true') return '#FDC9C9'
-           else if (d.status == 'new') return '#BDF7C8';
+           //if(d.last_s == 'true') return '#FDC9C9'
+           if (d.status == 'new') return '#fff';
            else if (d.diff == 'none') return '#fff';
            else {
             var lev = ~~(239 - 128 * d.n_diff);
@@ -126,9 +127,9 @@
             //Reset Colors
             myrects.style("fill", function(d) {
 
-            if(d.last_s == 'true') return '#FDC9C9'
-            else if (d.status == 'new') return '#BDF7C8';
-            else if (d.diff == 'none') return '#fff';
+            //if(d.last_s == 'true') return '#FDC9C9'
+            //else if (d.status == 'new') return '#BDF7C8';
+            if (d.diff == 'none') return '#fff';
             else {
              var lev = ~~(239 - 128 * d.n_diff);
              return 'rgb('+lev+','+lev+','+lev+')';
@@ -209,6 +210,39 @@
             .style("fill","white")
             .text("Sect. "+e['section']);
         })
+        
+        
+        myrects.filter(function(d){
+          return d['status']=="new";
+        }).each(function(d,i) {
+        d3.select(this.parentNode)
+        .append("rect")
+        .attr("class","first")
+          .style("stroke", "none")
+          .style("fill", '#BDF7C8')
+          .attr("y",  d.y)
+          .attr("x", findStage(d.id_step)*width/columns+10)
+          .attr("height", lerp(d.length))
+          .attr("width", 5)
+          .attr("opacity", 1.0);
+        })
+        
+        
+        myrects.filter(function(d){
+          return d['last_s']=="true";
+        }).each(function(d,i) {
+        d3.select(this.parentNode)
+        .append("rect")
+        .attr("class","last")
+          .style("stroke", "none")
+          .style("fill", '#FDC9C9')
+          .attr("y",  d.y)
+          .attr("x", findStage(d.id_step)*width/columns+width/columns-15)
+          .attr("height", lerp(d.length))
+          .attr("width", 5)
+          .attr("opacity", 1.0);
+        })
+        
 
         //ADD THE LINES
             lines
