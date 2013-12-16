@@ -139,15 +139,25 @@ body{
 	-ms-flex-align:center;
 	
 	/* Firefox */
-	display:-moz-box;
+	display:flex;
 	-moz-box-pack:center;
 	-moz-box-align:center;
+	
+	
 	
 	/* Safari, Opera, and Chrome */
 	display:-webkit-box;
 	-webkit-box-pack:center;
 	-webkit-box-align:center;
 }
+
+@-moz-document url-prefix() { 
+  .stage {
+     padding:20px 10px 0 10px;
+  }
+}
+
+
 #viz{
 	background-color:#fff;
 	border-right:1px solid #716259;

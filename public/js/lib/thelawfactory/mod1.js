@@ -27,11 +27,18 @@
         var artHeight=0.01;
         var art_values=d3.values(data.articles)
         art_values.sort(function(a, b) {
+        	
           al=a.titre.split(" ")
           bl=b.titre.split(" ")
-          if (parseInt(al[0]) != parseInt(bl[0])) return parseInt(al[0]) - parseInt(bl[0])
-          else if(al.length>0) return 1
-            else return al[1] - b[1];
+          
+          if (parseInt(al[0]) != parseInt(bl[0])) {
+          	console.log(al[0])
+          	return parseInt(al[0]) - parseInt(bl[0])
+          }
+          
+          else return al.length-bl.length
+          
+       
         });
 
         var maxlen=d3.max(art_values,function(d){
@@ -68,7 +75,6 @@
 
         var layer = svg.selectAll(".layer").data(art_values).enter().append("g").attr("class", function(d,i) {return "layer"+" "+"n_"+i})
         .attr("transform", function(d,i) {
-          console.log(parseInt(findSection(d.section)))
           return "translate(0,"+(20+parseInt(findSection(d.section))*30)+")"
           });
 
@@ -369,8 +375,13 @@
             //.entries(e.steps)
             .map(e.steps, d3.map);
             //console.log(d3.keys(st))
+            
+    
             d3.keys(st).forEach (function(f, i) {
-              if(stag.indexOf(f)<0) stag.push(f)
+           	
+              if(stag.indexOf(f)<0){           	 
+              	 stag.push(f)
+              	}
             })
           })
           
@@ -380,7 +391,7 @@
             //console.log(stag_name);
             $(".stages").append('<div class="stage" style="width:'+100/stag.length+'%">'+stag_name+'</div>')  
           }
-          
+          console.log(stag)
           return stag
         }
 
