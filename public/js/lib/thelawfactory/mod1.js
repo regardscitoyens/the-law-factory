@@ -384,27 +384,92 @@
     	.on("keydown", function() {
     		if(d3.select(".curr").empty()) {
     			console.log("no one selected")
-    			onclick(d3.select(".article")[0][0])	
+    			d3.select(".article")
+    			.each(onclick);	
     		}
     		else{
-    			cur=d3.select(".curr").datum();
+    			c=(d3.select(".curr"))
+    			cur=c.datum();
     			
     			//LEFT
     			if(d3.event.keyCode==37 && !cur.first) {
-    				console.log($(".curr").prev())
+    				d3.select($(".curr").prev().get([0])).each(onclick)
     			}
     			//RIGHT
     			else if(d3.event.keyCode==39 && (!cur.last && cur.last_s!=="true")) {
-    				console.log($(".curr").next())
+    				d3.select($(".curr").next().get([0])).each(onclick)
+    			}
+    			
+    			else if(d3.event.keyCode==38 || d3.event.keyCode==40) {
+    				
+    				d3.event.preventDefault();
+    				
+    				var g = $(".curr").parent()
+    				var classes = g.attr('class').split(' ')
+    				n = parseInt(classes[1].split("_")[1])
+    				found=false;
+    				end=false;
+    				el=null;
+    				
+    				if(d3.event.keyCode==38 && n>0) {
+    				
+    				while(!found && !end) {
+    					
+    					a = d3.select(".n_"+(n-1))
+    					.selectAll(".article")
+    					.filter(function(u){
+    						
+    						return (u.id_step === cur.id_step)
+    					})
+    					
+    					if(a[0].length>0) {
+    						el=a[0][0];
+    						found=true;
+    					}
+    					else {
+    						if(n>1) n=n-1;
+    						else end=true;	
+    					}
+    				}
+    				
+    				}
+    				
+    				else if(d3.event.keyCode==40 && n<art_values.length-1) {
+    					
+    					while(!found && !end) {
+    					
+    					a = d3.select(".n_"+(n+1))
+    					.selectAll(".article")
+    					.filter(function(u){
+    						
+    						return (u.id_step === cur.id_step)
+    					})
+    					
+    					if(a[0].length>0) {
+    						el=a[0][0];
+    						found=true;
+    					}
+    					else {
+    						if(n<art_values.length-2) n=n+1;
+    						else end=true;	
+    					}
+    				}
+    					
+    					
+    				}
+    				
+    				d3.select(el).each(onclick);
+    				
     			}		
+    							
     		}
     		// 37=LEFT, 38=UP, 39=RIGHT, 40=DOWN
-    		//if(d3.event.keyCode==37)
+    		
     	});
 
 
 		function onclick(d) {
-			console.log(this)
+			console.log(d)
 			d3.selectAll("line")
             .style("stroke","#f2f2f2")
             
