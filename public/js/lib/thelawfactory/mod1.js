@@ -121,52 +121,8 @@
           })
           .attr("width", width/columns-20)
           .attr("opacity", 1.0)
-          .on("click", function (d) {
-            
-            d3.selectAll("line")
-            .style("stroke","#f2f2f2")
-            
-            //STYLE OF CLICKED ELEMENT AND ROW
-            //Reset rectangles
-            myrects.style("stroke", "#ccc")
-            .style("stroke-width", 1)
-            .style("stroke-dasharray","none")
-            .style("fill", function(d) {
-
-            if (d.diff == 'none') return '#fff';
-            else {
-             var lev = ~~(239 - 128 * d.n_diff);
-             return 'rgb('+lev+','+lev+','+lev+')';
-            };
-            })
-
-            //Select the elements in same group
-            datum=d3.select(this.parentNode)
-            
-            d3.selectAll(datum[0][0].childNodes).filter("rect.article")
-            .style("stroke", "#D80053")
-            .style("stroke-width", 1)
-            .style("fill",function(d) {
-              hsl=d3.rgb(d3.select(this).style("fill")).hsl()
-              hsl.s+=0.1;
-            return hsl.rgb()
-            })
-
-            d3.selectAll(datum[0][0].childNodes).filter("g")
-            .selectAll("line")
-            .style("stroke","#D80053");
-            
-            d3.rgb(d3.select(this).style("fill")).darker(2)
-            
-            d3.select(this)
-            .style("stroke-dasharray",[3,3])
-            
-            //add text
-            $("#law-title").text("Article "+datum.datum().titre);
-            $(".text-container p").html(d.textDiff.join("<br/><br/>"))
-            //$(".text-container p").html(d.textDiff)
-            
-            }).popover(function(d){
+          .on("click", onclick)
+          .popover(function(d){
 
               var datum=d3.select(this.parentNode).datum()
 
@@ -422,6 +378,78 @@
           res= sections.indexOf(s);
           return res
         } 
+
+		//USE THE ARROWS
+		d3.select("body")
+    	.on("keydown", function() {
+    		if(d3.select(".curr").empty()) {
+    			console.log("no one selected")
+    			onclick(d3.select(".article")[0][0])	
+    		}
+    		else{
+    			cur=d3.select(".curr").datum();
+    			
+    			//LEFT
+    			if(d3.event.keyCode==37 && !cur.first) {
+    				console.log($(".curr").prev())
+    			}
+    			//RIGHT
+    			else if(d3.event.keyCode==39 && (!cur.last && cur.last_s!=="true")) {
+    				console.log($(".curr").next())
+    			}		
+    		}
+    		// 37=LEFT, 38=UP, 39=RIGHT, 40=DOWN
+    		//if(d3.event.keyCode==37)
+    	});
+
+
+		function onclick(d) {
+			console.log(this)
+			d3.selectAll("line")
+            .style("stroke","#f2f2f2")
+            
+            //STYLE OF CLICKED ELEMENT AND ROW
+            //Reset rectangles
+            myrects.style("stroke", "#ccc")
+            .style("stroke-width", 1)
+            .style("stroke-dasharray","none")
+            .style("fill", function(d) {
+
+            if (d.diff == 'none') return '#fff';
+            else {
+             var lev = ~~(239 - 128 * d.n_diff);
+             return 'rgb('+lev+','+lev+','+lev+')';
+            };
+            })
+            d3.selectAll(".curr").classed("curr",false);
+            d3.select(this).classed("curr",true);
+            //Select the elements in same group
+            datum=d3.select(this.parentNode)
+            
+            d3.selectAll(datum[0][0].childNodes).filter("rect.article")
+            .style("stroke", "#D80053")
+            .style("stroke-width", 1)
+            .style("fill",function(d) {
+              hsl=d3.rgb(d3.select(this).style("fill")).hsl()
+              hsl.s+=0.1;
+            return hsl.rgb()
+            })
+
+            d3.selectAll(datum[0][0].childNodes).filter("g")
+            .selectAll("line")
+            .style("stroke","#D80053");
+            
+            d3.rgb(d3.select(this).style("fill")).darker(2)
+            
+            d3.select(this)
+            .style("stroke-dasharray",[3,3])
+            
+            //add text
+            $("#law-title").text("Article "+datum.datum().titre);
+            $(".text-container p").html(d.textDiff.join("<br/><br/>"))
+            //$(".text-container p").html(d.textDiff)
+				
+		}
 
 
         $(document).ready(function() {
