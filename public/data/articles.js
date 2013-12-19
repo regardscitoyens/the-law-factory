@@ -1,4 +1,5 @@
 {
+	"law_title":"Texte adopté n° 142 - Projet de loi relatif à l'enseignement supérieur et à la recherche",
     "articles": {
         "id_44_T5": {
             "titre": "44",

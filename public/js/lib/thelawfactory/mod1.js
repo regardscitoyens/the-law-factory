@@ -464,7 +464,6 @@
     							
     		}
     		// 37=LEFT, 38=UP, 39=RIGHT, 40=DOWN
-    		
     	});
 
 
@@ -516,6 +515,7 @@
 				
 		}
 
+		$(".separator").append('<h4 class="law-title">'+data.law_title+'</h4>')
 
         $(document).ready(function() {
             var s = $(".text");
