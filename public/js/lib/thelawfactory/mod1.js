@@ -508,9 +508,23 @@
             d3.select(this)
             .style("stroke-dasharray",[3,3])
             
-            //add text
+            
+            var da=datum.datum()
+            console.log(da);
+
+              var titre = da.titre,
+                  section = da.section,
+                  status = d['id_step'].replace(/_/g, ", "),
+                  length = d['length'];
+			
+			
+           $(".art-meta").html("<p><b>Section:</b> "+section+"</p><p><b>Status:</b> "+status+"</p><p><b>Text length:</b> "+length+"</p><p><b>Text:</b></p>")
+
+		
+            
+           
             $("#law-title").text("Article "+datum.datum().titre);
-            $(".text-container p").html(d.textDiff.join("<br/><br/>"))
+            $(".art-txt").html(d.textDiff.join("<br/><br/>"))
             //$(".text-container p").html(d.textDiff)
 				
 		}
