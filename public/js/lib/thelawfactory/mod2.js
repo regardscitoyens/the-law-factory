@@ -8,6 +8,17 @@
     	
 		var clean=[]
 		
+		var statColor= {
+			"Adopté": "#229850",
+			"Satisfait":"#91CF60",
+			"Non soutenu":"#ede1c2",
+		    "Indéfini":"#FEE08B",
+		    "Retiré":"#FB8D59",
+		    "Tombe":"#db856f",
+		    "Rejeté":"#D73127",
+		    "Irrecevable":"#6d250a"
+		}
+		
 		var sel=selection[0][0].__data__;
 		console.log("selection",sel.amendements)
 		sel["amendements"].forEach(function(d,i) {clean.push(d.amendement)})
@@ -17,13 +28,15 @@
 		.sortKeys(d3.ascending)
 		.entries(clean);
 		
+		var jumpLines = 0
+		var offset = 0
 		
 		var w = $("#viz").width()-30,
-		    rw=$("#viz").width(),
+		    rw = $("#viz").width(),
 		    lineh = 30,
 		    h = lineh*fin.length+40,
 		    z = 20,
-		    x = w / z,
+		    x = Math.round(w / z),
 		    y = h / z;
 		
 		var svg = d3.select("#viz").append("svg")
@@ -35,9 +48,18 @@
 		  len = d.values.length;
 		  lines = Math.ceil(len/x);
 		
+		  d.offset = offset
+		  
 		  var curRow = svg.append("g")
 		  .attr("class",d.key.replace(/ /g, '_'))
-		  .attr("transform","translate("+10+","+(i*lineh+10)+")");
+		  .attr("transform","translate("+10+","+(i*lineh+10+jumpLines*(lineh-10))+")")
+		  .call(function(){	
+		  	n=d.values.length;
+		  	offset = Math.floor(n/x)
+		  	jumpLines = jumpLines + Math.floor(n/x);
+		  })
+		  
+		  
 		
 		  var bg = curRow
 		  .selectAll(".bg")
@@ -54,27 +76,11 @@
 		  .attr("class","bg")
 		  .style("fill", "#E6E6E6")
 		
-		  if(d.key.length<20) $(".art-list").append("<p>"+d.key+"</p>")
-	      else $(".art-list").append("<p>"+d.key.substring(0,17)+"..."+"</p>")
+		
+		  margin = d.offset == 0 ? 'style="margin-top : 10px"' : 'style="margin-top : '+(10+20*d.offset)+'px "' 
+		  if(d.key.length<20) $(".art-list").append("<p "+margin+" >"+d.key+"</p>")
+	      else $(".art-list").append("<p "+margin+" >"+d.key.substring(0,17)+"..."+"</p>")
 
-		
-		
-		  // var txt = curRow.append("g")
-		  // .attr("class","labels")
-// 		
-		  // txt.append("text")
-		  // .text(function(){
-		    // if(d.key.length<20) return d.key; 
-		    // else return d.key.substring(0,17)+"...";
-		  // })
-		  // .attr("x",-10)
-		  // .attr("y",14)
-		  // .attr("width",90)
-		  // .attr("height",30)
-		  // .attr("font-family", "sans-serif")
-		  // .attr("font-size", "10px")
-		  // .style("text-anchor", "end")
-		  // .attr("fill", "gray");
 		
 		  var amds = curRow
 		  .selectAll(".amd")
@@ -128,11 +134,15 @@
 		function select(d) {
 			d3.selectAll(".actv-amd")
 			.style("fill",color)
+			.style("stroke","none" )
 			.classed("actv-amd",false);
+
 			
 			d3.select(this)
 			.attr("class","actv-amd")
-			.style("fill","#716259")
+			//.style("fill","#fff")
+			.style("stroke","#D80053" )
+			.style("stroke-width","2" )
 			$("#law-title").text("Amendement "+d.numero)
 			
 			$(".text-container").html(
@@ -146,14 +156,27 @@
 		
 		
 		function color(d) { 
-		    if(d.sort=="Satisfait") return "#91CF60"; 
-		    else if(d.sort=="Adopté") return "#229850";
-		    else if(d.sort=="Indéfini") return "#FEE08B";
-		    else if(d.sort=="Retiré") return "#FB8D59";
-		    else if(d.sort=="Rejeté") return "#D73127";
-		    else return "#E6E6E6"};
+			
+			stats = d3.keys(statColor)
+			found = $.inArray(d.sort, stats);
+		    if(found >= 0) return statColor[stats[found]];
+		    else return "#E6E6E6"
+		    };
+
+		function legend(t) {
+			
+			if(t==null) {
+				console.log("aaggrr")
+				d3.entries(statColor).forEach(function(d,i) {
+					
+					$(".colors").append('<div class="leg-item"><div class="leg-value" style="background-color:'+d.value+'"></div><div class="leg-key">'+d.key+'</div></div>')		
+					
+				})
+			}
+		}
 
         $(document).ready(function() {
+        	legend();
             var s = $(".text");
             var pos = s.offset();
             var w=s.width();

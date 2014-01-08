@@ -160,24 +160,27 @@ body{
 
 #viz{
 	background-color:#fff;
-	border-right:1px solid #716259;
+	/*border-right:1px solid #716259;*/
 	padding:0 !important;
 	
 }
 .text{
 	background-color:#fff;
-	border-right:1px solid #716259;
+	border-right:1px solid #DAD1CB;
 	padding:0 !important;
-	border-bottom:1px solid #716259;
+	border-bottom:1px solid #DAD1CB;
+	border-left: 1px solid #DAD1CB;
 	width:25%;
 	float:left;
 }
 
 .text-container{
 	clear:both;
-	height:700px;
+	height:600px;
 	overflow:auto;
 }
+
+
 .viz-container{
 	height:800px;
 	padding: 0 !important;
@@ -215,7 +218,7 @@ body{
 }
 .labels p{
 	margin:0;
-	margin-top:10px;
+	 
 	padding: 0 5px;
 	font-style: italic;
 	background-color: #F9F7F8;
@@ -258,3 +261,72 @@ ins {
 	font-size: 16px;
 	margin-top: 20px;
 }
+.scrolling{
+	width: 75%;
+	float: left;
+	height:590px;
+	overflow:auto;
+	
+}
+
+.labels-sc{
+	background-color:transparent;
+	padding:0 !important;
+	height:100%;
+	width:26.7%;
+	float:left;
+}
+.main-sc{
+	height:100%;
+	width:73.3%;
+	float:left;
+}
+
+.labels-sc div{
+	position: relative;
+	clear: both;
+	display: inline-block;
+	width: auto;
+	text-align: left;
+	float: right;
+	margin: 0;
+	
+}
+.labels-sc p{
+	margin:0;
+	 
+	padding: 0 5px;
+	font-style: italic;
+	background-color: #F9F7F8;
+}
+.legend {
+	/*clear: left;*/
+	margin-left: 20.05%;
+	background-color: white;
+	/*border-right: 1px solid;*/
+	padding: 15px;
+	float: left;
+	width: 54.92%;
+position: relative;
+bottom: 76px;
+}
+
+.leg-item{
+	float:left;
+	margin-right:16px;
+}
+
+.leg-value{
+		width:18px;
+	height:18px;
+	border-radius:2px;
+	float:left;
+}
+.colors{
+	margin-top:5px;
+}
+.leg-key{
+	float: left;
+	margin-left:4px;
+}
+
