@@ -152,6 +152,9 @@
 				"<p><b>Status:</b> " + d.sort+"<br/><br/></p>" +
 				"<p><b>Expose:</b> " + d.expose+"<br/><br/></p>" +
 				"<p><b>Text:</b> " + d.texte+"<br/><br/>");
+				
+			$('.text-container').scrollTop(0);
+			if(!$(".end-tip").is(":visible")) $(".end-tip").fadeIn(200);
 		}
 		
 		
@@ -175,8 +178,25 @@
 			}
 		}
 
+		function chk_scroll(e)
+		{
+		    var elem = $(e.currentTarget);
+		    if (elem[0].scrollHeight - elem.scrollTop() == elem.outerHeight()) 
+		    {
+		        $(".end-tip").fadeOut(200);
+		    }
+		    else {
+		    	if(!$(".end-tip").is(":visible")) $(".end-tip").fadeIn(200);
+		    	
+		    }
+		
+		}
+
+
         $(document).ready(function() {
         	legend();
+        	$('.text-container').bind('scroll',chk_scroll);
+        	
             var s = $(".text");
             var pos = s.offset();
             var w=s.width();

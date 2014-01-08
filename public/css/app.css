@@ -172,12 +172,15 @@ body{
 	border-left: 1px solid #DAD1CB;
 	width:25%;
 	float:left;
+	position:relative;
+	
 }
 
 .text-container{
 	clear:both;
-	height:600px;
+	height:620px;
 	overflow:auto;
+	
 }
 
 
@@ -307,8 +310,10 @@ ins {
 	padding: 15px;
 	float: left;
 	width: 54.92%;
-position: relative;
-bottom: 76px;
+	position: relative;
+	bottom: 12%;
+	padding-bottom: 1.8%;
+	padding-top: 1.35%;
 }
 
 .leg-item{
@@ -328,5 +333,18 @@ bottom: 76px;
 .leg-key{
 	float: left;
 	margin-left:4px;
+}
+
+.end-tip{
+	
+	height:20px;
+	background-color:#F9F7F8;
+	position:absolute;
+	bottom:0px;
+	width:100%;
+	background-image:url('/img/down.png');
+	background-repeat:no-repeat;
+	background-position:	center center;
+	display:none;
 }
 
