@@ -1,3 +1,6 @@
+var sortByStat;
+var draw;
+
 (function(){
 
   var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
@@ -28,8 +31,7 @@
 		.sortKeys(d3.ascending)
 		.entries(clean);
 		
-		var jumpLines = 0
-		var offset = 0
+		
 		
 		var w = $("#viz").width()-30,
 		    rw = $("#viz").width(),
@@ -38,6 +40,12 @@
 		    z = 20,
 		    x = Math.round(w / z),
 		    y = h / z;
+
+
+	draw = function() {
+		
+		var jumpLines = 0
+		var offset = 0
 		
 		var svg = d3.select("#viz").append("svg")
 		    .attr("width", rw)
@@ -130,6 +138,10 @@
             .on("click",select);
 		})
 		
+	}
+		
+        
+        draw();
         
 		function select(d) {
 			d3.selectAll(".actv-amd")
@@ -169,7 +181,6 @@
 		function legend(t) {
 			
 			if(t==null) {
-				console.log("aaggrr")
 				d3.entries(statColor).forEach(function(d,i) {
 					
 					$(".colors").append('<div class="leg-item"><div class="leg-value" style="background-color:'+d.value+'"></div><div class="leg-key">'+d.key+'</div></div>')		
@@ -180,6 +191,7 @@
 
 		function chk_scroll(e)
 		{
+			e.stopPropagation();
 		    var elem = $(e.currentTarget);
 		    if (elem[0].scrollHeight - elem.scrollTop() == elem.outerHeight()) 
 		    {
@@ -192,7 +204,39 @@
 		
 		}
 
-
+		
+		sortByStat = function() {
+			stats = d3.keys(statColor)
+			
+			fin.forEach(function(d,i) {
+				d['values'].sort(function(a,b){
+					
+					return stats.indexOf(a.sort) - stats.indexOf(b.sort)
+					
+				})
+			})
+			$("svg").remove();
+			$(".art-list").empty();
+			$(".text-container").empty();
+			draw();
+		}
+		
+		sortByDate = function() {
+			stats = d3.keys(statColor)
+			
+			fin.forEach(function(d,i) {
+				d['values'].sort(function(a,b){
+					
+					return Date.parse(a.date) - Date.parse(b.date)	
+				})
+			})
+			$("svg").remove();
+			$(".art-list").empty();
+			$(".text-container").empty();
+			draw();
+		}
+		
+		
         $(document).ready(function() {
         	legend();
         	$('.text-container').bind('scroll',chk_scroll);
@@ -218,6 +262,7 @@
 
     }; //end function vis
 
+	
     return vis;
   };
 

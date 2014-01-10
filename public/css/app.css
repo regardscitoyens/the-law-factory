@@ -92,6 +92,7 @@ body{
 .title{
 	height:75px;
 	background-color:#716259;
+	overflow:hidden;
 }
 
 .title h4 {
@@ -100,6 +101,12 @@ body{
 	font-size:14px;
 	margin: 0;
 	font-weight:600;
+	float: left;
+}
+
+.title{
+	padding-left: 25px !important;
+	padding-right: 25px !important;
 }
 .nav-tabs.nav-justified>li>a {
 	border:none !important;
@@ -281,7 +288,7 @@ ins {
 }
 .main-sc{
 	height:100%;
-	width:73.3%;
+	width:73.2%;
 	float:left;
 }
 
@@ -312,13 +319,14 @@ ins {
 	width: 54.92%;
 	position: relative;
 	bottom: 12%;
-	padding-bottom: 1.8%;
-	padding-top: 1.35%;
+	padding-bottom: 0.9%;
+	padding-top: 0.8%;
 }
 
 .leg-item{
 	float:left;
-	margin-right:16px;
+	width:200px;
+	margin-top:5px;
 }
 
 .leg-value{
@@ -328,11 +336,12 @@ ins {
 	float:left;
 }
 .colors{
-	margin-top:5px;
+	margin-top:2px;
 }
 .leg-key{
 	float: left;
 	margin-left:4px;
+	font-size: 0.9em;
 }
 
 .end-tip{
@@ -346,5 +355,39 @@ ins {
 	background-repeat:no-repeat;
 	background-position:	center center;
 	display:none;
+}
+.menu-hide{
+	background-color:#DAD1CB;
+	padding:15px;
+}
+
+.dd-btn {
+	float:right;
+}
+
+.dd-btn .caret{
+	border-top: 6px solid #FFF;
+	
+}
+
+.dd-btn>.btn+.dropdown-toggle {
+	background: #D80053;
+	border-radius: 0;
+	margin-left:5px !important;	
+}
+
+.dd-btn>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+	color: #716259;
+background: #FFFFFB;
+border-radius: 0;
+	
+}
+
+.menu-btn {
+	float:right;
+	padding:4px;
+	margin-top:25px;
+	background:#DAD1CB;
+	height:100%;
 }
 
