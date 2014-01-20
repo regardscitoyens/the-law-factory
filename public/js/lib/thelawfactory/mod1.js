@@ -138,9 +138,9 @@
                     .style("height", "100px")
                     .style("width", "100%")
 
-              div.append("p").text("Section: " + section )
-              div.append("p").text("Status: " + status)
-              div.append("p").text("Text length: " + length)
+              div.append("p").text("Section : " + section )
+              div.append("p").text("Étape : " + status)
+              div.append("p").text("Longueur du texte : " + (d['status'] == "sup" ? 0 : length))
 
               return {        
               title: "Article " + titre,
@@ -516,7 +516,7 @@
                 section = da.section,
                 status = d['id_step'].replace(/_/g, ", "),
                 length = d['length'];
-            $(".art-meta").html("<p><b>Section:</b> "+section+"</p><p><b>Status:</b> "+status+"</p><p><b>Text length:</b> "+length+"</p><p><b>Text:</b></p>")
+            $(".art-meta").html((section != null ? "<p><b>Section :</b> "+section+"</p>" : "")+"<p><b>Étape :</b> "+status+"</p><p><b>Longueur du texte :</b> "+length+"</p><p><b>Alinéas :</b></p>")
             $("#law-title").text("Article "+datum.datum().titre);
             $(".art-txt").html(d.textDiff.join("<br/><br/>"))
             //$(".text-container p").html(d.textDiff)
