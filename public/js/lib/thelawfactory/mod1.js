@@ -88,28 +88,30 @@
           return d.steps;
         }).enter();
 
+        var stylise_rects = function(){
+          myrects.style("stroke", "#ccc")
+          .attr("class","article")
+          .style("stroke", "#ccc")
+          .style("stroke-width", 1)
+          .style("stroke-dasharray","none")
+          .style("fill", function(d) {
+            if (d.status == 'sup') return '#fff';
+            else if (d.diff == 'none') return '#f3f3f3';
+            else {
+             var lev = ~~(225 - 128 * d.n_diff);
+             return 'rgb('+lev+','+lev+','+lev+')';
+            };
+          });
+        }
         //ADD THE RECTANGLES
         var myrects = rect.append("rect")
           .filter(function(d) {
-            if (d.length>0) return true;
+            if (d.length>0 || d.status == "sup") return true;
                 else return false;
           });
 
-          myrects
-          .attr("class","article")
-          .style("stroke", "#ccc")
-          .style("stroke-width",1)
-          .style("fill", function(d) {
- 
-           
-           if (d.status == 'new') return '#fff';
-           else if (d.diff == 'none') return '#fff';
-           else {
-            var lev = ~~(239 - 128 * d.n_diff);
-            return 'rgb('+lev+','+lev+','+lev+')';
-           };
-          })
-          .attr("y", function(d) {
+          stylise_rects();
+          myrects.attr("y", function(d) {
             return d.y;
           })
           .attr("x", function(d) {
@@ -160,7 +162,8 @@
             .attr("width",width/columns-20)
             .attr("height",15)
             .style("fill","#D80053")
-            .style("stroke","none")
+            .style("stroke","D90154")
+            .style("stroke-width","1px")
 
             d3.select(this.parentNode)
             .append("text")
@@ -180,27 +183,37 @@
         .append("rect")
         .attr("class","first")
           .style("stroke", "none")
-          .style("fill", '#BDF7C8')
+          .style("fill", '#8DF798')
           .attr("y",  d.y+1)
           .attr("x", findStage(d.id_step)*width/columns+11)
           .attr("height", lerp(d.length)-3)
-          .attr("width", 8)
+          .attr("width", 6)
           .attr("opacity", 1.0);
         })
         
         
         myrects.filter(function(d){
-          return d['last_s']=="true";
+          return d['status']=="sup";
         }).each(function(d,i) {
         d3.select(this.parentNode)
         .append("rect")
         .attr("class","last")
-          .style("stroke", "none")
-          .style("fill", '#FDC9C9')
-          .attr("y",  d.y+1)
-          .attr("x", findStage(d.id_step)*width/columns+width/columns-18)
+          .style("fill", '#FD5252')
+          .attr("y", d.y+1)
+          .attr("x", findStage(d.id_step)*width/columns+11)
           .attr("height", lerp(d.length)-3)
           .attr("width", 8)
+          .attr("opacity", 1.0);
+        d3.select(this.parentNode)
+        .append("rect")
+        .attr("class","last")
+          .style("stroke", "#FFF")
+          .style("stroke-width", 1)
+          .style("fill", '#FFF')
+          .attr("y", d.y+1)
+          .attr("x", (findStage(d.id_step)+1)*width/columns-11)
+          .attr("height", lerp(d.length)-3)
+          .attr("width", 1)
           .attr("opacity", 1.0);
         })
         
@@ -232,7 +245,7 @@
               if (i+1<datum.steps.length) return datum.steps[i+1].y+(lerp(datum.steps[i+1].length))/2
               else return null
             })
-            .style("stroke", "#f2f2f2")
+            .style("stroke", "#dadaf0")
             .style("stroke-width",1);
             
         addLabels();
@@ -383,7 +396,7 @@
 		d3.select("body")
     	.on("keydown", function() {
     		if(d3.select(".curr").empty()) {
-    			console.log("no one selected")
+    			//console.log("no one selected")
     			d3.select(".article")
     			.each(onclick);	
     		}
@@ -396,7 +409,7 @@
     				d3.select($(".curr").prev().get([0])).each(onclick)
     			}
     			//RIGHT
-    			else if(d3.event.keyCode==39 && (!cur.last && cur.last_s!=="true")) {
+    			else if(d3.event.keyCode==39 && (!cur.last && cur['status']!=="sup")) {
     				d3.select($(".curr").next().get([0])).each(onclick)
     			}
     			
@@ -468,23 +481,13 @@
 
 
 		function onclick(d) {
-			console.log(d)
+			//console.log(d)
 			d3.selectAll("line")
-            .style("stroke","#f2f2f2")
+            .style("stroke", "#dadaf0");
             
             //STYLE OF CLICKED ELEMENT AND ROW
             //Reset rectangles
-            myrects.style("stroke", "#ccc")
-            .style("stroke-width", 1)
-            .style("stroke-dasharray","none")
-            .style("fill", function(d) {
-
-            if (d.diff == 'none') return '#fff';
-            else {
-             var lev = ~~(239 - 128 * d.n_diff);
-             return 'rgb('+lev+','+lev+','+lev+')';
-            };
-            })
+            stylise_rects();
             d3.selectAll(".curr").classed("curr",false);
             d3.select(this).classed("curr",true);
             //Select the elements in same group
@@ -508,21 +511,12 @@
             d3.select(this)
             .style("stroke-dasharray",[3,3])
             
-            
             var da=datum.datum()
-            console.log(da);
-
-              var titre = da.titre,
-                  section = da.section,
-                  status = d['id_step'].replace(/_/g, ", "),
-                  length = d['length'];
-			
-			
-           $(".art-meta").html("<p><b>Section:</b> "+section+"</p><p><b>Status:</b> "+status+"</p><p><b>Text length:</b> "+length+"</p><p><b>Text:</b></p>")
-
-		
-            
-           
+            var titre = da.titre,
+                section = da.section,
+                status = d['id_step'].replace(/_/g, ", "),
+                length = d['length'];
+            $(".art-meta").html("<p><b>Section:</b> "+section+"</p><p><b>Status:</b> "+status+"</p><p><b>Text length:</b> "+length+"</p><p><b>Text:</b></p>")
             $("#law-title").text("Article "+datum.datum().titre);
             $(".art-txt").html(d.textDiff.join("<br/><br/>"))
             //$(".text-container p").html(d.textDiff)
