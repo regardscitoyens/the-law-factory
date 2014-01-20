@@ -213,7 +213,7 @@
           .attr("y", d.y+1)
           .attr("x", (findStage(d.id_step)+1)*width/columns-11)
           .attr("height", lerp(d.length)-3)
-          .attr("width", 1)
+          .attr("width", 2)
           .attr("opacity", 1.0);
         })
         
