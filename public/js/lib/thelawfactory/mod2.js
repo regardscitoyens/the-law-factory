@@ -23,14 +23,13 @@ var draw;
 		}
 		
 		var sel=selection[0][0].__data__;
-		console.log("selection",sel.amendements)
+		console.log(sel.amendements)
 		sel["amendements"].forEach(function(d,i) {clean.push(d.amendement)})
 		
 		var fin = d3.nest()
 		.key(function(d) { return d.sujet; })
 		.sortKeys(d3.ascending)
 		.entries(clean);
-		
 		
 		
 		var w = $("#viz").width()-30,
@@ -67,8 +66,6 @@ var draw;
 		  	jumpLines = jumpLines + Math.floor(n/x);
 		  })
 		  
-		  
-		
 		  var bg = curRow
 		  .selectAll(".bg")
 		  .data(d3.range(x*lines))
@@ -120,11 +117,9 @@ var draw;
                     .style("width", "100%")
                     .attr("class","popup-mod2")
                     
-              
-
-              div.append("p").html("<b>Subject:</b> " + section+"<br/><br/>")
-              div.append("p").html("<b>Status:</b> " + status+"<br/><br/>")
-              div.append("p").html("<b>Expose:</b> " + expo+"<br/><br/>")
+              div.append("p").html("<b>Objet :</b> " + section+"<br/><br/>")
+              div.append("p").html("<b>Statut :</b> " + status+"<br/><br/>")
+              div.append("p").html("<b>Exposé :</b> " + expo+"<br/><br/>")
 
               return {        
               title: "Amendement " + titre,
@@ -156,14 +151,17 @@ var draw;
 			.style("stroke","#D80053" )
 			.style("stroke-width","2" )
 			$("#law-title").text("Amendement "+d.numero)
-			
+			var source_am = '.fr</a> &mdash; <a href="'+d.source+'">';
+            if (d.url_nosdeputes) source_am = '<a href="'+d.url_nosdeputes+'">NosDéputés'+source_am+'Assemblée nationale</a>';
+            else source_am = '<a href="'+d.url_nossenateurs+'">NosSénateurs'+source_am+'Sénat</a>';
 			$(".text-container").html(
-				"<p><b>Date:</b> " + d.date+"<br/><br/></p>" +
-				"<p><b>Subject:</b> " + d.sujet+"<br/><br/></p>" +
-				"<p><b>Proponents:</b> " + d.signataires+"<br/><br/></p>" + 
-				"<p><b>Status:</b> " + d.sort+"<br/><br/></p>" +
-				"<p><b>Expose:</b> " + d.expose+"<br/><br/></p>" +
-				"<p><b>Text:</b> " + d.texte+"<br/><br/>");
+				"<p><b>Date :</b> " + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</p>" +
+				"<p><b>Objet :</b> " + d.sujet+"</p>" +
+				"<p><b>Signataires :</b> " + d.signataires+"</p>" + 
+				"<p><b>Statut :</b> " + d.sort+"</p>" +
+				"<p><b>Exposé des motifs :</b> " + d.expose+"</p>" +
+				"<p><b>Texte :</b> " + d.texte +
+				"<p><small><b>Source :</b> " + source_am + "</small></p>");
 				
 			$('.text-container').scrollTop(0);
 			if(!$(".end-tip").is(":visible")) $(".end-tip").fadeIn(200);
