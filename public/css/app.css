@@ -248,7 +248,7 @@ body{
 
 del {
 	background:#FFE6E6;
-	}
+}
 
 ins {
 	background:#E6FFE6;
@@ -276,7 +276,6 @@ ins {
 	float: left;
 	height:590px;
 	overflow:auto;
-	
 }
 
 .labels-sc{
@@ -300,11 +299,9 @@ ins {
 	text-align: left;
 	float: right;
 	margin: 0;
-	
 }
 .labels-sc p{
 	margin:0;
-	 
 	padding: 0 5px;
 	font-style: italic;
 	background-color: #F9F7F8;
@@ -330,7 +327,7 @@ ins {
 }
 
 .leg-value{
-		width:18px;
+    width:18px;
 	height:18px;
 	border-radius:2px;
 	float:left;
@@ -345,13 +342,12 @@ ins {
 }
 
 .end-tip{
-	
 	height:20px;
 	background-color:#F9F7F8;
 	position:absolute;
 	bottom:0px;
 	width:100%;
-	background-image:url('/img/down.png');
+	background-image:url('../img/down.png');
 	background-repeat:no-repeat;
 	background-position:	center center;
 	display:none;
@@ -367,7 +363,6 @@ ins {
 
 .dd-btn .caret{
 	border-top: 6px solid #FFF;
-	
 }
 
 .dd-btn>.btn+.dropdown-toggle {
@@ -378,9 +373,8 @@ ins {
 
 .dd-btn>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
 	color: #716259;
-background: #FFFFFB;
-border-radius: 0;
-	
+    background: #FFFFFB;
+    border-radius: 0;
 }
 
 .menu-btn {
