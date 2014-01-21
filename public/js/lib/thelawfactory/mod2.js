@@ -26,7 +26,7 @@ var draw;
 		console.log(sel.amendements)
 		sel["amendements"].forEach(function(d,i) {clean.push(d.amendement)})
 		var fin = d3.nest()
-		.key(function(d) { return (1e7+d.ordre_article+"").slice(-5)+"_"+d.sujet[0].toUpperCase()+d.sujet.slice(1); })
+		.key(function(d) { return (1e7+d.ordre_article+"").slice(-5)+"_"+d.sujet; })
 		.sortKeys(d3.ascending)
 		.entries(clean);
 		
@@ -81,9 +81,10 @@ var draw;
 		  .style("fill", "#E6E6E6")
 		
 		
-		  margin = d.offset == 0 ? 'style="margin-top : 10px"' : 'style="margin-top : '+(10+20*d.offset)+'px "' 
-		  if(d.key.length<26) $(".art-list").append("<p "+margin+" >"+d.key.substr(6)+"</p>")
-	      else $(".art-list").append("<p "+margin+" >"+d.key.substring(6,25)+"…"+"</p>")
+		  var margin = d.offset == 0 ? 'style="margin-top : 10px"' : 'style="margin-top : '+(10+20*d.offset)+'px "';
+          var subj = d.key.substr(6).replace('rticle additionnel a', '');
+		  if(subj.length<26) $(".art-list").append("<p "+margin+" >"+subj+"</p>")
+	      else $(".art-list").append("<p "+margin+" >"+subj.substring(0,25)+"…"+"</p>")
 
 		
 		  var amds = curRow
