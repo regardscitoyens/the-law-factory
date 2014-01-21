@@ -25,9 +25,8 @@ var draw;
 		var sel=selection[0][0].__data__;
 		console.log(sel.amendements)
 		sel["amendements"].forEach(function(d,i) {clean.push(d.amendement)})
-		
 		var fin = d3.nest()
-		.key(function(d) { return d.sujet; })
+		.key(function(d) { return (1e7+d.ordre_article+"").slice(-5)+"_"+d.sujet[0].toUpperCase()+d.sujet.slice(1); })
 		.sortKeys(d3.ascending)
 		.entries(clean);
 		
@@ -83,8 +82,8 @@ var draw;
 		
 		
 		  margin = d.offset == 0 ? 'style="margin-top : 10px"' : 'style="margin-top : '+(10+20*d.offset)+'px "' 
-		  if(d.key.length<20) $(".art-list").append("<p "+margin+" >"+d.key+"</p>")
-	      else $(".art-list").append("<p "+margin+" >"+d.key.substring(0,17)+"..."+"</p>")
+		  if(d.key.length<26) $(".art-list").append("<p "+margin+" >"+d.key.substr(6)+"</p>")
+	      else $(".art-list").append("<p "+margin+" >"+d.key.substring(6,25)+"…"+"</p>")
 
 		
 		  var amds = curRow
