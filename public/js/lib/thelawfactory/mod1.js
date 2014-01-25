@@ -161,18 +161,20 @@
             .attr("y",e.y-15)
             .attr("width",width/columns-20)
             .attr("height",15)
-            .style("fill","#D80053")
-            .style("stroke","D90154")
+            .style("fill","#95D3E8")
+            .style("stroke","0053C8")
+            .style("opacity","0.6")
             .style("stroke-width","1px")
 
             d3.select(this.parentNode)
             .append("text")
-            .attr("x",findStage(e.id_step)*width/columns+15)
+            .attr("x",(findStage(e.id_step)+1/2)*width/columns-3*e['section'].length)
             .attr("y",e.y-4)
             .attr("font-family", "sans-serif")
             .attr("font-size", "10px")
-            .style("fill","white")
-            .text("Sect. "+e['section']);
+            .attr("font-weight", "bold")
+            .style("fill","#222282")
+            .text(e['section']);
         })
         
         
