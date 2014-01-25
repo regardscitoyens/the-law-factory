@@ -68,7 +68,7 @@
         }, width = $("#viz").width(), height = 800 - margin.top - margin.bottom;
 
 
-        var svg = d3.select("#viz").append("svg").attr("width", "100%" ).attr("height", maxy+sections.length*30+100).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        var svg = d3.select("#viz").append("svg").attr("width", "100%" ).attr("height", maxy+sections.length*60+100).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
         var sects=svg.append("g").attr("class","sections")
 
@@ -544,7 +544,6 @@
             //console.log("pos",pos)                    
             $(window).scroll(function() {
                 var windowpos = $(window).scrollTop();
-                s.css("height","100%");
                 if (windowpos >= pos.top) {
                     s.addClass("stick");
                     s.css("left",pos.left);
