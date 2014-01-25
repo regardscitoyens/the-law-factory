@@ -119,12 +119,12 @@ body{
 	background-color:transparent;
 	padding:0 !important;
 	height:100%;
-	width:20%;
+	width:8.33%;
 	float:left;
 }
 .main{
 	height:100%;
-	width:55%;
+	width:65%;
 	float:left;
 }
 .stages{
@@ -169,7 +169,7 @@ body{
 	background-color:#fff;
 	/*border-right:1px solid #716259;*/
 	padding:0 !important;
-	
+	height:100%;
 }
 .text{
 	background-color:#fff;
@@ -177,19 +177,31 @@ body{
 	padding:0 !important;
 	border-bottom:1px solid #DAD1CB;
 	border-left: 1px solid #DAD1CB;
-	width:25%;
+	width:18.33%;
 	float:left;
 	position:relative;
-	
+	height:100%;
 }
 
 .text-container{
+	background-color:#fff;
 	clear:both;
-	height:620px;
+	height:90%;
 	overflow:auto;
 	
 }
-
+.art-txt ul {
+    list-style-type: decimal-leading-zero;
+    margin: 0px;
+    padding-left: 30px;
+    font-size: 0.7em;
+}
+.art-txt ul li {
+    margin-bottom: 8px;
+}
+.art-txt ul li span {
+    font-size: 1.5em;
+}
 
 .viz-container{
 	height:800px;
@@ -199,7 +211,7 @@ body{
 .viz-container h4{
 	text-align:center;
 	padding:20px 4px;
-	width:40%;
+	width:60%;
 	float:right;
 	display:inline-block;
 	background-color:#D80053;
@@ -272,7 +284,7 @@ ins {
 	margin-top: 20px;
 }
 .scrolling{
-	width: 75%;
+	width: 70%;
 	float: left;
 	height:590px;
 	overflow:auto;

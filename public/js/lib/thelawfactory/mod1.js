@@ -529,7 +529,8 @@
                 length = d['length'];
             $(".art-meta").html((section != null ? "<p><b>Section :</b> "+section+"</p>" : "")+"<p><b>Étape :</b> "+status+"</p><p><b>"+(d['status'] == "sup" ? "Supprimé à cette étape." : "Longueur du texte :</b> "+length)+"</p><p><b>Alinéas :</b></p>")
             $("#law-title").text("Article "+datum.datum().titre);
-            $(".art-txt").html(d.textDiff.join("<br/><br/>"))
+            if (d.textDiff.length)
+                $(".art-txt").html("<ul><li><span>"+$.map(d.textDiff, function(i){return i.replace(/ (:\?!%€\$)/, '&nbsp;$1')}).join("</span></li><li><span>")+"</span></li></ul>")
             //$(".text-container p").html(d.textDiff)
 				
 		}
@@ -543,6 +544,7 @@
             //console.log("pos",pos)                    
             $(window).scroll(function() {
                 var windowpos = $(window).scrollTop();
+                s.css("height","100%");
                 if (windowpos >= pos.top) {
                     s.addClass("stick");
                     s.css("left",pos.left);
@@ -550,7 +552,7 @@
                 } else {
                     s.removeClass("stick"); 
                     s.css("left","");
-                    s.css("width","25%");
+                    s.css("width","18.33%");
                 }
             });
         });
