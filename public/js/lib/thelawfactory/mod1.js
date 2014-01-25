@@ -10,17 +10,17 @@
         var try_diff = d3.values(data.articles);
         try_diff.forEach(function(d,i){
           d.steps.forEach(function(f,j){  
+            f.textDiff = []
             if(j != 0){
-              f.textDiff = []
-              f.text.forEach(function(g,k){
-
-                if(d.steps[j-1].text[k]){
+              if (!f.text.length) d.steps[j-1].text.forEach(function(g,k){
+                  f.textDiff[k] = diffString(g, " ")})
+              else f.text.forEach(function(g,k){
+                if (!d.steps[j-1].text[k]) d.steps[j-1].text[k] = " ";
                 f.textDiff[k] = diffString(d.steps[j-1].text[k], g)
-                }
-                else{f.textDiff[k] = g}
               })
-             }
-            else{f.textDiff = f.text }
+             } else f.text.forEach(function(g,k){
+                f.textDiff[k] = diffString(" ", g)
+             })
           });
         })
 
@@ -529,10 +529,7 @@
                 length = d['length'];
             $(".art-meta").html((section != null ? "<p><b>Section :</b> "+section+"</p>" : "")+"<p><b>Étape :</b> "+status+"</p><p><b>"+(d['status'] == "sup" ? "Supprimé à cette étape." : "Longueur du texte :</b> "+length)+"</p><p><b>Alinéas :</b></p>")
             $("#law-title").text("Article "+datum.datum().titre);
-            if (d.textDiff.length)
-                $(".art-txt").html("<ul><li><span>"+$.map(d.textDiff, function(i){return i.replace(/ (:\?!%€\$)/, '&nbsp;$1')}).join("</span></li><li><span>")+"</span></li></ul>")
-            //$(".text-container p").html(d.textDiff)
-				
+            $(".art-txt").html("<ul><li><span>"+$.map(d.textDiff, function(i){return i.replace(/ (:»;\?!%€)/, '&nbsp;$1')}).join("</span></li><li><span>")+"</span></li></ul>")
 		}
 
 		$(".separator").append('<h4 class="law-title">'+data.law_title+'</h4>')
