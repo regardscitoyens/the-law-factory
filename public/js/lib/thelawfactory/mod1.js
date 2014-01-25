@@ -24,7 +24,6 @@
           });
         })
 
-        var artHeight=0.01;
         var art_values=d3.values(data.articles)
         art_values.sort(function(a, b) {
           al=a.titre.split(" ")
@@ -50,7 +49,7 @@
         //linear mapper for article height
         var lerp = d3.scale.linear()
           .domain([0,1,maxlen])
-          .range([0,6,120]);
+          .range([0,12,120]);
 
         //compute stages and sections
         var stages=computeStages()
