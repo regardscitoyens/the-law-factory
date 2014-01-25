@@ -223,12 +223,13 @@
             .append("line")
             .filter(function(d,i) { 
                 datum=d3.select(this.parentNode).datum()
-                
-                if (d.length>0 && !d.last && datum.steps[i+1].length>0) return true;
+                if (!d.last)
+                d.next_s = findArticleNextStage(d.id_step, datum.steps);
+                if (d.length>0 && !d.last && d.next_s.length>0 && d.next_s.status != "new")
+                    return true;
                 else return false;
             })
             .attr("x1", function(d){
-              
               return (1+findStage(d.id_step))*width/columns-10
             })
             .attr("y1", function(d){
@@ -242,7 +243,7 @@
             })
             .attr("y2", function(d,i){
               datum=d3.select(this.parentNode).datum()
-              if (i+1<datum.steps.length) return datum.steps[i+1].y+(lerp(datum.steps[i+1].length))/2
+              if (i+1<datum.steps.length) return d.next_s.y+(lerp(d.next_s.length))/2
               else return null
             })
             .style("stroke", "#dadaf0")
@@ -343,7 +344,6 @@
             .key(function(d) { return d.id_step; })
             //.entries(e.steps)
             .map(e.steps, d3.map);
-            //console.log(d3.keys(st))
             
     
             d3.keys(st).forEach (function(f, i) {
@@ -353,10 +353,12 @@
               	}
             })
           })
+          stag.sort()
+            console.log(stag)
           
           for(s in stag) {
             //console.log(stag[s])
-            stag_name=stag[s].split("_",3).splice(1, 2).join(" ");
+            stag_name=stag[s].split("_",4).splice(2, 3).join(" ");
             //console.log(stag_name);
             $(".stages").append('<div class="stage" style="width:'+100/stag.length+'%">'+stag_name+'</div>')  
           }
@@ -364,12 +366,21 @@
           return stag
         }
 
+        //finds the desired stage in an article steps array
+        function findArticleNextStage(s, arts) {
+          next_s = encodeURI(stages[findStage(s)+1]).substring(3);
+          for(st in arts) {
+            if (encodeURI(arts[st].id_step) == next_s) {
+                return arts[st];
+            }
+          }
+          return {length: 0};
+        }
         //finds a stage in the stages array
         function findStage(s) {
 
           for(st in stages) {
-            
-            if (encodeURI(s)==encodeURI(stages[st]).substring(3)) {
+            if (encodeURI(s) == encodeURI(stages[st]).substring(3)) {
               return parseInt(st)
             }
           }
@@ -432,7 +443,7 @@
     					.selectAll(".article")
     					.filter(function(u){
     						
-    						return (u.id_step === cur.id_step)
+    						return (u.id_step == cur.id_step)
     					})
     					
     					if(a[0].length>0) {
@@ -455,7 +466,7 @@
     					.selectAll(".article")
     					.filter(function(u){
     						
-    						return (u.id_step === cur.id_step)
+    						return (u.id_step == cur.id_step)
     					})
     					
     					if(a[0].length>0) {
