@@ -26,18 +26,19 @@
 
         var art_values=d3.values(data.articles)
         art_values.sort(function(a, b) {
-          al=a.titre.split(" ")
-          bl=b.titre.split(" ")
+          var al=a.titre.split(" "),
+              bl=b.titre.split(" ")
+              ao=0, bo=0;
           if (parseInt(al[0]) != parseInt(bl[0]))
-           return parseInt(al[0]) - parseInt(bl[0]);
-          else {
-            for (var i_s=0; i_s<a.steps.length; i_s++) {
-              for (var j_s=0; j_s<b.steps.length; j_s++) {
-                if (a.steps[i_s]['id_step'] == b.steps[j_s]['id_step']) {
-                  return a.steps[i_s]['order'] - b.steps[j_s]['order'];
-            } } }
-            return al.length - bl.length ;
-          }
+            return parseInt(al[0]) - parseInt(bl[0]);
+          for (var i_s=0; i_s<a.steps.length; i_s++) {
+            ao+=a.steps[i_s]['order'];
+            for (var j_s=0; j_s<b.steps.length; j_s++) {
+              if (i_s == 0) bo+=b.steps[j_s]['order'];
+              if (a.steps[i_s]['id_step'] == b.steps[j_s]['id_step'])
+                return a.steps[i_s]['order'] - b.steps[j_s]['order'];
+          } }
+          return ao/a.steps.length - bo/b.steps.length;
         });
 
         var maxlen=d3.max(art_values,function(d){
