@@ -57,6 +57,13 @@
         var sections=computeSections()
         var maxy=0;
 
+        //set color scale for diff
+        var levmin = 225 - 128, levmax=225;
+        var diffcolor = d3.scale.linear()
+            .range(["rgb(" + [levmax,levmax,levmax].join(',') + ")", "rgb(" + [levmin, levmin, levmin].join(',') + ")"])
+            .domain([0, 1])
+            .interpolate(d3.interpolateHcl);
+
         //set coordinates for the blocks
         setCoordinates();
 
@@ -97,8 +104,7 @@
             if (d.status == 'sup') return '#fff';
             else if (d.diff == 'none') return '#f3f3f3';
             else {
-             var lev = ~~(225 - 128 * d.n_diff);
-             return 'rgb('+lev+','+lev+','+lev+')';
+              return diffcolor(d.n_diff);
             };
           });
         }
