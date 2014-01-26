@@ -58,9 +58,9 @@
         var maxy=0;
 
         //set color scale for diff
-        var levmin = 225 - 128, levmax=225;
+        var levmin = 225 - 150, levmax=225;
         var diffcolor = d3.scale.linear()
-            .range(["rgb(" + [levmax,levmax,levmax].join(',') + ")", "rgb(" + [levmin, levmin, levmin].join(',') + ")"])
+            .range(["#f3f3f3", "rgb(" + [levmin, levmin, levmin].join(',') + ")"])
             .domain([0, 1])
             .interpolate(d3.interpolateHcl);
 
@@ -97,7 +97,9 @@
         var stylise_rects = function(){
           myrects.style("stroke", "#ccc")
           .attr("class","article")
-          .style("stroke", "#ccc")
+          .style("stroke", function(d) {
+              return d3.hcl(diffcolor(d.n_diff)).brighter();
+          })
           .style("stroke-width", 1)
           .style("stroke-dasharray","none")
           .style("fill", function(d) {
