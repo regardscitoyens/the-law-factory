@@ -9,9 +9,9 @@
         
         var try_diff = d3.values(data.articles);
         try_diff.forEach(function(d,i){
-          d.steps.forEach(function(f,j){  
+          d.steps.forEach(function(f,j){
             f.textDiff = []
-            if(j != 0){
+            if(j != 0 && f.id_step.substr(-5) != "depot"){
               if (!f.text.length) d.steps[j-1].text.forEach(function(g,k){
                   f.textDiff[k] = diffString(g, " ")})
               else f.text.forEach(function(g,k){
