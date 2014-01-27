@@ -43,7 +43,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 640, 
                     "n_diff": 0.80816326530612248, 
                     "order": 14, 
@@ -59,7 +59,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 670, 
                     "n_diff": 0.024427480916030531, 
                     "order": 15, 
@@ -75,7 +75,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 748, 
                     "n_diff": 0.10014104372355437, 
                     "order": 14, 
@@ -91,7 +91,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 748, 
                     "n_diff": 0, 
                     "order": 14, 
@@ -138,7 +138,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 50, 
                     "n_diff": 0, 
                     "order": 15, 
@@ -161,8 +161,8 @@
                     "status": "none", 
                     "text": [
                         "L'article L. 111-6 est remplac\u00e9 par les dispositions suivantes :", 
-                        "\"Art. L. 111-6. - une strat\u00e9gie nationale de recherche est \u00e9labor\u00e9e et r\u00e9vis\u00e9e p\u00e9riodiquement sous la coordination du ministre charg\u00e9 de la recherche. Cette strat\u00e9gie vise \u00e0 r\u00e9pondre aux d\u00e9fis scientifiques, technologiques et soci\u00e9taux.", 
-                        "\"Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec la communaut\u00e9 scientifique, les partenaires sociaux et \u00e9conomiques, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales. Le ministre charg\u00e9 de la recherche veille \u00e0 la coh\u00e9rence de la strat\u00e9gie nationale avec celle \u00e9labor\u00e9e dans le cadre de l'union europ\u00e9enne.", 
+                        "\"Art. L. 111-6. - Une strat\u00e9gie nationale de recherche est \u00e9labor\u00e9e et r\u00e9vis\u00e9e p\u00e9riodiquement sous la coordination du ministre charg\u00e9 de la recherche. Cette strat\u00e9gie vise \u00e0 r\u00e9pondre aux d\u00e9fis scientifiques, technologiques et soci\u00e9taux.", 
+                        "\"Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec la communaut\u00e9 scientifique, les partenaires sociaux et \u00e9conomiques, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales. Le ministre charg\u00e9 de la recherche veille \u00e0 la coh\u00e9rence de la strat\u00e9gie nationale avec celle \u00e9labor\u00e9e dans le cadre de l'Union europ\u00e9enne.", 
                         "\"La strat\u00e9gie nationale de recherche et les conditions de sa mise en oeuvre font l'objet d'un rapport biennal pr\u00e9sent\u00e9 au Parlement.", 
                         "\"Les contrats pluriannuels conclus avec les organismes de recherche et les \u00e9tablissements d'enseignement sup\u00e9rieur, la programmation de l'Agence nationale de la recherche ainsi que les autres financements publics de la recherche concourent \u00e0 la mise en oeuvre de la strat\u00e9gie nationale de recherche.", 
                         "\"L'Office parlementaire d'\u00e9valuation des choix scientifiques et technologiques contribue \u00e0 l'\u00e9valuation de la mise en oeuvre de cette strat\u00e9gie.\""
@@ -177,8 +177,8 @@
                     "status": "none", 
                     "text": [
                         "L'article L. 111-6 du m\u00eame code est ainsi r\u00e9dig\u00e9 :", 
-                        "\"Art. L. 111-6. - une strat\u00e9gie nationale de recherche est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la coordination du ministre charg\u00e9 de la recherche. Cette strat\u00e9gie vise \u00e0 r\u00e9pondre aux d\u00e9fis scientifiques, technologiques, environnementaux et soci\u00e9taux. Elle inclut la valorisation de la recherche par le transfert et l'innovation.", 
-                        "\"Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec la communaut\u00e9 scientifique et universitaire, les partenaires sociaux et \u00e9conomiques, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales, en particulier les r\u00e9gions. Le ministre charg\u00e9 de la recherche veille \u00e0 la coh\u00e9rence de la strat\u00e9gie nationale avec celle \u00e9labor\u00e9e dans le cadre de l'union europ\u00e9enne.", 
+                        "\"Art. L. 111-6. - Une strat\u00e9gie nationale de recherche est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la coordination du ministre charg\u00e9 de la recherche. Cette strat\u00e9gie vise \u00e0 r\u00e9pondre aux d\u00e9fis scientifiques, technologiques, environnementaux et soci\u00e9taux. Elle inclut la valorisation de la recherche par le transfert et l'innovation.", 
+                        "\"Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec la communaut\u00e9 scientifique et universitaire, les partenaires sociaux et \u00e9conomiques, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales, en particulier les r\u00e9gions. Le ministre charg\u00e9 de la recherche veille \u00e0 la coh\u00e9rence de la strat\u00e9gie nationale avec celle \u00e9labor\u00e9e dans le cadre de l'Union europ\u00e9enne.", 
                         "\"La strat\u00e9gie nationale de recherche et les conditions de sa mise en oeuvre font l'objet d'un rapport biennal de l'Office parlementaire d'\u00e9valuation des choix scientifiques et technologiques, qui inclut l'analyse de l'efficacit\u00e9 des aides publiques \u00e0 la recherche priv\u00e9e.", 
                         "\"Les contrats pluriannuels conclus avec les organismes de recherche et les \u00e9tablissements d'enseignement sup\u00e9rieur, la programmation de l'Agence nationale de la recherche ainsi que les autres financements publics de la recherche concourent \u00e0 la mise en oeuvre de la strat\u00e9gie nationale de recherche.", 
                         "\"La culture scientifique et technique fait partie de la strat\u00e9gie nationale de la recherche et est prise en compte dans sa mise en oeuvre.", 
@@ -194,8 +194,8 @@
                     "status": "none", 
                     "text": [
                         "L'article L. 111-6 du m\u00eame code est ainsi r\u00e9dig\u00e9 :", 
-                        "\"Art. L. 111-6. - une strat\u00e9gie nationale de recherche, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la coordination du ministre charg\u00e9 de la recherche. Cette strat\u00e9gie vise \u00e0 r\u00e9pondre aux d\u00e9fis scientifiques, technologiques, environnementaux et soci\u00e9taux en maintenant une recherche fondamentale de haut niveau. Elle inclut la valorisation de la recherche par le transfert et encourage l'innovation.", 
-                        "\"Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec la communaut\u00e9 scientifique et universitaire, les partenaires sociaux et \u00e9conomiques, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales, en particulier les r\u00e9gions. Le ministre charg\u00e9 de la recherche veille \u00e0 la coh\u00e9rence de la strat\u00e9gie nationale avec celle \u00e9labor\u00e9e dans le cadre de l'union europ\u00e9enne et \u00e0 ce que des informations sensibles \u00e0 caract\u00e8re strat\u00e9gique pour la comp\u00e9titivit\u00e9 ou la d\u00e9fense des int\u00e9r\u00eats nationaux soient pr\u00e9serv\u00e9es.", 
+                        "\"Art. L. 111-6. - Une strat\u00e9gie nationale de recherche, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la coordination du ministre charg\u00e9 de la recherche. Cette strat\u00e9gie vise \u00e0 r\u00e9pondre aux d\u00e9fis scientifiques, technologiques, environnementaux et soci\u00e9taux en maintenant une recherche fondamentale de haut niveau. Elle inclut la valorisation de la recherche par le transfert et encourage l'innovation.", 
+                        "\"Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec la communaut\u00e9 scientifique et universitaire, les partenaires sociaux et \u00e9conomiques, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales, en particulier les r\u00e9gions. Le ministre charg\u00e9 de la recherche veille \u00e0 la coh\u00e9rence de la strat\u00e9gie nationale avec celle \u00e9labor\u00e9e dans le cadre de l'Union europ\u00e9enne et \u00e0 ce que des informations sensibles \u00e0 caract\u00e8re strat\u00e9gique pour la comp\u00e9titivit\u00e9 ou la d\u00e9fense des int\u00e9r\u00eats nationaux soient pr\u00e9serv\u00e9es.", 
                         "\"La strat\u00e9gie nationale de recherche et les conditions de sa mise en oeuvre font l'objet d'un rapport biennal de l'Office parlementaire d'\u00e9valuation des choix scientifiques et technologiques, qui inclut l'analyse de l'efficacit\u00e9 des aides publiques \u00e0 la recherche priv\u00e9e. Les \u00e9l\u00e9ments quantitatifs de ce rapport sont compos\u00e9s de donn\u00e9es sexu\u00e9es.", 
                         "\"Les contrats pluriannuels conclus avec les organismes de recherche et les \u00e9tablissements d'enseignement sup\u00e9rieur, la programmation de l'Agence nationale de la recherche ainsi que les autres financements publics de la recherche concourent \u00e0 la mise en oeuvre de la strat\u00e9gie nationale de recherche.", 
                         "\"La culture scientifique et technique fait partie de la strat\u00e9gie nationale de la recherche et est prise en compte dans sa mise en oeuvre.", 
@@ -204,15 +204,15 @@
                 }, 
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 2155, 
                     "n_diff": 0.15189873417721511, 
                     "order": 16, 
                     "status": "none", 
                     "text": [
                         "L'article L. 111-6 du m\u00eame code est ainsi r\u00e9dig\u00e9 :", 
-                        "\"Art. L. 111-6. - une strat\u00e9gie nationale de recherche, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la coordination du ministre charg\u00e9 de la recherche en concertation avec la soci\u00e9t\u00e9 civile. Cette strat\u00e9gie vise \u00e0 r\u00e9pondre aux d\u00e9fis scientifiques, technologiques, environnementaux et soci\u00e9taux en maintenant une recherche fondamentale de haut niveau. Elle comprend la valorisation des r\u00e9sultats de la recherche au service de la soci\u00e9t\u00e9. \u00c0 cet effet, elle veille au d\u00e9veloppement de l'innovation, du transfert de technologie, de la capacit\u00e9 d'expertise et d'appui aux politiques publiques. La culture scientifique, technique et industrielle fait partie de la strat\u00e9gie nationale de la recherche et est prise en compte dans sa mise en oeuvre.", 
-                        "\"Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec la communaut\u00e9 scientifique et universitaire, les partenaires sociaux et \u00e9conomiques, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales, en particulier les r\u00e9gions. Le ministre charg\u00e9 de la recherche veille \u00e0 la coh\u00e9rence de la strat\u00e9gie nationale avec celle \u00e9labor\u00e9e dans le cadre de l'union europ\u00e9enne et \u00e0 ce que des informations sensibles \u00e0 caract\u00e8re strat\u00e9gique pour la comp\u00e9titivit\u00e9 ou la d\u00e9fense des int\u00e9r\u00eats nationaux soient pr\u00e9serv\u00e9es.", 
+                        "\"Art. L. 111-6. - Une strat\u00e9gie nationale de recherche, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la coordination du ministre charg\u00e9 de la recherche en concertation avec la soci\u00e9t\u00e9 civile. Cette strat\u00e9gie vise \u00e0 r\u00e9pondre aux d\u00e9fis scientifiques, technologiques, environnementaux et soci\u00e9taux en maintenant une recherche fondamentale de haut niveau. Elle comprend la valorisation des r\u00e9sultats de la recherche au service de la soci\u00e9t\u00e9. \u00c0 cet effet, elle veille au d\u00e9veloppement de l'innovation, du transfert de technologie, de la capacit\u00e9 d'expertise et d'appui aux politiques publiques. La culture scientifique, technique et industrielle fait partie de la strat\u00e9gie nationale de la recherche et est prise en compte dans sa mise en oeuvre.", 
+                        "\"Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec la communaut\u00e9 scientifique et universitaire, les partenaires sociaux et \u00e9conomiques, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales, en particulier les r\u00e9gions. Le ministre charg\u00e9 de la recherche veille \u00e0 la coh\u00e9rence de la strat\u00e9gie nationale avec celle \u00e9labor\u00e9e dans le cadre de l'Union europ\u00e9enne et \u00e0 ce que des informations sensibles \u00e0 caract\u00e8re strat\u00e9gique pour la comp\u00e9titivit\u00e9 ou la d\u00e9fense des int\u00e9r\u00eats nationaux soient pr\u00e9serv\u00e9es.", 
                         "\"La strat\u00e9gie nationale de recherche et les conditions de sa mise en oeuvre font l'objet d'un rapport biennal de l'Office parlementaire d'\u00e9valuation des choix scientifiques et technologiques, qui inclut l'analyse de l'efficacit\u00e9 des aides publiques \u00e0 la recherche priv\u00e9e. Les \u00e9l\u00e9ments quantitatifs de ce rapport sont compos\u00e9s de donn\u00e9es sexu\u00e9es.", 
                         "\"Les contrats pluriannuels conclus avec les organismes de recherche et les \u00e9tablissements d'enseignement sup\u00e9rieur, la programmation de l'Agence nationale de la recherche ainsi que les autres financements publics de la recherche concourent \u00e0 la mise en oeuvre de la strat\u00e9gie nationale de recherche.", 
                         "\"L'Office parlementaire d'\u00e9valuation des choix scientifiques et technologiques contribue \u00e0 l'\u00e9valuation de la mise en oeuvre de cette strat\u00e9gie.\""
@@ -220,15 +220,15 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 2358, 
                     "n_diff": 0.080655883004653206, 
                     "order": 16, 
                     "status": "none", 
                     "text": [
                         "L'article L. 111-6 du code de la recherche est ainsi r\u00e9dig\u00e9 :", 
-                        "\"Art. L. 111-6. - une strat\u00e9gie nationale de recherche, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la coordination du ministre charg\u00e9 de la recherche en concertation avec la soci\u00e9t\u00e9 civile. Cette strat\u00e9gie vise \u00e0 r\u00e9pondre aux d\u00e9fis scientifiques, technologiques, environnementaux et soci\u00e9taux en maintenant une recherche fondamentale de haut niveau. Elle comprend la valorisation des r\u00e9sultats de la recherche au service de la soci\u00e9t\u00e9. \u00c0 cet effet, elle veille au d\u00e9veloppement de l'innovation, du transfert de technologie, de la capacit\u00e9 d'expertise et d'appui aux politiques publiques et aux structures associatives. La culture scientifique, technique et industrielle fait partie de la strat\u00e9gie nationale de la recherche et est prise en compte dans sa mise en oeuvre.", 
-                        "\"Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec la communaut\u00e9 scientifique et universitaire, les partenaires sociaux et \u00e9conomiques et des repr\u00e9sentants des milieux associatifs et des fondations reconnues d'utilit\u00e9 publique, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales, en particulier les r\u00e9gions. Le ministre charg\u00e9 de la recherche veille \u00e0 la coh\u00e9rence de la strat\u00e9gie nationale avec celle \u00e9labor\u00e9e dans le cadre de l'union europ\u00e9enne et \u00e0 ce que des informations sensibles \u00e0 caract\u00e8re strat\u00e9gique pour la comp\u00e9titivit\u00e9 ou la d\u00e9fense des int\u00e9r\u00eats nationaux soient pr\u00e9serv\u00e9es.", 
+                        "\"Art. L. 111-6. - Une strat\u00e9gie nationale de recherche, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la coordination du ministre charg\u00e9 de la recherche en concertation avec la soci\u00e9t\u00e9 civile. Cette strat\u00e9gie vise \u00e0 r\u00e9pondre aux d\u00e9fis scientifiques, technologiques, environnementaux et soci\u00e9taux en maintenant une recherche fondamentale de haut niveau. Elle comprend la valorisation des r\u00e9sultats de la recherche au service de la soci\u00e9t\u00e9. \u00c0 cet effet, elle veille au d\u00e9veloppement de l'innovation, du transfert de technologie, de la capacit\u00e9 d'expertise et d'appui aux politiques publiques et aux structures associatives. La culture scientifique, technique et industrielle fait partie de la strat\u00e9gie nationale de la recherche et est prise en compte dans sa mise en oeuvre.", 
+                        "\"Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec la communaut\u00e9 scientifique et universitaire, les partenaires sociaux et \u00e9conomiques et des repr\u00e9sentants des milieux associatifs et des fondations reconnues d'utilit\u00e9 publique, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales, en particulier les r\u00e9gions. Le ministre charg\u00e9 de la recherche veille \u00e0 la coh\u00e9rence de la strat\u00e9gie nationale avec celle \u00e9labor\u00e9e dans le cadre de l'Union europ\u00e9enne et \u00e0 ce que des informations sensibles \u00e0 caract\u00e8re strat\u00e9gique pour la comp\u00e9titivit\u00e9 ou la d\u00e9fense des int\u00e9r\u00eats nationaux soient pr\u00e9serv\u00e9es.", 
                         "\"La strat\u00e9gie nationale de recherche et les conditions de sa mise en oeuvre font l'objet d'un rapport biennal de l'Office parlementaire d'\u00e9valuation des choix scientifiques et technologiques, qui inclut l'analyse de l'efficacit\u00e9 des aides publiques \u00e0 la recherche priv\u00e9e. Les \u00e9l\u00e9ments quantitatifs de ce rapport sont compos\u00e9s de donn\u00e9es sexu\u00e9es.", 
                         "\"Les contrats pluriannuels conclus avec les organismes de recherche et les \u00e9tablissements d'enseignement sup\u00e9rieur, la programmation de l'Agence nationale de la recherche ainsi que les autres financements publics de la recherche concourent \u00e0 la mise en oeuvre de la strat\u00e9gie nationale de recherche.", 
                         "\"La d\u00e9l\u00e9gation mentionn\u00e9e \u00e0 l'article 6 ter de l'ordonnance n\u00b0 58-1100 du 17 novembre 1958 relative au fonctionnement des assembl\u00e9es parlementaires contribue \u00e0 l'\u00e9valuation de la mise en oeuvre de cette strat\u00e9gie.\""
@@ -236,15 +236,15 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 2554, 
                     "n_diff": 0.25040716612377845, 
                     "order": 15, 
                     "status": "none", 
                     "text": [
                         "L'article L. 111-6 du code de la recherche est ainsi r\u00e9dig\u00e9 :", 
-                        "\"Art. L. 111-6. - une strat\u00e9gie nationale de recherche, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la coordination du ministre charg\u00e9 de la recherche en concertation avec la soci\u00e9t\u00e9 civile. Cette strat\u00e9gie vise \u00e0 r\u00e9pondre aux d\u00e9fis scientifiques, technologiques, environnementaux et soci\u00e9taux en maintenant une recherche fondamentale de haut niveau. Elle comprend la valorisation des r\u00e9sultats de la recherche au service de la soci\u00e9t\u00e9. \u00c0 cet effet, elle veille au d\u00e9veloppement de l'innovation, du transfert de technologie, de la capacit\u00e9 d'expertise et d'appui aux politiques publiques et aux associations et fondations, reconnues d'utilit\u00e9 publique. La culture scientifique, technique et industrielle fait partie de la strat\u00e9gie nationale de la recherche et est prise en compte dans sa mise en oeuvre.", 
-                        "\"Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec la communaut\u00e9 scientifique et universitaire, les partenaires sociaux et \u00e9conomiques et des repr\u00e9sentants des associations et fondations, reconnues d'utilit\u00e9 publique, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales, en particulier les r\u00e9gions. Le ministre charg\u00e9 de la recherche veille \u00e0 la coh\u00e9rence de la strat\u00e9gie nationale avec celle \u00e9labor\u00e9e dans le cadre de l'union europ\u00e9enne et \u00e0 ce que des informations sensibles \u00e0 caract\u00e8re strat\u00e9gique pour la comp\u00e9titivit\u00e9 ou la d\u00e9fense des int\u00e9r\u00eats nationaux soient pr\u00e9serv\u00e9es.", 
+                        "\"Art. L. 111-6. - Une strat\u00e9gie nationale de recherche, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la coordination du ministre charg\u00e9 de la recherche en concertation avec la soci\u00e9t\u00e9 civile. Cette strat\u00e9gie vise \u00e0 r\u00e9pondre aux d\u00e9fis scientifiques, technologiques, environnementaux et soci\u00e9taux en maintenant une recherche fondamentale de haut niveau. Elle comprend la valorisation des r\u00e9sultats de la recherche au service de la soci\u00e9t\u00e9. \u00c0 cet effet, elle veille au d\u00e9veloppement de l'innovation, du transfert de technologie, de la capacit\u00e9 d'expertise et d'appui aux politiques publiques et aux associations et fondations, reconnues d'utilit\u00e9 publique. La culture scientifique, technique et industrielle fait partie de la strat\u00e9gie nationale de la recherche et est prise en compte dans sa mise en oeuvre.", 
+                        "\"Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec la communaut\u00e9 scientifique et universitaire, les partenaires sociaux et \u00e9conomiques et des repr\u00e9sentants des associations et fondations, reconnues d'utilit\u00e9 publique, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales, en particulier les r\u00e9gions. Le ministre charg\u00e9 de la recherche veille \u00e0 la coh\u00e9rence de la strat\u00e9gie nationale avec celle \u00e9labor\u00e9e dans le cadre de l'Union europ\u00e9enne et \u00e0 ce que des informations sensibles \u00e0 caract\u00e8re strat\u00e9gique pour la comp\u00e9titivit\u00e9 ou la d\u00e9fense des int\u00e9r\u00eats nationaux soient pr\u00e9serv\u00e9es.", 
                         "\"La strat\u00e9gie nationale de recherche et les conditions de sa mise en oeuvre font l'objet d'un rapport biennal de l'Office parlementaire d'\u00e9valuation des choix scientifiques et technologiques, d\u00e9l\u00e9gation mentionn\u00e9e \u00e0 l'article 6 ter de l'ordonnance n\u00b0 58-1100 du 17 novembre 1958 relative au fonctionnement des assembl\u00e9es parlementaires, qui inclut l'analyse de l'efficacit\u00e9 des aides publiques \u00e0 la recherche priv\u00e9e. Les \u00e9l\u00e9ments quantitatifs de ce rapport sont compos\u00e9s de donn\u00e9es sexu\u00e9es.", 
                         "\"Les contrats pluriannuels conclus avec les organismes de recherche et les \u00e9tablissements d'enseignement sup\u00e9rieur, la programmation de l'Agence nationale de la recherche ainsi que les autres financements publics de la recherche concourent \u00e0 la mise en oeuvre de la strat\u00e9gie nationale de recherche.", 
                         "\"L'Office parlementaire d'\u00e9valuation des choix scientifiques et technologiques, d\u00e9l\u00e9gation mentionn\u00e9e \u00e0 l'article 6 ter de l'ordonnance n\u00b0 58-1100 du 17 novembre 1958 pr\u00e9cit\u00e9e contribue \u00e0 l'\u00e9valuation de la mise en oeuvre de cette strat\u00e9gie.\""
@@ -252,15 +252,15 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 2552, 
                     "n_diff": 0.00078339208773992031, 
                     "order": 15, 
                     "status": "none", 
                     "text": [
                         "L'article L. 111-6 du code de la recherche est ainsi r\u00e9dig\u00e9 :", 
-                        "\"Art. L. 111-6. - une strat\u00e9gie nationale de recherche, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la coordination du ministre charg\u00e9 de la recherche en concertation avec la soci\u00e9t\u00e9 civile. Cette strat\u00e9gie vise \u00e0 r\u00e9pondre aux d\u00e9fis scientifiques, technologiques, environnementaux et soci\u00e9taux en maintenant une recherche fondamentale de haut niveau. Elle comprend la valorisation des r\u00e9sultats de la recherche au service de la soci\u00e9t\u00e9. \u00c0 cet effet, elle veille au d\u00e9veloppement de l'innovation, du transfert de technologie, de la capacit\u00e9 d'expertise et d'appui aux politiques publiques et aux associations et fondations, reconnues d'utilit\u00e9 publique. La culture scientifique, technique et industrielle fait partie de la strat\u00e9gie nationale de recherche et est prise en compte dans sa mise en oeuvre.", 
-                        "\"Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec la communaut\u00e9 scientifique et universitaire, les partenaires sociaux et \u00e9conomiques et des repr\u00e9sentants des associations et fondations, reconnues d'utilit\u00e9 publique, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales, en particulier les r\u00e9gions. Le ministre charg\u00e9 de la recherche veille \u00e0 la coh\u00e9rence de la strat\u00e9gie nationale avec celle \u00e9labor\u00e9e dans le cadre de l'union europ\u00e9enne et \u00e0 ce que des informations sensibles \u00e0 caract\u00e8re strat\u00e9gique pour la comp\u00e9titivit\u00e9 ou la d\u00e9fense des int\u00e9r\u00eats nationaux soient pr\u00e9serv\u00e9es.", 
+                        "\"Art. L. 111-6. - Une strat\u00e9gie nationale de recherche, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la coordination du ministre charg\u00e9 de la recherche en concertation avec la soci\u00e9t\u00e9 civile. Cette strat\u00e9gie vise \u00e0 r\u00e9pondre aux d\u00e9fis scientifiques, technologiques, environnementaux et soci\u00e9taux en maintenant une recherche fondamentale de haut niveau. Elle comprend la valorisation des r\u00e9sultats de la recherche au service de la soci\u00e9t\u00e9. \u00c0 cet effet, elle veille au d\u00e9veloppement de l'innovation, du transfert de technologie, de la capacit\u00e9 d'expertise et d'appui aux politiques publiques et aux associations et fondations, reconnues d'utilit\u00e9 publique. La culture scientifique, technique et industrielle fait partie de la strat\u00e9gie nationale de recherche et est prise en compte dans sa mise en oeuvre.", 
+                        "\"Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec la communaut\u00e9 scientifique et universitaire, les partenaires sociaux et \u00e9conomiques et des repr\u00e9sentants des associations et fondations, reconnues d'utilit\u00e9 publique, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales, en particulier les r\u00e9gions. Le ministre charg\u00e9 de la recherche veille \u00e0 la coh\u00e9rence de la strat\u00e9gie nationale avec celle \u00e9labor\u00e9e dans le cadre de l'Union europ\u00e9enne et \u00e0 ce que des informations sensibles \u00e0 caract\u00e8re strat\u00e9gique pour la comp\u00e9titivit\u00e9 ou la d\u00e9fense des int\u00e9r\u00eats nationaux soient pr\u00e9serv\u00e9es.", 
                         "\"La strat\u00e9gie nationale de recherche et les conditions de sa mise en oeuvre font l'objet d'un rapport biennal de l'Office parlementaire d'\u00e9valuation des choix scientifiques et technologiques, d\u00e9l\u00e9gation mentionn\u00e9e \u00e0 l'article 6 ter de l'ordonnance n\u00b0 58-1100 du 17 novembre 1958 relative au fonctionnement des assembl\u00e9es parlementaires, qui inclut l'analyse de l'efficacit\u00e9 des aides publiques \u00e0 la recherche priv\u00e9e. Les \u00e9l\u00e9ments quantitatifs de ce rapport sont compos\u00e9s de donn\u00e9es sexu\u00e9es.", 
                         "\"Les contrats pluriannuels conclus avec les organismes de recherche et les \u00e9tablissements d'enseignement sup\u00e9rieur, la programmation de l'Agence nationale de la recherche ainsi que les autres financements publics de la recherche concourent \u00e0 la mise en oeuvre de la strat\u00e9gie nationale de recherche.", 
                         "\"L'Office parlementaire d'\u00e9valuation des choix scientifiques et technologiques, d\u00e9l\u00e9gation mentionn\u00e9e \u00e0 l'article 6 ter de l'ordonnance n\u00b0 58-1100 du 17 novembre 1958 pr\u00e9cit\u00e9e, contribue \u00e0 l'\u00e9valuation de la mise en oeuvre de cette strat\u00e9gie.\""
@@ -319,7 +319,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 518, 
                     "n_diff": 0.24677716390423576, 
                     "order": 17, 
@@ -335,7 +335,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1312, 
                     "n_diff": 0.44262295081967218, 
                     "order": 17, 
@@ -353,7 +353,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1315, 
                     "n_diff": 0.12752188808526843, 
                     "order": 16, 
@@ -371,7 +371,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1313, 
                     "n_diff": 0.0091324200913242004, 
                     "order": 16, 
@@ -420,7 +420,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 204, 
                     "n_diff": 0, 
                     "order": 19, 
@@ -432,7 +432,7 @@
                 }, 
                 {
                     "diff": "add", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 126, 
                     "n_diff": 0.6393939393939394, 
                     "order": 19, 
@@ -443,7 +443,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 126, 
                     "n_diff": 0, 
                     "order": 18, 
@@ -454,7 +454,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 126, 
                     "n_diff": 0, 
                     "order": 18, 
@@ -483,7 +483,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 346, 
                     "n_diff": 0, 
                     "order": 18, 
@@ -494,7 +494,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 346, 
                     "n_diff": 0, 
                     "order": 18, 
@@ -505,7 +505,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 346, 
                     "n_diff": 0, 
                     "order": 17, 
@@ -516,7 +516,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 346, 
                     "n_diff": 0, 
                     "order": 17, 
@@ -570,7 +570,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1700, 
                     "n_diff": 0.16006339144215531, 
                     "order": 20, 
@@ -589,7 +589,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1863, 
                     "n_diff": 0.19225371877631203, 
                     "order": 20, 
@@ -609,7 +609,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1868, 
                     "n_diff": 0.0034843205574912606, 
                     "order": 19, 
@@ -629,7 +629,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1863, 
                     "n_diff": 0.0018761726078799779, 
                     "order": 19, 
@@ -733,7 +733,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1877, 
                     "n_diff": 0.03816371681415931, 
                     "order": 21, 
@@ -763,7 +763,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 2256, 
                     "n_diff": 0.10525042342124369, 
                     "order": 21, 
@@ -793,9 +793,9 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
-                    "length": 2298, 
-                    "n_diff": 0.024154589371980673, 
+                    "id_step": "05_CMP_CMP_commission", 
+                    "length": 2297, 
+                    "n_diff": 0.023940259169778155, 
                     "order": 20, 
                     "status": "none", 
                     "text": [
@@ -813,7 +813,7 @@
                         "\"1\u00b0 La strat\u00e9gie nationale de l'enseignement sup\u00e9rieur et la strat\u00e9gie nationale de recherche ;\"", 
                         "6\u00b0 Le 2\u00b0 est compl\u00e9t\u00e9 par les mots : \"du pr\u00e9sent code et \u00e0 l'article L. 311-2 du code de la recherche\" ;", 
                         "7\u00b0 Au 3\u00b0, les mots : \"dotations d'\u00e9quipement et de fonctionnement\" sont remplac\u00e9s par le mot : \"moyens\" ;", 
-                        "7\u00b0 bis  Apr\u00e8s le neuvi\u00e8me alin\u00e9a, il est ins\u00e9r\u00e9 un 4\u00b0 ainsi r\u00e9dig\u00e9 :", 
+                        "7\u00b0 bis Apr\u00e8s le neuvi\u00e8me alin\u00e9a, il est ins\u00e9r\u00e9 un 4\u00b0 ainsi r\u00e9dig\u00e9 :", 
                         "\"4\u00b0 Les projets de r\u00e9formes relatives \u00e0 l'emploi scientifique.\" ;", 
                         "8\u00b0 Le dixi\u00e8me alin\u00e9a est compl\u00e9t\u00e9 par les mots : \"et des \u00e9tablissements publics de recherche\" ;", 
                         "9\u00b0 L'avant-dernier alin\u00e9a est compl\u00e9t\u00e9 par les mots : \"ou du ministre charg\u00e9 de la recherche\" ;", 
@@ -823,9 +823,9 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 2301, 
-                    "n_diff": 0.018482278756251413, 
+                    "n_diff": 0.018268812527185707, 
                     "order": 20, 
                     "status": "none", 
                     "text": [
@@ -911,7 +911,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 537, 
                     "n_diff": 0, 
                     "order": 22, 
@@ -923,7 +923,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 698, 
                     "n_diff": 0.38704453441295539, 
                     "order": 22, 
@@ -935,7 +935,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 698, 
                     "n_diff": 0, 
                     "order": 21, 
@@ -947,7 +947,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 698, 
                     "n_diff": 0, 
                     "order": 21, 
@@ -1015,14 +1015,14 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
-                    "length": 994, 
-                    "n_diff": 0.35955746773202213, 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
+                    "length": 995, 
+                    "n_diff": 0.35872235872235869, 
                     "order": 23, 
                     "status": "none", 
                     "text": [
                         "L'article L. 611-2 du code de l'\u00e9ducation est ainsi modifi\u00e9 :", 
-                        "1\u00b0AA Avant le premier alin\u00e9a, il est ins\u00e9r\u00e9 un alin\u00e9a ainsi r\u00e9dig\u00e9 :", 
+                        "1\u00b0 AA Avant le premier alin\u00e9a, il est ins\u00e9r\u00e9 un alin\u00e9a ainsi r\u00e9dig\u00e9 :", 
                         "\"Les \u00e9tablissements d'enseignement sup\u00e9rieur peuvent instituer en leur sein un conseil de perfectionnement des formations comprenant des repr\u00e9sentants des milieux professionnels. Les r\u00e8gles relatives \u00e0 la composition et au fonctionnement de ce conseil sont fix\u00e9es par les statuts de l'\u00e9tablissement.\" ;", 
                         "1\u00b0 A Le 1\u00b0 est compl\u00e9t\u00e9 par les mots : \", notamment au sein des conseils de perfectionnement des formations\" ;", 
                         "1\u00b0 Le 3\u00b0 est ainsi modifi\u00e9 :", 
@@ -1034,10 +1034,10 @@
                     ]
                 }, 
                 {
-                    "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "diff": "none", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 995, 
-                    "n_diff": 0.0005027652086475598, 
+                    "n_diff": 0, 
                     "order": 23, 
                     "status": "none", 
                     "text": [
@@ -1055,7 +1055,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1011, 
                     "n_diff": 0.022931206380857438, 
                     "order": 22, 
@@ -1075,7 +1075,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1011, 
                     "n_diff": 0, 
                     "order": 22, 
@@ -1113,7 +1113,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 625, 
                     "n_diff": 0.70763723150357993, 
                     "order": 25, 
@@ -1127,7 +1127,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 972, 
                     "n_diff": 0.21728240450845338, 
                     "order": 25, 
@@ -1143,7 +1143,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 972, 
                     "n_diff": 0, 
                     "order": 24, 
@@ -1159,7 +1159,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 974, 
                     "n_diff": 0.0010277492291880241, 
                     "order": 24, 
@@ -1182,7 +1182,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 451, 
                     "n_diff": 1, 
                     "order": 24, 
@@ -1196,7 +1196,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 452, 
                     "n_diff": 0.0011074197120708451, 
                     "order": 24, 
@@ -1210,7 +1210,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 452, 
                     "n_diff": 0, 
                     "order": 23, 
@@ -1224,7 +1224,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 452, 
                     "n_diff": 0, 
                     "order": 23, 
@@ -1253,14 +1253,14 @@
                     "text": [
                         "L'article L. 612-8 du code de l'\u00e9ducation est ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 612-8. - Les stages en milieu professionnel ne relevant ni de l'article L. 4153-1 du code du travail, ni de la formation professionnelle tout au long de la vie, telle que d\u00e9finie \u00e0 la sixi\u00e8me partie du m\u00eame code, font l'objet d'une convention entre le stagiaire, l'organisme d'accueil et l'\u00e9tablissement d'enseignement, dont les modalit\u00e9s sont d\u00e9termin\u00e9es par d\u00e9cret.", 
-                        "\"Ces stages sont int\u00e9gr\u00e9s \u00e0 un cursus p\u00e9dagogique scolaire ou universitaire, selon des modalit\u00e9s d\u00e9termin\u00e9es par d\u00e9cret. un volume p\u00e9dagogique minimal de formation ainsi que les modalit\u00e9s d'encadrement du stage par l'\u00e9tablissement d'origine et l'organisme d'accueil sont fix\u00e9s par ce d\u00e9cret et pr\u00e9cis\u00e9s dans la convention de stage.", 
+                        "\"Ces stages sont int\u00e9gr\u00e9s \u00e0 un cursus p\u00e9dagogique scolaire ou universitaire, selon des modalit\u00e9s d\u00e9termin\u00e9es par d\u00e9cret. Un volume p\u00e9dagogique minimal de formation ainsi que les modalit\u00e9s d'encadrement du stage par l'\u00e9tablissement d'origine et l'organisme d'accueil sont fix\u00e9s par ce d\u00e9cret et pr\u00e9cis\u00e9s dans la convention de stage.", 
                         "\"Le stage correspond \u00e0 une p\u00e9riode temporaire de mise en situation en milieu professionnel au cours de laquelle l'\u00e9tudiant acquiert des comp\u00e9tences professionnelles qui mettent en oeuvre les acquis de sa formation en vue de l'obtention d'un dipl\u00f4me ou d'une certification. Le stagiaire se voit confier une ou des missions conformes au projet p\u00e9dagogique d\u00e9fini par son \u00e9tablissement d'enseignement et approuv\u00e9es par l'organisme d'accueil.", 
                         "\"Les stages ne peuvent pas avoir pour objet l'ex\u00e9cution d'une t\u00e2che r\u00e9guli\u00e8re correspondant \u00e0 un poste de travail permanent de l'entreprise.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1350, 
                     "n_diff": 0, 
                     "order": 27, 
@@ -1268,14 +1268,14 @@
                     "text": [
                         "L'article L. 612-8 du code de l'\u00e9ducation est ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 612-8. - Les stages en milieu professionnel ne relevant ni de l'article L. 4153-1 du code du travail, ni de la formation professionnelle tout au long de la vie, telle que d\u00e9finie \u00e0 la sixi\u00e8me partie du m\u00eame code, font l'objet d'une convention entre le stagiaire, l'organisme d'accueil et l'\u00e9tablissement d'enseignement, dont les modalit\u00e9s sont d\u00e9termin\u00e9es par d\u00e9cret.", 
-                        "\"Ces stages sont int\u00e9gr\u00e9s \u00e0 un cursus p\u00e9dagogique scolaire ou universitaire, selon des modalit\u00e9s d\u00e9termin\u00e9es par d\u00e9cret. un volume p\u00e9dagogique minimal de formation ainsi que les modalit\u00e9s d'encadrement du stage par l'\u00e9tablissement d'origine et l'organisme d'accueil sont fix\u00e9s par ce d\u00e9cret et pr\u00e9cis\u00e9s dans la convention de stage.", 
+                        "\"Ces stages sont int\u00e9gr\u00e9s \u00e0 un cursus p\u00e9dagogique scolaire ou universitaire, selon des modalit\u00e9s d\u00e9termin\u00e9es par d\u00e9cret. Un volume p\u00e9dagogique minimal de formation ainsi que les modalit\u00e9s d'encadrement du stage par l'\u00e9tablissement d'origine et l'organisme d'accueil sont fix\u00e9s par ce d\u00e9cret et pr\u00e9cis\u00e9s dans la convention de stage.", 
                         "\"Le stage correspond \u00e0 une p\u00e9riode temporaire de mise en situation en milieu professionnel au cours de laquelle l'\u00e9tudiant acquiert des comp\u00e9tences professionnelles qui mettent en oeuvre les acquis de sa formation en vue de l'obtention d'un dipl\u00f4me ou d'une certification. Le stagiaire se voit confier une ou des missions conformes au projet p\u00e9dagogique d\u00e9fini par son \u00e9tablissement d'enseignement et approuv\u00e9es par l'organisme d'accueil.", 
                         "\"Les stages ne peuvent pas avoir pour objet l'ex\u00e9cution d'une t\u00e2che r\u00e9guli\u00e8re correspondant \u00e0 un poste de travail permanent de l'entreprise.\""
                     ]
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1583, 
                     "n_diff": 0.079440845550630801, 
                     "order": 27, 
@@ -1284,14 +1284,14 @@
                         "L'article L. 612-8 du code de l'\u00e9ducation est ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 612-8. - Les stages en milieu professionnel ne relevant ni de l'article L. 4153-1 du code du travail, ni de la formation professionnelle tout au long de la vie, telle que d\u00e9finie \u00e0 la sixi\u00e8me partie du m\u00eame code, font l'objet d'une convention entre le stagiaire, l'organisme d'accueil et l'\u00e9tablissement d'enseignement, dont les modalit\u00e9s sont d\u00e9termin\u00e9es par d\u00e9cret.", 
                         "\"Tout \u00e9tudiant souhaitant effectuer un stage durant les p\u00e9riodes de vacances se voit proposer une convention par l'\u00e9tablissement d'enseignement sup\u00e9rieur.", 
-                        "\"Ces stages sont int\u00e9gr\u00e9s \u00e0 un cursus p\u00e9dagogique scolaire ou universitaire, selon des modalit\u00e9s d\u00e9termin\u00e9es par d\u00e9cret. un volume p\u00e9dagogique minimal de formation ainsi que les modalit\u00e9s d'encadrement du stage par l'\u00e9tablissement d'origine et l'organisme d'accueil sont fix\u00e9s par ce d\u00e9cret et pr\u00e9cis\u00e9s dans la convention de stage.", 
+                        "\"Ces stages sont int\u00e9gr\u00e9s \u00e0 un cursus p\u00e9dagogique scolaire ou universitaire, selon des modalit\u00e9s d\u00e9termin\u00e9es par d\u00e9cret. Un volume p\u00e9dagogique minimal de formation ainsi que les modalit\u00e9s d'encadrement du stage par l'\u00e9tablissement d'origine et l'organisme d'accueil sont fix\u00e9s par ce d\u00e9cret et pr\u00e9cis\u00e9s dans la convention de stage.", 
                         "\"Le stage correspond \u00e0 une p\u00e9riode temporaire de mise en situation en milieu professionnel au cours de laquelle l'\u00e9tudiant acquiert des comp\u00e9tences professionnelles qui mettent en oeuvre les acquis de sa formation en vue de l'obtention d'un dipl\u00f4me ou d'une certification. Le stagiaire se voit confier une ou des missions conformes au projet p\u00e9dagogique d\u00e9fini par son \u00e9tablissement d'enseignement et approuv\u00e9es par l'organisme d'accueil, l'administration publique ou l'association ou tout autre organisme d'accueil.", 
                         "\"Les stages ne peuvent pas avoir pour objet l'ex\u00e9cution d'une t\u00e2che r\u00e9guli\u00e8re correspondant \u00e0 un poste de travail permanent de l'entreprise.\""
                     ]
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1733, 
                     "n_diff": 0.57207478890229191, 
                     "order": 26, 
@@ -1300,7 +1300,7 @@
                         "L'article L. 612-8 du code de l'\u00e9ducation est ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 612-8. - Les stages en milieu professionnel ne relevant ni de l'article L. 4153-1 du code du travail, ni de la formation professionnelle tout au long de la vie, telle que d\u00e9finie \u00e0 la sixi\u00e8me partie du m\u00eame code, font l'objet d'une convention entre le stagiaire, l'organisme d'accueil et l'\u00e9tablissement d'enseignement, dont les modalit\u00e9s sont d\u00e9termin\u00e9es par d\u00e9cret.", 
                         "\"Tout \u00e9tudiant souhaitant effectuer un stage se voit proposer une convention par l'\u00e9tablissement d'enseignement sup\u00e9rieur.", 
-                        "\"Les stages sont int\u00e9gr\u00e9s \u00e0 un cursus p\u00e9dagogique scolaire ou universitaire, selon des modalit\u00e9s d\u00e9termin\u00e9es par d\u00e9cret. un volume p\u00e9dagogique minimal de formation ainsi que les modalit\u00e9s d'encadrement du stage par l'\u00e9tablissement d'origine et l'organisme d'accueil sont fix\u00e9s par ce d\u00e9cret et pr\u00e9cis\u00e9s dans la convention de stage.", 
+                        "\"Les stages sont int\u00e9gr\u00e9s \u00e0 un cursus p\u00e9dagogique scolaire ou universitaire, selon des modalit\u00e9s d\u00e9termin\u00e9es par d\u00e9cret. Un volume p\u00e9dagogique minimal de formation ainsi que les modalit\u00e9s d'encadrement du stage par l'\u00e9tablissement d'origine et l'organisme d'accueil sont fix\u00e9s par ce d\u00e9cret et pr\u00e9cis\u00e9s dans la convention de stage.", 
                         "\"Le stage correspond \u00e0 une p\u00e9riode temporaire de mise en situation en milieu professionnel au cours de laquelle l'\u00e9tudiant acquiert des comp\u00e9tences professionnelles qui mettent en oeuvre les acquis de sa formation en vue de l'obtention d'un dipl\u00f4me ou d'une certification. Le stagiaire se voit confier une ou des missions conformes au projet p\u00e9dagogique d\u00e9fini par son \u00e9tablissement d'enseignement et approuv\u00e9es par l'organisme d'accueil.", 
                         "\"Les stages ne peuvent pas avoir pour objet l'ex\u00e9cution d'une t\u00e2che r\u00e9guli\u00e8re correspondant \u00e0 un poste de travail permanent de l'entreprise, de l'administration publique, de l'association ou de tout autre organisme d'accueil.", 
                         "\"Les stagiaires b\u00e9n\u00e9ficient des protections et droits mentionn\u00e9s aux articles L. 1121-1, L. 1152-1 et L. 1153-1 du code du travail dans les m\u00eames conditions que les salari\u00e9s.\""
@@ -1308,7 +1308,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1733, 
                     "n_diff": 0, 
                     "order": 26, 
@@ -1317,7 +1317,7 @@
                         "L'article L. 612-8 du code de l'\u00e9ducation est ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 612-8. - Les stages en milieu professionnel ne relevant ni de l'article L. 4153-1 du code du travail, ni de la formation professionnelle tout au long de la vie, telle que d\u00e9finie \u00e0 la sixi\u00e8me partie du m\u00eame code, font l'objet d'une convention entre le stagiaire, l'organisme d'accueil et l'\u00e9tablissement d'enseignement, dont les modalit\u00e9s sont d\u00e9termin\u00e9es par d\u00e9cret.", 
                         "\"Tout \u00e9tudiant souhaitant effectuer un stage se voit proposer une convention par l'\u00e9tablissement d'enseignement sup\u00e9rieur.", 
-                        "\"Les stages sont int\u00e9gr\u00e9s \u00e0 un cursus p\u00e9dagogique scolaire ou universitaire, selon des modalit\u00e9s d\u00e9termin\u00e9es par d\u00e9cret. un volume p\u00e9dagogique minimal de formation ainsi que les modalit\u00e9s d'encadrement du stage par l'\u00e9tablissement d'origine et l'organisme d'accueil sont fix\u00e9s par ce d\u00e9cret et pr\u00e9cis\u00e9s dans la convention de stage.", 
+                        "\"Les stages sont int\u00e9gr\u00e9s \u00e0 un cursus p\u00e9dagogique scolaire ou universitaire, selon des modalit\u00e9s d\u00e9termin\u00e9es par d\u00e9cret. Un volume p\u00e9dagogique minimal de formation ainsi que les modalit\u00e9s d'encadrement du stage par l'\u00e9tablissement d'origine et l'organisme d'accueil sont fix\u00e9s par ce d\u00e9cret et pr\u00e9cis\u00e9s dans la convention de stage.", 
                         "\"Le stage correspond \u00e0 une p\u00e9riode temporaire de mise en situation en milieu professionnel au cours de laquelle l'\u00e9tudiant acquiert des comp\u00e9tences professionnelles qui mettent en oeuvre les acquis de sa formation en vue de l'obtention d'un dipl\u00f4me ou d'une certification. Le stagiaire se voit confier une ou des missions conformes au projet p\u00e9dagogique d\u00e9fini par son \u00e9tablissement d'enseignement et approuv\u00e9es par l'organisme d'accueil.", 
                         "\"Les stages ne peuvent pas avoir pour objet l'ex\u00e9cution d'une t\u00e2che r\u00e9guli\u00e8re correspondant \u00e0 un poste de travail permanent de l'entreprise, de l'administration publique, de l'association ou de tout autre organisme d'accueil.", 
                         "\"Les stagiaires b\u00e9n\u00e9ficient des protections et droits mentionn\u00e9s aux articles L. 1121-1, L. 1152-1 et L. 1153-1 du code du travail dans les m\u00eames conditions que les salari\u00e9s.\""
@@ -1343,7 +1343,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 201, 
                     "n_diff": 0, 
                     "order": 28, 
@@ -1354,7 +1354,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 429, 
                     "n_diff": 0.52380952380952384, 
                     "order": 28, 
@@ -1368,7 +1368,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 435, 
                     "n_diff": 0.10416666666666663, 
                     "order": 27, 
@@ -1382,7 +1382,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 435, 
                     "n_diff": 0, 
                     "order": 27, 
@@ -1415,7 +1415,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 652, 
                     "n_diff": 0.60509031198686369, 
                     "order": 29, 
@@ -1427,7 +1427,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 552, 
                     "n_diff": 0.083056478405315604, 
                     "order": 29, 
@@ -1439,7 +1439,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 552, 
                     "n_diff": 0, 
                     "order": 28, 
@@ -1451,7 +1451,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 552, 
                     "n_diff": 0, 
                     "order": 28, 
@@ -1481,7 +1481,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 199, 
                     "n_diff": 0, 
                     "order": 26, 
@@ -1492,7 +1492,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 199, 
                     "n_diff": 0, 
                     "order": 26, 
@@ -1503,7 +1503,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 199, 
                     "n_diff": 0, 
                     "order": 25, 
@@ -1514,7 +1514,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 199, 
                     "n_diff": 0, 
                     "order": 25, 
@@ -1540,7 +1540,7 @@
                     "text": [
                         "Apr\u00e8s l'article L. 611-7, il est ins\u00e9r\u00e9 un article L. 611-8 ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 611-8. - Les \u00e9tablissements d'enseignement sup\u00e9rieur rendent disponibles, pour les formations dont les m\u00e9thodes p\u00e9dagogiques le permettent, leurs enseignements sous forme num\u00e9rique dans les conditions d\u00e9finies par la l\u00e9gislation sur la propri\u00e9t\u00e9 intellectuelle.", 
-                        "\"une formation \u00e0 l'utilisation des outils et des ressources num\u00e9riques et \u00e0 la compr\u00e9hension des enjeux associ\u00e9s est dispens\u00e9e d\u00e8s l'entr\u00e9e dans l'enseignement sup\u00e9rieur.", 
+                        "\"Une formation \u00e0 l'utilisation des outils et des ressources num\u00e9riques et \u00e0 la compr\u00e9hension des enjeux associ\u00e9s est dispens\u00e9e d\u00e8s l'entr\u00e9e dans l'enseignement sup\u00e9rieur.", 
                         "\"Les modalit\u00e9s de mise en oeuvre des dispositions pr\u00e9vues aux premier et deuxi\u00e8me alin\u00e9as sont fix\u00e9es par le contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 711-1.\""
                     ]
                 }, 
@@ -1548,13 +1548,13 @@
                     "diff": "rem", 
                     "id_step": "01_1\u00e8relecture_assemblee_commission", 
                     "length": 1133, 
-                    "n_diff": 0.45610160132523458, 
+                    "n_diff": 0.39260077305356156, 
                     "order": 22, 
                     "status": "none", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre II de la troisi\u00e8me partie du m\u00eame code est compl\u00e9t\u00e9 par un article L. 611-8 ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 611-8. - Les \u00e9tablissements d'enseignement sup\u00e9rieur rendent disponibles, pour les formations dont les m\u00e9thodes p\u00e9dagogiques le permettent, leurs enseignements sous forme num\u00e9rique, dans les conditions d\u00e9finies par la l\u00e9gislation sur la propri\u00e9t\u00e9 intellectuelle. Cette mise \u00e0 disposition ne peut se substituer aux enseignements dispens\u00e9s en pr\u00e9sence des \u00e9tudiants sans justification p\u00e9dagogique.", 
-                        "\"une formation \u00e0 l'utilisation des outils et des ressources num\u00e9riques et \u00e0 la compr\u00e9hension des enjeux qui leur sont associ\u00e9s, adapt\u00e9e aux sp\u00e9cificit\u00e9s du parcours suivi par l'\u00e9tudiant, est dispens\u00e9e d\u00e8s l'entr\u00e9e dans l'enseignement sup\u00e9rieur dans la continuit\u00e9 des formations dispens\u00e9es dans l'enseignement du second degr\u00e9.", 
+                        "\"Une formation \u00e0 l'utilisation des outils et des ressources num\u00e9riques et \u00e0 la compr\u00e9hension des enjeux qui leur sont associ\u00e9s, adapt\u00e9e aux sp\u00e9cificit\u00e9s du parcours suivi par l'\u00e9tudiant, est dispens\u00e9e d\u00e8s l'entr\u00e9e dans l'enseignement sup\u00e9rieur dans la continuit\u00e9 des formations dispens\u00e9es dans l'enseignement du second degr\u00e9.", 
                         "\"Les modalit\u00e9s de mise en oeuvre des deux premiers alin\u00e9as sont fix\u00e9es par le contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 711-1.\"", 
                         "II. - Aux articles L. 681-1, L. 683-1 et L. 684-1 du m\u00eame code, apr\u00e8s la r\u00e9f\u00e9rence : \"L. 611-5\", est ins\u00e9r\u00e9e la r\u00e9f\u00e9rence : \", L. 611-8\"."
                     ]
@@ -1569,22 +1569,22 @@
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre II de la troisi\u00e8me partie du m\u00eame code est compl\u00e9t\u00e9 par un article L. 611-8 ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 611-8. - Les \u00e9tablissements d'enseignement sup\u00e9rieur rendent disponibles, pour les formations dont les m\u00e9thodes p\u00e9dagogiques le permettent, leurs enseignements sous forme num\u00e9rique, dans les conditions d\u00e9finies par la l\u00e9gislation sur la propri\u00e9t\u00e9 intellectuelle. Cette mise \u00e0 disposition ne peut se substituer aux enseignements dispens\u00e9s en pr\u00e9sence des \u00e9tudiants sans justification p\u00e9dagogique.", 
-                        "\"une formation \u00e0 l'utilisation des outils et des ressources num\u00e9riques et \u00e0 la compr\u00e9hension des enjeux qui leur sont associ\u00e9s, adapt\u00e9e aux sp\u00e9cificit\u00e9s du parcours suivi par l'\u00e9tudiant, est dispens\u00e9e d\u00e8s l'entr\u00e9e dans l'enseignement sup\u00e9rieur, dans la continuit\u00e9 des formations dispens\u00e9es dans l'enseignement du second degr\u00e9.", 
+                        "\"Une formation \u00e0 l'utilisation des outils et des ressources num\u00e9riques et \u00e0 la compr\u00e9hension des enjeux qui leur sont associ\u00e9s, adapt\u00e9e aux sp\u00e9cificit\u00e9s du parcours suivi par l'\u00e9tudiant, est dispens\u00e9e d\u00e8s l'entr\u00e9e dans l'enseignement sup\u00e9rieur, dans la continuit\u00e9 des formations dispens\u00e9es dans l'enseignement du second degr\u00e9.", 
                         "\"Les modalit\u00e9s de mise en oeuvre des deux premiers alin\u00e9as du pr\u00e9sent article sont fix\u00e9es par le contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 711-1.\"", 
                         "II. - Aux articles L. 681-1, L. 683-1 et L. 684-1 du m\u00eame code, apr\u00e8s la r\u00e9f\u00e9rence : \"L. 611-5\", est ins\u00e9r\u00e9e la r\u00e9f\u00e9rence : \", L. 611-8\"."
                     ]
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1528, 
-                    "n_diff": 0.49981350242446854, 
+                    "n_diff": 0.32152182021633724, 
                     "order": 30, 
                     "status": "none", 
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre VI de la troisi\u00e8me partie du m\u00eame code est compl\u00e9t\u00e9 par un article L. 611-8 ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 611-8. - Les \u00e9tablissements d'enseignement sup\u00e9rieur rendent disponibles, pour les formations dont les m\u00e9thodes p\u00e9dagogiques le permettent, leurs enseignements sous forme num\u00e9rique, dans des conditions d\u00e9termin\u00e9es par leur conseil acad\u00e9mique ou par l'organe en tenant lieu et conformes aux dispositions du code de la propri\u00e9t\u00e9 intellectuelle. Cette mise \u00e0 disposition ne peut se substituer aux enseignements dispens\u00e9s en pr\u00e9sence des \u00e9tudiants sans justification p\u00e9dagogique.", 
-                        "\"une formation \u00e0 l'utilisation des outils et des ressources num\u00e9riques et \u00e0 la compr\u00e9hension des enjeux qui leur sont associ\u00e9s, adapt\u00e9e aux sp\u00e9cificit\u00e9s du parcours suivi par l'\u00e9tudiant, est dispens\u00e9e d\u00e8s l'entr\u00e9e dans l'enseignement sup\u00e9rieur, dans la continuit\u00e9 des formations dispens\u00e9es dans l'enseignement du second degr\u00e9.", 
+                        "\"Une formation \u00e0 l'utilisation des outils et des ressources num\u00e9riques et \u00e0 la compr\u00e9hension des enjeux qui leur sont associ\u00e9s, adapt\u00e9e aux sp\u00e9cificit\u00e9s du parcours suivi par l'\u00e9tudiant, est dispens\u00e9e d\u00e8s l'entr\u00e9e dans l'enseignement sup\u00e9rieur, dans la continuit\u00e9 des formations dispens\u00e9es dans l'enseignement du second degr\u00e9.", 
                         "\"\u00c0 leur demande, les enseignants peuvent suivre une formation, le cas \u00e9ch\u00e9ant au sein des \u00e9tablissements r\u00e9gis par le titre II du livre VII de la troisi\u00e8me partie, qui leur permet d'acqu\u00e9rir les comp\u00e9tences n\u00e9cessaires \u00e0 la mise \u00e0 disposition de leurs enseignements sous forme num\u00e9rique et les initie aux m\u00e9thodes p\u00e9dagogiques innovantes sollicitant l'usage des technologies de l'information et de la communication.", 
                         "\"Les modalit\u00e9s de mise en oeuvre des deux premiers alin\u00e9as du pr\u00e9sent article sont fix\u00e9es par le contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 711-1.\"", 
                         "II. - (Supprim\u00e9)"
@@ -1592,7 +1592,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1436, 
                     "n_diff": 0.043859649122807043, 
                     "order": 30, 
@@ -1600,7 +1600,7 @@
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre VI de la troisi\u00e8me partie du code de l'\u00e9ducation est compl\u00e9t\u00e9 par un article L. 611-8 ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 611-8. - Les \u00e9tablissements d'enseignement sup\u00e9rieur rendent disponibles, pour les formations dont les m\u00e9thodes p\u00e9dagogiques le permettent, leurs enseignements sous forme num\u00e9rique, dans des conditions d\u00e9termin\u00e9es par leur conseil acad\u00e9mique ou par l'organe en tenant lieu et conformes aux dispositions du code de la propri\u00e9t\u00e9 intellectuelle. Cette mise \u00e0 disposition ne peut se substituer aux enseignements dispens\u00e9s en pr\u00e9sence des \u00e9tudiants sans justification p\u00e9dagogique.", 
-                        "\"une formation \u00e0 l'utilisation des outils et des ressources num\u00e9riques et \u00e0 la compr\u00e9hension des enjeux qui leur sont associ\u00e9s, adapt\u00e9e aux sp\u00e9cificit\u00e9s du parcours suivi par l'\u00e9tudiant, est dispens\u00e9e d\u00e8s l'entr\u00e9e dans l'enseignement sup\u00e9rieur, dans la continuit\u00e9 des formations dispens\u00e9es dans l'enseignement du second degr\u00e9.", 
+                        "\"Une formation \u00e0 l'utilisation des outils et des ressources num\u00e9riques et \u00e0 la compr\u00e9hension des enjeux qui leur sont associ\u00e9s, adapt\u00e9e aux sp\u00e9cificit\u00e9s du parcours suivi par l'\u00e9tudiant, est dispens\u00e9e d\u00e8s l'entr\u00e9e dans l'enseignement sup\u00e9rieur, dans la continuit\u00e9 des formations dispens\u00e9es dans l'enseignement du second degr\u00e9.", 
                         "\"\u00c0 leur demande, les enseignants peuvent suivre une formation qui leur permet d'acqu\u00e9rir les comp\u00e9tences n\u00e9cessaires \u00e0 la mise \u00e0 disposition de leurs enseignements sous forme num\u00e9rique et les initie aux m\u00e9thodes p\u00e9dagogiques innovantes sollicitant l'usage des technologies de l'information et de la communication.", 
                         "\"Les modalit\u00e9s de mise en oeuvre des deux premiers alin\u00e9as du pr\u00e9sent article sont fix\u00e9es par le contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 711-1.\"", 
                         "II. - (Supprim\u00e9)"
@@ -1608,7 +1608,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1436, 
                     "n_diff": 0, 
                     "order": 29, 
@@ -1616,7 +1616,7 @@
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre VI de la troisi\u00e8me partie du code de l'\u00e9ducation est compl\u00e9t\u00e9 par un article L. 611-8 ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 611-8. - Les \u00e9tablissements d'enseignement sup\u00e9rieur rendent disponibles, pour les formations dont les m\u00e9thodes p\u00e9dagogiques le permettent, leurs enseignements sous forme num\u00e9rique, dans des conditions d\u00e9termin\u00e9es par leur conseil acad\u00e9mique ou par l'organe en tenant lieu et conformes aux dispositions du code de la propri\u00e9t\u00e9 intellectuelle. Cette mise \u00e0 disposition ne peut se substituer aux enseignements dispens\u00e9s en pr\u00e9sence des \u00e9tudiants sans justification p\u00e9dagogique.", 
-                        "\"une formation \u00e0 l'utilisation des outils et des ressources num\u00e9riques et \u00e0 la compr\u00e9hension des enjeux qui leur sont associ\u00e9s, adapt\u00e9e aux sp\u00e9cificit\u00e9s du parcours suivi par l'\u00e9tudiant, est dispens\u00e9e d\u00e8s l'entr\u00e9e dans l'enseignement sup\u00e9rieur, dans la continuit\u00e9 des formations dispens\u00e9es dans l'enseignement du second degr\u00e9.", 
+                        "\"Une formation \u00e0 l'utilisation des outils et des ressources num\u00e9riques et \u00e0 la compr\u00e9hension des enjeux qui leur sont associ\u00e9s, adapt\u00e9e aux sp\u00e9cificit\u00e9s du parcours suivi par l'\u00e9tudiant, est dispens\u00e9e d\u00e8s l'entr\u00e9e dans l'enseignement sup\u00e9rieur, dans la continuit\u00e9 des formations dispens\u00e9es dans l'enseignement du second degr\u00e9.", 
                         "\"\u00c0 leur demande, les enseignants peuvent suivre une formation qui leur permet d'acqu\u00e9rir les comp\u00e9tences n\u00e9cessaires \u00e0 la mise \u00e0 disposition de leurs enseignements sous forme num\u00e9rique et les initie aux m\u00e9thodes p\u00e9dagogiques innovantes sollicitant l'usage des technologies de l'information et de la communication.", 
                         "\"Les modalit\u00e9s de mise en oeuvre des deux premiers alin\u00e9as du pr\u00e9sent article sont fix\u00e9es par le contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 711-1.\"", 
                         "II. - (Supprim\u00e9)"
@@ -1624,7 +1624,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1436, 
                     "n_diff": 0, 
                     "order": 29, 
@@ -1632,7 +1632,7 @@
                     "text": [
                         "I. - Le chapitre Ier du titre Ier du livre VI de la troisi\u00e8me partie du code de l'\u00e9ducation est compl\u00e9t\u00e9 par un article L. 611-8 ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 611-8. - Les \u00e9tablissements d'enseignement sup\u00e9rieur rendent disponibles, pour les formations dont les m\u00e9thodes p\u00e9dagogiques le permettent, leurs enseignements sous forme num\u00e9rique, dans des conditions d\u00e9termin\u00e9es par leur conseil acad\u00e9mique ou par l'organe en tenant lieu et conformes aux dispositions du code de la propri\u00e9t\u00e9 intellectuelle. Cette mise \u00e0 disposition ne peut se substituer aux enseignements dispens\u00e9s en pr\u00e9sence des \u00e9tudiants sans justification p\u00e9dagogique.", 
-                        "\"une formation \u00e0 l'utilisation des outils et des ressources num\u00e9riques et \u00e0 la compr\u00e9hension des enjeux qui leur sont associ\u00e9s, adapt\u00e9e aux sp\u00e9cificit\u00e9s du parcours suivi par l'\u00e9tudiant, est dispens\u00e9e d\u00e8s l'entr\u00e9e dans l'enseignement sup\u00e9rieur, dans la continuit\u00e9 des formations dispens\u00e9es dans l'enseignement du second degr\u00e9.", 
+                        "\"Une formation \u00e0 l'utilisation des outils et des ressources num\u00e9riques et \u00e0 la compr\u00e9hension des enjeux qui leur sont associ\u00e9s, adapt\u00e9e aux sp\u00e9cificit\u00e9s du parcours suivi par l'\u00e9tudiant, est dispens\u00e9e d\u00e8s l'entr\u00e9e dans l'enseignement sup\u00e9rieur, dans la continuit\u00e9 des formations dispens\u00e9es dans l'enseignement du second degr\u00e9.", 
                         "\"\u00c0 leur demande, les enseignants peuvent suivre une formation qui leur permet d'acqu\u00e9rir les comp\u00e9tences n\u00e9cessaires \u00e0 la mise \u00e0 disposition de leurs enseignements sous forme num\u00e9rique et les initie aux m\u00e9thodes p\u00e9dagogiques innovantes sollicitant l'usage des technologies de l'information et de la communication.", 
                         "\"Les modalit\u00e9s de mise en oeuvre des deux premiers alin\u00e9as du pr\u00e9sent article sont fix\u00e9es par le contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 711-1.\"", 
                         "II. - (Supprim\u00e9)"
@@ -1671,7 +1671,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 604, 
                     "n_diff": 0.55115089514066495, 
                     "order": 31, 
@@ -1683,7 +1683,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 650, 
                     "n_diff": 0.42583732057416268, 
                     "order": 31, 
@@ -1697,7 +1697,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 650, 
                     "n_diff": 0, 
                     "order": 30, 
@@ -1711,7 +1711,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 650, 
                     "n_diff": 0, 
                     "order": 30, 
@@ -1743,7 +1743,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 160, 
                     "n_diff": 0, 
                     "order": 32, 
@@ -1754,7 +1754,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 181, 
                     "n_diff": 0.11730205278592376, 
                     "order": 32, 
@@ -1765,7 +1765,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 181, 
                     "n_diff": 0, 
                     "order": 31, 
@@ -1776,7 +1776,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 181, 
                     "n_diff": 0, 
                     "order": 31, 
@@ -1839,7 +1839,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 578, 
                     "n_diff": 0, 
                     "order": 33, 
@@ -1854,7 +1854,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 578, 
                     "n_diff": 0, 
                     "order": 33, 
@@ -1869,7 +1869,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 578, 
                     "n_diff": 0, 
                     "order": 32, 
@@ -1884,7 +1884,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 578, 
                     "n_diff": 0, 
                     "order": 32, 
@@ -1951,7 +1951,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 2921, 
                     "n_diff": 0.19227857683573046, 
                     "order": 34, 
@@ -1970,7 +1970,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 3517, 
                     "n_diff": 0.11090400745573159, 
                     "order": 34, 
@@ -1989,7 +1989,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 3960, 
                     "n_diff": 0.15179884980607194, 
                     "order": 33, 
@@ -2010,7 +2010,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 3960, 
                     "n_diff": 0, 
                     "order": 33, 
@@ -2049,7 +2049,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 50, 
                     "n_diff": 0, 
                     "order": 35, 
@@ -2104,7 +2104,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 423, 
                     "n_diff": 0.10701107011070121, 
                     "order": 37, 
@@ -2117,7 +2117,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 433, 
                     "n_diff": 0.032710280373831724, 
                     "order": 36, 
@@ -2130,7 +2130,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 433, 
                     "n_diff": 0, 
                     "order": 35, 
@@ -2143,7 +2143,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 433, 
                     "n_diff": 0, 
                     "order": 34, 
@@ -2163,7 +2163,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 497, 
                     "n_diff": 1, 
                     "order": 36, 
@@ -2175,7 +2175,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 497, 
                     "n_diff": 0, 
                     "order": 35, 
@@ -2187,7 +2187,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 50, 
                     "n_diff": 0, 
                     "order": 34, 
@@ -2225,7 +2225,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 576, 
                     "n_diff": 0.73655913978494625, 
                     "order": 38, 
@@ -2240,7 +2240,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 586, 
                     "n_diff": 0.024096385542168641, 
                     "order": 37, 
@@ -2255,7 +2255,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 586, 
                     "n_diff": 0, 
                     "order": 36, 
@@ -2270,7 +2270,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 586, 
                     "n_diff": 0, 
                     "order": 35, 
@@ -2292,50 +2292,50 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 292, 
                     "n_diff": 1, 
                     "order": 39, 
                     "status": "new", 
                     "text": [
                         "La seconde phrase de l'article L. 612-9 du m\u00eame code est ainsi r\u00e9dig\u00e9e :", 
-                        "\"un d\u00e9cret fixe les formations pour lesquelles il peut \u00eatre d\u00e9rog\u00e9 \u00e0 cette dur\u00e9e de stage compte tenu des sp\u00e9cificit\u00e9s, n\u00e9cessitant une dur\u00e9e de pratique sup\u00e9rieure, des professions auxquelles pr\u00e9parent ces formations.\""
+                        "\"Un d\u00e9cret fixe les formations pour lesquelles il peut \u00eatre d\u00e9rog\u00e9 \u00e0 cette dur\u00e9e de stage compte tenu des sp\u00e9cificit\u00e9s, n\u00e9cessitant une dur\u00e9e de pratique sup\u00e9rieure, des professions auxquelles pr\u00e9parent ces formations.\""
                     ]
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 302, 
                     "n_diff": 0.047138047138047146, 
                     "order": 38, 
                     "status": "none", 
                     "text": [
                         "La seconde phrase de l'article L. 612-9 du code de l'\u00e9ducation est ainsi r\u00e9dig\u00e9e :", 
-                        "\"un d\u00e9cret fixe les formations pour lesquelles il peut \u00eatre d\u00e9rog\u00e9 \u00e0 cette dur\u00e9e de stage compte tenu des sp\u00e9cificit\u00e9s, n\u00e9cessitant une dur\u00e9e de pratique sup\u00e9rieure, des professions auxquelles pr\u00e9parent ces formations.\""
+                        "\"Un d\u00e9cret fixe les formations pour lesquelles il peut \u00eatre d\u00e9rog\u00e9 \u00e0 cette dur\u00e9e de stage compte tenu des sp\u00e9cificit\u00e9s, n\u00e9cessitant une dur\u00e9e de pratique sup\u00e9rieure, des professions auxquelles pr\u00e9parent ces formations.\""
                     ]
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 301, 
                     "n_diff": 0.12935323383084574, 
                     "order": 37, 
                     "status": "none", 
                     "text": [
                         "La seconde phrase de l'article L. 612-9 du code de l'\u00e9ducation est ainsi r\u00e9dig\u00e9e :", 
-                        "\"un d\u00e9cret fixe les formations pour lesquelles il peut \u00eatre d\u00e9rog\u00e9 \u00e0 cette dur\u00e9e de stage compte tenu des sp\u00e9cificit\u00e9s des professions n\u00e9cessitant une dur\u00e9e de pratique sup\u00e9rieure, auxquelles pr\u00e9parent ces formations.\""
+                        "\"Un d\u00e9cret fixe les formations pour lesquelles il peut \u00eatre d\u00e9rog\u00e9 \u00e0 cette dur\u00e9e de stage compte tenu des sp\u00e9cificit\u00e9s des professions n\u00e9cessitant une dur\u00e9e de pratique sup\u00e9rieure, auxquelles pr\u00e9parent ces formations.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 301, 
                     "n_diff": 0, 
                     "order": 36, 
                     "status": "none", 
                     "text": [
                         "La seconde phrase de l'article L. 612-9 du code de l'\u00e9ducation est ainsi r\u00e9dig\u00e9e :", 
-                        "\"un d\u00e9cret fixe les formations pour lesquelles il peut \u00eatre d\u00e9rog\u00e9 \u00e0 cette dur\u00e9e de stage compte tenu des sp\u00e9cificit\u00e9s des professions n\u00e9cessitant une dur\u00e9e de pratique sup\u00e9rieure, auxquelles pr\u00e9parent ces formations.\""
+                        "\"Un d\u00e9cret fixe les formations pour lesquelles il peut \u00eatre d\u00e9rog\u00e9 \u00e0 cette dur\u00e9e de stage compte tenu des sp\u00e9cificit\u00e9s des professions n\u00e9cessitant une dur\u00e9e de pratique sup\u00e9rieure, auxquelles pr\u00e9parent ces formations.\""
                     ]
                 }
             ], 
@@ -2398,7 +2398,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 202, 
                     "n_diff": 0.02267002518891692, 
                     "order": 1, 
@@ -2410,7 +2410,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 202, 
                     "n_diff": 0, 
                     "order": 1, 
@@ -2422,7 +2422,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 202, 
                     "n_diff": 0, 
                     "order": 1, 
@@ -2434,7 +2434,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 202, 
                     "n_diff": 0, 
                     "order": 1, 
@@ -2489,7 +2489,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1115, 
                     "n_diff": 0.64450127877237851, 
                     "order": 2, 
@@ -2506,7 +2506,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1803, 
                     "n_diff": 0.3570938999314599, 
                     "order": 2, 
@@ -2526,7 +2526,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1828, 
                     "n_diff": 0.0068851556045166351, 
                     "order": 2, 
@@ -2546,7 +2546,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1826, 
                     "n_diff": 0.00054734537493161817, 
                     "order": 2, 
@@ -2600,7 +2600,7 @@
                         "1\u00b0 \u00c0 la deuxi\u00e8me phrase du deuxi\u00e8me alin\u00e9a, le mot : \"habilit\u00e9s\" est remplac\u00e9 par le mot : \"accr\u00e9dit\u00e9s\" ;", 
                         "2\u00b0 Apr\u00e8s le deuxi\u00e8me alin\u00e9a, sont ins\u00e9r\u00e9s quatre alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"Le contenu et les modalit\u00e9s de l'accr\u00e9ditation des \u00e9tablissements sont fix\u00e9s par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. L'accr\u00e9ditation, par son contenu et ses modalit\u00e9s, prend en compte la qualit\u00e9 p\u00e9dagogique, la carte territoriale des formations, les objectifs d'insertion professionnelle et les liens entre les \u00e9quipes p\u00e9dagogiques et les repr\u00e9sentants des professions concern\u00e9es par la formation.", 
-                        "\"un \u00e9tablissement est accr\u00e9dit\u00e9 pour la dur\u00e9e du contrat pluriannuel conclu avec l'\u00c9tat. L'accr\u00e9ditation peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche.", 
+                        "\"Un \u00e9tablissement est accr\u00e9dit\u00e9 pour la dur\u00e9e du contrat pluriannuel conclu avec l'\u00c9tat. L'accr\u00e9ditation peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche.", 
                         "\"Le cadre national des formations, fix\u00e9 par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche, comprend la liste des mentions des dipl\u00f4mes nationaux regroup\u00e9s par grands domaines ainsi que les r\u00e8gles relatives \u00e0 l'organisation des formations.", 
                         "\"L'arr\u00eat\u00e9 d'accr\u00e9ditation de l'\u00e9tablissement emporte habilitation de ce dernier \u00e0 d\u00e9livrer, dans le respect du cadre national des formations, les dipl\u00f4mes nationaux dont la liste est annex\u00e9e \u00e0 l'arr\u00eat\u00e9.\""
                     ]
@@ -2617,14 +2617,14 @@
                         "1\u00b0 \u00c0 la deuxi\u00e8me phrase du deuxi\u00e8me alin\u00e9a, le mot : \"habilit\u00e9s\" est remplac\u00e9 par le mot : \"accr\u00e9dit\u00e9s\" ;", 
                         "2\u00b0 Apr\u00e8s le deuxi\u00e8me alin\u00e9a, sont ins\u00e9r\u00e9s quatre alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"Le contenu et les modalit\u00e9s de l'accr\u00e9ditation des \u00e9tablissements sont fix\u00e9s par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. L'accr\u00e9ditation, par son contenu et ses modalit\u00e9s, prend en compte le lien entre enseignement et recherche au sein de l'\u00e9tablissement, la qualit\u00e9 p\u00e9dagogique, la carte territoriale des formations, les objectifs d'insertion professionnelle et les liens entre les \u00e9quipes p\u00e9dagogiques et les repr\u00e9sentants des professions concern\u00e9es par la formation.", 
-                        "\"un \u00e9tablissement est accr\u00e9dit\u00e9 pour la dur\u00e9e du contrat pluriannuel conclu avec l'\u00c9tat. L'accr\u00e9ditation peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche.", 
+                        "\"Un \u00e9tablissement est accr\u00e9dit\u00e9 pour la dur\u00e9e du contrat pluriannuel conclu avec l'\u00c9tat. L'accr\u00e9ditation peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche.", 
                         "\"Le cadre national des formations, fix\u00e9 par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche, comprend la liste des mentions des dipl\u00f4mes nationaux regroup\u00e9s par grands domaines ainsi que les r\u00e8gles relatives \u00e0 l'organisation des formations.", 
                         "\"L'arr\u00eat\u00e9 d'accr\u00e9ditation de l'\u00e9tablissement emporte habilitation de ce dernier \u00e0 d\u00e9livrer, dans le respect du cadre national des formations, les dipl\u00f4mes nationaux dont la liste est annex\u00e9e \u00e0 l'arr\u00eat\u00e9.\""
                     ]
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1962, 
                     "n_diff": 0.094866071428571397, 
                     "order": 40, 
@@ -2634,7 +2634,7 @@
                         "1\u00b0 \u00c0 la deuxi\u00e8me phrase du deuxi\u00e8me alin\u00e9a, le mot : \"habilit\u00e9s\" est remplac\u00e9 par le mot : \"accr\u00e9dit\u00e9s\" ;", 
                         "2\u00b0 Apr\u00e8s le deuxi\u00e8me alin\u00e9a, sont ins\u00e9r\u00e9s quatre alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"Le contenu et les modalit\u00e9s de l'accr\u00e9ditation des \u00e9tablissements sont fix\u00e9s par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. L'accr\u00e9ditation, par son contenu et ses modalit\u00e9s, prend en compte le lien entre enseignement et recherche au sein de l'\u00e9tablissement, la qualit\u00e9 p\u00e9dagogique, la carte territoriale des formations, les objectifs d'insertion professionnelle et les liens entre les \u00e9quipes p\u00e9dagogiques et les repr\u00e9sentants des professions concern\u00e9es par la formation. L'accr\u00e9ditation est accord\u00e9e par niveau et par grand domaine de formation.", 
-                        "\"un \u00e9tablissement est accr\u00e9dit\u00e9 pour la dur\u00e9e du contrat pluriannuel conclu avec l'\u00c9tat. L'accr\u00e9ditation peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche.", 
+                        "\"Un \u00e9tablissement est accr\u00e9dit\u00e9 pour la dur\u00e9e du contrat pluriannuel conclu avec l'\u00c9tat. L'accr\u00e9ditation peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche.", 
                         "\"Le cadre national des formations, fix\u00e9 par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche, comprend la liste des mentions des dipl\u00f4mes nationaux regroup\u00e9s par grands domaines ainsi que les r\u00e8gles relatives \u00e0 l'organisation des formations.", 
                         "\"L'arr\u00eat\u00e9 d'accr\u00e9ditation de l'\u00e9tablissement emporte habilitation de ce dernier \u00e0 d\u00e9livrer, dans le respect du cadre national des formations, les dipl\u00f4mes nationaux dont la liste est annex\u00e9e \u00e0 l'arr\u00eat\u00e9.\" ;", 
                         "3\u00b0 Apr\u00e8s la deuxi\u00e8me phrase du quatri\u00e8me alin\u00e9a, est ins\u00e9r\u00e9e une phrase ainsi r\u00e9dig\u00e9e :", 
@@ -2643,7 +2643,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1897, 
                     "n_diff": 0.02669085255247472, 
                     "order": 39, 
@@ -2653,7 +2653,7 @@
                         "1\u00b0 \u00c0 la deuxi\u00e8me phrase du deuxi\u00e8me alin\u00e9a, le mot : \"habilit\u00e9s\" est remplac\u00e9 par le mot : \"accr\u00e9dit\u00e9s\" ;", 
                         "2\u00b0 Apr\u00e8s le deuxi\u00e8me alin\u00e9a, sont ins\u00e9r\u00e9s quatre alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"Le contenu et les modalit\u00e9s de l'accr\u00e9ditation des \u00e9tablissements sont fix\u00e9s par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. L'accr\u00e9ditation, par son contenu et ses modalit\u00e9s, prend en compte le lien entre enseignement et recherche au sein de l'\u00e9tablissement, la qualit\u00e9 p\u00e9dagogique, la carte territoriale des formations, les objectifs d'insertion professionnelle et les liens entre les \u00e9quipes p\u00e9dagogiques et les repr\u00e9sentants des professions concern\u00e9es par la formation.", 
-                        "\"un \u00e9tablissement est accr\u00e9dit\u00e9 pour la dur\u00e9e du contrat pluriannuel conclu avec l'\u00c9tat. L'accr\u00e9ditation peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche.", 
+                        "\"Un \u00e9tablissement est accr\u00e9dit\u00e9 pour la dur\u00e9e du contrat pluriannuel conclu avec l'\u00c9tat. L'accr\u00e9ditation peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche.", 
                         "\"Le cadre national des formations, fix\u00e9 par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche, comprend la liste des mentions des dipl\u00f4mes nationaux regroup\u00e9s par grands domaines ainsi que les r\u00e8gles relatives \u00e0 l'organisation des formations.", 
                         "\"L'arr\u00eat\u00e9 d'accr\u00e9ditation de l'\u00e9tablissement emporte habilitation de ce dernier \u00e0 d\u00e9livrer, dans le respect du cadre national des formations, les dipl\u00f4mes nationaux dont la liste est annex\u00e9e \u00e0 l'arr\u00eat\u00e9.\" ;", 
                         "3\u00b0 Apr\u00e8s la deuxi\u00e8me phrase du quatri\u00e8me alin\u00e9a, est ins\u00e9r\u00e9e une phrase ainsi r\u00e9dig\u00e9e :", 
@@ -2662,7 +2662,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1897, 
                     "n_diff": 0, 
                     "order": 38, 
@@ -2672,7 +2672,7 @@
                         "1\u00b0 \u00c0 la deuxi\u00e8me phrase du deuxi\u00e8me alin\u00e9a, le mot : \"habilit\u00e9s\" est remplac\u00e9 par le mot : \"accr\u00e9dit\u00e9s\" ;", 
                         "2\u00b0 Apr\u00e8s le deuxi\u00e8me alin\u00e9a, sont ins\u00e9r\u00e9s quatre alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"Le contenu et les modalit\u00e9s de l'accr\u00e9ditation des \u00e9tablissements sont fix\u00e9s par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. L'accr\u00e9ditation, par son contenu et ses modalit\u00e9s, prend en compte le lien entre enseignement et recherche au sein de l'\u00e9tablissement, la qualit\u00e9 p\u00e9dagogique, la carte territoriale des formations, les objectifs d'insertion professionnelle et les liens entre les \u00e9quipes p\u00e9dagogiques et les repr\u00e9sentants des professions concern\u00e9es par la formation.", 
-                        "\"un \u00e9tablissement est accr\u00e9dit\u00e9 pour la dur\u00e9e du contrat pluriannuel conclu avec l'\u00c9tat. L'accr\u00e9ditation peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche.", 
+                        "\"Un \u00e9tablissement est accr\u00e9dit\u00e9 pour la dur\u00e9e du contrat pluriannuel conclu avec l'\u00c9tat. L'accr\u00e9ditation peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche.", 
                         "\"Le cadre national des formations, fix\u00e9 par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche, comprend la liste des mentions des dipl\u00f4mes nationaux regroup\u00e9s par grands domaines ainsi que les r\u00e8gles relatives \u00e0 l'organisation des formations.", 
                         "\"L'arr\u00eat\u00e9 d'accr\u00e9ditation de l'\u00e9tablissement emporte habilitation de ce dernier \u00e0 d\u00e9livrer, dans le respect du cadre national des formations, les dipl\u00f4mes nationaux dont la liste est annex\u00e9e \u00e0 l'arr\u00eat\u00e9.\" ;", 
                         "3\u00b0 Apr\u00e8s la deuxi\u00e8me phrase du quatri\u00e8me alin\u00e9a, est ins\u00e9r\u00e9e une phrase ainsi r\u00e9dig\u00e9e :", 
@@ -2681,7 +2681,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1897, 
                     "n_diff": 0, 
                     "order": 37, 
@@ -2691,7 +2691,7 @@
                         "1\u00b0 \u00c0 la deuxi\u00e8me phrase du deuxi\u00e8me alin\u00e9a, le mot : \"habilit\u00e9s\" est remplac\u00e9 par le mot : \"accr\u00e9dit\u00e9s\" ;", 
                         "2\u00b0 Apr\u00e8s le deuxi\u00e8me alin\u00e9a, sont ins\u00e9r\u00e9s quatre alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"Le contenu et les modalit\u00e9s de l'accr\u00e9ditation des \u00e9tablissements sont fix\u00e9s par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. L'accr\u00e9ditation, par son contenu et ses modalit\u00e9s, prend en compte le lien entre enseignement et recherche au sein de l'\u00e9tablissement, la qualit\u00e9 p\u00e9dagogique, la carte territoriale des formations, les objectifs d'insertion professionnelle et les liens entre les \u00e9quipes p\u00e9dagogiques et les repr\u00e9sentants des professions concern\u00e9es par la formation.", 
-                        "\"un \u00e9tablissement est accr\u00e9dit\u00e9 pour la dur\u00e9e du contrat pluriannuel conclu avec l'\u00c9tat. L'accr\u00e9ditation peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche.", 
+                        "\"Un \u00e9tablissement est accr\u00e9dit\u00e9 pour la dur\u00e9e du contrat pluriannuel conclu avec l'\u00c9tat. L'accr\u00e9ditation peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche.", 
                         "\"Le cadre national des formations, fix\u00e9 par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche, comprend la liste des mentions des dipl\u00f4mes nationaux regroup\u00e9s par grands domaines ainsi que les r\u00e8gles relatives \u00e0 l'organisation des formations.", 
                         "\"L'arr\u00eat\u00e9 d'accr\u00e9ditation de l'\u00e9tablissement emporte habilitation de ce dernier \u00e0 d\u00e9livrer, dans le respect du cadre national des formations, les dipl\u00f4mes nationaux dont la liste est annex\u00e9e \u00e0 l'arr\u00eat\u00e9.\" ;", 
                         "3\u00b0 Apr\u00e8s la deuxi\u00e8me phrase du quatri\u00e8me alin\u00e9a, est ins\u00e9r\u00e9e une phrase ainsi r\u00e9dig\u00e9e :", 
@@ -2761,7 +2761,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1802, 
                     "n_diff": 0.0033259423503325669, 
                     "order": 41, 
@@ -2783,7 +2783,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1802, 
                     "n_diff": 0, 
                     "order": 40, 
@@ -2805,7 +2805,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1802, 
                     "n_diff": 0, 
                     "order": 39, 
@@ -2827,7 +2827,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1802, 
                     "n_diff": 0, 
                     "order": 38, 
@@ -2878,7 +2878,7 @@
                     "status": "none", 
                     "text": [
                         "\u00c0 titre exp\u00e9rimental, pour une dur\u00e9e de six ans, et par d\u00e9rogation aux dispositions du I de l'article L. 631-1 du code de l'\u00e9ducation, des modalit\u00e9s particuli\u00e8res d'admission dans les \u00e9tudes m\u00e9dicales, odontologiques, pharmaceutiques et de ma\u00efeutique peuvent \u00eatre fix\u00e9es par d\u00e9cret sous la forme :", 
-                        "1\u00b0 D'une r\u00e9orientation des \u00e9tudiants de la premi\u00e8re ann\u00e9e commune aux \u00e9tudes de sant\u00e9 \u00e0 l'issue d'\u00e9preuves organis\u00e9es au plus t\u00f4t huit semaines apr\u00e8s le d\u00e9but de celles-ci, portant sur les enseignements dispens\u00e9s au cours de cette p\u00e9riode. Seuls les \u00e9tudiants consid\u00e9r\u00e9s, sur la base de ces \u00e9preuves, comme n'\u00e9tant pas susceptibles d'\u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e peuvent \u00eatre r\u00e9orient\u00e9s. La r\u00e9orientation peut \u00eatre syst\u00e9matique, le nombre de ces r\u00e9orientations ne pouvant alors exc\u00e9der un pourcentage du nombre d'inscrits, d\u00e9termin\u00e9 par arr\u00eat\u00e9 apr\u00e8s consultation des organisations repr\u00e9sentatives concern\u00e9es. une r\u00e9orientation facultative peut \u00e9galement \u00eatre propos\u00e9e aux \u00e9tudiants au-del\u00e0 de ce pourcentage. L'universit\u00e9 assure dans tous les cas la r\u00e9orientation de ces \u00e9tudiants en les inscrivant dans une formation qui les accueille d\u00e8s l'ann\u00e9e universitaire en cours ;", 
+                        "1\u00b0 D'une r\u00e9orientation des \u00e9tudiants de la premi\u00e8re ann\u00e9e commune aux \u00e9tudes de sant\u00e9 \u00e0 l'issue d'\u00e9preuves organis\u00e9es au plus t\u00f4t huit semaines apr\u00e8s le d\u00e9but de celles-ci, portant sur les enseignements dispens\u00e9s au cours de cette p\u00e9riode. Seuls les \u00e9tudiants consid\u00e9r\u00e9s, sur la base de ces \u00e9preuves, comme n'\u00e9tant pas susceptibles d'\u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e peuvent \u00eatre r\u00e9orient\u00e9s. La r\u00e9orientation peut \u00eatre syst\u00e9matique, le nombre de ces r\u00e9orientations ne pouvant alors exc\u00e9der un pourcentage du nombre d'inscrits, d\u00e9termin\u00e9 par arr\u00eat\u00e9 apr\u00e8s consultation des organisations repr\u00e9sentatives concern\u00e9es. Une r\u00e9orientation facultative peut \u00e9galement \u00eatre propos\u00e9e aux \u00e9tudiants au-del\u00e0 de ce pourcentage. L'universit\u00e9 assure dans tous les cas la r\u00e9orientation de ces \u00e9tudiants en les inscrivant dans une formation qui les accueille d\u00e8s l'ann\u00e9e universitaire en cours ;", 
                         "2\u00b0 D'une admission en deuxi\u00e8me ou troisi\u00e8me ann\u00e9e des \u00e9tudes m\u00e9dicales, odontologiques, pharmaceutiques ou de ma\u00efeutique apr\u00e8s une \u00e0 trois ann\u00e9es d'un premier cycle universitaire adapt\u00e9 conduisant \u00e0 un dipl\u00f4me national de licence. Le nombre des \u00e9tudiants admis en deuxi\u00e8me ann\u00e9e apr\u00e8s la premi\u00e8re ann\u00e9e commune et le nombre des \u00e9tudiants admis directement en deuxi\u00e8me ou troisi\u00e8me ann\u00e9e sont fix\u00e9s, pour chaque universit\u00e9 concern\u00e9e et pour chacune des fili\u00e8res, par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.", 
                         "Au cours de la cinqui\u00e8me ann\u00e9e de l'exp\u00e9rimentation, les ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9 pr\u00e9sentent conjointement au Conseil national de l'enseignement sup\u00e9rieur et de la recherche un rapport d'\u00e9valuation des exp\u00e9rimentations men\u00e9es au titre du pr\u00e9sent article. Ce rapport, accompagn\u00e9 de l'avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche, est adress\u00e9 au Parlement."
                     ]
@@ -2892,63 +2892,63 @@
                     "status": "none", 
                     "text": [
                         "\u00c0 titre exp\u00e9rimental, pour une dur\u00e9e de six ans, et par d\u00e9rogation aux dispositions du I de l'article L. 631-1 du code de l'\u00e9ducation, des modalit\u00e9s particuli\u00e8res d'admission dans les \u00e9tudes m\u00e9dicales, odontologiques, pharmaceutiques et de ma\u00efeutique peuvent \u00eatre fix\u00e9es par d\u00e9cret sous la forme :", 
-                        "1\u00b0 D'une r\u00e9orientation des \u00e9tudiants de la premi\u00e8re ann\u00e9e commune aux \u00e9tudes de sant\u00e9 \u00e0 l'issue d'\u00e9preuves organis\u00e9es au plus t\u00f4t huit semaines apr\u00e8s le d\u00e9but de celles-ci, portant sur les enseignements dispens\u00e9s au cours de cette p\u00e9riode. Seuls les \u00e9tudiants consid\u00e9r\u00e9s, sur la base de ces \u00e9preuves, comme n'\u00e9tant pas susceptibles d'\u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e peuvent \u00eatre r\u00e9orient\u00e9s. La r\u00e9orientation peut \u00eatre syst\u00e9matique, le nombre de ces r\u00e9orientations ne pouvant alors exc\u00e9der un pourcentage du nombre d'inscrits, d\u00e9termin\u00e9 par arr\u00eat\u00e9 apr\u00e8s consultation des organisations repr\u00e9sentatives concern\u00e9es. une r\u00e9orientation facultative peut \u00e9galement \u00eatre propos\u00e9e aux \u00e9tudiants au-del\u00e0 de ce pourcentage. L'universit\u00e9 assure dans tous les cas la r\u00e9orientation de ces \u00e9tudiants en leur proposant une inscription dans une formation qui les accueille d\u00e8s l'ann\u00e9e universitaire en cours ;", 
+                        "1\u00b0 D'une r\u00e9orientation des \u00e9tudiants de la premi\u00e8re ann\u00e9e commune aux \u00e9tudes de sant\u00e9 \u00e0 l'issue d'\u00e9preuves organis\u00e9es au plus t\u00f4t huit semaines apr\u00e8s le d\u00e9but de celles-ci, portant sur les enseignements dispens\u00e9s au cours de cette p\u00e9riode. Seuls les \u00e9tudiants consid\u00e9r\u00e9s, sur la base de ces \u00e9preuves, comme n'\u00e9tant pas susceptibles d'\u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e peuvent \u00eatre r\u00e9orient\u00e9s. La r\u00e9orientation peut \u00eatre syst\u00e9matique, le nombre de ces r\u00e9orientations ne pouvant alors exc\u00e9der un pourcentage du nombre d'inscrits, d\u00e9termin\u00e9 par arr\u00eat\u00e9 apr\u00e8s consultation des organisations repr\u00e9sentatives concern\u00e9es. Une r\u00e9orientation facultative peut \u00e9galement \u00eatre propos\u00e9e aux \u00e9tudiants au-del\u00e0 de ce pourcentage. L'universit\u00e9 assure dans tous les cas la r\u00e9orientation de ces \u00e9tudiants en leur proposant une inscription dans une formation qui les accueille d\u00e8s l'ann\u00e9e universitaire en cours ;", 
                         "2\u00b0 D'une admission en deuxi\u00e8me ou troisi\u00e8me ann\u00e9e des \u00e9tudes m\u00e9dicales, odontologiques, pharmaceutiques ou de ma\u00efeutique apr\u00e8s une \u00e0 trois ann\u00e9es d'un premier cycle universitaire adapt\u00e9 conduisant \u00e0 un dipl\u00f4me national de licence. Le nombre des \u00e9tudiants admis en deuxi\u00e8me ann\u00e9e apr\u00e8s la premi\u00e8re ann\u00e9e commune et le nombre des \u00e9tudiants admis directement en deuxi\u00e8me ou troisi\u00e8me ann\u00e9e sont fix\u00e9s, pour chaque universit\u00e9 concern\u00e9e et pour chacune des fili\u00e8res, par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.", 
                         "Au cours de la cinqui\u00e8me ann\u00e9e de l'exp\u00e9rimentation, les ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9 pr\u00e9sentent conjointement au Conseil national de l'enseignement sup\u00e9rieur et de la recherche un rapport d'\u00e9valuation des exp\u00e9rimentations men\u00e9es au titre du pr\u00e9sent article. Ce rapport, accompagn\u00e9 de l'avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche, est adress\u00e9 au Parlement."
                     ]
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 2542, 
                     "n_diff": 0.27863645987719665, 
                     "order": 42, 
                     "status": "none", 
                     "text": [
                         "\u00c0 titre exp\u00e9rimental, pour une dur\u00e9e de six ans, et par d\u00e9rogation aux dispositions du I de l'article L. 631-1 du code de l'\u00e9ducation, des modalit\u00e9s particuli\u00e8res d'admission dans les \u00e9tudes m\u00e9dicales, odontologiques, pharmaceutiques et de ma\u00efeutique peuvent \u00eatre fix\u00e9es par d\u00e9cret sous la forme :", 
-                        "1\u00b0 D'une r\u00e9orientation des \u00e9tudiants de la premi\u00e8re ann\u00e9e commune aux \u00e9tudes de sant\u00e9 \u00e0 l'issue d'\u00e9preuves organis\u00e9es au plus t\u00f4t huit semaines apr\u00e8s le d\u00e9but de celles-ci, portant sur les enseignements dispens\u00e9s au cours de cette p\u00e9riode. Seuls les \u00e9tudiants consid\u00e9r\u00e9s, sur la base de ces \u00e9preuves, comme n'\u00e9tant pas susceptibles d'\u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e peuvent \u00eatre r\u00e9orient\u00e9s. Le niveau permettant d'appr\u00e9cier la capacit\u00e9 des \u00e9tudiants \u00e0 \u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e est d\u00e9termin\u00e9 par le conseil de l'unit\u00e9 de formation et de recherche de m\u00e9decine, pharmacie, odontologie et ma\u00efeutique de l'universit\u00e9, en tenant compte, le cas \u00e9ch\u00e9ant, du nombre vis\u00e9 au 2\u00b0 du I de l'article L. 631-1 du code de l'\u00e9ducation. La r\u00e9orientation peut \u00eatre syst\u00e9matique, le nombre de ces r\u00e9orientations ne pouvant alors exc\u00e9der un pourcentage du nombre d'inscrits, d\u00e9termin\u00e9 par arr\u00eat\u00e9 apr\u00e8s consultation des organisations repr\u00e9sentatives concern\u00e9es. une r\u00e9orientation facultative peut \u00e9galement \u00eatre propos\u00e9e aux \u00e9tudiants au-del\u00e0 de ce pourcentage. L'universit\u00e9 assure dans tous les cas la r\u00e9orientation de ces \u00e9tudiants en leur proposant une inscription dans une formation qui les accueille d\u00e8s l'ann\u00e9e universitaire en cours ;", 
+                        "1\u00b0 D'une r\u00e9orientation des \u00e9tudiants de la premi\u00e8re ann\u00e9e commune aux \u00e9tudes de sant\u00e9 \u00e0 l'issue d'\u00e9preuves organis\u00e9es au plus t\u00f4t huit semaines apr\u00e8s le d\u00e9but de celles-ci, portant sur les enseignements dispens\u00e9s au cours de cette p\u00e9riode. Seuls les \u00e9tudiants consid\u00e9r\u00e9s, sur la base de ces \u00e9preuves, comme n'\u00e9tant pas susceptibles d'\u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e peuvent \u00eatre r\u00e9orient\u00e9s. Le niveau permettant d'appr\u00e9cier la capacit\u00e9 des \u00e9tudiants \u00e0 \u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e est d\u00e9termin\u00e9 par le conseil de l'unit\u00e9 de formation et de recherche de m\u00e9decine, pharmacie, odontologie et ma\u00efeutique de l'universit\u00e9, en tenant compte, le cas \u00e9ch\u00e9ant, du nombre vis\u00e9 au 2\u00b0 du I de l'article L. 631-1 du code de l'\u00e9ducation. La r\u00e9orientation peut \u00eatre syst\u00e9matique, le nombre de ces r\u00e9orientations ne pouvant alors exc\u00e9der un pourcentage du nombre d'inscrits, d\u00e9termin\u00e9 par arr\u00eat\u00e9 apr\u00e8s consultation des organisations repr\u00e9sentatives concern\u00e9es. Une r\u00e9orientation facultative peut \u00e9galement \u00eatre propos\u00e9e aux \u00e9tudiants au-del\u00e0 de ce pourcentage. L'universit\u00e9 assure dans tous les cas la r\u00e9orientation de ces \u00e9tudiants en leur proposant une inscription dans une formation qui les accueille d\u00e8s l'ann\u00e9e universitaire en cours ;", 
                         "2\u00b0 D'une admission en deuxi\u00e8me ou troisi\u00e8me ann\u00e9e des \u00e9tudes m\u00e9dicales, odontologiques, pharmaceutiques ou de ma\u00efeutique apr\u00e8s une \u00e0 trois ann\u00e9es d'un premier cycle universitaire adapt\u00e9 conduisant \u00e0 un dipl\u00f4me national de licence. Le nombre des \u00e9tudiants admis en deuxi\u00e8me ann\u00e9e apr\u00e8s la premi\u00e8re ann\u00e9e commune et le nombre des \u00e9tudiants admis directement en deuxi\u00e8me ou troisi\u00e8me ann\u00e9e sont fix\u00e9s, pour chaque universit\u00e9 concern\u00e9e et pour chacune des fili\u00e8res, par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.", 
                         "Au cours de la cinqui\u00e8me ann\u00e9e de l'exp\u00e9rimentation, les ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9 pr\u00e9sentent conjointement au Conseil national de l'enseignement sup\u00e9rieur et de la recherche un rapport d'\u00e9valuation des exp\u00e9rimentations men\u00e9es au titre du pr\u00e9sent article. Ce rapport, accompagn\u00e9 de l'avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche, est adress\u00e9 au Parlement."
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 2542, 
                     "n_diff": 0, 
                     "order": 41, 
                     "status": "none", 
                     "text": [
                         "\u00c0 titre exp\u00e9rimental, pour une dur\u00e9e de six ans, et par d\u00e9rogation aux dispositions du I de l'article L. 631-1 du code de l'\u00e9ducation, des modalit\u00e9s particuli\u00e8res d'admission dans les \u00e9tudes m\u00e9dicales, odontologiques, pharmaceutiques et de ma\u00efeutique peuvent \u00eatre fix\u00e9es par d\u00e9cret sous la forme :", 
-                        "1\u00b0 D'une r\u00e9orientation des \u00e9tudiants de la premi\u00e8re ann\u00e9e commune aux \u00e9tudes de sant\u00e9 \u00e0 l'issue d'\u00e9preuves organis\u00e9es au plus t\u00f4t huit semaines apr\u00e8s le d\u00e9but de celles-ci, portant sur les enseignements dispens\u00e9s au cours de cette p\u00e9riode. Seuls les \u00e9tudiants consid\u00e9r\u00e9s, sur la base de ces \u00e9preuves, comme n'\u00e9tant pas susceptibles d'\u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e peuvent \u00eatre r\u00e9orient\u00e9s. Le niveau permettant d'appr\u00e9cier la capacit\u00e9 des \u00e9tudiants \u00e0 \u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e est d\u00e9termin\u00e9 par le conseil de l'unit\u00e9 de formation et de recherche de m\u00e9decine, pharmacie, odontologie et ma\u00efeutique de l'universit\u00e9, en tenant compte, le cas \u00e9ch\u00e9ant, du nombre vis\u00e9 au 2\u00b0 du I de l'article L. 631-1 du code de l'\u00e9ducation. La r\u00e9orientation peut \u00eatre syst\u00e9matique, le nombre de ces r\u00e9orientations ne pouvant alors exc\u00e9der un pourcentage du nombre d'inscrits, d\u00e9termin\u00e9 par arr\u00eat\u00e9 apr\u00e8s consultation des organisations repr\u00e9sentatives concern\u00e9es. une r\u00e9orientation facultative peut \u00e9galement \u00eatre propos\u00e9e aux \u00e9tudiants au-del\u00e0 de ce pourcentage. L'universit\u00e9 assure dans tous les cas la r\u00e9orientation de ces \u00e9tudiants en leur proposant une inscription dans une formation qui les accueille d\u00e8s l'ann\u00e9e universitaire en cours ;", 
+                        "1\u00b0 D'une r\u00e9orientation des \u00e9tudiants de la premi\u00e8re ann\u00e9e commune aux \u00e9tudes de sant\u00e9 \u00e0 l'issue d'\u00e9preuves organis\u00e9es au plus t\u00f4t huit semaines apr\u00e8s le d\u00e9but de celles-ci, portant sur les enseignements dispens\u00e9s au cours de cette p\u00e9riode. Seuls les \u00e9tudiants consid\u00e9r\u00e9s, sur la base de ces \u00e9preuves, comme n'\u00e9tant pas susceptibles d'\u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e peuvent \u00eatre r\u00e9orient\u00e9s. Le niveau permettant d'appr\u00e9cier la capacit\u00e9 des \u00e9tudiants \u00e0 \u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e est d\u00e9termin\u00e9 par le conseil de l'unit\u00e9 de formation et de recherche de m\u00e9decine, pharmacie, odontologie et ma\u00efeutique de l'universit\u00e9, en tenant compte, le cas \u00e9ch\u00e9ant, du nombre vis\u00e9 au 2\u00b0 du I de l'article L. 631-1 du code de l'\u00e9ducation. La r\u00e9orientation peut \u00eatre syst\u00e9matique, le nombre de ces r\u00e9orientations ne pouvant alors exc\u00e9der un pourcentage du nombre d'inscrits, d\u00e9termin\u00e9 par arr\u00eat\u00e9 apr\u00e8s consultation des organisations repr\u00e9sentatives concern\u00e9es. Une r\u00e9orientation facultative peut \u00e9galement \u00eatre propos\u00e9e aux \u00e9tudiants au-del\u00e0 de ce pourcentage. L'universit\u00e9 assure dans tous les cas la r\u00e9orientation de ces \u00e9tudiants en leur proposant une inscription dans une formation qui les accueille d\u00e8s l'ann\u00e9e universitaire en cours ;", 
                         "2\u00b0 D'une admission en deuxi\u00e8me ou troisi\u00e8me ann\u00e9e des \u00e9tudes m\u00e9dicales, odontologiques, pharmaceutiques ou de ma\u00efeutique apr\u00e8s une \u00e0 trois ann\u00e9es d'un premier cycle universitaire adapt\u00e9 conduisant \u00e0 un dipl\u00f4me national de licence. Le nombre des \u00e9tudiants admis en deuxi\u00e8me ann\u00e9e apr\u00e8s la premi\u00e8re ann\u00e9e commune et le nombre des \u00e9tudiants admis directement en deuxi\u00e8me ou troisi\u00e8me ann\u00e9e sont fix\u00e9s, pour chaque universit\u00e9 concern\u00e9e et pour chacune des fili\u00e8res, par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.", 
                         "Au cours de la cinqui\u00e8me ann\u00e9e de l'exp\u00e9rimentation, les ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9 pr\u00e9sentent conjointement au Conseil national de l'enseignement sup\u00e9rieur et de la recherche un rapport d'\u00e9valuation des exp\u00e9rimentations men\u00e9es au titre du pr\u00e9sent article. Ce rapport, accompagn\u00e9 de l'avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche, est adress\u00e9 au Parlement."
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 2542, 
                     "n_diff": 0, 
                     "order": 40, 
                     "status": "none", 
                     "text": [
                         "\u00c0 titre exp\u00e9rimental, pour une dur\u00e9e de six ans, et par d\u00e9rogation aux dispositions du I de l'article L. 631-1 du code de l'\u00e9ducation, des modalit\u00e9s particuli\u00e8res d'admission dans les \u00e9tudes m\u00e9dicales, odontologiques, pharmaceutiques et de ma\u00efeutique peuvent \u00eatre fix\u00e9es par d\u00e9cret sous la forme :", 
-                        "1\u00b0 D'une r\u00e9orientation des \u00e9tudiants de la premi\u00e8re ann\u00e9e commune aux \u00e9tudes de sant\u00e9 \u00e0 l'issue d'\u00e9preuves organis\u00e9es au plus t\u00f4t huit semaines apr\u00e8s le d\u00e9but de celles-ci, portant sur les enseignements dispens\u00e9s au cours de cette p\u00e9riode. Seuls les \u00e9tudiants consid\u00e9r\u00e9s, sur la base de ces \u00e9preuves, comme n'\u00e9tant pas susceptibles d'\u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e peuvent \u00eatre r\u00e9orient\u00e9s. Le niveau permettant d'appr\u00e9cier la capacit\u00e9 des \u00e9tudiants \u00e0 \u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e est d\u00e9termin\u00e9 par le conseil de l'unit\u00e9 de formation et de recherche de m\u00e9decine, pharmacie, odontologie et ma\u00efeutique de l'universit\u00e9, en tenant compte, le cas \u00e9ch\u00e9ant, du nombre vis\u00e9 au 2\u00b0 du I de l'article L. 631-1 du code de l'\u00e9ducation. La r\u00e9orientation peut \u00eatre syst\u00e9matique, le nombre de ces r\u00e9orientations ne pouvant alors exc\u00e9der un pourcentage du nombre d'inscrits, d\u00e9termin\u00e9 par arr\u00eat\u00e9 apr\u00e8s consultation des organisations repr\u00e9sentatives concern\u00e9es. une r\u00e9orientation facultative peut \u00e9galement \u00eatre propos\u00e9e aux \u00e9tudiants au-del\u00e0 de ce pourcentage. L'universit\u00e9 assure dans tous les cas la r\u00e9orientation de ces \u00e9tudiants en leur proposant une inscription dans une formation qui les accueille d\u00e8s l'ann\u00e9e universitaire en cours ;", 
+                        "1\u00b0 D'une r\u00e9orientation des \u00e9tudiants de la premi\u00e8re ann\u00e9e commune aux \u00e9tudes de sant\u00e9 \u00e0 l'issue d'\u00e9preuves organis\u00e9es au plus t\u00f4t huit semaines apr\u00e8s le d\u00e9but de celles-ci, portant sur les enseignements dispens\u00e9s au cours de cette p\u00e9riode. Seuls les \u00e9tudiants consid\u00e9r\u00e9s, sur la base de ces \u00e9preuves, comme n'\u00e9tant pas susceptibles d'\u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e peuvent \u00eatre r\u00e9orient\u00e9s. Le niveau permettant d'appr\u00e9cier la capacit\u00e9 des \u00e9tudiants \u00e0 \u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e est d\u00e9termin\u00e9 par le conseil de l'unit\u00e9 de formation et de recherche de m\u00e9decine, pharmacie, odontologie et ma\u00efeutique de l'universit\u00e9, en tenant compte, le cas \u00e9ch\u00e9ant, du nombre vis\u00e9 au 2\u00b0 du I de l'article L. 631-1 du code de l'\u00e9ducation. La r\u00e9orientation peut \u00eatre syst\u00e9matique, le nombre de ces r\u00e9orientations ne pouvant alors exc\u00e9der un pourcentage du nombre d'inscrits, d\u00e9termin\u00e9 par arr\u00eat\u00e9 apr\u00e8s consultation des organisations repr\u00e9sentatives concern\u00e9es. Une r\u00e9orientation facultative peut \u00e9galement \u00eatre propos\u00e9e aux \u00e9tudiants au-del\u00e0 de ce pourcentage. L'universit\u00e9 assure dans tous les cas la r\u00e9orientation de ces \u00e9tudiants en leur proposant une inscription dans une formation qui les accueille d\u00e8s l'ann\u00e9e universitaire en cours ;", 
                         "2\u00b0 D'une admission en deuxi\u00e8me ou troisi\u00e8me ann\u00e9e des \u00e9tudes m\u00e9dicales, odontologiques, pharmaceutiques ou de ma\u00efeutique apr\u00e8s une \u00e0 trois ann\u00e9es d'un premier cycle universitaire adapt\u00e9 conduisant \u00e0 un dipl\u00f4me national de licence. Le nombre des \u00e9tudiants admis en deuxi\u00e8me ann\u00e9e apr\u00e8s la premi\u00e8re ann\u00e9e commune et le nombre des \u00e9tudiants admis directement en deuxi\u00e8me ou troisi\u00e8me ann\u00e9e sont fix\u00e9s, pour chaque universit\u00e9 concern\u00e9e et pour chacune des fili\u00e8res, par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.", 
                         "Au cours de la cinqui\u00e8me ann\u00e9e de l'exp\u00e9rimentation, les ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9 pr\u00e9sentent conjointement au Conseil national de l'enseignement sup\u00e9rieur et de la recherche un rapport d'\u00e9valuation des exp\u00e9rimentations men\u00e9es au titre du pr\u00e9sent article. Ce rapport, accompagn\u00e9 de l'avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche, est adress\u00e9 au Parlement."
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 2542, 
                     "n_diff": 0, 
                     "order": 39, 
                     "status": "none", 
                     "text": [
                         "\u00c0 titre exp\u00e9rimental, pour une dur\u00e9e de six ans, et par d\u00e9rogation aux dispositions du I de l'article L. 631-1 du code de l'\u00e9ducation, des modalit\u00e9s particuli\u00e8res d'admission dans les \u00e9tudes m\u00e9dicales, odontologiques, pharmaceutiques et de ma\u00efeutique peuvent \u00eatre fix\u00e9es par d\u00e9cret sous la forme :", 
-                        "1\u00b0 D'une r\u00e9orientation des \u00e9tudiants de la premi\u00e8re ann\u00e9e commune aux \u00e9tudes de sant\u00e9 \u00e0 l'issue d'\u00e9preuves organis\u00e9es au plus t\u00f4t huit semaines apr\u00e8s le d\u00e9but de celles-ci, portant sur les enseignements dispens\u00e9s au cours de cette p\u00e9riode. Seuls les \u00e9tudiants consid\u00e9r\u00e9s, sur la base de ces \u00e9preuves, comme n'\u00e9tant pas susceptibles d'\u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e peuvent \u00eatre r\u00e9orient\u00e9s. Le niveau permettant d'appr\u00e9cier la capacit\u00e9 des \u00e9tudiants \u00e0 \u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e est d\u00e9termin\u00e9 par le conseil de l'unit\u00e9 de formation et de recherche de m\u00e9decine, pharmacie, odontologie et ma\u00efeutique de l'universit\u00e9, en tenant compte, le cas \u00e9ch\u00e9ant, du nombre vis\u00e9 au 2\u00b0 du I de l'article L. 631-1 du code de l'\u00e9ducation. La r\u00e9orientation peut \u00eatre syst\u00e9matique, le nombre de ces r\u00e9orientations ne pouvant alors exc\u00e9der un pourcentage du nombre d'inscrits, d\u00e9termin\u00e9 par arr\u00eat\u00e9 apr\u00e8s consultation des organisations repr\u00e9sentatives concern\u00e9es. une r\u00e9orientation facultative peut \u00e9galement \u00eatre propos\u00e9e aux \u00e9tudiants au-del\u00e0 de ce pourcentage. L'universit\u00e9 assure dans tous les cas la r\u00e9orientation de ces \u00e9tudiants en leur proposant une inscription dans une formation qui les accueille d\u00e8s l'ann\u00e9e universitaire en cours ;", 
+                        "1\u00b0 D'une r\u00e9orientation des \u00e9tudiants de la premi\u00e8re ann\u00e9e commune aux \u00e9tudes de sant\u00e9 \u00e0 l'issue d'\u00e9preuves organis\u00e9es au plus t\u00f4t huit semaines apr\u00e8s le d\u00e9but de celles-ci, portant sur les enseignements dispens\u00e9s au cours de cette p\u00e9riode. Seuls les \u00e9tudiants consid\u00e9r\u00e9s, sur la base de ces \u00e9preuves, comme n'\u00e9tant pas susceptibles d'\u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e peuvent \u00eatre r\u00e9orient\u00e9s. Le niveau permettant d'appr\u00e9cier la capacit\u00e9 des \u00e9tudiants \u00e0 \u00eatre class\u00e9s en rang utile \u00e0 l'issue de la premi\u00e8re ann\u00e9e est d\u00e9termin\u00e9 par le conseil de l'unit\u00e9 de formation et de recherche de m\u00e9decine, pharmacie, odontologie et ma\u00efeutique de l'universit\u00e9, en tenant compte, le cas \u00e9ch\u00e9ant, du nombre vis\u00e9 au 2\u00b0 du I de l'article L. 631-1 du code de l'\u00e9ducation. La r\u00e9orientation peut \u00eatre syst\u00e9matique, le nombre de ces r\u00e9orientations ne pouvant alors exc\u00e9der un pourcentage du nombre d'inscrits, d\u00e9termin\u00e9 par arr\u00eat\u00e9 apr\u00e8s consultation des organisations repr\u00e9sentatives concern\u00e9es. Une r\u00e9orientation facultative peut \u00e9galement \u00eatre propos\u00e9e aux \u00e9tudiants au-del\u00e0 de ce pourcentage. L'universit\u00e9 assure dans tous les cas la r\u00e9orientation de ces \u00e9tudiants en leur proposant une inscription dans une formation qui les accueille d\u00e8s l'ann\u00e9e universitaire en cours ;", 
                         "2\u00b0 D'une admission en deuxi\u00e8me ou troisi\u00e8me ann\u00e9e des \u00e9tudes m\u00e9dicales, odontologiques, pharmaceutiques ou de ma\u00efeutique apr\u00e8s une \u00e0 trois ann\u00e9es d'un premier cycle universitaire adapt\u00e9 conduisant \u00e0 un dipl\u00f4me national de licence. Le nombre des \u00e9tudiants admis en deuxi\u00e8me ann\u00e9e apr\u00e8s la premi\u00e8re ann\u00e9e commune et le nombre des \u00e9tudiants admis directement en deuxi\u00e8me ou troisi\u00e8me ann\u00e9e sont fix\u00e9s, pour chaque universit\u00e9 concern\u00e9e et pour chacune des fili\u00e8res, par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.", 
                         "Au cours de la cinqui\u00e8me ann\u00e9e de l'exp\u00e9rimentation, les ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9 pr\u00e9sentent conjointement au Conseil national de l'enseignement sup\u00e9rieur et de la recherche un rapport d'\u00e9valuation des exp\u00e9rimentations men\u00e9es au titre du pr\u00e9sent article. Ce rapport, accompagn\u00e9 de l'avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche, est adress\u00e9 au Parlement."
                     ]
@@ -2987,7 +2987,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 839, 
                     "n_diff": 0, 
                     "order": 43, 
@@ -2999,7 +2999,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 994, 
                     "n_diff": 0.80414620840152762, 
                     "order": 42, 
@@ -3011,7 +3011,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1018, 
                     "n_diff": 0.57952286282306165, 
                     "order": 41, 
@@ -3023,7 +3023,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1018, 
                     "n_diff": 0, 
                     "order": 40, 
@@ -3042,7 +3042,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 152, 
                     "n_diff": 1, 
                     "order": 43, 
@@ -3053,7 +3053,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 455, 
                     "n_diff": 0.87149917627677098, 
                     "order": 42, 
@@ -3064,7 +3064,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 404, 
                     "n_diff": 0.46682188591385332, 
                     "order": 41, 
@@ -3118,7 +3118,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 146, 
                     "n_diff": 0, 
                     "order": 44, 
@@ -3130,7 +3130,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 146, 
                     "n_diff": 0, 
                     "order": 44, 
@@ -3142,7 +3142,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 146, 
                     "n_diff": 0, 
                     "order": 43, 
@@ -3154,7 +3154,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 146, 
                     "n_diff": 0, 
                     "order": 42, 
@@ -3199,7 +3199,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 783, 
                     "n_diff": 0.00063816209317169026, 
                     "order": 45, 
@@ -3212,7 +3212,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 783, 
                     "n_diff": 0, 
                     "order": 45, 
@@ -3225,7 +3225,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 783, 
                     "n_diff": 0, 
                     "order": 44, 
@@ -3238,7 +3238,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 783, 
                     "n_diff": 0, 
                     "order": 43, 
@@ -3258,7 +3258,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 246, 
                     "n_diff": 1, 
                     "order": 46, 
@@ -3269,7 +3269,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 300, 
                     "n_diff": 0.8498168498168498, 
                     "order": 46, 
@@ -3281,7 +3281,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 300, 
                     "n_diff": 0, 
                     "order": 45, 
@@ -3293,7 +3293,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 300, 
                     "n_diff": 0, 
                     "order": 44, 
@@ -3345,7 +3345,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 240, 
                     "n_diff": 0, 
                     "order": 47, 
@@ -3356,7 +3356,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 240, 
                     "n_diff": 0, 
                     "order": 47, 
@@ -3367,7 +3367,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 240, 
                     "n_diff": 0, 
                     "order": 46, 
@@ -3378,7 +3378,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 240, 
                     "n_diff": 0, 
                     "order": 45, 
@@ -3456,7 +3456,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1543, 
                     "n_diff": 0.046716316858496976, 
                     "order": 48, 
@@ -3477,7 +3477,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 50, 
                     "n_diff": 0, 
                     "order": 48, 
@@ -3486,7 +3486,7 @@
                 }, 
                 {
                     "diff": "add", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1961, 
                     "n_diff": 1, 
                     "order": 47, 
@@ -3507,7 +3507,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1961, 
                     "n_diff": 0, 
                     "order": 46, 
@@ -3545,8 +3545,8 @@
                         "1\u00b0 Au premier alin\u00e9a du I, les mots : \"vingt \u00e0 trente\" sont remplac\u00e9s par les mots : \"vingt-quatre \u00e0 trente-six\" ;", 
                         "2\u00b0 Au 1\u00b0 du I, le mot : \"quatorze\" est remplac\u00e9 par le mot : \"seize\" ;", 
                         "3\u00b0 Au 2\u00b0 du I, les mots : \"Sept ou\" sont supprim\u00e9s ;", 
-                        "4\u00b0 Au 3\u00b0 du I, les mots : \"De trois \u00e0 cinq\" sont remplac\u00e9s par les mots : \"quatre ou six\" ;", 
-                        "5\u00b0 Au 4\u00b0 du I, les mots : \"Deux ou trois\" sont remplac\u00e9s par les mots : \"quatre ou six\" ;", 
+                        "4\u00b0 Au 3\u00b0 du I, les mots : \"De trois \u00e0 cinq\" sont remplac\u00e9s par les mots : \"Quatre ou six\" ;", 
+                        "5\u00b0 Au 4\u00b0 du I, les mots : \"Deux ou trois\" sont remplac\u00e9s par les mots : \"Quatre ou six\" ;", 
                         "6\u00b0 Le II est remplac\u00e9 par les dispositions suivantes :", 
                         "\"II. - Les personnalit\u00e9s ext\u00e9rieures \u00e0 l'\u00e9tablissement, de nationalit\u00e9 fran\u00e7aise ou \u00e9trang\u00e8re, membres du conseil d'administration, sont, \u00e0 l'exception des personnalit\u00e9s d\u00e9sign\u00e9es au titre du 5\u00b0, d\u00e9sign\u00e9es avant la premi\u00e8re r\u00e9union du conseil d'administration. Elles comprennent, par d\u00e9rogation \u00e0 l'article L. 719-3 :", 
                         "\"1\u00b0 Au moins deux repr\u00e9sentants du monde \u00e9conomique et social, dont au moins un cadre dirigeant ou chef d'entreprise et un repr\u00e9sentant des organisations repr\u00e9sentatives des salari\u00e9s, d\u00e9sign\u00e9s par le pr\u00e9sident du conseil \u00e9conomique, social et environnemental r\u00e9gional ;", 
@@ -3576,8 +3576,8 @@
                         "a) Au premier alin\u00e9a, les mots : \"vingt \u00e0 trente\" sont remplac\u00e9s par les mots : \"vingt-quatre \u00e0 trente-six\" ;", 
                         "b) Au 1\u00b0, le mot : \"quatorze\" est remplac\u00e9 par le mot : \"seize\" ;", 
                         "c) Au d\u00e9but du 2\u00b0, les mots : \"Sept ou\" sont supprim\u00e9s ;", 
-                        "d) Au d\u00e9but du 3\u00b0, les mots : \"De trois \u00e0 cinq\" sont remplac\u00e9s par les mots : \"quatre ou six\" ;", 
-                        "e) Au d\u00e9but du 4\u00b0, les mots : \"Deux ou trois\" sont remplac\u00e9s par les mots : \"quatre ou six\" ;", 
+                        "d) Au d\u00e9but du 3\u00b0, les mots : \"De trois \u00e0 cinq\" sont remplac\u00e9s par les mots : \"Quatre ou six\" ;", 
+                        "e) Au d\u00e9but du 4\u00b0, les mots : \"Deux ou trois\" sont remplac\u00e9s par les mots : \"Quatre ou six\" ;", 
                         "2\u00b0 Le II est ainsi r\u00e9dig\u00e9 :", 
                         "\"II. - Les personnalit\u00e9s ext\u00e9rieures \u00e0 l'\u00e9tablissement, de nationalit\u00e9 fran\u00e7aise ou \u00e9trang\u00e8re, membres du conseil d'administration, sont, \u00e0 l'exception des personnalit\u00e9s d\u00e9sign\u00e9es au titre du 5\u00b0 du pr\u00e9sent II, d\u00e9sign\u00e9es avant la premi\u00e8re r\u00e9union du conseil d'administration. Elles comprennent, par d\u00e9rogation \u00e0 l'article L. 719-3 :", 
                         "\"1\u00b0 (Supprim\u00e9)", 
@@ -3607,10 +3607,10 @@
                         "a) Au premier alin\u00e9a, les mots : \"vingt \u00e0 trente\" sont remplac\u00e9s par les mots : \"vingt-quatre \u00e0 trente-six\" ;", 
                         "b) Au 1\u00b0, le mot : \"quatorze\" est remplac\u00e9 par le mot : \"seize\" ;", 
                         "c) Au d\u00e9but du 2\u00b0, les mots : \"Sept ou\" sont supprim\u00e9s ;", 
-                        "d) Au d\u00e9but du 3\u00b0, les mots : \"De trois \u00e0 cinq\" sont remplac\u00e9s par les mots : \"quatre ou six\" ;", 
-                        "e) Au d\u00e9but du 4\u00b0, les mots : \"Deux ou trois\" sont remplac\u00e9s par les mots : \"quatre ou six\" ;", 
+                        "d) Au d\u00e9but du 3\u00b0, les mots : \"De trois \u00e0 cinq\" sont remplac\u00e9s par les mots : \"Quatre ou six\" ;", 
+                        "e) Au d\u00e9but du 4\u00b0, les mots : \"Deux ou trois\" sont remplac\u00e9s par les mots : \"Quatre ou six\" ;", 
                         "2\u00b0 Le II est ainsi r\u00e9dig\u00e9 :", 
-                        "\"II. - Les personnalit\u00e9s ext\u00e9rieures \u00e0 l'\u00e9tablissement, de nationalit\u00e9 fran\u00e7aise ou \u00e9trang\u00e8re, membres du conseil d'administration, sont, \u00e0 l'exception des personnalit\u00e9s d\u00e9sign\u00e9es au titre du 5\u00b0 du pr\u00e9sent II, d\u00e9sign\u00e9es avant la premi\u00e8re r\u00e9union du conseil d'administration. Elles comprennent autant de femmes que d'hommes. un d\u00e9cret fixe les conditions dans lesquelles est assur\u00e9e cette parit\u00e9. Il pr\u00e9cise le nombre et la r\u00e9partition par sexe, \u00e9ventuellement dans le temps, des candidats propos\u00e9s par chacune des instances comp\u00e9tentes. Ces personnalit\u00e9s comprennent, par d\u00e9rogation \u00e0 l'article L. 719-3 :", 
+                        "\"II. - Les personnalit\u00e9s ext\u00e9rieures \u00e0 l'\u00e9tablissement, de nationalit\u00e9 fran\u00e7aise ou \u00e9trang\u00e8re, membres du conseil d'administration, sont, \u00e0 l'exception des personnalit\u00e9s d\u00e9sign\u00e9es au titre du 5\u00b0 du pr\u00e9sent II, d\u00e9sign\u00e9es avant la premi\u00e8re r\u00e9union du conseil d'administration. Elles comprennent autant de femmes que d'hommes. Un d\u00e9cret fixe les conditions dans lesquelles est assur\u00e9e cette parit\u00e9. Il pr\u00e9cise le nombre et la r\u00e9partition par sexe, \u00e9ventuellement dans le temps, des candidats propos\u00e9s par chacune des instances comp\u00e9tentes. Ces personnalit\u00e9s comprennent, par d\u00e9rogation \u00e0 l'article L. 719-3 :", 
                         "\"1\u00b0 (Supprim\u00e9)", 
                         "\"2\u00b0 Au moins deux repr\u00e9sentants des collectivit\u00e9s territoriales ou de leurs groupements, dont au moins un repr\u00e9sentant de la r\u00e9gion, d\u00e9sign\u00e9s par ces collectivit\u00e9s ou groupements ;", 
                         "\"3\u00b0 Au moins un repr\u00e9sentant des organismes de recherche, d\u00e9sign\u00e9 par un ou plusieurs organismes entretenant des relations de coop\u00e9ration avec l'\u00e9tablissement ;", 
@@ -3629,7 +3629,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 4152, 
                     "n_diff": 0.36926572929981538, 
                     "order": 49, 
@@ -3640,18 +3640,18 @@
                         "a) Au premier alin\u00e9a, les mots : \"vingt \u00e0 trente\" sont remplac\u00e9s par les mots : \"vingt-quatre \u00e0 trente-six\" ;", 
                         "b) Au 1\u00b0, le mot : \"quatorze\" est remplac\u00e9 par le mot : \"seize\" ;", 
                         "c) Au d\u00e9but du 2\u00b0, les mots : \"Sept ou\" sont supprim\u00e9s ;", 
-                        "d) Au d\u00e9but du 3\u00b0, les mots : \"De trois \u00e0 cinq\" sont remplac\u00e9s par les mots : \"quatre ou six\" ;", 
-                        "e) Au d\u00e9but du 4\u00b0, les mots : \"Deux ou trois\" sont remplac\u00e9s par les mots : \"quatre ou six\" ;", 
+                        "d) Au d\u00e9but du 3\u00b0, les mots : \"De trois \u00e0 cinq\" sont remplac\u00e9s par les mots : \"Quatre ou six\" ;", 
+                        "e) Au d\u00e9but du 4\u00b0, les mots : \"Deux ou trois\" sont remplac\u00e9s par les mots : \"Quatre ou six\" ;", 
                         "2\u00b0 Le II est ainsi r\u00e9dig\u00e9 :", 
-                        "\"II. - Les personnalit\u00e9s ext\u00e9rieures \u00e0 l'\u00e9tablissement, de nationalit\u00e9 fran\u00e7aise ou \u00e9trang\u00e8re, membres du conseil d'administration, sont, \u00e0 l'exception des personnalit\u00e9s d\u00e9sign\u00e9es au titre du 5\u00b0 du pr\u00e9sent II, d\u00e9sign\u00e9es avant la premi\u00e8re r\u00e9union du conseil d'administration. Elles comprennent autant de femmes que d'hommes. un d\u00e9cret fixe les conditions dans lesquelles est assur\u00e9e cette parit\u00e9. Il pr\u00e9cise le nombre et la r\u00e9partition par sexe, \u00e9ventuellement dans le temps, des candidats propos\u00e9s par chacune des instances comp\u00e9tentes. Ces personnalit\u00e9s comprennent, par d\u00e9rogation \u00e0 l'article L. 719-3 :", 
+                        "\"II. - Les personnalit\u00e9s ext\u00e9rieures \u00e0 l'\u00e9tablissement, de nationalit\u00e9 fran\u00e7aise ou \u00e9trang\u00e8re, membres du conseil d'administration, sont, \u00e0 l'exception des personnalit\u00e9s d\u00e9sign\u00e9es au titre du 5\u00b0 du pr\u00e9sent II, d\u00e9sign\u00e9es avant la premi\u00e8re r\u00e9union du conseil d'administration. Elles comprennent autant de femmes que d'hommes. Un d\u00e9cret fixe les conditions dans lesquelles est assur\u00e9e cette parit\u00e9. Il pr\u00e9cise le nombre et la r\u00e9partition par sexe, \u00e9ventuellement dans le temps, des candidats propos\u00e9s par chacune des instances comp\u00e9tentes. Ces personnalit\u00e9s comprennent, par d\u00e9rogation \u00e0 l'article L. 719-3 :", 
                         "\"1\u00b0 (Supprim\u00e9)", 
                         "\"2\u00b0 Au moins deux repr\u00e9sentants des collectivit\u00e9s territoriales ou de leurs groupements, dont au moins un repr\u00e9sentant de la r\u00e9gion, d\u00e9sign\u00e9s par ces collectivit\u00e9s ou groupements ;", 
                         "\"3\u00b0 Au moins un repr\u00e9sentant des organismes de recherche, d\u00e9sign\u00e9 par un ou plusieurs organismes entretenant des relations de coop\u00e9ration avec l'\u00e9tablissement ;", 
                         "\"4\u00b0 Au plus cinq personnalit\u00e9s d\u00e9sign\u00e9es apr\u00e8s un appel public \u00e0 candidatures par les membres \u00e9lus du conseil et les personnalit\u00e9s d\u00e9sign\u00e9es aux 2\u00b0 et 3\u00b0, dont au moins :", 
-                        "\"a) une personne assumant des fonctions de direction g\u00e9n\u00e9rale au sein d'une entreprise ;", 
-                        "\"b) un repr\u00e9sentant des organisations repr\u00e9sentatives des salari\u00e9s ;", 
-                        "\"c) un repr\u00e9sentant d'une entreprise employant moins de cinq cents salari\u00e9s ;", 
-                        "\"d) un repr\u00e9sentant d'un \u00e9tablissement d'enseignement secondaire.", 
+                        "\"a) Une personne assumant des fonctions de direction g\u00e9n\u00e9rale au sein d'une entreprise ;", 
+                        "\"b) Un repr\u00e9sentant des organisations repr\u00e9sentatives des salari\u00e9s ;", 
+                        "\"c) Un repr\u00e9sentant d'une entreprise employant moins de cinq cents salari\u00e9s ;", 
+                        "\"d) Un repr\u00e9sentant d'un \u00e9tablissement d'enseignement secondaire.", 
                         "\"Au moins une des personnalit\u00e9s ext\u00e9rieures d\u00e9sign\u00e9es par le conseil d'administration et les personnalit\u00e9s d\u00e9sign\u00e9es aux 2\u00b0 et 3\u00b0 a la qualit\u00e9 d'ancien dipl\u00f4m\u00e9 de l'universit\u00e9.", 
                         "\"Le choix final des personnalit\u00e9s mentionn\u00e9es au 4\u00b0 tient compte de la r\u00e9partition par sexe des personnalit\u00e9s d\u00e9sign\u00e9es aux 2\u00b0 et 3\u00b0 afin de garantir la parit\u00e9 entre les femmes et les hommes parmi les personnalit\u00e9s ext\u00e9rieures membres du conseil d'administration.", 
                         "\"Les statuts de l'\u00e9tablissement pr\u00e9cisent le nombre de personnalit\u00e9s ext\u00e9rieures au titre de chacune des cat\u00e9gories mentionn\u00e9es aux 2\u00b0 \u00e0 4\u00b0 ci-dessus et les collectivit\u00e9s et entit\u00e9s appel\u00e9es \u00e0 les d\u00e9signer en application des 2\u00b0 et 3\u00b0.\" ;", 
@@ -3670,7 +3670,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 4587, 
                     "n_diff": 0.061906396612884773, 
                     "order": 49, 
@@ -3681,18 +3681,18 @@
                         "a) Au premier alin\u00e9a, les mots : \"vingt \u00e0 trente\" sont remplac\u00e9s par les mots : \"vingt-quatre \u00e0 trente-six\" ;", 
                         "b) Au 1\u00b0, le mot : \"quatorze\" est remplac\u00e9 par le mot : \"seize\" ;", 
                         "c) Au d\u00e9but du 2\u00b0, les mots : \"Sept ou\" sont supprim\u00e9s ;", 
-                        "d) Au d\u00e9but du 3\u00b0, les mots : \"De trois \u00e0 cinq\" sont remplac\u00e9s par les mots : \"quatre ou six\" ;", 
-                        "e) Au d\u00e9but du 4\u00b0, les mots : \"Deux ou trois\" sont remplac\u00e9s par les mots : \"quatre ou six\" ;", 
+                        "d) Au d\u00e9but du 3\u00b0, les mots : \"De trois \u00e0 cinq\" sont remplac\u00e9s par les mots : \"Quatre ou six\" ;", 
+                        "e) Au d\u00e9but du 4\u00b0, les mots : \"Deux ou trois\" sont remplac\u00e9s par les mots : \"Quatre ou six\" ;", 
                         "2\u00b0 Le II est ainsi r\u00e9dig\u00e9 :", 
-                        "\"II. - Les personnalit\u00e9s ext\u00e9rieures \u00e0 l'\u00e9tablissement, de nationalit\u00e9 fran\u00e7aise ou \u00e9trang\u00e8re, membres du conseil d'administration, sont, \u00e0 l'exception des personnalit\u00e9s d\u00e9sign\u00e9es au titre du 5\u00b0 du pr\u00e9sent II, d\u00e9sign\u00e9es avant la premi\u00e8re r\u00e9union du conseil d'administration. Elles comprennent autant de femmes que d'hommes. un d\u00e9cret fixe les conditions dans lesquelles est assur\u00e9e cette parit\u00e9. Il pr\u00e9cise le nombre et la r\u00e9partition par sexe, \u00e9ventuellement dans le temps, des candidats propos\u00e9s par chacune des instances comp\u00e9tentes. Ces personnalit\u00e9s comprennent, par d\u00e9rogation \u00e0 l'article L. 719-3 :", 
+                        "\"II. - Les personnalit\u00e9s ext\u00e9rieures \u00e0 l'\u00e9tablissement, de nationalit\u00e9 fran\u00e7aise ou \u00e9trang\u00e8re, membres du conseil d'administration, sont, \u00e0 l'exception des personnalit\u00e9s d\u00e9sign\u00e9es au titre du 5\u00b0 du pr\u00e9sent II, d\u00e9sign\u00e9es avant la premi\u00e8re r\u00e9union du conseil d'administration. Elles comprennent autant de femmes que d'hommes. Un d\u00e9cret fixe les conditions dans lesquelles est assur\u00e9e cette parit\u00e9. Il pr\u00e9cise le nombre et la r\u00e9partition par sexe, \u00e9ventuellement dans le temps, des candidats propos\u00e9s par chacune des instances comp\u00e9tentes. Ces personnalit\u00e9s comprennent, par d\u00e9rogation \u00e0 l'article L. 719-3 :", 
                         "\"1\u00b0 (Supprim\u00e9)", 
                         "\"2\u00b0 Au moins deux repr\u00e9sentants des collectivit\u00e9s territoriales ou de leurs groupements, dont au moins un repr\u00e9sentant de la r\u00e9gion, d\u00e9sign\u00e9s par ces collectivit\u00e9s ou groupements ;", 
                         "\"3\u00b0 Au moins un repr\u00e9sentant des organismes de recherche, d\u00e9sign\u00e9 par un ou plusieurs organismes entretenant des relations de coop\u00e9ration avec l'\u00e9tablissement ;", 
                         "\"4\u00b0 Au plus cinq personnalit\u00e9s d\u00e9sign\u00e9es apr\u00e8s un appel public \u00e0 candidatures par les membres \u00e9lus du conseil et les personnalit\u00e9s d\u00e9sign\u00e9es aux 2\u00b0 et 3\u00b0, dont au moins :", 
-                        "\"a) une personne assumant des fonctions de direction g\u00e9n\u00e9rale au sein d'une entreprise ;", 
-                        "\"b) un repr\u00e9sentant des organisations repr\u00e9sentatives des salari\u00e9s ;", 
-                        "\"c) un repr\u00e9sentant d'une entreprise employant moins de cinq cents salari\u00e9s ;", 
-                        "\"d) un repr\u00e9sentant d'un \u00e9tablissement d'enseignement secondaire.", 
+                        "\"a) Une personne assumant des fonctions de direction g\u00e9n\u00e9rale au sein d'une entreprise ;", 
+                        "\"b) Un repr\u00e9sentant des organisations repr\u00e9sentatives des salari\u00e9s ;", 
+                        "\"c) Un repr\u00e9sentant d'une entreprise employant moins de cinq cents salari\u00e9s ;", 
+                        "\"d) Un repr\u00e9sentant d'un \u00e9tablissement d'enseignement secondaire.", 
                         "\"Au moins une des personnalit\u00e9s ext\u00e9rieures d\u00e9sign\u00e9es par le conseil d'administration et les personnalit\u00e9s d\u00e9sign\u00e9es aux 2\u00b0 et 3\u00b0 a la qualit\u00e9 d'ancien dipl\u00f4m\u00e9 de l'universit\u00e9.", 
                         "\"Le choix final des personnalit\u00e9s mentionn\u00e9es au 4\u00b0 tient compte de la r\u00e9partition par sexe des personnalit\u00e9s d\u00e9sign\u00e9es aux 2\u00b0 et 3\u00b0 afin de garantir la parit\u00e9 entre les femmes et les hommes parmi les personnalit\u00e9s ext\u00e9rieures membres du conseil d'administration.", 
                         "\"Les statuts de l'\u00e9tablissement pr\u00e9cisent le nombre de personnalit\u00e9s ext\u00e9rieures au titre de chacune des cat\u00e9gories mentionn\u00e9es aux 2\u00b0 \u00e0 4\u00b0 ci-dessus et les collectivit\u00e9s et entit\u00e9s appel\u00e9es \u00e0 les d\u00e9signer en application des 2\u00b0 et 3\u00b0. Aucune affectation ne peut \u00eatre prononc\u00e9e si le conseil d'administration, en formation restreinte aux repr\u00e9sentants des enseignants-chercheurs et aux doctorants, \u00e9met un avis d\u00e9favorable motiv\u00e9. Ces dispositions ne sont pas applicables \u00e0 la premi\u00e8re affectation des personnels administratifs et techniques sur concours externe ou interne lorsque leurs statuts particuliers pr\u00e9voient une p\u00e9riode de stage.\" ;", 
@@ -3711,7 +3711,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 4590, 
                     "n_diff": 0.21226980494715053, 
                     "order": 48, 
@@ -3722,18 +3722,18 @@
                         "a) Au premier alin\u00e9a, les mots : \"vingt \u00e0 trente\" sont remplac\u00e9s par les mots : \"vingt-quatre \u00e0 trente-six\" ;", 
                         "b) Au 1\u00b0, le mot : \"quatorze\" est remplac\u00e9 par le mot : \"seize\" ;", 
                         "c) Au d\u00e9but du 2\u00b0, les mots : \"Sept ou\" sont supprim\u00e9s ;", 
-                        "d) Au d\u00e9but du 3\u00b0, les mots : \"De trois \u00e0 cinq\" sont remplac\u00e9s par les mots : \"quatre ou six\" ;", 
-                        "e) Au d\u00e9but du 4\u00b0, les mots : \"Deux ou trois\" sont remplac\u00e9s par les mots : \"quatre ou six\" ;", 
+                        "d) Au d\u00e9but du 3\u00b0, les mots : \"De trois \u00e0 cinq\" sont remplac\u00e9s par les mots : \"Quatre ou six\" ;", 
+                        "e) Au d\u00e9but du 4\u00b0, les mots : \"Deux ou trois\" sont remplac\u00e9s par les mots : \"Quatre ou six\" ;", 
                         "2\u00b0 Le II est ainsi r\u00e9dig\u00e9 :", 
-                        "\"II. - Les personnalit\u00e9s ext\u00e9rieures \u00e0 l'\u00e9tablissement, de nationalit\u00e9 fran\u00e7aise ou \u00e9trang\u00e8re, membres du conseil d'administration, sont, \u00e0 l'exception des personnalit\u00e9s d\u00e9sign\u00e9es au titre du 4\u00b0 du pr\u00e9sent II, d\u00e9sign\u00e9es avant la premi\u00e8re r\u00e9union du conseil d'administration. Elles comprennent autant de femmes que d'hommes. un d\u00e9cret fixe les conditions dans lesquelles est assur\u00e9e cette parit\u00e9. Il pr\u00e9cise le nombre et la r\u00e9partition par sexe, \u00e9ventuellement dans le temps, des candidats propos\u00e9s par chacune des instances comp\u00e9tentes. Ces personnalit\u00e9s comprennent, par d\u00e9rogation \u00e0 l'article L. 719-3 :", 
+                        "\"II. - Les personnalit\u00e9s ext\u00e9rieures \u00e0 l'\u00e9tablissement, de nationalit\u00e9 fran\u00e7aise ou \u00e9trang\u00e8re, membres du conseil d'administration, sont, \u00e0 l'exception des personnalit\u00e9s d\u00e9sign\u00e9es au titre du 4\u00b0 du pr\u00e9sent II, d\u00e9sign\u00e9es avant la premi\u00e8re r\u00e9union du conseil d'administration. Elles comprennent autant de femmes que d'hommes. Un d\u00e9cret fixe les conditions dans lesquelles est assur\u00e9e cette parit\u00e9. Il pr\u00e9cise le nombre et la r\u00e9partition par sexe, \u00e9ventuellement dans le temps, des candidats propos\u00e9s par chacune des instances comp\u00e9tentes. Ces personnalit\u00e9s comprennent, par d\u00e9rogation \u00e0 l'article L. 719-3 :", 
                         "\"1\u00b0 (Supprim\u00e9)", 
                         "\"2\u00b0 Au moins deux repr\u00e9sentants des collectivit\u00e9s territoriales ou de leurs groupements, dont au moins un repr\u00e9sentant de la r\u00e9gion, d\u00e9sign\u00e9s par ces collectivit\u00e9s ou groupements ;", 
                         "\"3\u00b0 Au moins un repr\u00e9sentant des organismes de recherche, d\u00e9sign\u00e9 par un ou plusieurs organismes entretenant des relations de coop\u00e9ration avec l'\u00e9tablissement ;", 
                         "\"4\u00b0 Au plus cinq personnalit\u00e9s d\u00e9sign\u00e9es apr\u00e8s un appel public \u00e0 candidatures par les membres \u00e9lus du conseil et les personnalit\u00e9s d\u00e9sign\u00e9es aux 2\u00b0 et 3\u00b0, dont au moins :", 
-                        "\"a) une personne assumant des fonctions de direction g\u00e9n\u00e9rale au sein d'une entreprise ;", 
-                        "\"b) un repr\u00e9sentant des organisations repr\u00e9sentatives des salari\u00e9s ;", 
-                        "\"c) un repr\u00e9sentant d'une entreprise employant moins de cinq cents salari\u00e9s ;", 
-                        "\"d) un repr\u00e9sentant d'un \u00e9tablissement d'enseignement secondaire.", 
+                        "\"a) Une personne assumant des fonctions de direction g\u00e9n\u00e9rale au sein d'une entreprise ;", 
+                        "\"b) Un repr\u00e9sentant des organisations repr\u00e9sentatives des salari\u00e9s ;", 
+                        "\"c) Un repr\u00e9sentant d'une entreprise employant moins de cinq cents salari\u00e9s ;", 
+                        "\"d) Un repr\u00e9sentant d'un \u00e9tablissement d'enseignement secondaire.", 
                         "\"Au moins une des personnalit\u00e9s ext\u00e9rieures d\u00e9sign\u00e9es au 4\u00b0 a la qualit\u00e9 d'ancien dipl\u00f4m\u00e9 de l'universit\u00e9.", 
                         "\"Le choix final des personnalit\u00e9s mentionn\u00e9es au 4\u00b0 tient compte de la r\u00e9partition par sexe des personnalit\u00e9s d\u00e9sign\u00e9es aux 2\u00b0 et 3\u00b0 afin de garantir la parit\u00e9 entre les femmes et les hommes parmi les personnalit\u00e9s ext\u00e9rieures membres du conseil d'administration.", 
                         "\"Les statuts de l'\u00e9tablissement pr\u00e9cisent le nombre de personnalit\u00e9s ext\u00e9rieures au titre de chacune des cat\u00e9gories mentionn\u00e9es aux 2\u00b0 \u00e0 4\u00b0 ci-dessus et les collectivit\u00e9s et entit\u00e9s appel\u00e9es \u00e0 les d\u00e9signer en application des 2\u00b0 et 3\u00b0.\" ;", 
@@ -3754,7 +3754,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 4637, 
                     "n_diff": 0.01452259672699685, 
                     "order": 47, 
@@ -3765,18 +3765,18 @@
                         "a) Au premier alin\u00e9a, les mots : \"vingt \u00e0 trente\" sont remplac\u00e9s par les mots : \"vingt-quatre \u00e0 trente-six\" ;", 
                         "b) Au 1\u00b0, le mot : \"quatorze\" est remplac\u00e9 par le mot : \"seize\" ;", 
                         "c) Au d\u00e9but du 2\u00b0, les mots : \"Sept ou\" sont supprim\u00e9s ;", 
-                        "d) Au d\u00e9but du 3\u00b0, les mots : \"De trois \u00e0 cinq\" sont remplac\u00e9s par les mots : \"quatre ou six\" ;", 
-                        "e) Au d\u00e9but du 4\u00b0, les mots : \"Deux ou trois\" sont remplac\u00e9s par les mots : \"quatre ou six\" ;", 
+                        "d) Au d\u00e9but du 3\u00b0, les mots : \"De trois \u00e0 cinq\" sont remplac\u00e9s par les mots : \"Quatre ou six\" ;", 
+                        "e) Au d\u00e9but du 4\u00b0, les mots : \"Deux ou trois\" sont remplac\u00e9s par les mots : \"Quatre ou six\" ;", 
                         "2\u00b0 Le II est ainsi r\u00e9dig\u00e9 :", 
-                        "\"II. - Les personnalit\u00e9s ext\u00e9rieures \u00e0 l'\u00e9tablissement, de nationalit\u00e9 fran\u00e7aise ou \u00e9trang\u00e8re, membres du conseil d'administration sont, \u00e0 l'exception des personnalit\u00e9s d\u00e9sign\u00e9es au titre du 4\u00b0 du pr\u00e9sent II, d\u00e9sign\u00e9es avant la premi\u00e8re r\u00e9union du conseil d'administration. Elles comprennent autant de femmes que d'hommes. un d\u00e9cret fixe les conditions dans lesquelles est assur\u00e9e cette parit\u00e9. Il pr\u00e9cise le nombre et la r\u00e9partition par sexe, \u00e9ventuellement dans le temps, des candidats propos\u00e9s par chacune des instances comp\u00e9tentes. Ces personnalit\u00e9s comprennent, par d\u00e9rogation \u00e0 l'article L. 719-3 :", 
+                        "\"II. - Les personnalit\u00e9s ext\u00e9rieures \u00e0 l'\u00e9tablissement, de nationalit\u00e9 fran\u00e7aise ou \u00e9trang\u00e8re, membres du conseil d'administration sont, \u00e0 l'exception des personnalit\u00e9s d\u00e9sign\u00e9es au titre du 4\u00b0 du pr\u00e9sent II, d\u00e9sign\u00e9es avant la premi\u00e8re r\u00e9union du conseil d'administration. Elles comprennent autant de femmes que d'hommes. Un d\u00e9cret fixe les conditions dans lesquelles est assur\u00e9e cette parit\u00e9. Il pr\u00e9cise le nombre et la r\u00e9partition par sexe, \u00e9ventuellement dans le temps, des candidats propos\u00e9s par chacune des instances comp\u00e9tentes. Ces personnalit\u00e9s comprennent, par d\u00e9rogation \u00e0 l'article L. 719-3 :", 
                         "\"1\u00b0 (Supprim\u00e9)", 
                         "\"2\u00b0 Au moins deux repr\u00e9sentants des collectivit\u00e9s territoriales ou de leurs groupements, dont au moins un repr\u00e9sentant de la r\u00e9gion, d\u00e9sign\u00e9s par ces collectivit\u00e9s ou groupements ;", 
                         "\"3\u00b0 Au moins un repr\u00e9sentant des organismes de recherche, d\u00e9sign\u00e9 par un ou plusieurs organismes entretenant des relations de coop\u00e9ration avec l'\u00e9tablissement ;", 
                         "\"4\u00b0 Au plus cinq personnalit\u00e9s d\u00e9sign\u00e9es apr\u00e8s un appel public \u00e0 candidatures par les membres \u00e9lus du conseil et les personnalit\u00e9s d\u00e9sign\u00e9es aux 2\u00b0 et 3\u00b0, dont au moins :", 
-                        "\"a) une personne assumant des fonctions de direction g\u00e9n\u00e9rale au sein d'une entreprise ;", 
-                        "\"b) un repr\u00e9sentant des organisations repr\u00e9sentatives des salari\u00e9s ;", 
-                        "\"c) un repr\u00e9sentant d'une entreprise employant moins de cinq cents salari\u00e9s ;", 
-                        "\"d) un repr\u00e9sentant d'un \u00e9tablissement d'enseignement secondaire.", 
+                        "\"a) Une personne assumant des fonctions de direction g\u00e9n\u00e9rale au sein d'une entreprise ;", 
+                        "\"b) Un repr\u00e9sentant des organisations repr\u00e9sentatives des salari\u00e9s ;", 
+                        "\"c) Un repr\u00e9sentant d'une entreprise employant moins de cinq cents salari\u00e9s ;", 
+                        "\"d) Un repr\u00e9sentant d'un \u00e9tablissement d'enseignement secondaire.", 
                         "\"Au moins une des personnalit\u00e9s ext\u00e9rieures d\u00e9sign\u00e9es au 4\u00b0 a la qualit\u00e9 d'ancien dipl\u00f4m\u00e9 de l'universit\u00e9.", 
                         "\"Le choix final des personnalit\u00e9s mentionn\u00e9es au 4\u00b0 tient compte de la r\u00e9partition par sexe des personnalit\u00e9s d\u00e9sign\u00e9es aux 2\u00b0 et 3\u00b0 afin de garantir la parit\u00e9 entre les femmes et les hommes parmi les personnalit\u00e9s ext\u00e9rieures membres du conseil d'administration.", 
                         "\"Les statuts de l'\u00e9tablissement pr\u00e9cisent le nombre de personnalit\u00e9s ext\u00e9rieures au titre de chacune des cat\u00e9gories mentionn\u00e9es aux 2\u00b0 \u00e0 4\u00b0 et les collectivit\u00e9s et entit\u00e9s appel\u00e9es \u00e0 les d\u00e9signer en application des 2\u00b0 et 3\u00b0.\" ;", 
@@ -3806,7 +3806,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 191, 
                     "n_diff": 1, 
                     "order": 50, 
@@ -3817,7 +3817,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 201, 
                     "n_diff": 0.061224489795918324, 
                     "order": 50, 
@@ -3828,7 +3828,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 201, 
                     "n_diff": 0, 
                     "order": 49, 
@@ -3839,7 +3839,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 201, 
                     "n_diff": 0, 
                     "order": 48, 
@@ -3921,7 +3921,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 2584, 
                     "n_diff": 0.057545271629778627, 
                     "order": 51, 
@@ -3948,7 +3948,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 2594, 
                     "n_diff": 0.0054074932406334986, 
                     "order": 51, 
@@ -3975,7 +3975,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 2720, 
                     "n_diff": 0.060594655626646565, 
                     "order": 50, 
@@ -4002,7 +4002,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 2709, 
                     "n_diff": 0.019708970344446519, 
                     "order": 49, 
@@ -4084,7 +4084,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 4177, 
                     "n_diff": 0.25313190862196022, 
                     "order": 52, 
@@ -4108,7 +4108,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 4187, 
                     "n_diff": 0.0035868005738880493, 
                     "order": 52, 
@@ -4132,7 +4132,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 4202, 
                     "n_diff": 0.0025032781022767958, 
                     "order": 51, 
@@ -4156,7 +4156,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 4231, 
                     "n_diff": 0.0041503616743744365, 
                     "order": 50, 
@@ -4234,7 +4234,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1583, 
                     "n_diff": 0.030053780449224909, 
                     "order": 53, 
@@ -4253,7 +4253,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1583, 
                     "n_diff": 0, 
                     "order": 53, 
@@ -4272,7 +4272,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1583, 
                     "n_diff": 0, 
                     "order": 52, 
@@ -4291,7 +4291,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1583, 
                     "n_diff": 0, 
                     "order": 51, 
@@ -4339,7 +4339,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 601, 
                     "n_diff": 0.74920969441517382, 
                     "order": 4, 
@@ -4350,7 +4350,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 581, 
                     "n_diff": 0.016920473773265665, 
                     "order": 4, 
@@ -4361,7 +4361,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 632, 
                     "n_diff": 0.45671887881286066, 
                     "order": 3, 
@@ -4372,7 +4372,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 581, 
                     "n_diff": 0.45671887881286066, 
                     "order": 3, 
@@ -4390,7 +4390,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 350, 
                     "n_diff": 1, 
                     "order": 3, 
@@ -4402,7 +4402,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 50, 
                     "n_diff": 0, 
                     "order": 3, 
@@ -4427,7 +4427,7 @@
                         "L'article L. 123-1 est ainsi modifi\u00e9 :", 
                         "1\u00b0 \u00c0 la fin du premier alin\u00e9a, il est ajout\u00e9 la phrase suivante : \"le ministre charg\u00e9 de l'enseignement sup\u00e9rieur en assure la coordination\" ;", 
                         "2\u00b0 Il est ajout\u00e9 deux alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
-                        "\"une strat\u00e9gie nationale de l'enseignement sup\u00e9rieur est \u00e9labor\u00e9e et r\u00e9vis\u00e9e p\u00e9riodiquement sous la responsabilit\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur. Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec les partenaires sociaux et \u00e9conomiques, la communaut\u00e9 scientifique et d'enseignement sup\u00e9rieur, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales.", 
+                        "\"Une strat\u00e9gie nationale de l'enseignement sup\u00e9rieur est \u00e9labor\u00e9e et r\u00e9vis\u00e9e p\u00e9riodiquement sous la responsabilit\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur. Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec les partenaires sociaux et \u00e9conomiques, la communaut\u00e9 scientifique et d'enseignement sup\u00e9rieur, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales.", 
                         "\"Cette strat\u00e9gie et les conditions de sa mise en oeuvre font l'objet d'un rapport biennal pr\u00e9sent\u00e9 au Parlement. Ce rapport analyse notamment, au regard de cette strat\u00e9gie, la situation des \u00e9tablissements d'enseignement sup\u00e9rieur ayant b\u00e9n\u00e9fici\u00e9 des responsabilit\u00e9s et comp\u00e9tences mentionn\u00e9es aux articles L. 712-9, L. 712-10 et L. 954-1 \u00e0 L. 954-3.\""
                     ]
                 }, 
@@ -4435,13 +4435,13 @@
                     "diff": "rem", 
                     "id_step": "01_1\u00e8relecture_assemblee_commission", 
                     "length": 1799, 
-                    "n_diff": 0.70210449927431062, 
+                    "n_diff": 0.47786647314949193, 
                     "order": 5, 
                     "status": "none", 
                     "text": [
                         "L'article L. 123-1 du code de l'\u00e9ducation est compl\u00e9t\u00e9 par deux phrases et quatre alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"Le ministre charg\u00e9 de l'enseignement sup\u00e9rieur en assure la coordination. Il assure la cotutelle des \u00e9tablissements d'enseignement sup\u00e9rieur ne relevant pas de son d\u00e9partement et participe \u00e0 la d\u00e9finition de leur projet p\u00e9dagogique.", 
-                        "\"une strat\u00e9gie nationale de l'enseignement sup\u00e9rieur est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la responsabilit\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur. Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec les partenaires culturels, sociaux et \u00e9conomiques, la communaut\u00e9 scientifique et d'enseignement sup\u00e9rieur, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales, suivie d'un d\u00e9bat au Parlement.", 
+                        "\"Une strat\u00e9gie nationale de l'enseignement sup\u00e9rieur est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la responsabilit\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur. Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec les partenaires culturels, sociaux et \u00e9conomiques, la communaut\u00e9 scientifique et d'enseignement sup\u00e9rieur, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales, suivie d'un d\u00e9bat au Parlement.", 
                         "\"Le ministre charg\u00e9 de l'enseignement sup\u00e9rieur veille \u00e0 la mise en oeuvre de la strat\u00e9gie nationale de l'enseignement sup\u00e9rieur. Il est associ\u00e9 aux accr\u00e9ditations et habilitations des formations des \u00e9tablissements participant au service public de l'enseignement sup\u00e9rieur.", 
                         "\"Les principes de r\u00e9partition des moyens entre les acteurs de l'enseignement sup\u00e9rieur font partie de la strat\u00e9gie nationale.", 
                         "\"Cette strat\u00e9gie et les conditions de sa mise en oeuvre font l'objet d'un rapport biennal, qui inclut une analyse des modes de financement, pr\u00e9sent\u00e9 au Parlement. Ce rapport analyse notamment, au regard de cette strat\u00e9gie, la situation des \u00e9tablissements d'enseignement sup\u00e9rieur ayant b\u00e9n\u00e9fici\u00e9 des responsabilit\u00e9s et comp\u00e9tences mentionn\u00e9es aux articles L. 712-9, L. 712-10 et L. 954-1 \u00e0 L. 954-3. Il \u00e9value l'impact du transfert de la gestion de la masse salariale sur la situation financi\u00e8re des \u00e9tablissements concern\u00e9s. Ce rapport peut \u00e9galement formuler des recommandations en vue de la r\u00e9vision p\u00e9riodique de cette strat\u00e9gie.\""
@@ -4451,13 +4451,13 @@
                     "diff": "both", 
                     "id_step": "02_1\u00e8relecture_assemblee_hemicycle", 
                     "length": 2013, 
-                    "n_diff": 0.15398740818467993, 
+                    "n_diff": 0.14060860440713541, 
                     "order": 4, 
                     "status": "none", 
                     "text": [
                         "L'article L. 123-1 du code de l'\u00e9ducation est compl\u00e9t\u00e9 par cinq phrases et quatre alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"Le ministre charg\u00e9 de l'enseignement sup\u00e9rieur en assure la coordination. Il assure la cotutelle des \u00e9tablissements d'enseignement sup\u00e9rieur ne relevant pas de son d\u00e9partement et participe \u00e0 la d\u00e9finition de leur projet p\u00e9dagogique. \u00c0 cette fin, il est repr\u00e9sent\u00e9 \u00e0 leur conseil d'administration. Il est associ\u00e9 aux accr\u00e9ditations et habilitations de ces \u00e9tablissements. Des modalit\u00e9s compl\u00e9mentaires peuvent \u00eatre pr\u00e9vues dans les statuts des \u00e9tablissements.", 
-                        "\"une strat\u00e9gie nationale de l'enseignement sup\u00e9rieur, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la responsabilit\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur. Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec les partenaires culturels, sociaux et \u00e9conomiques, la communaut\u00e9 scientifique et d'enseignement sup\u00e9rieur, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales, suivie d'un d\u00e9bat au Parlement.", 
+                        "\"Une strat\u00e9gie nationale de l'enseignement sup\u00e9rieur, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la responsabilit\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur. Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec les partenaires culturels, sociaux et \u00e9conomiques, la communaut\u00e9 scientifique et d'enseignement sup\u00e9rieur, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales, suivie d'un d\u00e9bat au Parlement.", 
                         "\"Le ministre charg\u00e9 de l'enseignement sup\u00e9rieur veille \u00e0 la mise en oeuvre de la strat\u00e9gie nationale de l'enseignement sup\u00e9rieur.", 
                         "\"Les principes de r\u00e9partition des moyens entre les acteurs de l'enseignement sup\u00e9rieur sont d\u00e9finis par la strat\u00e9gie nationale.", 
                         "\"Cette strat\u00e9gie et les conditions de sa mise en oeuvre font l'objet d'un rapport biennal, qui inclut une analyse des modes de financement, pr\u00e9sent\u00e9 au Parlement. Les \u00e9l\u00e9ments quantitatifs de ce rapport sont compos\u00e9s de donn\u00e9es sexu\u00e9es. Ce rapport analyse notamment, au regard de cette strat\u00e9gie, la situation des \u00e9tablissements d'enseignement sup\u00e9rieur ayant b\u00e9n\u00e9fici\u00e9 des responsabilit\u00e9s et comp\u00e9tences mentionn\u00e9es aux articles L. 712-9, L. 712-10 et L. 954-1 \u00e0 L. 954-3. Il \u00e9value l'impact du transfert de la gestion de la masse salariale sur la situation financi\u00e8re des \u00e9tablissements concern\u00e9s. Ce rapport peut \u00e9galement formuler des recommandations en vue de la r\u00e9vision p\u00e9riodique de cette strat\u00e9gie.\""
@@ -4465,7 +4465,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 2738, 
                     "n_diff": 0.21658598189854772, 
                     "order": 5, 
@@ -4473,7 +4473,7 @@
                     "text": [
                         "L'article L. 123-1 du code de l'\u00e9ducation est compl\u00e9t\u00e9 par cinq phrases et cinq alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"Le ministre charg\u00e9 de l'enseignement sup\u00e9rieur en assure la coordination. Il assure la cotutelle des \u00e9tablissements d'enseignement sup\u00e9rieur ne relevant pas de son d\u00e9partement et participe \u00e0 la d\u00e9finition de leur projet p\u00e9dagogique. \u00c0 cette fin, il est repr\u00e9sent\u00e9 \u00e0 leur conseil d'administration. Il est associ\u00e9 aux accr\u00e9ditations et habilitations de ces \u00e9tablissements. Des modalit\u00e9s compl\u00e9mentaires peuvent \u00eatre pr\u00e9vues dans les statuts des \u00e9tablissements.", 
-                        "\"une strat\u00e9gie nationale de l'enseignement sup\u00e9rieur, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la responsabilit\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur. Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec les partenaires culturels, sociaux et \u00e9conomiques, la communaut\u00e9 scientifique et d'enseignement sup\u00e9rieur, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales. Avant d'\u00eatre arr\u00eat\u00e9es d\u00e9finitivement, elles sont transmises aux commissions permanentes comp\u00e9tentes de l'Assembl\u00e9e nationale et du S\u00e9nat.", 
+                        "\"Une strat\u00e9gie nationale de l'enseignement sup\u00e9rieur, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la responsabilit\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur. Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec les partenaires culturels, sociaux et \u00e9conomiques, la communaut\u00e9 scientifique et d'enseignement sup\u00e9rieur, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales. Avant d'\u00eatre arr\u00eat\u00e9es d\u00e9finitivement, elles sont transmises aux commissions permanentes comp\u00e9tentes de l'Assembl\u00e9e nationale et du S\u00e9nat.", 
                         "\"La strat\u00e9gie nationale de l'enseignement sup\u00e9rieur repose sur le principe selon lequel les \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel d\u00e9finis au titre Ier du livre VII de la troisi\u00e8me partie du pr\u00e9sent code sont au centre du syst\u00e8me d'enseignement sup\u00e9rieur.", 
                         "\"Le ministre charg\u00e9 de l'enseignement sup\u00e9rieur veille \u00e0 la mise en oeuvre de la strat\u00e9gie nationale de l'enseignement sup\u00e9rieur.", 
                         "\"Les principes de r\u00e9partition des moyens entre les acteurs de l'enseignement sup\u00e9rieur sont d\u00e9finis par la strat\u00e9gie nationale.", 
@@ -4482,7 +4482,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 2744, 
                     "n_diff": 0.0021889821233126439, 
                     "order": 5, 
@@ -4490,7 +4490,7 @@
                     "text": [
                         "L'article L. 123-1 du code de l'\u00e9ducation est compl\u00e9t\u00e9 par cinq phrases et cinq alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"Le ministre charg\u00e9 de l'enseignement sup\u00e9rieur en assure la coordination. Il assure la cotutelle des \u00e9tablissements d'enseignement sup\u00e9rieur ne relevant pas de son d\u00e9partement et participe \u00e0 la d\u00e9finition de leur projet p\u00e9dagogique. \u00c0 cette fin, il peut \u00eatre repr\u00e9sent\u00e9 \u00e0 leur conseil d'administration. Il est associ\u00e9 aux accr\u00e9ditations et habilitations de ces \u00e9tablissements. Des modalit\u00e9s compl\u00e9mentaires peuvent \u00eatre pr\u00e9vues dans les statuts des \u00e9tablissements.", 
-                        "\"une strat\u00e9gie nationale de l'enseignement sup\u00e9rieur, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la responsabilit\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur. Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec les partenaires culturels, sociaux et \u00e9conomiques, la communaut\u00e9 scientifique et d'enseignement sup\u00e9rieur, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales. Avant d'\u00eatre arr\u00eat\u00e9es d\u00e9finitivement, elles sont transmises aux commissions permanentes comp\u00e9tentes de l'Assembl\u00e9e nationale et du S\u00e9nat.", 
+                        "\"Une strat\u00e9gie nationale de l'enseignement sup\u00e9rieur, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la responsabilit\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur. Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec les partenaires culturels, sociaux et \u00e9conomiques, la communaut\u00e9 scientifique et d'enseignement sup\u00e9rieur, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales. Avant d'\u00eatre arr\u00eat\u00e9es d\u00e9finitivement, elles sont transmises aux commissions permanentes comp\u00e9tentes de l'Assembl\u00e9e nationale et du S\u00e9nat.", 
                         "\"La strat\u00e9gie nationale de l'enseignement sup\u00e9rieur repose sur le principe selon lequel les \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel d\u00e9finis au titre Ier du livre VII de la troisi\u00e8me partie du pr\u00e9sent code sont au centre du syst\u00e8me d'enseignement sup\u00e9rieur.", 
                         "\"Le ministre charg\u00e9 de l'enseignement sup\u00e9rieur veille \u00e0 la mise en oeuvre de la strat\u00e9gie nationale de l'enseignement sup\u00e9rieur.", 
                         "\"Les principes de r\u00e9partition des moyens entre les acteurs de l'enseignement sup\u00e9rieur sont d\u00e9finis par la strat\u00e9gie nationale.", 
@@ -4499,7 +4499,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 2792, 
                     "n_diff": 0.03973988439306364, 
                     "order": 4, 
@@ -4507,7 +4507,7 @@
                     "text": [
                         "L'article L. 123-1 du code de l'\u00e9ducation est compl\u00e9t\u00e9 par cinq phrases et cinq alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"Le ministre charg\u00e9 de l'enseignement sup\u00e9rieur en assure la coordination. Il assure, conjointement avec les autres ministres concern\u00e9s, la tutelle des \u00e9tablissements d'enseignement sup\u00e9rieur relevant d'un autre d\u00e9partement minist\u00e9riel et participe \u00e0 la d\u00e9finition de leur projet p\u00e9dagogique. \u00c0 cette fin, il peut \u00eatre repr\u00e9sent\u00e9 \u00e0 leur conseil d'administration. Il est associ\u00e9 aux accr\u00e9ditations et habilitations de ces \u00e9tablissements. Des modalit\u00e9s compl\u00e9mentaires peuvent \u00eatre pr\u00e9vues dans les statuts des \u00e9tablissements.", 
-                        "\"une strat\u00e9gie nationale de l'enseignement sup\u00e9rieur, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la responsabilit\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur. Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec les partenaires culturels, sociaux et \u00e9conomiques, la communaut\u00e9 scientifique et d'enseignement sup\u00e9rieur, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales. Avant d'\u00eatre arr\u00eat\u00e9es d\u00e9finitivement, elles sont transmises aux commissions permanentes comp\u00e9tentes de l'Assembl\u00e9e nationale et du S\u00e9nat.", 
+                        "\"Une strat\u00e9gie nationale de l'enseignement sup\u00e9rieur, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la responsabilit\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur. Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec les partenaires culturels, sociaux et \u00e9conomiques, la communaut\u00e9 scientifique et d'enseignement sup\u00e9rieur, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales. Avant d'\u00eatre arr\u00eat\u00e9es d\u00e9finitivement, elles sont transmises aux commissions permanentes comp\u00e9tentes de l'Assembl\u00e9e nationale et du S\u00e9nat.", 
                         "\"La strat\u00e9gie nationale de l'enseignement sup\u00e9rieur repose sur le principe selon lequel les \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel d\u00e9finis au titre Ier du livre VII de la troisi\u00e8me partie sont au centre du syst\u00e8me d'enseignement sup\u00e9rieur.", 
                         "\"Le ministre charg\u00e9 de l'enseignement sup\u00e9rieur veille \u00e0 la mise en oeuvre de la strat\u00e9gie nationale de l'enseignement sup\u00e9rieur.", 
                         "\"Les principes de r\u00e9partition des moyens entre les acteurs de l'enseignement sup\u00e9rieur sont d\u00e9finis par la strat\u00e9gie nationale.", 
@@ -4516,7 +4516,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 2792, 
                     "n_diff": 0, 
                     "order": 4, 
@@ -4524,7 +4524,7 @@
                     "text": [
                         "L'article L. 123-1 du code de l'\u00e9ducation est compl\u00e9t\u00e9 par cinq phrases et cinq alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"Le ministre charg\u00e9 de l'enseignement sup\u00e9rieur en assure la coordination. Il assure, conjointement avec les autres ministres concern\u00e9s, la tutelle des \u00e9tablissements d'enseignement sup\u00e9rieur relevant d'un autre d\u00e9partement minist\u00e9riel et participe \u00e0 la d\u00e9finition de leur projet p\u00e9dagogique. \u00c0 cette fin, il peut \u00eatre repr\u00e9sent\u00e9 \u00e0 leur conseil d'administration. Il est associ\u00e9 aux accr\u00e9ditations et habilitations de ces \u00e9tablissements. Des modalit\u00e9s compl\u00e9mentaires peuvent \u00eatre pr\u00e9vues dans les statuts des \u00e9tablissements.", 
-                        "\"une strat\u00e9gie nationale de l'enseignement sup\u00e9rieur, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la responsabilit\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur. Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec les partenaires culturels, sociaux et \u00e9conomiques, la communaut\u00e9 scientifique et d'enseignement sup\u00e9rieur, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales. Avant d'\u00eatre arr\u00eat\u00e9es d\u00e9finitivement, elles sont transmises aux commissions permanentes comp\u00e9tentes de l'Assembl\u00e9e nationale et du S\u00e9nat.", 
+                        "\"Une strat\u00e9gie nationale de l'enseignement sup\u00e9rieur, comportant une programmation pluriannuelle des moyens, est \u00e9labor\u00e9e et r\u00e9vis\u00e9e tous les cinq ans sous la responsabilit\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur. Les priorit\u00e9s en sont arr\u00eat\u00e9es apr\u00e8s une concertation avec les partenaires culturels, sociaux et \u00e9conomiques, la communaut\u00e9 scientifique et d'enseignement sup\u00e9rieur, les minist\u00e8res concern\u00e9s et les collectivit\u00e9s territoriales. Avant d'\u00eatre arr\u00eat\u00e9es d\u00e9finitivement, elles sont transmises aux commissions permanentes comp\u00e9tentes de l'Assembl\u00e9e nationale et du S\u00e9nat.", 
                         "\"La strat\u00e9gie nationale de l'enseignement sup\u00e9rieur repose sur le principe selon lequel les \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel d\u00e9finis au titre Ier du livre VII de la troisi\u00e8me partie sont au centre du syst\u00e8me d'enseignement sup\u00e9rieur.", 
                         "\"Le ministre charg\u00e9 de l'enseignement sup\u00e9rieur veille \u00e0 la mise en oeuvre de la strat\u00e9gie nationale de l'enseignement sup\u00e9rieur.", 
                         "\"Les principes de r\u00e9partition des moyens entre les acteurs de l'enseignement sup\u00e9rieur sont d\u00e9finis par la strat\u00e9gie nationale.", 
@@ -4556,17 +4556,17 @@
                 {
                     "diff": "rem", 
                     "id_step": "01_1\u00e8relecture_assemblee_commission", 
-                    "length": 1734, 
-                    "n_diff": 0.73680297397769512, 
+                    "length": 1735, 
+                    "n_diff": 0.73690078037904128, 
                     "order": 40, 
                     "status": "none", 
                     "text": [
                         "L'article L. 713-1 du m\u00eame code est ainsi modifi\u00e9 :", 
                         "1\u00b0 Au 1\u00b0, apr\u00e8s les mots : \"centres de recherche,\", sont ajout\u00e9s les mots : \"et d'autres types de composantes\" et le mot : \"scientifique\" est remplac\u00e9 par le mot : \"acad\u00e9mique\" ;", 
-                        "1\u00b0bis Apr\u00e8s le 2\u00b0, il est ins\u00e9r\u00e9 un 3\u00b0 ainsi r\u00e9dig\u00e9 :", 
+                        "1\u00b0 bis Apr\u00e8s le 2\u00b0, il est ins\u00e9r\u00e9 un 3\u00b0 ainsi r\u00e9dig\u00e9 :", 
                         "\"3\u00b0 Des regroupements de composantes cr\u00e9\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de l'universit\u00e9 apr\u00e8s avis du conseil acad\u00e9mique ou, le cas \u00e9ch\u00e9ant, pour les regroupements d'\u00e9coles ou d'instituts pr\u00e9vus au 2\u00b0, par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur sur proposition ou apr\u00e8s avis du conseil d'administration de l'universit\u00e9 et du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Les statuts de l'universit\u00e9 peuvent pr\u00e9voir que sont d\u00e9l\u00e9gu\u00e9es \u00e0 ces regroupements de composantes certaines des comp\u00e9tences du conseil d'administration ou du conseil acad\u00e9mique, \u00e0 l'exception des comp\u00e9tences de la section disciplinaire ou de la formation restreinte aux enseignants-chercheurs.\" ;", 
                         "2\u00b0 Apr\u00e8s le 2\u00b0, il est ins\u00e9r\u00e9 un alin\u00e9a ainsi r\u00e9dig\u00e9 :", 
-                        "\"un conseil des directeurs de composantes est institu\u00e9 par les statuts de l'universit\u00e9 qui d\u00e9finissent ses comp\u00e9tences. Il participe \u00e0 la pr\u00e9paration et \u00e0 la mise en oeuvre des d\u00e9cisions du conseil d'administration et du conseil acad\u00e9mique. Il est pr\u00e9sid\u00e9 par le pr\u00e9sident de l'universit\u00e9.\" ;", 
+                        "\"Un conseil des directeurs de composantes est institu\u00e9 par les statuts de l'universit\u00e9 qui d\u00e9finissent ses comp\u00e9tences. Il participe \u00e0 la pr\u00e9paration et \u00e0 la mise en oeuvre des d\u00e9cisions du conseil d'administration et du conseil acad\u00e9mique. Il est pr\u00e9sid\u00e9 par le pr\u00e9sident de l'universit\u00e9.\" ;", 
                         "3\u00b0 Apr\u00e8s la premi\u00e8re phrase du dernier alin\u00e9a, sont ins\u00e9r\u00e9es deux phrases ainsi r\u00e9dig\u00e9es :", 
                         "\"Le pr\u00e9sident, selon des modalit\u00e9s fix\u00e9es par les statuts, conduit un dialogue de gestion avec les composantes, afin que soient arr\u00eat\u00e9s leurs objectifs et leurs moyens. Ce dialogue de gestion peut prendre la forme d'un contrat d'objectifs et de moyens entre l'universit\u00e9 et ses composantes.\"."
                     ]
@@ -4575,7 +4575,7 @@
                     "diff": "add", 
                     "id_step": "02_1\u00e8relecture_assemblee_hemicycle", 
                     "length": 1680, 
-                    "n_diff": 0.060339777387229065, 
+                    "n_diff": 0.035431918008784757, 
                     "order": 47, 
                     "status": "none", 
                     "text": [
@@ -4583,14 +4583,14 @@
                         "1\u00b0 Au 1\u00b0, apr\u00e8s les mots : \"centres de recherche,\", sont ins\u00e9r\u00e9s les mots : \"et d'autres types de composantes\" et le mot : \"scientifique\" est remplac\u00e9 par le mot : \"acad\u00e9mique\" ;", 
                         "2\u00b0 Apr\u00e8s le 2\u00b0, sont ins\u00e9r\u00e9s deux alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"3\u00b0 Des regroupements de composantes cr\u00e9\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de l'universit\u00e9 apr\u00e8s avis du conseil acad\u00e9mique ou, le cas \u00e9ch\u00e9ant, pour les regroupements d'\u00e9coles ou d'instituts pr\u00e9vus au 2\u00b0, par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur sur proposition ou apr\u00e8s avis du conseil d'administration de l'universit\u00e9 et du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Les statuts de l'universit\u00e9 peuvent pr\u00e9voir que sont d\u00e9l\u00e9gu\u00e9es \u00e0 ces regroupements de composantes certaines des comp\u00e9tences du conseil d'administration ou du conseil acad\u00e9mique, \u00e0 l'exception des comp\u00e9tences de la section disciplinaire ou de la formation restreinte aux enseignants-chercheurs.", 
-                        "\"un conseil des directeurs de composantes est institu\u00e9 par les statuts de l'universit\u00e9, qui d\u00e9finissent ses comp\u00e9tences. Il participe \u00e0 la pr\u00e9paration et \u00e0 la mise en oeuvre des d\u00e9cisions du conseil d'administration et du conseil acad\u00e9mique. Il est pr\u00e9sid\u00e9 par le pr\u00e9sident de l'universit\u00e9.\" ;", 
+                        "\"Un conseil des directeurs de composantes est institu\u00e9 par les statuts de l'universit\u00e9, qui d\u00e9finissent ses comp\u00e9tences. Il participe \u00e0 la pr\u00e9paration et \u00e0 la mise en oeuvre des d\u00e9cisions du conseil d'administration et du conseil acad\u00e9mique. Il est pr\u00e9sid\u00e9 par le pr\u00e9sident de l'universit\u00e9.\" ;", 
                         "3\u00b0 Apr\u00e8s la premi\u00e8re phrase du dernier alin\u00e9a, sont ins\u00e9r\u00e9es deux phrases ainsi r\u00e9dig\u00e9es :", 
                         "\"Le pr\u00e9sident, selon des modalit\u00e9s fix\u00e9es par les statuts, conduit un dialogue de gestion avec les composantes, afin que soient arr\u00eat\u00e9s leurs objectifs et leurs moyens. Ce dialogue de gestion peut prendre la forme d'un contrat d'objectifs et de moyens entre l'universit\u00e9 et ses composantes.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1680, 
                     "n_diff": 0, 
                     "order": 54, 
@@ -4600,14 +4600,14 @@
                         "1\u00b0 Au 1\u00b0, apr\u00e8s les mots : \"centres de recherche,\", sont ins\u00e9r\u00e9s les mots : \"et d'autres types de composantes\" et le mot : \"scientifique\" est remplac\u00e9 par le mot : \"acad\u00e9mique\" ;", 
                         "2\u00b0 Apr\u00e8s le 2\u00b0, sont ins\u00e9r\u00e9s deux alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"3\u00b0 Des regroupements de composantes cr\u00e9\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de l'universit\u00e9 apr\u00e8s avis du conseil acad\u00e9mique ou, le cas \u00e9ch\u00e9ant, pour les regroupements d'\u00e9coles ou d'instituts pr\u00e9vus au 2\u00b0, par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur sur proposition ou apr\u00e8s avis du conseil d'administration de l'universit\u00e9 et du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Les statuts de l'universit\u00e9 peuvent pr\u00e9voir que sont d\u00e9l\u00e9gu\u00e9es \u00e0 ces regroupements de composantes certaines des comp\u00e9tences du conseil d'administration ou du conseil acad\u00e9mique, \u00e0 l'exception des comp\u00e9tences de la section disciplinaire ou de la formation restreinte aux enseignants-chercheurs.", 
-                        "\"un conseil des directeurs de composantes est institu\u00e9 par les statuts de l'universit\u00e9, qui d\u00e9finissent ses comp\u00e9tences. Il participe \u00e0 la pr\u00e9paration et \u00e0 la mise en oeuvre des d\u00e9cisions du conseil d'administration et du conseil acad\u00e9mique. Il est pr\u00e9sid\u00e9 par le pr\u00e9sident de l'universit\u00e9.\" ;", 
+                        "\"Un conseil des directeurs de composantes est institu\u00e9 par les statuts de l'universit\u00e9, qui d\u00e9finissent ses comp\u00e9tences. Il participe \u00e0 la pr\u00e9paration et \u00e0 la mise en oeuvre des d\u00e9cisions du conseil d'administration et du conseil acad\u00e9mique. Il est pr\u00e9sid\u00e9 par le pr\u00e9sident de l'universit\u00e9.\" ;", 
                         "3\u00b0 Apr\u00e8s la premi\u00e8re phrase du dernier alin\u00e9a, sont ins\u00e9r\u00e9es deux phrases ainsi r\u00e9dig\u00e9es :", 
                         "\"Le pr\u00e9sident, selon des modalit\u00e9s fix\u00e9es par les statuts, conduit un dialogue de gestion avec les composantes, afin que soient arr\u00eat\u00e9s leurs objectifs et leurs moyens. Ce dialogue de gestion peut prendre la forme d'un contrat d'objectifs et de moyens entre l'universit\u00e9 et ses composantes.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1680, 
                     "n_diff": 0, 
                     "order": 54, 
@@ -4617,14 +4617,14 @@
                         "1\u00b0 Au 1\u00b0, apr\u00e8s les mots : \"centres de recherche,\", sont ins\u00e9r\u00e9s les mots : \"et d'autres types de composantes\" et le mot : \"scientifique\" est remplac\u00e9 par le mot : \"acad\u00e9mique\" ;", 
                         "2\u00b0 Apr\u00e8s le 2\u00b0, sont ins\u00e9r\u00e9s deux alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"3\u00b0 Des regroupements de composantes cr\u00e9\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de l'universit\u00e9 apr\u00e8s avis du conseil acad\u00e9mique ou, le cas \u00e9ch\u00e9ant, pour les regroupements d'\u00e9coles ou d'instituts pr\u00e9vus au 2\u00b0, par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur sur proposition ou apr\u00e8s avis du conseil d'administration de l'universit\u00e9 et du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Les statuts de l'universit\u00e9 peuvent pr\u00e9voir que sont d\u00e9l\u00e9gu\u00e9es \u00e0 ces regroupements de composantes certaines des comp\u00e9tences du conseil d'administration ou du conseil acad\u00e9mique, \u00e0 l'exception des comp\u00e9tences de la section disciplinaire ou de la formation restreinte aux enseignants-chercheurs.", 
-                        "\"un conseil des directeurs de composantes est institu\u00e9 par les statuts de l'universit\u00e9, qui d\u00e9finissent ses comp\u00e9tences. Il participe \u00e0 la pr\u00e9paration et \u00e0 la mise en oeuvre des d\u00e9cisions du conseil d'administration et du conseil acad\u00e9mique. Il est pr\u00e9sid\u00e9 par le pr\u00e9sident de l'universit\u00e9.\" ;", 
+                        "\"Un conseil des directeurs de composantes est institu\u00e9 par les statuts de l'universit\u00e9, qui d\u00e9finissent ses comp\u00e9tences. Il participe \u00e0 la pr\u00e9paration et \u00e0 la mise en oeuvre des d\u00e9cisions du conseil d'administration et du conseil acad\u00e9mique. Il est pr\u00e9sid\u00e9 par le pr\u00e9sident de l'universit\u00e9.\" ;", 
                         "3\u00b0 Apr\u00e8s la premi\u00e8re phrase du dernier alin\u00e9a, sont ins\u00e9r\u00e9es deux phrases ainsi r\u00e9dig\u00e9es :", 
                         "\"Le pr\u00e9sident, selon des modalit\u00e9s fix\u00e9es par les statuts, conduit un dialogue de gestion avec les composantes, afin que soient arr\u00eat\u00e9s leurs objectifs et leurs moyens. Ce dialogue de gestion peut prendre la forme d'un contrat d'objectifs et de moyens entre l'universit\u00e9 et ses composantes.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1680, 
                     "n_diff": 0, 
                     "order": 53, 
@@ -4634,14 +4634,14 @@
                         "1\u00b0 Au 1\u00b0, apr\u00e8s les mots : \"centres de recherche,\", sont ins\u00e9r\u00e9s les mots : \"et d'autres types de composantes\" et le mot : \"scientifique\" est remplac\u00e9 par le mot : \"acad\u00e9mique\" ;", 
                         "2\u00b0 Apr\u00e8s le 2\u00b0, sont ins\u00e9r\u00e9s deux alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"3\u00b0 Des regroupements de composantes cr\u00e9\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de l'universit\u00e9 apr\u00e8s avis du conseil acad\u00e9mique ou, le cas \u00e9ch\u00e9ant, pour les regroupements d'\u00e9coles ou d'instituts pr\u00e9vus au 2\u00b0, par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur sur proposition ou apr\u00e8s avis du conseil d'administration de l'universit\u00e9 et du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Les statuts de l'universit\u00e9 peuvent pr\u00e9voir que sont d\u00e9l\u00e9gu\u00e9es \u00e0 ces regroupements de composantes certaines des comp\u00e9tences du conseil d'administration ou du conseil acad\u00e9mique, \u00e0 l'exception des comp\u00e9tences de la section disciplinaire ou de la formation restreinte aux enseignants-chercheurs.", 
-                        "\"un conseil des directeurs de composantes est institu\u00e9 par les statuts de l'universit\u00e9, qui d\u00e9finissent ses comp\u00e9tences. Il participe \u00e0 la pr\u00e9paration et \u00e0 la mise en oeuvre des d\u00e9cisions du conseil d'administration et du conseil acad\u00e9mique. Il est pr\u00e9sid\u00e9 par le pr\u00e9sident de l'universit\u00e9.\" ;", 
+                        "\"Un conseil des directeurs de composantes est institu\u00e9 par les statuts de l'universit\u00e9, qui d\u00e9finissent ses comp\u00e9tences. Il participe \u00e0 la pr\u00e9paration et \u00e0 la mise en oeuvre des d\u00e9cisions du conseil d'administration et du conseil acad\u00e9mique. Il est pr\u00e9sid\u00e9 par le pr\u00e9sident de l'universit\u00e9.\" ;", 
                         "3\u00b0 Apr\u00e8s la premi\u00e8re phrase du dernier alin\u00e9a, sont ins\u00e9r\u00e9es deux phrases ainsi r\u00e9dig\u00e9es :", 
                         "\"Le pr\u00e9sident, selon des modalit\u00e9s fix\u00e9es par les statuts, conduit un dialogue de gestion avec les composantes, afin que soient arr\u00eat\u00e9s leurs objectifs et leurs moyens. Ce dialogue de gestion peut prendre la forme d'un contrat d'objectifs et de moyens entre l'universit\u00e9 et ses composantes.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1680, 
                     "n_diff": 0, 
                     "order": 52, 
@@ -4651,7 +4651,7 @@
                         "1\u00b0 Au 1\u00b0, apr\u00e8s les mots : \"centres de recherche,\", sont ins\u00e9r\u00e9s les mots : \"et d'autres types de composantes\" et le mot : \"scientifique\" est remplac\u00e9 par le mot : \"acad\u00e9mique\" ;", 
                         "2\u00b0 Apr\u00e8s le 2\u00b0, sont ins\u00e9r\u00e9s deux alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"3\u00b0 Des regroupements de composantes cr\u00e9\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de l'universit\u00e9 apr\u00e8s avis du conseil acad\u00e9mique ou, le cas \u00e9ch\u00e9ant, pour les regroupements d'\u00e9coles ou d'instituts pr\u00e9vus au 2\u00b0, par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur sur proposition ou apr\u00e8s avis du conseil d'administration de l'universit\u00e9 et du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Les statuts de l'universit\u00e9 peuvent pr\u00e9voir que sont d\u00e9l\u00e9gu\u00e9es \u00e0 ces regroupements de composantes certaines des comp\u00e9tences du conseil d'administration ou du conseil acad\u00e9mique, \u00e0 l'exception des comp\u00e9tences de la section disciplinaire ou de la formation restreinte aux enseignants-chercheurs.", 
-                        "\"un conseil des directeurs de composantes est institu\u00e9 par les statuts de l'universit\u00e9, qui d\u00e9finissent ses comp\u00e9tences. Il participe \u00e0 la pr\u00e9paration et \u00e0 la mise en oeuvre des d\u00e9cisions du conseil d'administration et du conseil acad\u00e9mique. Il est pr\u00e9sid\u00e9 par le pr\u00e9sident de l'universit\u00e9.\" ;", 
+                        "\"Un conseil des directeurs de composantes est institu\u00e9 par les statuts de l'universit\u00e9, qui d\u00e9finissent ses comp\u00e9tences. Il participe \u00e0 la pr\u00e9paration et \u00e0 la mise en oeuvre des d\u00e9cisions du conseil d'administration et du conseil acad\u00e9mique. Il est pr\u00e9sid\u00e9 par le pr\u00e9sident de l'universit\u00e9.\" ;", 
                         "3\u00b0 Apr\u00e8s la premi\u00e8re phrase du dernier alin\u00e9a, sont ins\u00e9r\u00e9es deux phrases ainsi r\u00e9dig\u00e9es :", 
                         "\"Le pr\u00e9sident, selon des modalit\u00e9s fix\u00e9es par les statuts, conduit un dialogue de gestion avec les composantes, afin que soient arr\u00eat\u00e9s leurs objectifs et leurs moyens. Ce dialogue de gestion peut prendre la forme d'un contrat d'objectifs et de moyens entre l'universit\u00e9 et ses composantes.\""
                     ]
@@ -4698,7 +4698,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 206, 
                     "n_diff": 0, 
                     "order": 55, 
@@ -4709,7 +4709,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 206, 
                     "n_diff": 0, 
                     "order": 55, 
@@ -4720,7 +4720,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 206, 
                     "n_diff": 0, 
                     "order": 54, 
@@ -4731,7 +4731,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 206, 
                     "n_diff": 0, 
                     "order": 53, 
@@ -4793,7 +4793,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 824, 
                     "n_diff": 0.15659519168291103, 
                     "order": 56, 
@@ -4808,7 +4808,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 834, 
                     "n_diff": 0.016887816646562137, 
                     "order": 56, 
@@ -4823,7 +4823,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 834, 
                     "n_diff": 0, 
                     "order": 55, 
@@ -4838,7 +4838,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 835, 
                     "n_diff": 0.00059916117435587779, 
                     "order": 54, 
@@ -4872,7 +4872,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 172, 
                     "n_diff": 0, 
                     "order": 57, 
@@ -4884,7 +4884,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 172, 
                     "n_diff": 0, 
                     "order": 57, 
@@ -4896,7 +4896,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 172, 
                     "n_diff": 0, 
                     "order": 56, 
@@ -4908,7 +4908,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 172, 
                     "n_diff": 0, 
                     "order": 55, 
@@ -4980,7 +4980,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1612, 
                     "n_diff": 0, 
                     "order": 58, 
@@ -4999,7 +4999,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1612, 
                     "n_diff": 0, 
                     "order": 58, 
@@ -5018,7 +5018,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1612, 
                     "n_diff": 0, 
                     "order": 57, 
@@ -5037,7 +5037,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1612, 
                     "n_diff": 0, 
                     "order": 56, 
@@ -5106,7 +5106,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1319, 
                     "n_diff": 0, 
                     "order": 59, 
@@ -5122,7 +5122,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1319, 
                     "n_diff": 0, 
                     "order": 59, 
@@ -5138,7 +5138,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1319, 
                     "n_diff": 0, 
                     "order": 58, 
@@ -5154,7 +5154,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1319, 
                     "n_diff": 0, 
                     "order": 57, 
@@ -5232,7 +5232,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1583, 
                     "n_diff": 0, 
                     "order": 60, 
@@ -5249,7 +5249,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1583, 
                     "n_diff": 0, 
                     "order": 60, 
@@ -5266,7 +5266,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1583, 
                     "n_diff": 0, 
                     "order": 59, 
@@ -5283,7 +5283,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1583, 
                     "n_diff": 0, 
                     "order": 58, 
@@ -5316,7 +5316,7 @@
                         "Apr\u00e8s l'article L. 812-4 du code rural et de la p\u00eache maritime, il est ins\u00e9r\u00e9 un article L. 812-5 ainsi r\u00e9dig\u00e9 :", 
                         "Art. L. 812-5. - Le pouvoir disciplinaire \u00e0 l'\u00e9gard des enseignants-chercheurs, enseignants et usagers est exerc\u00e9 en premier ressort par le conseil d'administration de l'\u00e9tablissement constitu\u00e9 en section disciplinaire.", 
                         "\"Le pr\u00e9sident de la section disciplinaire est un professeur de l'enseignement sup\u00e9rieur ; il est \u00e9lu en leur sein par l'ensemble des enseignants-chercheurs membres de la section.", 
-                        "\"un d\u00e9cret en Conseil d'\u00c9tat pr\u00e9cise la composition, les modalit\u00e9s de d\u00e9signation des membres et le fonctionnement de la section disciplinaire.\""
+                        "\"Un d\u00e9cret en Conseil d'\u00c9tat pr\u00e9cise la composition, les modalit\u00e9s de d\u00e9signation des membres et le fonctionnement de la section disciplinaire.\""
                     ]
                 }, 
                 {
@@ -5330,7 +5330,7 @@
                         "Le chapitre II du titre Ier du livre VIII du code rural et de la p\u00eache maritime est compl\u00e9t\u00e9 par un article L. 812-5 ainsi r\u00e9tabli :", 
                         "\"Art. L. 812-5. - Le pouvoir disciplinaire \u00e0 l'\u00e9gard des enseignants-chercheurs, enseignants et usagers est exerc\u00e9 en premier ressort par le conseil d'administration de l'\u00e9tablissement constitu\u00e9 en section disciplinaire.", 
                         "\"Le pr\u00e9sident de la section disciplinaire est un professeur de l'enseignement sup\u00e9rieur ; il est \u00e9lu en leur sein par l'ensemble des enseignants-chercheurs membres de la section disciplinaire.", 
-                        "\"un d\u00e9cret en Conseil d'\u00c9tat pr\u00e9cise la composition, les modalit\u00e9s de d\u00e9signation des membres et le fonctionnement de la section disciplinaire.\""
+                        "\"Un d\u00e9cret en Conseil d'\u00c9tat pr\u00e9cise la composition, les modalit\u00e9s de d\u00e9signation des membres et le fonctionnement de la section disciplinaire.\""
                     ]
                 }, 
                 {
@@ -5344,12 +5344,12 @@
                         "Le chapitre II du titre Ier du livre VIII du code rural et de la p\u00eache maritime est compl\u00e9t\u00e9 par un article L. 812-5 ainsi r\u00e9tabli :", 
                         "\"Art. L. 812-5. - Le pouvoir disciplinaire \u00e0 l'\u00e9gard des enseignants-chercheurs, enseignants et usagers est exerc\u00e9 en premier ressort par le conseil d'administration de l'\u00e9tablissement constitu\u00e9 en section disciplinaire.", 
                         "\"Le pr\u00e9sident de la section disciplinaire est un professeur de l'enseignement sup\u00e9rieur ; il est \u00e9lu en leur sein par l'ensemble des enseignants-chercheurs membres de la section disciplinaire.", 
-                        "\"un d\u00e9cret en Conseil d'\u00c9tat pr\u00e9cise la composition, les modalit\u00e9s de d\u00e9signation des membres et le fonctionnement de la section disciplinaire.\""
+                        "\"Un d\u00e9cret en Conseil d'\u00c9tat pr\u00e9cise la composition, les modalit\u00e9s de d\u00e9signation des membres et le fonctionnement de la section disciplinaire.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 691, 
                     "n_diff": 0, 
                     "order": 61, 
@@ -5358,12 +5358,12 @@
                         "Le chapitre II du titre Ier du livre VIII du code rural et de la p\u00eache maritime est compl\u00e9t\u00e9 par un article L. 812-5 ainsi r\u00e9tabli :", 
                         "\"Art. L. 812-5. - Le pouvoir disciplinaire \u00e0 l'\u00e9gard des enseignants-chercheurs, enseignants et usagers est exerc\u00e9 en premier ressort par le conseil d'administration de l'\u00e9tablissement constitu\u00e9 en section disciplinaire.", 
                         "\"Le pr\u00e9sident de la section disciplinaire est un professeur de l'enseignement sup\u00e9rieur ; il est \u00e9lu en leur sein par l'ensemble des enseignants-chercheurs membres de la section disciplinaire.", 
-                        "\"un d\u00e9cret en Conseil d'\u00c9tat pr\u00e9cise la composition, les modalit\u00e9s de d\u00e9signation des membres et le fonctionnement de la section disciplinaire.\""
+                        "\"Un d\u00e9cret en Conseil d'\u00c9tat pr\u00e9cise la composition, les modalit\u00e9s de d\u00e9signation des membres et le fonctionnement de la section disciplinaire.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 691, 
                     "n_diff": 0, 
                     "order": 61, 
@@ -5372,12 +5372,12 @@
                         "Le chapitre II du titre Ier du livre VIII du code rural et de la p\u00eache maritime est compl\u00e9t\u00e9 par un article L. 812-5 ainsi r\u00e9tabli :", 
                         "\"Art. L. 812-5. - Le pouvoir disciplinaire \u00e0 l'\u00e9gard des enseignants-chercheurs, enseignants et usagers est exerc\u00e9 en premier ressort par le conseil d'administration de l'\u00e9tablissement constitu\u00e9 en section disciplinaire.", 
                         "\"Le pr\u00e9sident de la section disciplinaire est un professeur de l'enseignement sup\u00e9rieur ; il est \u00e9lu en leur sein par l'ensemble des enseignants-chercheurs membres de la section disciplinaire.", 
-                        "\"un d\u00e9cret en Conseil d'\u00c9tat pr\u00e9cise la composition, les modalit\u00e9s de d\u00e9signation des membres et le fonctionnement de la section disciplinaire.\""
+                        "\"Un d\u00e9cret en Conseil d'\u00c9tat pr\u00e9cise la composition, les modalit\u00e9s de d\u00e9signation des membres et le fonctionnement de la section disciplinaire.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 691, 
                     "n_diff": 0, 
                     "order": 60, 
@@ -5386,12 +5386,12 @@
                         "Le chapitre II du titre Ier du livre VIII du code rural et de la p\u00eache maritime est compl\u00e9t\u00e9 par un article L. 812-5 ainsi r\u00e9tabli :", 
                         "\"Art. L. 812-5. - Le pouvoir disciplinaire \u00e0 l'\u00e9gard des enseignants-chercheurs, enseignants et usagers est exerc\u00e9 en premier ressort par le conseil d'administration de l'\u00e9tablissement constitu\u00e9 en section disciplinaire.", 
                         "\"Le pr\u00e9sident de la section disciplinaire est un professeur de l'enseignement sup\u00e9rieur ; il est \u00e9lu en leur sein par l'ensemble des enseignants-chercheurs membres de la section disciplinaire.", 
-                        "\"un d\u00e9cret en Conseil d'\u00c9tat pr\u00e9cise la composition, les modalit\u00e9s de d\u00e9signation des membres et le fonctionnement de la section disciplinaire.\""
+                        "\"Un d\u00e9cret en Conseil d'\u00c9tat pr\u00e9cise la composition, les modalit\u00e9s de d\u00e9signation des membres et le fonctionnement de la section disciplinaire.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 691, 
                     "n_diff": 0, 
                     "order": 59, 
@@ -5400,7 +5400,7 @@
                         "Le chapitre II du titre Ier du livre VIII du code rural et de la p\u00eache maritime est compl\u00e9t\u00e9 par un article L. 812-5 ainsi r\u00e9tabli :", 
                         "\"Art. L. 812-5. - Le pouvoir disciplinaire \u00e0 l'\u00e9gard des enseignants-chercheurs, enseignants et usagers est exerc\u00e9 en premier ressort par le conseil d'administration de l'\u00e9tablissement constitu\u00e9 en section disciplinaire.", 
                         "\"Le pr\u00e9sident de la section disciplinaire est un professeur de l'enseignement sup\u00e9rieur ; il est \u00e9lu en leur sein par l'ensemble des enseignants-chercheurs membres de la section disciplinaire.", 
-                        "\"un d\u00e9cret en Conseil d'\u00c9tat pr\u00e9cise la composition, les modalit\u00e9s de d\u00e9signation des membres et le fonctionnement de la section disciplinaire.\""
+                        "\"Un d\u00e9cret en Conseil d'\u00c9tat pr\u00e9cise la composition, les modalit\u00e9s de d\u00e9signation des membres et le fonctionnement de la section disciplinaire.\""
                     ]
                 }
             ], 
@@ -5425,9 +5425,9 @@
                         "3\u00b0 Au troisi\u00e8me alin\u00e9a, les mots : \"l'ensemble des repr\u00e9sentants des personnels\" sont remplac\u00e9s par les mots : \"les repr\u00e9sentants\" ;", 
                         "4\u00b0 Apr\u00e8s le troisi\u00e8me alin\u00e9a, sont ins\u00e9r\u00e9s sept alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
                         "\"L'\u00e9lection des repr\u00e9sentants des personnels ing\u00e9nieurs, administratifs, techniques et des biblioth\u00e8ques et des repr\u00e9sentants des enseignants-chercheurs et personnels assimil\u00e9s s'effectue au scrutin de liste \u00e0 deux tours, avec possibilit\u00e9 de listes incompl\u00e8tes, sans panachage.", 
-                        "\"une d\u00e9claration de candidature est obligatoire pour chaque liste de candidats avant chaque tour de scrutin.", 
+                        "\"Une d\u00e9claration de candidature est obligatoire pour chaque liste de candidats avant chaque tour de scrutin.", 
                         "\"Au premier tour de scrutin, un si\u00e8ge est attribu\u00e9 \u00e0 la liste qui a recueilli la majorit\u00e9 absolue des suffrages exprim\u00e9s. Cette attribution op\u00e9r\u00e9e, les autres si\u00e8ges sont r\u00e9partis entre toutes les listes \u00e0 la repr\u00e9sentation proportionnelle au plus fort reste, sous r\u00e9serve de l'application du neuvi\u00e8me alin\u00e9a ci-apr\u00e8s.", 
-                        "\"Si aucune liste n'a recueilli la majorit\u00e9 absolue des suffrages exprim\u00e9s au premier tour, il est proc\u00e9d\u00e9 \u00e0 un second tour. un si\u00e8ge est attribu\u00e9 \u00e0 la liste qui a obtenu le plus de voix. En cas d'\u00e9galit\u00e9 de suffrages entre les listes arriv\u00e9es en t\u00eate, ce si\u00e8ge est attribu\u00e9 \u00e0 la liste dont les candidats ont la moyenne d'\u00e2ge la plus \u00e9lev\u00e9e. Cette attribution op\u00e9r\u00e9e, les autres si\u00e8ges sont r\u00e9partis entre toutes les listes \u00e0 la repr\u00e9sentation proportionnelle au plus fort reste, sous r\u00e9serve de l'application du neuvi\u00e8me alin\u00e9a.", 
+                        "\"Si aucune liste n'a recueilli la majorit\u00e9 absolue des suffrages exprim\u00e9s au premier tour, il est proc\u00e9d\u00e9 \u00e0 un second tour. Un si\u00e8ge est attribu\u00e9 \u00e0 la liste qui a obtenu le plus de voix. En cas d'\u00e9galit\u00e9 de suffrages entre les listes arriv\u00e9es en t\u00eate, ce si\u00e8ge est attribu\u00e9 \u00e0 la liste dont les candidats ont la moyenne d'\u00e2ge la plus \u00e9lev\u00e9e. Cette attribution op\u00e9r\u00e9e, les autres si\u00e8ges sont r\u00e9partis entre toutes les listes \u00e0 la repr\u00e9sentation proportionnelle au plus fort reste, sous r\u00e9serve de l'application du neuvi\u00e8me alin\u00e9a.", 
                         "\"Les listes qui n'ont pas obtenu au moins 5 % des suffrages exprim\u00e9s ne sont pas admises \u00e0 la r\u00e9partition des si\u00e8ges.", 
                         "\"Si plusieurs listes ont le m\u00eame reste pour l'attribution du dernier si\u00e8ge, celui-ci revient \u00e0 la liste qui a obtenu le plus grand nombre de suffrages. En cas d'\u00e9galit\u00e9 de suffrages, le si\u00e8ge est attribu\u00e9 au plus \u00e2g\u00e9 des candidats susceptibles d'\u00eatre proclam\u00e9s \u00e9lus.", 
                         "\"Seules peuvent se pr\u00e9senter au second tour de scrutin les listes ayant obtenu au premier tour un nombre de suffrages au moins \u00e9gal \u00e0 10 % des suffrages exprim\u00e9s. Dans le cas o\u00f9 une seule liste remplit cette condition, la liste ayant obtenu apr\u00e8s celle-ci le plus grand nombre de suffrages au premier tour peut se maintenir au second. Dans le cas o\u00f9 aucune liste ne remplit cette condition, les deux listes ayant obtenu le plus grand nombre de suffrages au premier tour peuvent se maintenir au second. La composition de ces listes peut \u00eatre modifi\u00e9e pour comprendre des candidats ayant figur\u00e9 au premier tour sur d'autres listes sous r\u00e9serve que celles-ci aient obtenu au premier tour au moins 5 % des suffrages exprim\u00e9s et ne se pr\u00e9sentent pas au second tour. En cas de modification de la composition d'une liste, le titre de la liste et l'ordre de pr\u00e9sentation des candidats peuvent \u00e9galement \u00eatre modifi\u00e9s, sous r\u00e9serve de respecter l'alternance d'un candidat de chaque sexe.\" ;", 
@@ -5443,7 +5443,7 @@
                     "diff": "add", 
                     "id_step": "01_1\u00e8relecture_assemblee_commission", 
                     "length": 2450, 
-                    "n_diff": 0.80366288995809398, 
+                    "n_diff": 0.79078069222411917, 
                     "order": 47, 
                     "status": "none", 
                     "text": [
@@ -5454,7 +5454,7 @@
                         "\"Chaque liste de candidats est compos\u00e9e alternativement d'un candidat de chaque sexe.\" ;", 
                         "3\u00b0 Au troisi\u00e8me alin\u00e9a, apr\u00e8s le mot : \"personnels\", sont ins\u00e9r\u00e9s les mots : \"enseignants-chercheurs et des personnels assimil\u00e9s, des personnels ing\u00e9nieurs, administratifs, techniques et des biblioth\u00e8ques\" ;", 
                         "4\u00b0 Apr\u00e8s le troisi\u00e8me alin\u00e9a, il est ins\u00e9r\u00e9 un alin\u00e9a ainsi r\u00e9dig\u00e9 :", 
-                        "\"une d\u00e9claration de candidature est obligatoire pour chaque liste de candidats. Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s au conseil d'administration de l'universit\u00e9, il est attribu\u00e9 dans chacun des coll\u00e8ges deux si\u00e8ges \u00e0 la liste qui a obtenu le plus de voix. Les autres si\u00e8ges sont r\u00e9partis entre toutes les listes. Toutefois, les listes qui n'ont pas obtenu un nombre de suffrages \u00e9gal \u00e0 10 % des \u00e9lecteurs inscrits ne sont pas admises \u00e0 la r\u00e9partition des si\u00e8ges.\" ;", 
+                        "\"Une d\u00e9claration de candidature est obligatoire pour chaque liste de candidats. Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s au conseil d'administration de l'universit\u00e9, il est attribu\u00e9 dans chacun des coll\u00e8ges deux si\u00e8ges \u00e0 la liste qui a obtenu le plus de voix. Les autres si\u00e8ges sont r\u00e9partis entre toutes les listes. Toutefois, les listes qui n'ont pas obtenu un nombre de suffrages \u00e9gal \u00e0 10 % des \u00e9lecteurs inscrits ne sont pas admises \u00e0 la r\u00e9partition des si\u00e8ges.\" ;", 
                         "5\u00b0 Le cinqui\u00e8me alin\u00e9a est ainsi r\u00e9dig\u00e9 :", 
                         "\"Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s et des repr\u00e9sentants des \u00e9tudiants et des personnes b\u00e9n\u00e9ficiant de la formation continue au conseil d'administration de l'universit\u00e9, chaque liste assure la repr\u00e9sentation d'au moins deux des grands secteurs de formation mentionn\u00e9s \u00e0 l'article L. 712-4-1 et d'au moins trois de ces secteurs lorsque l'universit\u00e9 comprend les quatre secteurs ainsi mentionn\u00e9s.\" ;", 
                         "6\u00b0 Le sixi\u00e8me alin\u00e9a est ainsi modifi\u00e9 :", 
@@ -5481,7 +5481,7 @@
                         "\"Chaque liste de candidats est compos\u00e9e alternativement d'un candidat de chaque sexe.\" ;", 
                         "3\u00b0 Au troisi\u00e8me alin\u00e9a, apr\u00e8s le mot : \"personnels\", sont ins\u00e9r\u00e9s les mots : \"enseignants-chercheurs et des personnels assimil\u00e9s, des personnels ing\u00e9nieurs, administratifs, techniques et des biblioth\u00e8ques\" ;", 
                         "4\u00b0 Apr\u00e8s le troisi\u00e8me alin\u00e9a, il est ins\u00e9r\u00e9 un alin\u00e9a ainsi r\u00e9dig\u00e9 :", 
-                        "\"une d\u00e9claration de candidature est obligatoire pour chaque liste de candidats. Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s au conseil d'administration de l'universit\u00e9, il est attribu\u00e9 dans chacun des coll\u00e8ges deux si\u00e8ges \u00e0 la liste qui a obtenu le plus de voix. Les autres si\u00e8ges sont r\u00e9partis entre toutes les listes. Toutefois, les listes qui n'ont pas obtenu un nombre de suffrages au moins \u00e9gal \u00e0 10 % des suffrages exprim\u00e9s ne sont pas admises \u00e0 la r\u00e9partition des si\u00e8ges.\" ;", 
+                        "\"Une d\u00e9claration de candidature est obligatoire pour chaque liste de candidats. Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s au conseil d'administration de l'universit\u00e9, il est attribu\u00e9 dans chacun des coll\u00e8ges deux si\u00e8ges \u00e0 la liste qui a obtenu le plus de voix. Les autres si\u00e8ges sont r\u00e9partis entre toutes les listes. Toutefois, les listes qui n'ont pas obtenu un nombre de suffrages au moins \u00e9gal \u00e0 10 % des suffrages exprim\u00e9s ne sont pas admises \u00e0 la r\u00e9partition des si\u00e8ges.\" ;", 
                         "5\u00b0 Le cinqui\u00e8me alin\u00e9a est ainsi r\u00e9dig\u00e9 :", 
                         "\"Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s et des repr\u00e9sentants des \u00e9tudiants et des personnes b\u00e9n\u00e9ficiant de la formation continue au conseil d'administration de l'universit\u00e9, chaque liste assure la repr\u00e9sentation d'au moins deux des grands secteurs de formation mentionn\u00e9s \u00e0 l'article L. 712-4 et d'au moins trois de ces secteurs lorsque l'universit\u00e9 comprend les quatre secteurs ainsi mentionn\u00e9s.\" ;", 
                         "6\u00b0 Le sixi\u00e8me alin\u00e9a est ainsi modifi\u00e9 :", 
@@ -5495,7 +5495,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 2928, 
                     "n_diff": 0.091332378223495603, 
                     "order": 62, 
@@ -5508,7 +5508,7 @@
                         "\"Chaque liste de candidats est compos\u00e9e alternativement d'un candidat de chaque sexe.\" ;", 
                         "3\u00b0 Au troisi\u00e8me alin\u00e9a, le mot : \"personnels\" est remplac\u00e9 par les mots : \"enseignants-chercheurs et des personnels assimil\u00e9s, des personnels ing\u00e9nieurs, administratifs, techniques, ouvriers et de service\" ;", 
                         "4\u00b0 Apr\u00e8s le troisi\u00e8me alin\u00e9a, sont ins\u00e9r\u00e9s deux alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
-                        "\"une d\u00e9claration de candidature est obligatoire pour chaque liste de candidats. Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s au conseil d'administration de l'universit\u00e9, il est attribu\u00e9 dans chacun des coll\u00e8ges deux si\u00e8ges \u00e0 la liste qui a obtenu le plus de voix. Les autres si\u00e8ges sont r\u00e9partis entre toutes les listes. Toutefois, les listes qui n'ont pas obtenu un nombre de suffrages au moins \u00e9gal \u00e0 10 % des suffrages exprim\u00e9s ne sont pas admises \u00e0 la r\u00e9partition des si\u00e8ges.", 
+                        "\"Une d\u00e9claration de candidature est obligatoire pour chaque liste de candidats. Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s au conseil d'administration de l'universit\u00e9, il est attribu\u00e9 dans chacun des coll\u00e8ges deux si\u00e8ges \u00e0 la liste qui a obtenu le plus de voix. Les autres si\u00e8ges sont r\u00e9partis entre toutes les listes. Toutefois, les listes qui n'ont pas obtenu un nombre de suffrages au moins \u00e9gal \u00e0 10 % des suffrages exprim\u00e9s ne sont pas admises \u00e0 la r\u00e9partition des si\u00e8ges.", 
                         "\"Si plusieurs listes ont le m\u00eame reste pour l'attribution du dernier si\u00e8ge, celui-ci revient \u00e0 la liste qui a obtenu le plus grand nombre de suffrages. En cas d'\u00e9galit\u00e9 de suffrages, le si\u00e8ge est attribu\u00e9 au plus jeune des candidats susceptibles d'\u00eatre proclam\u00e9s \u00e9lus.\" ;", 
                         "5\u00b0 Le cinqui\u00e8me alin\u00e9a est ainsi r\u00e9dig\u00e9 :", 
                         "\"Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s et des repr\u00e9sentants des \u00e9tudiants et des personnes b\u00e9n\u00e9ficiant de la formation continue au conseil d'administration de l'universit\u00e9, chaque liste assure la repr\u00e9sentation d'au moins deux des grands secteurs de formation mentionn\u00e9s \u00e0 l'article L. 712-4 et d'au moins trois de ces secteurs lorsque l'universit\u00e9 comprend les quatre secteurs ainsi mentionn\u00e9s.\" ;", 
@@ -5523,7 +5523,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 2939, 
                     "n_diff": 0.0022157831941367334, 
                     "order": 62, 
@@ -5536,7 +5536,7 @@
                         "\"Chaque liste de candidats est compos\u00e9e alternativement d'un candidat de chaque sexe.\" ;", 
                         "3\u00b0 Au troisi\u00e8me alin\u00e9a, le mot : \"personnels\" est remplac\u00e9 par les mots : \"enseignants-chercheurs et des personnels assimil\u00e9s, des personnels ing\u00e9nieurs, administratifs, techniques, ouvriers et de service\" ;", 
                         "4\u00b0 Apr\u00e8s le troisi\u00e8me alin\u00e9a, sont ins\u00e9r\u00e9s deux alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
-                        "\"une d\u00e9claration de candidature est obligatoire pour chaque liste de candidats. Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s au conseil d'administration de l'universit\u00e9, il est attribu\u00e9 dans chacun des coll\u00e8ges deux si\u00e8ges \u00e0 la liste qui a obtenu le plus de voix. Les autres si\u00e8ges sont r\u00e9partis entre toutes les listes. Toutefois, les listes qui n'ont pas obtenu un nombre de suffrages au moins \u00e9gal \u00e0 10 % des suffrages exprim\u00e9s ne sont pas admises \u00e0 la r\u00e9partition des si\u00e8ges.", 
+                        "\"Une d\u00e9claration de candidature est obligatoire pour chaque liste de candidats. Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s au conseil d'administration de l'universit\u00e9, il est attribu\u00e9 dans chacun des coll\u00e8ges deux si\u00e8ges \u00e0 la liste qui a obtenu le plus de voix. Les autres si\u00e8ges sont r\u00e9partis entre toutes les listes. Toutefois, les listes qui n'ont pas obtenu un nombre de suffrages au moins \u00e9gal \u00e0 10 % des suffrages exprim\u00e9s ne sont pas admises \u00e0 la r\u00e9partition des si\u00e8ges.", 
                         "\"Si plusieurs listes ont le m\u00eame reste pour l'attribution du dernier si\u00e8ge, celui-ci revient \u00e0 la liste qui a obtenu le plus grand nombre de suffrages. En cas d'\u00e9galit\u00e9 de suffrages, le si\u00e8ge est attribu\u00e9 au plus jeune des candidats susceptibles d'\u00eatre proclam\u00e9s \u00e9lus.\" ;", 
                         "5\u00b0 Le cinqui\u00e8me alin\u00e9a est ainsi r\u00e9dig\u00e9 :", 
                         "\"Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s et des repr\u00e9sentants des \u00e9tudiants et des personnes b\u00e9n\u00e9ficiant de la formation continue au conseil d'administration de l'universit\u00e9, chaque liste assure la repr\u00e9sentation d'au moins deux des grands secteurs de formation mentionn\u00e9s \u00e0 l'article L. 712-4 et d'au moins trois de ces secteurs lorsque l'universit\u00e9 comprend les quatre secteurs ainsi mentionn\u00e9s.\" ;", 
@@ -5551,7 +5551,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 2939, 
                     "n_diff": 0, 
                     "order": 61, 
@@ -5564,7 +5564,7 @@
                         "\"Chaque liste de candidats est compos\u00e9e alternativement d'un candidat de chaque sexe.\" ;", 
                         "3\u00b0 Au troisi\u00e8me alin\u00e9a, le mot : \"personnels\" est remplac\u00e9 par les mots : \"enseignants-chercheurs et des personnels assimil\u00e9s, des personnels ing\u00e9nieurs, administratifs, techniques, ouvriers et de service\" ;", 
                         "4\u00b0 Apr\u00e8s le troisi\u00e8me alin\u00e9a, sont ins\u00e9r\u00e9s deux alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
-                        "\"une d\u00e9claration de candidature est obligatoire pour chaque liste de candidats. Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s au conseil d'administration de l'universit\u00e9, il est attribu\u00e9 dans chacun des coll\u00e8ges deux si\u00e8ges \u00e0 la liste qui a obtenu le plus de voix. Les autres si\u00e8ges sont r\u00e9partis entre toutes les listes. Toutefois, les listes qui n'ont pas obtenu un nombre de suffrages au moins \u00e9gal \u00e0 10 % des suffrages exprim\u00e9s ne sont pas admises \u00e0 la r\u00e9partition des si\u00e8ges.", 
+                        "\"Une d\u00e9claration de candidature est obligatoire pour chaque liste de candidats. Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s au conseil d'administration de l'universit\u00e9, il est attribu\u00e9 dans chacun des coll\u00e8ges deux si\u00e8ges \u00e0 la liste qui a obtenu le plus de voix. Les autres si\u00e8ges sont r\u00e9partis entre toutes les listes. Toutefois, les listes qui n'ont pas obtenu un nombre de suffrages au moins \u00e9gal \u00e0 10 % des suffrages exprim\u00e9s ne sont pas admises \u00e0 la r\u00e9partition des si\u00e8ges.", 
                         "\"Si plusieurs listes ont le m\u00eame reste pour l'attribution du dernier si\u00e8ge, celui-ci revient \u00e0 la liste qui a obtenu le plus grand nombre de suffrages. En cas d'\u00e9galit\u00e9 de suffrages, le si\u00e8ge est attribu\u00e9 au plus jeune des candidats susceptibles d'\u00eatre proclam\u00e9s \u00e9lus.\" ;", 
                         "5\u00b0 Le cinqui\u00e8me alin\u00e9a est ainsi r\u00e9dig\u00e9 :", 
                         "\"Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s et des repr\u00e9sentants des \u00e9tudiants et des personnes b\u00e9n\u00e9ficiant de la formation continue au conseil d'administration de l'universit\u00e9, chaque liste assure la repr\u00e9sentation d'au moins deux des grands secteurs de formation mentionn\u00e9s \u00e0 l'article L. 712-4 et d'au moins trois de ces secteurs lorsque l'universit\u00e9 comprend les quatre secteurs ainsi mentionn\u00e9s.\" ;", 
@@ -5579,7 +5579,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 2939, 
                     "n_diff": 0, 
                     "order": 60, 
@@ -5592,7 +5592,7 @@
                         "\"Chaque liste de candidats est compos\u00e9e alternativement d'un candidat de chaque sexe.\" ;", 
                         "3\u00b0 Au troisi\u00e8me alin\u00e9a, le mot : \"personnels\" est remplac\u00e9 par les mots : \"enseignants-chercheurs et des personnels assimil\u00e9s, des personnels ing\u00e9nieurs, administratifs, techniques, ouvriers et de service\" ;", 
                         "4\u00b0 Apr\u00e8s le troisi\u00e8me alin\u00e9a, sont ins\u00e9r\u00e9s deux alin\u00e9as ainsi r\u00e9dig\u00e9s :", 
-                        "\"une d\u00e9claration de candidature est obligatoire pour chaque liste de candidats. Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s au conseil d'administration de l'universit\u00e9, il est attribu\u00e9 dans chacun des coll\u00e8ges deux si\u00e8ges \u00e0 la liste qui a obtenu le plus de voix. Les autres si\u00e8ges sont r\u00e9partis entre toutes les listes. Toutefois, les listes qui n'ont pas obtenu un nombre de suffrages au moins \u00e9gal \u00e0 10 % des suffrages exprim\u00e9s ne sont pas admises \u00e0 la r\u00e9partition des si\u00e8ges.", 
+                        "\"Une d\u00e9claration de candidature est obligatoire pour chaque liste de candidats. Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s au conseil d'administration de l'universit\u00e9, il est attribu\u00e9 dans chacun des coll\u00e8ges deux si\u00e8ges \u00e0 la liste qui a obtenu le plus de voix. Les autres si\u00e8ges sont r\u00e9partis entre toutes les listes. Toutefois, les listes qui n'ont pas obtenu un nombre de suffrages au moins \u00e9gal \u00e0 10 % des suffrages exprim\u00e9s ne sont pas admises \u00e0 la r\u00e9partition des si\u00e8ges.", 
                         "\"Si plusieurs listes ont le m\u00eame reste pour l'attribution du dernier si\u00e8ge, celui-ci revient \u00e0 la liste qui a obtenu le plus grand nombre de suffrages. En cas d'\u00e9galit\u00e9 de suffrages, le si\u00e8ge est attribu\u00e9 au plus jeune des candidats susceptibles d'\u00eatre proclam\u00e9s \u00e9lus.\" ;", 
                         "5\u00b0 Le cinqui\u00e8me alin\u00e9a est ainsi r\u00e9dig\u00e9 :", 
                         "\"Pour les \u00e9lections des repr\u00e9sentants des enseignants-chercheurs et des personnels assimil\u00e9s et des repr\u00e9sentants des \u00e9tudiants et des personnes b\u00e9n\u00e9ficiant de la formation continue au conseil d'administration de l'universit\u00e9, chaque liste assure la repr\u00e9sentation d'au moins deux des grands secteurs de formation mentionn\u00e9s \u00e0 l'article L. 712-4 et d'au moins trois de ces secteurs lorsque l'universit\u00e9 comprend les quatre secteurs ainsi mentionn\u00e9s.\" ;", 
@@ -5638,7 +5638,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 355, 
                     "n_diff": 0, 
                     "order": 63, 
@@ -5650,7 +5650,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 355, 
                     "n_diff": 0, 
                     "order": 63, 
@@ -5662,7 +5662,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 355, 
                     "n_diff": 0, 
                     "order": 62, 
@@ -5674,7 +5674,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 355, 
                     "n_diff": 0, 
                     "order": 61, 
@@ -5712,7 +5712,7 @@
                         "b) Du rattachement d'\u00e9tablissements ou d'organismes publics ou priv\u00e9s concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel autre qu'une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements mentionn\u00e9e par l'article L. 718-2-14.", 
                         "\"La coordination territoriale est organis\u00e9e par un seul \u00e9tablissement d'enseignement sup\u00e9rieur d\u00e9sign\u00e9 par l'\u00c9tat pour un territoire donn\u00e9. Cet \u00e9tablissement est soit le nouvel \u00e9tablissement issu d'une fusion, soit la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements lorsqu'il en existe une, soit l'\u00e9tablissement de rattachement d'autres \u00e9tablissements. Par d\u00e9rogation, dans les acad\u00e9mies de Paris, Cr\u00e9teil et Versailles, plusieurs \u00e9tablissements peuvent assurer la coordination territoriale.", 
                         "Art. L. 718-2-3. - Sur la base du projet partag\u00e9 pr\u00e9vu \u00e0 l'article L. 718-2-1, un seul contrat pluriannuel d'\u00e9tablissement mentionn\u00e9 \u00e0 l'article L. 711-1 est conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements regroup\u00e9s relevant de sa tutelle. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat.", 
-                        "\"un seul contrat est \u00e9galement conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements d'un m\u00eame territoire relevant de sa tutelle qui n'ont pas encore proc\u00e9d\u00e9 \u00e0 la fusion ou \u00e0 un regroupement mentionn\u00e9s \u00e0 l'article L. 718-2-2. Le contrat pr\u00e9voit les diff\u00e9rentes \u00e9tapes de la fusion ou du regroupement qui doivent intervenir avant son \u00e9ch\u00e9ance. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat.", 
+                        "\"Un seul contrat est \u00e9galement conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements d'un m\u00eame territoire relevant de sa tutelle qui n'ont pas encore proc\u00e9d\u00e9 \u00e0 la fusion ou \u00e0 un regroupement mentionn\u00e9s \u00e0 l'article L. 718-2-2. Le contrat pr\u00e9voit les diff\u00e9rentes \u00e9tapes de la fusion ou du regroupement qui doivent intervenir avant son \u00e9ch\u00e9ance. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat.", 
                         "\"Ces contrats comportent un volet commun correspondant au projet partag\u00e9 mentionn\u00e9 \u00e0 l'article L. 718-2-1 et aux comp\u00e9tences partag\u00e9es ou transf\u00e9r\u00e9es et des stipulations sp\u00e9cifiques \u00e0 chacun des \u00e9tablissements regroup\u00e9s ou en voie de regroupement. Ces stipulations sp\u00e9cifiques sont propos\u00e9es par les \u00e9tablissements et doivent \u00eatre adopt\u00e9es par leur propre conseil d'administration. Elles ne sont pas soumises \u00e0 d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements ou de l'\u00e9tablissement de rattachement.", 
                         "\"Ces contrats pluriannuels peuvent associer la r\u00e9gion et les autres collectivit\u00e9s territoriales, les organismes de recherche et le centre r\u00e9gional des oeuvres universitaires et scolaires. Ils prennent en compte les orientations fix\u00e9es par les sch\u00e9mas r\u00e9gionaux pr\u00e9vus \u00e0 l'article L. 214-2.", 
                         "\"L'\u00c9tat peut attribuer, pour l'ensemble des \u00e9tablissements regroup\u00e9s, des moyens en cr\u00e9dits et en emplois aux \u00e9tablissements charg\u00e9s de la coordination territoriale qui les r\u00e9partit entre ses membres ou \u00e9tablissements et organismes rattach\u00e9s.", 
@@ -5726,7 +5726,7 @@
                         "\"Art. L. 718-2-6. - Les statuts d'une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements sont adopt\u00e9s par chacun des \u00e9tablissements et organismes ayant d\u00e9cid\u00e9 d'y participer.", 
                         "\"Ils pr\u00e9voient les comp\u00e9tences que chaque \u00e9tablissement transf\u00e8re, pour ce qui le concerne, \u00e0 la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements et les comp\u00e9tences des instances mentionn\u00e9es \u00e0 l'article L. 718-2-7 qui ne sont pas pr\u00e9vues par la pr\u00e9sente section.", 
                         "\"La communaut\u00e9 d'universit\u00e9s et \u00e9tablissements est cr\u00e9\u00e9e par un d\u00e9cret qui en approuve les statuts.", 
-                        "\"une fois adopt\u00e9s, ces statuts sont modifi\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements apr\u00e8s un avis favorable du conseil des membres rendu \u00e0 la majorit\u00e9 simple. Ces modifications sont approuv\u00e9es par d\u00e9cret.", 
+                        "\"Une fois adopt\u00e9s, ces statuts sont modifi\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements apr\u00e8s un avis favorable du conseil des membres rendu \u00e0 la majorit\u00e9 simple. Ces modifications sont approuv\u00e9es par d\u00e9cret.", 
                         "Art. L. 718-2-7. - La communaut\u00e9 d'universit\u00e9s et \u00e9tablissements est administr\u00e9e par un conseil d'administration qui d\u00e9termine la politique de l'\u00e9tablissement, approuve son budget et en contr\u00f4le l'ex\u00e9cution. Le conseil d'administration est assist\u00e9 d'un conseil acad\u00e9mique et d'un conseil des membres.", 
                         "\"Art. L. 718-2-8. - Le pr\u00e9sident, \u00e9lu par le conseil d'administration, dirige l'\u00e9tablissement. Le conseil \u00e9lit \u00e9galement un vice-pr\u00e9sident charg\u00e9 des questions et ressources num\u00e9riques.", 
                         "\"Art. L. 718-2-9. - Le conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements comprend des repr\u00e9sentants des cat\u00e9gories suivantes :", 
@@ -5751,8 +5751,8 @@
                         "\"Section 4", 
                         "\"Conventions et rattachement", 
                         "Art. L. 718-2-14. - Les \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel peuvent conclure des conventions de coop\u00e9ration soit entre eux, soit avec d'autres \u00e9tablissements publics ou priv\u00e9s.", 
-                        "\"un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre rattach\u00e9 \u00e0 un ou plusieurs \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel, par d\u00e9cret, sur sa demande et sur proposition du ou des \u00e9tablissements auxquels ce rattachement est demand\u00e9, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Le d\u00e9cret pr\u00e9voit les comp\u00e9tences mises en commun entre l'\u00e9tablissement de rattachement et les \u00e9tablissements rattach\u00e9s.", 
-                        "\"un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre int\u00e9gr\u00e9 \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel, dans les conditions fix\u00e9es au deuxi\u00e8me alin\u00e9a.", 
+                        "\"Un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre rattach\u00e9 \u00e0 un ou plusieurs \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel, par d\u00e9cret, sur sa demande et sur proposition du ou des \u00e9tablissements auxquels ce rattachement est demand\u00e9, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Le d\u00e9cret pr\u00e9voit les comp\u00e9tences mises en commun entre l'\u00e9tablissement de rattachement et les \u00e9tablissements rattach\u00e9s.", 
+                        "\"Un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre int\u00e9gr\u00e9 \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel, dans les conditions fix\u00e9es au deuxi\u00e8me alin\u00e9a.", 
                         "\"En cas de rattachement, les \u00e9tablissements conservent leur personnalit\u00e9 morale et leur autonomie financi\u00e8re.", 
                         "\"Le conseil acad\u00e9mique peut \u00eatre commun \u00e0 l'\u00e9tablissement de rattachement et aux \u00e9tablissements rattach\u00e9s.\""
                     ]
@@ -5761,7 +5761,7 @@
                     "diff": "rem", 
                     "id_step": "01_1\u00e8relecture_assemblee_commission", 
                     "length": 13768, 
-                    "n_diff": 0.68443071629652796, 
+                    "n_diff": 0.67602439787300594, 
                     "order": 49, 
                     "status": "none", 
                     "text": [
@@ -5778,7 +5778,7 @@
                         "b) De l'association d'\u00e9tablissements ou d'organismes publics ou priv\u00e9s concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel.", 
                         "\"La coordination territoriale est organis\u00e9e par un seul \u00e9tablissement d'enseignement sup\u00e9rieur d\u00e9sign\u00e9 par l'\u00c9tat pour un territoire donn\u00e9. Cet \u00e9tablissement est soit le nouvel \u00e9tablissement issu d'une fusion, soit la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements lorsqu'il en existe une, soit l'\u00e9tablissement auquel sont associ\u00e9s d'autres \u00e9tablissements. Par d\u00e9rogation, dans les acad\u00e9mies de Paris, Cr\u00e9teil et Versailles, plusieurs \u00e9tablissements peuvent assurer la coordination territoriale.", 
                         "\"Art. L. 718-4. - Sur la base du projet partag\u00e9 pr\u00e9vu \u00e0 l'article L. 718-2, un seul contrat pluriannuel d'\u00e9tablissement mentionn\u00e9 \u00e0 l'article L. 711-1 est conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements regroup\u00e9s relevant de sa tutelle. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat. Les contrats pluriannuels sont pr\u00e9alablement soumis au vote pour avis aux conseils d'administration de chaque \u00e9tablissement regroup\u00e9 ou en voie de regroupement.", 
-                        "\"un seul contrat est \u00e9galement conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements d'un m\u00eame territoire relevant de sa tutelle qui n'ont pas encore proc\u00e9d\u00e9 \u00e0 la fusion ou au regroupement mentionn\u00e9s \u00e0 l'article L. 718-3. Le contrat pr\u00e9voit les diff\u00e9rentes \u00e9tapes de la fusion ou du regroupement, qui doivent intervenir avant son \u00e9ch\u00e9ance. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat.", 
+                        "\"Un seul contrat est \u00e9galement conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements d'un m\u00eame territoire relevant de sa tutelle qui n'ont pas encore proc\u00e9d\u00e9 \u00e0 la fusion ou au regroupement mentionn\u00e9s \u00e0 l'article L. 718-3. Le contrat pr\u00e9voit les diff\u00e9rentes \u00e9tapes de la fusion ou du regroupement, qui doivent intervenir avant son \u00e9ch\u00e9ance. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat.", 
                         "\"Ces contrats comportent, d'une part, un volet commun correspondant au projet partag\u00e9 mentionn\u00e9 \u00e0 l'article L. 718-2 et aux comp\u00e9tences partag\u00e9es ou transf\u00e9r\u00e9es et, d'autre part, des volets sp\u00e9cifiques \u00e0 chacun des \u00e9tablissements regroup\u00e9s ou en voie de regroupement. Ces volets sp\u00e9cifiques sont propos\u00e9s par les \u00e9tablissements et doivent \u00eatre adopt\u00e9es par leur propre conseil d'administration. Ils ne sont pas soumis \u00e0 d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements ou de l'\u00e9tablissement auquel ils sont associ\u00e9s.", 
                         "\"Ces contrats pluriannuels peuvent associer la ou les r\u00e9gions et les autres collectivit\u00e9s territoriales, les organismes de recherche et le centre r\u00e9gional des oeuvres universitaires et scolaires. Ils prennent en compte les orientations fix\u00e9es par les sch\u00e9mas r\u00e9gionaux pr\u00e9vus \u00e0 l'article L. 214-2 et les orientations fix\u00e9es par les sch\u00e9mas de d\u00e9veloppement universitaire, ou sch\u00e9mas locaux d'enseignement sup\u00e9rieur et de recherche, d\u00e9finis par les communes, les \u00e9tablissements publics de coop\u00e9ration intercommunale \u00e0 fiscalit\u00e9 propre ou les p\u00f4les m\u00e9tropolitains.", 
                         "\"Les strat\u00e9gies en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche poursuivies, sur un territoire donn\u00e9, par les collectivit\u00e9s territoriales et leurs groupements et les contrats pluriannuels d'\u00e9tablissement font l'objet d'un document d'orientation unique.", 
@@ -5793,7 +5793,7 @@
                         "\"Art. L. 718-7 - La d\u00e9nomination et les statuts d'une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements sont adopt\u00e9s par chacun des \u00e9tablissements et organismes ayant d\u00e9cid\u00e9 d'y participer.", 
                         "\"Ils pr\u00e9voient les comp\u00e9tences que chaque \u00e9tablissement transf\u00e8re, pour ce qui le concerne, \u00e0 la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements et les comp\u00e9tences des instances mentionn\u00e9es \u00e0 l'article L. 718-8 qui ne sont pas pr\u00e9vues \u00e0 la pr\u00e9sente section.", 
                         "\"La communaut\u00e9 d'universit\u00e9s et \u00e9tablissements est cr\u00e9\u00e9e par un d\u00e9cret qui en approuve les statuts.", 
-                        "\"une fois adopt\u00e9s, ces statuts sont modifi\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements, apr\u00e8s un avis favorable du conseil des membres rendu \u00e0 la majorit\u00e9 simple. Ces modifications sont approuv\u00e9es par d\u00e9cret.", 
+                        "\"Une fois adopt\u00e9s, ces statuts sont modifi\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements, apr\u00e8s un avis favorable du conseil des membres rendu \u00e0 la majorit\u00e9 simple. Ces modifications sont approuv\u00e9es par d\u00e9cret.", 
                         "\"Art. L. 718-8. - La communaut\u00e9 d'universit\u00e9s et \u00e9tablissements est administr\u00e9e par un conseil d'administration qui d\u00e9termine la politique de l'\u00e9tablissement, dont les questions et ressources num\u00e9riques, approuve son budget et en contr\u00f4le l'ex\u00e9cution. Le conseil d'administration est assist\u00e9 d'un conseil acad\u00e9mique et d'un conseil des membres.", 
                         "\"Art. L. 718-9. - Le pr\u00e9sident, \u00e9lu par le conseil d'administration, dirige l'\u00e9tablissement. Ce conseil \u00e9lit \u00e9galement un vice-pr\u00e9sident charg\u00e9 des questions et ressources num\u00e9riques.", 
                         "\"Art. L. 718-10. - Le conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements comprend des repr\u00e9sentants des cat\u00e9gories suivantes :", 
@@ -5821,8 +5821,8 @@
                         "\"Section 4", 
                         "\"Conventions et association", 
                         "Art. L. 718-15. - Les \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel peuvent conclure des conventions de coop\u00e9ration soit entre eux, soit avec d'autres \u00e9tablissements publics ou priv\u00e9s.", 
-                        "\"un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre associ\u00e9 \u00e0 un ou plusieurs \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel, par d\u00e9cret, sur sa demande et sur proposition du ou des \u00e9tablissements auxquels cette association est demand\u00e9e, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Le d\u00e9cret pr\u00e9voit les comp\u00e9tences mises en commun entre l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et les \u00e9tablissements qui lui sont associ\u00e9s. En cas d'association \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel dans le cadre de la coordination territoriale pr\u00e9vue \u00e0 l'article L. 718-3, les statuts de l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique culturel et professionnel, du ou des \u00e9tablissements associ\u00e9s et le contrat mentionn\u00e9 \u00e0 l'article L. 718-4 pr\u00e9voient les modalit\u00e9s d'organisation et d'exercice des comp\u00e9tences partag\u00e9es entre ces \u00e9tablissements.", 
-                        "\"un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre int\u00e9gr\u00e9 \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel, dans les conditions fix\u00e9es au deuxi\u00e8me alin\u00e9a.", 
+                        "\"Un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre associ\u00e9 \u00e0 un ou plusieurs \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel, par d\u00e9cret, sur sa demande et sur proposition du ou des \u00e9tablissements auxquels cette association est demand\u00e9e, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Le d\u00e9cret pr\u00e9voit les comp\u00e9tences mises en commun entre l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et les \u00e9tablissements qui lui sont associ\u00e9s. En cas d'association \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel dans le cadre de la coordination territoriale pr\u00e9vue \u00e0 l'article L. 718-3, les statuts de l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique culturel et professionnel, du ou des \u00e9tablissements associ\u00e9s et le contrat mentionn\u00e9 \u00e0 l'article L. 718-4 pr\u00e9voient les modalit\u00e9s d'organisation et d'exercice des comp\u00e9tences partag\u00e9es entre ces \u00e9tablissements.", 
+                        "\"Un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre int\u00e9gr\u00e9 \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel, dans les conditions fix\u00e9es au deuxi\u00e8me alin\u00e9a.", 
                         "\"En cas d'association, les \u00e9tablissements conservent leur personnalit\u00e9 morale et leur autonomie financi\u00e8re.", 
                         "\"Le conseil acad\u00e9mique peut \u00eatre commun \u00e0 l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et aux \u00e9tablissements qui lui sont associ\u00e9s.\""
                     ]
@@ -5849,7 +5849,7 @@
                         "\"b) De l'association d'\u00e9tablissements ou d'organismes publics ou priv\u00e9s concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel.", 
                         "\"La coordination territoriale est organis\u00e9e par un seul \u00e9tablissement d'enseignement sup\u00e9rieur, d\u00e9sign\u00e9 par l'\u00c9tat pour un territoire donn\u00e9. Cet \u00e9tablissement est soit le nouvel \u00e9tablissement issu d'une fusion, soit la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements lorsqu'il en existe une, soit l'\u00e9tablissement auquel sont associ\u00e9s d'autres \u00e9tablissements. Par d\u00e9rogation, dans les acad\u00e9mies de Paris, Cr\u00e9teil et Versailles, plusieurs \u00e9tablissements peuvent assurer la coordination territoriale.", 
                         "\"Art. L. 718-4. - Sur la base du projet partag\u00e9 pr\u00e9vu \u00e0 l'article L. 718-2, un seul contrat pluriannuel d'\u00e9tablissement mentionn\u00e9 \u00e0 l'article L. 711-1 est conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements regroup\u00e9s relevant de sa seule tutelle. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat. Les contrats pluriannuels sont pr\u00e9alablement soumis au vote pour avis aux conseils d'administration de chaque \u00e9tablissement regroup\u00e9 ou en voie de regroupement.", 
-                        "\"un seul contrat est \u00e9galement conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements d'un m\u00eame territoire relevant de sa seule tutelle qui n'ont pas encore proc\u00e9d\u00e9 \u00e0 la fusion ou au regroupement mentionn\u00e9s \u00e0 l'article L. 718-3. Le contrat pr\u00e9voit les diff\u00e9rentes \u00e9tapes de la fusion ou du regroupement, qui doivent intervenir avant son \u00e9ch\u00e9ance. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat.", 
+                        "\"Un seul contrat est \u00e9galement conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements d'un m\u00eame territoire relevant de sa seule tutelle qui n'ont pas encore proc\u00e9d\u00e9 \u00e0 la fusion ou au regroupement mentionn\u00e9s \u00e0 l'article L. 718-3. Le contrat pr\u00e9voit les diff\u00e9rentes \u00e9tapes de la fusion ou du regroupement, qui doivent intervenir avant son \u00e9ch\u00e9ance. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat.", 
                         "\"Ces contrats comportent, d'une part, un volet commun correspondant au projet partag\u00e9 mentionn\u00e9 \u00e0 l'article L. 718-2 et aux comp\u00e9tences partag\u00e9es ou transf\u00e9r\u00e9es et, d'autre part, des volets sp\u00e9cifiques \u00e0 chacun des \u00e9tablissements regroup\u00e9s ou en voie de regroupement. Ces volets sp\u00e9cifiques sont propos\u00e9s par les \u00e9tablissements et doivent \u00eatre adopt\u00e9s par leur propre conseil d'administration. Ils ne sont pas soumis \u00e0 d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements ou de l'\u00e9tablissement auquel ils sont associ\u00e9s.", 
                         "\"Ces contrats pluriannuels peuvent associer la ou les r\u00e9gions et les autres collectivit\u00e9s territoriales, les organismes de recherche et le centre r\u00e9gional des oeuvres universitaires et scolaires. Ils prennent en compte les orientations fix\u00e9es par les sch\u00e9mas r\u00e9gionaux pr\u00e9vus \u00e0 l'article L. 214-2 et les orientations fix\u00e9es par les sch\u00e9mas de d\u00e9veloppement universitaire ou les sch\u00e9mas locaux d'enseignement sup\u00e9rieur et de recherche, d\u00e9finis par les communes, les \u00e9tablissements publics de coop\u00e9ration intercommunale \u00e0 fiscalit\u00e9 propre ou les p\u00f4les m\u00e9tropolitains.", 
                         "\"Les strat\u00e9gies en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche poursuivies, sur un territoire donn\u00e9, par les collectivit\u00e9s territoriales et leurs groupements et les contrats pluriannuels d'\u00e9tablissement font l'objet d'un document d'orientation unique.", 
@@ -5865,7 +5865,7 @@
                         "\"Art. L. 718-7. - La d\u00e9nomination et les statuts d'une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements sont adopt\u00e9s par chacun des \u00e9tablissements et organismes ayant d\u00e9cid\u00e9 d'y participer.", 
                         "\"Ils pr\u00e9voient les comp\u00e9tences que chaque \u00e9tablissement transf\u00e8re, pour ce qui le concerne, \u00e0 la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements et les comp\u00e9tences des instances mentionn\u00e9es \u00e0 l'article L. 718-8 qui ne sont pas pr\u00e9vues \u00e0 la pr\u00e9sente section.", 
                         "\"La communaut\u00e9 d'universit\u00e9s et \u00e9tablissements est cr\u00e9\u00e9e par un d\u00e9cret qui en approuve les statuts.", 
-                        "\"une fois adopt\u00e9s, ces statuts sont modifi\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements, apr\u00e8s un avis favorable du conseil des membres rendu \u00e0 la majorit\u00e9 simple. Ces modifications sont approuv\u00e9es par d\u00e9cret.", 
+                        "\"Une fois adopt\u00e9s, ces statuts sont modifi\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements, apr\u00e8s un avis favorable du conseil des membres rendu \u00e0 la majorit\u00e9 simple. Ces modifications sont approuv\u00e9es par d\u00e9cret.", 
                         "\"Art. L. 718-8. - La communaut\u00e9 d'universit\u00e9s et \u00e9tablissements est administr\u00e9e par un conseil d'administration, qui d\u00e9termine la politique de l'\u00e9tablissement, dont les questions et ressources num\u00e9riques, approuve son budget et en contr\u00f4le l'ex\u00e9cution. Le conseil d'administration est assist\u00e9 d'un conseil acad\u00e9mique et d'un conseil des membres.", 
                         "\"Art. L. 718-9. - Le pr\u00e9sident, \u00e9lu par le conseil d'administration, dirige l'\u00e9tablissement. Ce conseil \u00e9lit \u00e9galement un vice-pr\u00e9sident charg\u00e9 des questions et ressources num\u00e9riques.", 
                         "\"Art. L. 718-10. - Le conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements comprend des repr\u00e9sentants des cat\u00e9gories suivantes :", 
@@ -5893,17 +5893,17 @@
                         "\"Section 4", 
                         "\"Conventions et association", 
                         "\"Art. L. 718-15. - Les \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel peuvent conclure des conventions de coop\u00e9ration soit entre eux, soit avec d'autres \u00e9tablissements publics ou priv\u00e9s.", 
-                        "\"un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre associ\u00e9 \u00e0 un ou plusieurs \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel, par d\u00e9cret, sur sa demande et sur proposition du ou des \u00e9tablissements auxquels cette association est demand\u00e9e, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Le d\u00e9cret pr\u00e9voit les comp\u00e9tences mises en commun entre l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et les \u00e9tablissements qui lui sont associ\u00e9s. En cas d'association \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel dans le cadre de la coordination territoriale pr\u00e9vue \u00e0 l'article L. 718-3, les statuts de l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et du ou des \u00e9tablissements associ\u00e9s et le contrat mentionn\u00e9 \u00e0 l'article L. 718-4 pr\u00e9voient les modalit\u00e9s d'organisation et d'exercice des comp\u00e9tences partag\u00e9es entre ces \u00e9tablissements.", 
-                        "\"un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre int\u00e9gr\u00e9 \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel, dans les conditions fix\u00e9es au deuxi\u00e8me alin\u00e9a du pr\u00e9sent article. Les \u00e9tablissements et organismes priv\u00e9s ne peuvent pas prendre le titre d'universit\u00e9 ou d\u00e9livrer les dipl\u00f4mes nationaux de l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel de l'association.", 
+                        "\"Un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre associ\u00e9 \u00e0 un ou plusieurs \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel, par d\u00e9cret, sur sa demande et sur proposition du ou des \u00e9tablissements auxquels cette association est demand\u00e9e, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Le d\u00e9cret pr\u00e9voit les comp\u00e9tences mises en commun entre l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et les \u00e9tablissements qui lui sont associ\u00e9s. En cas d'association \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel dans le cadre de la coordination territoriale pr\u00e9vue \u00e0 l'article L. 718-3, les statuts de l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et du ou des \u00e9tablissements associ\u00e9s et le contrat mentionn\u00e9 \u00e0 l'article L. 718-4 pr\u00e9voient les modalit\u00e9s d'organisation et d'exercice des comp\u00e9tences partag\u00e9es entre ces \u00e9tablissements.", 
+                        "\"Un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre int\u00e9gr\u00e9 \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel, dans les conditions fix\u00e9es au deuxi\u00e8me alin\u00e9a du pr\u00e9sent article. Les \u00e9tablissements et organismes priv\u00e9s ne peuvent pas prendre le titre d'universit\u00e9 ou d\u00e9livrer les dipl\u00f4mes nationaux de l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel de l'association.", 
                         "\"En cas d'association, les \u00e9tablissements conservent leur personnalit\u00e9 morale et leur autonomie financi\u00e8re.", 
                         "\"Le conseil acad\u00e9mique peut \u00eatre commun \u00e0 l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et aux \u00e9tablissements qui lui sont associ\u00e9s.\""
                     ]
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
-                    "length": 16412, 
-                    "n_diff": 0.11080702647657836, 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
+                    "length": 16413, 
+                    "n_diff": 0.11083532219570413, 
                     "order": 64, 
                     "status": "none", 
                     "text": [
@@ -5922,7 +5922,7 @@
                         "\"La coordination territoriale est organis\u00e9e par un seul \u00e9tablissement d'enseignement sup\u00e9rieur, d\u00e9sign\u00e9 par l'\u00c9tat pour un territoire donn\u00e9. Cet \u00e9tablissement est soit le nouvel \u00e9tablissement issu d'une fusion, soit la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements lorsqu'il en existe une, soit l'\u00e9tablissement auquel sont associ\u00e9s d'autres \u00e9tablissements. Par d\u00e9rogation, dans les acad\u00e9mies de Paris, Cr\u00e9teil et Versailles, plusieurs \u00e9tablissements peuvent assurer la coordination territoriale.", 
                         "\"Art. L. 718-3-1. - L'\u00e9tablissement d'enseignement sup\u00e9rieur charg\u00e9 d'organiser la coordination territoriale dans les conditions fix\u00e9es par l'article L. 718-3 \u00e9labore avec le r\u00e9seau des oeuvres universitaires et scolaires un projet d'am\u00e9lioration de la qualit\u00e9 de la vie \u00e9tudiante et de promotion sociale sur le territoire, en associant l'ensemble des \u00e9tablissements partenaires. Ce projet pr\u00e9sente une vision consolid\u00e9e des besoins des \u00e9tablissements d'enseignement sup\u00e9rieur implant\u00e9s sur le territoire en mati\u00e8re de logement \u00e9tudiant, de transport, de politique sociale et de sant\u00e9 et d'activit\u00e9s culturelles, sportives, sociales et associatives. Il est transmis \u00e0 l'\u00c9tat et aux collectivit\u00e9s territoriales concern\u00e9es, pr\u00e9alablement \u00e0 la conclusion du contrat pluriannuel d'\u00e9tablissement mentionn\u00e9 \u00e0 l'article L. 711-1.", 
                         "\"Art. L. 718-4. - Sur la base du projet partag\u00e9 pr\u00e9vu \u00e0 l'article L. 718-2, un seul contrat pluriannuel d'\u00e9tablissement mentionn\u00e9 \u00e0 l'article L. 711-1 est conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements regroup\u00e9s relevant de sa seule tutelle. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat. Les contrats pluriannuels sont pr\u00e9alablement soumis au vote pour avis aux conseils d'administration de chaque \u00e9tablissement regroup\u00e9 ou en voie de regroupement.", 
-                        "\"un seul contrat est \u00e9galement conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements d'un m\u00eame territoire relevant de sa seule tutelle qui n'ont pas encore proc\u00e9d\u00e9 \u00e0 la fusion ou au regroupement mentionn\u00e9s \u00e0 l'article L. 718-3. Le contrat pr\u00e9voit les diff\u00e9rentes \u00e9tapes de la fusion ou du regroupement, qui doivent intervenir avant son \u00e9ch\u00e9ance. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat.", 
+                        "\"Un seul contrat est \u00e9galement conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements d'un m\u00eame territoire relevant de sa seule tutelle qui n'ont pas encore proc\u00e9d\u00e9 \u00e0 la fusion ou au regroupement mentionn\u00e9s \u00e0 l'article L. 718-3. Le contrat pr\u00e9voit les diff\u00e9rentes \u00e9tapes de la fusion ou du regroupement, qui doivent intervenir avant son \u00e9ch\u00e9ance. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat.", 
                         "\"Ces contrats comportent, d'une part, un volet commun correspondant au projet partag\u00e9 mentionn\u00e9 \u00e0 l'article L. 718-2 et aux comp\u00e9tences partag\u00e9es ou transf\u00e9r\u00e9es et, d'autre part, des volets sp\u00e9cifiques \u00e0 chacun des \u00e9tablissements regroup\u00e9s ou en voie de regroupement. Ces volets sp\u00e9cifiques sont propos\u00e9s par les \u00e9tablissements et doivent \u00eatre adopt\u00e9s par leur propre conseil d'administration. Ils ne sont pas soumis \u00e0 d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements ou de l'\u00e9tablissement auquel ils sont associ\u00e9s.", 
                         "\"Ces contrats pluriannuels associent la ou les r\u00e9gions et les autres collectivit\u00e9s territoriales, les organismes de recherche et le centre r\u00e9gional des oeuvres universitaires et scolaires. Ils prennent en compte les orientations fix\u00e9es par les sch\u00e9mas r\u00e9gionaux pr\u00e9vus \u00e0 l'article L. 214-2 et les orientations fix\u00e9es par les sch\u00e9mas de d\u00e9veloppement universitaire ou les sch\u00e9mas d'enseignement sup\u00e9rieur et de recherche d\u00e9finis par les communes, les \u00e9tablissements publics de coop\u00e9ration intercommunale \u00e0 fiscalit\u00e9 propre, les p\u00f4les m\u00e9tropolitains et les d\u00e9partements.", 
                         "\"Les strat\u00e9gies en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche poursuivies, sur un territoire donn\u00e9, par les collectivit\u00e9s territoriales et leurs groupements et les contrats pluriannuels d'\u00e9tablissement font l'objet d'un document d'orientation unique.", 
@@ -5938,7 +5938,7 @@
                         "\"Art. L. 718-7. - La d\u00e9nomination et les statuts d'une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements sont adopt\u00e9s par chacun des \u00e9tablissements et organismes ayant d\u00e9cid\u00e9 d'y participer.", 
                         "\"Ils pr\u00e9voient les comp\u00e9tences que chaque \u00e9tablissement transf\u00e8re, pour ce qui le concerne, \u00e0 la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements et les comp\u00e9tences des instances mentionn\u00e9es \u00e0 l'article L. 718-8 qui ne sont pas pr\u00e9vues \u00e0 la pr\u00e9sente section.", 
                         "\"La communaut\u00e9 d'universit\u00e9s et \u00e9tablissements est cr\u00e9\u00e9e par un d\u00e9cret qui en approuve les statuts.", 
-                        "\"une fois adopt\u00e9s, ces statuts sont modifi\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements, apr\u00e8s un avis favorable du conseil des membres rendu \u00e0 la majorit\u00e9 simple. Ces modifications sont approuv\u00e9es par d\u00e9cret.", 
+                        "\"Une fois adopt\u00e9s, ces statuts sont modifi\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements, apr\u00e8s un avis favorable du conseil des membres rendu \u00e0 la majorit\u00e9 simple. Ces modifications sont approuv\u00e9es par d\u00e9cret.", 
                         "\"Art. L. 718-8. - La communaut\u00e9 d'universit\u00e9s et \u00e9tablissements est administr\u00e9e par un conseil d'administration, qui d\u00e9termine la politique de l'\u00e9tablissement, dont les questions et ressources num\u00e9riques, approuve son budget et en contr\u00f4le l'ex\u00e9cution. Le conseil d'administration est assist\u00e9 d'un conseil acad\u00e9mique et d'un conseil des membres.", 
                         "\"Art. L. 718-9. - Le pr\u00e9sident, \u00e9lu par le conseil d'administration, dirige l'\u00e9tablissement. Ce conseil \u00e9lit \u00e9galement un vice-pr\u00e9sident charg\u00e9 des questions et ressources num\u00e9riques.", 
                         "\"Art. L. 718-10. - Le conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements comprend des repr\u00e9sentants des cat\u00e9gories suivantes :", 
@@ -5955,7 +5955,7 @@
                         "\"Toutefois, lorsque les membres de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements sont sup\u00e9rieurs \u00e0 dix, la proportion de leurs repr\u00e9sentants mentionn\u00e9s au 1\u00b0 peut atteindre 40 %. La repr\u00e9sentation des membres mentionn\u00e9s aux 2\u00b0 \u00e0 6\u00b0 est proportionnellement diminu\u00e9e par voie de cons\u00e9quence.", 
                         "\"Les membres mentionn\u00e9s aux 4\u00b0 \u00e0 6\u00b0 sont \u00e9lus au suffrage direct dans des conditions d\u00e9finies par les statuts. Les modalit\u00e9s de ces \u00e9lections sont d\u00e9crites \u00e0 l'article L. 719-1, sachant qu'au moins 75 % des \u00e9tablissements doivent \u00eatre repr\u00e9sent\u00e9s dans chaque liste.\"", 
                         "\"Chaque liste de candidats est compos\u00e9e alternativement d'un candidat de chaque sexe.", 
-                        "\"Art. L. 718-11. - Le conseil acad\u00e9mique comprend au moins 70 % des repr\u00e9sentants des cat\u00e9gories mentionn\u00e9es aux 4\u00b0 \u00e0 6\u00b0 de l'article L. 718-10, dont 60 % au moins de repr\u00e9sentants des cat\u00e9gories mentionn\u00e9es au 4\u00b0du m\u00eame article. Il comprend aussi des repr\u00e9sentants des \u00e9tablissements et organismes membres et des composantes de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements et des personnalit\u00e9s ext\u00e9rieures. Sa composition, qui est fix\u00e9e par les statuts, doit assurer une repr\u00e9sentation \u00e9quilibr\u00e9e des \u00e9tablissements et organismes membres.", 
+                        "\"Art. L. 718-11. - Le conseil acad\u00e9mique comprend au moins 70 % des repr\u00e9sentants des cat\u00e9gories mentionn\u00e9es aux 4\u00b0 \u00e0 6\u00b0 de l'article L. 718-10, dont 60 % au moins de repr\u00e9sentants des cat\u00e9gories mentionn\u00e9es au 4\u00b0 du m\u00eame article. Il comprend aussi des repr\u00e9sentants des \u00e9tablissements et organismes membres et des composantes de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements et des personnalit\u00e9s ext\u00e9rieures. Sa composition, qui est fix\u00e9e par les statuts, doit assurer une repr\u00e9sentation \u00e9quilibr\u00e9e des \u00e9tablissements et organismes membres.", 
                         "\"Le conseil acad\u00e9mique \u00e9lit son pr\u00e9sident, dont le mandat expire \u00e0 l'\u00e9ch\u00e9ance du mandat des repr\u00e9sentants \u00e9lus des personnels du conseil acad\u00e9mique, selon des modalit\u00e9s fix\u00e9es par les statuts.", 
                         "\"Le conseil acad\u00e9mique exerce, pour les comp\u00e9tences transf\u00e9r\u00e9es \u00e0 la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements, le r\u00f4le consultatif pr\u00e9vu \u00e0 l'article L. 712-6-1. Il donne son avis sur le projet partag\u00e9 et le contrat pr\u00e9vus, respectivement, aux articles L. 718-2 et L. 718-3.", 
                         "\"Art. L. 718-12. - Le conseil des membres r\u00e9unit un repr\u00e9sentant de chacun des membres de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements. Les statuts de la communaut\u00e9 peuvent pr\u00e9voir la participation \u00e0 ce conseil des directeurs des composantes de cette communaut\u00e9.", 
@@ -5966,8 +5966,8 @@
                         "\"Section 4", 
                         "\"Conventions et association", 
                         "\"Art. L. 718-15. - Les \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel peuvent conclure des conventions de coop\u00e9ration soit entre eux, soit avec d'autres \u00e9tablissements publics ou priv\u00e9s.", 
-                        "\"un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre associ\u00e9 \u00e0 un ou plusieurs \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel, par d\u00e9cret, sur sa demande et sur proposition du ou des \u00e9tablissements auxquels cette association est demand\u00e9e, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Le d\u00e9cret pr\u00e9voit les comp\u00e9tences mises en commun entre l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et les \u00e9tablissements qui lui sont associ\u00e9s. En cas d'association \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel dans le cadre de la coordination territoriale pr\u00e9vue \u00e0 l'article L. 718-3, les statuts de l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et du ou des \u00e9tablissements associ\u00e9s et le contrat mentionn\u00e9 \u00e0 l'article L. 718-4 pr\u00e9voient les modalit\u00e9s d'organisation et d'exercice des comp\u00e9tences partag\u00e9es entre ces \u00e9tablissements.", 
-                        "\"un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre int\u00e9gr\u00e9 \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel, dans les conditions fix\u00e9es au deuxi\u00e8me alin\u00e9a du pr\u00e9sent article.", 
+                        "\"Un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre associ\u00e9 \u00e0 un ou plusieurs \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel, par d\u00e9cret, sur sa demande et sur proposition du ou des \u00e9tablissements auxquels cette association est demand\u00e9e, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Le d\u00e9cret pr\u00e9voit les comp\u00e9tences mises en commun entre l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et les \u00e9tablissements qui lui sont associ\u00e9s. En cas d'association \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel dans le cadre de la coordination territoriale pr\u00e9vue \u00e0 l'article L. 718-3, les statuts de l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et du ou des \u00e9tablissements associ\u00e9s et le contrat mentionn\u00e9 \u00e0 l'article L. 718-4 pr\u00e9voient les modalit\u00e9s d'organisation et d'exercice des comp\u00e9tences partag\u00e9es entre ces \u00e9tablissements.", 
+                        "\"Un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre int\u00e9gr\u00e9 \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel, dans les conditions fix\u00e9es au deuxi\u00e8me alin\u00e9a du pr\u00e9sent article.", 
                         "\"Les \u00e9tablissements ou organismes priv\u00e9s ne peuvent pas prendre le titre d'universit\u00e9 ou d\u00e9livrer les dipl\u00f4mes nationaux de l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel de l'association.", 
                         "\"En cas d'association, les \u00e9tablissements conservent leur personnalit\u00e9 morale et leur autonomie financi\u00e8re.", 
                         "\"Le conseil acad\u00e9mique peut \u00eatre commun \u00e0 l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et aux \u00e9tablissements qui lui sont associ\u00e9s.\""
@@ -5975,9 +5975,9 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 16689, 
-                    "n_diff": 0.10029908461979997, 
+                    "n_diff": 0.10576400217509518, 
                     "order": 64, 
                     "status": "none", 
                     "text": [
@@ -5997,7 +5997,7 @@
                         "\"La coordination territoriale est organis\u00e9e par un seul \u00e9tablissement d'enseignement sup\u00e9rieur, pour un territoire donn\u00e9. Cet \u00e9tablissement est soit le nouvel \u00e9tablissement issu d'une fusion, soit la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements lorsqu'il en existe une, soit l'\u00e9tablissement avec lequel les autres \u00e9tablissements ont conclu une convention d'association. Par d\u00e9rogation, dans les acad\u00e9mies de Paris, Cr\u00e9teil et Versailles, plusieurs \u00e9tablissements peuvent assurer la coordination territoriale.", 
                         "\"Art. L. 718-3-1. - L'\u00e9tablissement d'enseignement sup\u00e9rieur charg\u00e9 d'organiser la coordination territoriale dans les conditions fix\u00e9es par l'article L. 718-3 \u00e9labore avec le r\u00e9seau des oeuvres universitaires et scolaires un projet d'am\u00e9lioration de la qualit\u00e9 de la vie \u00e9tudiante et de promotion sociale sur le territoire, en associant l'ensemble des \u00e9tablissements partenaires. Ce projet pr\u00e9sente une vision consolid\u00e9e des besoins des \u00e9tablissements d'enseignement sup\u00e9rieur implant\u00e9s sur le territoire en mati\u00e8re de logement \u00e9tudiant, de transport, de politique sociale et de sant\u00e9 et d'activit\u00e9s culturelles, sportives, sociales et associatives. Il est transmis \u00e0 l'\u00c9tat et aux collectivit\u00e9s territoriales concern\u00e9es, pr\u00e9alablement \u00e0 la conclusion du contrat pluriannuel d'\u00e9tablissement mentionn\u00e9 \u00e0 l'article L. 711-1.", 
                         "\"Art. L. 718-4. - Sur la base du projet partag\u00e9 pr\u00e9vu \u00e0 l'article L. 718-2, un seul contrat pluriannuel d'\u00e9tablissement mentionn\u00e9 \u00e0 l'article L. 711-1 est conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements regroup\u00e9s relevant de sa seule tutelle. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat. Les contrats pluriannuels sont pr\u00e9alablement soumis au vote pour avis aux conseils d'administration de chaque \u00e9tablissement regroup\u00e9 ou en voie de regroupement.", 
-                        "\"un seul contrat est \u00e9galement conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements d'un m\u00eame territoire relevant de sa seule tutelle qui n'ont pas encore proc\u00e9d\u00e9 \u00e0 la fusion ou au regroupement mentionn\u00e9s \u00e0 l'article L. 718-3. Le contrat pr\u00e9voit les diff\u00e9rentes \u00e9tapes de la fusion ou du regroupement, qui doivent intervenir avant son \u00e9ch\u00e9ance. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat.", 
+                        "\"Un seul contrat est \u00e9galement conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements d'un m\u00eame territoire relevant de sa seule tutelle qui n'ont pas encore proc\u00e9d\u00e9 \u00e0 la fusion ou au regroupement mentionn\u00e9s \u00e0 l'article L. 718-3. Le contrat pr\u00e9voit les diff\u00e9rentes \u00e9tapes de la fusion ou du regroupement, qui doivent intervenir avant son \u00e9ch\u00e9ance. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat.", 
                         "\"Ces contrats comportent, d'une part, un volet commun correspondant au projet partag\u00e9 mentionn\u00e9 \u00e0 l'article L. 718-2 et aux comp\u00e9tences partag\u00e9es ou transf\u00e9r\u00e9es et, d'autre part, des volets sp\u00e9cifiques \u00e0 chacun des \u00e9tablissements regroup\u00e9s ou en voie de regroupement. Ces volets sp\u00e9cifiques sont propos\u00e9s par les \u00e9tablissements et doivent \u00eatre adopt\u00e9s par leur propre conseil d'administration. Ils ne sont pas soumis \u00e0 d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements ou de l'\u00e9tablissement auquel ils sont associ\u00e9s.", 
                         "\"Ces contrats pluriannuels associent la ou les r\u00e9gions et les autres collectivit\u00e9s territoriales, les organismes de recherche et le centre r\u00e9gional des oeuvres universitaires et scolaires. Ils prennent en compte les orientations fix\u00e9es par les sch\u00e9mas r\u00e9gionaux pr\u00e9vus \u00e0 l'article L. 214-2 et les orientations fix\u00e9es par les sch\u00e9mas de d\u00e9veloppement universitaire ou les sch\u00e9mas d'enseignement sup\u00e9rieur et de recherche d\u00e9finis par les communes, les \u00e9tablissements publics de coop\u00e9ration intercommunale \u00e0 fiscalit\u00e9 propre, les p\u00f4les m\u00e9tropolitains et les d\u00e9partements.", 
                         "\"Les strat\u00e9gies en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche poursuivies, sur un territoire donn\u00e9, par les collectivit\u00e9s territoriales et leurs groupements et les contrats pluriannuels d'\u00e9tablissement font l'objet d'un document d'orientation unique.", 
@@ -6013,7 +6013,7 @@
                         "\"Art. L. 718-7. - La d\u00e9nomination et les statuts d'une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements sont adopt\u00e9s par chacun des \u00e9tablissements et organismes ayant d\u00e9cid\u00e9 d'y participer.", 
                         "\"Ils pr\u00e9voient les comp\u00e9tences que chaque \u00e9tablissement transf\u00e8re, pour ce qui le concerne, \u00e0 la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements et les comp\u00e9tences des instances mentionn\u00e9es \u00e0 l'article L. 718-8 qui ne sont pas pr\u00e9vues \u00e0 la pr\u00e9sente section. Ils peuvent \u00e9galement pr\u00e9voir les conditions dans lesquelles des composantes de la communaut\u00e9 peuvent \u00eatre assimil\u00e9es aux membres.", 
                         "\"La communaut\u00e9 d'universit\u00e9s et \u00e9tablissements est cr\u00e9\u00e9e par un d\u00e9cret qui en approuve les statuts.", 
-                        "\"une fois adopt\u00e9s, ces statuts sont modifi\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements, apr\u00e8s un avis favorable du conseil des membres rendu \u00e0 la majorit\u00e9 des deux tiers. Ces modifications sont approuv\u00e9es par d\u00e9cret.", 
+                        "\"Une fois adopt\u00e9s, ces statuts sont modifi\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements, apr\u00e8s un avis favorable du conseil des membres rendu \u00e0 la majorit\u00e9 des deux tiers. Ces modifications sont approuv\u00e9es par d\u00e9cret.", 
                         "\"Art. L. 718-8. - La communaut\u00e9 d'universit\u00e9s et \u00e9tablissements est administr\u00e9e par un conseil d'administration, qui d\u00e9termine la politique de l'\u00e9tablissement, dont les questions et ressources num\u00e9riques, approuve son budget et en contr\u00f4le l'ex\u00e9cution. Le conseil d'administration est assist\u00e9 d'un conseil acad\u00e9mique et d'un conseil des membres.", 
                         "\"Art. L. 718-9. - Le pr\u00e9sident, \u00e9lu par le conseil d'administration, dirige l'\u00e9tablissement. Ce conseil \u00e9lit \u00e9galement un vice-pr\u00e9sident charg\u00e9 des questions et ressources num\u00e9riques.", 
                         "\"Art. L. 718-10. - Le conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements comprend des repr\u00e9sentants des cat\u00e9gories suivantes :", 
@@ -6042,8 +6042,8 @@
                         "\"Conventions et association", 
                         "\"Art. L. 718-15. - Les \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel peuvent conclure des conventions de coop\u00e9ration soit entre eux, soit avec d'autres \u00e9tablissements publics ou priv\u00e9s.", 
                         "\"Le projet partag\u00e9 pr\u00e9vu \u00e0 l'article L. 718-2 port\u00e9 par l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et le ou les \u00e9tablissements associ\u00e9s est d\u00e9fini d'un commun accord par les \u00e9tablissements parties \u00e0 cette association. Les statuts de l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et du ou des \u00e9tablissements associ\u00e9s peuvent pr\u00e9voir une d\u00e9nomination pour le regroupement op\u00e9r\u00e9 autour de ce projet partag\u00e9.", 
-                        "\"un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre associ\u00e9 \u00e0 un ou plusieurs \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel, par d\u00e9cret, sur sa demande et sur proposition du ou des \u00e9tablissements auxquels cette association est demand\u00e9e, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Le d\u00e9cret pr\u00e9voit les comp\u00e9tences mises en commun entre les \u00e9tablissements ayant conclu une convention d'association. Cette convention pr\u00e9voit les modalit\u00e9s d'organisation et d'exercice des comp\u00e9tences partag\u00e9es entre ces \u00e9tablissements.", 
-                        "\"un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre int\u00e9gr\u00e9 \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel, dans les conditions fix\u00e9es au deuxi\u00e8me alin\u00e9a du pr\u00e9sent article.", 
+                        "\"Un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre associ\u00e9 \u00e0 un ou plusieurs \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel, par d\u00e9cret, sur sa demande et sur proposition du ou des \u00e9tablissements auxquels cette association est demand\u00e9e, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Le d\u00e9cret pr\u00e9voit les comp\u00e9tences mises en commun entre les \u00e9tablissements ayant conclu une convention d'association. Cette convention pr\u00e9voit les modalit\u00e9s d'organisation et d'exercice des comp\u00e9tences partag\u00e9es entre ces \u00e9tablissements.", 
+                        "\"Un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre int\u00e9gr\u00e9 \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel, dans les conditions fix\u00e9es au deuxi\u00e8me alin\u00e9a du pr\u00e9sent article.", 
                         "\"Les \u00e9tablissements ou organismes priv\u00e9s ne peuvent pas prendre le titre d'universit\u00e9 ou d\u00e9livrer les dipl\u00f4mes nationaux de l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel de l'association.", 
                         "\"En cas d'association, les \u00e9tablissements conservent leur personnalit\u00e9 morale et leur autonomie financi\u00e8re.", 
                         "\"Le conseil acad\u00e9mique peut \u00eatre commun \u00e0 l'ensemble des \u00e9tablissements sous convention.\""
@@ -6051,7 +6051,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 17303, 
                     "n_diff": 0.021769828194869389, 
                     "order": 63, 
@@ -6073,7 +6073,7 @@
                         "\"La coordination territoriale est organis\u00e9e par un seul \u00e9tablissement d'enseignement sup\u00e9rieur, pour un territoire donn\u00e9. Cet \u00e9tablissement est soit le nouvel \u00e9tablissement issu d'une fusion, soit la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements lorsqu'il en existe une, soit l'\u00e9tablissement avec lequel les autres \u00e9tablissements ont conclu une convention d'association. Par d\u00e9rogation, dans les acad\u00e9mies de Paris, Cr\u00e9teil et Versailles, plusieurs \u00e9tablissements peuvent assurer la coordination territoriale.", 
                         "\"Art. L. 718-3-1. - L'\u00e9tablissement d'enseignement sup\u00e9rieur charg\u00e9 d'organiser la coordination territoriale dans les conditions fix\u00e9es par l'article L. 718-3 \u00e9labore avec le r\u00e9seau des oeuvres universitaires et scolaires un projet d'am\u00e9lioration de la qualit\u00e9 de la vie \u00e9tudiante et de promotion sociale sur le territoire, en associant l'ensemble des \u00e9tablissements partenaires. Ce projet pr\u00e9sente une vision consolid\u00e9e des besoins des \u00e9tablissements d'enseignement sup\u00e9rieur implant\u00e9s sur le territoire en mati\u00e8re de logement \u00e9tudiant, de transport, de politique sociale et de sant\u00e9 et d'activit\u00e9s culturelles, sportives, sociales et associatives. Il est transmis \u00e0 l'\u00c9tat et aux collectivit\u00e9s territoriales concern\u00e9es, pr\u00e9alablement \u00e0 la conclusion du contrat pluriannuel d'\u00e9tablissement mentionn\u00e9 \u00e0 l'article L. 711-1.", 
                         "\"Art. L. 718-4. - Sur la base du projet partag\u00e9 pr\u00e9vu \u00e0 l'article L. 718-2, un seul contrat pluriannuel d'\u00e9tablissement mentionn\u00e9 \u00e0 l'article L. 711-1 est conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements regroup\u00e9s relevant de sa seule tutelle. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat. Les contrats pluriannuels sont pr\u00e9alablement soumis au vote pour avis aux conseils d'administration de chaque \u00e9tablissement regroup\u00e9 ou en voie de regroupement.", 
-                        "\"un seul contrat est \u00e9galement conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements d'un m\u00eame territoire relevant de sa seule tutelle qui n'ont pas encore proc\u00e9d\u00e9 \u00e0 la fusion ou au regroupement mentionn\u00e9s \u00e0 l'article L. 718-3. Le contrat pr\u00e9voit les diff\u00e9rentes \u00e9tapes de la fusion ou du regroupement, qui doivent intervenir avant son \u00e9ch\u00e9ance. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat.", 
+                        "\"Un seul contrat est \u00e9galement conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements d'un m\u00eame territoire relevant de sa seule tutelle qui n'ont pas encore proc\u00e9d\u00e9 \u00e0 la fusion ou au regroupement mentionn\u00e9s \u00e0 l'article L. 718-3. Le contrat pr\u00e9voit les diff\u00e9rentes \u00e9tapes de la fusion ou du regroupement, qui doivent intervenir avant son \u00e9ch\u00e9ance. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat.", 
                         "\"Ces contrats comportent, d'une part, un volet commun correspondant au projet partag\u00e9 mentionn\u00e9 \u00e0 l'article L. 718-2 et aux comp\u00e9tences partag\u00e9es ou transf\u00e9r\u00e9es et, d'autre part, des volets sp\u00e9cifiques \u00e0 chacun des \u00e9tablissements regroup\u00e9s ou en voie de regroupement. Ces volets sp\u00e9cifiques sont propos\u00e9s par les \u00e9tablissements et doivent \u00eatre adopt\u00e9s par leur propre conseil d'administration. Ils ne sont pas soumis \u00e0 d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements ou de l'\u00e9tablissement auquel ils sont associ\u00e9s.", 
                         "\"Ces contrats pluriannuels associent la ou les r\u00e9gions et les autres collectivit\u00e9s territoriales accueillant des sites universitaires ou des \u00e9tablissements de recherche, les organismes de recherche et le centre r\u00e9gional des oeuvres universitaires et scolaires. Ils prennent en compte les orientations fix\u00e9es par les sch\u00e9mas r\u00e9gionaux pr\u00e9vus \u00e0 l'article L. 214-2 et les orientations fix\u00e9es par les sch\u00e9mas de d\u00e9veloppement universitaire ou les sch\u00e9mas d'enseignement sup\u00e9rieur et de recherche d\u00e9finis par les communes, les \u00e9tablissements publics de coop\u00e9ration intercommunale \u00e0 fiscalit\u00e9 propre, les p\u00f4les m\u00e9tropolitains et les d\u00e9partements.", 
                         "\"Les strat\u00e9gies en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche poursuivies, sur un territoire donn\u00e9, par les collectivit\u00e9s territoriales accueillant des sites universitaires ou des \u00e9tablissements de recherche et leurs groupements et les contrats pluriannuels d'\u00e9tablissement font l'objet d'un document d'orientation unique.", 
@@ -6089,7 +6089,7 @@
                         "\"Art. L. 718-7. - La d\u00e9nomination et les statuts d'une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements sont adopt\u00e9s par chacun des \u00e9tablissements et organismes ayant d\u00e9cid\u00e9 d'y participer.", 
                         "\"Ils pr\u00e9voient les comp\u00e9tences que chaque \u00e9tablissement transf\u00e8re, pour ce qui le concerne, \u00e0 la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements et les comp\u00e9tences des instances mentionn\u00e9es \u00e0 l'article L. 718-8 qui ne sont pas pr\u00e9vues \u00e0 la pr\u00e9sente section. Ils peuvent \u00e9galement pr\u00e9voir les conditions dans lesquelles des composantes de la communaut\u00e9 peuvent \u00eatre assimil\u00e9es aux membres.", 
                         "\"La communaut\u00e9 d'universit\u00e9s et \u00e9tablissements est cr\u00e9\u00e9e par un d\u00e9cret qui en approuve les statuts.", 
-                        "\"une fois adopt\u00e9s, ces statuts sont modifi\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements, apr\u00e8s un avis favorable du conseil des membres rendu \u00e0 la majorit\u00e9 des deux tiers. Ces modifications sont approuv\u00e9es par d\u00e9cret.", 
+                        "\"Une fois adopt\u00e9s, ces statuts sont modifi\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements, apr\u00e8s un avis favorable du conseil des membres rendu \u00e0 la majorit\u00e9 des deux tiers. Ces modifications sont approuv\u00e9es par d\u00e9cret.", 
                         "\"Art. L. 718-8. - La communaut\u00e9 d'universit\u00e9s et \u00e9tablissements est administr\u00e9e par un conseil d'administration, qui d\u00e9termine la politique de l'\u00e9tablissement, dont les questions et ressources num\u00e9riques, approuve son budget et en contr\u00f4le l'ex\u00e9cution. Le conseil d'administration est assist\u00e9 d'un conseil acad\u00e9mique et d'un conseil des membres.", 
                         "\"Art. L. 718-9. - Le pr\u00e9sident, \u00e9lu par le conseil d'administration, dirige l'\u00e9tablissement. Ce conseil \u00e9lit \u00e9galement un vice-pr\u00e9sident charg\u00e9 des questions et ressources num\u00e9riques.", 
                         "\"Art. L. 718-10. - Le conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements comprend des repr\u00e9sentants des cat\u00e9gories suivantes :", 
@@ -6118,8 +6118,8 @@
                         "\"Conventions et association", 
                         "\"Art. L. 718-15. - Les \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel peuvent conclure des conventions de coop\u00e9ration soit entre eux, soit avec d'autres \u00e9tablissements publics ou priv\u00e9s.", 
                         "\"Le projet partag\u00e9 pr\u00e9vu \u00e0 l'article L. 718-2 port\u00e9 par l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et le ou les \u00e9tablissements associ\u00e9s est d\u00e9fini d'un commun accord par les \u00e9tablissements parties \u00e0 cette association. Les statuts de l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et du ou des \u00e9tablissements associ\u00e9s peuvent pr\u00e9voir une d\u00e9nomination pour le regroupement op\u00e9r\u00e9 autour de ce projet partag\u00e9.", 
-                        "\"un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre associ\u00e9 \u00e0 un ou plusieurs \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel, par d\u00e9cret, sur sa demande et sur proposition du ou des \u00e9tablissements auxquels cette association est demand\u00e9e, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Le d\u00e9cret pr\u00e9voit les comp\u00e9tences mises en commun entre les \u00e9tablissements ayant conclu une convention d'association. Cette convention pr\u00e9voit les modalit\u00e9s d'organisation et d'exercice des comp\u00e9tences partag\u00e9es entre ces \u00e9tablissements. La convention d'association d\u00e9finit les modalit\u00e9s d'approbation par les \u00e9tablissements associ\u00e9s du volet commun du contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 718-4.", 
-                        "\"un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre int\u00e9gr\u00e9 \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel, dans les conditions fix\u00e9es au deuxi\u00e8me alin\u00e9a du pr\u00e9sent article.", 
+                        "\"Un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre associ\u00e9 \u00e0 un ou plusieurs \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel, par d\u00e9cret, sur sa demande et sur proposition du ou des \u00e9tablissements auxquels cette association est demand\u00e9e, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Le d\u00e9cret pr\u00e9voit les comp\u00e9tences mises en commun entre les \u00e9tablissements ayant conclu une convention d'association. Cette convention pr\u00e9voit les modalit\u00e9s d'organisation et d'exercice des comp\u00e9tences partag\u00e9es entre ces \u00e9tablissements. La convention d'association d\u00e9finit les modalit\u00e9s d'approbation par les \u00e9tablissements associ\u00e9s du volet commun du contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 718-4.", 
+                        "\"Un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre int\u00e9gr\u00e9 \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel, dans les conditions fix\u00e9es au deuxi\u00e8me alin\u00e9a du pr\u00e9sent article.", 
                         "\"Les \u00e9tablissements ou organismes priv\u00e9s ne peuvent pas prendre le titre d'universit\u00e9 ou d\u00e9livrer les dipl\u00f4mes nationaux de l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel de l'association.", 
                         "\"En cas d'association, les \u00e9tablissements conservent leur personnalit\u00e9 morale et leur autonomie financi\u00e8re.", 
                         "\"Le conseil acad\u00e9mique peut \u00eatre commun \u00e0 l'ensemble des \u00e9tablissements sous convention.\""
@@ -6127,7 +6127,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 17439, 
                     "n_diff": 0.0042024063093661912, 
                     "order": 62, 
@@ -6149,7 +6149,7 @@
                         "\"La coordination territoriale est organis\u00e9e par un seul \u00e9tablissement d'enseignement sup\u00e9rieur, pour un territoire donn\u00e9. Cet \u00e9tablissement est soit le nouvel \u00e9tablissement issu d'une fusion, soit la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements lorsqu'il en existe une, soit l'\u00e9tablissement avec lequel les autres \u00e9tablissements ont conclu une convention d'association. Par d\u00e9rogation, dans les acad\u00e9mies de Paris, Cr\u00e9teil et Versailles, plusieurs \u00e9tablissements peuvent assurer la coordination territoriale.", 
                         "\"Art. L. 718-3-1. - L'\u00e9tablissement d'enseignement sup\u00e9rieur charg\u00e9 d'organiser la coordination territoriale dans les conditions fix\u00e9es par l'article L. 718-3 \u00e9labore avec le r\u00e9seau des oeuvres universitaires et scolaires un projet d'am\u00e9lioration de la qualit\u00e9 de la vie \u00e9tudiante et de promotion sociale sur le territoire, en associant l'ensemble des \u00e9tablissements partenaires. Ce projet pr\u00e9sente une vision consolid\u00e9e des besoins des \u00e9tablissements d'enseignement sup\u00e9rieur implant\u00e9s sur le territoire en mati\u00e8re de logement \u00e9tudiant, de transport, de politique sociale et de sant\u00e9 et d'activit\u00e9s culturelles, sportives, sociales et associatives. Il est transmis \u00e0 l'\u00c9tat et aux collectivit\u00e9s territoriales concern\u00e9es, pr\u00e9alablement \u00e0 la conclusion du contrat pluriannuel d'\u00e9tablissement mentionn\u00e9 \u00e0 l'article L. 711-1.", 
                         "\"Art. L. 718-4. - Sur la base du projet partag\u00e9 pr\u00e9vu \u00e0 l'article L. 718-2, un seul contrat pluriannuel d'\u00e9tablissement mentionn\u00e9 \u00e0 l'article L. 711-1 est conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements regroup\u00e9s relevant de sa seule tutelle. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat. Les contrats pluriannuels sont pr\u00e9alablement soumis au vote pour avis aux conseils d'administration de chaque \u00e9tablissement regroup\u00e9 ou en voie de regroupement.", 
-                        "\"un seul contrat est \u00e9galement conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements d'un m\u00eame territoire relevant de sa seule tutelle qui n'ont pas encore proc\u00e9d\u00e9 \u00e0 la fusion ou au regroupement mentionn\u00e9s \u00e0 l'article L. 718-3. Le contrat pr\u00e9voit les diff\u00e9rentes \u00e9tapes de la fusion ou du regroupement, qui doivent intervenir avant son \u00e9ch\u00e9ance. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat.", 
+                        "\"Un seul contrat est \u00e9galement conclu entre le ministre charg\u00e9 de l'enseignement sup\u00e9rieur et les \u00e9tablissements d'un m\u00eame territoire relevant de sa seule tutelle qui n'ont pas encore proc\u00e9d\u00e9 \u00e0 la fusion ou au regroupement mentionn\u00e9s \u00e0 l'article L. 718-3. Le contrat pr\u00e9voit les diff\u00e9rentes \u00e9tapes de la fusion ou du regroupement, qui doivent intervenir avant son \u00e9ch\u00e9ance. Les \u00e9tablissements relevant d'autres autorit\u00e9s de tutelle et ces autorit\u00e9s peuvent \u00eatre parties \u00e0 ce contrat.", 
                         "\"Ces contrats comportent, d'une part, un volet commun correspondant au projet partag\u00e9 mentionn\u00e9 \u00e0 l'article L. 718-2 et aux comp\u00e9tences partag\u00e9es ou transf\u00e9r\u00e9es et, d'autre part, des volets sp\u00e9cifiques \u00e0 chacun des \u00e9tablissements regroup\u00e9s ou en voie de regroupement. Ces volets sp\u00e9cifiques sont propos\u00e9s par les \u00e9tablissements et doivent \u00eatre adopt\u00e9s par leur propre conseil d'administration. Ils ne sont pas soumis \u00e0 d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements ou de l'\u00e9tablissement auquel ils sont associ\u00e9s.", 
                         "\"Ces contrats pluriannuels associent la ou les r\u00e9gions et les autres collectivit\u00e9s territoriales accueillant des sites universitaires ou des \u00e9tablissements de recherche, les organismes de recherche et le centre r\u00e9gional des oeuvres universitaires et scolaires. Ils prennent en compte les orientations fix\u00e9es par les sch\u00e9mas r\u00e9gionaux pr\u00e9vus \u00e0 l'article L. 214-2 et les orientations fix\u00e9es par les sch\u00e9mas de d\u00e9veloppement universitaire ou les sch\u00e9mas d'enseignement sup\u00e9rieur et de recherche d\u00e9finis par les communes, les \u00e9tablissements publics de coop\u00e9ration intercommunale \u00e0 fiscalit\u00e9 propre, les p\u00f4les m\u00e9tropolitains et les d\u00e9partements.", 
                         "\"Les strat\u00e9gies en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche poursuivies, sur un territoire donn\u00e9, par les collectivit\u00e9s territoriales accueillant des sites universitaires ou des \u00e9tablissements de recherche et leurs groupements et les contrats pluriannuels d'\u00e9tablissement font l'objet d'un document d'orientation unique.", 
@@ -6165,7 +6165,7 @@
                         "\"Art. L. 718-7. - La d\u00e9nomination et les statuts d'une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements sont adopt\u00e9s par chacun des \u00e9tablissements et organismes ayant d\u00e9cid\u00e9 d'y participer.", 
                         "\"Ils pr\u00e9voient les comp\u00e9tences que chaque \u00e9tablissement transf\u00e8re, pour ce qui le concerne, \u00e0 la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements et les comp\u00e9tences des instances mentionn\u00e9es \u00e0 l'article L. 718-8 qui ne sont pas pr\u00e9vues \u00e0 la pr\u00e9sente section. Ils peuvent \u00e9galement pr\u00e9voir les conditions dans lesquelles des composantes de la communaut\u00e9 peuvent \u00eatre assimil\u00e9es aux membres. Parmi ses composantes, la communaut\u00e9 peut comporter une \u00e9cole sup\u00e9rieure du professorat et de l'\u00e9ducation.", 
                         "\"La communaut\u00e9 d'universit\u00e9s et \u00e9tablissements est cr\u00e9\u00e9e par un d\u00e9cret qui en approuve les statuts.", 
-                        "\"une fois adopt\u00e9s, ces statuts sont modifi\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements, apr\u00e8s un avis favorable du conseil des membres rendu \u00e0 la majorit\u00e9 des deux tiers. Ces modifications sont approuv\u00e9es par d\u00e9cret.", 
+                        "\"Une fois adopt\u00e9s, ces statuts sont modifi\u00e9s par d\u00e9lib\u00e9ration du conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements, apr\u00e8s un avis favorable du conseil des membres rendu \u00e0 la majorit\u00e9 des deux tiers. Ces modifications sont approuv\u00e9es par d\u00e9cret.", 
                         "\"Art. L. 718-8. - La communaut\u00e9 d'universit\u00e9s et \u00e9tablissements est administr\u00e9e par un conseil d'administration, qui d\u00e9termine la politique de l'\u00e9tablissement, dont les questions et ressources num\u00e9riques, approuve son budget et en contr\u00f4le l'ex\u00e9cution. Le conseil d'administration est assist\u00e9 d'un conseil acad\u00e9mique et d'un conseil des membres.", 
                         "\"Art. L. 718-9. - Le pr\u00e9sident, \u00e9lu par le conseil d'administration, dirige l'\u00e9tablissement. Ce conseil \u00e9lit \u00e9galement un vice-pr\u00e9sident charg\u00e9 des questions et ressources num\u00e9riques.", 
                         "\"Art. L. 718-10. - Le conseil d'administration de la communaut\u00e9 d'universit\u00e9s et \u00e9tablissements comprend des repr\u00e9sentants des cat\u00e9gories suivantes :", 
@@ -6194,8 +6194,8 @@
                         "\"Conventions et association", 
                         "\"Art. L. 718-15. - Les \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel peuvent conclure des conventions de coop\u00e9ration soit entre eux, soit avec d'autres \u00e9tablissements publics ou priv\u00e9s.", 
                         "\"Le projet partag\u00e9 pr\u00e9vu \u00e0 l'article L. 718-2 port\u00e9 par l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et le ou les \u00e9tablissements associ\u00e9s est d\u00e9fini d'un commun accord par les \u00e9tablissements parties \u00e0 cette association. Les statuts de l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel et du ou des \u00e9tablissements associ\u00e9s peuvent pr\u00e9voir une d\u00e9nomination pour le regroupement op\u00e9r\u00e9 autour de ce projet partag\u00e9.", 
-                        "\"un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre associ\u00e9 \u00e0 un ou plusieurs \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel, par d\u00e9cret, sur sa demande et sur proposition du ou des \u00e9tablissements auxquels cette association est demand\u00e9e, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Le d\u00e9cret pr\u00e9voit les comp\u00e9tences mises en commun entre les \u00e9tablissements ayant conclu une convention d'association. Cette convention pr\u00e9voit les modalit\u00e9s d'organisation et d'exercice des comp\u00e9tences partag\u00e9es entre ces \u00e9tablissements. La convention d'association d\u00e9finit les modalit\u00e9s d'approbation par les \u00e9tablissements associ\u00e9s du volet commun du contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 718-4.", 
-                        "\"un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre int\u00e9gr\u00e9 \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel, dans les conditions fix\u00e9es au troisi\u00e8me alin\u00e9a du pr\u00e9sent article.", 
+                        "\"Un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre associ\u00e9 \u00e0 un ou plusieurs \u00e9tablissements publics \u00e0 caract\u00e8re scientifique, culturel et professionnel, par d\u00e9cret, sur sa demande et sur proposition du ou des \u00e9tablissements auxquels cette association est demand\u00e9e, apr\u00e8s avis du Conseil national de l'enseignement sup\u00e9rieur et de la recherche. Le d\u00e9cret pr\u00e9voit les comp\u00e9tences mises en commun entre les \u00e9tablissements ayant conclu une convention d'association. Cette convention pr\u00e9voit les modalit\u00e9s d'organisation et d'exercice des comp\u00e9tences partag\u00e9es entre ces \u00e9tablissements. La convention d'association d\u00e9finit les modalit\u00e9s d'approbation par les \u00e9tablissements associ\u00e9s du volet commun du contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 718-4.", 
+                        "\"Un \u00e9tablissement ou un organisme public ou priv\u00e9 concourant aux missions du service public de l'enseignement sup\u00e9rieur ou de la recherche peut \u00eatre int\u00e9gr\u00e9 \u00e0 un \u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel, dans les conditions fix\u00e9es au troisi\u00e8me alin\u00e9a du pr\u00e9sent article.", 
                         "\"Les \u00e9tablissements ou organismes priv\u00e9s ne peuvent pas prendre le titre d'universit\u00e9 ou d\u00e9livrer les dipl\u00f4mes nationaux de l'\u00e9tablissement public \u00e0 caract\u00e8re scientifique, culturel et professionnel de l'association.", 
                         "\"En cas d'association, les \u00e9tablissements conservent leur personnalit\u00e9 morale et leur autonomie financi\u00e8re.", 
                         "\"Le conseil acad\u00e9mique peut \u00eatre commun \u00e0 l'ensemble des \u00e9tablissements sous convention.\""
@@ -6221,7 +6221,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 200, 
                     "n_diff": 0, 
                     "order": 65, 
@@ -6232,7 +6232,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 200, 
                     "n_diff": 0, 
                     "order": 65, 
@@ -6243,7 +6243,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 200, 
                     "n_diff": 0, 
                     "order": 64, 
@@ -6254,7 +6254,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 200, 
                     "n_diff": 0, 
                     "order": 63, 
@@ -6284,7 +6284,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 194, 
                     "n_diff": 0, 
                     "order": 66, 
@@ -6296,7 +6296,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 194, 
                     "n_diff": 0, 
                     "order": 66, 
@@ -6308,7 +6308,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 194, 
                     "n_diff": 0, 
                     "order": 65, 
@@ -6320,7 +6320,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 194, 
                     "n_diff": 0, 
                     "order": 64, 
@@ -6375,7 +6375,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 431, 
                     "n_diff": 0.27893175074183973, 
                     "order": 67, 
@@ -6388,7 +6388,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 431, 
                     "n_diff": 0, 
                     "order": 67, 
@@ -6401,7 +6401,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 431, 
                     "n_diff": 0, 
                     "order": 66, 
@@ -6414,7 +6414,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 441, 
                     "n_diff": 0.032110091743119296, 
                     "order": 65, 
@@ -6434,7 +6434,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 631, 
                     "n_diff": 1, 
                     "order": 6, 
@@ -6447,7 +6447,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 633, 
                     "n_diff": 0.039556962025316444, 
                     "order": 5, 
@@ -6460,7 +6460,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 633, 
                     "n_diff": 0, 
                     "order": 5, 
@@ -6535,20 +6535,20 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
-                    "length": 1797, 
-                    "n_diff": 0.43899858956276439, 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
+                    "length": 1801, 
+                    "n_diff": 0.45704225352112671, 
                     "order": 6, 
                     "status": "none", 
                     "text": [
                         "L'article L. 123-2 du m\u00eame code est ainsi modifi\u00e9 :", 
-                        "1\u00b0AA Avant le 1\u00b0, il est ins\u00e9r\u00e9 un 1\u00b0A ainsi r\u00e9dig\u00e9 :", 
-                        "\"1\u00b0A \u00c0 la r\u00e9ussite de toutes les \u00e9tudiantes et de tous les \u00e9tudiants\" ;", 
+                        "1\u00b0 AA Avant le 1\u00b0, il est ins\u00e9r\u00e9 un 1\u00b0 A ainsi r\u00e9dig\u00e9 :", 
+                        "\"1\u00b0 A \u00c0 la r\u00e9ussite de toutes les \u00e9tudiantes et de tous les \u00e9tudiants\" ;", 
                         "1\u00b0 A Au 1\u00b0, apr\u00e8s le mot : \"dispens\u00e9es,\", sont ins\u00e9r\u00e9s les mots : \"\u00e0 la diffusion des connaissances dans leur diversit\u00e9\" ;", 
                         "1\u00b0 Le 2\u00b0 est ainsi r\u00e9dig\u00e9 :", 
                         "\"2\u00b0 \u00c0 la croissance et \u00e0 la comp\u00e9titivit\u00e9 de l'\u00e9conomie et \u00e0 la r\u00e9alisation d'une politique de l'emploi prenant en compte les besoins \u00e9conomiques, sociaux, environnementaux et culturels et leur \u00e9volution pr\u00e9visible ;\"", 
                         "1\u00b0 bis Au d\u00e9but du 3\u00b0, sont ajout\u00e9s les mots : \"\u00c0 la lutte contre les discriminations,\" ;", 
-                        "1\u00b0ter A Le 3\u00b0 est compl\u00e9t\u00e9 par une phrase ainsi r\u00e9dig\u00e9e :", 
+                        "1\u00b0 ter A Le 3\u00b0 est compl\u00e9t\u00e9 par une phrase ainsi r\u00e9dig\u00e9e :", 
                         "\"\u00c0 cette fin, il contribue \u00e0 l'am\u00e9lioration des conditions de vie \u00e9tudiante, \u00e0 la promotion du sentiment d'appartenance des \u00e9tudiants \u00e0 la communaut\u00e9 de leur \u00e9tablissement, au renforcement du lien social et au d\u00e9veloppement des initiatives collectives ou individuelles en faveur de la solidarit\u00e9 et de l'animation de la vie \u00e9tudiante.\" ;", 
                         "1\u00b0 ter Apr\u00e8s le m\u00eame 3\u00b0, il est ins\u00e9r\u00e9 un 3\u00b0 bis ainsi r\u00e9dig\u00e9 :", 
                         "\"3\u00b0 bis \u00c0 la construction d'une soci\u00e9t\u00e9 inclusive. Il veille pour cela \u00e0 favoriser l'inclusion des individus, sans distinction d'origine, de milieu social et de condition de sant\u00e9 ;\"", 
@@ -6561,9 +6561,9 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1698, 
-                    "n_diff": 0.16280400572246068, 
+                    "n_diff": 0.12803658188053735, 
                     "order": 7, 
                     "status": "none", 
                     "text": [
@@ -6587,7 +6587,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1701, 
                     "n_diff": 0.012062371285672224, 
                     "order": 6, 
@@ -6613,7 +6613,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1701, 
                     "n_diff": 0.0029394473838918467, 
                     "order": 6, 
@@ -6674,7 +6674,7 @@
                         "2\u00b0 bis La division et l'intitul\u00e9 de la section 3 sont supprim\u00e9s ;", 
                         "3\u00b0 (Supprim\u00e9)", 
                         "4\u00b0 Le premier alin\u00e9a de l'article L. 344-11 est compl\u00e9t\u00e9 par deux phrases ainsi r\u00e9dig\u00e9s :", 
-                        "\"une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements mentionn\u00e9e \u00e0 l'article L.711-2 du code de l'\u00e9ducation peut constituer une fondation de coop\u00e9ration scientifique seule. D'autres partenaires, en particulier des entreprises, des collectivit\u00e9s territoriales et des associations, peuvent \u00eatre associ\u00e9s \u00e0 la fondation.\" ;", 
+                        "\"Une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements mentionn\u00e9e \u00e0 l'article L.711-2 du code de l'\u00e9ducation peut constituer une fondation de coop\u00e9ration scientifique seule. D'autres partenaires, en particulier des entreprises, des collectivit\u00e9s territoriales et des associations, peuvent \u00eatre associ\u00e9s \u00e0 la fondation.\" ;", 
                         "5\u00b0 L'article L. 344-13 est ainsi modifi\u00e9:", 
                         "a) La premi\u00e8re phrase est remplac\u00e9e par deux phrases ainsi r\u00e9dig\u00e9es :", 
                         "\"La fondation de coop\u00e9ration scientifique est administr\u00e9e par un conseil d'administration compos\u00e9 de repr\u00e9sentants des fondateurs. Les statuts peuvent pr\u00e9voir que chaque membre fondateur y est repr\u00e9sent\u00e9.\" ;", 
@@ -6700,7 +6700,7 @@
                         "2\u00b0 bis La division et l'intitul\u00e9 de la section 3 sont supprim\u00e9s ;", 
                         "3\u00b0 (Supprim\u00e9)", 
                         "4\u00b0 Le premier alin\u00e9a de l'article L. 344-11 est compl\u00e9t\u00e9 par deux phrases ainsi r\u00e9dig\u00e9es :", 
-                        "\"une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements mentionn\u00e9e \u00e0 l'article L. 711-2 du code de l'\u00e9ducation peut constituer une fondation de coop\u00e9ration scientifique seule. D'autres partenaires, en particulier des entreprises, des collectivit\u00e9s territoriales et des associations, peuvent \u00eatre associ\u00e9s \u00e0 la fondation.\" ;", 
+                        "\"Une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements mentionn\u00e9e \u00e0 l'article L. 711-2 du code de l'\u00e9ducation peut constituer une fondation de coop\u00e9ration scientifique seule. D'autres partenaires, en particulier des entreprises, des collectivit\u00e9s territoriales et des associations, peuvent \u00eatre associ\u00e9s \u00e0 la fondation.\" ;", 
                         "5\u00b0 L'article L. 344-13 est ainsi modifi\u00e9 :", 
                         "a) La premi\u00e8re phrase est remplac\u00e9e par deux phrases ainsi r\u00e9dig\u00e9es :", 
                         "\"La fondation de coop\u00e9ration scientifique est administr\u00e9e par un conseil d'administration compos\u00e9 de repr\u00e9sentants des fondateurs. Les statuts peuvent pr\u00e9voir que chaque membre fondateur y est repr\u00e9sent\u00e9.\" ;", 
@@ -6714,7 +6714,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1950, 
                     "n_diff": 0, 
                     "order": 68, 
@@ -6726,7 +6726,7 @@
                         "2\u00b0 bis La division et l'intitul\u00e9 de la section 3 sont supprim\u00e9s ;", 
                         "3\u00b0 (Supprim\u00e9)", 
                         "4\u00b0 Le premier alin\u00e9a de l'article L. 344-11 est compl\u00e9t\u00e9 par deux phrases ainsi r\u00e9dig\u00e9es :", 
-                        "\"une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements mentionn\u00e9e \u00e0 l'article L. 711-2 du code de l'\u00e9ducation peut constituer une fondation de coop\u00e9ration scientifique seule. D'autres partenaires, en particulier des entreprises, des collectivit\u00e9s territoriales et des associations, peuvent \u00eatre associ\u00e9s \u00e0 la fondation.\" ;", 
+                        "\"Une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements mentionn\u00e9e \u00e0 l'article L. 711-2 du code de l'\u00e9ducation peut constituer une fondation de coop\u00e9ration scientifique seule. D'autres partenaires, en particulier des entreprises, des collectivit\u00e9s territoriales et des associations, peuvent \u00eatre associ\u00e9s \u00e0 la fondation.\" ;", 
                         "5\u00b0 L'article L. 344-13 est ainsi modifi\u00e9 :", 
                         "a) La premi\u00e8re phrase est remplac\u00e9e par deux phrases ainsi r\u00e9dig\u00e9es :", 
                         "\"La fondation de coop\u00e9ration scientifique est administr\u00e9e par un conseil d'administration compos\u00e9 de repr\u00e9sentants des fondateurs. Les statuts peuvent pr\u00e9voir que chaque membre fondateur y est repr\u00e9sent\u00e9.\" ;", 
@@ -6740,7 +6740,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 50, 
                     "n_diff": 0, 
                     "order": 68, 
@@ -6749,7 +6749,7 @@
                 }, 
                 {
                     "diff": "add", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1950, 
                     "n_diff": 1, 
                     "order": 67, 
@@ -6761,7 +6761,7 @@
                         "2\u00b0 bis La division et l'intitul\u00e9 de la section 3 sont supprim\u00e9s ;", 
                         "3\u00b0 (Supprim\u00e9)", 
                         "4\u00b0 Le premier alin\u00e9a de l'article L. 344-11 est compl\u00e9t\u00e9 par deux phrases ainsi r\u00e9dig\u00e9es :", 
-                        "\"une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements mentionn\u00e9e \u00e0 l'article L. 711-2 du code de l'\u00e9ducation peut constituer une fondation de coop\u00e9ration scientifique seule. D'autres partenaires, en particulier des entreprises, des collectivit\u00e9s territoriales et des associations, peuvent \u00eatre associ\u00e9s \u00e0 la fondation.\" ;", 
+                        "\"Une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements mentionn\u00e9e \u00e0 l'article L. 711-2 du code de l'\u00e9ducation peut constituer une fondation de coop\u00e9ration scientifique seule. D'autres partenaires, en particulier des entreprises, des collectivit\u00e9s territoriales et des associations, peuvent \u00eatre associ\u00e9s \u00e0 la fondation.\" ;", 
                         "5\u00b0 L'article L. 344-13 est ainsi modifi\u00e9 :", 
                         "a) La premi\u00e8re phrase est remplac\u00e9e par deux phrases ainsi r\u00e9dig\u00e9es :", 
                         "\"La fondation de coop\u00e9ration scientifique est administr\u00e9e par un conseil d'administration compos\u00e9 de repr\u00e9sentants des fondateurs. Les statuts peuvent pr\u00e9voir que chaque membre fondateur y est repr\u00e9sent\u00e9.\" ;", 
@@ -6775,7 +6775,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1968, 
                     "n_diff": 0.0071465033180193593, 
                     "order": 66, 
@@ -6787,7 +6787,7 @@
                         "2\u00b0 bis La division et l'intitul\u00e9 de la section 3 sont supprim\u00e9s ;", 
                         "3\u00b0 (Supprim\u00e9)", 
                         "4\u00b0 Le premier alin\u00e9a de l'article L. 344-11 est compl\u00e9t\u00e9 par deux phrases ainsi r\u00e9dig\u00e9es :", 
-                        "\"une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements mentionn\u00e9e \u00e0 l'article L. 711-2 du code de l'\u00e9ducation peut constituer une fondation de coop\u00e9ration scientifique seule. D'autres partenaires, en particulier des entreprises, des collectivit\u00e9s territoriales et des associations, peuvent \u00eatre associ\u00e9s \u00e0 la fondation.\" ;", 
+                        "\"Une communaut\u00e9 d'universit\u00e9s et \u00e9tablissements mentionn\u00e9e \u00e0 l'article L. 711-2 du code de l'\u00e9ducation peut constituer une fondation de coop\u00e9ration scientifique seule. D'autres partenaires, en particulier des entreprises, des collectivit\u00e9s territoriales et des associations, peuvent \u00eatre associ\u00e9s \u00e0 la fondation.\" ;", 
                         "5\u00b0 L'article L. 344-13 est ainsi modifi\u00e9 :", 
                         "a) La premi\u00e8re phrase est remplac\u00e9e par deux phrases ainsi r\u00e9dig\u00e9es :", 
                         "\"La fondation de coop\u00e9ration scientifique est administr\u00e9e par un conseil d'administration compos\u00e9 de repr\u00e9sentants des fondateurs. Les statuts peuvent pr\u00e9voir que chaque membre fondateur y est repr\u00e9sent\u00e9.\" ;", 
@@ -6851,7 +6851,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1372, 
                     "n_diff": 0, 
                     "order": 69, 
@@ -6868,7 +6868,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 50, 
                     "n_diff": 0, 
                     "order": 69, 
@@ -6877,7 +6877,7 @@
                 }, 
                 {
                     "diff": "add", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1372, 
                     "n_diff": 1, 
                     "order": 68, 
@@ -6894,7 +6894,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1349, 
                     "n_diff": 0.01433296582138921, 
                     "order": 67, 
@@ -6962,7 +6962,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1082, 
                     "n_diff": 0, 
                     "order": 71, 
@@ -6978,7 +6978,7 @@
                 }, 
                 {
                     "diff": "add", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 331, 
                     "n_diff": 0.70700636942675166, 
                     "order": 73, 
@@ -6990,7 +6990,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 331, 
                     "n_diff": 0, 
                     "order": 72, 
@@ -7002,7 +7002,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 331, 
                     "n_diff": 0, 
                     "order": 71, 
@@ -7036,9 +7036,9 @@
                         "2\u00b0 Les cinq derniers alin\u00e9as de l'article L. 731-6 sont supprim\u00e9s ;", 
                         "3\u00b0 Apr\u00e8s l'article L. 731-6, il est ins\u00e9r\u00e9 un article L. 731-6-1 ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 731-6-1. - Pour les formations de m\u00e9decine, de pharmacie, d'odontologie et de ma\u00efeutique et les formations param\u00e9dicales dont la liste est fix\u00e9e par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9, la d\u00e9claration mentionn\u00e9e \u00e0 l'article L. 731-4 doit \u00e9galement comporter :", 
-                        "\"1\u00b0 une convention entre l'\u00e9tablissement dispensant ces formations et un \u00e9tablissement public de sant\u00e9 ou un \u00e9tablissement de sant\u00e9 priv\u00e9 participant au service public, approuv\u00e9e par le ministre charg\u00e9 de la sant\u00e9, afin d'associer ces derniers \u00e9tablissements \u00e0 la formation dispens\u00e9e ;", 
-                        "\"2\u00b0 une convention entre l'\u00e9tablissement dispensant ces formations et une universit\u00e9 comprenant une composante dispensant un enseignement de m\u00e9decine, de pharmacie, d'odontologie ou de ma\u00efeutique ;", 
-                        "\"3\u00b0 un dossier prouvant que l'\u00e9tablissement de formation satisfait aux modalit\u00e9s p\u00e9dagogiques exig\u00e9es par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.", 
+                        "\"1\u00b0 Une convention entre l'\u00e9tablissement dispensant ces formations et un \u00e9tablissement public de sant\u00e9 ou un \u00e9tablissement de sant\u00e9 priv\u00e9 participant au service public, approuv\u00e9e par le ministre charg\u00e9 de la sant\u00e9, afin d'associer ces derniers \u00e9tablissements \u00e0 la formation dispens\u00e9e ;", 
+                        "\"2\u00b0 Une convention entre l'\u00e9tablissement dispensant ces formations et une universit\u00e9 comprenant une composante dispensant un enseignement de m\u00e9decine, de pharmacie, d'odontologie ou de ma\u00efeutique ;", 
+                        "\"3\u00b0 Un dossier prouvant que l'\u00e9tablissement de formation satisfait aux modalit\u00e9s p\u00e9dagogiques exig\u00e9es par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.", 
                         "\"Les modalit\u00e9s d'agr\u00e9ment sont pr\u00e9cis\u00e9es par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.\" ;", 
                         "4\u00b0 Au 2\u00b0 de l'article L. 731-9, la r\u00e9f\u00e9rence : \"et L. 731-6\" est remplac\u00e9e par les r\u00e9f\u00e9rences : \", L. 731-6 et L. 731-6-1\" ;", 
                         "5\u00b0 Au premier alin\u00e9a et \u00e0 la premi\u00e8re phrase du troisi\u00e8me alin\u00e9a de l'article L. 731-10, la r\u00e9f\u00e9rence : \"ou L. 731-6\" est remplac\u00e9e par les r\u00e9f\u00e9rences : \", L. 731-6 ou L. 731-6-1\"."
@@ -7046,7 +7046,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 2461, 
                     "n_diff": 0.0060950832994717263, 
                     "order": 70, 
@@ -7061,9 +7061,9 @@
                         "2\u00b0 Les cinq derniers alin\u00e9as de l'article L. 731-6 sont supprim\u00e9s ;", 
                         "3\u00b0 Apr\u00e8s l'article L. 731-6, il est ins\u00e9r\u00e9 un article L. 731-6-1 ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 731-6-1. - Pour les formations de m\u00e9decine, de pharmacie, d'odontologie et de ma\u00efeutique et les formations param\u00e9dicales dont la liste est fix\u00e9e par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9, la d\u00e9claration mentionn\u00e9e \u00e0 l'article L. 731-4 doit \u00e9galement comporter :", 
-                        "\"1\u00b0 une convention entre l'\u00e9tablissement dispensant ces formations et un \u00e9tablissement public de sant\u00e9 ou un \u00e9tablissement de sant\u00e9 priv\u00e9 participant au service public, approuv\u00e9e par le ministre charg\u00e9 de la sant\u00e9, afin d'associer ces derniers \u00e9tablissements \u00e0 la formation dispens\u00e9e ;", 
-                        "\"2\u00b0 une convention entre l'\u00e9tablissement dispensant ces formations et une universit\u00e9 comprenant une composante dispensant un enseignement de m\u00e9decine, de pharmacie, d'odontologie ou de ma\u00efeutique ;", 
-                        "\"3\u00b0 un dossier prouvant que l'\u00e9tablissement de formation satisfait aux modalit\u00e9s p\u00e9dagogiques exig\u00e9es par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.", 
+                        "\"1\u00b0 Une convention entre l'\u00e9tablissement dispensant ces formations et un \u00e9tablissement public de sant\u00e9 ou un \u00e9tablissement de sant\u00e9 priv\u00e9 participant au service public, approuv\u00e9e par le ministre charg\u00e9 de la sant\u00e9, afin d'associer ces derniers \u00e9tablissements \u00e0 la formation dispens\u00e9e ;", 
+                        "\"2\u00b0 Une convention entre l'\u00e9tablissement dispensant ces formations et une universit\u00e9 comprenant une composante dispensant un enseignement de m\u00e9decine, de pharmacie, d'odontologie ou de ma\u00efeutique ;", 
+                        "\"3\u00b0 Un dossier prouvant que l'\u00e9tablissement de formation satisfait aux modalit\u00e9s p\u00e9dagogiques exig\u00e9es par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.", 
                         "\"Les modalit\u00e9s d'agr\u00e9ment sont pr\u00e9cis\u00e9es par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.\" ;", 
                         "4\u00b0 Au 2\u00b0 de l'article L. 731-9, la r\u00e9f\u00e9rence : \"et L. 731-6\" est remplac\u00e9e par les r\u00e9f\u00e9rences : \", L. 731-6 et L. 731-6-1\" ;", 
                         "5\u00b0 Au premier alin\u00e9a et \u00e0 la premi\u00e8re phrase du dernier alin\u00e9a de l'article L. 731-10, la r\u00e9f\u00e9rence : \"ou L. 731-6\" est remplac\u00e9e par les r\u00e9f\u00e9rences : \", L. 731-6 ou L. 731-6-1\"."
@@ -7071,7 +7071,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 2461, 
                     "n_diff": 0, 
                     "order": 70, 
@@ -7086,9 +7086,9 @@
                         "2\u00b0 Les cinq derniers alin\u00e9as de l'article L. 731-6 sont supprim\u00e9s ;", 
                         "3\u00b0 Apr\u00e8s l'article L. 731-6, il est ins\u00e9r\u00e9 un article L. 731-6-1 ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 731-6-1. - Pour les formations de m\u00e9decine, de pharmacie, d'odontologie et de ma\u00efeutique et les formations param\u00e9dicales dont la liste est fix\u00e9e par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9, la d\u00e9claration mentionn\u00e9e \u00e0 l'article L. 731-4 doit \u00e9galement comporter :", 
-                        "\"1\u00b0 une convention entre l'\u00e9tablissement dispensant ces formations et un \u00e9tablissement public de sant\u00e9 ou un \u00e9tablissement de sant\u00e9 priv\u00e9 participant au service public, approuv\u00e9e par le ministre charg\u00e9 de la sant\u00e9, afin d'associer ces derniers \u00e9tablissements \u00e0 la formation dispens\u00e9e ;", 
-                        "\"2\u00b0 une convention entre l'\u00e9tablissement dispensant ces formations et une universit\u00e9 comprenant une composante dispensant un enseignement de m\u00e9decine, de pharmacie, d'odontologie ou de ma\u00efeutique ;", 
-                        "\"3\u00b0 un dossier prouvant que l'\u00e9tablissement de formation satisfait aux modalit\u00e9s p\u00e9dagogiques exig\u00e9es par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.", 
+                        "\"1\u00b0 Une convention entre l'\u00e9tablissement dispensant ces formations et un \u00e9tablissement public de sant\u00e9 ou un \u00e9tablissement de sant\u00e9 priv\u00e9 participant au service public, approuv\u00e9e par le ministre charg\u00e9 de la sant\u00e9, afin d'associer ces derniers \u00e9tablissements \u00e0 la formation dispens\u00e9e ;", 
+                        "\"2\u00b0 Une convention entre l'\u00e9tablissement dispensant ces formations et une universit\u00e9 comprenant une composante dispensant un enseignement de m\u00e9decine, de pharmacie, d'odontologie ou de ma\u00efeutique ;", 
+                        "\"3\u00b0 Un dossier prouvant que l'\u00e9tablissement de formation satisfait aux modalit\u00e9s p\u00e9dagogiques exig\u00e9es par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.", 
                         "\"Les modalit\u00e9s d'agr\u00e9ment sont pr\u00e9cis\u00e9es par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.\" ;", 
                         "4\u00b0 Au 2\u00b0 de l'article L. 731-9, la r\u00e9f\u00e9rence : \"et L. 731-6\" est remplac\u00e9e par les r\u00e9f\u00e9rences : \", L. 731-6 et L. 731-6-1\" ;", 
                         "5\u00b0 Au premier alin\u00e9a et \u00e0 la premi\u00e8re phrase du dernier alin\u00e9a de l'article L. 731-10, la r\u00e9f\u00e9rence : \"ou L. 731-6\" est remplac\u00e9e par les r\u00e9f\u00e9rences : \", L. 731-6 ou L. 731-6-1\"."
@@ -7096,7 +7096,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 2461, 
                     "n_diff": 0, 
                     "order": 69, 
@@ -7111,9 +7111,9 @@
                         "2\u00b0 Les cinq derniers alin\u00e9as de l'article L. 731-6 sont supprim\u00e9s ;", 
                         "3\u00b0 Apr\u00e8s l'article L. 731-6, il est ins\u00e9r\u00e9 un article L. 731-6-1 ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 731-6-1. - Pour les formations de m\u00e9decine, de pharmacie, d'odontologie et de ma\u00efeutique et les formations param\u00e9dicales dont la liste est fix\u00e9e par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9, la d\u00e9claration mentionn\u00e9e \u00e0 l'article L. 731-4 doit \u00e9galement comporter :", 
-                        "\"1\u00b0 une convention entre l'\u00e9tablissement dispensant ces formations et un \u00e9tablissement public de sant\u00e9 ou un \u00e9tablissement de sant\u00e9 priv\u00e9 participant au service public, approuv\u00e9e par le ministre charg\u00e9 de la sant\u00e9, afin d'associer ces derniers \u00e9tablissements \u00e0 la formation dispens\u00e9e ;", 
-                        "\"2\u00b0 une convention entre l'\u00e9tablissement dispensant ces formations et une universit\u00e9 comprenant une composante dispensant un enseignement de m\u00e9decine, de pharmacie, d'odontologie ou de ma\u00efeutique ;", 
-                        "\"3\u00b0 un dossier prouvant que l'\u00e9tablissement de formation satisfait aux modalit\u00e9s p\u00e9dagogiques exig\u00e9es par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.", 
+                        "\"1\u00b0 Une convention entre l'\u00e9tablissement dispensant ces formations et un \u00e9tablissement public de sant\u00e9 ou un \u00e9tablissement de sant\u00e9 priv\u00e9 participant au service public, approuv\u00e9e par le ministre charg\u00e9 de la sant\u00e9, afin d'associer ces derniers \u00e9tablissements \u00e0 la formation dispens\u00e9e ;", 
+                        "\"2\u00b0 Une convention entre l'\u00e9tablissement dispensant ces formations et une universit\u00e9 comprenant une composante dispensant un enseignement de m\u00e9decine, de pharmacie, d'odontologie ou de ma\u00efeutique ;", 
+                        "\"3\u00b0 Un dossier prouvant que l'\u00e9tablissement de formation satisfait aux modalit\u00e9s p\u00e9dagogiques exig\u00e9es par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.", 
                         "\"Les modalit\u00e9s d'agr\u00e9ment sont pr\u00e9cis\u00e9es par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.\" ;", 
                         "4\u00b0 Au 2\u00b0 de l'article L. 731-9, la r\u00e9f\u00e9rence : \"et L. 731-6\" est remplac\u00e9e par les r\u00e9f\u00e9rences : \", L. 731-6 et L. 731-6-1\" ;", 
                         "5\u00b0 Au premier alin\u00e9a et \u00e0 la premi\u00e8re phrase du dernier alin\u00e9a de l'article L. 731-10, la r\u00e9f\u00e9rence : \"ou L. 731-6\" est remplac\u00e9e par les r\u00e9f\u00e9rences : \", L. 731-6 ou L. 731-6-1\"."
@@ -7121,7 +7121,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 2461, 
                     "n_diff": 0, 
                     "order": 68, 
@@ -7136,9 +7136,9 @@
                         "2\u00b0 Les cinq derniers alin\u00e9as de l'article L. 731-6 sont supprim\u00e9s ;", 
                         "3\u00b0 Apr\u00e8s l'article L. 731-6, il est ins\u00e9r\u00e9 un article L. 731-6-1 ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 731-6-1. - Pour les formations de m\u00e9decine, de pharmacie, d'odontologie et de ma\u00efeutique et les formations param\u00e9dicales dont la liste est fix\u00e9e par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9, la d\u00e9claration mentionn\u00e9e \u00e0 l'article L. 731-4 doit \u00e9galement comporter :", 
-                        "\"1\u00b0 une convention entre l'\u00e9tablissement dispensant ces formations et un \u00e9tablissement public de sant\u00e9 ou un \u00e9tablissement de sant\u00e9 priv\u00e9 participant au service public, approuv\u00e9e par le ministre charg\u00e9 de la sant\u00e9, afin d'associer ces derniers \u00e9tablissements \u00e0 la formation dispens\u00e9e ;", 
-                        "\"2\u00b0 une convention entre l'\u00e9tablissement dispensant ces formations et une universit\u00e9 comprenant une composante dispensant un enseignement de m\u00e9decine, de pharmacie, d'odontologie ou de ma\u00efeutique ;", 
-                        "\"3\u00b0 un dossier prouvant que l'\u00e9tablissement de formation satisfait aux modalit\u00e9s p\u00e9dagogiques exig\u00e9es par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.", 
+                        "\"1\u00b0 Une convention entre l'\u00e9tablissement dispensant ces formations et un \u00e9tablissement public de sant\u00e9 ou un \u00e9tablissement de sant\u00e9 priv\u00e9 participant au service public, approuv\u00e9e par le ministre charg\u00e9 de la sant\u00e9, afin d'associer ces derniers \u00e9tablissements \u00e0 la formation dispens\u00e9e ;", 
+                        "\"2\u00b0 Une convention entre l'\u00e9tablissement dispensant ces formations et une universit\u00e9 comprenant une composante dispensant un enseignement de m\u00e9decine, de pharmacie, d'odontologie ou de ma\u00efeutique ;", 
+                        "\"3\u00b0 Un dossier prouvant que l'\u00e9tablissement de formation satisfait aux modalit\u00e9s p\u00e9dagogiques exig\u00e9es par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.", 
                         "\"Les modalit\u00e9s d'agr\u00e9ment sont pr\u00e9cis\u00e9es par arr\u00eat\u00e9 conjoint des ministres charg\u00e9s de l'enseignement sup\u00e9rieur et de la sant\u00e9.\" ;", 
                         "4\u00b0 Au 2\u00b0 de l'article L. 731-9, la r\u00e9f\u00e9rence : \"et L. 731-6\" est remplac\u00e9e par les r\u00e9f\u00e9rences : \", L. 731-6 et L. 731-6-1\" ;", 
                         "5\u00b0 Au premier alin\u00e9a et \u00e0 la premi\u00e8re phrase du dernier alin\u00e9a de l'article L. 731-10, la r\u00e9f\u00e9rence : \"ou L. 731-6\" est remplac\u00e9e par les r\u00e9f\u00e9rences : \", L. 731-6 ou L. 731-6-1\"."
@@ -7153,7 +7153,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 280, 
                     "n_diff": 1, 
                     "order": 71, 
@@ -7165,7 +7165,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 280, 
                     "n_diff": 0, 
                     "order": 70, 
@@ -7177,7 +7177,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 280, 
                     "n_diff": 0, 
                     "order": 69, 
@@ -7196,7 +7196,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 3300, 
                     "n_diff": 1, 
                     "order": 72, 
@@ -7212,17 +7212,17 @@
                         "\"Rapports entre l'\u00c9tat et les \u00e9tablissements d'enseignement sup\u00e9rieur priv\u00e9s \u00e0 but non lucratif", 
                         "\"Art. L. 732-1. - Des \u00e9tablissements d'enseignement sup\u00e9rieur priv\u00e9s \u00e0 but non lucratif, concourant aux missions de service public de l'enseignement sup\u00e9rieur telles que d\u00e9finies par le chapitre III du titre II du livre Ier de la premi\u00e8re partie, peuvent, \u00e0 leur demande, \u00eatre reconnus par l'\u00c9tat en tant qu'\u00e9tablissements d'enseignement sup\u00e9rieur priv\u00e9s d'int\u00e9r\u00eat g\u00e9n\u00e9ral, par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9.", 
                         "\"Ne peuvent obtenir la qualification d'\u00e9tablissement d'enseignement sup\u00e9rieur priv\u00e9 d'int\u00e9r\u00eat g\u00e9n\u00e9ral que les \u00e9tablissements d'enseignement sup\u00e9rieur priv\u00e9s \u00e0 but non lucratif cr\u00e9\u00e9s par des associations ou des fondations reconnues d'utilit\u00e9 publique ou des syndicats professionnels au sens de l'article L. 2131-1 du code du travail.", 
-                        "\"un \u00e9tablissement b\u00e9n\u00e9ficie de la qualification d'\u00e9tablissement d'enseignement sup\u00e9rieur priv\u00e9 d'int\u00e9r\u00eat g\u00e9n\u00e9ral pour la dur\u00e9e du contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 732-2. Cette qualification peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9.", 
-                        "\"un d\u00e9cret en Conseil d'\u00c9tat d\u00e9termine les conditions d'application du pr\u00e9sent article.", 
+                        "\"Un \u00e9tablissement b\u00e9n\u00e9ficie de la qualification d'\u00e9tablissement d'enseignement sup\u00e9rieur priv\u00e9 d'int\u00e9r\u00eat g\u00e9n\u00e9ral pour la dur\u00e9e du contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 732-2. Cette qualification peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9.", 
+                        "\"Un d\u00e9cret en Conseil d'\u00c9tat d\u00e9termine les conditions d'application du pr\u00e9sent article.", 
                         "\"Art. L. 732-2. - L'\u00e9tablissement ayant obtenu la qualification d'\u00e9tablissement d'enseignement sup\u00e9rieur priv\u00e9 d'int\u00e9r\u00eat g\u00e9n\u00e9ral dans les conditions pr\u00e9vues \u00e0 l'article L. 732-1 conclut avec l'\u00c9tat un contrat pluriannuel d'\u00e9tablissement. Ce contrat d\u00e9finit les conditions dans lesquelles l'\u00e9tablissement exerce les missions du service public de l'enseignement sup\u00e9rieur, dans le cadre d'une gestion d\u00e9sint\u00e9ress\u00e9e au sens du d du 1\u00b0 du 7 de l'article 261 du code g\u00e9n\u00e9ral des imp\u00f4ts.", 
                         "\"Art. L. 732-3. - Il est cr\u00e9\u00e9 un comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9, plac\u00e9 aupr\u00e8s du ministre charg\u00e9 de l'enseignement sup\u00e9rieur.", 
                         "\"Ce comit\u00e9 a pour mission de formuler toute recommandation concernant les relations de partenariat entre les \u00e9tablissements d'enseignement sup\u00e9rieur priv\u00e9s et l'\u00c9tat. Il examine les formations dispens\u00e9es et leur degr\u00e9 de participation \u00e0 une mission de service public. Il formule des propositions quant \u00e0 l'appui financier de l'\u00c9tat. Il peut \u00eatre saisi, \u00e0 la demande du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, de toute question concernant l'enseignement sup\u00e9rieur priv\u00e9. Il peut, par ailleurs, \u00e9mettre des recommandations et des propositions sur toute question relevant de ses missions.", 
-                        "\"un d\u00e9cret fixe les r\u00e8gles relatives \u00e0 la composition et au fonctionnement du comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9.\""
+                        "\"Un d\u00e9cret fixe les r\u00e8gles relatives \u00e0 la composition et au fonctionnement du comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9.\""
                     ]
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 3283, 
                     "n_diff": 0.0031900349384779147, 
                     "order": 71, 
@@ -7238,17 +7238,17 @@
                         "\"Rapports entre l'\u00c9tat et les \u00e9tablissements d'enseignement sup\u00e9rieur priv\u00e9s \u00e0 but non lucratif", 
                         "\"Art. L. 732-1. - Des \u00e9tablissements d'enseignement sup\u00e9rieur priv\u00e9s \u00e0 but non lucratif, concourant aux missions de service public de l'enseignement sup\u00e9rieur telles que d\u00e9finies par le chapitre III du titre II du livre Ier de la premi\u00e8re partie, peuvent, \u00e0 leur demande, \u00eatre reconnus par l'\u00c9tat en tant qu'\u00e9tablissements d'enseignement sup\u00e9rieur priv\u00e9s d'int\u00e9r\u00eat g\u00e9n\u00e9ral, par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9.", 
                         "\"Ne peuvent obtenir la qualification d'\u00e9tablissement d'enseignement sup\u00e9rieur priv\u00e9 d'int\u00e9r\u00eat g\u00e9n\u00e9ral que les \u00e9tablissements d'enseignement sup\u00e9rieur priv\u00e9s \u00e0 but non lucratif cr\u00e9\u00e9s par des associations ou fondations, reconnues d'utilit\u00e9 publique, ou des syndicats professionnels au sens de l'article L. 2131-1 du code du travail.", 
-                        "\"un \u00e9tablissement b\u00e9n\u00e9ficie de la qualification d'\u00e9tablissement d'enseignement sup\u00e9rieur priv\u00e9 d'int\u00e9r\u00eat g\u00e9n\u00e9ral pour la dur\u00e9e du contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 732-2. Cette qualification peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9.", 
-                        "\"un d\u00e9cret en Conseil d'\u00c9tat d\u00e9termine les conditions d'application du pr\u00e9sent article.", 
+                        "\"Un \u00e9tablissement b\u00e9n\u00e9ficie de la qualification d'\u00e9tablissement d'enseignement sup\u00e9rieur priv\u00e9 d'int\u00e9r\u00eat g\u00e9n\u00e9ral pour la dur\u00e9e du contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 732-2. Cette qualification peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9.", 
+                        "\"Un d\u00e9cret en Conseil d'\u00c9tat d\u00e9termine les conditions d'application du pr\u00e9sent article.", 
                         "\"Art. L. 732-2. - L'\u00e9tablissement ayant obtenu la qualification d'\u00e9tablissement d'enseignement sup\u00e9rieur priv\u00e9 d'int\u00e9r\u00eat g\u00e9n\u00e9ral dans les conditions pr\u00e9vues \u00e0 l'article L. 732-1 conclut avec l'\u00c9tat un contrat pluriannuel d'\u00e9tablissement. Ce contrat d\u00e9finit les conditions dans lesquelles l'\u00e9tablissement exerce les missions du service public de l'enseignement sup\u00e9rieur, dans le cadre d'une gestion d\u00e9sint\u00e9ress\u00e9e au sens du d du 1\u00b0 du 7 de l'article 261 du code g\u00e9n\u00e9ral des imp\u00f4ts.", 
                         "\"Art. L. 732-3. - Il est cr\u00e9\u00e9 un comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9, plac\u00e9 aupr\u00e8s du ministre charg\u00e9 de l'enseignement sup\u00e9rieur.", 
                         "\"Ce comit\u00e9 a pour mission de formuler toute recommandation concernant les relations de partenariat entre les \u00e9tablissements d'enseignement sup\u00e9rieur priv\u00e9s et l'\u00c9tat. Il examine les formations dispens\u00e9es et leur degr\u00e9 de participation \u00e0 une mission de service public. Il formule des propositions quant \u00e0 l'appui financier de l'\u00c9tat. Il peut \u00eatre saisi, \u00e0 la demande du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, de toute question concernant l'enseignement sup\u00e9rieur priv\u00e9. Il peut \u00e9mettre des recommandations et des propositions sur toute question relevant de ses missions.", 
-                        "\"un d\u00e9cret fixe les r\u00e8gles relatives \u00e0 la composition et au fonctionnement du comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9.\""
+                        "\"Un d\u00e9cret fixe les r\u00e8gles relatives \u00e0 la composition et au fonctionnement du comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9.\""
                     ]
                 }, 
                 {
                     "diff": "add", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 3290, 
                     "n_diff": 0.014453065571276458, 
                     "order": 70, 
@@ -7262,12 +7262,12 @@
                         "\"Rapports entre l'\u00c9tat et les \u00e9tablissements d'enseignement sup\u00e9rieur priv\u00e9s \u00e0 but non lucratif", 
                         "\"Art. L. 732-1. - Des \u00e9tablissements d'enseignement sup\u00e9rieur priv\u00e9s \u00e0 but non lucratif, concourant aux missions de service public de l'enseignement sup\u00e9rieur telles que d\u00e9finies par le chapitre III du titre II du livre Ier de la premi\u00e8re partie, peuvent, \u00e0 leur demande, \u00eatre reconnus par l'\u00c9tat en tant qu'\u00e9tablissements d'enseignement sup\u00e9rieur priv\u00e9s d'int\u00e9r\u00eat g\u00e9n\u00e9ral, par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9.", 
                         "\"Ne peuvent obtenir la qualification d'\u00e9tablissement d'enseignement sup\u00e9rieur priv\u00e9 d'int\u00e9r\u00eat g\u00e9n\u00e9ral que les \u00e9tablissements d'enseignement sup\u00e9rieur priv\u00e9s \u00e0 but non lucratif cr\u00e9\u00e9s par des associations ou fondations, reconnues d'utilit\u00e9 publique, ou des syndicats professionnels au sens de l'article L. 2131-1 du code du travail.", 
-                        "\"un \u00e9tablissement b\u00e9n\u00e9ficie de la qualification d'\u00e9tablissement d'enseignement sup\u00e9rieur priv\u00e9 d'int\u00e9r\u00eat g\u00e9n\u00e9ral pour la dur\u00e9e du contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 732-2 du pr\u00e9sent code. Cette qualification peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9.", 
-                        "\"un d\u00e9cret en Conseil d'\u00c9tat d\u00e9termine les conditions d'application du pr\u00e9sent article.", 
+                        "\"Un \u00e9tablissement b\u00e9n\u00e9ficie de la qualification d'\u00e9tablissement d'enseignement sup\u00e9rieur priv\u00e9 d'int\u00e9r\u00eat g\u00e9n\u00e9ral pour la dur\u00e9e du contrat pluriannuel mentionn\u00e9 \u00e0 l'article L. 732-2 du pr\u00e9sent code. Cette qualification peut, apr\u00e8s une \u00e9valuation nationale, \u00eatre renouvel\u00e9e par arr\u00eat\u00e9 du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, apr\u00e8s avis du comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9.", 
+                        "\"Un d\u00e9cret en Conseil d'\u00c9tat d\u00e9termine les conditions d'application du pr\u00e9sent article.", 
                         "\"Art. L. 732-2. - L'\u00e9tablissement ayant obtenu la qualification d'\u00e9tablissement d'enseignement sup\u00e9rieur priv\u00e9 d'int\u00e9r\u00eat g\u00e9n\u00e9ral dans les conditions pr\u00e9vues \u00e0 l'article L. 732-1 du pr\u00e9sent code conclut avec l'\u00c9tat un contrat pluriannuel d'\u00e9tablissement. Ce contrat d\u00e9finit les conditions dans lesquelles l'\u00e9tablissement exerce les missions du service public de l'enseignement sup\u00e9rieur, dans le cadre d'une gestion d\u00e9sint\u00e9ress\u00e9e au sens du d du 1\u00b0 du 7 de l'article 261 du code g\u00e9n\u00e9ral des imp\u00f4ts.", 
                         "\"Art. L. 732-3. - Il est cr\u00e9\u00e9 un comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9, plac\u00e9 aupr\u00e8s du ministre charg\u00e9 de l'enseignement sup\u00e9rieur.", 
                         "\"Ce comit\u00e9 a pour mission de formuler toute recommandation concernant les relations de partenariat entre les \u00e9tablissements d'enseignement sup\u00e9rieur priv\u00e9s et l'\u00c9tat. Il examine les formations dispens\u00e9es et leur degr\u00e9 de participation \u00e0 une mission de service public. Il formule des propositions quant \u00e0 l'appui financier de l'\u00c9tat. Il peut \u00eatre saisi, \u00e0 la demande du ministre charg\u00e9 de l'enseignement sup\u00e9rieur, de toute question concernant l'enseignement sup\u00e9rieur priv\u00e9. Il peut \u00e9mettre des recommandations et des propositions sur toute question relevant de ses missions.", 
-                        "\"un d\u00e9cret fixe les r\u00e8gles relatives \u00e0 la composition et au fonctionnement du comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9.\""
+                        "\"Un d\u00e9cret fixe les r\u00e8gles relatives \u00e0 la composition et au fonctionnement du comit\u00e9 consultatif pour l'enseignement sup\u00e9rieur priv\u00e9.\""
                     ]
                 }
             ], 
@@ -7279,7 +7279,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 457, 
                     "n_diff": 1, 
                     "order": 72, 
@@ -7293,7 +7293,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 463, 
                     "n_diff": 0.017391304347826098, 
                     "order": 74, 
@@ -7307,7 +7307,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 463, 
                     "n_diff": 0, 
                     "order": 73, 
@@ -7321,7 +7321,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 443, 
                     "n_diff": 0.022075055187637971, 
                     "order": 72, 
@@ -7400,7 +7400,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1811, 
                     "n_diff": 0, 
                     "order": 73, 
@@ -7416,7 +7416,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1830, 
                     "n_diff": 0.014007140895358372, 
                     "order": 75, 
@@ -7432,7 +7432,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1830, 
                     "n_diff": 0, 
                     "order": 74, 
@@ -7448,7 +7448,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1830, 
                     "n_diff": 0, 
                     "order": 73, 
@@ -7471,7 +7471,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 76, 
                     "n_diff": 1, 
                     "order": 76, 
@@ -7482,7 +7482,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 467, 
                     "n_diff": 0.93370165745856348, 
                     "order": 75, 
@@ -7493,7 +7493,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 470, 
                     "n_diff": 0.0032017075773745907, 
                     "order": 74, 
@@ -7569,7 +7569,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1358, 
                     "n_diff": 0.079920477137176982, 
                     "order": 74, 
@@ -7591,7 +7591,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1420, 
                     "n_diff": 0.10367170626349886, 
                     "order": 77, 
@@ -7613,7 +7613,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1420, 
                     "n_diff": 0, 
                     "order": 76, 
@@ -7635,7 +7635,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1420, 
                     "n_diff": 0, 
                     "order": 75, 
@@ -7703,7 +7703,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 245, 
                     "n_diff": 0, 
                     "order": 75, 
@@ -7716,7 +7716,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 245, 
                     "n_diff": 0, 
                     "order": 78, 
@@ -7729,7 +7729,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 245, 
                     "n_diff": 0, 
                     "order": 77, 
@@ -7742,7 +7742,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 245, 
                     "n_diff": 0, 
                     "order": 76, 
@@ -7798,7 +7798,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 257, 
                     "n_diff": 0, 
                     "order": 76, 
@@ -7810,7 +7810,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 257, 
                     "n_diff": 0, 
                     "order": 79, 
@@ -7822,7 +7822,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 257, 
                     "n_diff": 0, 
                     "order": 78, 
@@ -7834,7 +7834,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 257, 
                     "n_diff": 0, 
                     "order": 77, 
@@ -7891,7 +7891,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1270, 
                     "n_diff": 0.36833936885669938, 
                     "order": 77, 
@@ -7906,7 +7906,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 2086, 
                     "n_diff": 0.61799761620977356, 
                     "order": 80, 
@@ -7923,7 +7923,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 2086, 
                     "n_diff": 0, 
                     "order": 79, 
@@ -7940,7 +7940,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 2084, 
                     "n_diff": 0.0033573141486810121, 
                     "order": 78, 
@@ -7986,7 +7986,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 206, 
                     "n_diff": 0.056410256410256432, 
                     "order": 78, 
@@ -7997,7 +7997,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 206, 
                     "n_diff": 0, 
                     "order": 82, 
@@ -8008,7 +8008,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 206, 
                     "n_diff": 0, 
                     "order": 81, 
@@ -8019,7 +8019,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 206, 
                     "n_diff": 0, 
                     "order": 80, 
@@ -8037,7 +8037,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 397, 
                     "n_diff": 1, 
                     "order": 81, 
@@ -8048,7 +8048,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 397, 
                     "n_diff": 0, 
                     "order": 80, 
@@ -8059,7 +8059,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 346, 
                     "n_diff": 0.39300134589502023, 
                     "order": 79, 
@@ -8103,7 +8103,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 192, 
                     "n_diff": 0, 
                     "order": 80, 
@@ -8116,7 +8116,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 192, 
                     "n_diff": 0, 
                     "order": 84, 
@@ -8129,7 +8129,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 192, 
                     "n_diff": 0, 
                     "order": 83, 
@@ -8142,7 +8142,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 192, 
                     "n_diff": 0, 
                     "order": 82, 
@@ -8174,7 +8174,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 50, 
                     "n_diff": 0, 
                     "order": 82, 
@@ -8190,7 +8190,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 531, 
                     "n_diff": 1, 
                     "order": 81, 
@@ -8201,7 +8201,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 532, 
                     "n_diff": 0.00094073377234238365, 
                     "order": 85, 
@@ -8212,7 +8212,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 532, 
                     "n_diff": 0, 
                     "order": 84, 
@@ -8223,7 +8223,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 532, 
                     "n_diff": 0, 
                     "order": 83, 
@@ -8241,7 +8241,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 924, 
                     "n_diff": 1, 
                     "order": 86, 
@@ -8252,12 +8252,12 @@
                         "\"Tout projet d'accord est transmis au ministre charg\u00e9 de l'enseignement sup\u00e9rieur et au ministre des affaires \u00e9trang\u00e8res.", 
                         "\"Si, \u00e0 l'expiration d'un d\u00e9lai d'un mois \u00e0 compter de la r\u00e9ception du projet, le ministre charg\u00e9 de l'enseignement sup\u00e9rieur n'a pas notifi\u00e9 une opposition totale ou partielle de l'un ou l'autre ministre, l'accord envisag\u00e9 peut \u00eatre conclu.", 
                         "\"\u00c0 son expiration, l'accord fait l'objet d'une \u00e9valuation communiqu\u00e9e au ministre charg\u00e9 de l'enseignement sup\u00e9rieur et au ministre des affaires \u00e9trang\u00e8res.", 
-                        "\"un d\u00e9cret pr\u00e9cise les modalit\u00e9s d'application du pr\u00e9sent article.\""
+                        "\"Un d\u00e9cret pr\u00e9cise les modalit\u00e9s d'application du pr\u00e9sent article.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 924, 
                     "n_diff": 0, 
                     "order": 85, 
@@ -8268,12 +8268,12 @@
                         "\"Tout projet d'accord est transmis au ministre charg\u00e9 de l'enseignement sup\u00e9rieur et au ministre des affaires \u00e9trang\u00e8res.", 
                         "\"Si, \u00e0 l'expiration d'un d\u00e9lai d'un mois \u00e0 compter de la r\u00e9ception du projet, le ministre charg\u00e9 de l'enseignement sup\u00e9rieur n'a pas notifi\u00e9 une opposition totale ou partielle de l'un ou l'autre ministre, l'accord envisag\u00e9 peut \u00eatre conclu.", 
                         "\"\u00c0 son expiration, l'accord fait l'objet d'une \u00e9valuation communiqu\u00e9e au ministre charg\u00e9 de l'enseignement sup\u00e9rieur et au ministre des affaires \u00e9trang\u00e8res.", 
-                        "\"un d\u00e9cret pr\u00e9cise les modalit\u00e9s d'application du pr\u00e9sent article.\""
+                        "\"Un d\u00e9cret pr\u00e9cise les modalit\u00e9s d'application du pr\u00e9sent article.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 924, 
                     "n_diff": 0, 
                     "order": 84, 
@@ -8284,7 +8284,7 @@
                         "\"Tout projet d'accord est transmis au ministre charg\u00e9 de l'enseignement sup\u00e9rieur et au ministre des affaires \u00e9trang\u00e8res.", 
                         "\"Si, \u00e0 l'expiration d'un d\u00e9lai d'un mois \u00e0 compter de la r\u00e9ception du projet, le ministre charg\u00e9 de l'enseignement sup\u00e9rieur n'a pas notifi\u00e9 une opposition totale ou partielle de l'un ou l'autre ministre, l'accord envisag\u00e9 peut \u00eatre conclu.", 
                         "\"\u00c0 son expiration, l'accord fait l'objet d'une \u00e9valuation communiqu\u00e9e au ministre charg\u00e9 de l'enseignement sup\u00e9rieur et au ministre des affaires \u00e9trang\u00e8res.", 
-                        "\"un d\u00e9cret pr\u00e9cise les modalit\u00e9s d'application du pr\u00e9sent article.\""
+                        "\"Un d\u00e9cret pr\u00e9cise les modalit\u00e9s d'application du pr\u00e9sent article.\""
                     ]
                 }
             ], 
@@ -8296,7 +8296,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 3801, 
                     "n_diff": 1, 
                     "order": 84, 
@@ -8324,12 +8324,12 @@
                         "\"Art. L. 315-4. - Sauf si sa pr\u00e9sence constitue une menace pour l'ordre public, la carte mentionn\u00e9e \u00e0 l'article L. 315-1 est accord\u00e9e de plein droit \u00e0 l'\u00e9tranger titulaire d'un dipl\u00f4me de doctorat, d\u00e9livr\u00e9 en France par un \u00e9tablissement d'enseignement sup\u00e9rieur habilit\u00e9 au plan national.", 
                         "\"Par d\u00e9rogation \u00e0 l'article L. 315-3, l'\u00e9tranger souhaitant b\u00e9n\u00e9ficier d'une carte \"comp\u00e9tences et talents\" est dispens\u00e9 de pr\u00e9senter le projet mentionn\u00e9 \u00e0 cet article.", 
                         "\"Par d\u00e9rogation aux articles L. 315-1 et L. 315-2, son renouvellement n'est pas limit\u00e9 lorsque son titulaire a la nationalit\u00e9 d'un pays membre de la zone de solidarit\u00e9 prioritaire.", 
-                        "\"un d\u00e9cret en Conseil d'\u00c9tat fixe les conditions d'application du pr\u00e9sent article.\""
+                        "\"Un d\u00e9cret en Conseil d'\u00c9tat fixe les conditions d'application du pr\u00e9sent article.\""
                     ]
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 3809, 
                     "n_diff": 0.0034165571616294743, 
                     "order": 88, 
@@ -8357,12 +8357,12 @@
                         "\"Art. L. 315-4. - Sauf si sa pr\u00e9sence constitue une menace pour l'ordre public, la carte mentionn\u00e9e \u00e0 l'article L. 315-1 est accord\u00e9e de plein droit \u00e0 l'\u00e9tranger titulaire d'un dipl\u00f4me de doctorat, d\u00e9livr\u00e9 en France par un \u00e9tablissement d'enseignement sup\u00e9rieur habilit\u00e9 au plan national.", 
                         "\"Par d\u00e9rogation \u00e0 l'article L. 315-3, l'\u00e9tranger souhaitant b\u00e9n\u00e9ficier d'une carte \"comp\u00e9tences et talents\" est dispens\u00e9 de pr\u00e9senter le projet mentionn\u00e9 \u00e0 cet article.", 
                         "\"Par d\u00e9rogation aux articles L. 315-1 et L. 315-2, son renouvellement n'est pas limit\u00e9 lorsque son titulaire a la nationalit\u00e9 d'un pays membre de la zone de solidarit\u00e9 prioritaire.", 
-                        "\"un d\u00e9cret en Conseil d'\u00c9tat fixe les conditions d'application du pr\u00e9sent article.\""
+                        "\"Un d\u00e9cret en Conseil d'\u00c9tat fixe les conditions d'application du pr\u00e9sent article.\""
                     ]
                 }, 
                 {
                     "diff": "add", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 970, 
                     "n_diff": 0.72881355932203395, 
                     "order": 87, 
@@ -8381,7 +8381,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 980, 
                     "n_diff": 0.0061538461538461764, 
                     "order": 86, 
@@ -8407,7 +8407,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 368, 
                     "n_diff": 1, 
                     "order": 83, 
@@ -8418,7 +8418,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 368, 
                     "n_diff": 0, 
                     "order": 87, 
@@ -8429,7 +8429,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 368, 
                     "n_diff": 0, 
                     "order": 86, 
@@ -8440,7 +8440,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 368, 
                     "n_diff": 0, 
                     "order": 85, 
@@ -8482,7 +8482,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 314, 
                     "n_diff": 0, 
                     "order": 79, 
@@ -8494,7 +8494,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 314, 
                     "n_diff": 0, 
                     "order": 83, 
@@ -8506,7 +8506,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 314, 
                     "n_diff": 0, 
                     "order": 82, 
@@ -8518,7 +8518,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 314, 
                     "n_diff": 0, 
                     "order": 81, 
@@ -8570,7 +8570,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 192, 
                     "n_diff": 0, 
                     "order": 87, 
@@ -8581,7 +8581,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 192, 
                     "n_diff": 0, 
                     "order": 91, 
@@ -8592,7 +8592,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 192, 
                     "n_diff": 0, 
                     "order": 90, 
@@ -8603,7 +8603,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 192, 
                     "n_diff": 0, 
                     "order": 89, 
@@ -8621,7 +8621,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 701, 
                     "n_diff": 1, 
                     "order": 85, 
@@ -8633,7 +8633,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 701, 
                     "n_diff": 0, 
                     "order": 89, 
@@ -8645,7 +8645,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 777, 
                     "n_diff": 0.052774018944519607, 
                     "order": 88, 
@@ -8657,7 +8657,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 775, 
                     "n_diff": 0.030927835051546393, 
                     "order": 87, 
@@ -8676,7 +8676,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 303, 
                     "n_diff": 1, 
                     "order": 86, 
@@ -8687,7 +8687,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 303, 
                     "n_diff": 0, 
                     "order": 90, 
@@ -8698,7 +8698,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 303, 
                     "n_diff": 0, 
                     "order": 89, 
@@ -8709,7 +8709,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 289, 
                     "n_diff": 0.45101351351351349, 
                     "order": 88, 
@@ -8793,7 +8793,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 4027, 
                     "n_diff": 0.097942812783024968, 
                     "order": 88, 
@@ -8817,7 +8817,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 4057, 
                     "n_diff": 0.075581395348837233, 
                     "order": 92, 
@@ -8841,7 +8841,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 4057, 
                     "n_diff": 0, 
                     "order": 91, 
@@ -8865,7 +8865,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 4059, 
                     "n_diff": 0.0041892557910300221, 
                     "order": 90, 
@@ -8896,7 +8896,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 479, 
                     "n_diff": 1, 
                     "order": 93, 
@@ -8907,7 +8907,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 480, 
                     "n_diff": 0.0010427528675703845, 
                     "order": 92, 
@@ -8918,7 +8918,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 498, 
                     "n_diff": 0.018404907975460127, 
                     "order": 91, 
@@ -8950,13 +8950,13 @@
                 {
                     "diff": "rem", 
                     "id_step": "01_1\u00e8relecture_assemblee_commission", 
-                    "length": 467, 
-                    "n_diff": 0.84324324324324329, 
+                    "length": 468, 
+                    "n_diff": 0.84345479082321195, 
                     "order": 7, 
                     "status": "none", 
                     "text": [
                         "L'article L. 123-3 du m\u00eame code est ainsi modifi\u00e9 :", 
-                        "1\u00b0 Le 1\u00b0est compl\u00e9t\u00e9 par les mots : \"tout au long de la vie\" ;", 
+                        "1\u00b0 Le 1\u00b0 est compl\u00e9t\u00e9 par les mots : \"tout au long de la vie\" ;", 
                         "2\u00b0 Au 2\u00b0, les mots : \"et la valorisation\" sont remplac\u00e9s par les mots : \", la valorisation et le transfert de ses r\u00e9sultats, lorsque celui-ci est possible\" ;", 
                         "3\u00b0 Au 3\u00b0, apr\u00e8s le mot : \"orientation\", sont ins\u00e9r\u00e9s les mots : \", la promotion sociale\" ;", 
                         "4\u00b0 Le 4\u00b0 est ainsi r\u00e9dig\u00e9 :", 
@@ -8967,7 +8967,7 @@
                     "diff": "both", 
                     "id_step": "02_1\u00e8relecture_assemblee_hemicycle", 
                     "length": 572, 
-                    "n_diff": 0.12030798845043311, 
+                    "n_diff": 0.11923076923076925, 
                     "order": 6, 
                     "status": "none", 
                     "text": [
@@ -8981,7 +8981,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 752, 
                     "n_diff": 0.32477341389728098, 
                     "order": 7, 
@@ -8997,7 +8997,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 824, 
                     "n_diff": 0.24175126903553301, 
                     "order": 8, 
@@ -9013,7 +9013,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 870, 
                     "n_diff": 0.10566706021251471, 
                     "order": 7, 
@@ -9029,7 +9029,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 870, 
                     "n_diff": 0, 
                     "order": 7, 
@@ -9068,21 +9068,21 @@
                         "\"2\u00b0 Huit membres ayant la qualit\u00e9 de chercheurs, d'ing\u00e9nieurs ou d'enseignants-chercheurs, dont trois sur proposition des pr\u00e9sidents ou directeurs d'organismes de recherche et trois sur proposition des conf\u00e9rences de chefs d'\u00e9tablissements mentionn\u00e9es \u00e0 l'article L. 233-1 du code de l'\u00e9ducation ;", 
                         "\"3\u00b0 Deux membres repr\u00e9sentant les \u00e9tudiants, sur proposition des associations d'\u00e9tudiants en fonction du nombre de voix obtenues par ces associations lors de l'\u00e9lection des repr\u00e9sentants des \u00e9tudiants au Conseil national de l'enseignement sup\u00e9rieur et de la recherche ;", 
                         "\"4\u00b0 Neuf personnalit\u00e9s qualifi\u00e9es fran\u00e7aises et \u00e9trang\u00e8res, dont au moins deux issues du secteur de la recherche priv\u00e9e et trois appartenant \u00e0 des agences d'accr\u00e9ditation ou d'\u00e9valuation \u00e9trang\u00e8res ;", 
-                        "\"5\u00b0 un d\u00e9put\u00e9 et un s\u00e9nateur.", 
+                        "\"5\u00b0 Un d\u00e9put\u00e9 et un s\u00e9nateur.", 
                         "\"Le conseil d'orientation scientifique du Haut conseil est compos\u00e9 de personnalit\u00e9s qualifi\u00e9es, dont un tiers au moins \u00e9trang\u00e8res, reconnues pour leurs comp\u00e9tences scientifiques et leurs comp\u00e9tences en mati\u00e8re d'\u00e9valuation, nomm\u00e9es par d\u00e9cret sur proposition du pr\u00e9sident du Haut conseil.\""
                     ]
                 }, 
                 {
                     "diff": "both", 
                     "id_step": "01_1\u00e8relecture_assemblee_commission", 
-                    "length": 2531, 
-                    "n_diff": 0.15459723352318955, 
+                    "length": 2534, 
+                    "n_diff": 0.1545029477536084, 
                     "order": 65, 
                     "status": "none", 
                     "text": [
                         "L'article L. 114-3-3 du m\u00eame code est ainsi r\u00e9dig\u00e9 :", 
-                        "\"Art. L. 114-3-3.- I.- Le Haut Conseil est administr\u00e9 par un conseil garant de la qualit\u00e9 de ses travaux, assist\u00e9 d'un comit\u00e9 d'orientation scientifique.", 
-                        "\"II.- Le conseil arr\u00eate le programme annuel d'\u00e9valuation du Haut Conseil. Apr\u00e8s avis du comit\u00e9 d'orientation scientifique, il d\u00e9finit les mesures propres \u00e0 garantir la qualit\u00e9, la transparence et la publicit\u00e9 des proc\u00e9dures d'\u00e9valuation.", 
+                        "\"Art. L. 114-3-3. - I. - Le Haut Conseil est administr\u00e9 par un conseil garant de la qualit\u00e9 de ses travaux, assist\u00e9 d'un comit\u00e9 d'orientation scientifique.", 
+                        "\"II. - Le conseil arr\u00eate le programme annuel d'\u00e9valuation du Haut Conseil. Apr\u00e8s avis du comit\u00e9 d'orientation scientifique, il d\u00e9finit les mesures propres \u00e0 garantir la qualit\u00e9, la transparence et la publicit\u00e9 des proc\u00e9dures d'\u00e9valuation.", 
                         "\"Son pr\u00e9sident, nomm\u00e9 parmi ses membres, dirige le Haut Conseil et dispose de ses personnels.", 
                         "\"Le conseil est compos\u00e9 de trente membres nomm\u00e9s par d\u00e9cret. Il comprend autant d'hommes que de femmes. \u00c0 cette fin, le d\u00e9cret en Conseil d'\u00c9tat pr\u00e9vu \u00e0 l'article L. 114-3-6 pr\u00e9cise le nombre et la r\u00e9partition par sexe des candidats propos\u00e9s par chacune des instances, autorit\u00e9s et associations comp\u00e9tentes.", 
                         "\"Le conseil comprend :", 
@@ -9090,7 +9090,7 @@
                         "\"2\u00b0 Huit membres ayant la qualit\u00e9 de chercheurs, d'ing\u00e9nieurs ou d'enseignants-chercheurs, dont trois sur proposition des pr\u00e9sidents ou directeurs d'organismes de recherche et trois sur proposition des conf\u00e9rences de chefs d'\u00e9tablissements mentionn\u00e9es \u00e0 l'article L. 233-1 du code de l'\u00e9ducation ;", 
                         "\"3\u00b0 Deux membres repr\u00e9sentant les \u00e9tudiants, sur proposition des associations d'\u00e9tudiants en fonction du nombre de voix obtenues par ces associations lors de l'\u00e9lection des repr\u00e9sentants des \u00e9tudiants au Conseil national de l'enseignement sup\u00e9rieur et de la recherche ;", 
                         "\"4\u00b0 Neuf personnalit\u00e9s qualifi\u00e9es fran\u00e7aises et \u00e9trang\u00e8res, dont au moins deux issues du secteur de la recherche priv\u00e9e et trois appartenant \u00e0 des agences d'accr\u00e9ditation ou d'\u00e9valuation \u00e9trang\u00e8res ;", 
-                        "\"5\u00b0 un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par la commission permanente comp\u00e9tente en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche de chaque assembl\u00e9e.", 
+                        "\"5\u00b0 Un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par la commission permanente comp\u00e9tente en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche de chaque assembl\u00e9e.", 
                         "\"III. - Le comit\u00e9 d'orientation scientifique du Haut Conseil est compos\u00e9 de personnalit\u00e9s qualifi\u00e9es, dont un tiers au moins de nationalit\u00e9 \u00e9trang\u00e8re, reconnues pour leurs comp\u00e9tences scientifiques et leurs comp\u00e9tences en mati\u00e8re d'\u00e9valuation, nomm\u00e9es par d\u00e9cret sur proposition du pr\u00e9sident du Haut Conseil.\""
                     ]
                 }, 
@@ -9098,7 +9098,7 @@
                     "diff": "both", 
                     "id_step": "02_1\u00e8relecture_assemblee_hemicycle", 
                     "length": 2535, 
-                    "n_diff": 0.0023687327279905412, 
+                    "n_diff": 0.0017754981258630842, 
                     "order": 76, 
                     "status": "none", 
                     "text": [
@@ -9112,13 +9112,13 @@
                         "\"2\u00b0 Huit membres ayant la qualit\u00e9 de chercheurs, d'ing\u00e9nieurs ou d'enseignants-chercheurs, dont trois sur proposition des pr\u00e9sidents ou directeurs d'organismes de recherche et trois sur proposition des conf\u00e9rences de chefs d'\u00e9tablissements mentionn\u00e9es \u00e0 l'article L. 233-1 du code de l'\u00e9ducation ;", 
                         "\"3\u00b0 Deux membres repr\u00e9sentant les \u00e9tudiants, sur proposition des associations d'\u00e9tudiants en fonction du nombre de voix obtenues par ces associations lors de l'\u00e9lection des repr\u00e9sentants des \u00e9tudiants au Conseil national de l'enseignement sup\u00e9rieur et de la recherche ;", 
                         "\"4\u00b0 Neuf personnalit\u00e9s qualifi\u00e9es fran\u00e7aises et \u00e9trang\u00e8res, dont au moins trois issues du secteur de la recherche priv\u00e9e et trois appartenant \u00e0 des agences d'accr\u00e9ditation ou d'\u00e9valuation \u00e9trang\u00e8res ;", 
-                        "\"5\u00b0 un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par la commission permanente comp\u00e9tente en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche de chaque assembl\u00e9e.", 
+                        "\"5\u00b0 Un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par la commission permanente comp\u00e9tente en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche de chaque assembl\u00e9e.", 
                         "\"III. - Le comit\u00e9 d'orientation scientifique du Haut Conseil est compos\u00e9 de personnalit\u00e9s qualifi\u00e9es, dont un tiers au moins de nationalit\u00e9 \u00e9trang\u00e8re, reconnues pour leurs comp\u00e9tences scientifiques et leurs comp\u00e9tences en mati\u00e8re d'\u00e9valuation, nomm\u00e9es par d\u00e9cret sur proposition du pr\u00e9sident du Haut Conseil.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 2535, 
                     "n_diff": 0, 
                     "order": 89, 
@@ -9134,13 +9134,13 @@
                         "\"2\u00b0 Huit membres ayant la qualit\u00e9 de chercheurs, d'ing\u00e9nieurs ou d'enseignants-chercheurs, dont trois sur proposition des pr\u00e9sidents ou directeurs d'organismes de recherche et trois sur proposition des conf\u00e9rences de chefs d'\u00e9tablissements mentionn\u00e9es \u00e0 l'article L. 233-1 du code de l'\u00e9ducation ;", 
                         "\"3\u00b0 Deux membres repr\u00e9sentant les \u00e9tudiants, sur proposition des associations d'\u00e9tudiants en fonction du nombre de voix obtenues par ces associations lors de l'\u00e9lection des repr\u00e9sentants des \u00e9tudiants au Conseil national de l'enseignement sup\u00e9rieur et de la recherche ;", 
                         "\"4\u00b0 Neuf personnalit\u00e9s qualifi\u00e9es fran\u00e7aises et \u00e9trang\u00e8res, dont au moins trois issues du secteur de la recherche priv\u00e9e et trois appartenant \u00e0 des agences d'accr\u00e9ditation ou d'\u00e9valuation \u00e9trang\u00e8res ;", 
-                        "\"5\u00b0 un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par la commission permanente comp\u00e9tente en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche de chaque assembl\u00e9e.", 
+                        "\"5\u00b0 Un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par la commission permanente comp\u00e9tente en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche de chaque assembl\u00e9e.", 
                         "\"III. - Le comit\u00e9 d'orientation scientifique du Haut Conseil est compos\u00e9 de personnalit\u00e9s qualifi\u00e9es, dont un tiers au moins de nationalit\u00e9 \u00e9trang\u00e8re, reconnues pour leurs comp\u00e9tences scientifiques et leurs comp\u00e9tences en mati\u00e8re d'\u00e9valuation, nomm\u00e9es par d\u00e9cret sur proposition du pr\u00e9sident du Haut Conseil.\""
                     ]
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 2232, 
                     "n_diff": 0.086217747010698509, 
                     "order": 94, 
@@ -9156,13 +9156,13 @@
                         "\"2\u00b0 Huit membres ayant la qualit\u00e9 de chercheurs, d'ing\u00e9nieurs ou d'enseignants-chercheurs, dont trois sur proposition des pr\u00e9sidents ou directeurs d'organismes de recherche et trois sur proposition des conf\u00e9rences de chefs d'\u00e9tablissements mentionn\u00e9es \u00e0 l'article L. 233-1 du code de l'\u00e9ducation ;", 
                         "\"3\u00b0 Deux membres repr\u00e9sentant les \u00e9tudiants, sur proposition des associations d'\u00e9tudiants en fonction du nombre de voix obtenues par ces associations lors de l'\u00e9lection des repr\u00e9sentants des \u00e9tudiants au Conseil national de l'enseignement sup\u00e9rieur et de la recherche ;", 
                         "\"4\u00b0 Neuf personnalit\u00e9s qualifi\u00e9es fran\u00e7aises et \u00e9trang\u00e8res, dont au moins trois issues du secteur de la recherche priv\u00e9e et trois appartenant \u00e0 des agences d'accr\u00e9ditation ou d'\u00e9valuation \u00e9trang\u00e8res ;", 
-                        "\"5\u00b0 un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par la commission permanente comp\u00e9tente en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche de chaque assembl\u00e9e.", 
+                        "\"5\u00b0 Un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par la commission permanente comp\u00e9tente en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche de chaque assembl\u00e9e.", 
                         "\"III. - (Supprim\u00e9)"
                     ]
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 2187, 
                     "n_diff": 0.016972165648336701, 
                     "order": 93, 
@@ -9178,13 +9178,13 @@
                         "\"2\u00b0 Huit membres ayant la qualit\u00e9 de chercheurs, d'ing\u00e9nieurs ou d'enseignants-chercheurs, dont trois sur proposition des pr\u00e9sidents ou directeurs d'organismes de recherche et trois sur proposition des conf\u00e9rences de chefs d'\u00e9tablissements mentionn\u00e9es \u00e0 l'article L. 233-1 du code de l'\u00e9ducation ;", 
                         "\"3\u00b0 Deux membres repr\u00e9sentant les \u00e9tudiants, sur proposition des associations d'\u00e9tudiants en fonction du nombre de voix obtenues par ces associations lors de l'\u00e9lection des repr\u00e9sentants des \u00e9tudiants au Conseil national de l'enseignement sup\u00e9rieur et de la recherche ;", 
                         "\"4\u00b0 Neuf personnalit\u00e9s qualifi\u00e9es fran\u00e7aises et \u00e9trang\u00e8res, dont au moins trois issues du secteur de la recherche priv\u00e9e et trois appartenant \u00e0 des agences d'accr\u00e9ditation ou d'\u00e9valuation \u00e9trang\u00e8res ;", 
-                        "\"5\u00b0 un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par la commission permanente comp\u00e9tente en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche de chaque assembl\u00e9e.", 
+                        "\"5\u00b0 Un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par la commission permanente comp\u00e9tente en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche de chaque assembl\u00e9e.", 
                         "\"III. - (Supprim\u00e9)"
                     ]
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 2181, 
                     "n_diff": 0.0022893772893772812, 
                     "order": 92, 
@@ -9200,7 +9200,7 @@
                         "\"2\u00b0 Huit membres ayant la qualit\u00e9 de chercheur, d'ing\u00e9nieur ou d'enseignant-chercheur, dont trois sur proposition des pr\u00e9sidents ou directeurs d'organismes de recherche et trois sur proposition des conf\u00e9rences des chefs d'\u00e9tablissements mentionn\u00e9es \u00e0 l'article L. 233-1 du code de l'\u00e9ducation ;", 
                         "\"3\u00b0 Deux membres repr\u00e9sentant les \u00e9tudiants, sur proposition des associations d'\u00e9tudiants en fonction du nombre de voix obtenues par ces associations lors de l'\u00e9lection des repr\u00e9sentants des \u00e9tudiants au Conseil national de l'enseignement sup\u00e9rieur et de la recherche ;", 
                         "\"4\u00b0 Neuf personnalit\u00e9s qualifi\u00e9es, fran\u00e7aises et \u00e9trang\u00e8res, dont au moins trois issues du secteur de la recherche priv\u00e9e et trois appartenant \u00e0 des agences d'accr\u00e9ditation ou d'\u00e9valuation \u00e9trang\u00e8res ;", 
-                        "\"5\u00b0 un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par la commission permanente comp\u00e9tente en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche de chaque assembl\u00e9e.", 
+                        "\"5\u00b0 Un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par la commission permanente comp\u00e9tente en mati\u00e8re d'enseignement sup\u00e9rieur et de recherche de chaque assembl\u00e9e.", 
                         "\"III. - (Supprim\u00e9)"
                     ]
                 }
@@ -9264,7 +9264,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1038, 
                     "n_diff": 0, 
                     "order": 90, 
@@ -9281,7 +9281,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1038, 
                     "n_diff": 0, 
                     "order": 95, 
@@ -9298,7 +9298,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1038, 
                     "n_diff": 0, 
                     "order": 94, 
@@ -9315,7 +9315,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1038, 
                     "n_diff": 0, 
                     "order": 93, 
@@ -9407,7 +9407,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1884, 
                     "n_diff": 0.0090715048025613587, 
                     "order": 91, 
@@ -9432,7 +9432,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1884, 
                     "n_diff": 0, 
                     "order": 96, 
@@ -9457,7 +9457,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1884, 
                     "n_diff": 0, 
                     "order": 95, 
@@ -9482,7 +9482,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1884, 
                     "n_diff": 0, 
                     "order": 94, 
@@ -9527,14 +9527,14 @@
                         "\"Le Conseil strat\u00e9gique de la recherche propose les grandes orientations de la strat\u00e9gie nationale de recherche d\u00e9finie \u00e0 l'article L. 111-6 et participe \u00e0 l'\u00e9valuation de leur mise en oeuvre.", 
                         "\"Le Conseil strat\u00e9gique est pr\u00e9sid\u00e9 par le Premier ministre ou, par d\u00e9l\u00e9gation, par le ministre charg\u00e9 de la recherche.", 
                         "\"Il comprend un d\u00e9put\u00e9 et un s\u00e9nateur.", 
-                        "\"un d\u00e9cret pr\u00e9cise les missions, l'organisation et le fonctionnement du Conseil strat\u00e9gique de la recherche.\""
+                        "\"Un d\u00e9cret pr\u00e9cise les missions, l'organisation et le fonctionnement du Conseil strat\u00e9gique de la recherche.\""
                     ]
                 }, 
                 {
                     "diff": "rem", 
                     "id_step": "01_1\u00e8relecture_assemblee_commission", 
                     "length": 1022, 
-                    "n_diff": 0.22969966629588434, 
+                    "n_diff": 0.16351501668520574, 
                     "order": 68, 
                     "status": "none", 
                     "text": [
@@ -9546,7 +9546,7 @@
                         "\"Le Conseil strat\u00e9gique est pr\u00e9sid\u00e9 par le Premier ministre ou, par d\u00e9l\u00e9gation, par le ministre charg\u00e9 de la recherche.", 
                         "\"Il comprend notamment un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par l'Office parlementaire d'\u00e9valuation des choix scientifiques et technologiques.", 
                         "\"Il comprend un repr\u00e9sentant des r\u00e9gions.", 
-                        "\"un d\u00e9cret pr\u00e9cise la composition et les missions, l'organisation et le fonctionnement du Conseil strat\u00e9gique de la recherche et de l'innovation.\""
+                        "\"Un d\u00e9cret pr\u00e9cise la composition et les missions, l'organisation et le fonctionnement du Conseil strat\u00e9gique de la recherche et de l'innovation.\""
                     ]
                 }, 
                 {
@@ -9565,12 +9565,12 @@
                         "\"Le Conseil strat\u00e9gique est pr\u00e9sid\u00e9 par le Premier ministre ou, par d\u00e9l\u00e9gation, par le ministre charg\u00e9 de la recherche.", 
                         "\"Il comprend notamment un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par l'Office parlementaire d'\u00e9valuation des choix scientifiques et technologiques.", 
                         "\"Il comprend un repr\u00e9sentant des r\u00e9gions.", 
-                        "\"un d\u00e9cret pr\u00e9cise la composition et les missions, l'organisation et le fonctionnement du Conseil strat\u00e9gique de la recherche.\""
+                        "\"Un d\u00e9cret pr\u00e9cise la composition et les missions, l'organisation et le fonctionnement du Conseil strat\u00e9gique de la recherche.\""
                     ]
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1015, 
                     "n_diff": 0.1075981642019378, 
                     "order": 92, 
@@ -9584,12 +9584,12 @@
                         "\"Le Conseil strat\u00e9gique est pr\u00e9sid\u00e9 par le Premier ministre ou, par d\u00e9l\u00e9gation, par le ministre charg\u00e9 de la recherche.", 
                         "\"Il comprend notamment un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par la d\u00e9l\u00e9gation mentionn\u00e9e \u00e0 l'article 6 ter de l'ordonnance n\u00b0 58-1100 du 17 novembre 1958 relative au fonctionnement des assembl\u00e9es parlementaires.", 
                         "\"Il comprend un repr\u00e9sentant des r\u00e9gions.", 
-                        "\"un d\u00e9cret pr\u00e9cise la composition et les missions, l'organisation et le fonctionnement du Conseil strat\u00e9gique de la recherche.\""
+                        "\"Un d\u00e9cret pr\u00e9cise la composition et les missions, l'organisation et le fonctionnement du Conseil strat\u00e9gique de la recherche.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1015, 
                     "n_diff": 0, 
                     "order": 97, 
@@ -9603,12 +9603,12 @@
                         "\"Le Conseil strat\u00e9gique est pr\u00e9sid\u00e9 par le Premier ministre ou, par d\u00e9l\u00e9gation, par le ministre charg\u00e9 de la recherche.", 
                         "\"Il comprend notamment un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par la d\u00e9l\u00e9gation mentionn\u00e9e \u00e0 l'article 6 ter de l'ordonnance n\u00b0 58-1100 du 17 novembre 1958 relative au fonctionnement des assembl\u00e9es parlementaires.", 
                         "\"Il comprend un repr\u00e9sentant des r\u00e9gions.", 
-                        "\"un d\u00e9cret pr\u00e9cise la composition et les missions, l'organisation et le fonctionnement du Conseil strat\u00e9gique de la recherche.\""
+                        "\"Un d\u00e9cret pr\u00e9cise la composition et les missions, l'organisation et le fonctionnement du Conseil strat\u00e9gique de la recherche.\""
                     ]
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1091, 
                     "n_diff": 0.03703703703703709, 
                     "order": 96, 
@@ -9622,12 +9622,12 @@
                         "\"Le Conseil strat\u00e9gique est pr\u00e9sid\u00e9 par le Premier ministre ou, par d\u00e9l\u00e9gation, par le ministre charg\u00e9 de la recherche.", 
                         "\"Il comprend notamment un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par l'Office parlementaire d'\u00e9valuation des choix scientifiques et technologiques, d\u00e9l\u00e9gation mentionn\u00e9e \u00e0 l'article 6 ter de l'ordonnance n\u00b0 58-1100 du 17 novembre 1958 relative au fonctionnement des assembl\u00e9es parlementaires.", 
                         "\"Il comprend un repr\u00e9sentant des r\u00e9gions.", 
-                        "\"un d\u00e9cret pr\u00e9cise la composition et les missions, l'organisation et le fonctionnement du Conseil strat\u00e9gique de la recherche.\""
+                        "\"Un d\u00e9cret pr\u00e9cise la composition et les missions, l'organisation et le fonctionnement du Conseil strat\u00e9gique de la recherche.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1091, 
                     "n_diff": 0, 
                     "order": 95, 
@@ -9641,7 +9641,7 @@
                         "\"Le Conseil strat\u00e9gique est pr\u00e9sid\u00e9 par le Premier ministre ou, par d\u00e9l\u00e9gation, par le ministre charg\u00e9 de la recherche.", 
                         "\"Il comprend notamment un d\u00e9put\u00e9 et un s\u00e9nateur d\u00e9sign\u00e9s par l'Office parlementaire d'\u00e9valuation des choix scientifiques et technologiques, d\u00e9l\u00e9gation mentionn\u00e9e \u00e0 l'article 6 ter de l'ordonnance n\u00b0 58-1100 du 17 novembre 1958 relative au fonctionnement des assembl\u00e9es parlementaires.", 
                         "\"Il comprend un repr\u00e9sentant des r\u00e9gions.", 
-                        "\"un d\u00e9cret pr\u00e9cise la composition et les missions, l'organisation et le fonctionnement du Conseil strat\u00e9gique de la recherche.\""
+                        "\"Un d\u00e9cret pr\u00e9cise la composition et les missions, l'organisation et le fonctionnement du Conseil strat\u00e9gique de la recherche.\""
                     ]
                 }
             ], 
@@ -9692,7 +9692,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 954, 
                     "n_diff": 0, 
                     "order": 93, 
@@ -9707,7 +9707,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 954, 
                     "n_diff": 0, 
                     "order": 98, 
@@ -9722,7 +9722,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 954, 
                     "n_diff": 0, 
                     "order": 97, 
@@ -9737,7 +9737,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 954, 
                     "n_diff": 0, 
                     "order": 96, 
@@ -9768,7 +9768,7 @@
                         "L'article L. 329-7 du m\u00eame code est remplac\u00e9 par les dispositions suivantes :", 
                         "Art. L. 329-7. - I. - Les agents de l'\u00c9tat et des personnes publiques investies d'une mission de recherche auteurs, dans le cadre de recherches financ\u00e9es par dotations de l'\u00c9tat et des collectivit\u00e9s territoriales ou par subventions d'agences de financement nationales, d'une invention dans les conditions pr\u00e9vues au 1 de l'article L. 611-7 du code de la propri\u00e9t\u00e9 intellectuelle en font imm\u00e9diatement d\u00e9claration aupr\u00e8s de la personne publique employeur dont ils rel\u00e8vent.", 
                         "\"II. - Lorsqu'elles sont susceptibles d'un d\u00e9veloppement \u00e9conomique, ces inventions donnent lieu \u00e0 un d\u00e9p\u00f4t en vue de l'acquisition d'un titre de propri\u00e9t\u00e9 industrielle tel qu'il est d\u00e9fini aux articles L. 611-1 et L. 611-2 du code de la propri\u00e9t\u00e9 intellectuelle.", 
-                        "\"III. - Les personnes publiques employeurs des personnels mentionn\u00e9s au I valorisent l'invention objet du titre de propri\u00e9t\u00e9 industrielle, acquis en application du II, dans les conditions pr\u00e9vues par le code de la propri\u00e9t\u00e9 intellectuelle, aupr\u00e8s d'entreprises qui s'engagent \u00e0 une exploitation de l'invention sous la forme d'une production industrielle ou de la cr\u00e9ation de services sur le territoire de l'union europ\u00e9enne et parmi ces entreprises, prioritairement aupr\u00e8s de celles employant moins de deux cent cinquante salari\u00e9s.", 
+                        "\"III. - Les personnes publiques employeurs des personnels mentionn\u00e9s au I valorisent l'invention objet du titre de propri\u00e9t\u00e9 industrielle, acquis en application du II, dans les conditions pr\u00e9vues par le code de la propri\u00e9t\u00e9 intellectuelle, aupr\u00e8s d'entreprises qui s'engagent \u00e0 une exploitation de l'invention sous la forme d'une production industrielle ou de la cr\u00e9ation de services sur le territoire de l'Union europ\u00e9enne et parmi ces entreprises, prioritairement aupr\u00e8s de celles employant moins de deux cent cinquante salari\u00e9s.", 
                         "\"IV. - Les personnes publiques investies d'une mission de recherche autres que l'\u00c9tat mentionn\u00e9es au I informent leur minist\u00e8re de tutelle des titres de propri\u00e9t\u00e9 intellectuelle acquis et des conditions de leur exploitation en application des dispositions des II et III.\""
                     ]
                 }, 
@@ -9783,7 +9783,7 @@
                         "L'article L. 329-7 du code de la recherche est ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 329-7. - I. - Les agents de l'\u00c9tat et des personnes publiques investies d'une mission de recherche, auteurs, dans le cadre de recherches financ\u00e9es par des dotations de l'\u00c9tat et des collectivit\u00e9s territoriales ou par des subventions d'agences de financement nationales, d'une invention dans les conditions pr\u00e9vues au 1 de l'article L. 611-7 du code de la propri\u00e9t\u00e9 intellectuelle, en font imm\u00e9diatement d\u00e9claration aupr\u00e8s de la personne publique employeur dont ils rel\u00e8vent.", 
                         "\"II. - Lorsqu'elles sont susceptibles d'un d\u00e9veloppement \u00e9conomique, ces inventions donnent lieu \u00e0 un d\u00e9p\u00f4t en vue de l'acquisition d'un titre de propri\u00e9t\u00e9 industrielle tel qu'il est d\u00e9fini aux articles L. 611-1 et L. 611-2 du m\u00eame code.", 
-                        "\"III. - Les personnes publiques employeurs des personnels mentionn\u00e9s au I valorisent l'invention objet du titre de propri\u00e9t\u00e9 industrielle, acquis en application du II, dans les conditions pr\u00e9vues par le code de la propri\u00e9t\u00e9 intellectuelle, aupr\u00e8s d'entreprises qui s'engagent \u00e0 une exploitation de l'invention sous la forme d'une production industrielle ou de la cr\u00e9ation de services sur le territoire de l'union europ\u00e9enne et, parmi ces entreprises, prioritairement aupr\u00e8s de celles employant moins de deux cent cinquante salari\u00e9s.", 
+                        "\"III. - Les personnes publiques employeurs des personnels mentionn\u00e9s au I valorisent l'invention objet du titre de propri\u00e9t\u00e9 industrielle, acquis en application du II, dans les conditions pr\u00e9vues par le code de la propri\u00e9t\u00e9 intellectuelle, aupr\u00e8s d'entreprises qui s'engagent \u00e0 une exploitation de l'invention sous la forme d'une production industrielle ou de la cr\u00e9ation de services sur le territoire de l'Union europ\u00e9enne et, parmi ces entreprises, prioritairement aupr\u00e8s de celles employant moins de deux cent cinquante salari\u00e9s.", 
                         "\"IV. - Les personnes publiques investies d'une mission de recherche autres que l'\u00c9tat mentionn\u00e9es au I informent leur minist\u00e8re de tutelle des titres de propri\u00e9t\u00e9 intellectuelle acquis et des conditions de leur exploitation en application des II et III.\""
                     ]
                 }, 
@@ -9798,13 +9798,13 @@
                         "L'article L. 329-7 du code de la recherche est ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 329-7. - I. - Les agents de l'\u00c9tat et des personnes publiques investies d'une mission de recherche, auteurs, dans le cadre de recherches financ\u00e9es par des dotations de l'\u00c9tat et des collectivit\u00e9s territoriales ou par des subventions d'agences de financement nationales, d'une invention dans les conditions pr\u00e9vues au 1 de l'article L. 611-7 du code de la propri\u00e9t\u00e9 intellectuelle, en font imm\u00e9diatement d\u00e9claration aupr\u00e8s de la personne publique employeur dont ils rel\u00e8vent.", 
                         "\"II. - Lorsqu'elles sont susceptibles d'un d\u00e9veloppement \u00e9conomique, ces inventions donnent lieu \u00e0 un d\u00e9p\u00f4t en vue de l'acquisition d'un titre de propri\u00e9t\u00e9 industrielle, tel qu'il est d\u00e9fini aux articles L. 611-1 et L. 611-2 du m\u00eame code.", 
-                        "\"III. - Les personnes publiques employeurs des personnels mentionn\u00e9s au I valorisent l'invention objet du titre de propri\u00e9t\u00e9 industrielle, acquis en application du II, dans les conditions pr\u00e9vues par le code de la propri\u00e9t\u00e9 intellectuelle, aupr\u00e8s d'entreprises qui s'engagent \u00e0 une exploitation de l'invention sous la forme d'une production industrielle ou de la cr\u00e9ation de services sur le territoire de l'union europ\u00e9enne et, parmi ces entreprises, prioritairement aupr\u00e8s de celles employant moins de deux cent cinquante salari\u00e9s.", 
+                        "\"III. - Les personnes publiques employeurs des personnels mentionn\u00e9s au I valorisent l'invention objet du titre de propri\u00e9t\u00e9 industrielle, acquis en application du II, dans les conditions pr\u00e9vues par le code de la propri\u00e9t\u00e9 intellectuelle, aupr\u00e8s d'entreprises qui s'engagent \u00e0 une exploitation de l'invention sous la forme d'une production industrielle ou de la cr\u00e9ation de services sur le territoire de l'Union europ\u00e9enne et, parmi ces entreprises, prioritairement aupr\u00e8s de celles employant moins de deux cent cinquante salari\u00e9s.", 
                         "\"IV. - Les personnes publiques investies d'une mission de recherche autres que l'\u00c9tat mentionn\u00e9es au I informent leur minist\u00e8re de tutelle des titres de propri\u00e9t\u00e9 intellectuelle acquis et des conditions de leur exploitation en application des II et III.\""
                     ]
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1966, 
                     "n_diff": 0.1164499717354438, 
                     "order": 94, 
@@ -9813,14 +9813,14 @@
                         "L'article L. 329-7 du code de la recherche est ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 329-7. - I. - Les agents de l'\u00c9tat et des personnes publiques investies d'une mission de recherche, auteurs, dans le cadre de recherches financ\u00e9es par des dotations de l'\u00c9tat et des collectivit\u00e9s territoriales ou par des subventions d'agences de financement nationales, d'une invention dans les conditions pr\u00e9vues au 1 de l'article L. 611-7 du code de la propri\u00e9t\u00e9 intellectuelle en font imm\u00e9diatement d\u00e9claration aupr\u00e8s de la personne publique employeur dont ils rel\u00e8vent.", 
                         "\"II. - Lorsqu'elles sont susceptibles d'un d\u00e9veloppement \u00e9conomique, ces inventions donnent lieu \u00e0 un d\u00e9p\u00f4t en vue de l'acquisition d'un titre de propri\u00e9t\u00e9 industrielle, tel qu'il est d\u00e9fini aux articles L. 611-1 et L. 611-2 du m\u00eame code.", 
-                        "\"III. - Les personnes publiques employeurs des personnels mentionn\u00e9s au I valorisent l'invention objet du titre de propri\u00e9t\u00e9 industrielle, acquis en application du II, dans les conditions pr\u00e9vues par le code de la propri\u00e9t\u00e9 intellectuelle, aupr\u00e8s d'entreprises qui s'engagent \u00e0 une exploitation de l'invention sous la forme d'une production industrielle ou de la cr\u00e9ation de services sur le territoire de l'union europ\u00e9enne et, parmi ces entreprises, prioritairement aupr\u00e8s de celles employant moins de deux cent cinquante salari\u00e9s.", 
+                        "\"III. - Les personnes publiques employeurs des personnels mentionn\u00e9s au I valorisent l'invention objet du titre de propri\u00e9t\u00e9 industrielle, acquis en application du II, dans les conditions pr\u00e9vues par le code de la propri\u00e9t\u00e9 intellectuelle, aupr\u00e8s d'entreprises qui s'engagent \u00e0 une exploitation de l'invention sous la forme d'une production industrielle ou de la cr\u00e9ation de services sur le territoire de l'Union europ\u00e9enne et, parmi ces entreprises, prioritairement aupr\u00e8s de celles employant moins de deux cent cinquante salari\u00e9s.", 
                         "\"IV. - Les personnes publiques investies d'une mission de recherche autres que l'\u00c9tat mentionn\u00e9es au I informent leur minist\u00e8re de tutelle des titres de propri\u00e9t\u00e9 industrielle acquis et des conditions de leur exploitation en application des II et III.", 
-                        "\"V. - Afin de simplifier et d'acc\u00e9l\u00e9rer le transfert d'un titre de propri\u00e9t\u00e9 industrielle acquis en application du II, en cas de copropri\u00e9t\u00e9 publique constat\u00e9e au d\u00e9p\u00f4t de l'invention, un mandataire unique charg\u00e9 de la gestion, de l'exploitation et de la n\u00e9gociation du titre est d\u00e9sign\u00e9 par les d\u00e9posants avant sa publication. un d\u00e9cret fixe les missions et le mode de d\u00e9signation du mandataire.\""
+                        "\"V. - Afin de simplifier et d'acc\u00e9l\u00e9rer le transfert d'un titre de propri\u00e9t\u00e9 industrielle acquis en application du II, en cas de copropri\u00e9t\u00e9 publique constat\u00e9e au d\u00e9p\u00f4t de l'invention, un mandataire unique charg\u00e9 de la gestion, de l'exploitation et de la n\u00e9gociation du titre est d\u00e9sign\u00e9 par les d\u00e9posants avant sa publication. Un d\u00e9cret fixe les missions et le mode de d\u00e9signation du mandataire.\""
                     ]
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 2279, 
                     "n_diff": 0.15477031802120145, 
                     "order": 99, 
@@ -9829,15 +9829,15 @@
                         "L'article L. 329-7 du code de la recherche est ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 329-7. - I. - Les agents de l'\u00c9tat et des personnes publiques investies d'une mission de recherche, auteurs, dans le cadre de recherches financ\u00e9es par des dotations de l'\u00c9tat et des collectivit\u00e9s territoriales ou par des subventions d'agences de financement nationales, d'une invention dans les conditions pr\u00e9vues au 1 de l'article L. 611-7 du code de la propri\u00e9t\u00e9 intellectuelle en font imm\u00e9diatement d\u00e9claration aupr\u00e8s de la personne publique employeur dont ils rel\u00e8vent.", 
                         "\"II. - Lorsqu'elles sont susceptibles d'un d\u00e9veloppement \u00e9conomique, ces inventions donnent lieu \u00e0 un d\u00e9p\u00f4t en vue de l'acquisition d'un titre de propri\u00e9t\u00e9 industrielle, tel qu'il est d\u00e9fini aux articles L. 611-1 et L. 611-2 du m\u00eame code.", 
-                        "\"III. - Les personnes publiques employeurs des personnels mentionn\u00e9s au I valorisent l'invention objet du titre de propri\u00e9t\u00e9 industrielle, acquis en application du II, dans les conditions pr\u00e9vues par le code de la propri\u00e9t\u00e9 intellectuelle, aupr\u00e8s d'entreprises qui pr\u00e9voient une exploitation de l'invention au moins en partie sous la forme d'une production industrielle ou de la cr\u00e9ation de services de pr\u00e9f\u00e9rence sur le territoire de l'union europ\u00e9enne et, parmi ces entreprises, de pr\u00e9f\u00e9rence aupr\u00e8s des petites et moyennes entreprises et industries et des entreprises de taille interm\u00e9diaire.", 
+                        "\"III. - Les personnes publiques employeurs des personnels mentionn\u00e9s au I valorisent l'invention objet du titre de propri\u00e9t\u00e9 industrielle, acquis en application du II, dans les conditions pr\u00e9vues par le code de la propri\u00e9t\u00e9 intellectuelle, aupr\u00e8s d'entreprises qui pr\u00e9voient une exploitation de l'invention au moins en partie sous la forme d'une production industrielle ou de la cr\u00e9ation de services de pr\u00e9f\u00e9rence sur le territoire de l'Union europ\u00e9enne et, parmi ces entreprises, de pr\u00e9f\u00e9rence aupr\u00e8s des petites et moyennes entreprises et industries et des entreprises de taille interm\u00e9diaire.", 
                         "\"IV. - Les personnes publiques investies d'une mission de recherche autres que l'\u00c9tat mentionn\u00e9es au I informent leur minist\u00e8re de tutelle des titres de propri\u00e9t\u00e9 industrielle acquis et des conditions de leur exploitation en application des II et III.", 
-                        "\"V. - Afin de simplifier et d'acc\u00e9l\u00e9rer le transfert d'un titre de propri\u00e9t\u00e9 industrielle acquis en application du II, en cas de copropri\u00e9t\u00e9 publique constat\u00e9e au d\u00e9p\u00f4t de l'invention, un mandataire unique charg\u00e9 de la gestion, de l'exploitation et de la n\u00e9gociation du titre est d\u00e9sign\u00e9 par les d\u00e9posants avant sa publication. un d\u00e9cret fixe les missions et le mode de d\u00e9signation du mandataire.", 
+                        "\"V. - Afin de simplifier et d'acc\u00e9l\u00e9rer le transfert d'un titre de propri\u00e9t\u00e9 industrielle acquis en application du II, en cas de copropri\u00e9t\u00e9 publique constat\u00e9e au d\u00e9p\u00f4t de l'invention, un mandataire unique charg\u00e9 de la gestion, de l'exploitation et de la n\u00e9gociation du titre est d\u00e9sign\u00e9 par les d\u00e9posants avant sa publication. Un d\u00e9cret fixe les missions et le mode de d\u00e9signation du mandataire.", 
                         "\"Vi. - Apr\u00e8s cinq ans sans exploitation par l'entreprise qui s'est port\u00e9e candidate, sans pr\u00e9judice d'une \u00e9ventuelle compensation, le transfert devient caduc et la propri\u00e9t\u00e9 du brevet revient int\u00e9gralement \u00e0 l'\u00e9tablissement public o\u00f9 il a \u00e9t\u00e9 con\u00e7u.\""
                     ]
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 2402, 
                     "n_diff": 0.11471907712027352, 
                     "order": 98, 
@@ -9846,15 +9846,15 @@
                         "L'article L. 329-7 du code de la recherche est ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 329-7. - I. - Les agents de l'\u00c9tat et des personnes publiques investies d'une mission de recherche, auteurs, dans le cadre de recherches financ\u00e9es par des dotations de l'\u00c9tat et des collectivit\u00e9s territoriales ou par des subventions d'agences de financement nationales, d'une invention dans les conditions pr\u00e9vues au 1 de l'article L. 611-7 du code de la propri\u00e9t\u00e9 intellectuelle en font imm\u00e9diatement d\u00e9claration aupr\u00e8s de la personne publique employeur dont ils rel\u00e8vent.", 
                         "\"II. - Lorsqu'elles sont susceptibles d'un d\u00e9veloppement \u00e9conomique, ces inventions donnent lieu \u00e0 un d\u00e9p\u00f4t en vue de l'acquisition d'un titre de propri\u00e9t\u00e9 industrielle, tel qu'il est d\u00e9fini aux articles L. 611-1 et L. 611-2 du m\u00eame code.", 
-                        "\"III. - Les personnes publiques employeurs des personnels mentionn\u00e9s au I valorisent l'invention objet du titre de propri\u00e9t\u00e9 industrielle, acquis en application du II, dans les conditions pr\u00e9vues par le code de la propri\u00e9t\u00e9 intellectuelle, aupr\u00e8s d'entreprises qui pr\u00e9voient une exploitation de l'invention au moins en partie sous la forme d'une production industrielle ou de la cr\u00e9ation de services de pr\u00e9f\u00e9rence sur le territoire de l'union europ\u00e9enne et, parmi ces entreprises, de pr\u00e9f\u00e9rence aupr\u00e8s des petites et moyennes entreprises et industries et des entreprises de taille interm\u00e9diaire.", 
+                        "\"III. - Les personnes publiques employeurs des personnels mentionn\u00e9s au I valorisent l'invention objet du titre de propri\u00e9t\u00e9 industrielle, acquis en application du II, dans les conditions pr\u00e9vues par le code de la propri\u00e9t\u00e9 intellectuelle, aupr\u00e8s d'entreprises qui pr\u00e9voient une exploitation de l'invention au moins en partie sous la forme d'une production industrielle ou de la cr\u00e9ation de services de pr\u00e9f\u00e9rence sur le territoire de l'Union europ\u00e9enne et, parmi ces entreprises, de pr\u00e9f\u00e9rence aupr\u00e8s des petites et moyennes entreprises et industries et des entreprises de taille interm\u00e9diaire.", 
                         "\"IV. - Les personnes publiques investies d'une mission de recherche autres que l'\u00c9tat mentionn\u00e9es au I informent leur minist\u00e8re de tutelle des titres de propri\u00e9t\u00e9 industrielle acquis et des conditions de leur exploitation en application des II et III.", 
-                        "\"V. - Afin de simplifier et d'acc\u00e9l\u00e9rer le transfert d'un titre de propri\u00e9t\u00e9 industrielle acquis en application du II, en cas de copropri\u00e9t\u00e9 publique constat\u00e9e au d\u00e9p\u00f4t de l'invention, un mandataire unique charg\u00e9 de la gestion, de l'exploitation et de la n\u00e9gociation du titre est d\u00e9sign\u00e9 par les d\u00e9posants avant sa publication. un d\u00e9cret fixe les missions et le mode de d\u00e9signation du mandataire.", 
+                        "\"V. - Afin de simplifier et d'acc\u00e9l\u00e9rer le transfert d'un titre de propri\u00e9t\u00e9 industrielle acquis en application du II, en cas de copropri\u00e9t\u00e9 publique constat\u00e9e au d\u00e9p\u00f4t de l'invention, un mandataire unique charg\u00e9 de la gestion, de l'exploitation et de la n\u00e9gociation du titre est d\u00e9sign\u00e9 par les d\u00e9posants avant sa publication. Un d\u00e9cret fixe les missions et le mode de d\u00e9signation du mandataire.", 
                         "\"VI. - Sauf excuses l\u00e9gitimes, apr\u00e8s cinq ans \u00e0 compter de la date du transfert sans exploitation par l'entreprise de l'invention objet d'un titre de propri\u00e9t\u00e9 industrielle acquis en application du II, la cession est nulle et la propri\u00e9t\u00e9 du titre revient int\u00e9gralement \u00e0 la personne publique qui l'a c\u00e9d\u00e9. Les restitutions et compensations sont r\u00e9gl\u00e9es par le code civil.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 2402, 
                     "n_diff": 0, 
                     "order": 97, 
@@ -9863,9 +9863,9 @@
                         "L'article L. 329-7 du code de la recherche est ainsi r\u00e9dig\u00e9 :", 
                         "\"Art. L. 329-7. - I. - Les agents de l'\u00c9tat et des personnes publiques investies d'une mission de recherche, auteurs, dans le cadre de recherches financ\u00e9es par des dotations de l'\u00c9tat et des collectivit\u00e9s territoriales ou par des subventions d'agences de financement nationales, d'une invention dans les conditions pr\u00e9vues au 1 de l'article L. 611-7 du code de la propri\u00e9t\u00e9 intellectuelle en font imm\u00e9diatement d\u00e9claration aupr\u00e8s de la personne publique employeur dont ils rel\u00e8vent.", 
                         "\"II. - Lorsqu'elles sont susceptibles d'un d\u00e9veloppement \u00e9conomique, ces inventions donnent lieu \u00e0 un d\u00e9p\u00f4t en vue de l'acquisition d'un titre de propri\u00e9t\u00e9 industrielle, tel qu'il est d\u00e9fini aux articles L. 611-1 et L. 611-2 du m\u00eame code.", 
-                        "\"III. - Les personnes publiques employeurs des personnels mentionn\u00e9s au I valorisent l'invention objet du titre de propri\u00e9t\u00e9 industrielle, acquis en application du II, dans les conditions pr\u00e9vues par le code de la propri\u00e9t\u00e9 intellectuelle, aupr\u00e8s d'entreprises qui pr\u00e9voient une exploitation de l'invention au moins en partie sous la forme d'une production industrielle ou de la cr\u00e9ation de services de pr\u00e9f\u00e9rence sur le territoire de l'union europ\u00e9enne et, parmi ces entreprises, de pr\u00e9f\u00e9rence aupr\u00e8s des petites et moyennes entreprises et industries et des entreprises de taille interm\u00e9diaire.", 
+                        "\"III. - Les personnes publiques employeurs des personnels mentionn\u00e9s au I valorisent l'invention objet du titre de propri\u00e9t\u00e9 industrielle, acquis en application du II, dans les conditions pr\u00e9vues par le code de la propri\u00e9t\u00e9 intellectuelle, aupr\u00e8s d'entreprises qui pr\u00e9voient une exploitation de l'invention au moins en partie sous la forme d'une production industrielle ou de la cr\u00e9ation de services de pr\u00e9f\u00e9rence sur le territoire de l'Union europ\u00e9enne et, parmi ces entreprises, de pr\u00e9f\u00e9rence aupr\u00e8s des petites et moyennes entreprises et industries et des entreprises de taille interm\u00e9diaire.", 
                         "\"IV. - Les personnes publiques investies d'une mission de recherche autres que l'\u00c9tat mentionn\u00e9es au I informent leur minist\u00e8re de tutelle des titres de propri\u00e9t\u00e9 industrielle acquis et des conditions de leur exploitation en application des II et III.", 
-                        "\"V. - Afin de simplifier et d'acc\u00e9l\u00e9rer le transfert d'un titre de propri\u00e9t\u00e9 industrielle acquis en application du II, en cas de copropri\u00e9t\u00e9 publique constat\u00e9e au d\u00e9p\u00f4t de l'invention, un mandataire unique charg\u00e9 de la gestion, de l'exploitation et de la n\u00e9gociation du titre est d\u00e9sign\u00e9 par les d\u00e9posants avant sa publication. un d\u00e9cret fixe les missions et le mode de d\u00e9signation du mandataire.", 
+                        "\"V. - Afin de simplifier et d'acc\u00e9l\u00e9rer le transfert d'un titre de propri\u00e9t\u00e9 industrielle acquis en application du II, en cas de copropri\u00e9t\u00e9 publique constat\u00e9e au d\u00e9p\u00f4t de l'invention, un mandataire unique charg\u00e9 de la gestion, de l'exploitation et de la n\u00e9gociation du titre est d\u00e9sign\u00e9 par les d\u00e9posants avant sa publication. Un d\u00e9cret fixe les missions et le mode de d\u00e9signation du mandataire.", 
                         "\"VI. - Sauf excuses l\u00e9gitimes, apr\u00e8s cinq ans \u00e0 compter de la date du transfert sans exploitation par l'entreprise de l'invention objet d'un titre de propri\u00e9t\u00e9 industrielle acquis en application du II, la cession est nulle et la propri\u00e9t\u00e9 du titre revient int\u00e9gralement \u00e0 la personne publique qui l'a c\u00e9d\u00e9. Les restitutions et compensations sont r\u00e9gl\u00e9es par le code civil.\""
                     ]
                 }
@@ -9902,7 +9902,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 540, 
                     "n_diff": 0, 
                     "order": 95, 
@@ -9914,7 +9914,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 540, 
                     "n_diff": 0, 
                     "order": 100, 
@@ -9926,7 +9926,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 540, 
                     "n_diff": 0, 
                     "order": 99, 
@@ -9938,7 +9938,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 540, 
                     "n_diff": 0, 
                     "order": 101, 
@@ -9979,7 +9979,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 50, 
                     "n_diff": 0, 
                     "order": 96, 
@@ -10058,7 +10058,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1698, 
                     "n_diff": 0, 
                     "order": 97, 
@@ -10079,7 +10079,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1698, 
                     "n_diff": 0, 
                     "order": 103, 
@@ -10100,7 +10100,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1698, 
                     "n_diff": 0, 
                     "order": 102, 
@@ -10121,7 +10121,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1698, 
                     "n_diff": 0, 
                     "order": 104, 
@@ -10149,7 +10149,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 156, 
                     "n_diff": 1, 
                     "order": 101, 
@@ -10161,7 +10161,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 156, 
                     "n_diff": 0, 
                     "order": 100, 
@@ -10173,7 +10173,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 156, 
                     "n_diff": 0, 
                     "order": 102, 
@@ -10192,7 +10192,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 392, 
                     "n_diff": 1, 
                     "order": 98, 
@@ -10212,7 +10212,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 499, 
                     "n_diff": 1, 
                     "order": 99, 
@@ -10232,7 +10232,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 242, 
                     "n_diff": 1, 
                     "order": 100, 
@@ -10250,7 +10250,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 308, 
                     "n_diff": 1, 
                     "order": 102, 
@@ -10262,7 +10262,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 308, 
                     "n_diff": 0, 
                     "order": 101, 
@@ -10274,7 +10274,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 308, 
                     "n_diff": 0.0032467532467532756, 
                     "order": 103, 
@@ -10305,7 +10305,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 244, 
                     "n_diff": 0, 
                     "order": 100, 
@@ -10317,7 +10317,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 244, 
                     "n_diff": 0, 
                     "order": 106, 
@@ -10329,7 +10329,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 244, 
                     "n_diff": 0, 
                     "order": 105, 
@@ -10341,7 +10341,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 244, 
                     "n_diff": 0, 
                     "order": 105, 
@@ -10360,7 +10360,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1161, 
                     "n_diff": 1, 
                     "order": 98, 
@@ -10375,7 +10375,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1166, 
                     "n_diff": 0.0021486892995272733, 
                     "order": 104, 
@@ -10390,7 +10390,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 50, 
                     "n_diff": 0, 
                     "order": 103, 
@@ -10406,7 +10406,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 779, 
                     "n_diff": 1, 
                     "order": 99, 
@@ -10421,7 +10421,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 780, 
                     "n_diff": 0.059653624118024329, 
                     "order": 105, 
@@ -10436,7 +10436,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 50, 
                     "n_diff": 0, 
                     "order": 104, 
@@ -10452,7 +10452,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 78, 
                     "n_diff": 1, 
                     "order": 101, 
@@ -10463,7 +10463,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 3136, 
                     "n_diff": 0.96888612321095213, 
                     "order": 107, 
@@ -10481,12 +10481,12 @@
                         "4\u00b0 \u00c0 la seconde phrase du septi\u00e8me alin\u00e9a, le mot : \"quatri\u00e8me\" est remplac\u00e9 par le mot : \"sixi\u00e8me\" ;", 
                         "5\u00b0 Au d\u00e9but de l'avant-dernier alin\u00e9a, les mots : \"Les communes\" sont remplac\u00e9s par les mots : \"Les collectivit\u00e9s territoriales\" ;", 
                         "6\u00b0 Il est ajout\u00e9 un alin\u00e9a ainsi r\u00e9dig\u00e9 :", 
-                        "\"un d\u00e9cret en Conseil d'\u00c9tat fixe les modalit\u00e9s des transferts mentionn\u00e9s au pr\u00e9sent article. Il pr\u00e9cise notamment les crit\u00e8res d'attribution des logements destin\u00e9s aux \u00e9tudiants.\""
+                        "\"Un d\u00e9cret en Conseil d'\u00c9tat fixe les modalit\u00e9s des transferts mentionn\u00e9s au pr\u00e9sent article. Il pr\u00e9cise notamment les crit\u00e8res d'attribution des logements destin\u00e9s aux \u00e9tudiants.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 3136, 
                     "n_diff": 0, 
                     "order": 106, 
@@ -10504,12 +10504,12 @@
                         "4\u00b0 \u00c0 la seconde phrase du septi\u00e8me alin\u00e9a, le mot : \"quatri\u00e8me\" est remplac\u00e9 par le mot : \"sixi\u00e8me\" ;", 
                         "5\u00b0 Au d\u00e9but de l'avant-dernier alin\u00e9a, les mots : \"Les communes\" sont remplac\u00e9s par les mots : \"Les collectivit\u00e9s territoriales\" ;", 
                         "6\u00b0 Il est ajout\u00e9 un alin\u00e9a ainsi r\u00e9dig\u00e9 :", 
-                        "\"un d\u00e9cret en Conseil d'\u00c9tat fixe les modalit\u00e9s des transferts mentionn\u00e9s au pr\u00e9sent article. Il pr\u00e9cise notamment les crit\u00e8res d'attribution des logements destin\u00e9s aux \u00e9tudiants.\""
+                        "\"Un d\u00e9cret en Conseil d'\u00c9tat fixe les modalit\u00e9s des transferts mentionn\u00e9s au pr\u00e9sent article. Il pr\u00e9cise notamment les crit\u00e8res d'attribution des logements destin\u00e9s aux \u00e9tudiants.\""
                     ]
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 3137, 
                     "n_diff": 0.0055794675593814347, 
                     "order": 106, 
@@ -10527,7 +10527,7 @@
                         "4\u00b0 \u00c0 la seconde phrase du septi\u00e8me alin\u00e9a, le mot : \"quatri\u00e8me\" est remplac\u00e9 par le mot : \"sixi\u00e8me\" ;", 
                         "5\u00b0 Au d\u00e9but de l'avant-dernier alin\u00e9a, les mots : \"Les communes\" sont remplac\u00e9s par les mots : \"Les collectivit\u00e9s territoriales\" ;", 
                         "6\u00b0 Il est ajout\u00e9 un alin\u00e9a ainsi r\u00e9dig\u00e9 :", 
-                        "\"un d\u00e9cret en Conseil d'\u00c9tat fixe les modalit\u00e9s des transferts mentionn\u00e9s au pr\u00e9sent article. Il pr\u00e9cise notamment les crit\u00e8res d'attribution des logements destin\u00e9s aux \u00e9tudiants.\""
+                        "\"Un d\u00e9cret en Conseil d'\u00c9tat fixe les modalit\u00e9s des transferts mentionn\u00e9s au pr\u00e9sent article. Il pr\u00e9cise notamment les crit\u00e8res d'attribution des logements destin\u00e9s aux \u00e9tudiants.\""
                     ]
                 }
             ], 
@@ -10572,7 +10572,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 225, 
                     "n_diff": 0, 
                     "order": 102, 
@@ -10583,7 +10583,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 225, 
                     "n_diff": 0, 
                     "order": 108, 
@@ -10594,7 +10594,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 225, 
                     "n_diff": 0, 
                     "order": 107, 
@@ -10605,7 +10605,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 225, 
                     "n_diff": 0, 
                     "order": 107, 
@@ -10659,7 +10659,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1233, 
                     "n_diff": 0.0020316944331572051, 
                     "order": 104, 
@@ -10677,7 +10677,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1233, 
                     "n_diff": 0, 
                     "order": 111, 
@@ -10695,7 +10695,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1233, 
                     "n_diff": 0.0016220600162205612, 
                     "order": 110, 
@@ -10713,7 +10713,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1233, 
                     "n_diff": 0.0016220600162205612, 
                     "order": 110, 
@@ -10738,7 +10738,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 203, 
                     "n_diff": 1, 
                     "order": 103, 
@@ -10749,7 +10749,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 205, 
                     "n_diff": 0.0049019607843137081, 
                     "order": 110, 
@@ -10760,7 +10760,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 205, 
                     "n_diff": 0, 
                     "order": 109, 
@@ -10771,7 +10771,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 205, 
                     "n_diff": 0, 
                     "order": 109, 
@@ -10789,7 +10789,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 546, 
                     "n_diff": 1, 
                     "order": 109, 
@@ -10800,7 +10800,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 546, 
                     "n_diff": 0, 
                     "order": 108, 
@@ -10811,7 +10811,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 547, 
                     "n_diff": 0.00091491308325708509, 
                     "order": 108, 
@@ -10841,7 +10841,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 918, 
                     "n_diff": 0, 
                     "order": 110, 
@@ -10853,7 +10853,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 918, 
                     "n_diff": 0, 
                     "order": 117, 
@@ -10865,7 +10865,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 918, 
                     "n_diff": 0, 
                     "order": 116, 
@@ -10877,7 +10877,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 918, 
                     "n_diff": 0, 
                     "order": 115, 
@@ -10907,7 +10907,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 128, 
                     "n_diff": 0, 
                     "order": 106, 
@@ -10918,7 +10918,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 128, 
                     "n_diff": 0, 
                     "order": 113, 
@@ -10929,7 +10929,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 128, 
                     "n_diff": 0, 
                     "order": 112, 
@@ -10940,7 +10940,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 128, 
                     "n_diff": 0, 
                     "order": 111, 
@@ -10969,7 +10969,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 155, 
                     "n_diff": 0, 
                     "order": 107, 
@@ -10980,7 +10980,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 155, 
                     "n_diff": 0, 
                     "order": 114, 
@@ -10991,7 +10991,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 155, 
                     "n_diff": 0, 
                     "order": 113, 
@@ -11002,7 +11002,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 155, 
                     "n_diff": 0, 
                     "order": 112, 
@@ -11031,7 +11031,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 508, 
                     "n_diff": 0, 
                     "order": 109, 
@@ -11042,7 +11042,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 508, 
                     "n_diff": 0, 
                     "order": 116, 
@@ -11053,7 +11053,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 508, 
                     "n_diff": 0, 
                     "order": 115, 
@@ -11064,7 +11064,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 508, 
                     "n_diff": 0, 
                     "order": 114, 
@@ -11096,7 +11096,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1093, 
                     "n_diff": 0, 
                     "order": 108, 
@@ -11110,7 +11110,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1093, 
                     "n_diff": 0, 
                     "order": 115, 
@@ -11124,7 +11124,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1093, 
                     "n_diff": 0, 
                     "order": 114, 
@@ -11138,7 +11138,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1093, 
                     "n_diff": 0, 
                     "order": 113, 
@@ -11171,7 +11171,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 430, 
                     "n_diff": 0.3666666666666667, 
                     "order": 105, 
@@ -11186,7 +11186,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 432, 
                     "n_diff": 0.0023201856148491462, 
                     "order": 112, 
@@ -11201,7 +11201,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 50, 
                     "n_diff": 0, 
                     "order": 111, 
@@ -11265,7 +11265,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 3083, 
                     "n_diff": 0.04519309778142977, 
                     "order": 111, 
@@ -11281,7 +11281,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 3083, 
                     "n_diff": 0, 
                     "order": 118, 
@@ -11297,7 +11297,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 3082, 
                     "n_diff": 0.00016220600162208942, 
                     "order": 117, 
@@ -11313,7 +11313,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 3082, 
                     "n_diff": 0.00097339390006490056, 
                     "order": 116, 
@@ -11381,7 +11381,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 2516, 
                     "n_diff": 0.10669274228596271, 
                     "order": 112, 
@@ -11396,7 +11396,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 2514, 
                     "n_diff": 0.00079522862823067086, 
                     "order": 119, 
@@ -11411,7 +11411,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 2514, 
                     "n_diff": 0, 
                     "order": 118, 
@@ -11426,7 +11426,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 2505, 
                     "n_diff": 0.0057780434349472554, 
                     "order": 117, 
@@ -11448,7 +11448,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 119, 
                     "n_diff": 1, 
                     "order": 8, 
@@ -11459,7 +11459,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 129, 
                     "n_diff": 0.08064516129032262, 
                     "order": 9, 
@@ -11470,7 +11470,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 129, 
                     "n_diff": 0, 
                     "order": 8, 
@@ -11481,7 +11481,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 129, 
                     "n_diff": 0, 
                     "order": 8, 
@@ -11538,7 +11538,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 437, 
                     "n_diff": 0.32067039106145256, 
                     "order": 9, 
@@ -11552,7 +11552,7 @@
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 511, 
                     "n_diff": 0.19409282700421948, 
                     "order": 10, 
@@ -11567,7 +11567,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 502, 
                     "n_diff": 0.008884501480750262, 
                     "order": 9, 
@@ -11582,7 +11582,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 485, 
                     "n_diff": 0.47619047619047616, 
                     "order": 9, 
@@ -11637,7 +11637,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 410, 
                     "n_diff": 0, 
                     "order": 113, 
@@ -11648,7 +11648,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 410, 
                     "n_diff": 0, 
                     "order": 120, 
@@ -11659,7 +11659,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 410, 
                     "n_diff": 0, 
                     "order": 119, 
@@ -11670,7 +11670,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 410, 
                     "n_diff": 0, 
                     "order": 118, 
@@ -11721,7 +11721,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 404, 
                     "n_diff": 0, 
                     "order": 114, 
@@ -11732,7 +11732,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 404, 
                     "n_diff": 0, 
                     "order": 121, 
@@ -11743,7 +11743,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 404, 
                     "n_diff": 0, 
                     "order": 120, 
@@ -11754,7 +11754,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 404, 
                     "n_diff": 0, 
                     "order": 119, 
@@ -11805,7 +11805,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 136, 
                     "n_diff": 0, 
                     "order": 115, 
@@ -11816,7 +11816,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 136, 
                     "n_diff": 0, 
                     "order": 122, 
@@ -11827,7 +11827,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 136, 
                     "n_diff": 0, 
                     "order": 121, 
@@ -11838,7 +11838,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 136, 
                     "n_diff": 0, 
                     "order": 120, 
@@ -11889,7 +11889,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 332, 
                     "n_diff": 0, 
                     "order": 116, 
@@ -11900,7 +11900,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 332, 
                     "n_diff": 0, 
                     "order": 123, 
@@ -11911,7 +11911,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 332, 
                     "n_diff": 0, 
                     "order": 122, 
@@ -11922,7 +11922,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 332, 
                     "n_diff": 0, 
                     "order": 121, 
@@ -11973,7 +11973,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 515, 
                     "n_diff": 0, 
                     "order": 117, 
@@ -11984,7 +11984,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 515, 
                     "n_diff": 0, 
                     "order": 124, 
@@ -11995,7 +11995,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 515, 
                     "n_diff": 0, 
                     "order": 123, 
@@ -12006,7 +12006,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 515, 
                     "n_diff": 0, 
                     "order": 122, 
@@ -12024,7 +12024,7 @@
             "steps": [
                 {
                     "diff": "add", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 170, 
                     "n_diff": 1, 
                     "order": 118, 
@@ -12035,7 +12035,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 170, 
                     "n_diff": 0, 
                     "order": 125, 
@@ -12046,7 +12046,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 170, 
                     "n_diff": 0, 
                     "order": 124, 
@@ -12057,7 +12057,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 170, 
                     "n_diff": 0, 
                     "order": 123, 
@@ -12085,7 +12085,7 @@
                         "1\u00b0 D'adapter le code, notamment son plan et les renvois \u00e0 des dispositions codifi\u00e9es, afin d'y cr\u00e9er un nouveau livre relatif \u00e0 l'exercice des activit\u00e9s de transfert pour la cr\u00e9ation de valeur \u00e9conomique ;", 
                         "2\u00b0 De rem\u00e9dier aux \u00e9ventuelles erreurs de codification ;", 
                         "3\u00b0 D'abroger les dispositions obsol\u00e8tes ou devenues sans objet ;", 
-                        "4\u00b0 D'\u00e9tendre, le cas \u00e9ch\u00e9ant avec les adaptations n\u00e9cessaires, l'application des dispositions du code de la recherche en Nouvelle-Cal\u00e9donie, en Polyn\u00e9sie fran\u00e7aise, dans les \u00eeles Wallis et Futuna et dans les terres australes et antarctiques fran\u00e7aises ainsi que de permettre les adaptations n\u00e9cessaires \u00e0 l'application de ces dispositions \u00e0 Mayotte, \u00e0 Saint-Barth\u00e9lemy, \u00e0 Saint-Martin et \u00e0 Saint-Pierre-et-Miquelon.", 
+                        "4\u00b0 D'\u00e9tendre, le cas \u00e9ch\u00e9ant avec les adaptations n\u00e9cessaires, l'application des dispositions du code de la recherche en Nouvelle-Cal\u00e9donie, en Polyn\u00e9sie fran\u00e7aise, dans les \u00eeles Wallis et Futuna et dans les Terres australes et antarctiques fran\u00e7aises ainsi que de permettre les adaptations n\u00e9cessaires \u00e0 l'application de ces dispositions \u00e0 Mayotte, \u00e0 Saint-Barth\u00e9lemy, \u00e0 Saint-Martin et \u00e0 Saint-Pierre-et-Miquelon.", 
                         "II. - Dans les conditions pr\u00e9vues par l'article 38 de la Constitution, le Gouvernement est autoris\u00e9 \u00e0 modifier par ordonnance la partie l\u00e9gislative du code de l'\u00e9ducation afin :", 
                         "1\u00b0 D'adapter le code, notamment son plan et les renvois \u00e0 des dispositions codifi\u00e9es, afin, notamment, d'introduire des dispositions relatives aux \u00e9tudes de ma\u00efeutique et de modifier celles relatives aux \u00e9tablissements d'enseignement sup\u00e9rieur sp\u00e9cialis\u00e9s ;", 
                         "2\u00b0 De rem\u00e9dier aux \u00e9ventuelles erreurs de codification ;", 
@@ -12107,7 +12107,7 @@
                         "1\u00b0 D'adapter le code, afin d'y cr\u00e9er un nouveau livre relatif \u00e0 l'exercice des activit\u00e9s de transfert pour la cr\u00e9ation de valeur \u00e9conomique ;", 
                         "2\u00b0 De rem\u00e9dier aux \u00e9ventuelles erreurs de codification ;", 
                         "3\u00b0 D'abroger les dispositions devenues sans objet ;", 
-                        "4\u00b0 D'\u00e9tendre, le cas \u00e9ch\u00e9ant avec les adaptations n\u00e9cessaires, l'application des dispositions du code de la recherche en Nouvelle-Cal\u00e9donie, en Polyn\u00e9sie fran\u00e7aise, dans les \u00eeles Wallis et Futuna et dans les terres australes et antarctiques fran\u00e7aises ainsi que de permettre les adaptations n\u00e9cessaires \u00e0 l'application de ces dispositions \u00e0 Mayotte, \u00e0 Saint-Barth\u00e9lemy, \u00e0 Saint-Martin et \u00e0 Saint-Pierre-et-Miquelon.", 
+                        "4\u00b0 D'\u00e9tendre, le cas \u00e9ch\u00e9ant avec les adaptations n\u00e9cessaires, l'application des dispositions du code de la recherche en Nouvelle-Cal\u00e9donie, en Polyn\u00e9sie fran\u00e7aise, dans les \u00eeles Wallis et Futuna et dans les Terres australes et antarctiques fran\u00e7aises ainsi que de permettre les adaptations n\u00e9cessaires \u00e0 l'application de ces dispositions \u00e0 Mayotte, \u00e0 Saint-Barth\u00e9lemy, \u00e0 Saint-Martin et \u00e0 Saint-Pierre-et-Miquelon.", 
                         "II. - Dans les conditions pr\u00e9vues \u00e0 l'article 38 de la Constitution, le Gouvernement est autoris\u00e9 \u00e0 modifier par ordonnance la partie l\u00e9gislative du code de l'\u00e9ducation afin :", 
                         "1\u00b0 D'adapter le code, afin, notamment, d'introduire des dispositions relatives aux \u00e9tudes de ma\u00efeutique et de modifier celles relatives aux \u00e9tablissements d'enseignement sup\u00e9rieur sp\u00e9cialis\u00e9s ;", 
                         "2\u00b0 De rem\u00e9dier aux \u00e9ventuelles erreurs de codification ;", 
@@ -12129,7 +12129,7 @@
                         "1\u00b0 D'adapter le code, afin d'y cr\u00e9er un nouveau livre relatif \u00e0 l'exercice des activit\u00e9s de transfert pour la cr\u00e9ation de valeur \u00e9conomique ;", 
                         "2\u00b0 De rem\u00e9dier aux \u00e9ventuelles erreurs de codification ;", 
                         "3\u00b0 D'abroger les dispositions devenues sans objet ;", 
-                        "4\u00b0 D'\u00e9tendre, le cas \u00e9ch\u00e9ant avec les adaptations n\u00e9cessaires, l'application des dispositions du code de la recherche en Nouvelle-Cal\u00e9donie, en Polyn\u00e9sie fran\u00e7aise, dans les \u00eeles Wallis et Futuna et dans les terres australes et antarctiques fran\u00e7aises ainsi que de permettre les adaptations n\u00e9cessaires \u00e0 l'application de ces dispositions \u00e0 Mayotte, \u00e0 Saint-Barth\u00e9lemy, \u00e0 Saint-Martin et \u00e0 Saint-Pierre-et-Miquelon.", 
+                        "4\u00b0 D'\u00e9tendre, le cas \u00e9ch\u00e9ant avec les adaptations n\u00e9cessaires, l'application des dispositions du code de la recherche en Nouvelle-Cal\u00e9donie, en Polyn\u00e9sie fran\u00e7aise, dans les \u00eeles Wallis et Futuna et dans les Terres australes et antarctiques fran\u00e7aises ainsi que de permettre les adaptations n\u00e9cessaires \u00e0 l'application de ces dispositions \u00e0 Mayotte, \u00e0 Saint-Barth\u00e9lemy, \u00e0 Saint-Martin et \u00e0 Saint-Pierre-et-Miquelon.", 
                         "II. - Dans les conditions pr\u00e9vues \u00e0 l'article 38 de la Constitution, le Gouvernement est autoris\u00e9 \u00e0 modifier par ordonnance la partie l\u00e9gislative du code de l'\u00e9ducation afin :", 
                         "1\u00b0 D'adapter le code afin, notamment, d'introduire des dispositions relatives aux \u00e9tudes de ma\u00efeutique et de modifier celles relatives aux \u00e9tablissements d'enseignement sup\u00e9rieur sp\u00e9cialis\u00e9s ;", 
                         "2\u00b0 De rem\u00e9dier aux \u00e9ventuelles erreurs de codification ;", 
@@ -12141,7 +12141,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1803, 
                     "n_diff": 0, 
                     "order": 119, 
@@ -12151,7 +12151,7 @@
                         "1\u00b0 D'adapter le code, afin d'y cr\u00e9er un nouveau livre relatif \u00e0 l'exercice des activit\u00e9s de transfert pour la cr\u00e9ation de valeur \u00e9conomique ;", 
                         "2\u00b0 De rem\u00e9dier aux \u00e9ventuelles erreurs de codification ;", 
                         "3\u00b0 D'abroger les dispositions devenues sans objet ;", 
-                        "4\u00b0 D'\u00e9tendre, le cas \u00e9ch\u00e9ant avec les adaptations n\u00e9cessaires, l'application des dispositions du code de la recherche en Nouvelle-Cal\u00e9donie, en Polyn\u00e9sie fran\u00e7aise, dans les \u00eeles Wallis et Futuna et dans les terres australes et antarctiques fran\u00e7aises ainsi que de permettre les adaptations n\u00e9cessaires \u00e0 l'application de ces dispositions \u00e0 Mayotte, \u00e0 Saint-Barth\u00e9lemy, \u00e0 Saint-Martin et \u00e0 Saint-Pierre-et-Miquelon.", 
+                        "4\u00b0 D'\u00e9tendre, le cas \u00e9ch\u00e9ant avec les adaptations n\u00e9cessaires, l'application des dispositions du code de la recherche en Nouvelle-Cal\u00e9donie, en Polyn\u00e9sie fran\u00e7aise, dans les \u00eeles Wallis et Futuna et dans les Terres australes et antarctiques fran\u00e7aises ainsi que de permettre les adaptations n\u00e9cessaires \u00e0 l'application de ces dispositions \u00e0 Mayotte, \u00e0 Saint-Barth\u00e9lemy, \u00e0 Saint-Martin et \u00e0 Saint-Pierre-et-Miquelon.", 
                         "II. - Dans les conditions pr\u00e9vues \u00e0 l'article 38 de la Constitution, le Gouvernement est autoris\u00e9 \u00e0 modifier par ordonnance la partie l\u00e9gislative du code de l'\u00e9ducation afin :", 
                         "1\u00b0 D'adapter le code afin, notamment, d'introduire des dispositions relatives aux \u00e9tudes de ma\u00efeutique et de modifier celles relatives aux \u00e9tablissements d'enseignement sup\u00e9rieur sp\u00e9cialis\u00e9s ;", 
                         "2\u00b0 De rem\u00e9dier aux \u00e9ventuelles erreurs de codification ;", 
@@ -12163,7 +12163,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1899, 
                     "n_diff": 0.060507833603457684, 
                     "order": 126, 
@@ -12173,7 +12173,7 @@
                         "1\u00b0 D'adapter le code, \u00e0 droit constant, afin d'y cr\u00e9er un nouveau livre relatif \u00e0 la valorisation et au transfert de la recherche en direction du monde \u00e9conomique, des structures associatives et fondations, reconnues d'utilit\u00e9 publique ;", 
                         "2\u00b0 De rem\u00e9dier aux \u00e9ventuelles erreurs de codification ;", 
                         "3\u00b0 D'abroger les dispositions devenues sans objet ;", 
-                        "4\u00b0 D'\u00e9tendre, le cas \u00e9ch\u00e9ant avec les adaptations n\u00e9cessaires, l'application des dispositions du code de la recherche en Nouvelle-Cal\u00e9donie, en Polyn\u00e9sie fran\u00e7aise, dans les \u00eeles Wallis et Futuna et dans les terres australes et antarctiques fran\u00e7aises ainsi que de permettre les adaptations n\u00e9cessaires \u00e0 l'application de ces dispositions \u00e0 Mayotte, \u00e0 Saint-Barth\u00e9lemy, \u00e0 Saint-Martin et \u00e0 Saint-Pierre-et-Miquelon.", 
+                        "4\u00b0 D'\u00e9tendre, le cas \u00e9ch\u00e9ant avec les adaptations n\u00e9cessaires, l'application des dispositions du code de la recherche en Nouvelle-Cal\u00e9donie, en Polyn\u00e9sie fran\u00e7aise, dans les \u00eeles Wallis et Futuna et dans les Terres australes et antarctiques fran\u00e7aises ainsi que de permettre les adaptations n\u00e9cessaires \u00e0 l'application de ces dispositions \u00e0 Mayotte, \u00e0 Saint-Barth\u00e9lemy, \u00e0 Saint-Martin et \u00e0 Saint-Pierre-et-Miquelon.", 
                         "II. - Dans les conditions pr\u00e9vues \u00e0 l'article 38 de la Constitution, le Gouvernement est autoris\u00e9 \u00e0 modifier par ordonnance la partie l\u00e9gislative du code de l'\u00e9ducation afin :", 
                         "1\u00b0 D'adapter le code afin, notamment, d'introduire des dispositions relatives aux \u00e9tudes de ma\u00efeutique et de modifier celles relatives aux \u00e9tablissements d'enseignement sup\u00e9rieur sp\u00e9cialis\u00e9s ;", 
                         "2\u00b0 De rem\u00e9dier aux \u00e9ventuelles erreurs de codification ;", 
@@ -12185,7 +12185,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1889, 
                     "n_diff": 0.0089757127771911138, 
                     "order": 125, 
@@ -12195,7 +12195,7 @@
                         "1\u00b0 D'adapter le code, \u00e0 droit constant, afin d'y cr\u00e9er un nouveau livre relatif \u00e0 la valorisation et au transfert de la recherche en direction du monde \u00e9conomique, des associations et fondations, reconnues d'utilit\u00e9 publique ;", 
                         "2\u00b0 De rem\u00e9dier aux \u00e9ventuelles erreurs de codification ;", 
                         "3\u00b0 D'abroger les dispositions devenues sans objet ;", 
-                        "4\u00b0 D'\u00e9tendre, le cas \u00e9ch\u00e9ant avec les adaptations n\u00e9cessaires, l'application des dispositions du code de la recherche en Nouvelle-Cal\u00e9donie, en Polyn\u00e9sie fran\u00e7aise, dans les \u00eeles Wallis et Futuna et dans les terres australes et antarctiques fran\u00e7aises ainsi que de permettre les adaptations n\u00e9cessaires \u00e0 l'application de ces dispositions \u00e0 Mayotte, \u00e0 Saint-Barth\u00e9lemy, \u00e0 Saint-Martin et \u00e0 Saint-Pierre-et-Miquelon.", 
+                        "4\u00b0 D'\u00e9tendre, le cas \u00e9ch\u00e9ant avec les adaptations n\u00e9cessaires, l'application des dispositions du code de la recherche en Nouvelle-Cal\u00e9donie, en Polyn\u00e9sie fran\u00e7aise, dans les \u00eeles Wallis et Futuna et dans les Terres australes et antarctiques fran\u00e7aises ainsi que de permettre les adaptations n\u00e9cessaires \u00e0 l'application de ces dispositions \u00e0 Mayotte, \u00e0 Saint-Barth\u00e9lemy, \u00e0 Saint-Martin et \u00e0 Saint-Pierre-et-Miquelon.", 
                         "II. - Dans les conditions pr\u00e9vues \u00e0 l'article 38 de la Constitution, le Gouvernement est autoris\u00e9 \u00e0 modifier par ordonnance la partie l\u00e9gislative du code de l'\u00e9ducation afin :", 
                         "1\u00b0 D'adapter le code, afin, notamment, d'introduire des dispositions relatives aux \u00e9tudes de ma\u00efeutique et de modifier celles relatives aux \u00e9tablissements d'enseignement sup\u00e9rieur sp\u00e9cialis\u00e9s ;", 
                         "2\u00b0 De rem\u00e9dier aux \u00e9ventuelles erreurs de codification ;", 
@@ -12207,7 +12207,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1889, 
                     "n_diff": 0, 
                     "order": 124, 
@@ -12217,7 +12217,7 @@
                         "1\u00b0 D'adapter le code, \u00e0 droit constant, afin d'y cr\u00e9er un nouveau livre relatif \u00e0 la valorisation et au transfert de la recherche en direction du monde \u00e9conomique, des associations et fondations, reconnues d'utilit\u00e9 publique ;", 
                         "2\u00b0 De rem\u00e9dier aux \u00e9ventuelles erreurs de codification ;", 
                         "3\u00b0 D'abroger les dispositions devenues sans objet ;", 
-                        "4\u00b0 D'\u00e9tendre, le cas \u00e9ch\u00e9ant avec les adaptations n\u00e9cessaires, l'application des dispositions du code de la recherche en Nouvelle-Cal\u00e9donie, en Polyn\u00e9sie fran\u00e7aise, dans les \u00eeles Wallis et Futuna et dans les terres australes et antarctiques fran\u00e7aises ainsi que de permettre les adaptations n\u00e9cessaires \u00e0 l'application de ces dispositions \u00e0 Mayotte, \u00e0 Saint-Barth\u00e9lemy, \u00e0 Saint-Martin et \u00e0 Saint-Pierre-et-Miquelon.", 
+                        "4\u00b0 D'\u00e9tendre, le cas \u00e9ch\u00e9ant avec les adaptations n\u00e9cessaires, l'application des dispositions du code de la recherche en Nouvelle-Cal\u00e9donie, en Polyn\u00e9sie fran\u00e7aise, dans les \u00eeles Wallis et Futuna et dans les Terres australes et antarctiques fran\u00e7aises ainsi que de permettre les adaptations n\u00e9cessaires \u00e0 l'application de ces dispositions \u00e0 Mayotte, \u00e0 Saint-Barth\u00e9lemy, \u00e0 Saint-Martin et \u00e0 Saint-Pierre-et-Miquelon.", 
                         "II. - Dans les conditions pr\u00e9vues \u00e0 l'article 38 de la Constitution, le Gouvernement est autoris\u00e9 \u00e0 modifier par ordonnance la partie l\u00e9gislative du code de l'\u00e9ducation afin :", 
                         "1\u00b0 D'adapter le code, afin, notamment, d'introduire des dispositions relatives aux \u00e9tudes de ma\u00efeutique et de modifier celles relatives aux \u00e9tablissements d'enseignement sup\u00e9rieur sp\u00e9cialis\u00e9s ;", 
                         "2\u00b0 De rem\u00e9dier aux \u00e9ventuelles erreurs de codification ;", 
@@ -12276,7 +12276,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 815, 
                     "n_diff": 0, 
                     "order": 120, 
@@ -12290,7 +12290,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 815, 
                     "n_diff": 0, 
                     "order": 127, 
@@ -12304,7 +12304,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 815, 
                     "n_diff": 0, 
                     "order": 126, 
@@ -12318,7 +12318,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 815, 
                     "n_diff": 0, 
                     "order": 125, 
@@ -12375,7 +12375,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 743, 
                     "n_diff": 0.0013458950201884479, 
                     "order": 121, 
@@ -12387,7 +12387,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 743, 
                     "n_diff": 0, 
                     "order": 128, 
@@ -12399,7 +12399,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 743, 
                     "n_diff": 0, 
                     "order": 127, 
@@ -12411,7 +12411,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 743, 
                     "n_diff": 0.0013458950201884479, 
                     "order": 126, 
@@ -12438,7 +12438,7 @@
                     "text": [
                         "I. - Le titre IV n'est pas applicable \u00e0 Mayotte.", 
                         "II. - Dans les conditions pr\u00e9vues par l'article 38 de la Constitution, le Gouvernement est autoris\u00e9 \u00e0 prendre par ordonnance, dans un d\u00e9lai de dix-huit mois suivant la publication de la pr\u00e9sente loi, les mesures relevant du domaine de la loi n\u00e9cessaires pour \u00e9tendre et, le cas \u00e9ch\u00e9ant, adapter \u00e0 Mayotte les dispositions de la pr\u00e9sente loi, notamment son titre IV.", 
-                        "un projet de loi de ratification est d\u00e9pos\u00e9 devant le Parlement au plus tard six mois apr\u00e8s la publication de cette ordonnance."
+                        "Un projet de loi de ratification est d\u00e9pos\u00e9 devant le Parlement au plus tard six mois apr\u00e8s la publication de cette ordonnance."
                     ]
                 }, 
                 {
@@ -12469,7 +12469,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 548, 
                     "n_diff": 0, 
                     "order": 122, 
@@ -12482,7 +12482,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 548, 
                     "n_diff": 0, 
                     "order": 129, 
@@ -12508,16 +12508,16 @@
                     "order": 69, 
                     "status": "none", 
                     "text": [
-                        "Dans les conditions pr\u00e9vues par l'article 38 de la Constitution, le Gouvernement est autoris\u00e9 \u00e0 prendre par ordonnance, dans un d\u00e9lai d'un an suivant la publication de la pr\u00e9sente loi, des mesures modifiant le chapitre unique du titre VIII du livre VII du code de l'\u00e9ducation relatif aux dispositions applicables \u00e0 l'universit\u00e9 des Antilles et de la Guyane pour y adapter le titre IV de la pr\u00e9sente loi.", 
+                        "Dans les conditions pr\u00e9vues par l'article 38 de la Constitution, le Gouvernement est autoris\u00e9 \u00e0 prendre par ordonnance, dans un d\u00e9lai d'un an suivant la publication de la pr\u00e9sente loi, des mesures modifiant le chapitre unique du titre VIII du livre VII du code de l'\u00e9ducation relatif aux dispositions applicables \u00e0 l'Universit\u00e9 des Antilles et de la Guyane pour y adapter le titre IV de la pr\u00e9sente loi.", 
                         "Le projet de loi de ratification est d\u00e9pos\u00e9 au plus tard six mois apr\u00e8s la publication de l'ordonnance.", 
-                        "Le titre IV de la pr\u00e9sente loi est applicable \u00e0 l'universit\u00e9 des Antilles et de la Guyane au plus tard \u00e0 compter du premier jour du douzi\u00e8me mois suivant sa publication au Journal officiel de la R\u00e9publique fran\u00e7aise."
+                        "Le titre IV de la pr\u00e9sente loi est applicable \u00e0 l'Universit\u00e9 des Antilles et de la Guyane au plus tard \u00e0 compter du premier jour du douzi\u00e8me mois suivant sa publication au Journal officiel de la R\u00e9publique fran\u00e7aise."
                     ]
                 }, 
                 {
                     "diff": "both", 
                     "id_step": "01_1\u00e8relecture_assemblee_commission", 
                     "length": 737, 
-                    "n_diff": 0.38603696098562623, 
+                    "n_diff": 0.38740588637919227, 
                     "order": 87, 
                     "status": "none", 
                     "text": [
@@ -12541,7 +12541,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 737, 
                     "n_diff": 0, 
                     "order": 123, 
@@ -12554,7 +12554,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 737, 
                     "n_diff": 0, 
                     "order": 130, 
@@ -12633,7 +12633,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 1651, 
                     "n_diff": 0.22807017543859653, 
                     "order": 10, 
@@ -12655,7 +12655,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 1624, 
                     "n_diff": 0.18473282442748085, 
                     "order": 11, 
@@ -12677,7 +12677,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 1768, 
                     "n_diff": 0.19958726415094341, 
                     "order": 10, 
@@ -12699,7 +12699,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 1753, 
                     "n_diff": 0.0082362965066742344, 
                     "order": 10, 
@@ -12752,7 +12752,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 265, 
                     "n_diff": 0, 
                     "order": 124, 
@@ -12764,7 +12764,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 265, 
                     "n_diff": 0, 
                     "order": 131, 
@@ -12796,7 +12796,7 @@
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 332, 
                     "n_diff": 0.038461538461538436, 
                     "order": 11, 
@@ -12809,7 +12809,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 332, 
                     "n_diff": 0, 
                     "order": 12, 
@@ -12822,7 +12822,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 332, 
                     "n_diff": 0, 
                     "order": 11, 
@@ -12835,7 +12835,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 332, 
                     "n_diff": 0, 
                     "order": 11, 
@@ -12863,7 +12863,7 @@
                     "text": [
                         "L'article L. 123-7 est ainsi modifi\u00e9 :", 
                         "1\u00b0 Apr\u00e8s la premi\u00e8re phrase du premier alin\u00e9a, il est ins\u00e9r\u00e9 une phrase ainsi r\u00e9dig\u00e9e : \"Il favorise le d\u00e9veloppement de parcours comprenant des p\u00e9riodes d'\u00e9tudes et d'activit\u00e9s \u00e0 l'\u00e9tranger\" ;", 
-                        "2\u00b0 Au deuxi\u00e8me alin\u00e9a, les mots : \"la Communaut\u00e9\" sont remplac\u00e9s par les mots : \"l'union\"."
+                        "2\u00b0 Au deuxi\u00e8me alin\u00e9a, les mots : \"la Communaut\u00e9\" sont remplac\u00e9s par les mots : \"l'Union\"."
                     ]
                 }, 
                 {
@@ -12880,14 +12880,14 @@
                         "\"Il promeut aux \u00e9chelles europ\u00e9enne et internationale un meilleur partage des savoirs et leur diffusion aupr\u00e8s des soci\u00e9t\u00e9s civiles. Il favorise le d\u00e9veloppement de parcours comprenant des p\u00e9riodes d'\u00e9tudes et d'activit\u00e9s \u00e0 l'\u00e9tranger. Il favorise \u00e9galement l'accueil des personnels de recherche \u00e9trangers pour la dur\u00e9e de leurs missions scientifiques.\" ;", 
                         "b) La deuxi\u00e8me phrase est ainsi r\u00e9dig\u00e9e :", 
                         "\"Il assure l'accueil des \u00e9tudiants \u00e9trangers, en lien avec le r\u00e9seau des oeuvres universitaires et scolaires, ainsi que leur formation.\" ;", 
-                        "2\u00b0 Au second alin\u00e9a, les mots : \"la Communaut\u00e9\" sont remplac\u00e9s par les mots : \"l'union\"."
+                        "2\u00b0 Au second alin\u00e9a, les mots : \"la Communaut\u00e9\" sont remplac\u00e9s par les mots : \"l'Union\"."
                     ]
                 }, 
                 {
                     "diff": "rem", 
                     "id_step": "02_1\u00e8relecture_assemblee_hemicycle", 
                     "length": 1248, 
-                    "n_diff": 0.33823529411764708, 
+                    "n_diff": 0.28333333333333333, 
                     "order": 10, 
                     "status": "none", 
                     "text": [
@@ -12900,14 +12900,14 @@
                         "c) Avant la derni\u00e8re phrase, est ins\u00e9r\u00e9e une phrase ainsi r\u00e9dig\u00e9e :", 
                         "\"Il favorise l'orientation vers l'enseignement sup\u00e9rieur fran\u00e7ais des \u00e9l\u00e8ves fran\u00e7ais scolaris\u00e9s \u00e0 l'\u00e9tranger.\" ;", 
                         "2\u00b0 Le second alin\u00e9a est ainsi modifi\u00e9 :", 
-                        "a) Les mots : \"la Communaut\u00e9\" sont remplac\u00e9s par les mots : \"l'union\" ;", 
+                        "a) Les mots : \"la Communaut\u00e9\" sont remplac\u00e9s par les mots : \"l'Union\" ;", 
                         "b) Est ajout\u00e9e une phrase ainsi r\u00e9dig\u00e9e :", 
                         "\"Ces accords visent \u00e0 la d\u00e9livrance de dipl\u00f4mes nationaux ou d'\u00e9tablissement, conjointement ou non avec des \u00e9tablissements d'enseignement sup\u00e9rieur \u00e0 l'\u00e9tranger.\""
                     ]
                 }, 
                 {
                     "diff": "rem", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 2003, 
                     "n_diff": 0.42509996924023374, 
                     "order": 12, 
@@ -12924,14 +12924,14 @@
                         "c) Avant la derni\u00e8re phrase, est ins\u00e9r\u00e9e une phrase ainsi r\u00e9dig\u00e9e :", 
                         "\"Il favorise l'orientation vers l'enseignement sup\u00e9rieur fran\u00e7ais des \u00e9l\u00e8ves fran\u00e7ais scolaris\u00e9s \u00e0 l'\u00e9tranger.\" ;", 
                         "2\u00b0 Le second alin\u00e9a est ainsi modifi\u00e9 :", 
-                        "a) Les mots : \"la Communaut\u00e9\" sont remplac\u00e9s par les mots : \"l'union\" ;", 
+                        "a) Les mots : \"la Communaut\u00e9\" sont remplac\u00e9s par les mots : \"l'Union\" ;", 
                         "b) Est ajout\u00e9e une phrase ainsi r\u00e9dig\u00e9e :", 
                         "\"Ces accords visent \u00e0 la d\u00e9livrance de dipl\u00f4mes nationaux ou d'\u00e9tablissement, conjointement ou non avec des \u00e9tablissements d'enseignement sup\u00e9rieur \u00e0 l'\u00e9tranger.\""
                     ]
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 2022, 
                     "n_diff": 0.0096894409937887671, 
                     "order": 13, 
@@ -12948,14 +12948,14 @@
                         "c) Avant la derni\u00e8re phrase, est ins\u00e9r\u00e9e une phrase ainsi r\u00e9dig\u00e9e :", 
                         "\"Il favorise l'orientation vers l'enseignement sup\u00e9rieur fran\u00e7ais des \u00e9l\u00e8ves fran\u00e7ais scolaris\u00e9s \u00e0 l'\u00e9tranger.\" ;", 
                         "2\u00b0 Le second alin\u00e9a est ainsi modifi\u00e9 :", 
-                        "a) Les mots : \"la Communaut\u00e9\" sont remplac\u00e9s par les mots : \"l'union\" ;", 
+                        "a) Les mots : \"la Communaut\u00e9\" sont remplac\u00e9s par les mots : \"l'Union\" ;", 
                         "b) Est ajout\u00e9e une phrase ainsi r\u00e9dig\u00e9e :", 
                         "\"Ces accords visent \u00e0 la d\u00e9livrance de dipl\u00f4mes nationaux ou d'\u00e9tablissement, conjointement ou non avec des \u00e9tablissements d'enseignement sup\u00e9rieur \u00e0 l'\u00e9tranger.\""
                     ]
                 }, 
                 {
                     "diff": "both", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 2150, 
                     "n_diff": 0.031160115052732529, 
                     "order": 12, 
@@ -12972,14 +12972,14 @@
                         "c) Avant la derni\u00e8re phrase, est ins\u00e9r\u00e9e une phrase ainsi r\u00e9dig\u00e9e :", 
                         "\"Il favorise l'orientation vers l'enseignement sup\u00e9rieur fran\u00e7ais des \u00e9l\u00e8ves fran\u00e7ais scolaris\u00e9s \u00e0 l'\u00e9tranger et des \u00e9l\u00e8ves \u00e9trangers scolaris\u00e9s dans des \u00e9tablissements d'enseignement fran\u00e7ais \u00e0 l'\u00e9tranger.\" ;", 
                         "2\u00b0 Le second alin\u00e9a est ainsi modifi\u00e9 :", 
-                        "a) Les mots : \"la Communaut\u00e9\" sont remplac\u00e9s par les mots : \"l'union\" ;", 
+                        "a) Les mots : \"la Communaut\u00e9\" sont remplac\u00e9s par les mots : \"l'Union\" ;", 
                         "b) Est ajout\u00e9e une phrase ainsi r\u00e9dig\u00e9e :", 
                         "\"Ces accords visent \u00e0 la d\u00e9livrance de dipl\u00f4mes nationaux ou d'\u00e9tablissement, conjointement ou non avec des \u00e9tablissements d'enseignement sup\u00e9rieur \u00e0 l'\u00e9tranger.\""
                     ]
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 2150, 
                     "n_diff": 0, 
                     "order": 12, 
@@ -12996,7 +12996,7 @@
                         "c) Avant la derni\u00e8re phrase, est ins\u00e9r\u00e9e une phrase ainsi r\u00e9dig\u00e9e :", 
                         "\"Il favorise l'orientation vers l'enseignement sup\u00e9rieur fran\u00e7ais des \u00e9l\u00e8ves fran\u00e7ais scolaris\u00e9s \u00e0 l'\u00e9tranger et des \u00e9l\u00e8ves \u00e9trangers scolaris\u00e9s dans des \u00e9tablissements d'enseignement fran\u00e7ais \u00e0 l'\u00e9tranger.\" ;", 
                         "2\u00b0 Le second alin\u00e9a est ainsi modifi\u00e9 :", 
-                        "a) Les mots : \"la Communaut\u00e9\" sont remplac\u00e9s par les mots : \"l'union\" ;", 
+                        "a) Les mots : \"la Communaut\u00e9\" sont remplac\u00e9s par les mots : \"l'Union\" ;", 
                         "b) Est ajout\u00e9e une phrase ainsi r\u00e9dig\u00e9e :", 
                         "\"Ces accords visent \u00e0 la d\u00e9livrance de dipl\u00f4mes nationaux ou d'\u00e9tablissement, conjointement ou non avec des \u00e9tablissements d'enseignement sup\u00e9rieur \u00e0 l'\u00e9tranger.\""
                     ]
@@ -13022,7 +13022,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "04_1\u00e8relecture_senat_commission", 
+                    "id_step": "03_1\u00e8relecture_senat_commission", 
                     "length": 277, 
                     "n_diff": 0, 
                     "order": 13, 
@@ -13034,7 +13034,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "05_1\u00e8relecture_senat_hemicycle", 
+                    "id_step": "04_1\u00e8relecture_senat_hemicycle", 
                     "length": 277, 
                     "n_diff": 0, 
                     "order": 14, 
@@ -13046,7 +13046,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "06_CMP_CMP_commission", 
+                    "id_step": "05_CMP_CMP_commission", 
                     "length": 277, 
                     "n_diff": 0, 
                     "order": 13, 
@@ -13058,7 +13058,7 @@
                 }, 
                 {
                     "diff": "none", 
-                    "id_step": "07_CMP_senat_hemicycle", 
+                    "id_step": "06_CMP_senat_hemicycle", 
                     "length": 277, 
                     "n_diff": 0, 
                     "order": 13, 
