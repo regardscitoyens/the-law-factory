@@ -12,11 +12,16 @@
           d.steps.forEach(function(f,j){
             f.textDiff = []
             if(j != 0 && f.id_step.substr(-5) != "depot"){
-              if (!f.text.length) d.steps[j-1].text.forEach(function(g,k){
+              for(var l = 1; l<=j; l++) {
+                lasttxt = d.steps[j-l].text;
+                if (d.steps[j-l].id_step.substr(-5) != "depot")
+                  break;
+              }
+              if (!f.text.length) lasttxt.forEach(function(g,k){
                   f.textDiff[k] = diffString(g, " ")})
               else f.text.forEach(function(g,k){
-                if (!d.steps[j-1].text[k]) d.steps[j-1].text[k] = " ";
-                f.textDiff[k] = diffString(d.steps[j-1].text[k], g)
+                if (!lasttxt[k]) lasttxt[k] = " ";
+                f.textDiff[k] = diffString(lasttxt[k], g)
               })
              } else f.text.forEach(function(g,k){
                 f.textDiff[k] = diffString(" ", g)
