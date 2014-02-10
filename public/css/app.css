@@ -395,4 +395,7 @@ ins {
 	background:#DAD1CB;
 	height:100%;
 }
-
+ul.ui-autocomplete { 
+list-style-type: none; 
+color:#fff;
+} 

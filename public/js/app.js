@@ -6,7 +6,7 @@ angular.module('theLawFactory', [
   'theLawFactory.controllers',
   'theLawFactory.filters',
   'theLawFactory.services',
-  'theLawFactory.directives'
+  'theLawFactory.directives',
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider
@@ -17,3 +17,5 @@ config(function ($routeProvider, $locationProvider) {
     .otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
 });
+
+//angular.module('theLawFactory', ["angucomplete"]);
