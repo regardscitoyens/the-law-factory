@@ -42,3 +42,25 @@ exports.lawlist = function (req, res) {
     }
   )
 };
+
+
+
+exports.articles = function (req, res) {
+	console.log("l",req.params.id)
+  request(
+    {
+      method : 'GET',
+      url : baseUrl +'/'+req.params.id+'/viz/articles_etapes.json',
+      headers : {'Content-type': 'Content-type: application/json'}
+    },
+    
+    function (error, response, body) {
+    	console.log(request)
+      if (response.statusCode == 200) {
+		  console.log(body)
+		  res.send(body)
+
+      } else res.send("ciao");
+    }
+  )
+};

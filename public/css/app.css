@@ -399,3 +399,11 @@ ul.ui-autocomplete {
 list-style-type: none; 
 color:#fff;
 } 
+
+.lawlist{
+	float:left;
+}
+
+.lawlist input {
+	border:none;
+}

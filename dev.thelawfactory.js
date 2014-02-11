@@ -48,7 +48,8 @@ app.get('/partials/:name', routes.partials);
 
 // JSON API
 //app.get('/laws/:id', api.law);
-app.get('/laws/list', api.lawlist); 
+app.get('/laws/list', api.lawlist);
+app.get('/law-article/:id', api.articles); 
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
