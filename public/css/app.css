@@ -396,14 +396,52 @@ ins {
 	height:100%;
 }
 ul.ui-autocomplete { 
-list-style-type: none; 
-color:#fff;
+	list-style-type: none; 
+	color:#fff;
+	z-index:2001;
+	position:fixed;
+	width:98% !important;
+	overflow:auto;
+	
 } 
 
 .lawlist{
 	float:left;
+	width:100%;
+	height:100%;
+	position:fixed;
+	top:0;
+	left:0;
+	background:#f1f1f1;
+	overflow:auto;
+	z-index:2000;
 }
 
 .lawlist input {
 	border:none;
+	background:transparent;
+	width:80%;
+	margin-top:4%;
+	margin-left:2%;
+	font-size:4em;
+	color:#333333;
+	border-bottom: 1px solid #333333 !important;
+	outline:none;
+}
+#search-btn{
+	float:right;
+	background:#D80053;
+	color:#fff;
+	border-radius: 0;
+}
+.ui-menu .ui-menu-item {
+	padding:8px 0px;
+	color:#333;
+}
+.ui-autocomplete li a:hover
+{
+    color:white;
+    background:#D80053;
+    border:none;
+    outline:none;
 }

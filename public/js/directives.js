@@ -16,12 +16,15 @@ angular.module('theLawFactory.directives', [])
 			console.log($location.search())
 	        //$location.path("/abc");
 	        if($location.search()['l']!=null) l=$location.search()['l'];
-	 
+	 		$("#search-btn").on("click",function() {
+	 			$("body").css("overflow","hidden");
+	 			$(".lawlist").show();
+	 		})
 		
       	var mod1 = thelawfactory.mod1();
 
         function update(){
-
+			$(".lawlist").css("display","none")
       		apiService.getDataSample(scope.dataUrl+l).then(
             function(data){
               scope.dataSample = data;
@@ -102,11 +105,18 @@ angular.module('theLawFactory.directives', [])
 			        })
 		        );
              },
+            open: function() {
+             	
+             	var h=$(".ui-autocomplete").position().top;
+             	$(".ui-autocomplete").height($(window).height()-h);
+             	
+             },
+             appendTo:".lawlist",
                 select: function(event, ui) {
                     $rootScope.$apply(function() {
-						console.log(ui,event)
-				        //$location.path("/abc");
+						$("body").css("overflow","auto");
 				        $location.search("l="+ui.item.value);
+				        
 				      });
                 }
             });
