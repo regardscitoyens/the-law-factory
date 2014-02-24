@@ -252,7 +252,7 @@ var draw;
                 } else {
                     s.removeClass("stick"); 
                     s.css("left","");
-                    s.css("width","25%");
+                    s.css("width","18%");
                 }
             });
         });

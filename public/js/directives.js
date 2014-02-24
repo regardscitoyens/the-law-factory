@@ -18,7 +18,7 @@ angular.module('theLawFactory.directives', [])
 	        if($location.search()['l']!=null) l=$location.search()['l'];
 	 		$("#search-btn").on("click",function() {
 	 			$("body").css("overflow","hidden");
-	 			$(".lawlist").show();
+	 			$(".lawlist").effect( "slide", {"direction" : "","mode" : "show"}, 500 )
 	 		})
 		
       	var mod1 = thelawfactory.mod1();

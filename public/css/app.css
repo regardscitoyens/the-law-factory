@@ -324,7 +324,7 @@ ins {
 	/*border-right: 1px solid;*/
 	padding: 15px;
 	float: left;
-	width: 54.92%;
+	width: 62%;
 	position: relative;
 	bottom: 12%;
 	padding-bottom: 0.9%;
@@ -445,3 +445,28 @@ ul.ui-autocomplete {
     border:none;
     outline:none;
 }
+
+.img-cont{
+	width:50px;
+	height:50px;
+	float:left;
+}
+.smallImg{
+	width:100%;
+	height:auto;
+}
+.mod2 .text {
+	width:18%;
+}
+.mod2 .scrolling {
+	width:82%;
+	overflow-x:hidden;
+	height:702px;
+}
+.mod2 .labels-sc {
+	width: 24.6%;
+}
+.mod2 .main-sc{
+	width: 75.4%;
+}
+
