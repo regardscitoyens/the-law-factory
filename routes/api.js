@@ -34,6 +34,7 @@ exports.lawlist = function(req, res) {
 	})
 };
 
+//Articles service (mod1)
 exports.articles = function(req, res) {
 	request({
 		method : 'GET',
@@ -50,6 +51,7 @@ exports.articles = function(req, res) {
 	})
 };
 
+//Amendements service (mod2)
 exports.amendments = function(req, res) {
 
 	request({
@@ -67,6 +69,7 @@ exports.amendments = function(req, res) {
 	})
 };
 
+//Procedure service (mod2)
 exports.procedure = function(req, res) {
 
 	request({
@@ -95,6 +98,12 @@ exports.procedure = function(req, res) {
 			res.send("no procedure");
 	})
 };
+
+
+
+/*************
+Helper functions
+**************/
 
 function getAmdInfo(js) {
 	

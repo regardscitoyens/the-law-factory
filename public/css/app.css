@@ -139,6 +139,7 @@ body{
 	padding:0px 5px;
 	font-size: 12px;
 	text-transform:capitalize;
+	width:100%;
 	height:100%;
 	/* Internet Explorer 10 */
 	display:-ms-flexbox;
@@ -326,7 +327,6 @@ ins {
 	float: left;
 	width: 62%;
 	position: relative;
-	bottom: 12%;
 	padding-bottom: 0.9%;
 	padding-top: 0.8%;
 }
@@ -429,7 +429,7 @@ ul.ui-autocomplete {
 	outline:none;
 }
 #search-btn{
-	float:right;
+	float:left;
 	background:#D80053;
 	color:#fff;
 	border-radius: 0;
@@ -470,3 +470,17 @@ ul.ui-autocomplete {
 	width: 75.4%;
 }
 
+.valid-step{
+	background-color:rgb(238, 229, 223);
+	color:rgb(113, 98, 89);
+	cursor: pointer;
+}
+.stage-container {
+	display:flex;
+	align-items:center;
+	height:100%;
+}
+.step-curr {
+	background-color:rgb(218, 209, 203);
+	color:rgb(113, 98, 89);
+}
