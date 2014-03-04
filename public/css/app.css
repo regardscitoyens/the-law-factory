@@ -473,17 +473,19 @@ ul.ui-autocomplete {
 }
 
 .valid-step{
-	background-color:rgb(238, 229, 223);
-	color:rgb(113, 98, 89);
+	background-color:transparent;
 	cursor: pointer;
+	border-top:3px solid #D80053;
 }
+
 .stage-container {
 	display:flex;
 	align-items:center;
 	height:100%;
 }
 .step-curr {
-	background-color:rgb(218, 209, 203);
+	/*background-color:rgb(218, 209, 203);*/
+	background:#fff;
 	color:rgb(113, 98, 89);
 }
 .cls{

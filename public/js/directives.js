@@ -60,7 +60,6 @@ angular.module('theLawFactory.directives', [])
       		$scope.step = ind;
       		$scope.step_name = sect;
       		$(".step-curr").removeClass("step-curr")
-      		console.log($(".stage:eq("+ind+")"))
       		$(".stage:eq("+ind+")").addClass("step-curr")
       		$location.search({l:$scope.l, s:$scope.step_name})
       	}
@@ -78,14 +77,13 @@ angular.module('theLawFactory.directives', [])
 
         function update(){
 			$(".lawlist").css("display","none")
-			
-			
       		apiService.getDataSample(scope.procedureUrl+scope.l+"?sect=amd").then(
             function(data){
             
               scope.dataSample = data;
-              var len = 100/scope.dataSample.length;
-              var newElement = $compile( "<div class='stage-container' style='float:left; width:"+len+"%' ng-repeat='el in dataSample'><ng-switch style='width:100%; height:100%;' on='el.amds'><div class='stage valid-step' ng-click='loadStep(el.step_name, $index)' ng-switch-when='true'>{{el.step_name.split('_').slice(2,4).join(' ')}}</div><div class='stage' ng-switch-default>{{el.step_name.split('_').slice(2,4).join(' ')}}</div></ng-switch></div>" )( scope );
+              var len = 95/scope.dataSample.length;
+              var mar = 5/scope.dataSample.length;
+              var newElement = $compile( "<div class='stage-container' style='margin-right:"+mar+"%;float:left; width:"+len+"%' ng-repeat='el in dataSample'><ng-switch style='width:100%; height:100%;' on='el.amds'><div class='stage valid-step' ng-click='loadStep(el.step_name, $index)' ng-switch-when='true'>{{el.step_name.split('_').slice(2,4).join(' ')}}</div><div class='stage' ng-switch-default>{{el.step_name.split('_').slice(2,4).join(' ')}}</div></ng-switch></div>" )( scope );
               
 			  element.find(".stages").append( newElement );
 			  },
@@ -94,10 +92,12 @@ angular.module('theLawFactory.directives', [])
             })
 			  
 			  if($location.search()['s']!=null) {
-			  	console.log("ahiahi")
+			  	
 			apiService.getDataSample(scope.amdUrl+scope.l+"/"+scope.step_name).then(
             function(data){
             
+             var elementPos = scope.dataSample.map(function(x) {return x.step_name; }).indexOf(scope.step_name);
+             $(".stage:eq("+elementPos+")").addClass("step-curr")
               scope.data = data;
                 d3.select(element[0])
             		.datum(data)
@@ -159,8 +159,9 @@ angular.module('theLawFactory.directives', [])
             function(data){
             
               scope.dataSample = data;
-              var len = 100/scope.dataSample.length;
-              var newElement = $compile( "<div class='stage-container' style='float:left; width:"+len+"%' ng-repeat='el in dataSample'><ng-switch style='width:100%; height:100%;' on='el.amds'><div class='stage valid-step' ng-click='loadStep(el.step_name, $index)' ng-switch-when='true'>{{el.step_name.split('_').slice(2,4).join(' ')}}</div><div class='stage' ng-switch-default>{{el.step_name.split('_').slice(2,4).join(' ')}}</div></ng-switch></div>" )( scope );
+              var len = 99/scope.dataSample.length;
+              var mar = 1/scope.dataSample.length;
+              var newElement = $compile( "<div class='stage-container' style='margin-right:"+mar+"%;float:left; width:"+len+"%' ng-repeat='el in dataSample'><ng-switch style='width:100%; height:100%;' on='el.amds'><div class='stage valid-step' ng-click='loadStep(el.step_name, $index)' ng-switch-when='true'>{{el.step_name.split('_').slice(2,4).join(' ')}}</div><div class='stage' ng-switch-default>{{el.step_name.split('_').slice(2,4).join(' ')}}</div></ng-switch></div>" )( scope );
               
 			  element.find(".stages").append( newElement );
 			  },
