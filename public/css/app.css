@@ -370,7 +370,7 @@ padding-top: 0.8%;
 .dd-btn>.btn+.dropdown-toggle {
 	background: #D80053;
 	border-radius: 0;
-	margin-left:5px !important;	
+	margin-left:3px !important;	
 }
 
 .dd-btn>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
@@ -515,6 +515,10 @@ position:static;
 	clear: none !important;
 	text-align:	center;
 } 
+
+.mod2 .btn-group{
+	margin-left:10px;
+}
 .valid-step{
 	background-color:transparent;
 	cursor: pointer;

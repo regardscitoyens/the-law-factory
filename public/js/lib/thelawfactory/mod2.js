@@ -1,5 +1,8 @@
 var sortByStat;
 var draw;
+var drawMerged;
+var grouped=null;
+
 
 (function(){
 
@@ -39,19 +42,25 @@ var draw;
 		    x = Math.round(w / z),
 		    y = h / z;
 
-
-	draw = function() {
-		
-		var jumpLines = 0
+	var jumpLines = 0
 		var offset = 0
-		
 		var svg = d3.select("#viz").append("svg")
 		    .attr("width", rw)
 		    .attr("height", h);
-		
+		    
+	draw = function() {
+		$("svg").empty();
+			$(".art-list").empty();
 		fin.forEach(function(d,i) {
+			drawLines(d,i)
+		})
+		grouped=null;
+	}
 		
-		  len = d.values.length;
+        draw();
+        
+        function drawLines(d,i) {
+        	 len = d.values.length;
 		  lines = Math.ceil(len/x);
 		
 		  d.offset = offset
@@ -82,7 +91,9 @@ var draw;
 		
 		
 		  var margin = d.offset == 0 ? 'style="margin-top : 10px"' : 'style="margin-top : '+(10+20*d.offset)+'px "';
-          var subj = d.key.substr(6).replace('rticle additionnel a', '');
+		  console.log("key",d.key)
+          var subj = d.key.indexOf("_") >=0  ? d.key.split("_")[1] : d.key;
+          console.log("subj",subj)
 		  if(subj.length<26) $(".art-list").append("<p "+margin+" >"+subj+"</p>")
 	      else $(".art-list").append("<p "+margin+" >"+subj.substring(0,25)+"…"+"</p>")
 
@@ -131,12 +142,8 @@ var draw;
               };
             })
             .on("click",select);
-		})
-		
-	}
-		
+        }
         
-        draw();
         
 		function select(d) {
 			d3.selectAll(".actv-amd")
@@ -187,6 +194,19 @@ var draw;
 			}
 		}
 
+		drawMerged = function() {
+			$("svg").empty();
+			$(".art-list").empty();
+			if(!grouped) {
+				grouped = {key: 'all articles', values:[]}
+				
+				fin.forEach(function(d,i) {
+					grouped.values=grouped.values.concat(d.values)
+				}) 
+			}
+			drawLines(grouped,0)
+		}
+		
 		function chk_scroll(e)
 		{
 			e.stopPropagation();
@@ -205,33 +225,54 @@ var draw;
 		
 		sortByStat = function() {
 			stats = d3.keys(statColor)
-			
-			fin.forEach(function(d,i) {
-				d['values'].sort(function(a,b){
-					
+			if(grouped) {
+				grouped['values'].sort(function(a,b){
 					return stats.indexOf(a.sort) - stats.indexOf(b.sort)
-					
 				})
-			})
-			$("svg").remove();
-			$(".art-list").empty();
-			$(".text-container").empty();
-			draw();
+				$("svg").empty();
+				$(".art-list").empty();
+				$(".text-container").empty();
+				drawMerged();
+				
+			}
+			else {
+				fin.forEach(function(d,i) {
+					d['values'].sort(function(a,b){
+						return stats.indexOf(a.sort) - stats.indexOf(b.sort)
+					})
+				})
+				$("svg").empty();
+				$(".art-list").empty();
+				$(".text-container").empty();
+				draw();
+			}
 		}
+		
+		
 		
 		sortByDate = function() {
 			stats = d3.keys(statColor)
-			
-			fin.forEach(function(d,i) {
-				d['values'].sort(function(a,b){
-					
+			if(grouped) {
+				grouped['values'].sort(function(a,b){
 					return Date.parse(a.date) - Date.parse(b.date)	
 				})
-			})
-			$("svg").remove();
-			$(".art-list").empty();
-			$(".text-container").empty();
-			draw();
+				$("svg").empty();
+				$(".art-list").empty();
+				$(".text-container").empty();
+				drawMerged();
+				
+			}
+			else {
+				fin.forEach(function(d,i) {
+					d['values'].sort(function(a,b){
+						return Date.parse(a.date) - Date.parse(b.date)	
+					})
+				})
+				$("svg").empty();
+				$(".art-list").empty();
+				$(".text-container").empty();
+				draw();
+			}
 		}
 		
 		

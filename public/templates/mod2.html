@@ -14,12 +14,27 @@
 				Search a law
 			</button>
 
+<div class="btn-group dd-btn">
+  <button type="button" class="btn">Group by</button>
+  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  
+  <ul class="dropdown-menu" role="menu">
+    <li><a onclick="draw()">Articles</a></li>
+    <li><a onclick="drawMerged()">Ungrouped</a></li>
+  </ul>
+</div>
+
+
 	<div class="btn-group dd-btn">
   <button type="button" class="btn">Order by</button>
   <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
     <span class="caret"></span>
     <span class="sr-only">Toggle Dropdown</span>
   </button>
+  
   <ul class="dropdown-menu" role="menu">
     <li><a onclick="sortByStat()">Statut</a></li>
     <li><a onclick="sortByDate()">Date</a></li>
