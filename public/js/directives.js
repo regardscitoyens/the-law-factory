@@ -202,6 +202,7 @@ angular.module('theLawFactory.directives', [])
       	 
       	 	$scope.closeSearch= function() {
       		$(".lawlist").fadeOut(200);
+      		$("body").css("overflow","auto");
       	}
       	
       },
