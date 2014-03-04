@@ -64,7 +64,7 @@
         var maxy=0;
 
         //set color scale for diff
-        var levmin = 225 - 150, levmax=225;
+        var levmin = 225 - 90, levmax=225;
         var diffcolor = d3.scale.linear()
             .range(["#f3f3f3", "rgb(" + [levmin, levmin, levmin].join(',') + ")"])
             .domain([0, 1])
@@ -175,9 +175,9 @@
             .attr("y",e.y-15)
             .attr("width",width/columns-20)
             .attr("height",15)
-            .style("fill","#95D3E8")
-            .style("stroke","0053C8")
-            .style("opacity","0.6")
+            .style("fill","#D80053")
+            .style("stroke","none")
+            .style("opacity","1")
             .style("stroke-width","1px")
 
             d3.select(this.parentNode)
@@ -187,7 +187,7 @@
             .attr("font-family", "sans-serif")
             .attr("font-size", "10px")
             .attr("font-weight", "bold")
-            .style("fill","#222282")
+            .style("fill","#ffffff")
             .text(e['section']);
         })
         

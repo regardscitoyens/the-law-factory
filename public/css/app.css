@@ -326,6 +326,8 @@ ins {
 	padding: 15px;
 	float: left;
 	width: 62%;
+	bottom:11.8%;
+	left: -2px;
 	position: relative;
 	padding-bottom: 0.9%;
 	padding-top: 0.8%;
@@ -483,4 +485,10 @@ ul.ui-autocomplete {
 .step-curr {
 	background-color:rgb(218, 209, 203);
 	color:rgb(113, 98, 89);
+}
+.cls{
+	position: absolute;
+	right:4%;
+	top:4%;
+	cursor:pointer;
 }
