@@ -11,7 +11,7 @@ angular.module('theLawFactory.directives', [])
       link: function postLink(scope, element, attrs) {
 		
 		
-		var l="pjl09-200"
+		var l="pjl11-751"
 		
 	        if($location.search()['l']!=null) l=$location.search()['l'];
 	 		$("#search-btn").on("click",function() {
