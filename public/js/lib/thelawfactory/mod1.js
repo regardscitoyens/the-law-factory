@@ -109,7 +109,7 @@ var stacked;
 				
 				var stylise_rects = function() {
 					myrects.style("stroke", "#ccc").attr("class", function(d) {
-						return "article " + d.section + " sect" + findStage(d.id_step)
+						return "article " + d.section.replace(/ |<|\/|>|/g,"") + " sect" + findStage(d.id_step)
 					}).style("stroke", function(d) {
 						return d3.hcl(diffcolor(d.n_diff)).brighter();
 					}).style("stroke-width", 1).style("stroke-dasharray", "none").style("fill", function(d) {
@@ -150,7 +150,7 @@ var stacked;
 					var div;
 					div = d3.select(document.createElement("div")).style("height", "100px").style("width", "100%")
 					
-				    //div.append("p").text("Section : " + section)
+				    div.append("p").text("Section : " + section)
 					div.append("p").text("Étape : " + status)
 					if (d['status'] != "sup")
 						div.append("p").text("Longueur du texte : " + length)
@@ -471,7 +471,7 @@ var stacked;
 						stages.forEach(function(st, j) {
 
 							var max = 0, nth = null;
-							d3.selectAll("." + s + ".sect" + j).each(function(d, k) {
+							d3.selectAll("." + s.replace(/ |\/|<|>/g,"") + ".sect" + j).each(function(d, k) {
 								console.log(d)
 								
 								if (d.voffset && d.y + d.voffset + lerp(d.length) > max) {
