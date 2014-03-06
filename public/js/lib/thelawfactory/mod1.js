@@ -149,8 +149,8 @@ var stacked;
 
 					var div;
 					div = d3.select(document.createElement("div")).style("height", "100px").style("width", "100%")
-
-					div.append("p").text("Section : " + section)
+					
+				    //div.append("p").text("Section : " + section)
 					div.append("p").text("Étape : " + status)
 					if (d['status'] != "sup")
 						div.append("p").text("Longueur du texte : " + length)
@@ -615,7 +615,7 @@ var stacked;
 
 					var da = datum.datum()
 					var titre = da.titre, section = da.section, status = d['id_step'].replace(/_/g, ", "), length = d['length'];
-					$(".art-meta").html((section != null ? "<p><b>Section :</b> " + section + "</p>" : "") + "<p><b>Étape :</b> " + status + "</p><p><b>" + (d['status'] == "sup" ? "Supprimé à cette étape." : "<p><b>Modifications :</b> " + d3.round(d['n_diff'] * 100, 2) + "&nbsp;%</p><p>Longueur du texte :</b> " + length) + "</p><p><b>Alinéas :</b></p>")
+					$(".art-meta").html((section !== 'none' ? "<p><b>Section :</b> " + section + "</p>" : "") + "<p><b>Étape :</b> " + status + "</p><p><b>" + (d['status'] == "sup" ? "Supprimé à cette étape." : "<p><b>Modifications :</b> " + d3.round(d['n_diff'] * 100, 2) + "&nbsp;%</p><p>Longueur du texte :</b> " + length) + "</p><p><b>Alinéas :</b></p>")
 					$("#law-title").text("Article " + datum.datum().titre);
 					$(".art-txt").html("<ul><li><span>" + $.map(d.textDiff, function(i) {
 						return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
