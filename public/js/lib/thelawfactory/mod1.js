@@ -168,10 +168,9 @@ var stacked;
 
 				//ADD THE SECTION TITLES
 			myrects.filter(function(d) {
-					return d['section-head']
+					return (d['section-head'] && d['section']!=='none')
 				}).each(function(e) {
 					d3.select(this.parentNode).datum(e).append("rect").attr("x", findStage(e.id_step) * width / columns + 10).attr("y", e.y - 15).attr("class", e.section+ " labl").attr("width", width / columns - 20).attr("height", 15).style("fill", "#D80053").style("stroke", "none").style("opacity", "1").style("stroke-width", "1px")
-
 					d3.select(this.parentNode).datum(e).append("text").attr("x", (findStage(e.id_step) + 1 / 2) * width / columns - 3 * e['section'].length).attr("y", e.y - 4).attr("class","labl-txt").attr("font-family", "sans-serif").attr("font-size", "10px").attr("font-weight", "bold").style("fill", "#ffffff").text(e['section']);
 				})
 				
