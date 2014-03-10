@@ -1,3 +1,4 @@
+console.log("hi")
 var aligned=true;
 var valign;
 var stacked;
@@ -11,10 +12,35 @@ var stacked;
 		function vis(selection) {
 			selection.each(function(data) {
 
-				var try_diff = d3.values(data.articles);
-				try_diff.forEach(function(d, i) {
+				var bigList=[]
+				var art = d3.values(data.articles);
+
+				art.sort(function(a, b) {
+					var al = a.titre.split(" "), bl = b.titre.split(" ")
+					ao = 0, bo = 0;
+					if (parseInt(al[0]) != parseInt(bl[0]))
+						return parseInt(al[0]) - parseInt(bl[0]);
+					for (var i_s = 0; i_s < a.steps.length; i_s++) {
+						ao += a.steps[i_s]['order'];
+						for (var j_s = 0; j_s < b.steps.length; j_s++) {
+							if (i_s == 0)
+								bo += b.steps[j_s]['order'];
+							if (a.steps[i_s]['id_step'] == b.steps[j_s]['id_step'])
+								return a.steps[i_s]['order'] - b.steps[j_s]['order'];
+						}
+					}
+					return ao / a.steps.length - bo / b.steps.length;
+				});
+
+
+				art.forEach(function(d, i) {
+
 					d.steps.forEach(function(f, j) {
 						f.textDiff = []
+						f.article = d.titre;
+						f.section = d.section;
+
+
 						if (j != 0 && f.id_step.substr(-5) != "depot") {
 							for (var l = 1; l <= j; l++) {
 								lasttxt = d.steps[j - l].text;
@@ -35,27 +61,12 @@ var stacked;
 							f.text.forEach(function(g, k) {
 								f.textDiff[k] = diffString(" ", g)
 							})
+							
+						bigList.push(f);
 					});
 				})
-				var art_values = d3.values(data.articles)
-				art_values.sort(function(a, b) {
-					var al = a.titre.split(" "), bl = b.titre.split(" ")
-					ao = 0, bo = 0;
-					if (parseInt(al[0]) != parseInt(bl[0]))
-						return parseInt(al[0]) - parseInt(bl[0]);
-					for (var i_s = 0; i_s < a.steps.length; i_s++) {
-						ao += a.steps[i_s]['order'];
-						for (var j_s = 0; j_s < b.steps.length; j_s++) {
-							if (i_s == 0)
-								bo += b.steps[j_s]['order'];
-							if (a.steps[i_s]['id_step'] == b.steps[j_s]['id_step'])
-								return a.steps[i_s]['order'] - b.steps[j_s]['order'];
-						}
-					}
-					return ao / a.steps.length - bo / b.steps.length;
-				});
 
-				var maxlen = d3.max(art_values, function(d) {
+				var maxlen = d3.max(art, function(d) {
 					return d3.max(d.steps, function(e) {
 						return e.length;
 					})
@@ -68,6 +79,7 @@ var stacked;
 				var stages = computeStages()
 				var columns = stages.length
 				var sections = computeSections()
+				var sectJump = 40;
 				
 				var maxy = 0;
 
@@ -75,10 +87,7 @@ var stacked;
 				var levmin = 225 - 90, levmax = 225;
 				var diffcolor = d3.scale.linear().range(["#f3f3f3", "rgb(" + [levmin, levmin, levmin].join(',') + ")"]).domain([0, 1]).interpolate(d3.interpolateHcl);
 
-				//set coordinates for the blocks
-				setCoordinates();
-				//findTallest();
-
+				//margins
 				var margin = {
 					top : 10,
 					right : 10,
@@ -86,231 +95,158 @@ var stacked;
 					left : 0
 				}, width = $("#viz").width(), height = 800 - margin.top - margin.bottom;
 
-				var svg = d3.select("#viz").append("svg").attr("width", "100%").attr("height", maxy + sections.length * 60 + 100).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+				setCoordinates();
 
-				var sects = svg.append("g").attr("class", "sections")
+				maxy=d3.max(bigList,function(d){return d.y+lerp(d.length)})
+				var svg = d3.select("#viz").append("svg").attr("width", "100%").attr("height", maxy + 100).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-				var layer = svg.selectAll(".layer").data(art_values).enter().append("g").attr("class", function(d, i) {
-					return "layer" + " " + "n_" + i
-				}).attr("transform", function(d, i) {
-					return "translate(0," + (20 + parseInt(findSection(d.section)) * 30) + ")"
-				});
+				for(st in stages) {
+					for (se in sections) {
+						var group = svg.append("g").attr("class","group se"+se+" st"+st)
 
-				//Define lines layer
-				var lines = layer.append("g").selectAll("line").data(function(d) {
-					return d.steps;
-				}).enter();
+						//Add articles
+						group.selectAll(".article")
+						.data(bigList.filter(function(d){return (d.length > 0 && d.step_num==st && d.sect_num==se)}))
+						.enter().append("rect")
+						.attr("x", function(d){return d.x})
+						.attr("y", function(d){return d.y})
+						.attr("class","article")
+						.attr("width", width / columns - 20)
+						.attr("height", function(d){return lerp(d.length)})
+						.call(styleRect)
+						.on("click",onclick)
+						.popover(function(d) {
 
-				//Define rects layer
-				var rect = layer.selectAll("rect").data(function(d) {
-					return d.steps;
-				}).enter();
-				
-				
-				var stylise_rects = function() {
-					myrects.style("stroke", "#ccc").attr("class", function(d) {
+							var titre = d.article, section = d.section, status = d['id_step'].replace(/_/g, ", "), length = d['length'];
+							var div;
+
+							div = d3.select(document.createElement("div")).style("height", "100px").style("width", "100%")
+						    div.append("p").text("Section : " + section)
+							div.append("p").text("Étape : " + status)
+							if (d['status'] != "sup")
+								div.append("p").text("Longueur du texte : " + length)
+							else
+								div.append("p").text("Supprimé à cette étape.")
+							return {
+								title : "Article " + titre,
+								content : div,
+								placement : "mouse",
+								gravity : "right",
+								displacement : [10, -85],
+								mousemove : true
+							};
+						});
+
+						//Add green labels for new elements
+						group.selectAll(".new")
+						.data(bigList.filter(function(d){return (d.length > 0 && d.step_num==st && d.sect_num==se && d.status==="new")}))
+						.enter().append("rect")
+						.attr("class", "new")
+						.style("stroke", "none")
+						.style("fill", '#8DF798')
+						.attr("y", function(d){return d.y + 2})
+						.attr("x", function(d){return d.x + 1})
+						.attr("height", function(d){return lerp(d.length) - 3})
+						.attr("width", 6)
+
+						//Add red labels for removed elements
+						group.selectAll(".sup")
+						.data(bigList.filter(function(d){return (d.length > 0 && d.step_num==st && d.sect_num==se && d.status==="sup")}))
+						.enter().append("rect")
+						.attr("class", "sup")
+						.style("stroke", "none")
+						.style("fill", '#FD5252')
+						.attr("y", function(d){return d.y + 2})
+						.attr("x", function(d){return d.x + 1})
+						.attr("height", function(d){return lerp(d.length) - 3})
+						.attr("width", 6)
+
+
+						//Add headers
+						group.selectAll(".header")
+						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head && d.section!="none")}))
+						.enter().append("rect")
+						.attr("x", function(d){return d.x})
+						.attr("y", function(d){return d.y-15})
+						.attr("class","header")
+						.attr("width", width / columns - 20)
+						.attr("height", 15)
+						.style("fill", "#D80053")
+						.style("stroke", "none")
+						.style("opacity", "1")
+						.style("stroke-width", "1px")
+
+						//Add header labels
+						group.selectAll(".head-lbl")
+						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head)}))
+						.enter().append("text")
+						.attr("x", function(d){return d.x + 5})
+						.attr("y", function(d){return d.y - 4})
+						.attr("class","head-lbl")
+						.attr("font-family", "sans-serif")
+						.attr("font-size", "10px")
+						.attr("font-weight", "bold")
+						.style("fill", "#ffffff")
+						.text(function(d){return d.section});
+					}
+				}
+
+				//Add connections
+				var lines = svg.append("g").selectAll("line").data(bigList.filter(function(d) {
+					a = d3.selectAll(".article").filter(function(e){return d.article == e.article && d.step_num == e.step_num-1})
+					return !a.empty() && d.status!=="sup" && d.step_num+1<stages.length;
+				})).enter();
+
+				lines.append("line")
+				.attr("x1", function(d){return d.x + width / columns - 20})
+				.attr("y1", function(d) {return d.y + (lerp(d.length)) / 2})
+				.attr("x2", function(d){
+					var a=bigList.filter(function(e){return e.article===d.article && e.step_num==d.step_num+1 })[0]
+					return a.x;
+				})
+				.attr("y2", function(d){
+					var a=bigList.filter(function(e){return e.article===d.article && e.step_num==d.step_num+1 })[0]
+					return a.y + (lerp(a.length)) / 2;
+				})
+				.style("stroke", "#dadaf0")
+				.style("stroke-width", 1);
+
+				//computeOffset();
+				console.log(stages, sections)
+
+				function styleRect(d){
+					d.attr("class", function(d) {
 						return "article " + d.section.replace(/ |<|\/|>|/g,"") + " sect" + findStage(d.id_step)
-					}).style("stroke", function(d) {
+					})
+					.style("stroke", function(d) {
 						return d3.hcl(diffcolor(d.n_diff)).brighter();
-					}).style("stroke-width", 1).style("stroke-dasharray", "none").style("fill", function(d) {
+					})
+					.style("stroke-width", 1).style("stroke-dasharray", "none").style("fill", function(d) {
 						if (d.status == 'sup')
 							return '#fff';
 						else if (d.diff == 'none')
 							return '#f3f3f3';
-						else {
+						else 
 							return diffcolor(d.n_diff);
-						}
-						;
 					});
 				}
-				//ADD THE RECTANGLES
-				var myrects = rect.append("rect").filter(function(d) {
-					if (d.length > 0 || d.status == "sup")
-						return true;
-					else
-						return false;
-				});
-
-				stylise_rects();
 				
-				
-				myrects.attr("y", function(d) {
-					return d.y;
-				}).attr("x", function(d) {
-					return (findStage(d.id_step)) * width / columns + 10;
-				}).attr("height", function(d) {
+				function findStage(s) {
 
-					return (lerp(d.length) - 1);
-				}).attr("width", width / columns - 20).attr("opacity", 1.0).on("click", onclick).popover(function(d) {
-
-					var datum = d3.select(this.parentNode).datum()
-
-					var titre = datum.titre, section = datum.section, status = d['id_step'].replace(/_/g, ", "), length = d['length'];
-
-					var div;
-					div = d3.select(document.createElement("div")).style("height", "100px").style("width", "100%")
-					
-				    div.append("p").text("Section : " + section)
-					div.append("p").text("Étape : " + status)
-					if (d['status'] != "sup")
-						div.append("p").text("Longueur du texte : " + length)
-					else
-						div.append("p").text("Supprimé à cette étape.")
-					return {
-						title : "Article " + titre,
-						content : div,
-						placement : "mouse",
-						gravity : "right",
-						displacement : [10, -85],
-						mousemove : true
-					};
-				});
-
-				//ADD THE SECTION TITLES
-			myrects.filter(function(d) {
-					return (d['section-head'] && d['section']!=='none')
-				}).each(function(e) {
-					d3.select(this.parentNode).datum(e).append("rect").attr("x", findStage(e.id_step) * width / columns + 10).attr("y", e.y - 15).attr("class", e.section+ " labl").attr("width", width / columns - 20).attr("height", 15).style("fill", "#D80053").style("stroke", "none").style("opacity", "1").style("stroke-width", "1px")
-					d3.select(this.parentNode).datum(e).append("text").attr("x", (findStage(e.id_step) + 1 / 2) * width / columns - 3 * e['section'].length).attr("y", e.y - 4).attr("class","labl-txt").attr("font-family", "sans-serif").attr("font-size", "10px").attr("font-weight", "bold").style("fill", "#ffffff").text(e['section']);
-				})
-				
-				
-				//new elements
-				myrects.filter(function(d) {
-					return d['status'] == "new";
-				}).each(function(d, i) {
-					d3.select(this.parentNode).datum(d).append("rect").attr("class", "first").style("stroke", "none").style("fill", '#8DF798').attr("y", d.y + 1).attr("x", findStage(d.id_step) * width / columns + 11).attr("height", lerp(d.length) - 3).attr("width", 6).attr("opacity", 1.0);
-				})
-				//deleted elements
-				myrects.filter(function(d) {
-					return d['status'] == "sup";
-				}).each(function(d, i) {
-					d3.select(this.parentNode).datum(d).append("rect").attr("class", "last").style("fill", '#FD5252').attr("y", d.y + 1).attr("x", findStage(d.id_step) * width / columns + 11).attr("height", lerp(d.length) - 3).attr("width", 8).attr("opacity", 1.0);
-					d3.select(this.parentNode).datum(d).append("rect").attr("class", "last").style("stroke", "#FFF").style("stroke-width", 1).style("fill", '#FFF').attr("y", d.y + 1).attr("x", (findStage(d.id_step) + 1) * width / columns - 11).attr("height", lerp(d.length) - 3).attr("width", 2).attr("opacity", 1.0);
-				})
-				
-				//ADD THE LINES
-				var currLines=lines.append("line").filter(function(d, i) {
-					datum = d3.select(this.parentNode).datum()
-					if (!d.last)
-						d.next_s = findArticleNextStage(d.id_step, datum.steps);
-					if (d.length > 0 && !d.last && d.next_s.length > 0 && d.next_s.status != "new")
-						return true;
-					else
-						return false;
-				}).attr("x1", function(d) {
-					return (1 + findStage(d.id_step)) * width / columns - 10
-				}).attr("y1", function(d) {
-					return d.y + (lerp(d.length)) / 2
-				}).attr("x2", function(d, i) {
-
-					datum = d3.select(this.parentNode).datum()
-					if (i + 1 < datum.steps.length)
-						return (1 + findStage(d.id_step)) * width / columns + 10
-					else
-						return null
-				}).attr("y2", function(d, i) {
-					datum = d3.select(this.parentNode).datum()
-					if (i + 1 < datum.steps.length)
-						return d.next_s.y + (lerp(d.next_s.length)) / 2
-					else
-						return null
-				}).style("stroke", "#dadaf0").style("stroke-width", 1);
-
-				//addLabels();
-				findTallest();
-				
-
-				//SETS COORDINATES FOR THE RECTANGLES
-				function setCoordinates() {
-
-					section = "";
-
-					$.each(d3.values(art_values), function(index, value) {
-
-						changed = false
-						if (value.section != section) {
-							section = value.section;
-							value["section-head"] = true
-							changed = true;
+					for (st in stages) {
+						if (encodeURI(s) == encodeURI(stages[st]).substring(3)) {
+							return parseInt(st)
 						}
-
-						$.each(value.steps, function(st_ind, step) {
-
-							if (index == 0) {
-								art_values[index].steps[st_ind]['y'] = 0;
-								art_values[index].steps[st_ind]['section'] = value.section
-								art_values[index].steps[st_ind]["section-head"] = true
-							} else {
-								art_values[index].steps[st_ind]['section'] = value.section
-
-								lasty = findLast(index - 1, art_values[index].steps[st_ind]['id_step'])
-
-								//Checks previous element of vertical stack
-								if (lasty) {
-
-									art_values[index].steps[st_ind]['y'] = lasty.y + lerp(lasty.length)
-
-									if (art_values[index].steps[st_ind]['y'] + lerp(art_values[index].steps[st_ind]['length']) > maxy) {
-										maxy = art_values[index].steps[st_ind]['y'] + lerp(art_values[index].steps[st_ind]['length'])
-									}
-
-									if (art_values[index].steps[st_ind].section !== lasty.section) {
-										art_values[index].steps[st_ind]["section-head"] = true
-									}
-								} else {
-									art_values[index].steps[st_ind]["section-head"] = true
-									art_values[index].steps[st_ind]['y'] = 0
-								}
-							}
-							if (st_ind + 1 == value.steps.length)
-								step.last = true
-							//if(findStage(step.id_step)==0 && st_ind==0 && changed) {
-							if (st_ind == 0) {
-								//console.log("first",st_ind)
-								step.first = true;
-
-							}
-						})
-					});
-
-				}
-
-				//FIND THE ABOVE RECTANGLE - RECURSIVE
-				function findLast(i1, i2) {
-
-					if (i1 < 0) {
-						return null;
 					}
-					ret = null;
-					$.each(art_values[i1].steps, function(st_ind, step) {
-						if (step.id_step == i2 && step.length > 0) {
-							ret = step;
-							return false;
-						}
-					});
-					if (ret)
-						return ret
-					else
-						return findLast(i1 - 1, i2)
+					return -1
 				}
 
-				//Adds the labels
-				function addLabels() {
-					layer.each(function(d, i) {
-						if (d.first) {
-							curry = d.steps[0].y
-							$(".labels").append("<div style='top:" + (curry) + "px'><p>Section " + d.section + "</p></div>")
-						}
-					})
-				}
 
-				//Computes the stages involved in the law creation
 				function computeStages() {
 
 					stag = []
 
-					art_values.forEach(function(e, i) {
+					art.forEach(function(e, i) {
 						var st = d3.nest().key(function(d) {
 							return d.id_step;
 						})
@@ -336,257 +272,106 @@ var stacked;
 					return stag
 				}
 
-				//finds the desired stage in an article steps array
-				function findArticleNextStage(s, arts) {
-					next_s = encodeURI(stages[findStage(s) + 1]).substring(3);
-					for (st in arts) {
-						if (encodeURI(arts[st].id_step) == next_s) {
-							return arts[st];
-						}
-					}
-					return {
-						length : 0
-					};
-				}
-
-				//finds a stage in the stages array
-				function findStage(s) {
-
-					for (st in stages) {
-						if (encodeURI(s) == encodeURI(stages[st]).substring(3)) {
-							return parseInt(st)
-						}
-					}
-					return -1
-				}
-
-				//computes the sections of the current law
 				function computeSections() {
-
 					var se = d3.nest().key(function(d) {
 						return d.section;
 					})
-					//.entries(e.steps)
-					.map(art_values, d3.map);
+					.map(art, d3.map);
 					return se.keys()
 				}
 
-				//finds a section in the sections array
 				function findSection(s) {
 					res = sections.indexOf(s);
 					return res
 				}
 
-				//USE THE ARROWS
-				d3.select("body").on("keydown", function() {
-					if (d3.select(".curr").empty()) {
-						//console.log("no one selected")
-						d3.select(".article").each(onclick);
-					} else {
-						c = (d3.select(".curr"))
-						cur = c.datum();
-
-						//LEFT
-						if (d3.event.keyCode == 37 && !cur.first) {
-							d3.select($(".curr").prev().get([0])).each(onclick)
-						}
-						//RIGHT
-						else if (d3.event.keyCode == 39 && (!cur.last && cur['status'] !== "sup")) {
-							d3.select($(".curr").next().get([0])).each(onclick)
-						} else if (d3.event.keyCode == 38 || d3.event.keyCode == 40) {
-
-							d3.event.preventDefault();
-
-							var g = $(".curr").parent()
-							var classes = g.attr('class').split(' ')
-							n = parseInt(classes[1].split("_")[1])
-							found = false;
-							end = false;
-							el = null;
-
-							if (d3.event.keyCode == 38 && n > 0) {
-
-								while (!found && !end) {
-
-									a = d3.select(".n_" + (n - 1)).selectAll(".article").filter(function(u) {
-
-										return (u.id_step == cur.id_step)
-									})
-									if (a[0].length > 0) {
-										el = a[0][0];
-										found = true;
-									} else {
-										if (n > 1)
-											n = n - 1;
-										else
-											end = true;
-									}
-								}
-
-							} else if (d3.event.keyCode == 40 && n < art_values.length - 1) {
-
-								while (!found && !end) {
-
-									a = d3.select(".n_" + (n + 1)).selectAll(".article").filter(function(u) {
-
-										return (u.id_step == cur.id_step)
-									})
-									if (a[0].length > 0) {
-										el = a[0][0];
-										found = true;
-									} else {
-										if (n < art_values.length - 2)
-											n = n + 1;
-										else
-											end = true;
-									}
-								}
-
-							}
-
-							d3.select(el).each(onclick);
-
-						}
-
-					}
-					// 37=LEFT, 38=UP, 39=RIGHT, 40=DOWN
-				});
-
-				function findTallest() {
-					console.log(sections)
-					var dims = []
-					var overallMax;
-					
-					//prepare array of offsets
-					for (st in stages) {
-						dims.push({
-							stage : stages[st],
-							height : 0
-						})
-					}
-					
-					//for each section (vertical)
-					sections.forEach(function(s, i) {
-						//for each stage (horizontal) find the maximum height
-						stages.forEach(function(st, j) {
-
-							var max = 0, nth = null;
-							d3.selectAll("." + s.replace(/ |\/|<|>/g,"") + ".sect" + j).each(function(d, k) {
-								console.log(d)
-								
-								if (d.voffset && d.y + d.voffset + lerp(d.length) > max) {
-									max = d.y + d.voffset + lerp(d.length);
-								}
-								
-								else if (d.y + lerp(d.length) > max) {
-									max = d.y + lerp(d.length);
-								}
-							})
-							
-							//add the maximum height to he array of offsets
-							a = $.grep(dims, function(e){ return e.stage === st; })[0];
-							a.height += max;
-							
-
-						})
-						
-						//find themaximum height for the present section
-						overallMax = d3.max(dims, function(e, l) {
-							return e.height
-						});
-
-						//do stuff for sequent sections
-						if (sections.length > i + 1) {
-
-							rem = sections.slice(i + 1)
-							console.log(rem)
-							//for each stage
-							for (st in stages) {
-								
-								//compute the offset
-								a = $.grep(dims, function(e){ return e.stage === stages[st]; })[0];
-								var amount = overallMax - a.height;
-								
-								//for every rect in the stage, if section is greater than current or past ones, add an offset field
-								d3.selectAll(".sect" + st).each(function(d, k) {
-									
-									if (rem.indexOf(d.section) >= 0) {
-										d.voffset = amount;
-										
-									}
-
-								})
-							}
-						}
-
+				function setCoordinates() {
+					bigList.forEach(function(d,i){
+						d.sect_num=findSection(d.section)
+						d.step_num=findStage(d.id_step)
 					})
-					
+
+					for (t in stages) {
+						currT=bigList.filter(function(d){return d.step_num==t})
+						currY=sectJump;
+						for (s in sections) {
+							currS=currT.filter(function(e){return e.sect_num==s})
+							if(currS.length) {
+								currS.sort(function(a,b){return a.order - b.order})
+								currS.forEach(function(f,k){
+									if (k==0) f.head=true;
+									f.y = currY;
+									f.x = f.step_num * width / columns + 10;
+									currY+=lerp(f.length)+1
+								})
+								currY+=sectJump;
+							}
+						}	
+					}
 				}
-				
-				//Vertical alignment function
-				valign = function () {
-				myrects.filter(function(d){return d.voffset}).transition().duration(500)
-				.attr("y",function(d){return d.y+d.voffset})
-				
-				
-				d3.selectAll(".labl").filter(function(d){return d.voffset}).transition().duration(500)
-				.attr("y",function(d){return d.y+d.voffset-15})
-				
-				d3.selectAll(".labl-txt").filter(function(d){return d.voffset}).transition().duration(500)
-				.attr("y",function(d){return d.y+d.voffset-4})
-				
-				
-				d3.selectAll(".first").filter(function(d){return d.voffset}).transition().duration(500)
-				.attr("y",function(d){return d.y+d.voffset})
-				
-				d3.selectAll(".last").filter(function(d){return d.voffset}).transition().duration(500)
-				.attr("y",function(d){return d.y+d.voffset})
-				
-				
-				currLines.filter(function(d){return d.voffset}).transition().duration(500)
-				.attr("y1", function(d) {
-					return d.y + d.voffset + (lerp(d.length)) / 2
-				})
-				.attr("y2", function(d, i) {
-					datum = d3.select(this.parentNode).datum()
-					if (i + 1 < datum.steps.length)
-						return d.next_s.y + d.next_s.voffset + (lerp(d.next_s.length)) / 2
-					else
-						return null
+
+				valign = function() {
+
+					for(var se=0; se<sections.length-1; se++) {
+						var ma=0;
+						var mx=0;
+						for(st in stages) {
+							a=d3.select(".se"+se+".st"+st).node().getBBox();
+							if(a.y+a.height>=ma) ma=a.y+a.height;
+						}
+						mx+=ma+30
+						d3.selectAll(".se"+(se+1))
+						//.transition().duration(500)
+						.attr("data-offset", function(d){
+							var b=d3.select(this).node().getBBox();
+							return mx-b.y;
+						})
+					}
+
+					d3.selectAll(".group")
+					.transition().duration(500)
+					.attr("transform",function(d){
+						if($(this).attr("data-offset")) return "translate(0,"+parseFloat($(this).attr('data-offset'))+")"
+						else return "translate(0,0)";
+					})
+
+					valignLines();
+				}
+
+				function valignLines() {
+					d3.selectAll("line").transition().duration(500)
+					//.style("opacity","1")
+					.attr("y1",function(d){
+						if(!d.hs) {
+							var hs = $("g.se"+d.sect_num+".st"+d.step_num).attr("data-offset")
+							if(!hs) hs=0;
+							d.hs=parseFloat(hs)
+						}
+						return d.hs + d.y + (lerp(d.length)) / 2
+					})
+					.attr("y2", function(d){
+						
+						var a=bigList.filter(function(e){return e.article===d.article && e.step_num==d.step_num+1 })[0]
+						if(!a.he) {
+							var he = $("g.se"+a.sect_num+".st"+a.step_num).attr("data-offset")
+							if(!he) he=0;
+							a.he=parseFloat(he)
+						}
+					return a.he + a.y + (lerp(a.length)) / 2;
 				})
 				}
-				
-				stacked = function () {
-				myrects.filter(function(d){return d.voffset}).transition().duration(500)
-				.attr("y",function(d){return d.y})
-				
-				
-				d3.selectAll(".labl").filter(function(d){return d.voffset}).transition().duration(500)
-				.attr("y",function(d){return d.y-15})
-				
-				d3.selectAll(".labl-txt").filter(function(d){return d.voffset}).transition().duration(500)
-				.attr("y",function(d){return d.y-4})
-				
-				
-				d3.selectAll(".first").filter(function(d){return d.voffset}).transition().duration(500)
-				.attr("y",function(d){return d.y})
-				
-				d3.selectAll(".last").filter(function(d){return d.voffset}).transition().duration(500)
-				.attr("y",function(d){return d.y})
-				
-				
-				currLines.filter(function(d){return d.voffset}).transition().duration(500)
-				.attr("y1", function(d) {
-					return d.y + (lerp(d.length)) / 2
-				})
-				.attr("y2", function(d, i) {
-					datum = d3.select(this.parentNode).datum()
-					if (i + 1 < datum.steps.length)
-						return d.next_s.y  + (lerp(d.next_s.length)) / 2
-					else
-						return null
-				})
-				}
+
+				stacked = function() {
+					d3.selectAll(".group").transition().duration(500)
+					.attr("transform","translate(0,0)")
+
+					d3.selectAll("line").transition().duration(500)
+						.attr("y1", function(d) {return d.y + (lerp(d.length)) / 2})
+						.attr("y2", function(d){
+							var a=bigList.filter(function(e){return e.article===d.article && e.step_num==d.step_num+1 })[0]
+							return a.y + (lerp(a.length)) / 2;
+						})
+					}
 				
 
 				function onclick(d) {
@@ -595,60 +380,37 @@ var stacked;
 
 					//STYLE OF CLICKED ELEMENT AND ROW
 					//Reset rectangles
-					stylise_rects();
+					d3.selectAll(".article").call(styleRect);
 					d3.selectAll(".curr").classed("curr", false);
 					d3.select(this).classed("curr", true);
 					//Select the elements in same group
-					datum = d3.select(this.parentNode)
+					//datum = d3.select(this.parentNode)
 
-					d3.selectAll(datum[0][0].childNodes).filter("rect.article").style("stroke", "#D80053").style("stroke-width", 1).style("fill", function(d) {
+					d3.selectAll(".article").filter(function(e){return e.article==d.article})
+					.style("stroke", "#D80053").style("stroke-width", 1).style("fill", function(d) {
 						hsl = d3.rgb(d3.select(this).style("fill")).hsl()
 						hsl.s += 0.1;
 						return hsl.rgb()
 					})
 
-					d3.selectAll(datum[0][0].childNodes).filter("g").selectAll("line").style("stroke", "#D80053");
+					d3.selectAll("line")
+					.filter(function(e){return e.article==d.article})
+					.style("stroke", "#D80053");
 
 					d3.rgb(d3.select(this).style("fill")).darker(2)
 
 					d3.select(this).style("stroke-dasharray", [3, 3])
 
-					var da = datum.datum()
-					var titre = da.titre, section = da.section, status = d['id_step'].replace(/_/g, ", "), length = d['length'];
+					
+					var titre = d.article, section = d.section, status = d['id_step'].replace(/_/g, ", "), length = d['length'];
 					$(".art-meta").html((section !== 'none' ? "<p><b>Section :</b> " + section + "</p>" : "") + "<p><b>Étape :</b> " + status + "</p><p><b>" + (d['status'] == "sup" ? "Supprimé à cette étape." : "<p><b>Modifications :</b> " + d3.round(d['n_diff'] * 100, 2) + "&nbsp;%</p><p>Longueur du texte :</b> " + length) + "</p><p><b>Alinéas :</b></p>")
-					$("#law-title").text("Article " + datum.datum().titre);
+					$("#law-title").text("Article " + d.article);
 					$(".art-txt").html("<ul><li><span>" + $.map(d.textDiff, function(i) {
 						return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
 					}).join("</span></li><li><span>") + "</span></li></ul>")
 				}
-
-
-				$(".separator").append('<h4 class="law-title">' + data.law_title + '</h4>')
-
-				$(document).ready(function() {
-					var s = $(".text");
-					var pos = s.offset();
-					var w = s.width();
-					//console.log("pos",pos)
-					$(window).scroll(function() {
-						var windowpos = $(window).scrollTop();
-						if (windowpos >= pos.top) {
-							s.addClass("stick");
-							s.css("left", pos.left);
-							s.css("width", w);
-						} else {
-							s.removeClass("stick");
-							s.css("left", "");
-							s.css("width", "18.33%");
-						}
-					});
-				});
-
-			});
-			//end selection.each
-		};//end function vis
-
-		return vis;
+		});
 	};
-
+	return vis;
+};
 })();
