@@ -89,17 +89,23 @@ var stacked;
 
 				//margins
 				var margin = {
-					top : 10,
+					top : 0,
 					right : 10,
 					bottom : 20,
 					left : 0
 				}, width = $("#viz").width(), height = 800 - margin.top - margin.bottom;
-
+				
+				
+				//init coordinates
 				setCoordinates();
-
+				
+				
+				//create SVG
 				maxy=d3.max(bigList,function(d){return d.y+lerp(d.length)})
 				var svg = d3.select("#viz").append("svg").attr("width", "100%").attr("height", maxy + 100).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+				
+				
+				//draw everything
 				for(st in stages) {
 					for (se in sections) {
 						var group = svg.append("g").attr("class","group se"+se+" st"+st)
@@ -211,9 +217,11 @@ var stacked;
 				.style("stroke", "#dadaf0")
 				.style("stroke-width", 1);
 
-				//computeOffset();
-				console.log(stages, sections)
+				//======================
+				//Visualization flow ends here
+				//======================
 
+				//rect style function
 				function styleRect(d){
 					d.attr("class", function(d) {
 						return "article " + d.section.replace(/ |<|\/|>|/g,"") + " sect" + findStage(d.id_step)
@@ -231,6 +239,7 @@ var stacked;
 					});
 				}
 				
+				//Utility functions
 				function findStage(s) {
 
 					for (st in stages) {
@@ -262,12 +271,12 @@ var stacked;
 					})
 					stag.sort()
 
-					for (s in stag) {
+					/*for (s in stag) {
 						//console.log(stag[s])
 						stag_name = stag[s].split("_", 4).splice(2, 3).join(" ");
 						//console.log(stag_name);
 						$(".stages").append('<div class="stage" style="width:' + 100 / stag.length + '%">' + stag_name + '</div>')
-					}
+					}*/
 
 					return stag
 				}
@@ -309,7 +318,9 @@ var stacked;
 						}	
 					}
 				}
-
+				
+				
+				//functions for aligned layout
 				valign = function() {
 
 					for(var se=0; se<sections.length-1; se++) {
@@ -360,7 +371,9 @@ var stacked;
 					return a.he + a.y + (lerp(a.length)) / 2;
 				})
 				}
-
+				
+				
+				//function for stacked layout
 				stacked = function() {
 					d3.selectAll(".group").transition().duration(500)
 					.attr("transform","translate(0,0)")
@@ -373,7 +386,7 @@ var stacked;
 						})
 					}
 				
-
+				//on click behaviour
 				function onclick(d) {
 					console.log(d)
 					d3.selectAll("line").style("stroke", "#dadaf0");

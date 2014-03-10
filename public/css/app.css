@@ -541,3 +541,9 @@ position:static;
 	top:4%;
 	cursor:pointer;
 }
+h4 .glyphicon {
+	font-size:0.8em;
+}
+h4 a{
+	color: #716259;
+}

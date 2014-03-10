@@ -3,7 +3,7 @@
 /* Directives */
 
 angular.module('theLawFactory.directives', [])
-  .directive('mod1', [ 'apiService', '$rootScope','$location', function (apiService,$rootScope,$location) {
+  .directive('mod1', [ 'apiService', '$rootScope','$location','$compile', function (apiService,$rootScope,$location,$compile) {
     return {
       restrict: 'A',
       replace: false,
@@ -23,6 +23,7 @@ angular.module('theLawFactory.directives', [])
 
         function update(){
 			$(".lawlist").css("display","none")
+			
       		apiService.getDataSample(scope.dataUrl+l).then(
             function(data){
               scope.dataSample = data;
@@ -34,6 +35,18 @@ angular.module('theLawFactory.directives', [])
               scope.error = error
             }
             )
+            
+            apiService.getDataSample(scope.procedureUrl+l).then(
+            function(data){
+            	var a=data.steps[data.steps.length-1].source_url
+            	scope.b=data.steps.slice(0,data.steps.length-1)
+            	var len = 99/scope.b.length;
+              	var mar = 1/scope.b.length;
+            	$(".separator").html('<h4 class="law-title">'+data.long_title+'  <a href='+a+'><span class="glyphicon glyphicon-link"></span></a></h4>')
+            var newElement = $compile( "<div class='stage-container' style='margin-right:"+mar+"%;float:left; width:"+len+"%' ng-repeat='el in b'><div class='stage'>{{el.directory.split('_').slice(2,4).join(' ')}}</div></div>" )( scope );
+			  element.find(".stages").append( newElement );
+            })
+            
         }
 
       	scope.$watch('dataUrl', function(){
@@ -170,7 +183,6 @@ angular.module('theLawFactory.directives', [])
             })
 			  
 			  if($location.search()['s']!=null) {
-			  	console.log("ahiahi")
 			apiService.getDataSample(scope.amdUrl+scope.l+"/"+scope.step_name).then(
             function(data){
             
