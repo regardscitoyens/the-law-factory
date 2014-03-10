@@ -39,12 +39,13 @@ angular.module('theLawFactory.directives', [])
             apiService.getDataSample(scope.procedureUrl+l).then(
             function(data){
             	var a=data.steps[data.steps.length-1].source_url
-            	scope.b=data.steps.slice(0,data.steps.length-1)
+            	$(".separator").html('<h4 class="law-title">'+data.long_title+'  <a href='+a+'><span class="glyphicon glyphicon-link"></span></a></h4>')
+            /*	scope.b=data.steps.slice(0,data.steps.length-1)
             	var len = 99/scope.b.length;
               	var mar = 1/scope.b.length;
-            	$(".separator").html('<h4 class="law-title">'+data.long_title+'  <a href='+a+'><span class="glyphicon glyphicon-link"></span></a></h4>')
+            	
             var newElement = $compile( "<div class='stage-container' style='margin-right:"+mar+"%;float:left; width:"+len+"%' ng-repeat='el in b'><div class='stage'>{{el.directory.split('_').slice(2,4).join(' ')}}</div></div>" )( scope );
-			  element.find(".stages").append( newElement );
+			  element.find(".stages").append( newElement );*/
             })
             
         }
