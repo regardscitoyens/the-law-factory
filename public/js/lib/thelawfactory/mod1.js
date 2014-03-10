@@ -320,6 +320,105 @@ var stacked;
 				}
 				
 				
+				//USE THE ARROWS
+				d3.select("body").on("keydown", function() {
+					if (d3.select(".curr").empty()) {
+						//console.log("no one selected")
+						d3.select(".article").each(onclick);
+					} else {
+						c = (d3.select(".curr"))
+						cur = c.datum();
+
+						//LEFT
+						if (d3.event.keyCode == 37) {
+							var sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && e.step_num==cur.step_num-1})
+							if(!sel.empty()) {console.log(sel); sel.each(onclick);}
+						}
+						//RIGHT
+						else if (d3.event.keyCode == 39) {
+							var sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && e.step_num==cur.step_num+1})
+							if(!sel.empty()) sel.each(onclick);
+						} 
+						//UP AND DOWN
+						else if (d3.event.keyCode == 38 || d3.event.keyCode == 40) {
+
+							d3.event.preventDefault();
+
+							var g = $(".curr").parent()
+							
+							found = false;
+							end = false;
+							el = null;
+							
+							//UP
+							if (d3.event.keyCode == 38) {
+								curn=$(c.node())
+								if(curn.prev().length) {
+									d3.select(curn.prev().get([0])).each(onclick)
+								}
+								
+							}
+							
+							else if(d3.event.keyCode == 40) {
+								
+								curn=$(c.node())
+								console.log(curn.next())
+								console.log(curn.next().hasClass("article"))
+								if(curn.next().length && curn.next().hasClass("article")) {
+									d3.select(curn.next().get([0])).each(onclick)
+								}
+								
+							}
+							
+						/*	if (d3.event.keyCode == 38 && n > 0) {
+
+								while (!found && !end) {
+
+									a = d3.select(".n_" + (n - 1)).selectAll(".article").filter(function(u) {
+
+										return (u.id_step == cur.id_step)
+									})
+									if (a[0].length > 0) {
+										el = a[0][0];
+										found = true;
+									} else {
+										if (n > 1)
+											n = n - 1;
+										else
+											end = true;
+									}
+								}
+
+							} else if (d3.event.keyCode == 40 && n < art_values.length - 1) {
+
+								while (!found && !end) {
+
+									a = d3.select(".n_" + (n + 1)).selectAll(".article").filter(function(u) {
+
+										return (u.id_step == cur.id_step)
+									})
+									if (a[0].length > 0) {
+										el = a[0][0];
+										found = true;
+									} else {
+										if (n < art_values.length - 2)
+											n = n + 1;
+										else
+											end = true;
+									}
+								}
+
+							}*/
+
+							d3.select(el).each(onclick);
+
+						}
+
+					}
+					// 37=LEFT, 38=UP, 39=RIGHT, 40=DOWN
+				});
+				
+				
 				//functions for aligned layout
 				valign = function() {
 
