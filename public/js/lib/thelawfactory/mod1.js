@@ -366,16 +366,15 @@ var stacked;
 								
 							}
 							
+							//DOWN
 							else if(d3.event.keyCode == 40) {
 								
 								curn=$(c.node())
-								
 								if(curn.next().length && d3.select(curn.next().get([0])).classed("article")) {
 									d3.select(curn.next().get([0])).each(onclick)
 								}
 								
 								else {
-									
 									var a = $(".group.st"+cur.step_num+":gt("+cur.sect_num+"):parent")
 									if(a.length) {
 										d3.select(a.children().get([0])).each(onclick)
@@ -383,54 +382,10 @@ var stacked;
 									
 								}
 							}
-							
-							
-						/*	if (d3.event.keyCode == 38 && n > 0) {
-
-								while (!found && !end) {
-
-									a = d3.select(".n_" + (n - 1)).selectAll(".article").filter(function(u) {
-
-										return (u.id_step == cur.id_step)
-									})
-									if (a[0].length > 0) {
-										el = a[0][0];
-										found = true;
-									} else {
-										if (n > 1)
-											n = n - 1;
-										else
-											end = true;
-									}
-								}
-
-							} else if (d3.event.keyCode == 40 && n < art_values.length - 1) {
-
-								while (!found && !end) {
-
-									a = d3.select(".n_" + (n + 1)).selectAll(".article").filter(function(u) {
-
-										return (u.id_step == cur.id_step)
-									})
-									if (a[0].length > 0) {
-										el = a[0][0];
-										found = true;
-									} else {
-										if (n < art_values.length - 2)
-											n = n + 1;
-										else
-											end = true;
-									}
-								}
-
-							}*/
-
 							d3.select(el).each(onclick);
-
 						}
 
 					}
-					// 37=LEFT, 38=UP, 39=RIGHT, 40=DOWN
 				});
 				
 				

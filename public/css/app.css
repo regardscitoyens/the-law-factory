@@ -148,6 +148,7 @@ body{
 	
 	/* Firefox */
 	display:flex;
+	display: -moz-box;
 	-moz-box-pack:center;
 	-moz-box-align:center;
 	
