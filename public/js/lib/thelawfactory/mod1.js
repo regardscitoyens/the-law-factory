@@ -356,19 +356,34 @@ var stacked;
 								if(curn.prev().length) {
 									d3.select(curn.prev().get([0])).each(onclick)
 								}
+								else {
+									var a = $(".group.st"+cur.step_num+":lt("+cur.sect_num+"):parent:last")
+									if(a.length) {
+										console.log(a.children(),a.children("rect").last())
+										d3.select(a.children(".article").last().get([0])).each(onclick)
+									}
+								}
 								
 							}
 							
 							else if(d3.event.keyCode == 40) {
 								
 								curn=$(c.node())
-								console.log(curn.next())
-								console.log(curn.next().hasClass("article"))
-								if(curn.next().length && curn.next().hasClass("article")) {
+								
+								if(curn.next().length && d3.select(curn.next().get([0])).classed("article")) {
 									d3.select(curn.next().get([0])).each(onclick)
 								}
 								
+								else {
+									
+									var a = $(".group.st"+cur.step_num+":gt("+cur.sect_num+"):parent")
+									if(a.length) {
+										d3.select(a.children().get([0])).each(onclick)
+									}
+									
+								}
 							}
+							
 							
 						/*	if (d3.event.keyCode == 38 && n > 0) {
 
