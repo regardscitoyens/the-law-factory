@@ -397,8 +397,10 @@ var stacked;
 						var mx=0;
 						for(st in stages) {
 							a=d3.select(".se"+se+".st"+st).node().getBBox();
+							if(se==6) console.log("ci siamo",".se"+se+".st"+st, a, a.y+a.height )
 							if(a.y+a.height>=ma) ma=a.y+a.height;
 						}
+						if(se==6) console.log("ma",ma)
 						mx+=ma+30
 						d3.selectAll(".se"+(se+1))
 						//.transition().duration(500)
