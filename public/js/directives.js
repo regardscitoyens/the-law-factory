@@ -39,13 +39,13 @@ angular.module('theLawFactory.directives', [])
             apiService.getDataSample(scope.procedureUrl+l).then(
             function(data){
             	var a=data.steps[data.steps.length-1].source_url
-            	$(".separator").html('<h4 class="law-title">'+data.long_title+'  <a href="http://www.senat.fr/dossier-legislatif/'+l+'.html"><span class="glyphicon glyphicon-link"></span></a></h4>')
-            /*	scope.b=data.steps.slice(0,data.steps.length-1)
-            	var len = 99/scope.b.length;
-              	var mar = 1/scope.b.length;
+            	$(".separator").html('<h4 class="law-title">'+data.long_title+' <sub><a href="'+data.url_dossier_assemblee+'">Assemblée</a>, <a href="'+data.url_dossier_senat+'">Senat</a></sub></h4>')
+            	scope.b=data.steps.filter(function(d){return d.debats_order!=null})
+            	var len = 100/scope.b.length;
+              	
             	
-            var newElement = $compile( "<div class='stage-container' style='margin-right:"+mar+"%;float:left; width:"+len+"%' ng-repeat='el in b'><div class='stage'>{{el.directory.split('_').slice(2,4).join(' ')}}</div></div>" )( scope );
-			  element.find(".stages").append( newElement );*/
+            var newElement = $compile( "<div class='stage-container' style='float:left; width:"+len+"%' ng-repeat='el in b'><div class='stage'>{{el.directory.split('_').slice(2,4).join(' ')}}  <a href='{{el.source_url}}'><span class='glyphicon glyphicon-link'></span></a></div></div>" )( scope );
+			  element.find(".stages").append( newElement );
             })
             
         }

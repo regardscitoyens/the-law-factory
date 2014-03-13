@@ -74,7 +74,7 @@ exports.procedure = function(req, res) {
 
 	request({
 		method : 'GET',
-		url : baseUrl + '/' + req.params.id + '/procedure/procedure.json',
+		url : baseUrl + '/' + req.params.id + '/viz/procedure.json',
 		headers : {
 			'Content-type' : 'Content-type: application/json'
 		}

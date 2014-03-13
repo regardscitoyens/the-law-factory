@@ -546,5 +546,9 @@ h4 .glyphicon {
 	font-size:0.8em;
 }
 h4 a{
-	color: #716259;
+	/*color: #716259;*/
+}
+.stage a{
+	color: rgb(175, 161, 154);
+	font-size:0.8em;	
 }
