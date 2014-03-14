@@ -293,7 +293,7 @@ ins {
     text-align: center;
 }
 .scrolling{
-	width: 70%;
+	width: 73.33%;
 	float: left;
 	height:590px;
 	
@@ -302,13 +302,13 @@ ins {
 .labels-sc{
 	background-color:transparent;
 	padding:0 !important;
+	width:100%;
 	height:100%;
-	width:26.7%;
 	float:left;
 }
 .main-sc{
+	width:100%;
 	height:100%;
-	width:73.2%;
 	float:left;
 }
 
@@ -320,15 +320,14 @@ ins {
 	background-color: #F9F7F8;
 }
 .legend {
-
-background-color: white;
-padding: 15px;
-margin-top: 1px;
-float: right;
-width: 76%;
-position: relative;
-padding-bottom: 0.9%;
-padding-top: 0.8%;
+    background-color: white;
+    padding: 15px;
+    margin-top: 1px;
+    float: right;
+	width:88.6%;
+    position: relative;
+    padding-bottom: 0.9%;
+    padding-top: 0.8%;
 }
 
 .leg-item{
@@ -456,38 +455,37 @@ ul.ui-autocomplete {
 	height:auto;
 }
 .mod2 .text {
-	width:18%;
+	width:18.33%;
+    margin-right: 8.33%
 }
 .mod2 .scrolling {
-	width:82%;
+	width: 73.33%;
 	height: 645px;
 }
 .mod2 .labels-sc {
-	width: 100%;
 	height:auto !important;
 }
 .mod2 .main-sc{
 	width: 100%;
-	height:99%;
+	height:65%;
 	overflow-y:auto;
 	overflow-x:hidden;
 }
 
 .mod2 #viz {
-	width:75.7%;
-	float:left;
-	
+	width:88.5%;
+	float:right;
 }
 .mod2 .art-list{
-	width: 17.3%;
-margin-left: 7%;
-float: left;
+	width: 10%;
+    margin-left: 1.34%;
+    float: left;
 }
 
 .mod2 .art-list p {
 	background-color:#F9F7F8;
 	padding-right: 10px;
-text-align: right;
+    text-align: right;
 }
 
 .mod2 #text-title{
@@ -498,26 +496,26 @@ text-align: right;
 
 .mod2 .viz-container h4{
 	text-align: center;
-padding: 20px 4px;
-width: 10%;
-float: left;
-margin-left: 14.3%;
-margin-bottom:6px;
-display: inline-block;
-background-color: #D80053;
-color: #fff;
-font-weight: normal;
-font-size: 13px;
+    padding: 20px 4px;
+	width: 6.8%;
+    float: left;
+    margin-left: 4.58%;
+    margin-bottom:6px;
+    display: inline-block;
+    background-color: #D80053;
+    color: #fff;
+    font-weight: normal;
+    font-size: 13px;
 }
 
 .mod2 .stages{
 	display: inline-block;
-width: 75.7%;
-text-align: left;
-float: left;
-margin: 0;
-clear:none;
-position:static;
+    width: 88.6%;
+    text-align: left;
+    float: left;
+    margin: 0;
+    clear:none;
+    position:static;
 }
 
 .mod2 .labels-sc div{
