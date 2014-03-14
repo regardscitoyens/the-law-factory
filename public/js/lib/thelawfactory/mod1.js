@@ -9,6 +9,16 @@ var stacked;
 
 	thelawfactory.mod1 = function() {
 
+        function format_section(s) {
+            return s.replace(/^.*([LTCVS]+)(\d+)([\sa-z]*)$/, '$1 $2$3')
+                .replace("SS", "Sous-section")
+                .replace("S", "Section")
+                .replace("C", "Chapitre")
+                .replace("L", "Livre")
+                .replace("V", "Volume")
+                .replace("T", "Tome");
+        }
+
 		function vis(selection) {
 			selection.each(function(data) {
 
@@ -188,12 +198,12 @@ var stacked;
 						.enter().append("text")
 						.attr("x", function(d){return d.x + 5})
 						.attr("y", function(d){return d.y - 4})
-						.attr("class","head-lbl")
+						.attr("class", "head-lbl")
 						.attr("font-family", "sans-serif")
-						.attr("font-size", "10px")
+						.attr("font-size", "9px")
 						.attr("font-weight", "bold")
 						.style("fill", "#ffffff")
-						.text(function(d){return d.section});
+						.text(function(d){return format_section(d.section)});
 					}
 				}
 
