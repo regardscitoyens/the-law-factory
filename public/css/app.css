@@ -430,11 +430,11 @@ ul.ui-autocomplete {
 	border-bottom: 1px solid #333333 !important;
 	outline:none;
 }
-#search-btn{
+#search-btn, .btn{
 	float:left;
 	background:#D80053;
 	color:#fff;
-	border-radius: 0;
+	border-radius: 0 !important;
 }
 .ui-menu .ui-menu-item {
 	padding:8px 0px;
@@ -559,4 +559,10 @@ h4 a{
 .stage a{
 	color: rgb(175, 161, 154);
 	font-size:0.8em;	
+}
+.btn-group .btn{
+	margin-left:2px !important;
+}
+.int-viz{
+	float:right !important;
 }
