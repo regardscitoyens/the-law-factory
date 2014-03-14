@@ -51,6 +51,23 @@ exports.articles = function(req, res) {
 	})
 };
 
+exports.interventions = function(req, res) {
+	request({
+		method : 'GET',
+		url : baseUrl + '/' + req.params.id + '/viz/interventions.json',
+		headers : {
+			'Content-type' : 'Content-type: application/json'
+		}
+	}, function(error, response, body) {
+
+		if (response.statusCode == 200) {
+			console.log(body)
+			res.send(JSON.parse(body))
+		} else
+			res.send("ciao");
+	})
+};
+
 //Amendements service (mod2)
 exports.amendments = function(req, res) {
 

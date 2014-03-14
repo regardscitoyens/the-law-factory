@@ -2,7 +2,7 @@
 </div>
 <div class="row">
   <div class="col-md-8 col-md-offset-2 title">
-    <h4>INTERVENTIONS</h4>
+    <h4>AMENDEMENTS</h4>
     <div class="menu-btn"><img src="img/menu.png"/></div>
   </div>
 </div>
@@ -13,6 +13,25 @@
 		<button type="button" class="btn" id="search-btn">
 				Search a law
 			</button>
+			
+			<div class="btn-group">
+  <button ng-click="go('mod2')" type="button" class="btn">Amendements</button>
+  <button ng-click="go('mod2b')" type="button" class="btn">Interventions</button>
+  </div>
+
+<div class="btn-group dd-btn">
+  <button type="button" class="btn">Group by</button>
+  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  
+  <ul class="dropdown-menu" role="menu">
+    <li><a onclick="draw()">Articles</a></li>
+    <li><a onclick="drawMerged()">Ungrouped</a></li>
+  </ul>
+</div>
+
 
 	<div class="btn-group dd-btn">
   <button type="button" class="btn">Order by</button>
@@ -20,6 +39,7 @@
     <span class="caret"></span>
     <span class="sr-only">Toggle Dropdown</span>
   </button>
+  
   <ul class="dropdown-menu" role="menu">
     <li><a onclick="sortByStat()">Statut</a></li>
     <li><a onclick="sortByDate()">Date</a></li>
@@ -44,25 +64,30 @@
  	<div class="scrolling">
 	    <div class="labels-sc">
 	      <h4>STEPS</h4>
-	      <div class="art-list"></div>
+	       <div class="stages">
+	    </div>
 	    </div>
 	    <div class="main-sc">
-	      <div class="stages">
-	      </div>
-	      <div id="viz"></div>
+	    	
+	      <div class="int-viz" id="viz"></div>
 	     
+	      </div>
+	     
+	     <div class="legend">LEGEND<div class="colors"></div></div>
 	    </div>
-  </div>
-   
-    <div class="text">
-      <h4 id="text-title">Sélectionner un participant</h4>
+	    
+	     <div class="text">
+      <h4 id="text-title">Sélectionner un amendement</h4>
       <div class="text-container">
         <p></p>
         
       </div>
       <div class="end-tip"></div>
     </div>
-    <div class="legend">STATUS<div class="colors"></div></div>
+  </div>
+   
+   
+    
     
     
   </div>

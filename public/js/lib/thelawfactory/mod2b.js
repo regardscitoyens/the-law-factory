@@ -10,6 +10,7 @@ function wrap(width) {
         lineHeight = 1.2, // ems
         y = text.attr("y"),
         dy = parseFloat(text.attr("dy")),
+        dx = parseFloat(text.attr("dx")),
         tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
     while (word = words.pop()) {
       line.push(word);
@@ -18,21 +19,21 @@ function wrap(width) {
         line.pop();
         tspan.text(line.join(" "));
         line = [word];
-        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").attr("dx",dx).text(word);
       }
     }
   });
 }
 
-function init(file) {
-d3.json(file,function(data){
+function init(data,step) {
 
-	var d = data[d3.keys(data)[1]]
+	console.log(data)
+	var d = data[step]
 	var mydata=[]
 	var groupes=d3.keys(d.groupes);
 	
 	for(e in d.groupes) {
-		mydata.push({key:d.groupes[e].nom.toLowerCase(), values:[]})
+		mydata.push({key:e.toLowerCase(), values:[]})
 	}
 
 	d3.entries(d.divisions).forEach(function(a,b){
@@ -50,7 +51,7 @@ d3.json(file,function(data){
 			var filtered = gp.filter(function(k,l){
 				return k.key==g
 			})
-
+			console.log(mydata)
 			var curr = mydata.filter(function(e,n){
 					return e.key===g.toLowerCase()
 				})[0]
@@ -67,14 +68,13 @@ d3.json(file,function(data){
 		})
 	})
 
-
 	var w=$("#viz").width();
-	var offset = 200;
-	var stream = sven.viz.streamkey().data(mydata).target("#viz").height(num*200).width(w).minHeight(1).init()
-	d3.selectAll("g")
+	var offset = w*20/100;
+	var stream = sven.viz.streamkey().data(mydata).target("#viz").height(num*100).width(w).minHeight(1).init()
+	d3.selectAll("g:not(.main-g)")
 	.attr("transform","translate("+offset+",0) scale("+(w-offset)/w+",1)");
-	wrap(offset+50);
-	});
+	wrap(offset);
+
 }
 
 sven = {},
@@ -264,7 +264,10 @@ sven.viz.streamkey = function(){
 				//.attr("width", width)
 				//.attr("height", height);
 				.attr("width", height)
-    			.attr("height", width);
+    			.attr("height", width)
+    			.append("g")
+    			.attr("class","main-g")
+    			.attr("transform","translate(0,20)")
 
 		var colorz = sven.colors.diverging(n);
 		var layer = svg.selectAll("g")
@@ -276,6 +279,7 @@ sven.viz.streamkey = function(){
 			//.on("mouseout", function(){d3.select(this).selectAll("path").transition().attr("fill-opacity",0.5)})
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 			.on("click",function(d){ 
+											console.log(d)
 											var label = (d3.nest().key(function(f){return f.label}).entries(d)).filter(function(f){return f.key != 'undefined'});
 
 											label = label.map(function(f){return f.key});
@@ -340,7 +344,7 @@ sven.viz.streamkey = function(){
 		  .enter().append("text")
 			.attr("y", function(d) { return x(d) + margin.left; })
 			.attr("x", function(d) { return y(mY) + margin.top; })
-			.attr("dx", 0)
+			.attr("dx", 10)
 			.attr("dy", 0)
 			.attr("font-family","sans-serif")
 			.attr("font-size","0.8em")
