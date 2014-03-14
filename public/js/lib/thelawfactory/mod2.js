@@ -293,7 +293,7 @@ var grouped=null;
                 } else {
                     s.removeClass("stick"); 
                     s.css("left","");
-                    s.css("width","18%");
+                    s.css("width","18.33%");
                 }
             });
         });
