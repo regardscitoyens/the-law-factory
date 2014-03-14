@@ -41,6 +41,7 @@ angular.module('theLawFactory.directives', [])
             	var a=data.steps[data.steps.length-1].source_url
             	$(".separator").html('<h4 class="law-title">'+data.long_title+' <sub><a href="'+data.url_dossier_assemblee+'">Assemblée</a>, <a href="'+data.url_dossier_senat+'">Senat</a></sub></h4>')
             	scope.b=data.steps.filter(function(d){return d.debats_order!=null})
+                scope.b.sort(function(a,b){return a.debats_order - b.debats_order})
             	var len = 100/scope.b.length;
               	
             	
