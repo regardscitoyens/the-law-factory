@@ -157,7 +157,7 @@ var grouped=null;
 			//.style("fill","#fff")
 			.style("stroke","#D80053" )
 			.style("stroke-width","2" )
-			$("#law-title").text("Amendement "+d.numero)
+			$("#text-title").text("Amendement "+d.numero)
 			var source_am = '.fr</a> &mdash; <a href="'+d.source+'">';
             if (d.url_nosdeputes) source_am = '<a href="'+d.url_nosdeputes+'">NosDéputés'+source_am+'Assemblée nationale</a>';
             else source_am = '<a href="'+d.url_nossenateurs+'">NosSénateurs'+source_am+'Sénat</a>';
