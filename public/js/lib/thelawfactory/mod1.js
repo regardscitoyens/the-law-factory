@@ -84,8 +84,8 @@ var stacked;
 				var maxy = 0;
 
 				//set color scale for diff
-				var levmin = 225 - 90, levmax = 225;
-				var diffcolor = d3.scale.linear().range(["#f3f3f3", "rgb(" + [levmin, levmin, levmin].join(',') + ")"]).domain([0, 1]).interpolate(d3.interpolateHcl);
+				var levmin = 100, levmax = levmin + 128;
+				var diffcolor = d3.scale.linear().range(["rgb(" + [levmax, levmax, levmax].join(',') + ")", "rgb(" + [levmin, levmin, levmin].join(',') + ")"]).domain([0, 1]).interpolate(d3.interpolateHcl);
 
 				//margins
 				var margin = {
@@ -214,7 +214,7 @@ var stacked;
 					var a=bigList.filter(function(e){return e.article===d.article && e.step_num==d.step_num+1 })[0]
 					return a.y + (lerp(a.length)) / 2;
 				})
-				.style("stroke", "#dadaf0")
+				.style("stroke", "#d0d0e0")
 				.style("stroke-width", 1);
 
 				//======================
@@ -227,13 +227,12 @@ var stacked;
 						return "article " + d.section.replace(/ |<|\/|>|/g,"") + " sect" + findStage(d.id_step)
 					})
 					.style("stroke", function(d) {
-						return d3.hcl(diffcolor(d.n_diff)).brighter();
+						return "#d0d0e0";
+						//return d3.hcl(diffcolor(d.n_diff)).darker();
 					})
 					.style("stroke-width", 1).style("stroke-dasharray", "none").style("fill", function(d) {
 						if (d.status == 'sup')
 							return '#fff';
-						else if (d.diff == 'none')
-							return '#f3f3f3';
 						else 
 							return diffcolor(d.n_diff);
 					});
@@ -460,7 +459,7 @@ var stacked;
 				//on click behaviour
 				function onclick(d) {
 					console.log(d)
-					d3.selectAll("line").style("stroke", "#dadaf0");
+					d3.selectAll("line").style("stroke", "#d0d0e0");
 
 					//STYLE OF CLICKED ELEMENT AND ROW
 					//Reset rectangles
