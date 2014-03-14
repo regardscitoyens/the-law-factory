@@ -177,9 +177,9 @@ var stacked;
 						.attr("class","header")
 						.attr("width", width / columns - 20)
 						.attr("height", 15)
-						.style("fill", "#D80053")
+						.style("fill", "#2553C2")
 						.style("stroke", "none")
-						.style("opacity", "1")
+						.style("opacity", function(d){return 1.25-0.3*d.section.match(/[LCVTS]+\d+/g).length})
 						.style("stroke-width", "1px")
 
 						//Add header labels
