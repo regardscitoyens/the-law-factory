@@ -283,6 +283,14 @@ ins {
 	color: #716259;
 	font-size: 16px;
 	margin-top: 20px;
+    float: left;
+}
+.separator .links{
+    float: right;
+	margin-top: 10px;
+    margin-right: 8px;
+    font-size: 12px;
+    text-align: center;
 }
 .scrolling{
 	width: 70%;
