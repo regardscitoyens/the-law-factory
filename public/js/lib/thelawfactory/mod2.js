@@ -33,6 +33,7 @@ var grouped=null;
 		.sortKeys(d3.ascending)
 		.entries(clean);
 		
+        $(".text").css("height", $(".scrolling").height());
 		
 		var w = $("#viz").width()-30,
 		    rw = $("#viz").width(),
@@ -41,8 +42,7 @@ var grouped=null;
 		    z = 20,
 		    x = Math.round(w / z),
 		    y = h / z;
-
-	var jumpLines = 0
+	    var jumpLines = 0
 		var offset = 0
 		var svg = d3.select("#viz").append("svg")
 		    .attr("width", rw)

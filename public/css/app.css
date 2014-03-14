@@ -203,12 +203,15 @@ body{
 .art-txt ul li span {
     font-size: 1.5em;
 }
-
 .viz-container{
-	height:800px;
 	padding: 0 !important;
 }
-
+.mod1 .viz-container{
+	height:800px;
+}
+.mod2 .viz-container{
+    height: 100%;
+}
 .viz-container h4{
 	text-align:center;
 	padding:20px 4px;
@@ -456,11 +459,10 @@ ul.ui-autocomplete {
 }
 .mod2 .text {
 	width:18.33%;
-    margin-right: 8.33%
+    height: 100%;
 }
 .mod2 .scrolling {
 	width: 73.33%;
-	height: 645px;
 }
 .mod2 .labels-sc {
 	height:auto !important;

@@ -91,8 +91,6 @@ var stacked;
 				var sections = computeSections()
 				var sectJump = 40;
 				
-				var maxy = 0;
-
 				//set color scale for diff
 				var levmin = 100, levmax = levmin + 128;
 				var diffcolor = d3.scale.linear().range(["rgb(" + [levmax, levmax, levmax].join(',') + ")", "rgb(" + [levmin, levmin, levmin].join(',') + ")"]).domain([0, 1]).interpolate(d3.interpolateHcl);
@@ -103,7 +101,7 @@ var stacked;
 					right : 10,
 					bottom : 20,
 					left : 0
-				}, width = $("#viz").width(), height = 800 - margin.top - margin.bottom;
+				}, width = $("#viz").width(), height = $(".text-container").height();
 				
 				
 				//init coordinates
@@ -111,8 +109,8 @@ var stacked;
 				
 				
 				//create SVG
-				maxy=d3.max(bigList,function(d){return d.y+lerp(d.length)})
-				var svg = d3.select("#viz").append("svg").attr("width", "100%").attr("height", maxy + 100).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+				var maxy = d3.max(bigList,function(d){return d.y+lerp(d.length)})
+				var svg = d3.select("#viz").append("svg").attr("width", "100%").attr("height", Math.max(height, maxy + 100)).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 				
 				
 				//draw everything
