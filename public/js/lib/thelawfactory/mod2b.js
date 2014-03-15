@@ -33,9 +33,11 @@ function init(data,step) {
 	var groupes=d3.keys(d.groupes);
 	
 	for(e in d.groupes) {
-		mydata.push({key:e.toLowerCase(), values:[]})
+		mydata.push({key:e.toLowerCase(), values:[], color:d.groupes[e].color})
 	}
-
+	
+	console.log(mydata)
+	
 	d3.entries(d.divisions).forEach(function(a,b){
 		a.value.step = a.key;
 	})
@@ -49,19 +51,23 @@ function init(data,step) {
 		var gp = d3.entries(f.groupes)
 		groupes.forEach(function(g,h){
 			var filtered = gp.filter(function(k,l){
-				return k.key==g
+				
+				return k.key.toLowerCase()===g
 			})
-			console.log(mydata)
+
 			var curr = mydata.filter(function(e,n){
+					
 					return e.key===g.toLowerCase()
 				})[0]
-
+			
 			if(filtered.length) {
 				filtered=filtered[0]
 				toAdd={label:g,value:filtered.value.nb_mots,step:f.step}
+				
 				curr.values.push(toAdd)
 			}
 			else {
+
 				toAdd={label:g,value:1,step:f.step}
 				curr.values.push(toAdd)
 			}
@@ -70,7 +76,7 @@ function init(data,step) {
 
 	var w=$("#viz").width();
 	var offset = w*20/100;
-	var stream = sven.viz.streamkey().data(mydata).target("#viz").height(num*100).width(w).minHeight(1).init()
+	var stream = sven.viz.streamkey().data(mydata).target("#viz").height(num*200).width(w).minHeight(1).init()
 	d3.selectAll("g:not(.main-g)")
 	.attr("transform","translate("+offset+",0) scale("+(w-offset)/w+",1)");
 	wrap(offset);
@@ -237,6 +243,7 @@ sven.viz.streamkey = function(){
 		
 		//sort data, compute baseline and propagate it
 		var dataF = layout(sort(data, null),setMinHeight);
+		console.log(dataF)
 
 
 
@@ -274,7 +281,7 @@ sven.viz.streamkey = function(){
 			.data(dataF)
 		  .enter().append("g")
 			.attr("class", function(d,i){return "layer_"+i})
-			.style("fill", function(d, i) { return colorz("" + i +"") })
+			.style("fill", function(d, i) {col = d3.hsl(d[0].color); col.s=0.2; return col.toString(); })
 			//.on("mouseover", function(){d3.select(this).selectAll("path").transition().attr("fill-opacity",0.75)})
 			//.on("mouseout", function(){d3.select(this).selectAll("path").transition().attr("fill-opacity",0.5)})
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
@@ -306,14 +313,7 @@ sven.viz.streamkey = function(){
 
 							 })
 			.on("mousemove",function(d){d3.select(".desc").attr("style","top: " + (d3.event.pageY - $(".desc").height() - 15) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2) + "px");})
-			/*.on("mouseout",function(d){
-				//d3.select(this).selectAll("path").transition().attr("fill-opacity",0.5);
-				svg.selectAll("g").selectAll("path").transition().attr("fill-opacity",0.5);
-				svg.selectAll("g").selectAll("rect").transition().attr("fill-opacity",1);
-				d3.select(".desc").attr("class","tooltip out desc")
-					.attr("style","top: 0px; left: 0px")
-
-				})*/
+			
 
 		var rect = layer.selectAll("rect")
 			.data(function(d) { return d; })
@@ -356,115 +356,6 @@ sven.viz.streamkey = function(){
 		return streamkey;
 	};
 
-	streamkey.update = function(){
-        var steps = [],
-        values = [],
-        color = d3.scale.linear().range(colors),
-        i,
-        j;
-
-		n = data.length;
-        m = data[0]['values'].length;
-
-    	
-		//get values
-		data.forEach(function(d,i){
-			d['values'].forEach(function(d){if(d['value'] != null){values.push(d['value'])}})
-		})
-
-		//get steps
-		for(j = 0; j < m; ++j){
-			steps.push(data[0]['values'][j]['step'])
-		}
-
-		//min height scale
-		var setMinHeight = d3.scale.linear().domain([d3.min(values),d3.max(values)]);
-
-		//sort data, compute baseline and propagate it
-		var dataF = layout(sort(data, null),setMinHeight);
-
-    	mX = m - 1;
-		mY = d3.max(dataF, function(d) {
-      		return d3.max(d, function(d) {
-        		return d.y0 + d.y;
-      			});
-   			});
-
-		var x = d3.scale.ordinal()
-			.domain(steps)
-			.rangePoints([0, streamWidth]);
-
-		var xF = d3.scale.ordinal()
-			.domain(steps)
-			.range(d3.range(steps.length));
-
-		var y = d3.scale.linear()
-    		.domain([0, mY])
-    		.range([graphHeight, 0]);
-
-		var svg = d3.select(target + " svg");
-
-			svg.transition().duration(500)
-			 //.attr("width", width)
-			 //.attr("height", height);
-			 .attr("width", width)
-    		 .attr("height", height);
-
-		var colorz = sven.colors.diverging(n);
-
-		var layer = svg.selectAll("g");
-
-			layer.data(dataF)
-		  //.enter().append("g")
-		  //.exit()
-		  //.remove()
-		   .transition()
-      	   .duration(500)
-			//.attr("class", function(d,i){return "layer_"+i})
-			.style("fill", function(d, i) { return colorz("" +i +"") })
-			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-			//.on("mouseover", function(){d3.select(this).selectAll("path").transition().attr("fill-opacity",0.75)})
-			//.on("mouseout", function(){d3.select(this).selectAll("path").transition().attr("fill-opacity",0.5)});
-
-
-		var rect = layer.selectAll("rect");
-
-			rect.data(function(d) { return d; })
-		   .transition()
-      	   .duration(500)
-			//.filter(function(d){return d['value'] != null})
-			.attr("y", function(d) { return x(d.x); })
-			.attr("x", function(d) { return y(d.y0 + d.y); })
-			.attr("width", function(d) { return y(d.y0) - y(d.y0 + d.y); })
-			.attr("height", barWidth)
-			.attr("display", function(d){if(d['value'] == null){return "none"}else{return "inline"} })
-				//.exit()
-		  //.remove();
-
-		var stream = layer.selectAll("path")
-			stream.data(function(d){return areaStreamKey(d, xF)})
-		   .transition()
-      	   .duration(500)
-			.attr("d", function(d){return drawLink(d[0], d[1], d[2], d[3])})
-			.attr("display", function(d){if(d[4] == false){return "none"}else{return "inline"} })
-		//.exit()
-		//  .remove();
-
-		var stepsLabel = svg.selectAll("text");
-			stepsLabel.data(steps)
-			//.exit()
-			//.remove()
-		   .transition()
-      	   .duration(500)
-			.attr("x", function(d) { return x(d) + margin.left; })
-			//.attr("y", function(d) { return y(mY) + margin.top -5; })
-      		//.attr("text-anchor", "middle")
-      		.text(function(d){return d})
- 
-
-		return streamkey;
-	};
-
 	function sort(data, sorting){	
 		var stepsY = [];
 
@@ -473,7 +364,7 @@ sven.viz.streamkey = function(){
 		stepsY[j] = [];
 
       for (i = 0; i < n; i++){ 
-      	stepsY[j].push({'y':data[i]['values'][j]['value'],'value': data[i]['values'][j]['value'], 'index':i, 'x':data[i]['values'][j]['step'], 'category':data[i]['key'], 'label':data[i]['values'][j]['labels']})
+      	stepsY[j].push({'y':data[i]['values'][j]['value'],'value': data[i]['values'][j]['value'], 'index':i, 'x':data[i]['values'][j]['step'],'color':data[i]['color'] ,'category':data[i]['key'], 'label':data[i]['values'][j]['labels']})
       }
 
 		var sorted = d3.nest().key(function(d){return d.y}).sortKeys(function(a,b){return parseFloat(a) - parseFloat(b); }).entries(stepsY[j]);
