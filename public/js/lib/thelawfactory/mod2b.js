@@ -25,6 +25,10 @@ function wrap(width) {
   });
 }
 
+function highlight(b) {
+	console.log(b)
+}
+
 function init(data,step) {
 
 	console.log(data)
@@ -34,9 +38,9 @@ function init(data,step) {
 	
 	for(e in d.groupes) {
 		mydata.push({key:e.toLowerCase(), values:[], color:d.groupes[e].color})
+		col = d3.hsl(d.groupes[e].color); col.s=0.2;
+		$(".legend").append("<div onclick='highlight(\""+d.groupes[e].id+"\")' class='leg-item'><div class='leg-value' style='background-color:"+col+"'></div><div class='leg-key'>"+d.groupes[e].id+"</div></div>")
 	}
-	
-	console.log(mydata)
 	
 	d3.entries(d.divisions).forEach(function(a,b){
 		a.value.step = a.key;

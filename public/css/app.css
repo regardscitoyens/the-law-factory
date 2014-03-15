@@ -352,6 +352,7 @@ ins {
 	float: left;
 	margin-left:4px;
 	font-size: 0.9em;
+	width:160px;
 }
 
 .end-tip{
@@ -527,6 +528,10 @@ ul.ui-autocomplete {
 
 .mod2 .btn-group{
 	margin-left:10px;
+}
+
+.mod2 .leg-item{
+	cursor:pointer;
 }
 .valid-step{
 	background-color:transparent;
