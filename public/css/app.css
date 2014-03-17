@@ -571,3 +571,42 @@ h4 a{
 .int-viz{
 	float:right !important;
 }
+.text-container img{
+	display:block;
+	float:left;
+	margin-right:5px;
+}
+.text-container .orat-info{
+	float:left;
+}
+.orat-info p{
+	margin:0;
+	width:100%;
+}
+.orateur{
+	display:block;
+	float:left;
+	width:99%;
+	clear:both;
+	margin-top:5px;
+	margin-left:1%;
+}
+
+.orat-info b{
+	margin-bottom:3px;
+}
+.text-container a{
+	font-size:0.8em;
+	line-height: 0.9em;
+}
+.text-container{
+	padding-bottom:20px;
+}
+.orat-fonction{
+	font-size: 0.8em;
+	line-height: 0.9em;
+}
+p.orat-count{
+	display:block;
+	margin-top:8px;
+}

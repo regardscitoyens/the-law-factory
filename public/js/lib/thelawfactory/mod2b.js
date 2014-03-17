@@ -1,5 +1,5 @@
 var num=0
-
+var participants;
 function wrap(width) {
   d3.selectAll('text').each(function() {
     var text = d3.select(this),
@@ -35,10 +35,12 @@ function init(data,step) {
 	var d = data[step]
 	var mydata=[]
 	var groupes=d3.keys(d.groupes);
+	participants=d.orateurs
+	console.log("participants",participants)
 	
 	for(e in d.groupes) {
 		col = d3.hsl(d.groupes[e].color); col.l=0.75;
-		mydata.push({key:e.toLowerCase(), values:[], color:col})
+		mydata.push({key:e.toLowerCase(), values:[], color:col, name:d.groupes[e].nom})
 		$(".legend").append("<div onclick='highlight(\""+e+"\")' class='leg-item' title='"+d.groupes[e].nom+"'><div class='leg-value' style='background-color:"+col+"'></div><div class='leg-key'>"+e+"</div></div>")
 	}
 	
@@ -66,7 +68,7 @@ function init(data,step) {
 			
 			if(filtered.length) {
 				filtered=filtered[0]
-				toAdd={label:g,value:filtered.value.nb_mots,step:f.step}
+				toAdd={label:g,value:filtered.value.nb_mots,step:f.step, name:e.name,speakers:filtered.value.orateurs}
 				
 				curr.values.push(toAdd)
 			}
@@ -77,7 +79,7 @@ function init(data,step) {
 			}
 		})
 	})
-
+	console.log(mydata)
 	var w=$("#viz").width();
 	var offset = w*20/100;
 	var stream = sven.viz.streamkey().data(mydata).target("#viz").height(num*100).width(w).minHeight(1).init()
@@ -144,7 +146,7 @@ sven.viz.streamkey = function(){
 		data,
 		width = 600,
 		height = 200,
-		barWidth = 5,
+		barWidth = 10,
 		barPadding = 5,
 		minHeight = 0,
 		margin = {top: 30, right: 30, bottom: 30, left: 0},
@@ -286,26 +288,46 @@ sven.viz.streamkey = function(){
 		  .enter().append("g")
 			.attr("class", function(d,i){return "layer_"+i})
 			.style("fill", function(d, i) {col = d[0].color; return col.toString(); })
-			//.on("mouseover", function(){d3.select(this).selectAll("path").transition().attr("fill-opacity",0.75)})
-			
-			//
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-			
 			.on("mousemove",function(d){d3.select(".desc").attr("style","top: " + (d3.event.pageY - $(".desc").height() - 15) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2) + "px");})
-			
-			
-			
-			
-			d3.select("svg").on("click", function(){d3.select(this).selectAll("path").transition().attr("fill-opacity",0.5);d3.select(this).selectAll("rect").transition().attr("fill-opacity",1)})
+
+			d3.select("svg").on("click", function(){d3.select(this).selectAll("path").transition().attr("fill-opacity",0.5);d3.select(this).selectAll("rect").transition().attr("fill-opacity",0.9); $(".text-container").empty(); $("#text-title").html("Sélectionner un participant");})
 			
 		var rect = layer.selectAll("rect")
 			.data(function(d) { return d; })
 		  .enter().append("rect")
 			.attr("y", function(d) { return x(d.x); })
 			.attr("x", function(d) { return y(d.y0 + d.y); })
+			.style("opacity",.9)
 			.attr("width", function(d) { return y(d.y0) - y(d.y0 + d.y); })
 			.attr("height", barWidth)
 			.attr("display", "inline")
+			.on("click",function(d){
+				d3.event.stopPropagation();
+				svg.selectAll("g").selectAll("path").transition().attr("fill-opacity",0.1);
+				svg.selectAll("g").selectAll("rect").transition().attr("fill-opacity",0.1);
+				d3.select(d3.select(this).node().parentNode).selectAll("path").transition().attr("fill-opacity",0.75);
+				d3.select(d3.select(this).node().parentNode).selectAll("rect").transition().attr("fill-opacity",1);
+				$(".text-container").empty();
+				$("#text-title").empty();
+				$("#text-title").html(d.label)
+				
+				for (g in d.speakers) {
+					var ordiv = document.createElement('div')
+					ordiv.className="orateur";
+					var div = document.createElement('div')
+					div.className="orat-info";
+					var siz = $(".text-container").width()*0.25
+					$(ordiv).append("<img src='"+participants[g].photo+"/"+parseInt(siz)+"'/>") 
+					$(div).append("<p><b>"+g+"</b></p>")
+					if(participants[g].fonction.length) $(div).append("<p class='orat-fonction'>"+participants[g].fonction+"</p>")
+					$(div).append("<p><a href='"+participants[g].link+"'>personal page</a></p>")
+					$(div).append("<p class='orat-count'>Word count: "+d.speakers[g].nb_mots+"</p>")
+					$(ordiv).append(div)
+					$(".text-container").append(ordiv)
+					$(".orat-info").width($(".text-container").width()*0.73)
+				}
+			})
 		   .filter(function(d){return d['value'] == null})
 			.attr("display", "none");
 
@@ -317,16 +339,19 @@ sven.viz.streamkey = function(){
 			.attr("stroke", "none")
 			.attr("display", "inline")
 			.on("click",function(d){ 
-											d3.event.stopPropagation()
-
-											svg.selectAll("g").selectAll("path").transition().attr("fill-opacity",0.1);
-											svg.selectAll("g").selectAll("rect").transition().attr("fill-opacity",0.1);
-											d3.select(d3.select(this).node().parentNode).selectAll("path").transition().attr("fill-opacity",0.75);
-											d3.select(d3.select(this).node().parentNode).selectAll("rect").transition().attr("fill-opacity",1);
-
-											d3.select(".desc")
-											.attr("class","tooltip fade in desc")
-											.attr("style","top: " + (d3.event.pageY - $(".desc").height() -15 ) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2 ) + "px")
+				$(".text-container").empty();
+				d3.event.stopPropagation()
+				console.log(d)
+				svg.selectAll("g").selectAll("path").transition().attr("fill-opacity",0.1);
+				svg.selectAll("g").selectAll("rect").transition().attr("fill-opacity",0.1);
+				d3.select(d3.select(this).node().parentNode).selectAll("path").transition().attr("fill-opacity",0.75);
+				d3.select(d3.select(this).node().parentNode).selectAll("rect").transition().attr("fill-opacity",1);
+				
+				$("#text-title").html(d[5])
+				
+				d3.select(".desc")
+				.attr("class","tooltip fade in desc")
+				.attr("style","top: " + (d3.event.pageY - $(".desc").height() -15 ) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2 ) + "px")
 
 							 })
 			.filter(function(d){return d[4] == false})
@@ -343,7 +368,7 @@ sven.viz.streamkey = function(){
 			.attr("dx", 10)
 			.attr("dy", 0)
 			.attr("font-family","sans-serif")
-			.attr("font-size","0.8em")
+			.attr("font-size","0.9em")
       		//.attr("text-anchor", "middle")
       		.attr("class", "filter-title")
       		.attr("fill", "#333")
@@ -360,7 +385,7 @@ sven.viz.streamkey = function(){
 		stepsY[j] = [];
 
       for (i = 0; i < n; i++){ 
-      	stepsY[j].push({'y':data[i]['values'][j]['value'],'value': data[i]['values'][j]['value'], 'index':i, 'x':data[i]['values'][j]['step'],'color':data[i]['color'] ,'category':data[i]['key'], 'label':data[i]['values'][j]['labels']})
+      	stepsY[j].push({'y':data[i]['values'][j]['value'],'value': data[i]['values'][j]['value'], 'index':i, 'x':data[i]['values'][j]['step'],'color':data[i]['color'],'speakers':data[i]['values'][j]['speakers'] ,'category':data[i]['key'], 'label':data[i]['name']})
       }
 
 		var sorted = d3.nest().key(function(d){return d.y}).sortKeys(function(a,b){return parseFloat(a) - parseFloat(b); }).entries(stepsY[j]);
@@ -445,10 +470,7 @@ sven.viz.streamkey = function(){
 
     		})
 	})
-
 	return dataInit;
-
-
 	}
 
 	function areaStreamKey(data, xScale){
@@ -456,6 +478,7 @@ sven.viz.streamkey = function(){
 		var steps = [];
 		data.forEach(function(d,i){
 			if(i < mX){
+			var label = d.label
 			var vis,
 				points = [];
 			var p0 = [ graphHeight - (d.y + d.y0 ) * graphHeight / mY ,xScale(d.x)*streamWidth/mX + barWidth]; // upper left point
@@ -468,7 +491,7 @@ sven.viz.streamkey = function(){
 				}
 			else{vis = false};
 
-			points.push(p0,p1,p2,p3,vis);
+			points.push(p0,p1,p2,p3,vis, label);
 			steps.push(points)
 			}	
 		})
