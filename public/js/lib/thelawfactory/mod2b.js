@@ -80,7 +80,7 @@ function init(data,step) {
 
 	var w=$("#viz").width();
 	var offset = w*20/100;
-	var stream = sven.viz.streamkey().data(mydata).target("#viz").height(num*200).width(w).minHeight(1).init()
+	var stream = sven.viz.streamkey().data(mydata).target("#viz").height(num*100).width(w).minHeight(1).init()
 	d3.selectAll("g:not(.main-g)")
 	.attr("transform","translate("+offset+",0) scale("+(w-offset)/w+",1)");
 	wrap(offset);
@@ -287,38 +287,17 @@ sven.viz.streamkey = function(){
 			.attr("class", function(d,i){return "layer_"+i})
 			.style("fill", function(d, i) {col = d[0].color; return col.toString(); })
 			//.on("mouseover", function(){d3.select(this).selectAll("path").transition().attr("fill-opacity",0.75)})
-			//.on("mouseout", function(){d3.select(this).selectAll("path").transition().attr("fill-opacity",0.5)})
+			
+			//
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-			.on("click",function(d){ 
-											console.log(d)
-											var label = (d3.nest().key(function(f){return f.label}).entries(d)).filter(function(f){return f.key != 'undefined'});
-
-											label = label.map(function(f){return f.key});
-											var labelHtml = '';
-											label.forEach(function(f){
-
-												labelHtml = labelHtml + f + "</br>"
-
-											})
-
-											svg.selectAll("g").selectAll("path").transition().attr("fill-opacity",0.1);
-											svg.selectAll("g").selectAll("rect").transition().attr("fill-opacity",0.1);
-
-											d3.select(this).selectAll("path").transition().attr("fill-opacity",0.75);
-											d3.select(this).selectAll("rect").transition().attr("fill-opacity",1);
-											d3.select(".desc")
-											.select(".tooltip-inner")
-											//.text(d[0].category);
-											.html(labelHtml);
-
-											d3.select(".desc")
-											.attr("class","tooltip fade in desc")
-											.attr("style","top: " + (d3.event.pageY - $(".desc").height() -15 ) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2 ) + "px")
-
-							 })
+			
 			.on("mousemove",function(d){d3.select(".desc").attr("style","top: " + (d3.event.pageY - $(".desc").height() - 15) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2) + "px");})
 			
-
+			
+			
+			
+			d3.select("svg").on("click", function(){d3.select(this).selectAll("path").transition().attr("fill-opacity",0.5);d3.select(this).selectAll("rect").transition().attr("fill-opacity",1)})
+			
 		var rect = layer.selectAll("rect")
 			.data(function(d) { return d; })
 		  .enter().append("rect")
@@ -337,9 +316,22 @@ sven.viz.streamkey = function(){
 			.attr("fill-opacity", 0.5)
 			.attr("stroke", "none")
 			.attr("display", "inline")
-			.filter(function(d){return d[4] == false})
-			.attr("display", "none");
+			.on("click",function(d){ 
+											d3.event.stopPropagation()
 
+											svg.selectAll("g").selectAll("path").transition().attr("fill-opacity",0.1);
+											svg.selectAll("g").selectAll("rect").transition().attr("fill-opacity",0.1);
+											d3.select(d3.select(this).node().parentNode).selectAll("path").transition().attr("fill-opacity",0.75);
+											d3.select(d3.select(this).node().parentNode).selectAll("rect").transition().attr("fill-opacity",1);
+
+											d3.select(".desc")
+											.attr("class","tooltip fade in desc")
+											.attr("style","top: " + (d3.event.pageY - $(".desc").height() -15 ) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2 ) + "px")
+
+							 })
+			.filter(function(d){return d[4] == false})
+			.attr("display", "none")
+			
 
 				//labels
 
@@ -354,7 +346,7 @@ sven.viz.streamkey = function(){
 			.attr("font-size","0.8em")
       		//.attr("text-anchor", "middle")
       		.attr("class", "filter-title")
-      		.attr("fill", "#000")
+      		.attr("fill", "#333")
       		.text(function(d){return d})
 
 		return streamkey;
