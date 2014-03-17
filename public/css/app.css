@@ -588,7 +588,7 @@ h4 a{
 	float:left;
 	width:99%;
 	clear:both;
-	margin-top:5px;
+	margin-top:15px;
 	margin-left:1%;
 }
 
@@ -609,4 +609,7 @@ h4 a{
 p.orat-count{
 	display:block;
 	margin-top:8px;
+}
+p.orat-name{
+	    text-transform:capitalize;
 }

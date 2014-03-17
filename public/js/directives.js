@@ -179,8 +179,8 @@ angular.module('theLawFactory.directives', [])
             function(data){
             
               scope.dataSample = data;
-              var len = 99/scope.dataSample.length;
-              var mar = 1/scope.dataSample.length;
+              var len = 95/scope.dataSample.length;
+              var mar = 5/scope.dataSample.length;
               var newElement = $compile( "<div class='stage-container' style='margin-right:"+mar+"%;float:left; width:"+len+"%' ng-repeat='el in dataSample'><ng-switch style='width:100%; height:100%;' on='el.ints'><div class='stage valid-step' ng-click='loadStep(el.step_name, $index)' ng-switch-when='true'>{{el.step_name.split('_').slice(2,4).join(' ')}}</div><div class='stage' ng-switch-default>{{el.step_name.split('_').slice(2,4).join(' ')}}</div></ng-switch></div>" )( scope );
               
 			  element.find(".stages").append( newElement );

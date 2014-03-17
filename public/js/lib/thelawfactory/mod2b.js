@@ -31,12 +31,11 @@ function highlight(b) {
 
 function init(data,step) {
 
-	console.log(data)
+	
 	var d = data[step]
 	var mydata=[]
 	var groupes=d3.keys(d.groupes);
 	participants=d.orateurs
-	console.log("participants",participants)
 	
 	for(e in d.groupes) {
 		col = d3.hsl(d.groupes[e].color); col.l=0.75;
@@ -79,7 +78,7 @@ function init(data,step) {
 			}
 		})
 	})
-	console.log(mydata)
+	
 	var w=$("#viz").width();
 	var offset = w*20/100;
 	var stream = sven.viz.streamkey().data(mydata).target("#viz").height(num*100).width(w).minHeight(1).init()
@@ -249,8 +248,7 @@ sven.viz.streamkey = function(){
 		
 		//sort data, compute baseline and propagate it
 		var dataF = layout(sort(data, null),setMinHeight);
-		console.log(dataF)
-
+		
 
 
     	mX = m - 1;
@@ -319,7 +317,7 @@ sven.viz.streamkey = function(){
 					div.className="orat-info";
 					var siz = $(".text-container").width()*0.25
 					$(ordiv).append("<img src='"+participants[g].photo+"/"+parseInt(siz)+"'/>") 
-					$(div).append("<p><b>"+g+"</b></p>")
+					$(div).append("<p class='orat-name'><b>"+g+"</b></p>")
 					if(participants[g].fonction.length) $(div).append("<p class='orat-fonction'>"+participants[g].fonction+"</p>")
 					$(div).append("<p><a href='"+participants[g].link+"'>personal page</a></p>")
 					$(div).append("<p class='orat-count'>Word count: "+d.speakers[g].nb_mots+"</p>")
@@ -341,7 +339,6 @@ sven.viz.streamkey = function(){
 			.on("click",function(d){ 
 				$(".text-container").empty();
 				d3.event.stopPropagation()
-				console.log(d)
 				svg.selectAll("g").selectAll("path").transition().attr("fill-opacity",0.1);
 				svg.selectAll("g").selectAll("rect").transition().attr("fill-opacity",0.1);
 				d3.select(d3.select(this).node().parentNode).selectAll("path").transition().attr("fill-opacity",0.75);
