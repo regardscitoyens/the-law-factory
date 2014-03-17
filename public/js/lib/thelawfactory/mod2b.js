@@ -37,9 +37,9 @@ function init(data,step) {
 	var groupes=d3.keys(d.groupes);
 	
 	for(e in d.groupes) {
-		mydata.push({key:e.toLowerCase(), values:[], color:d.groupes[e].color})
-		col = d3.hsl(d.groupes[e].color); col.s=0.2;
-		$(".legend").append("<div onclick='highlight(\""+d.groupes[e].id+"\")' class='leg-item'><div class='leg-value' style='background-color:"+col+"'></div><div class='leg-key'>"+d.groupes[e].id+"</div></div>")
+		col = d3.hsl(d.groupes[e].color); col.l=0.75;
+		mydata.push({key:e.toLowerCase(), values:[], color:col})
+		$(".legend").append("<div onclick='highlight(\""+e+"\")' class='leg-item' title='"+d.groupes[e].nom+"'><div class='leg-value' style='background-color:"+col+"'></div><div class='leg-key'>"+e+"</div></div>")
 	}
 	
 	d3.entries(d.divisions).forEach(function(a,b){
@@ -56,12 +56,12 @@ function init(data,step) {
 		groupes.forEach(function(g,h){
 			var filtered = gp.filter(function(k,l){
 				
-				return k.key.toLowerCase()===g
+				return k.key.toLowerCase()===g.toLowerCase()
 			})
 
 			var curr = mydata.filter(function(e,n){
 					
-					return e.key===g.toLowerCase()
+					return e.key.toLowerCase()===g.toLowerCase()
 				})[0]
 			
 			if(filtered.length) {
@@ -285,7 +285,7 @@ sven.viz.streamkey = function(){
 			.data(dataF)
 		  .enter().append("g")
 			.attr("class", function(d,i){return "layer_"+i})
-			.style("fill", function(d, i) {col = d3.hsl(d[0].color); col.s=0.2; return col.toString(); })
+			.style("fill", function(d, i) {col = d[0].color; return col.toString(); })
 			//.on("mouseover", function(){d3.select(this).selectAll("path").transition().attr("fill-opacity",0.75)})
 			//.on("mouseout", function(){d3.select(this).selectAll("path").transition().attr("fill-opacity",0.5)})
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
