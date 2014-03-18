@@ -135,7 +135,8 @@ var stacked;
 							var div;
 
 							div = d3.select(document.createElement("div")).style("height", "120px").style("width", "100%")
-						    div.append("p").text("Section : " + section)
+						    if (section !== "none")
+                              div.append("p").text("Section : " + section);
 							div.append("p").text("Étape : " + status)
                             if (d['status'] != "sup") {
 							    if (d['n_diff'] == 0)
@@ -181,7 +182,7 @@ var stacked;
 
 						//Add headers
 						group.selectAll(".header")
-						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head && d.section!="none")}))
+						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head && d.section!=="none")}))
 						.enter().append("rect")
 						.attr("x", function(d){return d.x})
 						.attr("y", function(d){return d.y-15})
@@ -195,7 +196,7 @@ var stacked;
 
 						//Add header labels
 						group.selectAll(".head-lbl")
-						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head)}))
+						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head && d.section!=="none")}))
 						.enter().append("text")
 						.attr("x", function(d){return d.x + 5})
 						.attr("y", function(d){return d.y - 4})
