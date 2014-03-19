@@ -92,7 +92,7 @@ var stacked;
 				var sectJump = 40;
 				
 				//set color scale for diff
-				var levmin = 100, levmax = levmin + 128;
+				var levmin = 145, levmax = levmin + 100;
 				var diffcolor = d3.scale.linear().range(["rgb(" + [levmax, levmax, levmax].join(',') + ")", "rgb(" + [levmin, levmin, levmin].join(',') + ")"]).domain([0, 1]).interpolate(d3.interpolateHcl);
 
 				//margins
@@ -157,7 +157,7 @@ var stacked;
 
 						//Add green labels for new elements
 						group.selectAll(".new")
-						.data(bigList.filter(function(d){return (d.length > 0 && d.step_num==st && d.sect_num==se && d.status==="new")}))
+						.data(bigList.filter(function(d){return (d.length > 0 && d.step_num==st && d.sect_num==se && (d.id_step.substr(-5) === "depot" || d.status==="new"))}))
 						.enter().append("rect")
 						.attr("class", "new")
 						.style("stroke", "none")
@@ -243,7 +243,7 @@ var stacked;
 						//return d3.hcl(diffcolor(d.n_diff)).darker();
 					})
 					.style("stroke-width", 1).style("stroke-dasharray", "none").style("fill", function(d) {
-						if (d.status == 'sup')
+						if (d.status == 'sup' || d.id_step.substr(-5) === "depot")
 							return '#fff';
 						else 
 							return diffcolor(d.n_diff);
