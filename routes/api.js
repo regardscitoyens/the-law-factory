@@ -2,7 +2,7 @@
  * Serve JSON to our AngularJS client
  */
 
-var request = require('request'), csv = require('csv'), baseUrl = 'http://www.lafabriquedelaloi.fr/api', headers = {
+var request = require('request'), csv = require('csv'), amdUrl = "http://www.nosdeputes.fr/api/document/Amendement/", baseUrl = 'http://www.lafabriquedelaloi.fr/api', headers = {
 	'Content-type' : 'application/json'
 };
 
@@ -73,7 +73,7 @@ exports.amendments = function(req, res) {
 
 	request({
 		method : 'GET',
-		url : baseUrl + '/' + req.params.id + '/procedure/' + req.params.step + '/amendements/amendements.json',
+		url : baseUrl + '/' + req.params.id + '/viz/amendements.json',
 		headers : {
 			'Content-type' : 'Content-type: application/json'
 		}
@@ -81,6 +81,25 @@ exports.amendments = function(req, res) {
 
 		if (response.statusCode == 200) {
 			res.json(JSON.parse(body))
+		} else
+			res.send("no amendements");
+	})
+};
+
+
+exports.amd = function(req, res) {
+	
+	request({
+		method : 'GET',
+		url : amdUrl + req.params.id + '/json',
+		/*headers : {
+			'Content-type' : 'text/plain'
+		}*/
+	}, function(error, response, body) {
+		console.log(response)
+		if (response.statusCode == 200) {
+			
+			res.send(JSON.parse(body))
 		} else
 			res.send("no amendements");
 	})

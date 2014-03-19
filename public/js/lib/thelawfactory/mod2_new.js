@@ -9,41 +9,28 @@ var grouped=null;
   var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
   thelawfactory.mod2 = function(){
-	
+
   	function vis(selection){
     	
-		var clean=[]
+		var groups,articles;
 		
-		var statColor= {
-			"Adopté": "#229850",
-			"Satisfait":"#91CF60",
-			"Non soutenu":"#ede1c2",
-		    "Indéfini":"#FEE08B",
-		    "Retiré":"#FB8D59",
-		    "Tombe":"#db856f",
-		    "Rejeté":"#D73127",
-		    "Irrecevable":"#6d250a"
-		}
-		
-		
-				
-		var sel=selection[0][0].__data__;
-		console.log(sel.amendements)
-		sel["amendements"].forEach(function(d,i) {clean.push(d.amendement)})
-		var fin = d3.nest()
-		.key(function(d) { return (1e7+d.ordre_article+"").slice(-5)+"_"+d.sujet; })
-		.sortKeys(d3.ascending)
-		.entries(clean);
-		console.log(fin)
+	selection.each(function(d,i){
+		groups=d.groupes;
+		articles=d.sujets;
+	})
+	
+	artArray=d3.values(articles).sort(function(a,b){return a.order-b.order})
+	console.log(artArray)
+	console.log("groups", groups)
 		
         $(".text").css("height", $(".scrolling").height());
 		
 		var w = $("#viz").width()-30,
 		    rw = $("#viz").width(),
 		    lineh = 30,
-		    h = lineh*fin.length+40,
+		    h = lineh*artArray.length+40,
 		    z = 20,
-		    x = Math.round(w / z),
+		    x = Math.round((w-40) / z),
 		    y = h / z;
 	    var jumpLines = 0
 		var offset = 0
@@ -52,27 +39,30 @@ var grouped=null;
 		    .attr("height", h);
 		    
 	draw = function() {
+		jumpLines=0
 		$("svg").empty();
 			$(".art-list").empty();
-		fin.forEach(function(d,i) {
+		artArray.forEach(function(d,i) {
 			drawLines(d,i)
 		})
+		
 		grouped=null;
 	}
 		
         draw();
         
         function drawLines(d,i) {
-        	 len = d.values.length;
+        	 len = d.amendements.length;
 		  lines = Math.ceil(len/x);
 		
 		  d.offset = offset
 		  
 		  var curRow = svg.append("g")
-		  .attr("class",d.key.replace(/ /g, '_'))
-		  .attr("transform","translate("+10+","+(i*lineh+10+jumpLines*(lineh-10))+")")
+		  .attr("class",d.titre.replace(/ /g, '_'))
+		  .attr("transform","translate("+10+","+(i*20+i*lineh+10+jumpLines*(lineh-10))+")")
+		  .attr("data-offset", (i*20+i*lineh+10+jumpLines*(lineh-10)))
 		  .call(function(){	
-		  	n=d.values.length;
+		  	n=d.amendements.length;
 		  	offset = Math.floor(n/x)
 		  	jumpLines = jumpLines + Math.floor(n/x);
 		  })
@@ -83,8 +73,8 @@ var grouped=null;
 		  .enter()
 		
 		  bg.append("rect")
-		  .attr("x", function(f){ return (f % x) * z +1 })
-		  .attr("y", function(f){ return Math.floor(f / x) * z + 1 })
+		  .attr("x", function(f){ return (f % x) * z +21 })
+		  .attr("y", function(f){ return Math.floor(f / x) * z + 21 })
 		  .attr("width", z-2)
 		  .attr("height", z-2)
 		  .attr("rx",2)
@@ -95,20 +85,26 @@ var grouped=null;
 		
 		  var margin = d.offset == 0 ? 'style="margin-top : 10px"' : 'style="margin-top : '+(10+20*d.offset)+'px "';
 		  console.log("key",d.key)
-          var subj = d.key.indexOf("_") >=0  ? d.key.split("_")[1] : d.key;
+          var subj = d.titre
           console.log("subj",subj)
-		  if(subj.length<26) $(".art-list").append("<p "+margin+" >"+subj+"</p>")
-	      else $(".art-list").append("<p "+margin+" >"+subj.substring(0,25)+"…"+"</p>")
-
+		
+		
+		curRow.append("text")
+		.attr("x",20)
+		.attr("y",15)
+		.style("fill","#333")
+		.attr("font-size","0.85em")
+		.text(d.titre)
+		
 		
 		  var amds = curRow
 		  .selectAll(".amd")
-		  .data(d.values)
+		  .data(d.amendements)
 		  .enter()
 		
 		  amds.append("rect")
-		  .attr("x", function(f,i){ return (i % x) * z +1 })
-		  .attr("y", function(f,i){ return Math.floor(i / x) * z + 1 })
+		  .attr("x", function(f,i){ return (i % x) * z +21 })
+		  .attr("y", function(f,i){ return Math.floor(i / x) * z + 21 })
 		  .attr("width", z-2)
 		  .attr("height", z-2)
 		  .attr("rx",2)
@@ -118,22 +114,19 @@ var grouped=null;
   			.popover(function(d){
 
               var titre = d.numero,
-                  section = d.sujet,
-                  status = d.sort,
-                  expo = d.expose;
-
-                  if (expo && expo.length>=90) expo = expo.substring(0,87)+"...";
-                  else if(!expo) expo="";
-
+                  date = d.date,
+                  gr = d.groupe,
+                  status = d.sort;
+ 
               var div;
               div = d3.select(document.createElement("div"))
                     .style("height", "120px")
                     .style("width", "100%")
                     .attr("class","popup-mod2")
                     
-              div.append("p").html("<b>Objet :</b> " + section+"<br/><br/>")
-              div.append("p").html("<b>Statut :</b> " + status+"<br/><br/>")
-              div.append("p").html("<b>Exposé :</b> " + expo+"<br/><br/>")
+              div.append("p").html("<b>Date :</b> " + date+"<br/><br/>")
+              div.append("p").html("<b>Group :</b> " + gr+"<br/><br/>")
+              div.append("p").html("<b>Status :</b> " + status+"<br/><br/>")
 
               return {        
               title: "Amendement " + titre,
@@ -145,15 +138,69 @@ var grouped=null;
               };
             })
             .on("click",select);
+            
+            
+            
+            var imgs = curRow.selectAll("image").data(d.amendements).enter();
+            
+            imgs.append("svg:image")
+            .attr("x", function(f,i){ return (i % x) * z +25 })
+		    .attr("y", function(f,i){ return Math.floor(i / x) * z + 25 })
+		    .attr("width", z-10)
+		    .attr("height", z-10)
+		    .attr("xlink:href",function(e){
+		    	if(e.sort==="adopté") return "img/ok.png";
+		    	else if(e.sort==="rejeté") return "img/ko.png";
+		    	else if(e.sort==="non-voté") return "img/nd.png"})
+		    .popover(function(d){
+
+              var titre = d.numero,
+                  date = d.date,
+                  gr = d.groupe,
+                  status = d.sort;
+ 
+              var div;
+              div = d3.select(document.createElement("div"))
+                    .style("height", "120px")
+                    .style("width", "100%")
+                    .attr("class","popup-mod2")
+                    
+              div.append("p").html("<b>Date :</b> " + date+"<br/><br/>")
+              div.append("p").html("<b>Group :</b> " + gr+"<br/><br/>")
+              div.append("p").html("<b>Status :</b> " + status+"<br/><br/>")
+
+              return {        
+              title: "Amendement " + titre,
+              content: div ,
+              placement: "mouse",
+              gravity: "right",
+              displacement: [10, -90],          
+              mousemove: true
+              };
+            })
+            .on("click",select);
+            
+            
+        var a = d3.select("svg").select("g:last-child").attr("data-offset")
+		var ah = d3.select("svg").select("g:last-child").node().getBBox().height;
+		console.log(a,ah)
+		svg.attr("height",parseInt(a)+ah+20)
+
         }
-        
-        
+
 		function select(d) {
+			
 			d3.selectAll(".actv-amd")
 			.style("fill",color)
 			.style("stroke","none" )
 			.classed("actv-amd",false);
 
+			id=parseInt(d.url_api.match(/\d+/g)[0]);
+			console.log(d.url_api,id)
+			
+			d3.json("/amd/"+id,function(error,json){
+				console.log(error,json)
+			})
 			
 			d3.select(this)
 			.attr("class","actv-amd")
@@ -180,33 +227,32 @@ var grouped=null;
 		
 		function color(d) { 
 			
-			stats = d3.keys(statColor)
-			found = $.inArray(d.sort, stats);
-		    if(found >= 0) return statColor[stats[found]];
+			if(groups[d.groupe]) return groups[d.groupe].color 
 		    else return "#E6E6E6"
 		    };
 
 		function legend(t) {
 			
-			if(t==null) {
-				d3.entries(statColor).forEach(function(d,i) {
-					
-					$(".colors").append('<div class="leg-item"><div class="leg-value" style="background-color:'+d.value+'"></div><div class="leg-key">'+d.key+'</div></div>')		
-					
-				})
-			}
+			d3.entries(groups).forEach(function(e,i){
+				
+				$(".colors").append('<div class="leg-item"><div class="leg-value" style="background-color:'+e.value.color+'"></div><div class="leg-key">'+e.key+'</div></div>')		
+				
+			})
+			
 		}
 
 		drawMerged = function() {
 			$("svg").empty();
-			$(".art-list").empty();
+
 			if(!grouped) {
-				grouped = {key: 'all articles', values:[]}
+				grouped = {titre:'all articles',key: 'all articles', amendements:[]}
 				
-				fin.forEach(function(d,i) {
-					grouped.values=grouped.values.concat(d.values)
+				artArray.forEach(function(d,i) {
+					grouped.amendements=grouped.amendements.concat(d.amendements)
 				}) 
 			}
+			console.log(grouped)
+			jumpLines=0
 			drawLines(grouped,0)
 		}
 		
@@ -227,10 +273,12 @@ var grouped=null;
 
 		
 		sortByStat = function() {
-			stats = d3.keys(statColor)
+			console.log(artArray)
 			if(grouped) {
-				grouped['values'].sort(function(a,b){
-					return stats.indexOf(a.sort) - stats.indexOf(b.sort)
+				grouped['amendements'].sort(function(a,b){
+					if (a.sort < b.sort) return 1;
+					if (a.sort > b.sort) return -1;
+					return 0;
 				})
 				$("svg").empty();
 				$(".art-list").empty();
@@ -239,13 +287,42 @@ var grouped=null;
 				
 			}
 			else {
-				fin.forEach(function(d,i) {
-					d['values'].sort(function(a,b){
-						return stats.indexOf(a.sort) - stats.indexOf(b.sort)
+				artArray.forEach(function(d,i) {
+					d['amendements'].sort(function(a,b){
+						if (a.sort < b.sort) return 1;
+					if (a.sort > b.sort) return -1;
+					return 0;
 					})
 				})
 				$("svg").empty();
+				$(".text-container").empty();
+				draw();
+			}
+		}
+		
+		sortByParty = function() {
+			console.log(artArray)
+			if(grouped) {
+				grouped['amendements'].sort(function(a,b){
+					if (a.groupe < b.groupe) return 1;
+					if (a.groupe > b.groupe) return -1;
+					return 0;
+				})
+				$("svg").empty();
 				$(".art-list").empty();
+				$(".text-container").empty();
+				drawMerged();
+				
+			}
+			else {
+				artArray.forEach(function(d,i) {
+					d['amendements'].sort(function(a,b){
+						if (a.groupe < b.groupe) return 1;
+					if (a.groupe > b.groupe) return -1;
+					return 0;
+					})
+				})
+				$("svg").empty();
 				$(".text-container").empty();
 				draw();
 			}
@@ -254,25 +331,23 @@ var grouped=null;
 		
 		
 		sortByDate = function() {
-			stats = d3.keys(statColor)
+			
 			if(grouped) {
-				grouped['values'].sort(function(a,b){
+				grouped['amendements'].sort(function(a,b){
 					return Date.parse(a.date) - Date.parse(b.date)	
 				})
 				$("svg").empty();
-				$(".art-list").empty();
 				$(".text-container").empty();
 				drawMerged();
 				
 			}
 			else {
-				fin.forEach(function(d,i) {
-					d['values'].sort(function(a,b){
+				artArray.forEach(function(d,i) {
+					d['amendements'].sort(function(a,b){
 						return Date.parse(a.date) - Date.parse(b.date)	
 					})
 				})
 				$("svg").empty();
-				$(".art-list").empty();
 				$(".text-container").empty();
 				draw();
 			}

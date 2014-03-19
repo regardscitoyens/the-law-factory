@@ -613,3 +613,6 @@ p.orat-count{
 p.orat-name{
 	    text-transform:capitalize;
 }
+rect, path{
+	cursor:pointer;
+}

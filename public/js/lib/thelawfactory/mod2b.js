@@ -290,7 +290,20 @@ sven.viz.streamkey = function(){
 			.on("mousemove",function(d){d3.select(".desc").attr("style","top: " + (d3.event.pageY - $(".desc").height() - 15) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2) + "px");})
 
 			d3.select("svg").on("click", function(){d3.select(this).selectAll("path").transition().attr("fill-opacity",0.5);d3.select(this).selectAll("rect").transition().attr("fill-opacity",0.9); $(".text-container").empty(); $("#text-title").html("Sélectionner un participant");})
-			
+		
+		/*var stepLines=layer.selectAll("line")
+		.data(steps)
+		  .enter().append("line")
+		  .attr("y1",function(d) { return x(d) + margin.left+barWidth/2;  })
+		  .attr("x1",0)
+		  .attr("y2",function(d) { return x(d) + margin.left + barWidth/2;  })
+		  .attr("x2",width)
+		  .style("stroke","#fdfdfd")
+		  .style("opacity",0.3)
+		  .style("stroke-width",1);*/
+		  
+		
+		
 		var rect = layer.selectAll("rect")
 			.data(function(d) { return d; })
 		  .enter().append("rect")
@@ -356,7 +369,9 @@ sven.viz.streamkey = function(){
 			
 
 				//labels
-
+		
+		
+		
 		var stepsLabel = svg.selectAll("text")
 			.data(steps)
 		  .enter().append("text")
