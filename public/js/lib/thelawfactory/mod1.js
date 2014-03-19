@@ -513,18 +513,18 @@ var stacked;
 				$(document).ready(function() {
 					var s = $(".text");
 					var pos = s.offset();
-					var w = s.width();
-					//console.log("pos",pos)
+                    var h = Math.min($(window).height(), $(".main").height()).toString() + "px");
+                    s.css("height", h);
 					$(window).scroll(function() {
 						var windowpos = $(window).scrollTop();
 						if (windowpos >= pos.top) {
 							s.addClass("stick");
 							s.css("left", pos.left);
-							s.css("width", w);
+                            s.css("height", "100%");
 						} else {
 							s.removeClass("stick");
 							s.css("left", "");
-							s.css("width", "18.33%");
+                            s.css("height", h);
 						}
 					});
 				});
