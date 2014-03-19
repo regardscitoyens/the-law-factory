@@ -52,11 +52,7 @@ var stacked;
 
 
 						if (j != 0 && f.id_step.substr(-5) != "depot") {
-							for (var l = 1; l <= j; l++) {
-								lasttxt = d.steps[j - l].text;
-								if (d.steps[j - l].id_step.substr(-5) != "depot")
-									break;
-							}
+                            lasttxt = d.steps[j - 1].text;
 							if (!f.text.length)
 								lasttxt.forEach(function(g, k) {
 									f.textDiff[k] = diffString(g, " ")
@@ -69,7 +65,7 @@ var stacked;
 								})
 						} else
 							f.text.forEach(function(g, k) {
-								f.textDiff[k] = diffString(" ", g)
+								f.textDiff[k] = g
 							})
 							
 						bigList.push(f);
@@ -211,7 +207,10 @@ var stacked;
 
 				//Add connections
 				var lines = svg.append("g").selectAll("line").data(bigList.filter(function(d) {
-					a = d3.selectAll(".article").filter(function(e){return d.article == e.article && d.step_num == e.step_num-1})
+					a = d3.selectAll(".article").filter(function(e){
+                        return (d.article == e.article && e.status !== "new" &&
+                            d.step_num == e.step_num-1 && e.id_step.substr(-5) !== "depot")
+                    })
 					return !a.empty() && d.status!=="sup" && d.step_num+1<stages.length;
 				})).enter();
 
