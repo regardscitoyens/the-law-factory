@@ -125,7 +125,7 @@ var stacked;
 						.attr("x", function(d){return d.x})
 						.attr("y", function(d){return d.y})
 						.attr("class","article")
-						.attr("width", width / columns - 20)
+						.attr("width", width / columns - 30)
 						.attr("height", function(d){return lerp(d.length)})
 						.call(styleRect)
 						.on("click",onclick)
@@ -162,9 +162,9 @@ var stacked;
 						.attr("class", "new")
 						.style("stroke", "none")
 						.style("fill", '#8DF798')
-						.attr("y", function(d){return d.y + 2})
+						.attr("y", function(d){return d.y + 1})
 						.attr("x", function(d){return d.x + 1})
-						.attr("height", function(d){return lerp(d.length) - 3})
+						.attr("height", function(d){return lerp(d.length) - 2})
 						.attr("width", 6)
 
 						//Add red labels for removed elements
@@ -174,9 +174,9 @@ var stacked;
 						.attr("class", "sup")
 						.style("stroke", "none")
 						.style("fill", '#FD5252')
-						.attr("y", function(d){return d.y + 2})
+						.attr("y", function(d){return d.y + 1})
 						.attr("x", function(d){return d.x + 1})
-						.attr("height", function(d){return lerp(d.length) - 3})
+						.attr("height", function(d){return lerp(d.length) - 2})
 						.attr("width", 6)
 
 
@@ -187,7 +187,7 @@ var stacked;
 						.attr("x", function(d){return d.x})
 						.attr("y", function(d){return d.y-15})
 						.attr("class","header")
-						.attr("width", width / columns - 20)
+						.attr("width", width / columns - 30)
 						.attr("height", 15)
 						.style("fill", "#2553C2")
 						.style("stroke", "none")
@@ -216,7 +216,7 @@ var stacked;
 				})).enter();
 
 				lines.append("line")
-				.attr("x1", function(d){return d.x + width / columns - 20})
+				.attr("x1", function(d){return d.x + width / columns - 30})
 				.attr("y1", function(d) {return d.y + (lerp(d.length)) / 2})
 				.attr("x2", function(d){
 					var a=bigList.filter(function(e){return e.article===d.article && e.step_num==d.step_num+1 })[0]
