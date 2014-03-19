@@ -513,7 +513,7 @@ var stacked;
 				$(document).ready(function() {
 					var s = $(".text");
 					var pos = s.offset();
-                    var h = Math.min($(window).height(), $(".main").height()).toString() + "px");
+                    var h = Math.min($(window).height(), $(".main").height()).toString() + "px";
                     s.css("height", h);
 					$(window).scroll(function() {
 						var windowpos = $(window).scrollTop();
