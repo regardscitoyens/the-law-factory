@@ -52,11 +52,7 @@ var stacked;
 
 
 						if (j != 0 && f.id_step.substr(-5) != "depot") {
-							for (var l = 1; l <= j; l++) {
-								lasttxt = d.steps[j - l].text;
-								if (d.steps[j - l].id_step.substr(-5) != "depot")
-									break;
-							}
+                            lasttxt = d.steps[j - 1].text;
 							if (!f.text.length)
 								lasttxt.forEach(function(g, k) {
 									f.textDiff[k] = diffString(g, " ")
@@ -69,7 +65,7 @@ var stacked;
 								})
 						} else
 							f.text.forEach(function(g, k) {
-								f.textDiff[k] = diffString(" ", g)
+								f.textDiff[k] = g
 							})
 							
 						bigList.push(f);
@@ -92,7 +88,7 @@ var stacked;
 				var sectJump = 40;
 				
 				//set color scale for diff
-				var levmin = 100, levmax = levmin + 128;
+				var levmin = 145, levmax = levmin + 100;
 				var diffcolor = d3.scale.linear().range(["rgb(" + [levmax, levmax, levmax].join(',') + ")", "rgb(" + [levmin, levmin, levmin].join(',') + ")"]).domain([0, 1]).interpolate(d3.interpolateHcl);
 
 				//margins
@@ -125,17 +121,18 @@ var stacked;
 						.attr("x", function(d){return d.x})
 						.attr("y", function(d){return d.y})
 						.attr("class","article")
-						.attr("width", width / columns - 20)
+						.attr("width", width / columns - 30)
 						.attr("height", function(d){return lerp(d.length)})
 						.call(styleRect)
 						.on("click",onclick)
 						.popover(function(d) {
 
-							var titre = d.article, section = d.section, status = d['id_step'].replace(/_/g, ", "), length = d['length'];
+							var titre = d.article, section = d.section, status = d['id_step'].split('_').slice(1,4).join(', '), length = d['length'];
 							var div;
 
 							div = d3.select(document.createElement("div")).style("height", "120px").style("width", "100%")
-						    div.append("p").text("Section : " + section)
+						    if (section !== "none")
+                              div.append("p").text("Section : " + section);
 							div.append("p").text("Étape : " + status)
                             if (d['status'] != "sup") {
 							    if (d['n_diff'] == 0)
@@ -156,14 +153,14 @@ var stacked;
 
 						//Add green labels for new elements
 						group.selectAll(".new")
-						.data(bigList.filter(function(d){return (d.length > 0 && d.step_num==st && d.sect_num==se && d.status==="new")}))
+						.data(bigList.filter(function(d){return (d.length > 0 && d.step_num==st && d.sect_num==se && (d.id_step.substr(-5) === "depot" || d.status==="new"))}))
 						.enter().append("rect")
 						.attr("class", "new")
 						.style("stroke", "none")
 						.style("fill", '#8DF798')
-						.attr("y", function(d){return d.y + 2})
+						.attr("y", function(d){return d.y + 1})
 						.attr("x", function(d){return d.x + 1})
-						.attr("height", function(d){return lerp(d.length) - 3})
+						.attr("height", function(d){return lerp(d.length) - 2})
 						.attr("width", 6)
 
 						//Add red labels for removed elements
@@ -173,20 +170,20 @@ var stacked;
 						.attr("class", "sup")
 						.style("stroke", "none")
 						.style("fill", '#FD5252')
-						.attr("y", function(d){return d.y + 2})
+						.attr("y", function(d){return d.y + 1})
 						.attr("x", function(d){return d.x + 1})
-						.attr("height", function(d){return lerp(d.length) - 3})
+						.attr("height", function(d){return lerp(d.length) - 2})
 						.attr("width", 6)
 
 
 						//Add headers
 						group.selectAll(".header")
-						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head && d.section!="none")}))
+						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head && d.section!=="none")}))
 						.enter().append("rect")
 						.attr("x", function(d){return d.x})
 						.attr("y", function(d){return d.y-15})
 						.attr("class","header")
-						.attr("width", width / columns - 20)
+						.attr("width", width / columns - 30)
 						.attr("height", 15)
 						.style("fill", "#2553C2")
 						.style("stroke", "none")
@@ -195,7 +192,7 @@ var stacked;
 
 						//Add header labels
 						group.selectAll(".head-lbl")
-						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head)}))
+						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head && d.section!=="none")}))
 						.enter().append("text")
 						.attr("x", function(d){return d.x + 5})
 						.attr("y", function(d){return d.y - 4})
@@ -210,12 +207,15 @@ var stacked;
 
 				//Add connections
 				var lines = svg.append("g").selectAll("line").data(bigList.filter(function(d) {
-					a = d3.selectAll(".article").filter(function(e){return d.article == e.article && d.step_num == e.step_num-1})
+					a = d3.selectAll(".article").filter(function(e){
+                        return (d.article == e.article && e.status !== "new" &&
+                            d.step_num == e.step_num-1 && e.id_step.substr(-5) !== "depot")
+                    })
 					return !a.empty() && d.status!=="sup" && d.step_num+1<stages.length;
 				})).enter();
 
 				lines.append("line")
-				.attr("x1", function(d){return d.x + width / columns - 20})
+				.attr("x1", function(d){return d.x + width / columns - 30})
 				.attr("y1", function(d) {return d.y + (lerp(d.length)) / 2})
 				.attr("x2", function(d){
 					var a=bigList.filter(function(e){return e.article===d.article && e.step_num==d.step_num+1 })[0]
@@ -242,7 +242,7 @@ var stacked;
 						//return d3.hcl(diffcolor(d.n_diff)).darker();
 					})
 					.style("stroke-width", 1).style("stroke-dasharray", "none").style("fill", function(d) {
-						if (d.status == 'sup')
+						if (d.status == 'sup' || d.id_step.substr(-5) === "depot")
 							return '#fff';
 						else 
 							return diffcolor(d.n_diff);
@@ -496,7 +496,7 @@ var stacked;
 					d3.select(this).style("stroke-dasharray", [3, 3])
 
 					
-					var titre = d.article, section = d.section, status = d['id_step'].replace(/_/g, ", "), length = d['length'];
+					var titre = d.article, section = d.section, status = d['id_step'].split('_').slice(1,4).join(', '), length = d['length'];
 					$(".art-meta").html(
                         (section !== 'none' ? "<p><b>Section :</b> " + section + "</p>" : "") +
                         "<p><b>Étape :</b> " + status + "</p>" + 
@@ -512,18 +512,18 @@ var stacked;
 				$(document).ready(function() {
 					var s = $(".text");
 					var pos = s.offset();
-					var w = s.width();
-					//console.log("pos",pos)
+                    var h = Math.min($(window).height(), $(".main").height()).toString() + "px";
+                    s.css("height", h);
 					$(window).scroll(function() {
 						var windowpos = $(window).scrollTop();
 						if (windowpos >= pos.top) {
 							s.addClass("stick");
 							s.css("left", pos.left);
-							s.css("width", w);
+                            s.css("height", "100%");
 						} else {
 							s.removeClass("stick");
 							s.css("left", "");
-							s.css("width", "18.33%");
+                            s.css("height", h);
 						}
 					});
 				});
