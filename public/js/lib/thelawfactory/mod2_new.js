@@ -228,7 +228,12 @@ var grouped=null;
 		
 		function color(d) { 
 			
-			if(groups[d.groupe]) return groups[d.groupe].color 
+			if(groups[d.groupe]) {
+				col = d3.hsl(groups[d.groupe].color)
+				if (col.s>0.5) col.s = 0.5	
+				if (col.l<0.7) col.l = 0.7	
+				return col.toString()
+			} 
 		    else return "#E6E6E6"
 		    };
 
@@ -236,7 +241,11 @@ var grouped=null;
 			
 			d3.entries(groups).forEach(function(e,i){
 				
-				$(".colors").append('<div class="leg-item"><div class="leg-value" style="background-color:'+e.value.color+'"></div><div class="leg-key">'+e.key+'</div></div>')		
+				col = d3.hsl(e.value.color)
+				if (col.s>0.5) col.s = 0.5	
+				if (col.l<0.7) col.l = 0.7	
+				
+				$(".colors").append('<div class="leg-item"><div class="leg-value" style="background-color:'+col+'"></div><div class="leg-key">'+e.key+'</div></div>')		
 				
 			})
 			
