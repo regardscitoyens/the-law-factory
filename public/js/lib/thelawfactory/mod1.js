@@ -10,6 +10,8 @@ var stacked;
 	thelawfactory.mod1 = function() {
 
         function format_section(s) {
+            if (s.lastIndexOf("A", 0) === 0)
+                return s.replace(/^A/, "Article ");
             return s.replace(/^.*([LTCVS]+)(\d+)([\sa-z]*)$/, '$1 $2$3')
                 .replace("SS", "Sous-section")
                 .replace("S", "Section")
@@ -17,6 +19,12 @@ var stacked;
                 .replace("L", "Livre")
                 .replace("V", "Volume")
                 .replace("T", "Tome");
+        }
+
+        function section_opacity(s) {
+            if (s.lastIndexOf("A", 0) === 0)
+                return 0.65;
+            return 1.25-0.3*s.match(/[LCVTS]+\d+/g).length;
         }
 
 		function vis(selection) {
@@ -187,7 +195,7 @@ var stacked;
 						.attr("height", 15)
 						.style("fill", "#2553C2")
 						.style("stroke", "none")
-						.style("opacity", function(d){return 1.25-0.3*d.section.match(/[LCVTS]+\d+/g).length})
+						.style("opacity", function(d){return section_opacity(d.section)})
 						.style("stroke-width", "1px")
 
 						//Add header labels
