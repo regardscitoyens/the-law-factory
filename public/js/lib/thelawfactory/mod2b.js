@@ -42,7 +42,7 @@ function init(data,step) {
 	participants=d.orateurs
 	
 	for(e in d.groupes) {
-		col = d3.hsl(d.groupes[e].color); col.l=0.75;
+		col = d3.hsl(d.groupes[e].color); if(col.s>0.5) col.s=0.5; col.l=0.75;
 		mydata.push({key:e, values:[], color:col, name:d.groupes[e].nom})
 		$(".legend").append("<div onclick='highlight(\""+e+"\")' class='leg-item' title='"+d.groupes[e].nom+"'><div class='leg-value' style='background-color:"+col+"'></div><div class='leg-key'>"+e+"</div></div>")
 	}
@@ -233,7 +233,7 @@ sven.viz.streamkey = function(){
 			.data(dataF)
 		  .enter().append("g")
 			.attr("class", function(d,i){return "layer_"+i})
-			.style("fill", function(d, i) {col = d[0].color; return col.toString(); })
+			.style("fill", function(d, i) {col = d[0].color; if (col.s>0.5) col.s = 0.5; return col.toString(); })
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 			.on("mousemove",function(d){d3.select(".desc").attr("style","top: " + (d3.event.pageY - $(".desc").height() - 15) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2) + "px");})
 			d3.select("svg").on("click", function(){d3.select(this).selectAll("rect").transition().style("opacity",0.9); d3.select(this).selectAll("path").transition().attr("fill-opacity",0.3); $(".text-container").empty(); $("#text-title").html("Sélectionner un participant");})
