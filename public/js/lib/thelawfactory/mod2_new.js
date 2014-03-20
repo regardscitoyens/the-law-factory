@@ -194,12 +194,23 @@ var grouped=null;
 			.style("fill",color)
 			.style("stroke","none" )
 			.classed("actv-amd",false);
-
-			id=parseInt(d.url_api.match(/\d+/g)[0]);
-			console.log(d.url_api,id)
 			
-			d3.json("/amd/"+id,function(error,json){
-				console.log(error,json)
+			
+			console.log(encodeURIComponent(d.url_api))
+			d3.json("/amd/"+encodeURIComponent(d.url_api),function(error,json){
+				currAmd=json.amendement;
+				var source_am = '.fr</a> &mdash; <a href="'+currAmd.source+'">';
+           if (currAmd.url_nosdeputes) source_am = '<a href="'+currAmd.url_nosdeputes+'">NosDéputés'+source_am+'Assemblée nationale</a>';
+            else if(currAmd.url_nossenateurs) source_am = '<a href="'+currAmd.url_nossenateurs+'">NosSénateurs'+source_am+'Sénat</a>';
+            else source_am="";
+			$(".text-container").html(
+				"<p><b>Date :</b> " + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</p>" +
+				"<p><b>Objet :</b> " + currAmd.sujet+"</p>" +
+				"<p><b>Signataires :</b> " + currAmd.signataires+"</p>" + 
+				"<p><b>Statut :</b> " + d.sort+"</p>" +
+				"<p><b>Exposé des motifs :</b> " + currAmd.expose+"</p>" +
+				"<p><b>Texte :</b> " + currAmd.texte +
+				"<p><small><b>Source :</b> " + source_am + "</small></p>");
 			})
 			
 			d3.select(this)
@@ -208,17 +219,7 @@ var grouped=null;
 			.style("stroke","#D80053" )
 			.style("stroke-width","2" )
 			$("#text-title").text("Amendement "+d.numero)
-			var source_am = '.fr</a> &mdash; <a href="'+d.source+'">';
-            if (d.url_nosdeputes) source_am = '<a href="'+d.url_nosdeputes+'">NosDéputés'+source_am+'Assemblée nationale</a>';
-            else source_am = '<a href="'+d.url_nossenateurs+'">NosSénateurs'+source_am+'Sénat</a>';
-			$(".text-container").html(
-				"<p><b>Date :</b> " + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</p>" +
-				"<p><b>Objet :</b> " + d.sujet+"</p>" +
-				"<p><b>Signataires :</b> " + d.signataires+"</p>" + 
-				"<p><b>Statut :</b> " + d.sort+"</p>" +
-				"<p><b>Exposé des motifs :</b> " + d.expose+"</p>" +
-				"<p><b>Texte :</b> " + d.texte +
-				"<p><small><b>Source :</b> " + source_am + "</small></p>");
+			
 				
 			$('.text-container').scrollTop(0);
 			if(!$(".end-tip").is(":visible")) $(".end-tip").fadeIn(200);

@@ -2,7 +2,7 @@
  * Serve JSON to our AngularJS client
  */
 
-var request = require('request'), csv = require('csv'), amdUrl = "http://www.nosdeputes.fr/api/document/Amendement/", baseUrl = 'http://www.lafabriquedelaloi.fr/api', headers = {
+var request = require('request'), csv = require('csv'), baseUrl = 'http://www.lafabriquedelaloi.fr/api', headers = {
 	'Content-type' : 'application/json'
 };
 
@@ -88,10 +88,10 @@ exports.amendments = function(req, res) {
 
 
 exports.amd = function(req, res) {
-	
+	console.log("url",req.params.url)
 	request({
 		method : 'GET',
-		url : amdUrl + req.params.id + '/json',
+		url : decodeURI(req.params.url),
 		/*headers : {
 			'Content-type' : 'text/plain'
 		}*/
