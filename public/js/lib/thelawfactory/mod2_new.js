@@ -286,8 +286,8 @@ var grouped=null;
 			console.log(artArray)
 			if(grouped) {
 				grouped['amendements'].sort(function(a,b){
-					if (a.sort < b.sort) return 1;
-					if (a.sort > b.sort) return -1;
+					if (a.sort < b.sort) return -1;
+					if (a.sort > b.sort) return 1;
 					return 0;
 				})
 				$("svg").empty();
@@ -299,8 +299,8 @@ var grouped=null;
 			else {
 				artArray.forEach(function(d,i) {
 					d['amendements'].sort(function(a,b){
-						if (a.sort < b.sort) return 1;
-					if (a.sort > b.sort) return -1;
+						if (a.sort < b.sort) return -1;
+					if (a.sort > b.sort) return 1;
 					return 0;
 					})
 				})

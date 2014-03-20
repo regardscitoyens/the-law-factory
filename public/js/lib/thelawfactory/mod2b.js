@@ -1,5 +1,7 @@
 var num=0
 var participants;
+var factions;
+
 function wrap(width) {
   d3.selectAll('text').each(function() {
     var text = d3.select(this),
@@ -34,19 +36,20 @@ function init(data,step) {
 	
 	var d = data[step]
 	var mydata=[]
+	factions=data[step].groupes
+	
 	var groupes=d3.keys(d.groupes);
 	participants=d.orateurs
 	
 	for(e in d.groupes) {
 		col = d3.hsl(d.groupes[e].color); col.l=0.75;
-		mydata.push({key:e.toLowerCase(), values:[], color:col, name:d.groupes[e].nom})
+		mydata.push({key:e, values:[], color:col, name:d.groupes[e].nom})
 		$(".legend").append("<div onclick='highlight(\""+e+"\")' class='leg-item' title='"+d.groupes[e].nom+"'><div class='leg-value' style='background-color:"+col+"'></div><div class='leg-key'>"+e+"</div></div>")
 	}
 	
 	d3.entries(d.divisions).forEach(function(a,b){
 		a.value.step = a.key;
 	})
-
 	divs=d3.values(d.divisions)
 	num = divs.length
 	divs.sort(function(b,c){return b.order-c.order}).filter(function(f){return f.total_intervs>0})
@@ -59,12 +62,9 @@ function init(data,step) {
 				
 				return k.key.toLowerCase()===g.toLowerCase()
 			})
-
-			var curr = mydata.filter(function(e,n){
-					
+			var curr = mydata.filter(function(e,n){				
 					return e.key.toLowerCase()===g.toLowerCase()
-				})[0]
-			
+				})[0]			
 			if(filtered.length) {
 				filtered=filtered[0]
 				toAdd={label:g,value:filtered.value.nb_mots,step:f.step, name:e.name,speakers:filtered.value.orateurs}
@@ -72,7 +72,6 @@ function init(data,step) {
 				curr.values.push(toAdd)
 			}
 			else {
-
 				toAdd={label:g,value:1,step:f.step}
 				curr.values.push(toAdd)
 			}
@@ -90,54 +89,6 @@ function init(data,step) {
 
 sven = {},
 sven.viz = {};
-
-
-
-sven.colors = {}
-
-	sven.colors.polarity = function(p){
-		var scale = d3.scale.ordinal().domain(["PPO", "POS", "NEU", "NEG", "NNE"]).range(["#1A9641", "#A6D96A", "#FFFFBF", "#FDAE61", "#D7191C"]);
-		return scale(p)
-		}
-
-	sven.colors.diverging = function(c){
-
-		var classes = c ? c : 1,
-			values = {},
-			saturation = .4,
-			light = .6;
-
-		diverging = function(x){
-
-			if(!values.x) {
-				var length = d3.keys(values).length
-				values[x] = d3.hsl( 360/c*(length+1), saturation, light ).toString()
-			}
-			return values[x];
-		}
-
-		diverging.saturation = function(x){
-			if (!arguments.length) return saturation;
-			saturation = x;
-			return diverging;
-		}
-
-		diverging.values = function(name,value){
-			if (!arguments.length) return values;
-			if (arguments.length == 1) return values[name];
-			values[name] = value;
-			return diverging;
-		}
-
-		diverging.light = function(x){
-			if (!arguments.length) return light;
-			light = x;
-			return diverging;
-		}
-
-		return diverging;
-
-	};
 
 sven.viz.streamkey = function(){
 
@@ -231,7 +182,6 @@ sven.viz.streamkey = function(){
 		n = data.length;
         m = data[0]['values'].length;
 
-    	
 		//get values
 		data.forEach(function(d,i){
 			d['values'].forEach(function(d){if(d['value'] != null){values.push(d['value'])}})
@@ -272,15 +222,13 @@ sven.viz.streamkey = function(){
     		.range([graphHeight, 0]);
 
 		var svg = d3.select(target).append("svg")
-				//.attr("width", width)
-				//.attr("height", height);
 				.attr("width", height)
     			.attr("height", width)
     			.append("g")
     			.attr("class","main-g")
     			.attr("transform","translate(0,20)")
 
-		var colorz = sven.colors.diverging(n);
+
 		var layer = svg.selectAll("g")
 			.data(dataF)
 		  .enter().append("g")
@@ -288,56 +236,52 @@ sven.viz.streamkey = function(){
 			.style("fill", function(d, i) {col = d[0].color; return col.toString(); })
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 			.on("mousemove",function(d){d3.select(".desc").attr("style","top: " + (d3.event.pageY - $(".desc").height() - 15) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2) + "px");})
+			d3.select("svg").on("click", function(){d3.select(this).selectAll("rect").transition().style("opacity",0.9); d3.select(this).selectAll("path").transition().attr("fill-opacity",0.3); $(".text-container").empty(); $("#text-title").html("Sélectionner un participant");})
 
-			d3.select("svg").on("click", function(){d3.select(this).selectAll("path").transition().attr("fill-opacity",0.5);d3.select(this).selectAll("rect").transition().attr("fill-opacity",0.9); $(".text-container").empty(); $("#text-title").html("Sélectionner un participant");})
-		
-		/*var stepLines=layer.selectAll("line")
-		.data(steps)
-		  .enter().append("line")
-		  .attr("y1",function(d) { return x(d) + margin.left+barWidth/2;  })
-		  .attr("x1",0)
-		  .attr("y2",function(d) { return x(d) + margin.left + barWidth/2;  })
-		  .attr("x2",width)
-		  .style("stroke","#fdfdfd")
-		  .style("opacity",0.3)
-		  .style("stroke-width",1);*/
-		  
-		
-		
 		var rect = layer.selectAll("rect")
 			.data(function(d) { return d; })
 		  .enter().append("rect")
 			.attr("y", function(d) { return x(d.x); })
 			.attr("x", function(d) { return y(d.y0 + d.y); })
 			.style("opacity",.9)
+			.style("stroke-width",1)
+			.style("stroke",function(d){return d.color.darker().toString()})
 			.attr("width", function(d) { return y(d.y0) - y(d.y0 + d.y); })
 			.attr("height", barWidth)
 			.attr("display", "inline")
 			.on("click",function(d){
 				d3.event.stopPropagation();
-				svg.selectAll("g").selectAll("path").transition().attr("fill-opacity",0.1);
-				svg.selectAll("g").selectAll("rect").transition().attr("fill-opacity",0.1);
-				d3.select(d3.select(this).node().parentNode).selectAll("path").transition().attr("fill-opacity",0.75);
-				d3.select(d3.select(this).node().parentNode).selectAll("rect").transition().attr("fill-opacity",1);
+				svg.selectAll("g").selectAll("path").transition()
+				.attr("fill-opacity",0.1);
+				svg.selectAll("g").selectAll("rect").transition()
+				.style("opacity",0.1)
+				d3.select(d3.select(this).node().parentNode).selectAll("path").transition()
+				.attr("fill-opacity",0.45);
+				d3.select(d3.select(this).node().parentNode).selectAll("rect").transition()
+				.style("opacity",0.55);
+				d3.select(this).transition().style("opacity",1)
+				
 				$(".text-container").empty();
 				$("#text-title").empty();
 				$("#text-title").html(d.label)
 				
-				for (g in d.speakers) {
+				spArray= d3.entries(d.speakers).sort(function(a,b){return b.value.nb_mots - a.value.nb_mots})
+				
+				spArray.forEach(function(g,j){
 					var ordiv = document.createElement('div')
 					ordiv.className="orateur";
 					var div = document.createElement('div')
 					div.className="orat-info";
 					var siz = $(".text-container").width()*0.25
-					$(ordiv).append("<img src='"+participants[g].photo+"/"+parseInt(siz)+"'/>") 
-					$(div).append("<p class='orat-name'><b>"+g+"</b></p>")
-					if(participants[g].fonction.length) $(div).append("<p class='orat-fonction'>"+participants[g].fonction+"</p>")
-					$(div).append("<p><a href='"+participants[g].link+"'>personal page</a></p>")
-					$(div).append("<p class='orat-count'>Word count: "+d.speakers[g].nb_mots+"</p>")
+					if(participants[g.key].photo) $(ordiv).append("<a href='"+participants[g.key].link+"'><img src='"+participants[g.key].photo+"/"+parseInt(siz)+"'/></a>") 
+					$(div).append("<p class='orat-name'><b><a href='"+participants[g.key].link+"'>"+g.key+"</a></b></p>")
+					if(participants[g.key].fonction.length) $(div).append("<p class='orat-fonction'>"+participants[g.key].fonction+"</p>")
+					$(div).append("<p class='orat-count'>Word count: "+g.value.nb_mots+"</p>")
+					$(div).append("<p><a class='orat-disc' href='"+g.value.link+"'>Intervention detail</a></p>")
 					$(ordiv).append(div)
 					$(".text-container").append(ordiv)
 					$(".orat-info").width($(".text-container").width()*0.73)
-				}
+				})
 			})
 		   .filter(function(d){return d['value'] == null})
 			.attr("display", "none");
@@ -346,10 +290,10 @@ sven.viz.streamkey = function(){
 			.data(function(d){return areaStreamKey(d, xF)})
 			.enter().append("path")
 			.attr("d", function(d){return drawLink(d[0], d[1], d[2], d[3])})
-			.attr("fill-opacity", 0.5)
+			.attr("fill-opacity", 0.3)
 			.attr("stroke", "none")
 			.attr("display", "inline")
-			.on("click",function(d){ 
+			/*.on("click",function(d){ 
 				$(".text-container").empty();
 				d3.event.stopPropagation()
 				svg.selectAll("g").selectAll("path").transition().attr("fill-opacity",0.1);
@@ -363,15 +307,12 @@ sven.viz.streamkey = function(){
 				.attr("class","tooltip fade in desc")
 				.attr("style","top: " + (d3.event.pageY - $(".desc").height() -15 ) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2 ) + "px")
 
-							 })
+							 })*/
 			.filter(function(d){return d[4] == false})
 			.attr("display", "none")
 			
 
 				//labels
-		
-		
-		
 		var stepsLabel = svg.selectAll("text")
 			.data(steps)
 		  .enter().append("text")
@@ -399,12 +340,14 @@ sven.viz.streamkey = function(){
       for (i = 0; i < n; i++){ 
       	stepsY[j].push({'y':data[i]['values'][j]['value'],'value': data[i]['values'][j]['value'], 'index':i, 'x':data[i]['values'][j]['step'],'color':data[i]['color'],'speakers':data[i]['values'][j]['speakers'] ,'category':data[i]['key'], 'label':data[i]['name']})
       }
-
-		var sorted = d3.nest().key(function(d){return d.y}).sortKeys(function(a,b){return parseFloat(a) - parseFloat(b); }).entries(stepsY[j]);
+		console.log(factions)
+		var sorted = d3.nest().key(function(d){return d.category}).sortKeys(function(a,b){return factions[b].order - factions[a].order; }).entries(stepsY[j]);
+		
 		stepsY[j] = []
 		sorted.forEach(function(d){d.values.forEach(function(d){stepsY[j].push(d)})})
 
     }
+    		
     		return stepsY;
     };
     
@@ -474,12 +417,9 @@ sven.viz.streamkey = function(){
       }
     }
     
-    data.forEach(function(d,i){
-    	
-    	d.forEach(function(e,h){
-    		
+    data.forEach(function(d,i){  	
+    	d.forEach(function(e,h){  		
     		dataInit[e.index][i] = e;
-
     		})
 	})
 	return dataInit;
