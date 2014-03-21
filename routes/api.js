@@ -73,7 +73,7 @@ exports.amendments = function(req, res) {
 
 	request({
 		method : 'GET',
-		url : baseUrl + '/' + req.params.id + '/viz/amendements.json',
+		url : baseUrl + '/' + req.params.id + '/viz/amendements_'+req.params.step+'.json',
 		headers : {
 			'Content-type' : 'Content-type: application/json'
 		}

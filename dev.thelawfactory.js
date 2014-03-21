@@ -50,7 +50,7 @@ app.get('/partials/:name', routes.partials);
 //app.get('/laws/:id', api.law);
 app.get('/laws/list', api.lawlist);
 app.get('/law-article/:id', api.articles); 
-app.get('/law-amendments/:id', api.amendments); 
+app.get('/law-amendments/:id/:step', api.amendments); 
 app.get('/law-procedure/:id', api.procedure); 
 app.get('/law-interventions/:id', api.interventions); 
 app.get('/amd/:url', api.amd); 

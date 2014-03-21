@@ -2,6 +2,7 @@ var sortByStat;
 var draw;
 var drawMerged;
 var grouped=null;
+var api_root;
 
 
 (function(){
@@ -17,6 +18,7 @@ var grouped=null;
 	selection.each(function(d,i){
 		groups=d.groupes;
 		articles=d.sujets;
+		api_root=d.api_root_url;
 	})
 	
 	artArray=d3.values(articles).sort(function(a,b){return a.order-b.order})
@@ -195,10 +197,10 @@ var grouped=null;
 			.style("stroke","none" )
 			.classed("actv-amd",false);
 			
-			
-			console.log(encodeURIComponent(d.url_api))
-			d3.json("/amd/"+encodeURIComponent(d.url_api),function(error,json){
-				currAmd=json.amendement;
+			console.log(api_root+d.id_api)
+			d3.json("/amd/"+encodeURIComponent(api_root+d.id_api+'/json'),function(error,json){
+				currAmd=json.amendement
+				
 				var source_am = '.fr</a> &mdash; <a href="'+currAmd.source+'">';
            if (currAmd.url_nosdeputes) source_am = '<a href="'+currAmd.url_nosdeputes+'">NosDéputés'+source_am+'Assemblée nationale</a>';
             else if(currAmd.url_nossenateurs) source_am = '<a href="'+currAmd.url_nossenateurs+'">NosSénateurs'+source_am+'Sénat</a>';

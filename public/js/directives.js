@@ -113,8 +113,8 @@ function(apiService, $rootScope, $location, $compile) {
 
 					if ($location.search()['s'] != null) {
 						
-						apiService.getDataSample(scope.amdUrl + scope.l).then(function(data) {
-						
+						apiService.getDataSample(scope.amdUrl + scope.l+'/'+$location.search()['s'] ).then(function(data) {
+							console.log(data)
 							var elementPos = scope.dataSample.map(function(x) {
 								return x.step_name;
 							}).indexOf(scope.step_name);
@@ -123,7 +123,7 @@ function(apiService, $rootScope, $location, $compile) {
 							scope.data = data;
 							console.log("data2", data)
 							console.log("section", data[$location.search()['s']])
-							d3.select(element[0]).datum(data[$location.search()['s']]).call(mod2)
+							d3.select(element[0]).datum(data).call(mod2)
 
 						}, function(error) {
 							scope.error = error
