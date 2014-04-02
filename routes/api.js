@@ -149,7 +149,7 @@ function getAmdInfo(js) {
 		if(file.steps[a].directory) {
 		o={
 			"step_name" : file.steps[a].directory,
-			"amds" : file.steps[a].has_amendements
+			"amds" : file.steps[a].nb_amendements !== 0
 		}
 		res.push(o);
 	}

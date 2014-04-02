@@ -198,7 +198,7 @@ var api_root;
 			.classed("actv-amd",false);
 			
 			console.log(api_root+d.id_api)
-			d3.json("/amd/"+encodeURIComponent(api_root+d.id_api+'/json'),function(error,json){
+			d3.json(api_root+d.id_api+'/json',function(error,json){
 				currAmd=json.amendement
 				
 				var source_am = '.fr</a> &mdash; <a href="'+currAmd.source+'">';

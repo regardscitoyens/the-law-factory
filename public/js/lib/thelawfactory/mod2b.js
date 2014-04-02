@@ -80,7 +80,7 @@ function init(data,step) {
 	
 	var w=$("#viz").width();
 	var offset = w*20/100;
-	var stream = sven.viz.streamkey().data(mydata).target("#viz").height(num*100).width(w).minHeight(1).init()
+	var stream = sven.viz.streamkey().data(mydata).target("#viz").height(num*60).width(w).minHeight(1).init()
 	d3.selectAll("g:not(.main-g)")
 	.attr("transform","translate("+offset+",0) scale("+(w-offset)/w+",1)");
 	wrap(offset);
@@ -96,7 +96,7 @@ sven.viz.streamkey = function(){
 		data,
 		width = 600,
 		height = 200,
-		barWidth = 10,
+		barWidth = 12,
 		barPadding = 5,
 		minHeight = 0,
 		margin = {top: 30, right: 30, bottom: 30, left: 0},
@@ -184,7 +184,7 @@ sven.viz.streamkey = function(){
 
 		//get values
 		data.forEach(function(d,i){
-			d['values'].forEach(function(d){if(d['value'] != null){values.push(d['value'])}})
+			d['values'].forEach(function(d){if(d['value'] != null){values.push(Math.sqrt(d['value']))}})
 		})
 
 		//get steps
@@ -236,7 +236,7 @@ sven.viz.streamkey = function(){
 			.style("fill", function(d, i) {col = d[0].color; if (col.s>0.5) col.s = 0.5; return col.toString(); })
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 			.on("mousemove",function(d){d3.select(".desc").attr("style","top: " + (d3.event.pageY - $(".desc").height() - 15) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2) + "px");})
-			d3.select("svg").on("click", function(){d3.select(this).selectAll("rect").transition().style("opacity",0.9); d3.select(this).selectAll("path").transition().attr("fill-opacity",0.3); $(".text-container").empty(); $("#text-title").html("Sélectionner un participant");})
+			d3.select("svg").on("click", function(){d3.select(this).selectAll("rect").transition().style("opacity",0.9); d3.select(this).selectAll("path").transition().attr("fill-opacity",0.3); $(".text-container").empty(); $("#text-title").html("Sélectionner un groupe d'orateurs");})
 
 		var rect = layer.selectAll("rect")
 			.data(function(d) { return d; })
@@ -274,10 +274,10 @@ sven.viz.streamkey = function(){
 					div.className="orat-info";
 					var siz = $(".text-container").width()*0.25
 					if(participants[g.key].photo) $(ordiv).append("<a href='"+participants[g.key].link+"'><img src='"+participants[g.key].photo+"/"+parseInt(siz)+"'/></a>") 
-					$(div).append("<p class='orat-name'><b><a href='"+participants[g.key].link+"'>"+g.key+"</a></b></p>")
+					$(div).append("<p class='orat-name'><b>"+(participants[g.key].photo ? "<a href='"+participants[g.key].link+"'>"+g.key+"</a>" : g.key)+"</b></p>")
 					if(participants[g.key].fonction.length) $(div).append("<p class='orat-fonction'>"+participants[g.key].fonction+"</p>")
-					$(div).append("<p class='orat-count'>Word count: "+g.value.nb_mots+"</p>")
-					$(div).append("<p><a class='orat-disc' href='"+g.value.link+"'>Intervention detail</a></p>")
+					$(div).append("<p class='orat-count'>Mots prononcés : "+g.value.nb_mots+"</p>")
+					$(div).append("<p><a class='orat-disc' href='"+g.value.link+"'>Lire les interventions</a></p>")
 					$(ordiv).append(div)
 					$(".text-container").append(ordiv)
 					$(".orat-info").width($(".text-container").width()*0.73)
@@ -319,7 +319,7 @@ sven.viz.streamkey = function(){
 			.attr("y", function(d) { return x(d) + margin.left; })
 			.attr("x", function(d) { return y(mY) + margin.top; })
 			.attr("dx", 10)
-			.attr("dy", 0)
+			.attr("dy", 1)
 			.attr("font-family","sans-serif")
 			.attr("font-size","0.9em")
       		//.attr("text-anchor", "middle")

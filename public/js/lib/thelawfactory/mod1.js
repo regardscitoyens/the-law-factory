@@ -139,7 +139,7 @@ var stacked;
 							var div;
 
 							div = d3.select(document.createElement("div")).style("height", "120px").style("width", "100%")
-						    if (section !== "none")
+						    if (section.lastIndexOf("A", 0) !== 0)
                               div.append("p").text("Section : " + section);
 							div.append("p").text("Étape : " + status)
                             if (d['status'] != "sup") {
@@ -186,7 +186,7 @@ var stacked;
 
 						//Add headers
 						group.selectAll(".header")
-						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head && d.section!=="none")}))
+						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head)}))
 						.enter().append("rect")
 						.attr("x", function(d){return d.x})
 						.attr("y", function(d){return d.y-15})
@@ -200,7 +200,7 @@ var stacked;
 
 						//Add header labels
 						group.selectAll(".head-lbl")
-						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head && d.section!=="none")}))
+						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head)}))
 						.enter().append("text")
 						.attr("x", function(d){return d.x + 5})
 						.attr("y", function(d){return d.y - 4})
@@ -506,7 +506,7 @@ var stacked;
 					
 					var titre = d.article, section = d.section, status = d['id_step'].split('_').slice(1,4).join(', '), length = d['length'];
 					$(".art-meta").html(
-                        (section !== 'none' ? "<p><b>Section :</b> " + section + "</p>" : "") +
+                        (section.lastIndexOf("A", 0) !== 0 ? "<p><b>Section :</b> " + section + "</p>" : "") +
                         "<p><b>Étape :</b> " + status + "</p>" + 
                         (d['status'] == "sup" ? "<p><b>Supprimé à cette étape.</b></p>" : "") +
                         "<p><b>Alinéas :</b></p>"
