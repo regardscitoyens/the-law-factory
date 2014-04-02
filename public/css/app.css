@@ -210,7 +210,7 @@ body{
 .mod1 .viz-container{
 	height:800px;
 }
-.mod2 .viz-container{
+.mod2 .viz-container, .mod0 .viz-container{
     height: 100%;
 }
 .viz-container h4{
@@ -460,24 +460,24 @@ ul.ui-autocomplete {
 	width:100%;
 	height:auto;
 }
-.mod2 .text {
+.mod2 .text, .mod0 .text  {
 	width:18.33%;
     height: 100%;
 }
-.mod2 .scrolling {
+.mod2 .scrolling, .mod0 .scrolling  {
 	width: 73.33%;
 }
-.mod2 .labels-sc {
+.mod2 .labels-sc, .mod0 .labels-sc {
 	height:auto !important;
 }
-.mod2 .main-sc{
+.mod2 .main-sc, .mod0 .main-sc{
 	width: 100%;
 	/*height:85%;*/
 	overflow-y:auto;
 	overflow-x:hidden;
 }
 
-.mod2 #viz {
+.mod2 #viz,.mod0 #gantt {
 	width:88.5%;
 	float:right;
 }
@@ -493,13 +493,13 @@ ul.ui-autocomplete {
     text-align: right;
 }
 
-.mod2 #text-title{
+.mod2 #text-title,.mod0 #text-title{
 	width:100% !important;
 	margin:0 !important;
 	margin-bottom:1%;
 }
 
-.mod2 .viz-container h4{
+.mod2 .viz-container h4,.mod0 .viz-container h4{
 	text-align: center;
     padding: 20px 4px;
 	width: 6.8%;
@@ -513,7 +513,7 @@ ul.ui-autocomplete {
     font-size: 13px;
 }
 
-.mod2 .stages{
+.mod2 .stages,.mod0 #bars{
 	display: inline-block;
     width: 88.6%;
     text-align: left;
@@ -523,7 +523,17 @@ ul.ui-autocomplete {
     position:static;
 }
 
-.mod2 .labels-sc div{
+.mod0 #bars{
+	height:100%;
+	background-color:white;
+	padding-bottom:10px;
+}
+
+.mod0 .bar-step:first-child {
+	margin-left:1%;
+}
+
+.mod2 .labels-sc div,.mod0 .labels-sc div{
 	clear: none !important;
 	text-align:	center;
 } 
@@ -620,6 +630,27 @@ p.orat-count{
 p.orat-name{
 	    text-transform:capitalize;
 }
-rect{
-	cursor:pointer;
+
+.mod0 #gantt {
+	background:white;
+}
+
+
+.bar-step{
+	float:left;
+	margin-right:1%;
+	text-align:center;
+	margin-top:10px;
+}
+.bar-value {
+	background-color:rgba(216, 209, 201, 0.6);
+	position:relative;
+	margin:0 auto;
+	/*border:1px solid #ddd;*/
+}
+.bar-key {
+	position:relative;
+}
+.text-container:empty {
+	padding:0;
 }

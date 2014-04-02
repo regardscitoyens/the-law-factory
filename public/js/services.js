@@ -4,6 +4,9 @@
 
 
 angular.module('theLawFactory.services', [])
+	.config(['$httpProvider', function($httpProvider) {
+	        delete $httpProvider.defaults.headers.common["X-Requested-With"]
+	    }])
 	
 	.factory('apiService', function($http, $q) {
 	  

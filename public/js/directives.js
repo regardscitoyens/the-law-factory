@@ -215,7 +215,79 @@ function(apiService, $rootScope, $location, $compile) {
 			}, true)
 		}
 	};
-}]).directive('lawlist', ['apiService', '$rootScope', "$location",
+}])
+.directive('mod0', ['apiService', '$rootScope', '$location', '$compile',
+function(apiService, $rootScope, $location, $compile) {
+	return {
+		restrict : 'A',
+		replace : false,
+		templateUrl : 'templates/mod0.html',
+		controller : function($scope, $element, $attrs) {
+
+
+			$scope.loadStep = function(sect, ind) {
+				
+			}
+		},
+		link : function postLink(scope, element, attrs) {
+			
+			var mod0 = thelawfactory.mod0();
+			var mod0_bars = thelawfactory.mod0_bars();
+			
+			function update() {
+				$(".lawlist").css("display", "none")
+
+
+				apiService.getDataSample(scope.statsUrl).then(function(data) {
+					console.log(data)
+					d3.select(element[0]).datum(data).call(mod0_bars)
+					
+				}, function(error) {
+					console.log(error)
+				})
+
+				apiService.getDataSample(scope.dossierUrl).then(function(data) {
+					
+					d3.select(element[0]).datum(data).call(mod0)
+					
+				}, function(error) {
+					console.log(error)
+				})
+				
+				/*	scope.dataSample = data;
+					var len = 95 / scope.dataSample.length;
+					var mar = 5 / scope.dataSample.length;
+					var newElement = $compile( "<div class='stage-container' style='margin-right:"+mar+"%;float:left; width:"+len+"%' ng-repeat='el in dataSample'><ng-switch style='width:100%; height:100%;' on='el.ints'><div class='stage valid-step' ng-click='loadStep(el.step_name, $index)' ng-switch-when='true'>{{el.step_name.split('_').slice(2,4).join(' ')}}</div><div class='stage' ng-switch-default>{{el.step_name.split('_').slice(2,4).join(' ')}}</div></ng-switch></div>" )(scope);
+
+					element.find(".stages").append(newElement);
+				}, function(error) {
+					scope.error = error
+				})*/
+				/*if ($location.search()['s'] != null) {
+					//$rootScope.sect=$location.search()['s']
+					console.log(scope.dataSample)
+					 var elementPos = scope.dataSample.map(function(x) {return x.step_name; }).indexOf(scope.step_name);
+					 $(".stage:eq("+elementPos+")").addClass("step-curr")
+					apiService.getDataSample(scope.intUrl + scope.l).then(function(data) {
+						console.log(data)
+						scope.data = data;
+						init(data, $location.search()['s'])
+
+					}, function(error) {
+						scope.error = error
+					})
+				}*/
+
+			}
+
+
+			scope.$watch('amdUrl', function() {
+				update();
+			}, true)
+		}
+	};
+}])
+.directive('lawlist', ['apiService', '$rootScope', "$location",
 function(apiService, $rootScope, $location) {
 	return {
 		restrict : 'A',

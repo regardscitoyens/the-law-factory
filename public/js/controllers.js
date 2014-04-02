@@ -17,6 +17,8 @@ angular.module('theLawFactory.controllers', []).
     $scope.dataUrl = 'law-article/'
     $scope.amdUrl = 'law-amendments/'
     $scope.intUrl = 'law-interventions/'
+    $scope.dossierUrl='http://www.lafabriquedelaloi.fr/api/dossiers_0_49.json'
+    $scope.statsUrl='http://www.lafabriquedelaloi.fr/api/stats_dossiers.json'
     $scope.dataSample = {}
     
   })
