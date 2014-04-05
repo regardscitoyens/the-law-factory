@@ -11,7 +11,7 @@
 			currFile, 
 			dossiers = [], 
 			format = d3.time.format("%Y-%m-%d"), 
-			width = parseInt(d3.select("#gantt").style("width")), 
+			width = parseInt(d3.select("#gantt").style("width"))-15, 
 			tscale = d3.time.scale().range([0, width]), 
 			minstr = "2010-01-05", 
 			mindate = format.parse(minstr), 

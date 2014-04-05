@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1 title">
     <h4>LAWS</h4>
-    <div class="menu-btn"><img src="img/menu.png"/></div>
+    
   </div>
 </div>
 
@@ -15,33 +15,6 @@
 			</button>
 			
 
-<!-- <div class="btn-group dd-btn">
-  <button type="button" class="btn">Group by</button>
-  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-    <span class="caret"></span>
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  
-  <ul class="dropdown-menu" role="menu">
-    <li><a onclick="draw()">Articles</a></li>
-    <li><a onclick="drawMerged()">Ungrouped</a></li>
-  </ul>
-</div>
-
-
-	<div class="btn-group dd-btn">
-  <button type="button" class="btn">Order by</button>
-  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-    <span class="caret"></span>
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  
-  <ul class="dropdown-menu" role="menu">
-    <li><a onclick="sortByStat()">Status</a></li>
-     <li><a onclick="sortByParty()">Party</a></li>
-  </ul>
-</div> -->
-
  </div>
 </div>
 
@@ -49,7 +22,6 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1 separator">
   	
-  
   	
   </div>
 </div>
@@ -63,7 +35,24 @@
 	      </div>
 	    </div>
 	    <div class="main-sc">
-	      <div id="gantt"></div>
+	      <div id="commands">
+          <div class="btn-group dd-btn">
+            <button type="button" class="btn">Layout</button>
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            
+            <ul class="dropdown-menu" role="menu">
+              <li><a onclick="timePosition()">Time</a></li>
+              <li><a onclick="absolutePosition()">Absolute</a></li>
+            </ul>
+          </div>
+
+
+        </div>
+
+        <div id="gantt"></div>
 	     
 	      </div>
 	     

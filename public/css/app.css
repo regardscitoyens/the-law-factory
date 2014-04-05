@@ -533,6 +533,17 @@ ul.ui-autocomplete {
 	margin-left:1%;
 }
 
+.mod0 .main-sc {
+	overflow-y: hidden !important;
+	height:80%;
+}
+
+#gantt {
+	overflow-x:hidden;
+	overflow-y:scroll;
+	height:100%;
+}
+
 .mod2 .labels-sc div,.mod0 .labels-sc div{
 	clear: none !important;
 	text-align:	center;
@@ -653,4 +664,15 @@ p.orat-name{
 }
 .text-container:empty {
 	padding:0;
+}
+
+
+#commands{
+	float:left;
+	margin-left:1%;
+	width:10%;
+}
+.commands label{
+	width:100%;
+	font-size:0.9em;
 }
