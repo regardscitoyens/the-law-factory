@@ -3,11 +3,11 @@ extends layout
 block subheader
   ul.nav.nav-tabs.nav-justified.subheader
     li
+      a(ng-href='mod0') MODULE 0
+    li
       a(ng-href='mod1') MODULE 1
     li
       a(ng-href='mod2') MODULE 2
-    li
-      a(ng-href='mod3') MODULE 3
 
   div(ng-view)
 
@@ -20,9 +20,6 @@ block subheader
   script(src='js/lib/jquery/jquery-ui-1.10.4.custom.min.js')
   link(rel='stylesheet', href='css/jquery-ui-1.10.4.custom.min.css')
 
-  //script(src='data/articles.js', charset="utf-8")
-
-  //script(src='js/lib/thelawfactory/module1bis.js')
   script(src='js/lib/thelawfactory/mod0.js')
   script(src='js/lib/thelawfactory/mod1.js')
   script(src='js/lib/thelawfactory/mod2_new.js')

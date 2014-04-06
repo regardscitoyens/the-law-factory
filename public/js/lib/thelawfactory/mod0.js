@@ -12,14 +12,17 @@
 			dossiers = [], 
 			format = d3.time.format("%Y-%m-%d"), 
 			width = parseInt(d3.select("#gantt").style("width"))-15, 
-			tscale = d3.time.scale().range([0, width]), 
+			tscale = d3.time.scale().range([0, width]),
+			qscale = d3.time.scale().range([10, width]), 
 			minstr = "2010-01-05", 
 			mindate = format.parse(minstr), 
 			today = new Date(), 
 			lawh = 50, 
 			ticks = d3.time.months(mindate, today, 3);
 
+
 			tscale.domain([mindate, today]);
+			qscale.domain([0, today]);
 			ganttcontainer.attr("width", width).attr("height", 2900)
 
 			var grid = ganttcontainer.append("g").attr("class", "grid");
@@ -41,6 +44,22 @@
 						else
 							st = tscale(format.parse(d.steps[0].date))
 						d.xoffset = st;
+
+						d.steps.forEach(function(e,j){
+
+							if (j==0 && (e.date === "" || e < d.beginning)) e.date=d.beginning
+							if(e.date && e.date!="" && e.enddate < e.date) e.enddate=e.date
+							if(!e.date || e.date==="") e.date=e.enddate
+							e.qw=getQwidth(e);
+
+							if(j==0) e.qx=5;
+							else {
+								e.qx = d.steps[j-1].qx + d.steps[j-1].qw +3;
+							}
+
+						})
+
+
 					})
 					dossiers = dossiers.concat(data.dossiers)
 					
@@ -70,7 +89,7 @@
 					//add containing rows
 					grid.selectAll(".row").data(dossiers).enter().append("rect").attr("class", "row").attr("x", 0).attr("y", function(d, i) {
 						return 2 + i * (20 + lawh)
-					}).attr("opacity", 0.6).attr("width", width).attr("height", 20 + lawh - 4).style("fill", "#f3efed")
+					}).attr("opacity", 0.3).attr("width", width).attr("height", 20 + lawh - 4).style("fill", "#f3efed")
 
 					//add labels
 					grid.selectAll(".law-name").data(dossiers).enter().append("text").attr("x", 5).attr("y", function(d, i) {
@@ -88,7 +107,7 @@
 						return tscale(format.parse(d.beginning))
 					}).attr("y", 28).attr("width", function(d) {
 						return tscale(format.parse(d.end)) - tscale(format.parse(d.beginning))
-					}).attr("height", lawh - 16).attr("opacity", 0.6).style("fill", "#d8d1c9");
+					}).attr("class","law-bg").attr("height", lawh - 16).attr("opacity", 0.2).style("fill", "#d8d1c9");
 
 					//addsingle law steps
 					var steps = laws.append("g").attr("class", "steps").selectAll("step").data(function(d) {
@@ -112,11 +131,12 @@
 							else
 								return 2
 						}
-					}).attr("height", lawh - 16).style("fill", function(e) {
-						if (e.stage === "promulgation")
-							return "#d50053"
-						else
-							return "#aea198"
+					}).attr("height", lawh - 16)
+					.style("fill",function(d){
+						if(d.institution==="assemblee") return "#ced6dd"
+						else if(d.institution==="senat") return "#f99b90"
+						else if(d.stage === "promulgation") return "#d50053"
+						else return "#aea198"
 					}).on("click", function(e) {
 						console.log(e);
 					})
@@ -130,17 +150,90 @@
 					})
 				}
 
+				function getQwidth(e) {
+					//console.log(e)
+					if (e.stage === "promulgation")
+							return 10;
+						else {
+							var diff=format.parse(e.enddate) - format.parse(e.date)
+							var day= 1000* 60 * 60 * 24;
+							//console.log(e.enddate, e.date, diff/day)
+							var val = Math.floor(diff/day)
+							if (val>15) return val
+							else return 15
+						}
+				}
+
+
 				absolutePosition=function() {
 
 					d3.selectAll(".g-law").transition().duration(500).attr("transform", function(d, i) {
 						return "translate(" + (-d.xoffset+5) + "," + i * (20 + lawh) + ")"
 					})
+
+					d3.selectAll(".step").attr("x", function(e, i) {
+						var val = tscale(format.parse(e.date));
+
+						return val
+					}).attr("width", function(e) {
+						if (e.stage === "promulgation")
+							return 10;
+						else {
+							if (e.date === "")
+								e.date = e.enddate
+								//if e.date<
+							var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date))
+							if (val >= 4)
+								return val - 2;
+							else
+								return 2
+						}
+					})
+					d3.selectAll(".law-bg").style("opacity",0.2)
 				}
 
 				timePosition=function() {
 					d3.selectAll(".g-law").transition().duration(500).attr("transform", function(d, i) {
 						return "translate(0," + i * (20 + lawh) + ")"
 					})
+
+					d3.selectAll(".step").attr("x", function(e, i) {
+						var val = tscale(format.parse(e.date));
+
+						return val
+					}).attr("width", function(e) {
+						if (e.stage === "promulgation")
+							return 10;
+						else {
+							if (e.date === "")
+								e.date = e.enddate
+								//if e.date<
+							var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date))
+							if (val >= 4)
+								return val - 2;
+							else
+								return 2
+						}
+					})
+
+					d3.selectAll(".law-bg").style("opacity",0.2)
+				}
+
+				quantiPosition=function() {
+					d3.selectAll(".g-law").transition().duration(500).attr("transform", function(d, i) {
+						return "translate(0," + i * (20 + lawh) + ")"
+					})
+					d3.selectAll(".step")
+					.attr("x",function(d){return d.qx})
+					.attr("width",function(d){return d.qw})
+					.style("fill",function(d){
+						if(d.institution==="assemblee") return "#ced6dd"
+						else if(d.institution==="senat") return "#f99b90"
+						else if(d.stage === "promulgation") return "#d50053"
+						else return "#aea198"
+					})
+
+					d3.selectAll(".law-bg").transition().duration(500).style("opacity",0)
 				}
 
 			});
