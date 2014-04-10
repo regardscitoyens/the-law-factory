@@ -11,7 +11,7 @@
 			currFile, 
 			dossiers = [], 
 			format = d3.time.format("%Y-%m-%d"), 
-			width = parseInt(d3.select("#gantt").style("width"))-15, 
+			width = parseInt(d3.select("#gantt").style("width"))*15-15, 
 			tscale = d3.time.scale().range([0, width]),
 			qscale = d3.time.scale().range([10, width]), 
 			minstr = "2010-01-05", 
@@ -24,6 +24,50 @@
 			tscale.domain([mindate, today]);
 			qscale.domain([0, today]);
 			ganttcontainer.attr("width", width).attr("height", 2900)
+			
+			
+			var defs=ganttcontainer
+			  .append('defs')
+			  
+			  defs.append('pattern')
+			    .attr('id', 'diagonal1')
+			    .attr('patternUnits', 'userSpaceOnUse')
+			    .attr("x", 0).attr("y", 0)
+			    .attr('width', 10)
+			    .attr('height', 16)
+			  .append('path')
+			    .attr('d', 'M0,11L10,11')
+			    //.style("fill","#fff")
+			    .style('stroke', '#fff')
+			    .style('stroke-width', 2)
+			    .style("opacity",0.7)
+			    
+			   defs .append('pattern')
+			    .attr('id', 'diagonal2')
+			    .attr('patternUnits', 'userSpaceOnUse')
+			    .attr("x", 0).attr("y", 0)
+			    .attr('width', 10)
+			    .attr('height', 16)
+			  .append('path')
+			    .attr('d', 'M0,11L10,11M0,8L10,8')
+			    //.style("fill","#fff")
+			    .style('stroke', '#fff')
+			    .style('stroke-width', 2)
+			    .style("opacity",0.7)
+			    
+			     defs.append('pattern')
+			    .attr('id', 'diagonal3')
+			    .attr('patternUnits', 'userSpaceOnUse')
+			    .attr("x", 0).attr("y", 0)
+			    .attr('width', 10)
+			    .attr('height', 16)
+			  .append('path')
+			   .attr('d', 'M0,11L10,11M0,8L10,8M0,5L10,5')
+			    //.style("fill","#fff")
+			    .style('stroke', '#fff')
+			    .style('stroke-width', 2)
+			    .style("opacity",0.7)
+			
 
 			var grid = ganttcontainer.append("g").attr("class", "grid");
 				
@@ -101,7 +145,8 @@
 					//add single law group
 					var laws = ganttcontainer.selectAll(".g-law").data(dossiers).enter().append("g").attr("class", "g-law").attr("transform", function(d, i) {
 						return "translate(0," + i * (20 + lawh) + ")"
-					})
+					}).on("click",function(d){console.log(d)})
+					
 					//single law background rectangle
 					laws.append("rect").attr("x", function(d) {
 						return tscale(format.parse(d.beginning))
@@ -116,7 +161,6 @@
 
 					steps.append("rect").attr("class", "step").attr("x", function(e, i) {
 						var val = tscale(format.parse(e.date));
-
 						return val
 					}).attr("y", 28).attr("width", function(e) {
 						if (e.stage === "promulgation")
@@ -126,10 +170,10 @@
 								e.date = e.enddate
 								//if e.date<
 							var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date))
-							if (val >= 4)
+							if (val >= 12)
 								return val - 2;
 							else
-								return 2
+								return 10
 						}
 					}).attr("height", lawh - 16)
 					.style("fill",function(d){
@@ -140,6 +184,44 @@
 					}).on("click", function(e) {
 						console.log(e);
 					})
+					
+					//fill pattern
+					steps.append("rect")
+					.attr("class", "step-ptn")
+					.attr("x", function(e, i) {
+						var val = tscale(format.parse(e.date));
+						return val
+					})
+					.attr("y", 48)
+					.attr("width", function(e) {
+						if (e.stage === "promulgation") return 10;
+						else {
+							if (e.date === "") e.date = e.enddate
+							var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date))
+							if (val >= 12) return val - 2;
+							else return 10
+						}
+					})
+					.attr("height", lawh - 36)
+					
+					steps
+					//.filter(function(e){return e.institution!=="gouvernement"})
+					.append("text")
+					.attr("class","step-lbl")
+					.attr("x", function(e, i) {
+						var val = tscale(format.parse(e.date))+1;
+						return val
+					})
+					.attr("y", 38)
+					.text(function(d){return d.institution.substr(0,1).toUpperCase()})
+					.style("fill","white")
+					.style("font-size",10)
+					.style("font-family","open-sans, sans-serif")
+					
+					//.style("font-weight","bold")
+					
+					
+					
 					//update svg height
 					ganttcontainer.attr("height", dossiers.length * (20 + lawh))
 
@@ -183,12 +265,19 @@
 								e.date = e.enddate
 								//if e.date<
 							var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date))
-							if (val >= 4)
+							if (val >= 12)
 								return val - 2;
 							else
-								return 2
+								return 10
 						}
 					})
+					
+					d3.selectAll(".step-lbl")
+					.attr("x", function(e, i) {
+						var val = tscale(format.parse(e.date))+1;
+						return val
+					})
+					
 					d3.selectAll(".law-bg").style("opacity",0.2)
 				}
 
@@ -209,13 +298,20 @@
 								e.date = e.enddate
 								//if e.date<
 							var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date))
-							if (val >= 4)
+							if (val >= 12)
 								return val - 2;
 							else
-								return 2
+								return 10
 						}
 					})
-
+					
+					d3.selectAll(".step-lbl")
+					.attr("x", function(e, i) {
+						var val = tscale(format.parse(e.date))+1;
+						return val
+					})
+					
+					
 					d3.selectAll(".law-bg").style("opacity",0.2)
 				}
 
@@ -225,14 +321,18 @@
 					})
 					d3.selectAll(".step")
 					.attr("x",function(d){return d.qx})
-					.attr("width",function(d){return d.qw})
+					.attr("width",function(d){if(d.stage==="promulgation") return 15; else return d.qw})
 					.style("fill",function(d){
 						if(d.institution==="assemblee") return "#ced6dd"
 						else if(d.institution==="senat") return "#f99b90"
 						else if(d.stage === "promulgation") return "#d50053"
 						else return "#aea198"
 					})
-
+					
+					d3.selectAll(".step-lbl")
+					.attr("x",function(d){return d.qx+4})
+					
+					
 					d3.selectAll(".law-bg").transition().duration(500).style("opacity",0)
 				}
 
@@ -278,7 +378,7 @@
 			
 					step.append("div")
 					.attr("class","bar-key")
-					.text(e.key)
+					.text(e.key/30 + " months")
 					.attr("style","top:"+(bscale(m-e.value)+5)+"px; font-size:"+d3.min([(w*4/10),12])+"px");
 				})
 				

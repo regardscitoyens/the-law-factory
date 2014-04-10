@@ -539,7 +539,7 @@ ul.ui-autocomplete {
 }
 
 #gantt {
-	overflow-x:hidden;
+	overflow-x:auto;
 	overflow-y:scroll;
 	height:100%;
 }
@@ -675,4 +675,8 @@ p.orat-name{
 .commands label{
 	width:100%;
 	font-size:0.9em;
+}
+
+.step-ptn{
+	fill: url(http://localhost:3000/mod0#diagonal)
 }

@@ -350,3 +350,41 @@ function(apiService, $rootScope, $location) {
 	};
 }])
 
+.directive('movescroll', [ '$rootScope',function($rootScope) {
+	return {
+		restrict : 'A',
+		controller : function($scope, $element, $attrs) {
+			$scope.pos=[-1,-1];
+			$scope.xmouselerp=d3.scale.linear().range([-100,0,0,100]).clamp(true);
+			$scope.ymouselerp=d3.scale.linear().range([-100,0,0,100]).clamp(true);
+		},
+		link : function postLink(scope, element, attrs,movescrollCtrl) {
+		
+		
+			scope.xmouselerp.domain([0,element.width()*0.2,element.width()*0.8, element.width()])
+			scope.ymouselerp.domain([0,element.height()*0.2,element.height()*0.8, element.height()])
+			
+			element.on("mousemove","svg",function(event){
+
+				scope.pos[0]=event.pageX-element.offset().left;
+				scope.pos[1]=event.pageY-element.offset().top;
+				scope.$digest()
+			})
+			element.on("mouseleave","svg",function(event){
+				
+				scope.pos[0]=-1;
+				scope.pos[1]=-1;
+				scope.$digest()
+			})
+		
+			setInterval(function() {
+			      if( scope.pos[0]!=-1 && scope.pos[1]!=-1) {
+			      
+				element.scrollLeft(element.scrollLeft()+scope.xmouselerp(scope.pos[0])).scrollTop(element.scrollTop()+scope.ymouselerp(scope.pos[1]))
+			}
+			}, 50);
+		
+		}
+	};
+}])
+
