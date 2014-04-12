@@ -568,7 +568,6 @@ ul.ui-autocomplete {
 	height:100%;
 }
 .step-curr {
-	/*background-color:rgb(218, 209, 203);*/
 	background:#fff;
 	color:rgb(113, 98, 89);
 }
@@ -680,3 +679,4 @@ p.orat-name{
 .step-ptn{
 	fill: url(http://localhost:3000/mod0#diagonal)
 }
+
