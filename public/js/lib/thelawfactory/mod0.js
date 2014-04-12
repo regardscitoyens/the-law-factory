@@ -8,7 +8,8 @@
 			
 			//Initialization
 			var ganttcontainer = d3.select("#gantt").append("svg"), 
-			currFile, 
+			currFile,
+			gridrects, 
 			dossiers = [], 
 			format = d3.time.format("%Y-%m-%d"), 
 			width = parseInt(d3.select("#gantt").style("width"))*15-15, 
@@ -36,7 +37,7 @@
 			    .attr("x", 0).attr("y", 0)
 			    .attr('width', 10)
 			    .attr('height', 16)
-			  .append('path')
+			  	.append('path')
 			    .attr('d', 'M0,11L10,11')
 			    //.style("fill","#fff")
 			    .style('stroke', '#fff')
@@ -49,7 +50,7 @@
 			    .attr("x", 0).attr("y", 0)
 			    .attr('width', 10)
 			    .attr('height', 16)
-			  .append('path')
+			  	.append('path')
 			    .attr('d', 'M0,11L10,11M0,8L10,8')
 			    //.style("fill","#fff")
 			    .style('stroke', '#fff')
@@ -132,10 +133,10 @@
 				function addLaws() {
 
 					//add containing rows
-					grid.selectAll(".row")
+					gridrects = grid.selectAll(".row")
 					.data(dossiers).enter()
 					.append("rect")
-					.attr("class", "row")
+					.attr("class", function(d){return "row "+d.id})
 					.attr("x", 0)
 					.attr("y", function(d, i) {
 						return 2 + i * (20 + lawh)
@@ -168,7 +169,8 @@
 					.attr("class", "g-law")
 					.attr("transform", function(d, i) {
 						return "translate(0," + i * (20 + lawh) + ")"
-					}).on("click",function(d){console.log(d)})
+					})
+					.on("click",onclick);
 					
 
 					//single law background rectangle
@@ -195,6 +197,31 @@
 					.enter()
 					.append("g")
 					.attr("class","g-step")
+					.popover(function(d,i) {
+
+						
+						var div;
+						var start=d.date, end=d.enddate, inst=d.institution, stage=d.stage, step=d.step, amds=d.nb_amendements, source=d.source_url
+						div = d3.select(document.createElement("div")).style("width", "100%")
+					    
+						div.append("p").text("Start : " + start)
+						div.append("p").text("End : " + end)
+						div.append("p").text("Institution : " + inst)
+                        div.append("p").text("Stage : " + stage)
+                        if(d.stage!=="promulgation") {
+	                        div.append("p").text("Step : " + step)
+	                        div.append("p").text("Amendements : " + amds)
+	                        //div.append("<a href='"+source+"'>Detail</a>")
+                        }
+						return {
+							title : "Step " + i,
+							content : div,
+							placement : "mouse",
+							gravity : "right",
+							displacement : [10, -125],
+							mousemove : true
+						};
+					});
 
 					steps.append("rect")
 					.attr("class", "step")
@@ -390,6 +417,33 @@
 					d3.selectAll(".law-bg").transition().duration(500).style("opacity",0)
 				}
 
+
+				function onclick(d) {
+
+					d3.selectAll(".curr")
+					.classed("curr",false)
+					.style("fill","#f3efed")
+					.style("opacity",0.3)
+
+					d3.select("."+d.id)
+					.classed("curr",true)
+					.style("fill","#fff")
+					.style("opacity",1)
+
+					//d3.select(this).classed("curr", true);
+					//var titre = d.article, section = d.section, status = d['id_step'].split('_').slice(1,4).join(', '), length = d['length'];
+					$("#text-title").text(d.short_title);
+					$(".text-container").empty();
+					$(".text-container").append("<p><b>Title :</b> " + d.long_title + "</p>")
+					$(".text-container").append("<p><b>Start :</b> " + d.beginning + "</p>")
+					$(".text-container").append("<p><b>End :</b> " + d.end + "</p>")
+					$(".text-container").append("<p><b>Themes :</b> " + d.themes.join(", ") + "</p>")
+					$(".text-container").append("<p><b>Procedure :</b> " + d.procedure + "</p>")
+					$(".text-container").append("<p><b>Amendements :</b> " + d.total_amendements + "</p>")
+					$(".text-container").append("<p><b>Interventions word count :</b> " + d.total_mots + "</p>")
+					$(".text-container").append("<p><b>Dossiers: </b><a href='"+d.url_dossier_assemblee+"'>Assemblee</a>, <a href='"+d.url_dossier_senat+"'>Senat</a></p>")
+					$(".text-container").append('<div class="gotomod1"><a class="btn"  href="mod1?l='+d.id+'">View articles</a></div>')
+				}
 			});
 		};
 
@@ -454,8 +508,6 @@
 			})
 			
 		}
-		return vis;
-		
+		return vis;	
 	};
-	
 })()

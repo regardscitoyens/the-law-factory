@@ -677,6 +677,16 @@ p.orat-name{
 	font-size:0.9em;
 }
 
-.step-ptn{
-	fill: url(http://localhost:3000/mod0#diagonal)
+.g-law{
+	cursor:pointer;
+}
+.gotomod1{
+	width:100%;
+	text-align: center;
+	margin-top:30px;
+}
+
+.gotomod1 a {
+	display:inline;
+	float:none;
 }

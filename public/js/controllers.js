@@ -10,6 +10,13 @@ angular.module('theLawFactory.controllers', []).
 	  $location.path( path ).search("l="+$rootScope.l);
 	  //+"l="+$rootScope.l
 	};
+
+    $scope.select = function ( id ) {
+        console.log("aaarrhh")
+      $rootScope.l = id
+      $location.path( "mod1" ).search("l="+$rootScope.l);
+      //+"l="+$rootScope.l
+    };
 	
     $scope.error = {}
     $scope.lawlistUrl = 'laws/list'
