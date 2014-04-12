@@ -17,7 +17,8 @@
 			minstr = "2010-01-05", 
 			mindate = format.parse(minstr), 
 			today = new Date(), 
-			lawh = 50, 
+			lawh = 50,
+			steph= lawh - 16 
 			ticks = d3.time.months(mindate, today, 3);
 
 
@@ -131,38 +132,78 @@
 				function addLaws() {
 
 					//add containing rows
-					grid.selectAll(".row").data(dossiers).enter().append("rect").attr("class", "row").attr("x", 0).attr("y", function(d, i) {
+					grid.selectAll(".row")
+					.data(dossiers).enter()
+					.append("rect")
+					.attr("class", "row")
+					.attr("x", 0)
+					.attr("y", function(d, i) {
 						return 2 + i * (20 + lawh)
-					}).attr("opacity", 0.3).attr("width", width).attr("height", 20 + lawh - 4).style("fill", "#f3efed")
+					})
+					.attr("opacity", 0.3)
+					.attr("width", width)
+					.attr("height", 20 + lawh - 4)
+					.style("fill", "#f3efed")
 
 					//add labels
-					grid.selectAll(".law-name").data(dossiers).enter().append("text").attr("x", 5).attr("y", function(d, i) {
+					grid.selectAll(".law-name")
+					.data(dossiers).enter()
+					.append("text")
+					.attr("x", 5)
+					.attr("y", function(d, i) {
 						return i * (20 + lawh) + 16
-					}).attr("class", "law-name").text(function(e) {
+					})
+					.attr("class", "law-name").text(function(e) {
 						return e.short_title
-					}).attr("font-family", "Helvetica neue").attr("font-size", "12px").style("fill", "#a79b94")
+					})
+					.attr("font-family", "Helvetica neue")
+					.attr("font-size", "12px")
+					.style("fill", "#a79b94")
 
 					//add single law group
-					var laws = ganttcontainer.selectAll(".g-law").data(dossiers).enter().append("g").attr("class", "g-law").attr("transform", function(d, i) {
+					var laws = ganttcontainer
+					.selectAll(".g-law")
+					.data(dossiers).enter()
+					.append("g")
+					.attr("class", "g-law")
+					.attr("transform", function(d, i) {
 						return "translate(0," + i * (20 + lawh) + ")"
 					}).on("click",function(d){console.log(d)})
 					
+
 					//single law background rectangle
-					laws.append("rect").attr("x", function(d) {
+					laws.append("rect")
+					.attr("x", function(d) {
 						return tscale(format.parse(d.beginning))
-					}).attr("y", 28).attr("width", function(d) {
+					})
+					.attr("y", 28)
+					.attr("width", function(d) {
 						return tscale(format.parse(d.end)) - tscale(format.parse(d.beginning))
-					}).attr("class","law-bg").attr("height", lawh - 16).attr("opacity", 0.2).style("fill", "#d8d1c9");
+					})
+					.attr("class","law-bg")
+					.attr("height", steph)
+					.attr("opacity", 0.3).style("fill", "#d8d1c9");
+
+					
 
 					//addsingle law steps
-					var steps = laws.append("g").attr("class", "steps").selectAll("step").data(function(d) {
+					var steps = laws.append("g")
+					.attr("class", "steps")
+					.selectAll("step").data(function(d) {
 						return d.steps
-					}).enter()
+					})
+					.enter()
+					.append("g")
+					.attr("class","g-step")
 
-					steps.append("rect").attr("class", "step").attr("x", function(e, i) {
+					steps.append("rect")
+					.attr("class", "step")
+					.attr("x", function(e, i) {
 						var val = tscale(format.parse(e.date));
 						return val
-					}).attr("y", 28).attr("width", function(e) {
+					})
+					.attr("y", 28)
+					.attr("width", function(e) {
 						if (e.stage === "promulgation")
 							return 10;
 						else {
@@ -175,18 +216,23 @@
 							else
 								return 10
 						}
-					}).attr("height", lawh - 16)
+					})
+					.attr("height", steph)
 					.style("fill",function(d){
 						if(d.institution==="assemblee") return "#ced6dd"
 						else if(d.institution==="senat") return "#f99b90"
 						else if(d.stage === "promulgation") return "#d50053"
 						else return "#aea198"
-					}).on("click", function(e) {
+					})
+					.on("click", function(e) {
 						console.log(e);
 					})
 					
+					
+
 					//fill pattern
 					steps.append("rect")
+					.filter(function(e){return e.stage!=="promulgation" && e.nb_amendements >0})
 					.attr("class", "step-ptn")
 					.attr("x", function(e, i) {
 						var val = tscale(format.parse(e.date));
@@ -202,10 +248,18 @@
 							else return 10
 						}
 					})
-					.attr("height", lawh - 36)
+					.attr("height", steph-20)
+					.style("fill",function(d){
+						if(d.nb_amendements>=200) return"url(/mod0#diagonal3)"
+						else if (d.nb_amendements>=50) return"url(/mod0#diagonal2)"
+						else if (d.nb_amendements>=0) return"url(/mod0#diagonal1)"
+					})
 					
+
+					
+
+					//Step label
 					steps
-					//.filter(function(e){return e.institution!=="gouvernement"})
 					.append("text")
 					.attr("class","step-lbl")
 					.attr("x", function(e, i) {
@@ -217,9 +271,6 @@
 					.style("fill","white")
 					.style("font-size",10)
 					.style("font-family","open-sans, sans-serif")
-					
-					//.style("font-weight","bold")
-					
 					
 					
 					//update svg height
@@ -332,7 +383,10 @@
 					d3.selectAll(".step-lbl")
 					.attr("x",function(d){return d.qx+4})
 					
-					
+					d3.selectAll(".step-ptn")
+					.attr("x",function(d){return d.qx})
+					.attr("width",function(d){if(d.stage==="promulgation") return 15; else return d.qw})
+
 					d3.selectAll(".law-bg").transition().duration(500).style("opacity",0)
 				}
 
