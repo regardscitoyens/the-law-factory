@@ -677,7 +677,7 @@ p.orat-name{
 	font-size:0.9em;
 }
 
-.g-law{
+.g-law, .law-name{
 	cursor:pointer;
 }
 .gotomod1{

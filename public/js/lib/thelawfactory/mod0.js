@@ -9,9 +9,11 @@
 			//Initialization
 			var ganttcontainer = d3.select("#gantt").append("svg"), 
 			currFile,
+			layout="t",
 			gridrects, 
 			dossiers = [], 
-			format = d3.time.format("%Y-%m-%d"), 
+			format = d3.time.format("%Y-%m-%d"),
+			tickform = d3.time.format("%b %Y"); 
 			width = parseInt(d3.select("#gantt").style("width"))*15-15, 
 			tscale = d3.time.scale().range([0, width]),
 			qscale = d3.time.scale().range([10, width]), 
@@ -20,7 +22,7 @@
 			today = new Date(), 
 			lawh = 50,
 			steph= lawh - 16 
-			ticks = d3.time.months(mindate, today, 3);
+			ticks = d3.time.months(mindate, today, 1);
 
 
 			tscale.domain([mindate, today]);
@@ -80,7 +82,16 @@
 				//Start drawing
 				prepareData();
 				dynamicLoad();
+				
 
+
+			//Define scroll beahviour
+				d3.select("#gantt").on("scroll",function(e){
+					var v=0;
+					if(layout==="q") v=-30
+					d3.select(".timeline").attr("transform","translate(0,"+$(this).scrollTop()+")");
+					d3.selectAll(".law-name").attr("transform","translate("+$(this).scrollLeft()+","+v+")");
+				})
 
 				function prepareData() {
 					data.dossiers.forEach(function(d, i) {
@@ -125,9 +136,33 @@
 							currFile = json.next_page;
 							dynamicLoad();
 						} else {
-							console.log(dossiers)
+							drawAxis();
 						}
 					})
+				}
+
+
+				function drawAxis() {
+					var tl = ganttcontainer.append("g")
+					.attr("class","timeline")
+
+					tl.append("rect")
+					.attr("x",0)
+					.attr("y",0)
+					.attr("width",width)
+					.attr("height",30)
+					.style("fill","white")
+					.style("stroke","none")
+
+					var tk = tl.selectAll(".tick-lbl")
+					.data(ticks).enter();
+
+					tk.append("text")
+					.attr("class","tick-lbl")
+					.attr("y",20)
+					.attr("x",function(d){return tscale(d)})
+					.text(function(d){return tickform(d)})
+					.attr("text-anchor","middle")
 				}
 
 				function addLaws() {
@@ -139,7 +174,7 @@
 					.attr("class", function(d){return "row "+d.id})
 					.attr("x", 0)
 					.attr("y", function(d, i) {
-						return 2 + i * (20 + lawh)
+						return 32 + i * (20 + lawh)
 					})
 					.attr("opacity", 0.3)
 					.attr("width", width)
@@ -150,25 +185,35 @@
 					grid.selectAll(".law-name")
 					.data(dossiers).enter()
 					.append("text")
-					.attr("x", 5)
+					.attr("x", parseInt(d3.select("#gantt").style("width"))*0.5)
 					.attr("y", function(d, i) {
-						return i * (20 + lawh) + 16
+						return i * (20 + lawh) + 46
 					})
 					.attr("class", "law-name").text(function(e) {
 						return e.short_title
 					})
-					.attr("font-family", "Helvetica neue")
-					.attr("font-size", "12px")
-					.style("fill", "#a79b94")
+					.attr("font-family", "'Helvetica neue',sans-serif")
+					.style("fill","#333")
+					.attr("font-size","0.85em")
+					.attr("text-anchor","middle")
+					.on("click",function(d){
+						if(layout==="t") {
+						var posx=tscale(format.parse(d.beginning))-15
+						//console.log(posx,d.id,".g-law."+d.id)
+						$("#gantt").animate({ scrollLeft: posx+"px" });
+					}
+					else $("#gantt").animate({ scrollLeft: 0+"px" });
+						onclick(d);
+					})
 
 					//add single law group
 					var laws = ganttcontainer
 					.selectAll(".g-law")
 					.data(dossiers).enter()
 					.append("g")
-					.attr("class", "g-law")
+					.attr("class", function(d) {return "g-law "+d.id})
 					.attr("transform", function(d, i) {
-						return "translate(0," + i * (20 + lawh) + ")"
+						return "translate(0," +(30 + i * (20 + lawh)) + ")"
 					})
 					.on("click",onclick);
 					
@@ -326,10 +371,14 @@
 
 
 				absolutePosition=function() {
+					layout="a";
 
 					d3.selectAll(".g-law").transition().duration(500).attr("transform", function(d, i) {
-						return "translate(" + (-d.xoffset+5) + "," + i * (20 + lawh) + ")"
+						return "translate(" + (-d.xoffset+5) + "," + (30 + i * (20 + lawh)) + ")"
 					})
+					d3.selectAll(".row").transition().duration(500).attr("transform", "translate(0,0)")
+					d3.selectAll(".law-name").transition().duration(500).attr("transform", "translate(0,0)")
+					
 
 					d3.selectAll(".step").attr("x", function(e, i) {
 						var val = tscale(format.parse(e.date));
@@ -355,14 +404,43 @@
 						var val = tscale(format.parse(e.date))+1;
 						return val
 					})
+
+					d3.selectAll(".step-ptn")
+					.transition().duration(500)
+					.attr("x", function(e, i) {
+						var val = tscale(format.parse(e.date));
+						return val
+					})
+					.attr("width", function(e) {
+						if (e.stage === "promulgation") return 10;
+						else {
+							if (e.date === "") e.date = e.enddate
+							var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date))
+							if (val >= 12) return val - 2;
+							else return 10
+						}
+					})
 					
 					d3.selectAll(".law-bg").style("opacity",0.2)
+
+					d3.selectAll(".tick-lbl").text(function(d,j){
+						console.log(d,j)
+						if(j==0) return (j+1)+" month";
+						else return (j+1)+" months"
+					})
+					d3.select(".timeline").transition().duration(500).style("opacity",1)
+					$("#gantt").animate({ scrollLeft: "0px" });
+
 				}
 
 				timePosition=function() {
+					layout="t";
 					d3.selectAll(".g-law").transition().duration(500).attr("transform", function(d, i) {
-						return "translate(0," + i * (20 + lawh) + ")"
+						return "translate(0," + (30 + i * (20 + lawh)) + ")"
 					})
+					d3.selectAll(".row").transition().duration(500).attr("transform", "translate(0,0)")
+					d3.selectAll(".law-name").transition().duration(500).attr("transform", "translate(0,0)")
+
 
 					d3.selectAll(".step").attr("x", function(e, i) {
 						var val = tscale(format.parse(e.date));
@@ -388,15 +466,43 @@
 						var val = tscale(format.parse(e.date))+1;
 						return val
 					})
-					
-					
+
+					d3.selectAll(".step-ptn")
+					.transition().duration(500)
+					.attr("x", function(e, i) {
+						var val = tscale(format.parse(e.date));
+						return val
+					})
+					.attr("width", function(e) {
+						if (e.stage === "promulgation") return 10;
+						else {
+							if (e.date === "") e.date = e.enddate
+							var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date))
+							if (val >= 12) return val - 2;
+							else return 10
+						}
+					})
+
+
+					d3.selectAll(".tick-lbl").text(function(d,j){
+						return tickform(d);
+					})					
+
+
+					d3.select(".timeline").transition().duration(500).style("opacity",1)
+
 					d3.selectAll(".law-bg").style("opacity",0.2)
+					$("#gantt").animate({ scrollLeft: "0px" });
 				}
 
 				quantiPosition=function() {
+					layout="q";
 					d3.selectAll(".g-law").transition().duration(500).attr("transform", function(d, i) {
-						return "translate(0," + i * (20 + lawh) + ")"
+						return "translate(0," + ( i * (20 + lawh)) + ")"
 					})
+					d3.selectAll(".row").transition().duration(500).attr("transform", "translate(0,-30)")
+					d3.selectAll(".law-name").transition().duration(500).attr("transform", "translate(0,-30)")
+
 					d3.selectAll(".step")
 					.attr("x",function(d){return d.qx})
 					.attr("width",function(d){if(d.stage==="promulgation") return 15; else return d.qw})
@@ -415,6 +521,8 @@
 					.attr("width",function(d){if(d.stage==="promulgation") return 15; else return d.qw})
 
 					d3.selectAll(".law-bg").transition().duration(500).style("opacity",0)
+					d3.select(".timeline").transition().duration(500).style("opacity",0)
+					$("#gantt").animate({ scrollLeft: "0px" });
 				}
 
 
