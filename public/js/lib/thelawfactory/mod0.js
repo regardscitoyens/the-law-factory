@@ -90,7 +90,7 @@
 					var v=0;
 					if(layout==="q") v=-30
 					d3.select(".timeline").attr("transform","translate(0,"+$(this).scrollTop()+")");
-					d3.selectAll(".law-name").attr("transform","translate("+$(this).scrollLeft()+","+v+")");
+					d3.selectAll(".law-name").attr("transform","translate("+$(this).scrollLeft()+","+v+")")
 				})
 
 				function prepareData() {
@@ -570,9 +570,25 @@
 			
 			selection.each(function(json) {
 				
-				json=groupStats(3,json);
+				//json=groupStats(3,json);
 			
-			
+				console.log(json)
+
+				var threshold=720;
+				var count=0;
+
+				for(k in json) {
+					if(parseInt(k)>=threshold) {
+						count+=json[k]
+						delete json[k]
+					}
+				}
+
+				threshold=threshold.toString()
+
+				json[threshold]=count;
+
+				var keys=d3.keys(json)
 				var vals=d3.values(json)
 				var l=vals.length; 
 				var m=d3.max(vals)
@@ -594,7 +610,11 @@
 			
 					step.append("div")
 					.attr("class","bar-key")
-					.text(e.key/30 + " months")
+					.text( function() {
+						if(e.key/30==1) return e.key/30 + " month";
+						else if(e.key===threshold) return e.key/30 + "+ months";
+						else return e.key/30 + " months";
+						})
 					.attr("style","top:"+(bscale(m-e.value)+5)+"px; font-size:"+d3.min([(w*4/10),12])+"px");
 				})
 				

@@ -539,8 +539,8 @@ ul.ui-autocomplete {
 }
 
 #gantt {
-	overflow-x:auto;
-	overflow-y:scroll;
+	overflow-x:hidden;
+	overflow-y:hidden;
 	height:100%;
 }
 
