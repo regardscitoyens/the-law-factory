@@ -379,7 +379,7 @@ function(apiService, $rootScope, $location) {
 
             element.mousemove(function(e){
                 if(clicking == false) return;
-
+                e.stopPropagation();
                 var x = (e.pageX-inpos[0])*2;
                 var y = (e.pageY-inpos[1])*2;
                 element.scrollTop(element.scrollTop()-y);
