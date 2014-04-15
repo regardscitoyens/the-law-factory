@@ -322,9 +322,9 @@
 					})
 					.attr("height", steph-20)
 					.style("fill",function(d){
-						if(d.nb_amendements>=200) return"url(/mod0#diagonal3)"
-						else if (d.nb_amendements>=50) return"url(/mod0#diagonal2)"
-						else if (d.nb_amendements>=0) return"url(/mod0#diagonal1)"
+						if(d.nb_amendements>=200) return"url(mod0#diagonal3)"
+						else if (d.nb_amendements>=50) return"url(mod0#diagonal2)"
+						else if (d.nb_amendements>=0) return"url(mod0#diagonal1)"
 					})
 					
 

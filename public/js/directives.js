@@ -230,7 +230,8 @@ function(apiService, $rootScope, $location, $compile) {
 			}
 		},
 		link : function postLink(scope, element, attrs) {
-			
+
+
 			var mod0 = thelawfactory.mod0();
 			var mod0_bars = thelawfactory.mod0_bars();
 			
@@ -253,30 +254,7 @@ function(apiService, $rootScope, $location, $compile) {
 				}, function(error) {
 					console.log(error)
 				})
-				
-				/*	scope.dataSample = data;
-					var len = 95 / scope.dataSample.length;
-					var mar = 5 / scope.dataSample.length;
-					var newElement = $compile( "<div class='stage-container' style='margin-right:"+mar+"%;float:left; width:"+len+"%' ng-repeat='el in dataSample'><ng-switch style='width:100%; height:100%;' on='el.ints'><div class='stage valid-step' ng-click='loadStep(el.step_name, $index)' ng-switch-when='true'>{{el.step_name.split('_').slice(2,4).join(' ')}}</div><div class='stage' ng-switch-default>{{el.step_name.split('_').slice(2,4).join(' ')}}</div></ng-switch></div>" )(scope);
 
-					element.find(".stages").append(newElement);
-				}, function(error) {
-					scope.error = error
-				})*/
-				/*if ($location.search()['s'] != null) {
-					//$rootScope.sect=$location.search()['s']
-					console.log(scope.dataSample)
-					 var elementPos = scope.dataSample.map(function(x) {return x.step_name; }).indexOf(scope.step_name);
-					 $(".stage:eq("+elementPos+")").addClass("step-curr")
-					apiService.getDataSample(scope.intUrl + scope.l).then(function(data) {
-						console.log(data)
-						scope.data = data;
-						init(data, $location.search()['s'])
-
-					}, function(error) {
-						scope.error = error
-					})
-				}*/
 
 			}
 
@@ -364,10 +342,10 @@ function(apiService, $rootScope, $location) {
 			scope.xmouselerp.domain([0,element.width()*0.2,element.width()*0.8, element.width()])
 			scope.ymouselerp.domain([0,element.height()*0.2,element.height()*0.8, element.height()])
 			
-			element.on("mousemove","svg",function(event){
-
-				scope.pos[0]=event.pageX-element.offset().left;
-				scope.pos[1]=event.pageY-element.offset().top;
+			/*element.bind("drag","svg",function(event){
+                console.log("dragging")
+				scope.pos[0]=event.offsetX-element.offset().left;
+				scope.pos[1]=event.offsetY-element.offset().top;
 				scope.$digest()
 			})
 			element.on("mouseleave","svg",function(event){
@@ -382,7 +360,37 @@ function(apiService, $rootScope, $location) {
 			      
 				element.scrollLeft(element.scrollLeft()+scope.xmouselerp(scope.pos[0])).scrollTop(element.scrollTop()+scope.ymouselerp(scope.pos[1]))
 			}
-			}, 50);
+			}, 50);*/
+
+
+            var clicking = false;
+            var inpos=[-1,-1];
+
+            element.mousedown(function(e){
+                clicking = true;
+                inpos[0]= e.pageX;
+                inpos[1]= e.pageY;
+            });
+
+            $(document).mouseup(function(){
+                clicking = false;
+                inpos=[-1,-1];
+            });
+
+            element.mousemove(function(e){
+                if(clicking == false) return;
+
+                var x = (e.pageX-inpos[0])*2;
+                var y = (e.pageY-inpos[1])*2;
+                element.scrollTop(element.scrollTop()-y);
+                element.scrollLeft(element.scrollLeft()-x);
+                inpos[0]=e.pageX;
+                inpos[1]=e.pageY;
+
+
+
+            });
+
 		
 		}
 	};
