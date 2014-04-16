@@ -85,10 +85,21 @@
                         .append("text")
                         .attr("class", "step-lbl")
                         .attr("x", function (e, i) {
-                            var val = lblscale(format.parse(e.date)) + 1;
-                            return val
+                            var val;
+
+                            if(e.overlap) {
+                                var mydate=format.parse(e.date);
+                                var dd = mydate.getDate()+ e.overlap;
+                                var mm = mydate.getMonth()+1;
+                                var y = mydate.getFullYear();
+
+                                val = lblscale(format.parse(y+"-"+mm+"-"+dd));
+                            }
+                            else val= lblscale(format.parse(e.date));
+                            return val;
                         })
                         .attr("y", 38)
+                        .attr("dx",2)
                         .text(function (d) {
                             return d.institution.substr(0, 1).toUpperCase()
                         })
@@ -174,9 +185,24 @@
 
                         d.steps.forEach(function (e, j) {
 
-                            if (j == 0 && (e.date === "" || e < d.beginning)) e.date = d.beginning
+                            //if (j == 0 && (e.date === "" || e.date < d.beginning)) e.date = d.beginning
                             if (e.date && e.date != "" && e.enddate < e.date) e.enddate = e.date
-                            if (!e.date || e.date === "") e.date = e.enddate
+                            if (!e.date || e.date === "") e.date = e.enddate;
+
+                            if(j>0 && d.steps[j-1].enddate == e.date) {
+                                if(d.steps[j-1].overlap) e.overlap=d.steps[j-1].overlap+1;
+                                else e.overlap=1
+                            }
+
+                            if(j>0 && d.steps[j-1].overlap) {
+                                var pastdate=format.parse(d.steps[j-1].enddate);
+                                var dd = pastdate.getDate()+1;
+                                var mm = pastdate.getMonth()+1;
+                                var y = pastdate.getFullYear();
+                                console.log()
+                                if(e.date===y+"-"+mm+"-"+dd) e.overlap=1;
+                            }
+
                             e.qw = getQwidth(e);
 
                             if (j == 0) e.qx = 5;
@@ -329,8 +355,18 @@
                     steps.append("rect")
                         .attr("class", "step")
                         .attr("x", function (e, i) {
-                            var val = tscale(format.parse(e.date));
-                            return val
+                            var val;
+
+                            if(e.overlap) {
+                                var mydate=format.parse(e.date);
+                                var dd = mydate.getDate()+ e.overlap;
+                                var mm = mydate.getMonth()+1;
+                                var y = mydate.getFullYear();
+
+                                val = tscale(format.parse(y+"-"+mm+"-"+dd));
+                            }
+                            else val= tscale(format.parse(e.date));
+                            return val;
                         })
                         .attr("y", 28)
                         .attr("width", function (e) {
@@ -366,8 +402,18 @@
                         })
                         .attr("class", "step-ptn")
                         .attr("x", function (e, i) {
-                            var val = tscale(format.parse(e.date));
-                            return val
+                            var val;
+
+                            if(e.overlap) {
+                                var mydate=format.parse(e.date);
+                                var dd = mydate.getDate()+ e.overlap;
+                                var mm = mydate.getMonth()+1;
+                                var y = mydate.getFullYear();
+
+                                val = tscale(format.parse(y+"-"+mm+"-"+dd));
+                            }
+                            else val= tscale(format.parse(e.date));
+                            return val;
                         })
                         .attr("y", 48)
                         .attr("width", function (e) {
@@ -667,8 +713,10 @@
                     $(".text-container").append("<p><b>Procedure :</b> " + d.procedure + "</p>")
                     $(".text-container").append("<p><b>Amendements :</b> " + d.total_amendements + "</p>")
                     $(".text-container").append("<p><b>Interventions word count :</b> " + d.total_mots + "</p>")
-                    $(".text-container").append("<p><b>Dossiers: </b><a href='" + d.url_dossier_assemblee + "'>Assemblee</a>, <a href='" + d.url_dossier_senat + "'>Senat</a></p>")
+                    $(".text-container").append("<p><b>Dossiers: </b><a href='" + d.url_dossier_assemblee + "'>Assemblee</a>, <a href='" + d.url_dossier_senat + "'>Senat</a></p>");
                     $(".text-container").append('<div class="gotomod1"><a class="btn"  href="mod1?l=' + d.id + '">View articles</a></div>')
+
+                    console.log(d);
                 }
             });
         };
