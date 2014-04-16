@@ -11,7 +11,10 @@
                 currFile,
                 layout = "t",
                 lbls,
+                steps,
+                laws,
                 gridrects,
+                gridlines,
                 dossiers = [],
                 format = d3.time.format("%Y-%m-%d"),
                 tickform = d3.time.format("%b %Y"),
@@ -90,11 +93,10 @@
                             return d.institution.substr(0, 1).toUpperCase()
                         })
                         .style("fill", "white")
-                        .style("font-size", 10)
-                        .style("font-family", "open-sans, sans-serif")
+                        .style("font-size", 10+"px")
                 }
 
-                d3.selectAll(".tick").attr("transform", "scale(" + z + ",1)").style("stroke-width", 1 / z);
+                d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z})
             };
 
 
@@ -262,7 +264,7 @@
 
                     //add single law group
 
-                    var laws = lawscont.selectAll(".g-law")
+                    laws = lawscont.selectAll(".g-law")
                         .data(dossiers).enter()
                         .append("g")
                         .attr("class", function (d) {
@@ -289,7 +291,7 @@
 
 
                     //addsingle law steps
-                    var steps = laws.append("g")
+                    steps = laws.append("g")
                         .attr("class", "steps")
                         .selectAll("step").data(function (d) {
                             return d.steps
@@ -416,9 +418,19 @@
 
                     //recompute vertical grid to match new height
                     d3.selectAll(".tick").remove();
-                    ticks.forEach(function (e, i) {
-                        lawscont.insert("line", ".laws").attr("class", "tick").attr("x1", tscale(e)).attr("y1", 0).attr("x2", tscale(e)).attr("y2", dossiers.length * (20 + lawh)).attr("stroke", "#ddd").attr("stroke-width", 1).attr("opacity", 0.6)
-                    })
+
+                    gridlines = grid.selectAll(".tick")
+                        .data(ticks).enter();
+
+                    gridlines.append("line")
+                    .attr("class", "tick")
+                        .attr("x1", function(e){return tscale(e)})
+                        .attr("y1", 0)
+                        .attr("x2", function(e){return tscale(e)})
+                        .attr("y2", dossiers.length * (20 + lawh))
+                        .attr("stroke", "#ddd")
+                        .attr("stroke-width", 1)
+                        .attr("opacity", 0.6);
                 }
 
                 function getQwidth(e) {
