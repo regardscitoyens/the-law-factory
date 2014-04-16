@@ -1,5 +1,13 @@
 /* app css stylesheet */
 
+body{
+    font-family:"Oxygen", sans-serif !important;
+}
+
+h1,h2,h3,h4 {
+    font-family:"Oxygen", sans-serif !important;
+}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -695,4 +703,7 @@ p.orat-name{
 .gotomod1 a {
 	display:inline;
 	float:none;
+}
+text {
+    font-family: "Oxygen", sans-serif;
 }

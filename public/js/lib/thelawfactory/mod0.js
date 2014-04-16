@@ -204,6 +204,7 @@
                             dynamicLoad();
                         } else {
                             drawAxis();
+                            $("#gantt").animate({ scrollLeft: 100000 + "px" })
                         }
                     })
                 }
@@ -397,7 +398,6 @@
                         .attr("class", "law-name").text(function (e) {
                             return e.short_title
                         })
-                        .attr("font-family", "'Helvetica neue',sans-serif")
                         .style("fill", "#333")
                         .attr("font-size", "0.85em")
                         .attr("text-anchor", "middle")
@@ -535,21 +535,21 @@
                             return 3;
                         else {
                             if (e.date === "")
-                                e.date = e.enddate
+                                e.date = e.enddate;
                             //if e.date<
-                            var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date))
+                            var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date));
                             if (val >= 3)
                                 return val - 2;
                             else
                                 return 1
                         }
-                    })
+                    });
 
                     d3.selectAll(".step-lbl")
                         .attr("x", function (e, i) {
                             var val = lblscale(format.parse(e.date)) + 1;
                             return val
-                        })
+                        });
 
                     d3.selectAll(".step-ptn")
                         .transition().duration(500)
@@ -565,27 +565,27 @@
                                 if (val >= 3) return val - 2;
                                 else return 1
                             }
-                        })
+                        });
 
 
                     d3.selectAll(".tick-lbl").text(function (d, j) {
                         return tickform(d);
-                    })
+                    });
 
 
                     d3.select(".timeline").transition().duration(500).style("opacity", 1)
 
                     d3.selectAll(".law-bg").style("opacity", 0.2)
-                    $("#gantt").animate({ scrollLeft: "0px" });
-                }
+                    $("#gantt").animate({ scrollLeft: "100000px" });
+                };
 
                 quantiPosition = function () {
-                    zoom.scale(1)
+                    zoom.scale(1);
                     zooming();
                     layout = "q";
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
                         return "translate(0," + ( i * (20 + lawh)) + ")"
-                    })
+                    });
                     d3.selectAll(".row").transition().duration(500).attr("transform", "translate(0,-30)")
                     d3.selectAll(".law-name").transition().duration(500).attr("transform", "translate(0,-30)")
 
@@ -601,7 +601,7 @@
                             else if (d.institution === "senat") return "#f99b90"
                             else if (d.stage === "promulgation") return "#d50053"
                             else return "#aea198"
-                        })
+                        });
 
 
                     if (!d3.selectAll(".lbls")[0].length) {
@@ -622,7 +622,6 @@
                             })
                             .style("fill", "white")
                             .style("font-size", 10)
-                            .style("font-family", "open-sans, sans-serif")
                     }
 
                     d3.selectAll(".step-lbl")
@@ -655,7 +654,7 @@
                     d3.select("." + d.id)
                         .classed("curr", true)
                         .style("fill", "#fff")
-                        .style("opacity", 1)
+                        .style("opacity", 0.6)
 
                     //d3.select(this).classed("curr", true);
                     //var titre = d.article, section = d.section, status = d['id_step'].split('_').slice(1,4).join(', '), length = d['length'];
