@@ -49,6 +49,40 @@
                 .attr("class", "laws")
 
 
+            function drawLabels() {
+                d3.selectAll(".g-law").append("g").attr("class", "lbls")
+                    .selectAll(".step-lbl").data(function (d) {
+                        return d.steps
+                    })
+                    .enter()
+                    .append("text")
+                    .attr("class", "step-lbl")
+                    .attr("x", function (e, i) {
+                        var val;
+
+                        if (e.overlap) {
+                            var mydate = format.parse(e.date);
+                            var dd = mydate.getDate() + e.overlap;
+                            var mm = mydate.getMonth() + 1;
+                            var y = mydate.getFullYear();
+
+                            val = lblscale(format.parse(y + "-" + mm + "-" + dd));
+                        }
+                        else val = lblscale(format.parse(e.date));
+                        return val;
+                    })
+                    .attr("y", 38)
+                    .attr("dx", 1.5)
+                    .text(function (d) {
+                        if(d.institution==="assemblee" || d.institution==="senat") {
+                            return d.step.substr(0, 1).toUpperCase()
+                        }
+                        else return d.institution.substr(0, 1).toUpperCase()
+                    })
+                    .style("fill", "white")
+                    .style("font-size", 10 + "px")
+            }
+
             function zooming() {
 
                 if(layout==="q") return;
@@ -77,34 +111,7 @@
 
                 if (z < 10) d3.selectAll(".lbls").remove();
                 else if (!d3.selectAll(".lbls")[0].length) {
-                    d3.selectAll(".g-law").append("g").attr("class", "lbls")
-                        .selectAll(".step-lbl").data(function (d) {
-                            return d.steps
-                        })
-                        .enter()
-                        .append("text")
-                        .attr("class", "step-lbl")
-                        .attr("x", function (e, i) {
-                            var val;
-
-                            if(e.overlap) {
-                                var mydate=format.parse(e.date);
-                                var dd = mydate.getDate()+ e.overlap;
-                                var mm = mydate.getMonth()+1;
-                                var y = mydate.getFullYear();
-
-                                val = lblscale(format.parse(y+"-"+mm+"-"+dd));
-                            }
-                            else val= lblscale(format.parse(e.date));
-                            return val;
-                        })
-                        .attr("y", 38)
-                        .attr("dx",2)
-                        .text(function (d) {
-                            return d.institution.substr(0, 1).toUpperCase()
-                        })
-                        .style("fill", "white")
-                        .style("font-size", 10+"px")
+                    drawLabels();
                 }
 
                 d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z})
@@ -337,7 +344,7 @@
                             div.append("p").text("End : " + end);
                             div.append("p").text("Institution : " + inst);
                             div.append("p").text("Stage : " + stage);
-                            if (d.stage !== "promulgation") {
+                            if (d.institution=="assemblee" || d.institution=="senat") {
                                 div.append("p").text("Step : " + step);
                                 div.append("p").text("Amendements : " + amds);
                                 //div.append("<a href='"+source+"'>Detail</a>")
@@ -387,6 +394,7 @@
                         .style("fill", function (d) {
                             if (d.institution === "assemblee") return "#ced6dd"
                             else if (d.institution === "senat") return "#f99b90"
+                            else if (d.institution === "conseil constitutionnel") return "#e2d793"
                             else if (d.stage === "promulgation") return "#d50053"
                             else return "#aea198"
                         })
