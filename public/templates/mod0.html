@@ -43,6 +43,25 @@
           </div>
 
 
+
+          <div class="btn-group dd-btn">
+              <button type="button" class="btn">Order</button>
+              <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+              </button>
+
+              <ul class="dropdown-menu" role="menu">
+                  <li><a onclick="sortByLength()">Length</a></li>
+                  <li><a onclick="sortByDate()">New</a></li>
+                  <li><a onclick="sortByAmds()">Amendements</a></li>
+              </ul>
+          </div>
+
+
+
+
+
         </div>
 
         <div id="gantt" movescroll></div>

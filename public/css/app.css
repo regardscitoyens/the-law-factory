@@ -691,6 +691,10 @@ p.orat-name{
 	font-size:0.9em;
 }
 
+#commands .btn-group{
+    margin-bottom:10px;
+}
+
 .g-law, .law-name{
 	cursor:pointer;
 }

@@ -28,7 +28,7 @@
                 today = new Date(),
                 lawh = 50,
                 z = 1,
-                steph = lawh - 16
+                steph = lawh - 16;
             ticks = d3.time.months(mindate, today, 1);
 
 
@@ -44,10 +44,10 @@
 
 
             ganttcontainer.call(zoom);
-            var lawscont = ganttcontainer
-                .append("g")
-                .attr("class", "laws")
 
+            var lawscont = ganttcontainer.append("g").attr("class", "laws")
+            var grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
+            writeDefs();
 
             function drawLabels() {
                 d3.selectAll(".g-law").append("g").attr("class", "lbls")
@@ -118,51 +118,51 @@
             };
 
 
+            function writeDefs() {
+                var defs = ganttcontainer
+                    .insert('defs', ':first-child')
 
-            var defs = ganttcontainer
-                .insert('defs', ':first-child')
+                defs.append('pattern')
+                    .attr('id', 'diagonal1')
+                    .attr('patternUnits', 'userSpaceOnUse')
+                    .attr("x", 0).attr("y", 0)
+                    .attr('width', 10)
+                    .attr('height', 16)
+                    .append('path')
+                    .attr('d', 'M0,11L10,11')
+                    //.style("fill","#fff")
+                    .style('stroke', '#fff')
+                    .style('stroke-width', 2)
+                    .style("opacity", 0.7)
 
-            defs.append('pattern')
-                .attr('id', 'diagonal1')
-                .attr('patternUnits', 'userSpaceOnUse')
-                .attr("x", 0).attr("y", 0)
-                .attr('width', 10)
-                .attr('height', 16)
-                .append('path')
-                .attr('d', 'M0,11L10,11')
-                //.style("fill","#fff")
-                .style('stroke', '#fff')
-                .style('stroke-width', 2)
-                .style("opacity", 0.7)
+                defs.append('pattern')
+                    .attr('id', 'diagonal2')
+                    .attr('patternUnits', 'userSpaceOnUse')
+                    .attr("x", 0).attr("y", 0)
+                    .attr('width', 10)
+                    .attr('height', 16)
+                    .append('path')
+                    .attr('d', 'M0,11L10,11M0,8L10,8')
+                    //.style("fill","#fff")
+                    .style('stroke', '#fff')
+                    .style('stroke-width', 2)
+                    .style("opacity", 0.7)
 
-            defs.append('pattern')
-                .attr('id', 'diagonal2')
-                .attr('patternUnits', 'userSpaceOnUse')
-                .attr("x", 0).attr("y", 0)
-                .attr('width', 10)
-                .attr('height', 16)
-                .append('path')
-                .attr('d', 'M0,11L10,11M0,8L10,8')
-                //.style("fill","#fff")
-                .style('stroke', '#fff')
-                .style('stroke-width', 2)
-                .style("opacity", 0.7)
+                defs.append('pattern')
+                    .attr('id', 'diagonal3')
+                    .attr('patternUnits', 'userSpaceOnUse')
+                    .attr("x", 0).attr("y", 0)
+                    .attr('width', 10)
+                    .attr('height', 16)
+                    .append('path')
+                    .attr('d', 'M0,11L10,11M0,8L10,8M0,5L10,5')
+                    //.style("fill","#fff")
+                    .style('stroke', '#fff')
+                    .style('stroke-width', 2)
+                    .style("opacity", 0.7)
 
-            defs.append('pattern')
-                .attr('id', 'diagonal3')
-                .attr('patternUnits', 'userSpaceOnUse')
-                .attr("x", 0).attr("y", 0)
-                .attr('width', 10)
-                .attr('height', 16)
-                .append('path')
-                .attr('d', 'M0,11L10,11M0,8L10,8M0,5L10,5')
-                //.style("fill","#fff")
-                .style('stroke', '#fff')
-                .style('stroke-width', 2)
-                .style("opacity", 0.7)
+            }
 
-
-            var grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
 
 
             selection.each(function (data) {
@@ -184,11 +184,12 @@
                 function prepareData() {
                     data.dossiers.forEach(function (d, i) {
                         var st;
-                        if (d.steps[0].date === "" || d.steps[0].date < d.beginning)
+                        /*if (d.steps[0].date === "" || d.steps[0].date < d.beginning)
                             st = tscale(format.parse(d.beginning))
                         else
                             st = tscale(format.parse(d.steps[0].date))
-                        d.xoffset = st;
+                        d.xoffset = st;*/
+                        d.xoffset = tscale(format.parse(d.beginning));
 
                         d.steps.forEach(function (e, j) {
 
@@ -394,7 +395,7 @@
                         .style("fill", function (d) {
                             if (d.institution === "assemblee") return "#ced6dd"
                             else if (d.institution === "senat") return "#f99b90"
-                            else if (d.institution === "conseil constitutionnel") return "#e2d793"
+                            else if (d.institution === "conseil constitutionnel") return "rgb(231, 221, 158)"
                             else if (d.stage === "promulgation") return "#d50053"
                             else return "#aea198"
                         })
@@ -512,11 +513,21 @@
                     d3.selectAll(".law-name").transition().duration(500).attr("transform", "translate(0,0)")
 
 
-                    d3.selectAll(".step").attr("x", function (e, i) {
-                        var val = tscale(format.parse(e.date));
+                    d3.selectAll(".step")
+                        .attr("x", function (e, i) {
+                            var val;
 
-                        return val
-                    })
+                            if(e.overlap) {
+                                var mydate=format.parse(e.date);
+                                var dd = mydate.getDate()+ e.overlap;
+                                var mm = mydate.getMonth()+1;
+                                var y = mydate.getFullYear();
+
+                                val = tscale(format.parse(y+"-"+mm+"-"+dd));
+                            }
+                            else val= tscale(format.parse(e.date));
+                            return val;
+                        })
                     .attr("width", function (e) {
                         if (e.stage === "promulgation")
                             return 3;
@@ -534,7 +545,7 @@
 
                     d3.selectAll(".step-lbl")
                         .attr("x", function (e, i) {
-                            var val = lblscale(format.parse(e.date)) + 1;
+                            var val = lblscale(format.parse(e.date));
                             return val
                         })
 
@@ -580,11 +591,22 @@
                     d3.selectAll(".law-name").transition().duration(500).attr("transform", "translate(0,0)")
 
 
-                    d3.selectAll(".step").attr("x", function (e, i) {
-                        var val = tscale(format.parse(e.date));
+                    d3.selectAll(".step")
+                        .attr("x", function (e, i) {
+                            var val;
 
-                        return val
-                    }).attr("width", function (e) {
+                            if(e.overlap) {
+                                var mydate=format.parse(e.date);
+                                var dd = mydate.getDate()+ e.overlap;
+                                var mm = mydate.getMonth()+1;
+                                var y = mydate.getFullYear();
+
+                                val = tscale(format.parse(y+"-"+mm+"-"+dd));
+                            }
+                            else val= tscale(format.parse(e.date));
+                            return val;
+                        })
+                        .attr("width", function (e) {
                         if (e.stage === "promulgation")
                             return 3;
                         else {
@@ -601,7 +623,7 @@
 
                     d3.selectAll(".step-lbl")
                         .attr("x", function (e, i) {
-                            var val = lblscale(format.parse(e.date)) + 1;
+                            var val = lblscale(format.parse(e.date));
                             return val
                         });
 
@@ -653,6 +675,7 @@
                         .style("fill", function (d) {
                             if (d.institution === "assemblee") return "#ced6dd"
                             else if (d.institution === "senat") return "#f99b90"
+                            else if (d.institution === "conseil constitutionnel") return "rgb(231, 221, 158)"
                             else if (d.stage === "promulgation") return "#d50053"
                             else return "#aea198"
                         });
@@ -697,6 +720,56 @@
                     $("#gantt").animate({ scrollLeft: "0px" });
                 }
 
+
+                sortByLength = function() {
+
+                    $("#gantt svg").empty();
+                    writeDefs();
+                    lawscont = ganttcontainer.append("g").attr("class", "laws")
+                    grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
+
+                    dossiers.sort(function(a,b){return b.total_days - a.total_days})
+                    addLaws();
+                    drawAxis();
+                    $("#gantt").animate({ scrollLeft: 100000 + "px" })
+
+                    if(layout==="q") quantiPosition();
+                    if(layout==="a") absolutePosition();
+
+
+                };
+
+                sortByDate = function() {
+
+                    $("#gantt svg").empty();
+                    writeDefs();
+                    lawscont = ganttcontainer.append("g").attr("class", "laws");
+                    grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
+
+                    dossiers.sort(function(a,b){return  Date.parse(b.end) - Date.parse(a.end)});
+                    addLaws();
+                    drawAxis();
+                    $("#gantt").animate({ scrollLeft: 100000 + "px" });
+
+                    if(layout==="q") quantiPosition();
+                    if(layout==="a") absolutePosition();
+                };
+
+                sortByAmds = function() {
+
+                    $("#gantt svg").empty();
+                    writeDefs();
+                    lawscont = ganttcontainer.append("g").attr("class", "laws");
+                    grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
+
+                    dossiers.sort(function(a,b){return  b.total_amendements - a.total_amendements});
+                    addLaws();
+                    drawAxis();
+                    $("#gantt").animate({ scrollLeft: 100000 + "px" })
+
+                    if(layout==="q") quantiPosition();
+                    if(layout==="a") absolutePosition();
+                };
 
                 function onclick(d) {
                     console.log("clicked")
