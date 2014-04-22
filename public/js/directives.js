@@ -238,7 +238,7 @@ function(apiService, $rootScope, $location, $compile) {
                 value:1,
                 slide: function( event, ui ) {
                     zooming(ui.value);
-                    console.log(ui.value)
+
                 }
             })
 			var mod0 = thelawfactory.mod0();

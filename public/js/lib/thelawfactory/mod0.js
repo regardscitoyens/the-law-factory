@@ -84,7 +84,8 @@
             }
 
             zooming = function(lvl) {
-
+               lastz = z;
+                var perc=($("#gantt").scrollLeft()+$("#gantt").width()/2)/(width*z);
                 if(layout==="q") return;
                 if(d3.event && d3.event.scale) z = d3.event.scale;
                 else if(lvl) z=lvl;
@@ -117,8 +118,7 @@
 
                 d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z})
 
-                $("#gantt").scrollLeft($("#gantt").scrollLeft()*z);
-
+                $("#gantt").scrollLeft(perc*width*z- $("#gantt").width()/2);
             };
 
 
