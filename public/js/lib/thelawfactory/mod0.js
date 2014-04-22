@@ -660,8 +660,8 @@
                 };
 
                 quantiPosition = function () {
-                    zoom.scale(1);
-                    zooming();
+                    z=1;
+                    zooming(1);
                     layout = "q";
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
                         return "translate(0," + ( i * (20 + lawh)) + ")"
