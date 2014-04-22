@@ -93,13 +93,14 @@
 
                 d3.selectAll(".steps").attr("transform", "scale(" + z + ",1)");
                 d3.selectAll(".law-bg").attr("transform", "scale(" + z + ",1)");
+                d3.selectAll(".row").attr("transform", "scale(" + z + ",1)");
 
                 if(layout==="a") {
                     d3.selectAll(".g-law").attr("transform", function(d,i){return  "translate(" + (-d.xoffset*z+5) + ","+ (30 + i * (20 + lawh)) +")"});
                     //d3.selectAll(".law-bg").attr("transform", function(d,i){return  "translate(" + (-d.xoffset*z+5) + ","+ (30 + i * (20 + lawh)) +")"});
                 }
 
-                d3.selectAll(".row").attr("transform", "scale(" + z + ",1)");
+
                 d3.select(".tl-bg").attr("width", width * z);
                 d3.selectAll(".tick-lbl").attr("x", function (d) {
                     return tscale(d) * z;
@@ -582,7 +583,10 @@
                         else return (j + 1) + " months"
                     })
                     d3.select(".timeline").transition().duration(500).style("opacity", 1)
-                    $("#gantt").animate({ scrollLeft: "0px" });
+
+                    $("#gantt").animate({ scrollTop: "0px",scrollLeft: "0px" });
+                    //zooming(1);
+                    //$("#mod0-slider").slider( "value", 1 );
 
                 }
 
@@ -591,7 +595,7 @@
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
                         return "translate(0," + (30 + i * (20 + lawh)) + ")"
                     })
-                    d3.selectAll(".row").transition().duration(500).attr("transform", "translate(0,0) scale("+z+",1)" )
+                    //d3.selectAll(".row").transition().duration(500).attr("transform", "translate(0,0) scale("+z+",1)" )
                     d3.selectAll(".law-name").transition().duration(500).attr("transform", "translate(0,0)")
 
 
@@ -656,7 +660,10 @@
                     d3.select(".timeline").transition().duration(500).style("opacity", 1)
 
                     d3.selectAll(".law-bg").style("opacity", 0.2)
-                    $("#gantt").animate({ scrollLeft: "100000px" });
+                    zooming(10);
+                    $("#mod0-slider").slider( "value", 10 );
+                    $("#gantt").animate({scrollTop:"0px", scrollLeft: "100000px" });
+
                 };
 
                 quantiPosition = function () {
