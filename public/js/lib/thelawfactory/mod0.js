@@ -38,12 +38,12 @@
             ganttcontainer.attr("width", width).attr("height", 2900);
 
 
-            var zoom = d3.behavior.zoom()
-                .scaleExtent([1, 10])
-                .on('zoom', zooming);
+            //var zoom = d3.behavior.zoom()
+            //    .scaleExtent([1, 10])
+            //    .on('zoom', zooming);
 
 
-            ganttcontainer.call(zoom);
+            //ganttcontainer.call(zoom);
 
             var lawscont = ganttcontainer.append("g").attr("class", "laws")
             var grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
@@ -83,10 +83,11 @@
                     .style("font-size", 10 + "px")
             }
 
-            function zooming() {
+            zooming = function(lvl) {
 
                 if(layout==="q") return;
                 if(d3.event && d3.event.scale) z = d3.event.scale;
+                else if(lvl) z=lvl;
                 else z=1;
 
                 d3.selectAll(".steps").attr("transform", "scale(" + z + ",1)");
@@ -115,6 +116,9 @@
                 }
 
                 d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z})
+
+                $("#gantt").scrollLeft($("#gantt").scrollLeft()*z);
+
             };
 
 

@@ -231,7 +231,16 @@ function(apiService, $rootScope, $location, $compile) {
 		},
 		link : function postLink(scope, element, attrs) {
 
-
+            $("#mod0-slider").slider({
+                min:1,
+                max:10,
+                animate: true,
+                value:1,
+                slide: function( event, ui ) {
+                    zooming(ui.value);
+                    console.log(ui.value)
+                }
+            })
 			var mod0 = thelawfactory.mod0();
 			var mod0_bars = thelawfactory.mod0_bars();
 			

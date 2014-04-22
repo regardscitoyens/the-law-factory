@@ -711,3 +711,32 @@ p.orat-name{
 text {
     font-family: "Oxygen", sans-serif;
 }
+#mod0-slider {
+    clear:both;
+    margin-right:6%;
+    width:80%;
+    float:right;
+}
+
+.ui-slider-handle{
+    width:10px;
+    height:15px;
+    background-color:#D80053 !important;
+    position:relative;
+    display: block;
+    outline: none !important;
+    border:none !important;
+    outline-color: transparent;
+    user-select: none;
+    border-radius:0 !important;
+}
+.ui-state-focus{
+    border:none !important;
+}
+.ctrl-label{
+    clear:both;
+    width:90%;
+    float:right;
+    text-align: center;
+    color:#716259;
+}
