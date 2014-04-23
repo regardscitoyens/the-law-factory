@@ -740,3 +740,6 @@ text {
     text-align: center;
     color:#716259;
 }
+.ctrl-sort {
+    display:none;
+}

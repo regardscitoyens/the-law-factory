@@ -509,8 +509,12 @@
 
 
                 absolutePosition = function () {
-                    layout = "a";
 
+                    zooming(1);
+                    $("#mod0-slider").slider( "value", 1 );
+                    $(".ctrl-sort").show(400);
+                    layout = "a";
+                    $(".ctrl-zoom").show(400);
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
                         return "translate(" + (-d.xoffset*z + 5) + "," + (30 + i * (20 + lawh)) + ")"
                     })
@@ -591,7 +595,12 @@
                 }
 
                 timePosition = function () {
+
+                    zooming(10);
+                    $(".ctrl-sort").hide(400);
+                    $("#mod0-slider").slider( "value", 10 );
                     layout = "t";
+                    $(".ctrl-zoom").show(400);
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
                         return "translate(0," + (30 + i * (20 + lawh)) + ")"
                     })
@@ -667,8 +676,10 @@
                 };
 
                 quantiPosition = function () {
-                    z=1;
+
                     zooming(1);
+                    $(".ctrl-zoom").hide(400);
+                    $(".ctrl-sort").show(400);
                     layout = "q";
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
                         return "translate(0," + ( i * (20 + lawh)) + ")"
@@ -733,7 +744,8 @@
 
 
                 sortByLength = function() {
-
+                    zooming(1);
+                    $("#mod0-slider").slider( "value", 1 );
                     $("#gantt svg").empty();
                     writeDefs();
                     lawscont = ganttcontainer.append("g").attr("class", "laws")
@@ -752,6 +764,8 @@
 
                 sortByDate = function() {
 
+                    zooming(1);
+                    $("#mod0-slider").slider( "value", 1 );
                     $("#gantt svg").empty();
                     writeDefs();
                     lawscont = ganttcontainer.append("g").attr("class", "laws");
@@ -768,6 +782,8 @@
 
                 sortByAmds = function() {
 
+                    zooming(1);
+                    $("#mod0-slider").slider( "value", 1 );
                     $("#gantt svg").empty();
                     writeDefs();
                     lawscont = ganttcontainer.append("g").attr("class", "laws");
