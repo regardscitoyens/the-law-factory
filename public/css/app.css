@@ -747,4 +747,6 @@ text {
 .step-lbl text{
     fill:white;
     font-size: 9px;
+    text-anchor: middle;
+
 }

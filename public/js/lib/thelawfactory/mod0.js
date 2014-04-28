@@ -99,7 +99,7 @@
                                     return val;
                                 })
                                 .attr("y", 38+j*9)
-                                .attr("dx", 1.5)
+                                .attr("dx", 5)
                                 .text(strg[j])
 
                         }
@@ -217,11 +217,7 @@
                 function prepareData() {
                     data.dossiers.forEach(function (d, i) {
                         var st;
-                        /*if (d.steps[0].date === "" || d.steps[0].date < d.beginning)
-                            st = tscale(format.parse(d.beginning))
-                        else
-                            st = tscale(format.parse(d.steps[0].date))
-                        d.xoffset = st;*/
+
                         d.xoffset = tscale(format.parse(d.beginning));
 
                         d.steps.forEach(function (e, j) {
@@ -238,19 +234,17 @@
                             else if(j>0 && d.steps[j-1].overlap) {
 
                                 var pastdate=format.parse(d.steps[j-1].enddate);
-                                //console.log("_____")
-                                //console.log(pastdate,d.steps[j-1].overlap )
+
                                 var dd = pastdate.getDate()+d.steps[j-1].overlap;
                                 if (dd<10) dd="0"+dd;
-                                //console.log(dd);
+
                                 var mm = pastdate.getMonth()+1;
                                 if (mm<10) mm="0"+mm;
+
                                 var y = pastdate.getFullYear();
-                                //console.log(e.date);
-                                if(e.date==="2011-07-06") {
-                                    console.log("eccoci",e.date, y+"-"+mm+"-"+dd)
-                                }
-                                if(y+"-"+mm+"-"+dd===e.date) {
+
+
+                                if(y+"-"+mm+"-"+dd>=e.date) {
                                     console.log(e.date,y+"-"+mm+"-"+dd)
                                     e.overlap = d.steps[j - 1].overlap + 1;
 
