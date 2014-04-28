@@ -108,30 +108,7 @@
 
 
                     })
-                    /*.attr("x", function (e, i) {
-                        var val;
 
-                        if (e.overlap) {
-                            var mydate = format.parse(e.date);
-                            var dd = mydate.getDate() + e.overlap;
-                            var mm = mydate.getMonth() + 1;
-                            var y = mydate.getFullYear();
-
-                            val = lblscale(format.parse(y + "-" + mm + "-" + dd));
-                        }
-                        else val = lblscale(format.parse(e.date));
-                        return val;
-                    })
-                    .attr("y", 38)
-                    .attr("dx", 1.5)
-                    .text(function (d) {
-                        if(d.institution==="assemblee" || d.institution==="senat") {
-                            return d.step.substr(0, 1).toUpperCase()
-                        }
-                        else return d.institution.substr(0, 1).toUpperCase()
-                    })
-                    .style("fill", "white")
-                    .style("font-size", 10 + "px")*/
             }
 
             zooming = function(lvl) {
@@ -258,13 +235,26 @@
                                 else e.overlap=1
                             }
 
-                            if(j>0 && d.steps[j-1].overlap) {
+                            else if(j>0 && d.steps[j-1].overlap) {
+
                                 var pastdate=format.parse(d.steps[j-1].enddate);
-                                var dd = pastdate.getDate()+1;
+                                //console.log("_____")
+                                //console.log(pastdate,d.steps[j-1].overlap )
+                                var dd = pastdate.getDate()+d.steps[j-1].overlap;
+                                if (dd<10) dd="0"+dd;
+                                //console.log(dd);
                                 var mm = pastdate.getMonth()+1;
+                                if (mm<10) mm="0"+mm;
                                 var y = pastdate.getFullYear();
-                                console.log()
-                                if(e.date===y+"-"+mm+"-"+dd) e.overlap=1;
+                                //console.log(e.date);
+                                if(e.date==="2011-07-06") {
+                                    console.log("eccoci",e.date, y+"-"+mm+"-"+dd)
+                                }
+                                if(y+"-"+mm+"-"+dd===e.date) {
+                                    console.log(e.date,y+"-"+mm+"-"+dd)
+                                    e.overlap = d.steps[j - 1].overlap + 1;
+
+                                }
                             }
 
                             e.qw = getQwidth(e);
