@@ -55,9 +55,60 @@
                         return d.steps
                     })
                     .enter()
-                    .append("text")
+                    .append("g")
+                    //.append("text")
                     .attr("class", "step-lbl")
-                    .attr("x", function (e, i) {
+                    .each(function(d,i){
+
+                        var strg;
+
+                        if(d.step!=="depot" && (d.institution==="assemblee" || d.institution==="senat")) {
+                            strg = d.step.substr(0, 1).toUpperCase();
+                        }
+                        else if(d.step==="depot") {
+
+                            var dv = $(this).closest(".g-law").attr('class').split(/\s+/);
+                            strg= dv[1].substr(0,3).toUpperCase();
+                        }
+                        else if(d.institution==="CMP") {
+                            strg = "CMP";
+                        }
+                        else if(d.institution==="conseil constitutionnel"){
+                            strg="CC";
+                        }
+                        else if (d.stage==="promulgation") {
+                            strg="JO";
+                        }
+                        else strg="";
+
+                        for(var j = 0; j<strg.length; j++) {
+
+                            d3.select(this).append("text")
+                                .attr("x", function (e, i) {
+                                    var val;
+
+                                    if (e.overlap) {
+                                        var mydate = format.parse(e.date);
+                                        var dd = mydate.getDate() + e.overlap;
+                                        var mm = mydate.getMonth() + 1;
+                                        var y = mydate.getFullYear();
+
+                                        val = lblscale(format.parse(y + "-" + mm + "-" + dd));
+                                    }
+                                    else val = lblscale(format.parse(e.date));
+                                    return val;
+                                })
+                                .attr("y", 38+j*10)
+                                .attr("dx", 1.5)
+                                .text(strg[j])
+
+                        }
+
+
+
+
+                    })
+                    /*.attr("x", function (e, i) {
                         var val;
 
                         if (e.overlap) {
@@ -80,7 +131,7 @@
                         else return d.institution.substr(0, 1).toUpperCase()
                     })
                     .style("fill", "white")
-                    .style("font-size", 10 + "px")
+                    .style("font-size", 10 + "px")*/
             }
 
             zooming = function(lvl) {

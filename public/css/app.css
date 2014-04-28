@@ -743,3 +743,8 @@ text {
 .ctrl-sort {
     display:none;
 }
+
+.step-lbl text{
+    fill:white;
+    font-size: 10px;
+}
