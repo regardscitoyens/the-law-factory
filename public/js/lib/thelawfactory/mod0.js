@@ -98,7 +98,7 @@
                                     else val = lblscale(format.parse(e.date));
                                     return val;
                                 })
-                                .attr("y", 38+j*10)
+                                .attr("y", 38+j*9)
                                 .attr("dx", 1.5)
                                 .text(strg[j])
 
