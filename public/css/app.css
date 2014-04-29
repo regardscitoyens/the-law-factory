@@ -787,3 +787,8 @@ text {
 .mod2 #commands{
     padding-top:20px;
 }
+.glass{
+    font-size: 0.9em;
+    padding-left:6px;
+    font-weight: bold;
+}

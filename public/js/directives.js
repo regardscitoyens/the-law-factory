@@ -20,6 +20,7 @@ function(apiService, $rootScope, $location, $compile) {
 					"direction" : "",
 					"mode" : "show"
 				}, 500)
+                $("#search").focus();
 			})
 			var mod1 = thelawfactory.mod1();
 
@@ -96,6 +97,7 @@ function(apiService, $rootScope, $location, $compile) {
 					"direction" : "",
 					"mode" : "show"
 				}, 500)
+                $("#search").focus();
 			})
 			var mod2 = thelawfactory.mod2();
 
@@ -177,6 +179,7 @@ function(apiService, $rootScope, $location, $compile) {
 					"direction" : "",
 					"mode" : "show"
 				}, 500)
+                $("#search").focus();
 			})
 			function update() {
 				$(".lawlist").css("display", "none")
