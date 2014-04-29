@@ -85,6 +85,12 @@
 
                             d3.select(this).append("text")
                                 .attr("x", function (e, i) {
+
+                                    if (layout === "q") {
+                                        return e.qx+2;
+                                    }
+                                    else {
+
                                     var val;
 
                                     if (e.overlap) {
@@ -97,18 +103,13 @@
                                     }
                                     else val = lblscale(format.parse(e.date));
                                     return val;
+                                }
                                 })
                                 .attr("y", 38+j*9)
                                 .attr("dx", 5)
                                 .text(strg[j])
-
                         }
-
-
-
-
                     })
-
             }
 
             zooming = function(lvl) {
@@ -141,7 +142,7 @@
                 ganttcontainer.attr("width", width * z);
 
                 if (z < 10) d3.selectAll(".lbls").remove();
-                else if (!d3.selectAll(".lbls")[0].length) {
+                else  {
                     drawLabels();
                 }
 
@@ -278,7 +279,7 @@
                             dynamicLoad();
                         } else {
                             drawAxis();
-                            $("#gantt").animate({ scrollLeft: 100000 + "px" })
+                            timePosition();
                         }
                     })
                 }
@@ -545,6 +546,7 @@
 
                 absolutePosition = function () {
 
+                    //sortByLength();
                     zooming(1);
                     $("#mod0-slider").slider( "value", 1 );
                     $(".ctrl-sort").show(400);
@@ -597,6 +599,7 @@
                         .transition().duration(500)
                         .attr("x", function (e, i) {
                             var val = tscale(format.parse(e.date));
+                            if (e.overlap) val+= e.overlap;
                             return val
                         })
                         .attr("width", function (e) {
@@ -631,10 +634,9 @@
 
                 timePosition = function () {
 
-                    zooming(10);
-                    $(".ctrl-sort").hide(400);
-                    $("#mod0-slider").slider( "value", 10 );
+                    //sortByDate();
                     layout = "t";
+                    $(".ctrl-sort").hide(400);
                     $(".ctrl-zoom").show(400);
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
                         return "translate(0," + (30 + i * (20 + lawh)) + ")"
@@ -712,6 +714,7 @@
 
                 quantiPosition = function () {
 
+                    //sortByAmds();
                     zooming(1);
                     $(".ctrl-zoom").hide(400);
                     $(".ctrl-sort").show(400);
@@ -737,32 +740,7 @@
                             else return "#aea198"
                         });
 
-
-                    if (!d3.selectAll(".lbls")[0].length) {
-                        d3.selectAll(".g-law").append("g").attr("class", "lbls")
-                            .selectAll(".step-lbl").data(function (d) {
-                                return d.steps
-                            })
-                            .enter()
-                            .append("text")
-                            .attr("class", "step-lbl")
-                            .attr("x", function (e, i) {
-                                var val = lblscale(format.parse(e.date)) + 1;
-                                return val
-                            })
-                            .attr("y", 38)
-                            .text(function (d) {
-                                return d.institution.substr(0, 1).toUpperCase()
-                            })
-                            .style("fill", "white")
-                            .style("font-size", 10)
-                    }
-
-                    d3.selectAll(".step-lbl")
-                        .attr("x", function (d) {
-                            return d.qx + 4
-                        })
-
+                        drawLabels();
 
                     d3.selectAll(".step-ptn")
                         .attr("x", function (d) {
@@ -789,7 +767,7 @@
                     dossiers.sort(function(a,b){return b.total_days - a.total_days})
                     addLaws();
                     drawAxis();
-                    $("#gantt").animate({ scrollLeft: 100000 + "px" })
+                    //$("#gantt").animate({ scrollLeft: 100000 + "px" })
 
                     if(layout==="q") quantiPosition();
                     if(layout==="a") absolutePosition();
@@ -809,7 +787,7 @@
                     dossiers.sort(function(a,b){return  Date.parse(b.end) - Date.parse(a.end)});
                     addLaws();
                     drawAxis();
-                    $("#gantt").animate({ scrollLeft: 100000 + "px" });
+                    //$("#gantt").animate({ scrollLeft: 100000 + "px" });
 
                     if(layout==="q") quantiPosition();
                     if(layout==="a") absolutePosition();
@@ -827,7 +805,7 @@
                     dossiers.sort(function(a,b){return  b.total_amendements - a.total_amendements});
                     addLaws();
                     drawAxis();
-                    $("#gantt").animate({ scrollLeft: 100000 + "px" })
+                    //$("#gantt").animate({ scrollLeft: 100000 + "px" })
 
                     if(layout==="q") quantiPosition();
                     if(layout==="a") absolutePosition();
