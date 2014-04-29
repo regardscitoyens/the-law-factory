@@ -263,11 +263,7 @@ function(apiService, $rootScope, $location, $compile) {
 				}, function(error) {
 					console.log(error)
 				})
-
-
 			}
-
-
 			scope.$watch('amdUrl', function() {
 				update();
 			}, true)
@@ -289,6 +285,33 @@ function(apiService, $rootScope, $location) {
 		},
 		link : function postLink(scope, element, attrs, lawlistCtrl) {
 
+            var accentMap = {
+
+                "á": "a",
+                "à": "a",
+                "â": "a",
+                "é": "e",
+                "è": "e",
+                "ê": "e",
+                "ë": "e",
+                "ç": "c",
+                "î": "i",
+                "ï": "i",
+                "ô": "o",
+                "ö": "o",
+                "ù": "u",
+                "Û": "u",
+                "ü": "u"
+
+            };
+            var normalize = function( term ) {
+                var ret = "";
+                for ( var i = 0; i < term.length; i++ ) {
+                    ret += accentMap[ term.charAt(i) ] || term.charAt(i);
+                }
+                return ret;
+            };
+
 			function update() {
 
 				apiService.getDataSample(scope.lawlistUrl).then(function(data) {
@@ -297,9 +320,20 @@ function(apiService, $rootScope, $location) {
 
 					$("#search").autocomplete({
 						source : function(request, response) {
+/*
+                            var matcher = new RegExp( $.ui.autocomplete.escapeRegex( request.term ), "i" );
+                            response( $.grep( names, function( value ) {
+                                value = value.label || value.value || value;
+                                return matcher.test( value ) || matcher.test( normalize( value ) );
+  */
+
+
+
+
 							var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
 							response($.map($.grep(scope.ll, function(value) {
-								return matcher.test(value.title);
+                                value = value.title || value.id || value.themes;
+								return matcher.test(value) || matcher.test( normalize( value ) );
 							}), function(n, i) {
 								return {
 									"label" : n.title,
@@ -350,26 +384,6 @@ function(apiService, $rootScope, $location) {
 		
 			scope.xmouselerp.domain([0,element.width()*0.2,element.width()*0.8, element.width()])
 			scope.ymouselerp.domain([0,element.height()*0.2,element.height()*0.8, element.height()])
-			
-			/*element.bind("drag","svg",function(event){
-                console.log("dragging")
-				scope.pos[0]=event.offsetX-element.offset().left;
-				scope.pos[1]=event.offsetY-element.offset().top;
-				scope.$digest()
-			})
-			element.on("mouseleave","svg",function(event){
-				
-				scope.pos[0]=-1;
-				scope.pos[1]=-1;
-				scope.$digest()
-			})
-		
-			setInterval(function() {
-			      if( scope.pos[0]!=-1 && scope.pos[1]!=-1) {
-			      
-				element.scrollLeft(element.scrollLeft()+scope.xmouselerp(scope.pos[0])).scrollTop(element.scrollTop()+scope.ymouselerp(scope.pos[1]))
-			}
-			}, 50);*/
 
 
             var clicking = false;
