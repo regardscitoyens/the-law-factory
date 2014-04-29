@@ -3,59 +3,17 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1 title">
     <h4>AMENDEMENTS</h4>
-    <div class="menu-btn"><img src="img/menu.png"/></div>
+
   </div>
 </div>
 
 <div class="row menu-hide">
-  <div class="col-md-10 col-md-offset-1">
 
-		<button type="button" class="btn" id="search-btn">
-				Search a law
-			</button>
-			
-			<div class="btn-group">
-  <button ng-click="go('mod2')" type="button" class="btn">Amendements</button>
-  <button ng-click="go('mod2b')" type="button" class="btn">Interventions</button>
-  </div>
-
-<div class="btn-group dd-btn">
-  <button type="button" class="btn">Group by</button>
-  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-    <span class="caret"></span>
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  
-  <ul class="dropdown-menu" role="menu">
-    <li><a onclick="draw()">Articles</a></li>
-    <li><a onclick="drawMerged()">Ungrouped</a></li>
-  </ul>
-</div>
-
-
-	<div class="btn-group dd-btn">
-  <button type="button" class="btn">Order by</button>
-  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-    <span class="caret"></span>
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  
-  <ul class="dropdown-menu" role="menu">
-    <li><a onclick="sortByStat()">Status</a></li>
-     <li><a onclick="sortByParty()">Party</a></li>
-  </ul>
-</div>
-
- </div>
 </div>
 
 
 <div class="row">
-  <div class="col-md-10 col-md-offset-1 separator">
-  	
-  
-  	
-  </div>
+
 </div>
 <div class="row">
   <div class="col-md-12 viz-container">
@@ -67,7 +25,41 @@
 	      </div>
 	    </div>
 	    <div class="main-sc">
-	    	 <div class="art-list"></div>
+	    	 <div class="art-list">
+
+
+                     <button ng-click="go('mod2b')" type="button" class="btn cmd-btn">Interventions</button>
+
+
+                 <div class="btn-group dd-btn">
+                     <button type="button" class="btn">Group by</button>
+                     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                         <span class="caret"></span>
+                         <span class="sr-only">Toggle Dropdown</span>
+                     </button>
+
+                     <ul class="dropdown-menu" role="menu">
+                         <li><a onclick="draw()">Articles</a></li>
+                         <li><a onclick="drawMerged()">Ungrouped</a></li>
+                     </ul>
+                 </div>
+
+
+                 <div class="btn-group dd-btn">
+                     <button type="button" class="btn">Order by</button>
+                     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                         <span class="caret"></span>
+                         <span class="sr-only">Toggle Dropdown</span>
+                     </button>
+
+                     <ul class="dropdown-menu" role="menu">
+                         <li><a onclick="sortByStat()">Status</a></li>
+                         <li><a onclick="sortByParty()">Party</a></li>
+                     </ul>
+                 </div>
+
+
+	    	 </div>
 	      <div id="viz"></div>
 	     
 	      </div>

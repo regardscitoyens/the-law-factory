@@ -286,6 +286,7 @@ ins {
 }
 .art-list{
 	margin-top:-4px !important;
+    padding-top:30px;
 }
 .padded{
 	padding: 15px
@@ -443,8 +444,6 @@ ul.ui-autocomplete {
 }
 #search-btn, .btn{
 	float:left;
-	background:#D80053;
-	color:#fff;
 	border-radius: 0 !important;
 }
 .ui-menu .ui-menu-item {
@@ -480,9 +479,12 @@ ul.ui-autocomplete {
 }
 .mod2 .main-sc, .mod0 .main-sc{
 	width: 100%;
-	/*height:85%;*/
-	overflow-y:auto;
-	overflow-x:hidden;
+	height:85%;
+}
+.mod2 #viz {
+    overflow-y:auto;
+    overflow-x:hidden;
+    height:100%;
 }
 
 .mod2 #viz,.mod0 #gantt {
@@ -750,4 +752,38 @@ text {
     text-anchor: middle;
     font-family: arial, sans-serif;
 
+}
+
+.navbar-nav>li>span {
+
+    padding: 15px 10px 15px 10px;
+    line-height: 20px;
+    position: relative;
+    display: block;
+    cursor: pointer;
+    color:#808285;
+}
+
+.nav>li>span:hover, .nav>li>span:focus {
+    text-decoration: none;
+    background-color: #eee;
+}
+.navbar-right span:hover {
+    color: #716259;
+}
+
+.labels h4{
+    margin-bottom:30px;
+}
+.cmd-btn{
+    float:right;
+    background-color:#D80053 !important;
+    color:white;
+    margin-bottom:10px;
+}
+.art-list .btn-group {
+    margin-bottom:10px;
+}
+.mod2 #commands{
+    padding-top:20px;
 }

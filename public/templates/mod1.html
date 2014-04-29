@@ -6,7 +6,7 @@
 <div class="row">
 	<div class="col-md-10 col-md-offset-1 title">
 		<h4>ÉVOLUTION DES ARTICLES</h4>
-		<div class="menu-btn"><img src="img/menu.png"/>
+
 		</div>
 	</div>
 </div>
@@ -14,24 +14,6 @@
 <div class="row menu-hide">
 	
 	<div class="col-md-10 col-md-offset-1">
-		
-		
-			<button type="button" class="btn" id="search-btn">
-				Search a law
-			</button>
-			
-			<div class="btn-group dd-btn">
-			  <button type="button" class="btn">Layout</button>
-			  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-			    <span class="caret"></span>
-			    <span class="sr-only">Toggle Dropdown</span>
-			  </button>
-			  
-			  <ul class="dropdown-menu" role="menu">
-			    <li><a onclick="stacked()">Stacked</a></li>
-			    <li><a onclick="valign()">Aligned</a></li>
-			  </ul>
-			</div>
 			
 			
 		
@@ -50,9 +32,25 @@
 	<div class="col-md-12 viz-container">
 		<div class="labels">
 			<h4>ÉTAPES</h4>
+
+            <div class="btn-group dd-btn">
+                <button type="button" class="btn">Layout</button>
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+
+                <ul class="dropdown-menu" role="menu">
+                    <li><a onclick="stacked()">Stacked</a></li>
+                    <li><a onclick="valign()">Aligned</a></li>
+                </ul>
+            </div>
 		</div>
 		<div class="main">
 			<div class="stages"></div>
+
+
+
 			<div id="viz"></div>
 		</div>
 		<div class="text">

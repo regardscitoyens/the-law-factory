@@ -5,21 +5,11 @@
   <div class="col-md-10 col-md-offset-1 title">
     <h4>DÉBATS</h4>
 
-    <div class="menu-btn"><img src="img/menu.png"/></div>
   </div>
 </div>
 
 <div class="row menu-hide">
   <div class="col-md-10 col-md-offset-1">
-
-		<button type="button" class="btn" id="search-btn">
-				Search a law
-			</button>
-			
-			<div class="btn-group">
-  <button ng-click="go('mod2')" type="button" class="btn">Amendements</button>
-  <button ng-click="go('mod2b')" type="button" class="btn">Interventions</button>
-  </div>
 
 
 
@@ -28,11 +18,7 @@
 
 
 <div class="row">
-  <div class="col-md-10 col-md-offset-1 separator">
-  	
-  
-  	
-  </div>
+
 </div>
 <div class="row">
   <div class="col-md-12 viz-container">
@@ -46,7 +32,10 @@
 
 	    </div>
 	    <div class="main-sc">
-	    	
+	      <div id="commands">
+
+              <button ng-click="go('mod2')" type="button" class="cmd-btn btn">Amendements</button>
+	      </div>
 	      <div class="int-viz" id="viz"></div>
 	     
 	      </div>

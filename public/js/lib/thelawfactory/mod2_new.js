@@ -43,7 +43,7 @@ var api_root;
 	draw = function() {
 		jumpLines=0
 		$("svg").empty();
-			$(".art-list").empty();
+			//$(".art-list").empty();
 		artArray.forEach(function(d,i) {
 			drawLines(d,i)
 		})
@@ -293,7 +293,7 @@ var api_root;
 					return 0;
 				})
 				$("svg").empty();
-				$(".art-list").empty();
+				//$(".art-list").empty();
 				$(".text-container").empty();
 				drawMerged();
 				
@@ -321,7 +321,7 @@ var api_root;
 					return 0;
 				})
 				$("svg").empty();
-				$(".art-list").empty();
+				//$(".art-list").empty();
 				$(".text-container").empty();
 				drawMerged();
 				

@@ -223,7 +223,7 @@ sven.viz.streamkey = function(){
 
 		var svg = d3.select(target).append("svg")
 				.attr("width", height)
-    			.attr("height", width)
+    			.attr("height", width+50)
     			.append("g")
     			.attr("class","main-g")
     			.attr("transform","translate(0,20)")
