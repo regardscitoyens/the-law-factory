@@ -319,19 +319,10 @@ function(apiService, $rootScope, $location) {
 
 				apiService.getDataSample(scope.lawlistUrl).then(function(data) {
 					scope.ll = data;
-					//console.log(scope.ll)
+
 
 					$("#search").autocomplete({
 						source : function(request, response) {
-/*
-                            var matcher = new RegExp( $.ui.autocomplete.escapeRegex( request.term ), "i" );
-                            response( $.grep( names, function( value ) {
-                                value = value.label || value.value || value;
-                                return matcher.test( value ) || matcher.test( normalize( value ) );
-  */
-
-
-
 
 							var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
 							response($.map($.grep(scope.ll, function(value) {
@@ -340,7 +331,10 @@ function(apiService, $rootScope, $location) {
 							}), function(n, i) {
 								return {
 									"label" : n.title,
-									"value" : n.id
+									"value" : n.id,
+                                    "themes": n.themes,
+                                    "amendements": n.amendements,
+                                    "words": n.words
 								}
 							}));
 						},
@@ -358,7 +352,14 @@ function(apiService, $rootScope, $location) {
 
 							});
 						}
-					});
+					})
+
+                        .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+                        return $( "<li>" )
+                            .append( "<a id='"+item.value+"'>" +item.label + "</a>" )
+                            .append("<div class='src-themes'><b>THEMES </b>"+item.themes+"</div>")
+                            .appendTo( ul );
+                    };
 
 				}, function(error) {
 					scope.error = error
