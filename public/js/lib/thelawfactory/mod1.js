@@ -200,7 +200,7 @@ var stacked;
 						.attr("y", function(d){return d.y-15})
 						.attr("class","header")
 						.attr("width", width / columns - 30)
-						.attr("height", function(d){return (d.section === 'echec' ? $("#viz").width() - 175 : 15)})
+						.attr("height", function(d){return (d.section === 'echec' ? $("#viz").height()*0.9 : 15)})
 						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#2553C2")})
 						.style("stroke", "none")
 						.style("opacity", function(d){return section_opacity(d.section)})
