@@ -1,5 +1,4 @@
-console.log("hi")
-var aligned=true;
+var aligned = true;
 var valign;
 var stacked;
 
@@ -22,6 +21,7 @@ var stacked;
         }
 
         function section_opacity(s) {
+            if (s === "echec") return 1;
             if (s.lastIndexOf("A", 0) === 0)
                 return 0.65;
             return 1.25-0.3*s.match(/[LCVTS]+\d+/g).length;
@@ -34,6 +34,8 @@ var stacked;
 				var art = d3.values(data.articles);
 
 				art.sort(function(a, b) {
+                    if (a.section === "echec") return (b.section === "echec" ? 0 : -1);
+                    else if (b.section === "echec") return 1;
 					var al = a.titre.split(" "), bl = b.titre.split(" ")
 					ao = 0, bo = 0;
 					if (parseInt(al[0]) != parseInt(bl[0]))
@@ -51,16 +53,30 @@ var stacked;
 				});
 
 
+				//compute stages and sections
+				var stages = computeStages()
+				var columns = stages.length
+				var sections = computeSections()
+				var sectJump = 40;
+				
 				art.forEach(function(d, i) {
 
 					d.steps.forEach(function(f, j) {
 						f.textDiff = []
 						f.article = d.titre;
 						f.section = d.section;
+                        f.prev_step = null;
+						f.sect_num=findSection(f.section)
+					    f.step_num=findStage(f.id_step)
 
+                        if (j != 0 && f.id_step.substr(-5) != "depot") {
+                            k = j-1;
+                            while (k > 0 && d.steps[k].status === "echec") {
+                                k--;
+                            }
+                            f.prev_step = d.steps[k].step_num;
 
-						if (j != 0 && f.id_step.substr(-5) != "depot") {
-                            lasttxt = d.steps[j - 1].text;
+                            lasttxt = d.steps[k].text;
 							if (!f.text.length)
 								lasttxt.forEach(function(g, k) {
 									f.textDiff[k] = diffString(g, " ")
@@ -89,12 +105,6 @@ var stacked;
 				//linear mapper for article height
 				var lerp = d3.scale.linear().domain([0, 1, maxlen]).range([0, 12, 120]);
 
-				//compute stages and sections
-				var stages = computeStages()
-				var columns = stages.length
-				var sections = computeSections()
-				var sectJump = 40;
-				
 				//set color scale for diff
 				var levmin = 145, levmax = levmin + 100;
 				var diffcolor = d3.scale.linear().range(["rgb(" + [levmax, levmax, levmax].join(',') + ")", "rgb(" + [levmin, levmin, levmin].join(',') + ")"]).domain([0, 1]).interpolate(d3.interpolateHcl);
@@ -107,10 +117,8 @@ var stacked;
 					left : 0
 				}, width = $("#viz").width(), height = $(".text-container").height();
 				
-				
 				//init coordinates
 				setCoordinates();
-				
 				
 				//create SVG
 				var maxy = d3.max(bigList,function(d){return d.y+lerp(d.length)})
@@ -193,7 +201,7 @@ var stacked;
 						.attr("class","header")
 						.attr("width", width / columns - 30)
 						.attr("height", 15)
-						.style("fill", "#2553C2")
+						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#2553C2")})
 						.style("stroke", "none")
 						.style("opacity", function(d){return section_opacity(d.section)})
 						.style("stroke-width", "1px")
@@ -209,28 +217,24 @@ var stacked;
 						.attr("font-size", "9px")
 						.attr("font-weight", "bold")
 						.style("fill", "#ffffff")
-						.text(function(d){return format_section(d.section)});
+						.text(function(d){return (d.section === 'echec' ? d.status : format_section(d.section))});
 					}
 				}
 
 				//Add connections
 				var lines = svg.append("g").selectAll("line").data(bigList.filter(function(d) {
 					a = d3.selectAll(".article").filter(function(e){
-                        return (d.article == e.article && e.status !== "new" &&
-                            d.step_num == e.step_num-1 && e.id_step.substr(-5) !== "depot")
+                        return (d.article == e.article && d.step_num == e.prev_step)
                     })
-					return !a.empty() && d.status!=="sup" && d.step_num+1<stages.length;
+					return !a.empty() && d.status != "sup";
 				})).enter();
 
 				lines.append("line")
 				.attr("x1", function(d){return d.x + width / columns - 30})
-				.attr("y1", function(d) {return d.y + (lerp(d.length)) / 2})
-				.attr("x2", function(d){
-					var a=bigList.filter(function(e){return e.article===d.article && e.step_num==d.step_num+1 })[0]
-					return a.x;
-				})
+				.attr("y1", function(d){return d.y + (lerp(d.length)) / 2})
+				.attr("x2", function(d){return bigList.filter(function(e){return d.article == e.article && d.step_num==e.prev_step})[0].x})
 				.attr("y2", function(d){
-					var a=bigList.filter(function(e){return e.article===d.article && e.step_num==d.step_num+1 })[0]
+					var a=bigList.filter(function(e){return d.article == e.article && d.step_num==e.prev_step})[0];
 					return a.y + (lerp(a.length)) / 2;
 				})
 				.style("stroke", "#d0d0e0")
@@ -290,9 +294,7 @@ var stacked;
 					stag.sort()
 
 					for (s in stag) {
-						//console.log(stag[s])
 						stag_name = stag[s].split("_", 4).splice(2, 3).join(" ");
-						//console.log(stag_name);
 						//$(".stages").append('<div class="stage" style="width:' + 100 / stag.length + '%">' + stag_name + '</div>')
 					}
 
@@ -301,10 +303,10 @@ var stacked;
 
 				function computeSections() {
 					var se = d3.nest().key(function(d) {
-						return d.section;
+                        return d.section;
 					})
-					.map(art, d3.map);
-					return se.keys()
+				    .map(art, d3.map);
+					return se.keys();
 				}
 
 				function findSection(s) {
@@ -313,11 +315,6 @@ var stacked;
 				}
 
 				function setCoordinates() {
-					bigList.forEach(function(d,i){
-						d.sect_num=findSection(d.section)
-						d.step_num=findStage(d.id_step)
-					})
-
 					for (t in stages) {
 						currT=bigList.filter(function(d){return d.step_num==t})
 						currY=sectJump;
@@ -341,7 +338,6 @@ var stacked;
 				//USE THE ARROWS
 				d3.select("body").on("keydown", function() {
 					if (d3.select(".curr").empty()) {
-						//console.log("no one selected")
 						d3.select(".article").each(onclick);
 					} else {
 						c = (d3.select(".curr"))
@@ -349,12 +345,12 @@ var stacked;
 
 						//LEFT
 						if (d3.event.keyCode == 37) {
-							var sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && e.step_num==cur.step_num-1})
-							if(!sel.empty()) {console.log(sel); sel.each(onclick);}
+							var sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && cur.prev_step==e.step_num})
+							if(!sel.empty()) {sel.each(onclick);}
 						}
 						//RIGHT
 						else if (d3.event.keyCode == 39) {
-							var sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && e.step_num==cur.step_num+1})
+							var sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && e.prev_step==cur.step_num})
 							if(!sel.empty()) sel.each(onclick);
 						} 
 						//UP AND DOWN
@@ -377,7 +373,6 @@ var stacked;
 								else {
 									var a = $(".group.st"+cur.step_num+":lt("+cur.sect_num+"):parent:last")
 									if(a.length) {
-										console.log(a.children(),a.children("rect").last())
 										d3.select(a.children(".article").last().get([0])).each(onclick)
 									}
 								}
@@ -408,28 +403,25 @@ var stacked;
 				
 				
 				//functions for aligned layout
+                has_echec = sections.indexOf('echec') >= 0;
 				valign = function() {
-
+                    
 					for(var se=0; se<sections.length-1; se++) {
 						var ma=0;
 						var mx=0;
 						for(st in stages) {
 							a=d3.select(".se"+se+".st"+st).node().getBBox();
-							if(se==6) console.log("ci siamo",".se"+se+".st"+st, a, a.y+a.height )
-							if(a.y+a.height>=ma) ma=a.y+a.height;
+							if(a.y+a.height>=ma) ma=a.y+a.height+(has_echec && se ? 30 : 0);
 						}
-						if(se==6) console.log("ma",ma)
-						mx+=ma+30
+						mx+=ma+30;
 						d3.selectAll(".se"+(se+1))
-						//.transition().duration(500)
 						.attr("data-offset", function(d){
 							var b=d3.select(this).node().getBBox();
 							return mx-b.y;
 						})
 					}
 
-					d3.selectAll(".group")
-					.transition().duration(500)
+					d3.selectAll(".group").transition().duration(500)
 					.attr("transform",function(d){
 						if($(this).attr("data-offset")) return "translate(0,"+parseFloat($(this).attr('data-offset'))+")"
 						else return "translate(0,0)";
@@ -451,7 +443,7 @@ var stacked;
 					})
 					.attr("y2", function(d){
 						
-						var a=bigList.filter(function(e){return e.article===d.article && e.step_num==d.step_num+1 })[0]
+						var a=bigList.filter(function(e){return e.article===d.article && e.prev_step==d.step_num})[0]
 						if(!a.he) {
 							var he = $("g.se"+a.sect_num+".st"+a.step_num).attr("data-offset")
 							if(!he) he=0;
@@ -470,14 +462,13 @@ var stacked;
 					d3.selectAll("line").transition().duration(500)
 						.attr("y1", function(d) {return d.y + (lerp(d.length)) / 2})
 						.attr("y2", function(d){
-							var a=bigList.filter(function(e){return e.article===d.article && e.step_num==d.step_num+1 })[0]
+							var a=bigList.filter(function(e){return e.article===d.article && e.prev_step==d.step_num})[0]
 							return a.y + (lerp(a.length)) / 2;
 						})
 					}
 				
 				//on click behaviour
 				function onclick(d) {
-					console.log(d)
 					d3.selectAll("line").style("stroke", "#d0d0e0");
 
 					//STYLE OF CLICKED ELEMENT AND ROW
@@ -485,9 +476,8 @@ var stacked;
 					d3.selectAll(".article").call(styleRect);
 					d3.selectAll(".curr").classed("curr", false);
 					d3.select(this).classed("curr", true);
-					//Select the elements in same group
-					//datum = d3.select(this.parentNode)
 
+					//Select the elements in same group
 					d3.selectAll(".article").filter(function(e){return e.article==d.article})
 					.style("stroke", "#D80053").style("stroke-width", 1).style("fill", function(d) {
 						hsl = d3.rgb(d3.select(this).style("fill")).hsl()
@@ -534,6 +524,8 @@ var stacked;
                             s.css("height", h);
 						}
 					});
+                    if (aligned) valign();
+                    else stacked();
 				});
 
 				
