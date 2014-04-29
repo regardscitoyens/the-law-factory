@@ -21,7 +21,7 @@ var stacked;
         }
 
         function section_opacity(s) {
-            if (s === "echec") return 1;
+            if (s === "echec") return 0.35;
             if (s.lastIndexOf("A", 0) === 0)
                 return 0.65;
             return 1.25-0.3*s.match(/[LCVTS]+\d+/g).length;
@@ -200,7 +200,7 @@ var stacked;
 						.attr("y", function(d){return d.y-15})
 						.attr("class","header")
 						.attr("width", width / columns - 30)
-						.attr("height", 15)
+						.attr("height", function(d){return (d.section === 'echec' ? $("#viz").width() - 175 : 15)})
 						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#2553C2")})
 						.style("stroke", "none")
 						.style("opacity", function(d){return section_opacity(d.section)})
@@ -407,13 +407,13 @@ var stacked;
 				valign = function() {
                     
 					for(var se=0; se<sections.length-1; se++) {
-						var ma=0;
-						var mx=0;
+						var ma=0, mx=0, mam=0;
 						for(st in stages) {
-							a=d3.select(".se"+se+".st"+st).node().getBBox();
-							if(a.y+a.height>=ma) ma=a.y+a.height+(has_echec && se ? 30 : 0);
+                            a=d3.select(".se"+se+".st"+st).node().getBBox();
+                            mam=a.y+(has_echec && !se ? 0 : a.height);
+							if(mam>ma) ma=mam;
 						}
-						mx+=ma+30;
+						mx+=ma+(has_echec && !se ? 0 : 30);
 						d3.selectAll(".se"+(se+1))
 						.attr("data-offset", function(d){
 							var b=d3.select(this).node().getBBox();
