@@ -8,15 +8,16 @@ var stacked;
 
 	thelawfactory.mod1 = function() {
 
-        function format_section(s) {
+        function format_section(s, width, columns) {
+            var short_labels = (width < 90 * columns);
             if (s.lastIndexOf("A", 0) === 0)
-                return s.replace(/^A/, "Article ");
+                return s.replace(/^A/, "Art" + (short_labels ? ". " : "icle "));
             return s.replace(/^.*([LTCVS]+)(\d+)([\sa-z]*)$/, '$1 $2$3')
-                .replace("SS", "Sous-section")
-                .replace("S", "Section")
-                .replace("C", "Chapitre")
+                .replace("SS", (short_labels ? "S-Sec." : "Sous-section"))
+                .replace("S", (short_labels ? "Sect." : "Section"))
+                .replace("C", (short_labels ? "Chap." : "Chapitre"))
                 .replace("L", "Livre")
-                .replace("V", "Volume")
+                .replace("V", (short_labels ? "Vol." : "Volume"))
                 .replace("T", "Tome");
         }
 
@@ -217,7 +218,7 @@ var stacked;
 						.attr("font-size", "9px")
 						.attr("font-weight", "bold")
 						.style("fill", "#ffffff")
-						.text(function(d){return (d.section === 'echec' ? d.status : format_section(d.section))});
+						.text(function(d){return (d.section === 'echec' ? d.status : format_section(d.section, width, columns))});
 					}
 				}
 
