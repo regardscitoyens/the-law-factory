@@ -621,8 +621,7 @@
 
                     d3.selectAll(".tick-lbl").text(function (d, j) {
                         console.log(d, j)
-                        if (j == 0) return (j + 1) + " month";
-                        else return (j + 1) + " months"
+                        return (j + 1) + " mois"
                     })
                     d3.select(".timeline").transition().duration(500).style("opacity", 1)
 
@@ -898,9 +897,8 @@
                     step.append("div")
                         .attr("class", "bar-key")
                         .text(function () {
-                            if (e.key / 30 == 1) return e.key / 30 + " month";
-                            else if (e.key === threshold) return e.key / 30 + "+ months";
-                            else return e.key / 30 + " months";
+                            if (e.key === threshold) return e.key / 30 + "+ mois";
+                            else return e.key / 30 + " mois";
                         })
                         .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(w * 4 / 10), 12]) + "px");
                 })

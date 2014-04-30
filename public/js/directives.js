@@ -278,7 +278,7 @@ function(apiService, $rootScope, $location) {
 	return {
 		restrict : 'A',
 		replace : false,
-		template : '<input auto-complete id="search" placeholder="Search a law" ng-model="selected"><img ng-click="closeSearch()" class ="cls" src="img/cross.png"/> ',
+		template : '<input auto-complete id="search" placeholder="Chercher une loi" ng-model="selected"><img ng-click="closeSearch()" class ="cls" src="img/cross.png"/> ',
 		controller : function($scope, $element, $attrs) {
 
 			$scope.closeSearch = function() {
