@@ -338,6 +338,11 @@ function(apiService, $rootScope, $location) {
 								}
 							}));
 						},
+                        focus : function(event, ui) {
+                            event.preventDefault();
+                            $(".src-fcs").removeClass("src-fcs");
+                            $("."+ui.item.value).addClass("src-fcs");
+                        },
 						open : function() {
 
 							var h = $(".ui-autocomplete").position().top;
@@ -355,9 +360,18 @@ function(apiService, $rootScope, $location) {
 					})
 
                         .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-                        return $( "<li>" )
-                            .append( "<a id='"+item.value+"'>" +item.label + "</a>" )
-                            .append("<div class='src-themes'><b>THEMES </b>"+item.themes+"</div>")
+
+                        var icodiv=$("<div class='src-ico'>")
+                            .append("<div><span class='glyphicon glyphicon-folder-open'></span> "+item.amendements+"</div>")
+                            .append("<div><span class='glyphicon glyphicon-comment'></span> "+item.words+"</div>")
+                            .append("<div><span class='glyphicon glyphicon-tags'></span> "+item.themes+"</div>");
+
+                        var txtdiv=$("<div class='src-txt'>")
+                            .append( "<a>" +item.label + "</a>" )
+                            .append(icodiv)
+
+                        return $( "<li class="+item.value+">" )
+                            .append(txtdiv)
                             .appendTo( ul );
                     };
 

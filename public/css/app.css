@@ -450,13 +450,13 @@ ul.ui-autocomplete {
 	padding:8px 0px;
 	color:#333;
 }
-.ui-autocomplete li a:hover,.ui-autocomplete li a:focus,a.ui-corner-all:hover, .ui-menu .ui-menu-item a.ui-corner-all:focus, .ui-menu .ui-menu-item a.ui-corner-all:active
+/*.ui-autocomplete li a:hover,.ui-autocomplete li a:focus,a.ui-corner-all:hover, .ui-menu .ui-menu-item a.ui-corner-all:focus, .ui-menu .ui-menu-item a.ui-corner-all:active
 {
     color:white;
     background:#D80053;
     border:none;
     outline:none;
-}
+}*/
 
 .img-cont{
 	width:50px;
@@ -793,11 +793,41 @@ text {
     font-weight: bold;
 }
 
-.src-themes{
-    font-size:0.8em;
-    padding:0 0.4em;
-}
 .ui-menu-item{
     display: block;
-    margin-bottom:5px !important;
+    margin-bottom:10px !important;
+    border-bottom:1px solid #ccc;
+    overflow:hidden;
+    font-size:1em;
+}
+ .src-fcs{
+    background-color:#D80053 !important;
+    color:white !important;
+}
+
+.src-ico{
+    float:left;
+    padding-left:0.4em;
+    padding-right:0.4em;
+    margin-right:0.4em;
+    font-size:0.8em;
+    color:#555;
+}
+
+ .src-fcs .src-ico, .src-fcs .src-ico .glyphicon, .src-fcs a{
+    color:white !important;
+}
+
+
+
+.src-ico div{
+    float:left;
+    margin-right:1em;
+}
+.src-ico .glyphicon{
+    color:#999;
+}
+.src-txt{
+    display:block;
+    clear:both;
 }
