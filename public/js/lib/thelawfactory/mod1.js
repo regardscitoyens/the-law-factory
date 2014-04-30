@@ -404,22 +404,23 @@ var stacked;
 				
 				
 				//functions for aligned layout
-                has_echec = sections.indexOf('echec') >= 0;
+                var has_echec = sections.indexOf('echec') >= 0;
 				valign = function() {
-                    
-					for(var se=0; se<sections.length-1; se++) {
-						var ma=0, mx=0, mam=0;
-						for(st in stages) {
+                    var y0 = 0;
+					for(var se=0; se<sections.length; se++) {
+                        if (has_echec && se == 0) continue;
+                        var h = 0;
+                        for (st in stages) {
                             a=d3.select(".se"+se+".st"+st).node().getBBox();
-                            mam=a.y+(has_echec && !se ? 0 : a.height);
-							if(mam>ma) ma=mam;
+                            y0 = Math.max(y0, a.y);
+                            h = Math.max(h, a.height+20);
 						}
-						mx+=ma+(has_echec && !se ? 0 : 30);
-						d3.selectAll(".se"+(se+1))
+						d3.selectAll(".se"+(se))
 						.attr("data-offset", function(d){
 							var b=d3.select(this).node().getBBox();
-							return mx-b.y;
-						})
+							return y0-b.y;
+                        })
+                        y0 += h;
 					}
 
 					d3.selectAll(".group").transition().duration(500)
