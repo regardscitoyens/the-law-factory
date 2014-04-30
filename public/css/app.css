@@ -168,6 +168,12 @@ body{
 	-webkit-box-align:center;
 }
 
+.stage .renvoi{
+    color: red;
+    font-size: 8px;
+    text-transform: none;
+}
+
 @-moz-document url-prefix() { 
   .stage {
      padding:20px 10px 0 10px;

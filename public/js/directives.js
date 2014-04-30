@@ -49,7 +49,7 @@ function(apiService, $rootScope, $location, $compile) {
 					})
 					var len = 100 / scope.b.length;
 
-					var newElement = $compile( "<div class='stage-container' style='float:left; width:"+len+"%' ng-repeat='el in b'><div class='stage'>{{el.directory.split('_').slice(2,4).join(' ')}}<br/><a href='{{el.source_url}}'><span class='glyphicon glyphicon-link'></span></a></div></div>" )(scope);
+					var newElement = $compile( "<div class='stage-container' style='float:left; width:"+len+"%' ng-repeat='el in b'><div class='stage'>{{el.directory.split('_').slice(2,4).join(' ')}}<br/><a ng-if='el.source_url != \"renvoi en commission\"' href='{{el.source_url}}'><span class='glyphicon glyphicon-link'></span></a><span ng-if='el.source_url == \"renvoi en commission\"' class='renvoi'><br/>{{el.source_url}}</span></div></div>" )(scope);
 					element.find(".stages").append(newElement);
 				})
 			}
