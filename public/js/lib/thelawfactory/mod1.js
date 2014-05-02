@@ -144,7 +144,7 @@ var stacked;
 						.on("click",onclick)
 						.popover(function(d) {
 
-							var titre = d.article, section = d.section, status = d['id_step'].split('_').slice(1,4).join(', '), length = d['length'];
+							var titre = (d.art_newnum != undefined ? d.art_newnum + " (" + d.article + ")" : d.article), section = d.section, status = d['id_step'].split('_').slice(1,4).join(', '), length = d['length'];
 							var div;
 
 							div = d3.select(document.createElement("div")).style("height", "120px").style("width", "100%")
@@ -496,7 +496,7 @@ var stacked;
 					d3.select(this).style("stroke-dasharray", [3, 3])
 
 					
-					var titre = d.article, section = d.section, status = d['id_step'].split('_').slice(1,4).join(', '), length = d['length'];
+                    var titre = (d.art_newnum != undefined ? d.art_newnum + " (" + d.article + ")" : d.article), section = d.section, status = d['id_step'].split('_').slice(1,4).join(', '), length = d['length'];
 					$(".art-meta").html(
                         (section.lastIndexOf("A", 0) !== 0 ? "<p><b>Section :</b> " + section + "</p>" : "") +
                         "<p><b>Étape :</b> " + status + "</p>" + 
