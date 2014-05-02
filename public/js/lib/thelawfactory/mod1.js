@@ -8,11 +8,12 @@ var stacked;
 
 	thelawfactory.mod1 = function() {
 
-        function format_section(s, width, columns) {
+        function format_section(article, width, columns) {
             var short_labels = (width < 90 * columns);
-            if (s.lastIndexOf("A", 0) === 0)
-                return s.replace(/^A/, "Art" + (short_labels ? ". " : "icle "));
-            return s.replace(/^.*([LTCVS]+)(\d+)([\sa-z]*)$/, '$1 $2$3')
+            if (article.section.lastIndexOf("A", 0) === 0) {
+                return "Art" + (short_labels ? ". " : "icle ") + (article.art_newnum != undefined ? article.art_newnum + " (" + article.article + ")" : article.article);
+            }
+            return article.section.replace(/^.*([LTCVS]+)(\d+)([\sa-z]*)$/, '$1 $2$3')
                 .replace("SS", (short_labels ? "S-Sec." : "Sous-section"))
                 .replace("S", (short_labels ? "Sect." : "Section"))
                 .replace("C", (short_labels ? "Chap." : "Chapitre"))
@@ -218,7 +219,7 @@ var stacked;
 						.attr("font-size", "9px")
 						.attr("font-weight", "bold")
 						.style("fill", "#ffffff")
-						.text(function(d){return (d.section === 'echec' ? d.status : format_section(d.section, width, columns))});
+						.text(function(d){return (d.section === 'echec' ? d.status : format_section(d, width, columns))});
 					}
 				}
 
