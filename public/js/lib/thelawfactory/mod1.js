@@ -18,7 +18,7 @@ var stacked;
                 .replace("C", (short_labels ? "Chap." : "Chapitre"))
                 .replace("L", "Livre")
                 .replace("V", (short_labels ? "Vol." : "Volume"))
-                .replace("T", "Tome");
+                .replace("T", "Titre");
         }
 
         function section_opacity(s) {
@@ -496,14 +496,14 @@ var stacked;
 					d3.select(this).style("stroke-dasharray", [3, 3])
 
 					
-                    var titre = (d.art_newnum != undefined ? d.art_newnum + " (" + d.article + ")" : d.article), section = d.section, status = d['id_step'].split('_').slice(1,4).join(', '), length = d['length'];
+                    var titre = (d.art_newnum != undefined ? d.art_newnum + " (" + d.article + ")" : d.article), section = d.section, status = d['id_step'].split('_').slice(1,4).join(', ');
 					$(".art-meta").html(
-                        (section.lastIndexOf("A", 0) !== 0 ? "<p><b>Section :</b> " + section + "</p>" : "") +
+                        (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>Section :</b> " + d.section + "</p>" : "") +
                         "<p><b>Étape :</b> " + status + "</p>" + 
                         (d['status'] == "sup" ? "<p><b>Supprimé à cette étape.</b></p>" : "") +
                         "<p><b>Alinéas :</b></p>"
                     )
-					$("#text-title").text("Article " + d.article);
+					$("#text-title").text("Article " + titre);
 					$(".art-txt").html("<ul><li><span>" + $.map(d.textDiff, function(i) {
 						return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
 					}).join("</span></li><li><span>") + "</span></li></ul>")
