@@ -8,18 +8,50 @@ var stacked;
 
 	thelawfactory.mod1 = function() {
 
-        function format_section(article, width, columns) {
-            var short_labels = (width < 90 * columns);
-            if (article.section.lastIndexOf("A", 0) === 0) {
-                return "Art" + (short_labels ? ". " : "icle ") + (article.art_newnum != undefined ? article.art_newnum + " (" + article.article + ")" : article.article);
+        function titre_etape(article) {
+            return article['id_step'].split('_').slice(1,4).join(' — ')
+                .replace(/(\d)([eéè][rm]e?)/, '$1<sup>$2</sup> ')
+                .replace('senat', 'Sénat')
+                .replace('assemblee', 'AN')
+                .replace('CMP — CMP', 'CMP')
+                .replace('hemicycle', 'hémicycle')
+                .replace('depot', 'dépôt');
+        }
+
+        function clean_premier(s) {
+            return s.replace('<sup>er</sup>', '');
+        }
+
+        function titre_section(s, short_labels) {
+            var res = "",
+                s = s.split(/([LTCVS]+\d+[\sa-z]*)/);
+            for (var i in s) if (s[i]) {
+                res += (res ? " — " : "");
+                res += s[i].replace(/([LTCVS]+)(\d+e?r?)\s*([\sa-z]*)/, '$1 $2 $3')
+                    .replace(/(\d)er?/, '$1<sup>er</sup>')
+                    .replace("SS", (short_labels ? "S-Sec." : "Sous-section"))
+                    .replace("S", (short_labels ? "Sect." : "Section"))
+                    .replace("C", (short_labels ? "Chap." : "Chapitre"))
+                    .replace("L", "Livre")
+                    .replace("V", (short_labels ? "Vol." : "Volume"))
+                    .replace("T", "Titre");
             }
-            return article.section.replace(/^.*([LTCVS]+)(\d+)([\sa-z]*)$/, '$1 $2$3')
-                .replace("SS", (short_labels ? "S-Sec." : "Sous-section"))
-                .replace("S", (short_labels ? "Sect." : "Section"))
-                .replace("C", (short_labels ? "Chap." : "Chapitre"))
-                .replace("L", "Livre")
-                .replace("V", (short_labels ? "Vol." : "Volume"))
-                .replace("T", "Titre");
+            return res;
+        }
+
+        function titre_article(article, short_labels) {
+            return ("Art" + (short_labels ? ". " : "icle ") +
+                (article.art_newnum != undefined ? article.art_newnum + " (" + article.article + ")" : article.article))
+                .replace(/(\d)er?/, '$1<sup>er</sup>');
+        }
+
+        function format_section(article, length) {
+            if (article.section.lastIndexOf("A", 0) === 0)
+                return titre_article(article, (!length));
+            var res = article.section;
+            if (length < 2)
+                res = res.replace(/^.*([LTCVS]+\d+[\sa-z]*)$/, '$1');
+            return titre_section(res, (!length));
         }
 
         function section_opacity(s) {
@@ -60,7 +92,7 @@ var stacked;
 				var columns = stages.length
 				var sections = computeSections()
 				var sectJump = 40;
-				
+
 				art.forEach(function(d, i) {
 
 					d.steps.forEach(function(f, j) {
@@ -93,7 +125,7 @@ var stacked;
 							f.text.forEach(function(g, k) {
 								f.textDiff[k] = g
 							})
-							
+
 						bigList.push(f);
 					});
 				})
@@ -118,15 +150,50 @@ var stacked;
 					bottom : 20,
 					left : 0
 				}, width = $("#viz").width(), height = $(".text-container").height();
-				
+
 				//init coordinates
 				setCoordinates();
-				
+
 				//create SVG
 				var maxy = d3.max(bigList,function(d){return d.y+lerp(d.length)})
 				var svg = d3.select("#viz").append("svg").attr("width", "100%").attr("height", Math.max(height, maxy + 100)).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-				
-				
+
+                function article_hover(d) {
+                    var div = d3.select(document.createElement("div")).style("height", "120px").style("width", "100%")
+                    if (d.section.lastIndexOf("A", 0) !== 0)
+                      div.append("p").html("Section : " + format_section(d, 2));
+                    div.append("p").html("Étape : " + titre_etape(d))
+                    if (d['status'] != "sup") {
+                        if (d['n_diff'] == 0)
+                            div.append("p").text("Non modifié")
+                        else div.append("p").text("Modifications : " + d3.round(d['n_diff'] * 100, 2) + " %")
+                        div.append("p").text("Longueur du texte : " + d['length'] + " caractères")
+                    } else
+                        div.append("p").text("Supprimé à cette étape")
+                    return {
+                        title : clean_premier(titre_article(d, false)),
+                        content : div,
+                        placement : "mouse",
+                        gravity : "right",
+                        displacement : [10, -85],
+                        mousemove : true
+                    };
+				}
+
+                function section_hover(d) {
+                    var div = d3.select(document.createElement("div")).style("height", "120px").style("min-width", "100%").style("width", "100%")
+                    div.append("p").html("Titre : " + titre_section(d.section, false))
+                    div.append("p").html("Étape : " + titre_etape(d))
+                    return {
+                        title : clean_premier(format_section(d, 1)),
+                        content : div,
+                        placement : "mouse",
+                        gravity : "right",
+                        displacement : [10, -85],
+                        mousemove : true
+                    };
+				}
+
 				//draw everything
 				for(st in stages) {
 					for (se in sections) {
@@ -143,31 +210,7 @@ var stacked;
 						.attr("height", function(d){return lerp(d.length)})
 						.call(styleRect)
 						.on("click",onclick)
-						.popover(function(d) {
-
-							var titre = (d.art_newnum != undefined ? d.art_newnum + " (" + d.article + ")" : d.article), section = d.section, status = d['id_step'].split('_').slice(1,4).join(', '), length = d['length'];
-							var div;
-
-							div = d3.select(document.createElement("div")).style("height", "120px").style("width", "100%")
-						    if (section.lastIndexOf("A", 0) !== 0)
-                              div.append("p").text("Section : " + section);
-							div.append("p").text("Étape : " + status)
-                            if (d['status'] != "sup") {
-							    if (d['n_diff'] == 0)
-                                    div.append("p").text("Non modifié")
-                                else div.append("p").text("Modifications : " + d3.round(d['n_diff'] * 100, 2) + " %")
-								div.append("p").text("Longueur du texte : " + length + " caractères")
-							} else
-                                div.append("p").text("Supprimé à cette étape")
-							return {
-								title : "Article " + titre,
-								content : div,
-								placement : "mouse",
-								gravity : "right",
-								displacement : [10, -85],
-								mousemove : true
-							};
-						});
+						.popover(article_hover);
 
 						//Add green labels for new elements
 						group.selectAll(".new")
@@ -180,6 +223,8 @@ var stacked;
 						.attr("x", function(d){return d.x + 1})
 						.attr("height", function(d){return lerp(d.length) - 2})
 						.attr("width", 6)
+						.on("click",onclick)
+						.popover(article_hover);
 
 						//Add red labels for removed elements
 						group.selectAll(".sup")
@@ -192,7 +237,8 @@ var stacked;
 						.attr("x", function(d){return d.x + 1})
 						.attr("height", function(d){return lerp(d.length) - 2})
 						.attr("width", 6)
-
+						.on("click",onclick)
+						.popover(article_hover);
 
 						//Add headers
 						group.selectAll(".header")
@@ -207,6 +253,8 @@ var stacked;
 						.style("stroke", "none")
 						.style("opacity", function(d){return section_opacity(d.section)})
 						.style("stroke-width", "1px")
+						.popover(function(d){return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))})
+                        .filter(function(d){return d.section.lastIndexOf("A", 0) === 0}).on("click", onclick);
 
 						//Add header labels
 						group.selectAll(".head-lbl")
@@ -219,7 +267,9 @@ var stacked;
 						.attr("font-size", "9px")
 						.attr("font-weight", "bold")
 						.style("fill", "#ffffff")
-						.text(function(d){return (d.section === 'echec' ? d.status : format_section(d, width, columns))});
+						.text(function(d){return (d.section === 'echec' ? d.status : clean_premier(format_section(d, (width < 90 * columns ? 0 : 1))))})
+						.popover(function(d){return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))})
+                        .filter(function(d){return d.section.lastIndexOf("A", 0) === 0}).on("click", onclick);
 					}
 				}
 
@@ -258,11 +308,11 @@ var stacked;
 					.style("stroke-width", 1).style("stroke-dasharray", "none").style("fill", function(d) {
 						if (d.status == 'sup' || d.id_step.substr(-5) === "depot")
 							return '#fff';
-						else 
+						else
 							return diffcolor(d.n_diff);
 					});
 				}
-				
+
 				//Utility functions
 				function findStage(s) {
 
@@ -332,11 +382,10 @@ var stacked;
 								})
 								currY+=sectJump;
 							}
-						}	
+						}
 					}
 				}
-				
-				
+
 				//USE THE ARROWS
 				d3.select("body").on("keydown", function() {
 					if (d3.select(".curr").empty()) {
@@ -354,18 +403,18 @@ var stacked;
 						else if (d3.event.keyCode == 39) {
 							var sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && e.prev_step==cur.step_num})
 							if(!sel.empty()) sel.each(onclick);
-						} 
+						}
 						//UP AND DOWN
 						else if (d3.event.keyCode == 38 || d3.event.keyCode == 40) {
 
 							d3.event.preventDefault();
 
 							var g = $(".curr").parent()
-							
+
 							found = false;
 							end = false;
 							el = null;
-							
+
 							//UP
 							if (d3.event.keyCode == 38) {
 								curn=$(c.node())
@@ -378,23 +427,23 @@ var stacked;
 										d3.select(a.children(".article").last().get([0])).each(onclick)
 									}
 								}
-								
+
 							}
-							
+
 							//DOWN
 							else if(d3.event.keyCode == 40) {
-								
+
 								curn=$(c.node())
 								if(curn.next().length && d3.select(curn.next().get([0])).classed("article")) {
 									d3.select(curn.next().get([0])).each(onclick)
 								}
-								
+
 								else {
 									var a = $(".group.st"+cur.step_num+":gt("+cur.sect_num+"):parent")
 									if(a.length) {
 										d3.select(a.children().get([0])).each(onclick)
 									}
-									
+
 								}
 							}
 							d3.select(el).each(onclick);
@@ -402,8 +451,8 @@ var stacked;
 
 					}
 				});
-				
-				
+
+
 				//functions for aligned layout
                 var has_echec = sections.indexOf('echec') >= 0;
 				valign = function() {
@@ -445,7 +494,7 @@ var stacked;
 						return d.hs + d.y + (lerp(d.length)) / 2
 					})
 					.attr("y2", function(d){
-						
+
 						var a=bigList.filter(function(e){return e.article===d.article && e.prev_step==d.step_num})[0]
 						if(!a.he) {
 							var he = $("g.se"+a.sect_num+".st"+a.step_num).attr("data-offset")
@@ -455,8 +504,8 @@ var stacked;
 					return a.he + a.y + (lerp(a.length)) / 2;
 				})
 				}
-				
-				
+
+
 				//function for stacked layout
 				stacked = function() {
 					d3.selectAll(".group").transition().duration(500)
@@ -469,7 +518,7 @@ var stacked;
 							return a.y + (lerp(a.length)) / 2;
 						})
 					}
-				
+
 				//on click behaviour
 				function onclick(d) {
 					d3.selectAll("line").style("stroke", "#d0d0e0");
@@ -493,23 +542,20 @@ var stacked;
 					.style("stroke", "#D80053");
 
 					d3.rgb(d3.select(this).style("fill")).darker(2)
-
 					d3.select(this).style("stroke-dasharray", [3, 3])
 
-					
-                    var titre = (d.art_newnum != undefined ? d.art_newnum + " (" + d.article + ")" : d.article), section = d.section, status = d['id_step'].split('_').slice(1,4).join(', ');
 					$(".art-meta").html(
-                        (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>Section :</b> " + d.section + "</p>" : "") +
-                        "<p><b>Étape :</b> " + status + "</p>" + 
+                        (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>Section :</b> " + format_section(d, 2) + "</p>" : "") +
+                        "<p><b>Étape :</b> " + titre_etape(d) + "</p>" +
                         (d['status'] == "sup" ? "<p><b>Supprimé à cette étape.</b></p>" : "") +
                         "<p><b>Alinéas :</b></p>"
                     )
-					$("#text-title").text("Article " + titre);
+					$("#text-title").html(titre_article(d));
 					$(".art-txt").html("<ul><li><span>" + $.map(d.textDiff, function(i) {
 						return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
 					}).join("</span></li><li><span>") + "</span></li></ul>")
 				}
-				
+
 				$(document).ready(function() {
 					var s = $(".text");
 					var pos = s.offset();
@@ -531,7 +577,7 @@ var stacked;
                     else stacked();
 				});
 
-				
+
 		});
 	};
 	return vis;
