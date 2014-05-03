@@ -96,35 +96,33 @@ var stacked;
 				art.forEach(function(d, i) {
 
 					d.steps.forEach(function(f, j) {
-						f.textDiff = []
 						f.article = d.titre;
 						f.section = d.section;
                         f.prev_step = null;
 						f.sect_num=findSection(f.section)
 					    f.step_num=findStage(f.id_step)
-
+                        f.textDiff = "<ul><li>";
                         if (j != 0 && f.id_step.substr(-5) != "depot") {
                             k = j-1;
                             while (k > 0 && d.steps[k].status === "echec") {
                                 k--;
                             }
                             f.prev_step = d.steps[k].step_num;
-
                             lasttxt = d.steps[k].text;
-							if (!f.text.length)
-								lasttxt.forEach(function(g, k) {
-									f.textDiff[k] = diffString(g, " ")
-								})
-							else
-								f.text.forEach(function(g, k) {
-									if (!lasttxt[k])
-										lasttxt[k] = " ";
-									f.textDiff[k] = diffString(lasttxt[k], g)
-								})
-						} else
-							f.text.forEach(function(g, k) {
-								f.textDiff[k] = g
-							})
+                            var dmp = new diff_match_patch();
+                            dmp.Diff_Timeout = 5;
+                            dmp.Diff_EditCost = 100;
+                            var diff = dmp.diff_main(lasttxt.join("\n"), f.text.join("\n"));
+                            dmp.diff_cleanupEfficiency(diff);
+                            f.textDiff += dmp.diff_prettyHtml(diff)
+                                .replace(/\s*&para;<br>\s*(<\/span>)?/g, "</span></li><li><span>")
+                                .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
+                        } else {
+                            f.textDiff += "<span>" + $.map(f.text, function(i) {
+                                    return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
+                                }).join("</span></li><li><span>") + "</span>";
+                        }
+                        f.textDiff += "</li></ul>";
 
 						bigList.push(f);
 					});
@@ -553,9 +551,7 @@ var stacked;
                         "<p><b>Alinéas :</b></p>"
                     )
 					$("#text-title").html(titre_article(d));
-					$(".art-txt").html("<ul><li><span>" + $.map(d.textDiff, function(i) {
-						return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
-					}).join("</span></li><li><span>") + "</span></li></ul>")
+					$(".art-txt").html(d.textDiff);
 				}
 
 				$(document).ready(function() {

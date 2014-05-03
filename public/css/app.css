@@ -215,7 +215,7 @@ body{
 .art-txt ul li {
     margin-bottom: 8px;
 }
-.art-txt ul li span {
+.art-txt ul li span, .art-txt ul li del, .art-txt ul li ins {
     font-size: 1.5em;
 }
 .viz-container{
