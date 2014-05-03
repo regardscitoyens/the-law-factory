@@ -11,8 +11,10 @@ var stacked;
         function titre_etape(article) {
             return article['id_step'].split('_').slice(1,4).join(' — ')
                 .replace(/(\d)([eéè][rm]e?)/, '$1<sup>$2</sup> ')
+                .replace('nouv.lect.', 'nouvelle lecture')
+                .replace('l.définitive.', 'lecture définitive')
                 .replace('senat', 'Sénat')
-                .replace('assemblee', 'AN')
+                .replace('assemblee', 'Assemblée')
                 .replace('CMP — CMP', 'CMP')
                 .replace('hemicycle', 'hémicycle')
                 .replace('depot', 'dépôt');
@@ -28,7 +30,7 @@ var stacked;
             for (var i in s) if (s[i]) {
                 res += (res ? " — " : "");
                 res += s[i].replace(/([LTCVS]+)(\d+e?r?)\s*([\sa-z]*)/, '$1 $2 $3')
-                    .replace(/(\d)er?/, '$1<sup>er</sup>')
+                    .replace(/(\d)er?/g, '$1<sup>er</sup>')
                     .replace("SS", (short_labels ? "S-Sec." : "Sous-section"))
                     .replace("S", (short_labels ? "Sect." : "Section"))
                     .replace("C", (short_labels ? "Chap." : "Chapitre"))
