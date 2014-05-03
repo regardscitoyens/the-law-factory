@@ -25,7 +25,7 @@ var api_root;
 	console.log(artArray)
 	console.log("groups", groups)
 		
-        $(".text").css("height", $(".scrolling").height());
+        //$(".text").css("height", $(".scrolling").height());
 		
 		var w = $("#viz").width()-30,
 		    rw = $("#viz").width(),
@@ -191,7 +191,7 @@ var api_root;
         }
 
 		function select(d) {
-			
+			$(".text-container").show();
 			d3.selectAll(".actv-amd")
 			.style("fill",color)
 			.style("stroke","none" )

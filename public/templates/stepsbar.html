@@ -1,0 +1,44 @@
+<div id="stepsbar">
+
+    <div class="stb-stages">
+        <div class="stb-stage" style="width:{{(i.num/total)*100}}%"ng-repeat="i in stages">
+
+            <span>{{i.name}}</span>
+        </div>
+
+    </div>
+
+    <div class="stb-insts">
+        <div class="stb-inst {{i.name}}" style="width:{{(i.num/total)*100}}%"ng-repeat="i in inst">
+
+            <span>{{i.name}}</span>
+        </div>
+    </div>
+
+    <div class="stb-steps">
+        <div class="stb-step" ng-class="{'current': s === i.directory}" style="width:{{(1/total)*100}}%"ng-repeat="i in steps">
+            <div>
+                <span>{{i.step}}</span>
+            </div>
+            <div class="stb-links">
+
+                <a href="{{i.source_url}}"><span class="stb-link glyphicon glyphicon-link"></span></a>
+
+                <a class="stb-link stb-amds" ng-show="i.nb_amendements" href="mod2/?l={{l}}&s={{i.directory}}">
+                    <span class="glyphicon glyphicon-folder-open"></span>
+                </a>
+                <span ng-hide="i.nb_amendements" class="stb-link glyphicon glyphicon-folder-open low-vis"></span>
+
+                <a class="stb-link stb-ints" ng-show="i.has_interventions" href="mod2b/?l={{l}}&s={{i.directory}}">
+                    <span class="glyphicon glyphicon-comment"></span>
+                </a>
+                <span ng-hide="i.has_interventions" class="stb-link glyphicon glyphicon-comment low-vis"></span>
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

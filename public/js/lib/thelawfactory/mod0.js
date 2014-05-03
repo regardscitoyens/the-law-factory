@@ -811,7 +811,7 @@
                 };
 
                 function onclick(d) {
-                    console.log("clicked")
+                    $(".text-container").show();
                     d3.selectAll(".curr")
                         .classed("curr", false)
                         .style("fill", "#f3efed")
