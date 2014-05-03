@@ -236,7 +236,7 @@ sven.viz.streamkey = function(){
 			.style("fill", function(d, i) {col = d[0].color; if (col.s>0.5) col.s = 0.5; return col.toString(); })
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 			.on("mousemove",function(d){d3.select(".desc").attr("style","top: " + (d3.event.pageY - $(".desc").height() - 15) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2) + "px");})
-			d3.select("svg").on("click", function(){d3.select(this).selectAll("rect").transition().style("opacity",0.9); d3.select(this).selectAll("path").transition().attr("fill-opacity",0.3); $(".text-container").empty(); $("#text-title").html("Sélectionner un groupe d'orateurs");})
+			d3.select("svg").on("click", function(){ $(".text-container").hide(); d3.select(this).selectAll("rect").transition().style("opacity",0.9); d3.select(this).selectAll("path").transition().attr("fill-opacity",0.3); $(".text-container").empty(); $("#text-title").html("Sélectionner un groupe d'orateurs");})
 
 		var rect = layer.selectAll("rect")
 			.data(function(d) { return d; })
@@ -250,6 +250,7 @@ sven.viz.streamkey = function(){
 			.attr("height", barWidth)
 			.attr("display", "inline")
 			.on("click",function(d){
+                $(".text-container").show();
 				d3.event.stopPropagation();
 				svg.selectAll("g").selectAll("path").transition()
 				.attr("fill-opacity",0.1);
@@ -280,7 +281,7 @@ sven.viz.streamkey = function(){
 					$(div).append("<p><a class='orat-disc' href='"+g.value.link+"'>Lire les interventions</a></p>")
 					$(ordiv).append(div)
 					$(".text-container").append(ordiv)
-					$(".orat-info").width($(".text-container").width()*0.73)
+					$(".orat-info").width($(".text-container").width()*0.63)
 				})
 			})
 		   .filter(function(d){return d['value'] == null})

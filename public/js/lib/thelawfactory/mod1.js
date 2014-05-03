@@ -523,6 +523,7 @@ var stacked;
 
 				//on click behaviour
 				function onclick(d) {
+                    $(".text-container").show();
 					d3.selectAll("line").style("stroke", "#d0d0e0");
 
 					//STYLE OF CLICKED ELEMENT AND ROW
@@ -562,7 +563,7 @@ var stacked;
 					var s = $(".text");
 					var pos = s.offset();
                     var h = Math.min($(window).height(), $(".main").height()).toString() + "px";
-                    s.css("height", h);
+                    //s.css("height", h);
 					$(window).scroll(function() {
 						var windowpos = $(window).scrollTop();
 						if (windowpos >= pos.top) {

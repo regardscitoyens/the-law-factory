@@ -137,7 +137,6 @@ body{
 }
 .stages{
 	width:100%;
-	height:70px;
 	background-color:#F9F7F8;
 	color:#AFA19A;
 	text-align:center;
@@ -195,7 +194,7 @@ body{
 	width:18.33%;
 	float:left;
 	position:relative;
-	height:100%;
+	/*height:100%;*/
 }
 
 .text-container{
@@ -246,6 +245,7 @@ body{
 	font-weight: normal;
 	font-size:16px;
 	margin-top:0;
+    margin-bottom: 0 !important;
 }
 .labels div{
 	position: relative;
@@ -686,6 +686,22 @@ p.orat-name{
 }
 .text-container:empty {
 	padding:0;
+    height:0;
+}
+
+.mod1 .text-container{
+
+    max-height: none;
+}
+
+.text-container{
+    display:none;
+    max-height:542px;
+}
+
+.text:empty {
+    padding:0;
+    height:0 !important;
 }
 
 
@@ -836,4 +852,59 @@ text {
 .src-txt{
     display:block;
     clear:both;
+}
+
+
+/*STEPSBAR */
+
+#stepsbar{
+    width:100%;
+    border:1px solid #fff;
+    overflow:hidden;
+    text-transform: capitalize;
+}
+.stb-stages, .stb-insts, .stb-steps{
+    width:100%;
+    border-left:1px solid white;
+    border-right:1px solid white;
+    border-bottom:1px solid white;
+    overflow:hidden;
+}
+.stb-stage, .stb-inst, .stb-step{
+    float:left;
+    text-align: center;
+    border-left:1px solid white;
+    padding:5px 0;
+}
+
+#stepsbar a {
+    color:#AFA19A;
+    text-decoration: none;
+}
+
+.low-vis{
+    opacity: 0.1 !important;
+}
+.stb-link{
+    display:block;
+    width:33.3%;
+    float:left;
+    opacity:0.7;
+}
+.stb-links {
+    margin-top:5px;
+    min-height: 20px;
+    overflow: hidden;
+}
+.stb-inst.senat {
+    background-color:#e6c0ba;
+    color:white;
+}
+
+.stb-inst.assemblee {
+    background-color:#b6c5cc;
+    color:white;
+}
+.stb-step.current{
+  background-color: white;
 }
