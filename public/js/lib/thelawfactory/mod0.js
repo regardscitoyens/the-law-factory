@@ -900,7 +900,7 @@
                             if (e.key === threshold) return e.key / 30 + "+ mois";
                             else return e.key / 30 + " mois";
                         })
-                        .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(w * 4 / 10), 12]) + "px");
+                        .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(w * 4 / 10), 10]) + "px");
                 })
 
                 function groupStats(i, data) {

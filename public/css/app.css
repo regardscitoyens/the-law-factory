@@ -101,6 +101,7 @@ body{
 	height:75px;
 	background-color:#716259;
 	overflow:hidden;
+    margin-bottom:20px;
 }
 
 .title h4 {
@@ -298,7 +299,7 @@ ins {
     padding-top:30px;
 }
 .padded{
-	padding: 15px
+	padding: 20px 0;
 }
 
 .law-title{
@@ -318,7 +319,9 @@ ins {
 	width: 73.33%;
 	float: left;
 	height:590px;
-	
+}
+.mod0 .scrolling{
+    height:750px;
 }
 
 .labels-sc{
