@@ -215,7 +215,7 @@ body{
     margin-bottom: 8px;
 }
 .art-txt ul li span, .art-txt del, .art-txt ins {
-    font-size: 14px;
+    font-size: 1.5em;
 }
 .viz-container{
 	padding: 0 !important;
@@ -907,4 +907,8 @@ text {
 }
 .stb-step.current{
   background-color: white;
+}
+.stb-curr-st {
+    color:#D80053;
+    opacity:0.7 !important;
 }

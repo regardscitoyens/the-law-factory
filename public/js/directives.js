@@ -73,6 +73,7 @@ function(apiService, $rootScope, $location, $compile) {
 			$rootScope.l = $scope.l;
 			$scope.step = 0;
 			$scope.s = $rootScope.s = $location.search()['s'];
+            $scope.mod="mod2";
 			$scope.hasAmendements = true;
 			$scope.hasInterventions = true;
 
@@ -151,6 +152,7 @@ function(apiService, $rootScope, $location, $compile) {
 
 			$scope.l = "pjl09-602"
 			$scope.step = 0;
+            $scope.mod="mod2b";
 			$scope.s = $rootScope.s = $location.search()['s'];
 			$scope.hasAmendements = true;
 			$scope.hasInterventions = true;
