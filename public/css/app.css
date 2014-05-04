@@ -276,7 +276,10 @@ body{
     top:0px;
     right:0;
 }
-
+.popover{
+    min-width:200px;
+    min-height:250px;    
+}
 del {
 	background:#FFE6E6;
 }
