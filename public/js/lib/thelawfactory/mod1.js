@@ -181,7 +181,7 @@ var stacked;
                     div.append("p").html("<small>"+titre_etape(d)+"</small>");
                     if (d['status'] != "sup") {
                         if (d['n_diff'] == 0) div.append("p").text("Non modifié")
-                        else div.append("p").html("<small>Modifications : " + d3.round(d['n_diff'] * 100, 2) + " %</small>")
+                        else if (d.status != "new" && d.id_step.substr(-5) != "depot") div.append("p").html("<small>Modifications : " + d3.round(d['n_diff'] * 100, 2) + " %</small>")
                         div.append("p").html("<small>Longueur du texte : " + d['length'] + " caractères</small>")
                     } else div.append("p").text("Supprimé à cette étape");
                     return {
@@ -284,7 +284,7 @@ var stacked;
 						.attr("font-size", function(d){return (d.section === 'echec' ? '10px' : '9px')})
 						.attr("font-weight", "bold")
 						.style("fill", 'white')
-						.text(function(d){return (d.section === 'echec' ? d.status : clean_premier(format_section(data.sections[d.section][d.id_step] && data.sections[d.section][d.id_step].newnum != undefined ? data.sections[d.section][d.id_step] : d, (width < 120 * columns ? 0 : 1))))})
+						.text(function(d){return (d.section === 'echec' ? d.status : clean_premier(format_section(data.sections.length > 1 && data.sections[d.section][d.id_step] && data.sections[d.section][d.id_step].newnum != undefined ? data.sections[d.section][d.id_step] : d, (width < 120 * columns ? 0 : 1))))})
 						.popover(function(d){return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))})
                         .filter(function(d){return d.section.lastIndexOf("A", 0) === 0}).on("click", onclick);
 					}
