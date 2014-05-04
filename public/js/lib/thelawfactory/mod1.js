@@ -65,6 +65,21 @@ var stacked;
             return 1.25-0.3*s.match(/[LCVTS]+\d+/g).length;
         }
 
+        function diff_to_html(diffs) {
+          var html = [];
+          for (var x = 0; x < diffs.length; x++) {
+            var text = diffs[x][1].replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;').replace(/>/g, '&gt;'),
+              typ = 'span';
+            if (diffs[x][0] != 0) {
+              typ = 'del';
+              if (diffs[x][0] == 1) typ = 'ins';
+            }
+            html.push('<'+typ+'>'+text.replace(/\n/g, '</'+typ+'></li><li><'+typ+'>')+'</'+typ+'>');
+          }
+          return html.join('');
+        };
+
 		function vis(selection) {
 			selection.each(function(data) {
 
@@ -118,8 +133,7 @@ var stacked;
                             dmp.Diff_EditCost = 100;
                             var diff = dmp.diff_main(lasttxt.join("\n"), f.text.join("\n"));
                             dmp.diff_cleanupEfficiency(diff);
-                            f.textDiff += dmp.diff_prettyHtml(diff)
-                                .replace(/\s*&para;<br>\s*(<\/span>)?/g, "</span></li><li><span>")
+                            f.textDiff += diff_to_html(diff)
                                 .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
                         } else {
                             f.textDiff += "<span>" + $.map(f.text, function(i) {
@@ -127,7 +141,6 @@ var stacked;
                                 }).join("</span></li><li><span>") + "</span>";
                         }
                         f.textDiff += "</li></ul>";
-
 						bigList.push(f);
 					});
 				})
