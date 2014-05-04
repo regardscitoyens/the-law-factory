@@ -73,6 +73,7 @@ function(apiService, $rootScope, $location, $compile) {
 			$rootScope.l = $scope.l;
 			$scope.step = 0;
 			$scope.s = $rootScope.s = $location.search()['s'];
+            $scope.mod="mod2";
 			$scope.hasAmendements = true;
 			$scope.hasInterventions = true;
 
@@ -151,6 +152,7 @@ function(apiService, $rootScope, $location, $compile) {
 
 			$scope.l = "pjl09-602"
 			$scope.step = 0;
+            $scope.mod="mod2b";
 			$scope.s = $rootScope.s = $location.search()['s'];
 			$scope.hasAmendements = true;
 			$scope.hasInterventions = true;
@@ -321,7 +323,7 @@ function(apiService, $rootScope, $location) {
 
 							var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
 							response($.map($.grep(scope.ll, function(value) {
-                                value = value.title || value.id || value.themes;
+                                value = value.title +" "+ value.id +" "+ value.themes;
 								return matcher.test(value) || matcher.test( normalize( value ) );
 							}), function(n, i) {
 								return {

@@ -24,15 +24,15 @@
 
                 <a href="{{i.source_url}}"><span class="stb-link glyphicon glyphicon-link"></span></a>
 
-                <a class="stb-link stb-amds" ng-show="i.nb_amendements" href="mod2/?l={{l}}&s={{i.directory}}">
+                <a class="stb-link stb-amds" ng-show="i.nb_amendements && (s!=i.directory ||(s==i.directory && mod=='mod2b'))" href="mod2/?l={{l}}&s={{i.directory}}">
                     <span class="glyphicon glyphicon-folder-open"></span>
                 </a>
-                <span ng-hide="i.nb_amendements" class="stb-link glyphicon glyphicon-folder-open low-vis"></span>
+                <span ng-hide="i.nb_amendements && (s!=i.directory ||(s==i.directory && mod=='mod2b'))" class="stb-link glyphicon glyphicon-folder-open low-vis" ng-class="{'stb-curr-st':s==i.directory && mod=='mod2'}"></span>
 
-                <a class="stb-link stb-ints" ng-show="i.has_interventions" href="mod2b/?l={{l}}&s={{i.directory}}">
+                <a class="stb-link stb-ints" ng-show="i.has_interventions && (s!=i.directory ||(s==i.directory && mod=='mod2'))" href="mod2b/?l={{l}}&s={{i.directory}}">
                     <span class="glyphicon glyphicon-comment"></span>
                 </a>
-                <span ng-hide="i.has_interventions" class="stb-link glyphicon glyphicon-comment low-vis"></span>
+                <span ng-hide="i.has_interventions && (s!=i.directory ||(s==i.directory && mod=='mod2'))" class="stb-link glyphicon glyphicon-comment low-vis" ng-class="{'stb-curr-st':s==i.directory && mod=='mod2b'}"></span>
 
 
 
