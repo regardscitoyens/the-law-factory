@@ -323,7 +323,7 @@ function(apiService, $rootScope, $location) {
 
 							var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
 							response($.map($.grep(scope.ll, function(value) {
-                                value = value.title || value.id || value.themes;
+                                value = value.title +" "+ value.id +" "+ value.themes;
 								return matcher.test(value) || matcher.test( normalize( value ) );
 							}), function(n, i) {
 								return {
