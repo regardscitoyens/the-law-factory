@@ -206,6 +206,11 @@ body{
 	padding-top:10px;
 	
 }
+
+.art-txt{
+    padding-right: 30px;
+}
+
 .art-txt ul {
     list-style-type: decimal-leading-zero;
     margin: 0px;
@@ -221,9 +226,16 @@ body{
 .viz-container{
 	padding: 0 !important;
 }
-.mod1 .viz-container{
-	height:800px;
+
+.mod1 #viz {
+    height:500px;
+    overflow-y:auto;
 }
+.mod1 .text {
+    max-height:620px;
+    overflow-y:auto;
+}
+
 .mod2 .viz-container, .mod0 .viz-container{
     height: 100%;
 }
@@ -854,6 +866,7 @@ text {
 }
 .src-ico .glyphicon{
     color:#999;
+    padding-right:0.2em;
 }
 .src-txt{
     display:block;
@@ -919,11 +932,14 @@ text {
     opacity:0.7 !important;
 }
 
+/*END OF STEPSBAR */
+
 .btn-title, .btn-title:hover{
     float:right;
     display:inline-block;
     padding: 0 10px;
     cursor:pointer;
+    text-decoration: none;
     background-color:#716259;
     color:white;
     line-height:75px;

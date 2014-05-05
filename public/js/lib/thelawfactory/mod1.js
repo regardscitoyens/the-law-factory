@@ -580,7 +580,7 @@ var stacked;
 					var pos = s.offset();
                     var h = Math.min($(window).height(), $(".main").height()).toString() + "px";
                     //s.css("height", h);
-					$(window).scroll(function() {
+					/*$(window).scroll(function() {
 						var windowpos = $(window).scrollTop();
 						if (windowpos >= pos.top) {
 							s.addClass("stick");
@@ -591,7 +591,7 @@ var stacked;
 							s.css("left", "");
                             s.css("height", h);
 						}
-					});
+					})*/;
                     if (aligned) valign();
                     else stacked();
 				});
