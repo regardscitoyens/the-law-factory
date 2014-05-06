@@ -154,14 +154,14 @@ var stacked;
 					right : 10,
 					bottom : 20,
 					left : 0
-				}, width = $("#viz").width(), height = $(".text-container").height();
+				}, width = $("#viz").width();
 
 				//init coordinates
 				setCoordinates();
 
 				//create SVG
-				var maxy = d3.max(bigList,function(d){return d.y+lerp(d.length)})
-				var svg = d3.select("#viz").append("svg").attr("width", "100%").attr("height", Math.max(height, maxy + 100)).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+				var maxy = Math.max(d3.max(bigList,function(d){return d.y+lerp(d.length)}) + 50, $(".text-container").height())
+				var svg = d3.select("#viz").append("svg").attr("width", "100%").attr("height", maxy).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
                 function article_hover(d) {
                     var div = d3.select(document.createElement("div")).style("height", "120px").style("width", "100%");
@@ -252,7 +252,7 @@ var stacked;
 						.attr("y", function(d){return d.y-15})
 						.attr("class","header")
 						.attr("width", width / columns - 30)
-						.attr("height", function(d){return (d.section === 'echec' ? $("#viz").height()-100 : 15)})
+						.attr("height", function(d){return (d.section === 'echec' ? maxy-50 : 15)})
 						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#2553C2")})
 						.style("stroke", "none")
 						.style("opacity", function(d){return section_opacity(d.section)})
@@ -578,9 +578,9 @@ var stacked;
 				$(document).ready(function() {
 					var s = $(".text");
 					var pos = s.offset();
-                    var h = Math.min($(window).height(), $(".main").height()).toString() + "px";
-                    //s.css("height", h);
-					/*$(window).scroll(function() {
+                    /*var h = Math.min($(window).height(), $(".main").height()).toString() + "px";
+                    s.css("height", h);
+					$(window).scroll(function() {
 						var windowpos = $(window).scrollTop();
 						if (windowpos >= pos.top) {
 							s.addClass("stick");
