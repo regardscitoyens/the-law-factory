@@ -471,26 +471,46 @@ function(apiService, $rootScope, $location) {
 
                                 if(!currStage) {
                                     currStage={};
-                                    currStage.name= e.stage;
-                                    currStage.num= 1;
+                                    if(e.step==="depot") currStage.name="depot"
+                                    else currStage.name = e.stage;
+                                    currStage.num = 1;
                                 }
-                                else if(currStage.name === e.stage) {
+                                else if(currStage.name.toLowerCase() === e.stage.toLowerCase() || (currStage.name.indexOf("depot")>=0 && e.step.toLowerCase()==="depot")) {
+                                    if(currStage.name.indexOf("depot")>=0) currStage.name="depots"
                                     currStage.num++;
                                 }
                                 else {
                                     var obj = $.extend(true, {}, currStage);
                                     scope.stages.push(obj);
-                                    currStage.name= e.stage;
+                                    if(e.step==="depot") currStage.name="depot"
+                                    else currStage.name = e.stage;
                                     currStage.num=1;
                                 }
 
                                 if(e.step==="depot") {
-                                    if(!currInst) currInst={}
-                                    currInst.name="depot"
-                                    currInst.num=1;
+                                    if(!currInst) {
+                                        currInst={};
+                                        currInst.name = e.auteur_depot;
+                                        currInst.num = 1;
+                                    }
+
+                                    else if(currInst.name!==e.auteur_depot) {
+                                        var obj = $.extend(true, {}, currInst);
+                                        scope.inst.push(obj);
+                                        currInst.name = e.auteur_depot;
+                                        currInst.num = 1;
+                                    }
+                                    else currInst.num++;
                                 }
                                 else {
-                                    if(e.institution === currInst.name) {
+
+                                    if(!currInst) {
+                                        currInst={};
+                                        currInst.name= e.institution;
+                                        currInst.num=1;
+                                    }
+
+                                    else if(e.institution === currInst.name) {
                                         currInst.num++;
                                     }
                                     else {

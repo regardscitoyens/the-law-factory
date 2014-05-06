@@ -889,10 +889,17 @@ text {
     border-bottom:1px solid white;
     overflow:hidden;
 }
+
+.stb-stage:nth-child(even), .stb-step:nth-child(even) {
+    background-color:rgba(1,1,1,0.03);
+}
+
+
+
 .stb-stage, .stb-inst, .stb-step{
     float:left;
     text-align: center;
-    border-left:1px solid white;
+    border-left:2px solid white;
     padding:5px 0;
 }
 
@@ -917,6 +924,11 @@ text {
 }
 .stb-inst.senat {
     background-color:#e6c0ba;
+    color:white;
+}
+
+.stb-inst.cmp {
+    background-color:rgb(231, 221, 158);
     color:white;
 }
 
