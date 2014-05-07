@@ -957,3 +957,12 @@ text {
     color:white;
     line-height:75px;
 }
+
+#preload{
+    position:relative;
+    width:100%;
+    text-align: center;
+}
+.spinner {
+    margin-top:10%;
+}

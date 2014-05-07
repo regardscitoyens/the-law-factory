@@ -293,8 +293,8 @@ var api_root;
                         if (a.sort > b.sort) return 1;
                     }
 					else {
-                        if (a.groupe < b.groupe) return 1;
-                        if (a.groupe > b.groupe) return -1;
+                        if (a.groupe < b.groupe) return -1;
+                        if (a.groupe > b.groupe) return 1;
                     }
 				})
 				$("svg").empty();
@@ -311,8 +311,8 @@ var api_root;
                             if (a.sort > b.sort) return 1;
                         }
                         else {
-                            if (a.groupe < b.groupe) return 1;
-                            if (a.groupe > b.groupe) return -1;
+                            if (a.groupe < b.groupe) return -1;
+                            if (a.groupe > b.groupe) return 1;
                         }
 					})
 				})
@@ -327,8 +327,8 @@ var api_root;
 			if(grouped) {
 				grouped['amendements'].sort(function(a,b){
                     if(a.groupe!= b.groupe) {
-                        if (a.groupe < b.groupe) return 1;
-                        if (a.groupe > b.groupe) return -1;
+                        if (a.groupe < b.groupe) return -1;
+                        if (a.groupe > b.groupe) return 1;
                     }
                         else {
                             if (a.sort < b.sort) return -1;
@@ -346,8 +346,8 @@ var api_root;
 				artArray.forEach(function(d,i) {
 					d['amendements'].sort(function(a,b){
                         if(a.groupe!= b.groupe) {
-                            if (a.groupe < b.groupe) return 1;
-                            if (a.groupe > b.groupe) return -1;
+                            if (a.groupe < b.groupe) return -1;
+                            if (a.groupe > b.groupe) return 1;
                         }
                         else {
                             if (a.sort < b.sort) return -1;

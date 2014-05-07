@@ -29,19 +29,26 @@ function(apiService, $rootScope, $location, $compile) {
 
 
 			function update() {
+
+                var target = document.getElementById('preload');
+                var spinner = new Spinner(scope.opts).spin(target);
+
 				$(".lawlist").css("display", "none")
 
 				apiService.getDataSample(scope.dataUrl + l).then(function(data) {
 					scope.dataSample = data;
 					d3.select(element[0]).datum(data).call(mod1)
+
 				}, function(error) {
 					scope.error = error
 				})
 
-				apiService.getDataSample(scope.procedureUrl + l).then(function(data) {
+                spinner.stop();
+
+				/*apiService.getDataSample(scope.procedureUrl + l).then(function(data) {
 					var a = data.steps[data.steps.length - 1].source_url
 					//$(".separator").html('<h4 class="law-title">' + capitalize(data.long_title) + '</h4><span class="links"><a href="' + data.url_dossier_senat + '"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a><br/><a href="' + data.url_dossier_assemblee + '"><span class="glyphicon glyphicon-link"></span> dossier AN</a></span>')
-					/*scope.b = data.steps.filter(function(d) {
+					scope.b = data.steps.filter(function(d) {
 						return d.debats_order != null
 					})
 					scope.b.sort(function(a, b) {
@@ -50,8 +57,8 @@ function(apiService, $rootScope, $location, $compile) {
 					var len = 100 / scope.b.length;
 
 					var newElement = $compile( "<div class='stage-container' style='float:left; width:"+len+"%' ng-repeat='el in b'><div class='stage'>{{el.directory.split('_').slice(2,4).join(' ')}}<br/><a ng-if='el.source_url != \"renvoi en commission\"' href='{{el.source_url}}'><span class='glyphicon glyphicon-link'></span></a><span ng-if='el.source_url == \"renvoi en commission\"' class='renvoi'><br/>{{el.source_url}}</span></div></div>" )(scope);
-					element.find(".stages").append(newElement);*/
-				})
+					element.find(".stages").append(newElement);
+				})*/
 			}
 
 
@@ -103,6 +110,10 @@ function(apiService, $rootScope, $location, $compile) {
 			var mod2 = thelawfactory.mod2();
 
 			function update() {
+
+                var target = document.getElementById('preload');
+                var spinner = new Spinner(scope.opts).spin(target);
+
 				$(".lawlist").css("display", "none")
 				apiService.getDataSample(scope.procedureUrl + scope.l + "?sect=amd").then(function(data) {
 
@@ -125,6 +136,8 @@ function(apiService, $rootScope, $location, $compile) {
 
 							scope.data = data;
 							d3.select(element[0]).datum(data).call(mod2)
+
+                            spinner.stop();
 
 						}, function(error) {
 							scope.error = error
@@ -184,6 +197,9 @@ function(apiService, $rootScope, $location, $compile) {
 			function update() {
 				$(".lawlist").css("display", "none")
 
+                var target = document.getElementById('preload');
+                var spinner = new Spinner(scope.opts).spin(target);
+
 				/*apiService.getDataSample(scope.procedureUrl + scope.l + "?sect=int").then(function(data) {
 
 					scope.dataSample = data;
@@ -201,6 +217,8 @@ function(apiService, $rootScope, $location, $compile) {
 						console.log(data)
 						scope.data = data;
 						init(data, $location.search()['s'])
+
+                        spinner.stop();
 
 					}, function(error) {
 						scope.error = error
@@ -245,6 +263,10 @@ function(apiService, $rootScope, $location, $compile) {
 			var mod0_bars = thelawfactory.mod0_bars();
 			
 			function update() {
+
+                var target = document.getElementById('preload');
+                var spinner = new Spinner(scope.opts).spin(target);
+
 				$(".lawlist").css("display", "none")
 
 
@@ -263,6 +285,8 @@ function(apiService, $rootScope, $location, $compile) {
 				}, function(error) {
 					console.log(error)
 				})
+
+                spinner.stop();
 			}
 			scope.$watch('amdUrl', function() {
 				update();
