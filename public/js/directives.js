@@ -382,10 +382,17 @@ function(apiService, $rootScope, $location) {
 
                         .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
 
+                        var themesdiv=$("<div>")
+                        var thms=item.themes.split(", ");
+                        thms.forEach(function(e,j){
+                            themesdiv.append("<span class='glyphicon glyphicon-tag'></span> "+e+" ");
+                        })
+
+
                         var icodiv=$("<div class='src-ico'>")
                             .append("<div><span class='glyphicon glyphicon-folder-open'></span> "+item.amendements+"</div>")
                             .append("<div><span class='glyphicon glyphicon-comment'></span> "+item.words+"</div>")
-                            .append("<div><span class='glyphicon glyphicon-tags'></span> "+item.themes+"</div>");
+                            .append(themesdiv);
 
                         var txtdiv=$("<div class='src-txt'>")
                             .append( "<a>" +item.label + "</a>" )

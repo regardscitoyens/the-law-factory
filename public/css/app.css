@@ -867,7 +867,8 @@ text {
 }
 .src-ico .glyphicon{
     color:#999;
-    padding-right:0.2em;
+    padding-right:0.02em;
+    padding-left:0.4em;
 }
 .src-txt{
     display:block;
