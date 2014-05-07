@@ -288,9 +288,14 @@ var api_root;
 			console.log(artArray)
 			if(grouped) {
 				grouped['amendements'].sort(function(a,b){
-					if (a.sort < b.sort) return -1;
-					if (a.sort > b.sort) return 1;
-					return 0;
+                    if(a.sort!= b.sort) {
+                        if (a.sort < b.sort) return -1;
+                        if (a.sort > b.sort) return 1;
+                    }
+					else {
+                        if (a.groupe < b.groupe) return 1;
+                        if (a.groupe > b.groupe) return -1;
+                    }
 				})
 				$("svg").empty();
 				//$(".art-list").empty();
@@ -301,9 +306,14 @@ var api_root;
 			else {
 				artArray.forEach(function(d,i) {
 					d['amendements'].sort(function(a,b){
-						if (a.sort < b.sort) return -1;
-					if (a.sort > b.sort) return 1;
-					return 0;
+                        if(a.sort!= b.sort) {
+                            if (a.sort < b.sort) return -1;
+                            if (a.sort > b.sort) return 1;
+                        }
+                        else {
+                            if (a.groupe < b.groupe) return 1;
+                            if (a.groupe > b.groupe) return -1;
+                        }
 					})
 				})
 				$("svg").empty();
@@ -316,10 +326,16 @@ var api_root;
 			console.log(artArray)
 			if(grouped) {
 				grouped['amendements'].sort(function(a,b){
-					if (a.groupe < b.groupe) return 1;
-					if (a.groupe > b.groupe) return -1;
-					return 0;
-				})
+                    if(a.groupe!= b.groupe) {
+                        if (a.groupe < b.groupe) return 1;
+                        if (a.groupe > b.groupe) return -1;
+                    }
+                        else {
+                            if (a.sort < b.sort) return -1;
+                            if (a.sort > b.sort) return 1;
+                    }
+
+                })
 				$("svg").empty();
 				//$(".art-list").empty();
 				$(".text-container").empty();
@@ -329,9 +345,14 @@ var api_root;
 			else {
 				artArray.forEach(function(d,i) {
 					d['amendements'].sort(function(a,b){
-						if (a.groupe < b.groupe) return 1;
-					if (a.groupe > b.groupe) return -1;
-					return 0;
+                        if(a.groupe!= b.groupe) {
+                            if (a.groupe < b.groupe) return 1;
+                            if (a.groupe > b.groupe) return -1;
+                        }
+                        else {
+                            if (a.sort < b.sort) return -1;
+                            if (a.sort > b.sort) return 1;
+                        }
 					})
 				})
 				$("svg").empty();

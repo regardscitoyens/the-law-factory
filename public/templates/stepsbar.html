@@ -3,7 +3,7 @@
     <div class="stb-stages">
         <div class="stb-stage" style="width:{{(i.num/total)*100}}%"ng-repeat="i in stages">
 
-            <span>{{total>10 ? findShortName(i.name) : i.name}}</span>
+            <span>{{total>10 ? findShortName(i.name) : findLongName(i.name)}}</span>
         </div>
 
     </div>
@@ -11,14 +11,14 @@
     <div class="stb-insts">
         <div class="stb-inst {{string_to_slug(i.name)}}" style="width:{{(i.num/total)*100}}%"ng-repeat="i in inst">
 
-            <span>{{total>10 ? findShortName(i.name) : i.name}}</span>
+            <span>{{total>10 ? findShortName(i.name) : findLongName(i.name)}}</span>
         </div>
     </div>
 
     <div class="stb-steps">
         <div class="stb-step" ng-class="{'current': s === i.directory}" style="width:{{(1/total)*100}}%"ng-repeat="i in steps">
             <div>
-                <span>{{total>10 ? findShortName(i.step) : i.step}}</span>
+                <span>{{stepLabel(i)}}</span>
             </div>
             <div class="stb-links">
 

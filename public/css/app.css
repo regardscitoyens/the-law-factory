@@ -319,6 +319,7 @@ ins {
 	font-size: 16px;
 	margin-top: 20px;
     float: left;
+    width:80%;
 }
 .separator .links{
     float: right;
