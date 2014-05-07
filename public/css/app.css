@@ -967,3 +967,20 @@ text {
 .spinner {
     margin-top:10%;
 }
+
+noscript {
+    margin-left:2%;
+    display: block;
+    text-align: center;
+    margin:0 auto;
+    width:90%;
+}
+
+noscript span {
+    font-size:1.4em;
+}
+
+noscript h2 {
+    font-size:3em;
+    color: #700;
+}
