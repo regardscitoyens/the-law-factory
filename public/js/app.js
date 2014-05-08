@@ -15,7 +15,6 @@ config(function ($routeProvider, $locationProvider) {
     .when('/mod1',{templateUrl: 'partials/mod1', controller: 'mainCtrl'})
     .when('/mod2',{templateUrl: 'partials/mod2', controller: 'mainCtrl'})
     .when('/mod2b',{templateUrl: 'partials/mod2b', controller: 'mainCtrl'})
-    //.when('/mod0',{templateUrl: 'partials/mod2', controller: 'mainCtrl'})
     .otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
 });

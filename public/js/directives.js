@@ -12,6 +12,7 @@ function(apiService, $rootScope, $location, $compile) {
 
             $rootScope.s=null;
 			var l = "pjl12-719"
+            scope.mod="mod1";
             scope.s=null;
 			if ($location.search()['l'] != null)
 				l = $location.search()['l'];
