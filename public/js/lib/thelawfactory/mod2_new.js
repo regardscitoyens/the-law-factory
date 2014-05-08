@@ -13,6 +13,12 @@ var api_root;
 
   thelawfactory.mod2 = function(){
 
+    function get_status_img(e){
+        if(e.sort==="adopté") return "img/ok.png";
+        else if(e.sort==="rejeté") return "img/ko.png";
+        else if(e.sort==="non-voté") return "img/nd.png";
+    }
+
   	function vis(selection){
     	
 		var groups,articles;
@@ -47,10 +53,6 @@ var api_root;
 
 	
 	artArray=d3.values(articles).sort(function(a,b){return a.order-b.order})
-	console.log(artArray)
-	console.log("groups", groups)
-		
-        //$(".text").css("height", $(".scrolling").height());
 		
 		var w = $("#viz").width()-30,
 		    rw = $("#viz").width(),
@@ -68,15 +70,12 @@ var api_root;
 
         drawMerged = function() {
             $("svg").empty();
-
             if(!grouped) {
                 grouped = {titre:'all articles',key: 'all articles', amendements:[]}
-
                 artArray.forEach(function(d,i) {
                     grouped.amendements=grouped.amendements.concat(d.amendements)
                 })
             }
-            console.log(grouped)
             jumpLines=0
             drawLines(grouped,0)
         }
@@ -96,121 +95,64 @@ var api_root;
 
         }
 
+        var compare_partys = function(a,b){
+                if (groups[a].order < groups[b].order) return -1;
+                if (groups[a].order > groups[b].order) return 1;
+            },
+            statsorder = {"adopté": 0, "rejeté": 1, "non-voté": 2},
+            compare_stats = function(a,b){
+                if (statsorder[a] < statsorder[b]) return -1;
+                if (statsorder[a] > statsorder[b]) return 1;
+            },
+            compare_by_party = function(a,b){
+                if (a.groupe != b.groupe) return compare_partys(a.groupe, b.groupe);
+                if (a.sort != b.sort) return compare_stats(a.sort, b.sort);
+                return a.numero - b.numero;
+            },
+            compare_by_stat = function(a,b){
+                if (a.sort != b.sort) return compare_stats(a.sort, b.sort);
+                if (a.groupe != b.groupe) return compare_partys(a.groupe, b.groupe);
+                return a.numero - b.numero;
+            };
 
         sortByStat = function() {
-            console.log(artArray)
-            if(grouped) {
-                grouped['amendements'].sort(function(a,b){
-                    if(a.sort!= b.sort) {
-                        if (a.sort < b.sort) return -1;
-                        if (a.sort > b.sort) return 1;
-                    }
-                    else {
-                        if (a.groupe < b.groupe) return -1;
-                        if (a.groupe > b.groupe) return 1;
-                    }
-                })
-                $("svg").empty();
-                //$(".art-list").empty();
-                $(".text-container").empty();
+            $("svg").empty();
+            $(".text-container").empty();
+            if (grouped) {
+                grouped['amendements'].sort(compare_by_stat);
                 drawMerged();
-
-            }
-            else {
+            } else {
                 artArray.forEach(function(d,i) {
-                    d['amendements'].sort(function(a,b){
-                        if(a.sort!= b.sort) {
-                            if (a.sort < b.sort) return -1;
-                            if (a.sort > b.sort) return 1;
-                        }
-                        else {
-                            if (a.groupe < b.groupe) return -1;
-                            if (a.groupe > b.groupe) return 1;
-                        }
-                    })
+                    d['amendements'].sort(compare_by_stat);
                 });
-                $("svg").empty();
-                $(".text-container").empty();
                 draw();
             }
         };
 
         sortByParty = function() {
-
-            if(grouped) {
-                grouped['amendements'].sort(function(a,b){
-                    if(a.groupe!= b.groupe) {
-                        if (a.groupe < b.groupe) return -1;
-                        if (a.groupe > b.groupe) return 1;
-                    }
-                    else {
-                        if (a.sort < b.sort) return -1;
-                        if (a.sort > b.sort) return 1;
-                    }
-
-                });
-                $("svg").empty();
-                //$(".art-list").empty();
-                $(".text-container").empty();
+            $("svg").empty();
+            $(".text-container").empty();
+            if (grouped) {
+                grouped['amendements'].sort(compare_by_party);
                 drawMerged();
-
-            }
-            else {
+            } else {
                 artArray.forEach(function(d,i) {
-                    d['amendements'].sort(function(a,b){
-                        if(a.groupe!= b.groupe) {
-                            if (a.groupe < b.groupe) return -1;
-                            if (a.groupe > b.groupe) return 1;
-                        }
-                        else {
-                            if (a.sort < b.sort) return -1;
-                            if (a.sort > b.sort) return 1;
-                        }
-                    })
+                    d['amendements'].sort(compare_by_party);
                 });
-                $("svg").empty();
-                $(".text-container").empty();
                 draw();
             }
         };
 
-
-
-        sortByDate = function() {
-
-            if(grouped) {
-                grouped['amendements'].sort(function(a,b){
-                    return Date.parse(a.date) - Date.parse(b.date)
-                })
-                $("svg").empty();
-                $(".text-container").empty();
-                drawMerged();
-
-            }
-            else {
-                artArray.forEach(function(d,i) {
-                    d['amendements'].sort(function(a,b){
-                        return Date.parse(a.date) - Date.parse(b.date)
-                    })
-                })
-                $("svg").empty();
-                $(".text-container").empty();
-                draw();
-            }
-        };
-		    
-	draw = function() {
-		jumpLines=0
-		$("svg").empty();
-		artArray.forEach(function(d,i) {
-			drawLines(d,i)
-		})
+        draw = function() {
+            jumpLines=0
+            $("svg").empty();
+            artArray.forEach(function(d,i) {
+                drawLines(d,i)
+            })
+            
+            grouped=null;
+        }
 		
-		grouped=null;
-	}
-		
-        sortByParty();
-        
         function drawLines(d,i) {
           len = d.amendements.length;
 		  lines = Math.ceil(len/x);
@@ -256,15 +198,35 @@ var api_root;
 		.style("fill","#333")
 		.attr("font-size","0.85em")
 		.text(d.titre)
-        .on("click",function(){selectRow(d.titre.toLowerCase().replace(/ |'/g, '_'),false)})
+        .on("click",function(){selectRow(d.titre.toLowerCase().replace(/ |'/g, '_'),false)});
 		
+        var popover = function(d){
+          var titre = d.numero,
+              date = d.date,
+              gr = d.groupe,
+              status = d.sort,
+              div = d3.select(document.createElement("div"))
+                .style("height", "120px")
+                .style("width", "100%")
+                .attr("class","popup-mod2");
+          div.append("p").html("<b>Date :</b> " + date+"<br/><br/>");
+          div.append("p").html("<b>Groupe politique :</b> " + gr+"<br/><br/>");
+          div.append("p").html("<b>Sort :</b> " + status+"<br/><br/>")
+          return {        
+              title: "Amendement " + titre,
+              content: div ,
+              placement: "mouse",
+              gravity: "right",
+              displacement: [10, -90],          
+              mousemove: true
+          };
+        }
 		
-		  var amds = curRow
+		var amds = curRow
 		  .selectAll(".amd")
 		  .data(d.amendements)
 		  .enter();
-		
-		  amds.append("rect")
+		amds.append("rect")
 		  .attr("x", function(f,i){ return (i % x) * z +21 })
 		  .attr("y", function(f,i){ return Math.floor(i / x) * z + 21 })
 		  .attr("width", z-2)
@@ -273,103 +235,42 @@ var api_root;
 		  .attr("ry",2)
 		  .attr("class","amd")
 		  .style("fill", color)
-  			.popover(function(d){
-
-              var titre = d.numero,
-                  date = d.date,
-                  gr = d.groupe,
-                  status = d.sort;
- 
-              var div;
-              div = d3.select(document.createElement("div"))
-                    .style("height", "120px")
-                    .style("width", "100%")
-                    .attr("class","popup-mod2")
-                    
-              div.append("p").html("<b>Date :</b> " + date+"<br/><br/>")
-              div.append("p").html("<b>Group :</b> " + gr+"<br/><br/>")
-              div.append("p").html("<b>Status :</b> " + status+"<br/><br/>")
-
-              return {        
-              title: "Amendement " + titre,
-              content: div ,
-              placement: "mouse",
-              gravity: "right",
-              displacement: [10, -90],          
-              mousemove: true
-              };
-            })
-            .on("click",select);
+  		  .popover(popover)
+          .on("click",select);
             
-            
-            
-            var imgs = curRow.selectAll("image").data(d.amendements).enter();
-            
-            imgs.append("svg:image")
+        var imgs = curRow
+          .selectAll("image")
+          .data(d.amendements)
+          .enter();
+        imgs.append("svg:image")
             .attr("x", function(f,i){ return (i % x) * z +25 })
 		    .attr("y", function(f,i){ return Math.floor(i / x) * z + 25 })
 		    .attr("width", z-10)
 		    .attr("height", z-10)
-		    .attr("xlink:href",function(e){
-		    	if(e.sort==="adopté") return "img/ok.png";
-		    	else if(e.sort==="rejeté") return "img/ko.png";
-		    	else if(e.sort==="non-voté") return "img/nd.png"})
-		    .popover(function(d){
-
-              var titre = d.numero,
-                  date = d.date,
-                  gr = d.groupe,
-                  status = d.sort;
- 
-              var div;
-              div = d3.select(document.createElement("div"))
-                    .style("height", "120px")
-                    .style("width", "100%")
-                    .attr("class","popup-mod2")
-                    
-              div.append("p").html("<b>Date :</b> " + date+"<br/><br/>")
-              div.append("p").html("<b>Group :</b> " + gr+"<br/><br/>")
-              div.append("p").html("<b>Status :</b> " + status+"<br/><br/>")
-
-              return {        
-              title: "Amendement " + titre,
-              content: div ,
-              placement: "mouse",
-              gravity: "right",
-              displacement: [10, -90],          
-              mousemove: true
-              };
-            })
+		    .attr("xlink:href",get_status_img)
+		    .popover(popover)
             .on("click",select);
-            
             
         var a = d3.select("svg").select("g:last-child").attr("data-offset")
 		var ah = d3.select("svg").select("g:last-child").node().getBBox().height;
-		console.log(a,ah)
 		svg.attr("height",parseInt(a)+ah+20)
 
         }
 
 		function select(d) {
 
-
-            console.log(d)
             d3.event.stopPropagation()
 			$(".text-container").show();
 			d3.selectAll(".actv-amd")
 			.style("fill",color)
 			.style("stroke","none" )
 			.classed("actv-amd",false);
-			
 
 			d3.json(api_root+d.id_api+'/json',function(error,json){
 				var currAmd = json.amendement,
                     source_am = '.fr</a> &mdash; <a href="'+currAmd.source+'">',
-                    statico,
+                    statico = get_status_img(d),
                     col = color(d);
-                if (d.sort==="adopté") statico = "img/ok.png";
-                else if(d.sort==="rejeté") statico = "img/ko.png";
-                else if(d.sort==="non-voté") statico = "img/nd.png";
                 if (currAmd.url_nosdeputes) source_am = '<a href="'+currAmd.url_nosdeputes+'">NosDéputés'+source_am+'Assemblée nationale</a>';
                 else if(currAmd.url_nossenateurs) source_am = '<a href="'+currAmd.url_nossenateurs+'">NosSénateurs'+source_am+'Sénat</a>';
                 $(".text-container").html(
@@ -382,45 +283,36 @@ var api_root;
                     "<p><small><b>Source :</b> " + source_am + "</small></p>"
                 );
 			})
-			
+		console.log(this);	
 			d3.select(this)
 			.attr("class","actv-amd")
 			//.style("fill","#fff")
 			.style("stroke","#D80053" )
 			.style("stroke-width","2" )
 			$("#text-title").text("Amendement "+d.numero)
-			
-				
 			$('.text-container').scrollTop(0);
 			if(!$(".end-tip").is(":visible")) $(".end-tip").fadeIn(200);
 		}
 		
-		
+	    function adjust_color(c){
+            var col = d3.hsl(c);
+            if (col.s>0.5) col.s = 0.5;
+            if (col.l<0.7) col.l = 0.7;
+            return col;
+        }
+
 		function color(d) { 
-			
 			if(groups[d.groupe]) {
-				col = d3.hsl(groups[d.groupe].color)
-				if (col.s>0.5) col.s = 0.5	
-				if (col.l<0.7) col.l = 0.7	
-				return col.toString()
-			} 
-		    else return "#E6E6E6"
-		    };
+				return adjust_color(groups[d.groupe].color).toString();
+			} else return "#E6E6E6";
+        }
 
 		function legend(t) {
-			
 			d3.entries(groups).forEach(function(e,i){
-				
-				col = d3.hsl(e.value.color)
-				if (col.s>0.5) col.s = 0.5	
-				if (col.l<0.7) col.l = 0.7	
-				
-				$(".colors").append('<div class="leg-item"><div class="leg-value" style="background-color:'+col+'"></div><div class="leg-key">'+e.key+'</div></div>')		
-				
+                var col = adjust_color(e.value.color);
+				$(".colors").append('<div class="leg-item"><div class="leg-value" style="background-color:'+col+'"></div><div class="leg-key">'+e.key+'</div></div>')
 			})
-			
 		}
-
 
         $(document).ready(function() {
             legend();
