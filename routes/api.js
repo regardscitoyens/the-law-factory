@@ -22,7 +22,7 @@ exports.lawlist = function(req, res) {
 			csv().from.string(body, {
 				delimiter : ';',
 				rowDelimiter : "\n",
-				columns : ["id", "title", "type", "startDate", "url", "status", "decCC", "decDate", "pubDate", "num", "themes","amendements","words"]
+				columns : ["id", "title", "type", "startDate", "url", "status", "decCC", "decDate", "pubDate", "num", "themes","amendements","words","shortTitle"]
 			}).to.array(function(data) {
 				parsedLaw = data;
 				parsedLaw.splice(0, 1);

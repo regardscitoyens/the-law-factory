@@ -341,21 +341,21 @@ function(apiService, $rootScope, $location) {
 				apiService.getDataSample(scope.lawlistUrl).then(function(data) {
 					scope.ll = data;
 
-
 					$("#search").autocomplete({
 						source : function(request, response) {
 
-							var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+							var matcher = new RegExp($.ui.autocomplete.escapeRegex(normalize(request.term)), "i");
 							response($.map($.grep(scope.ll, function(value) {
-                                value = value.title +" "+ value.id +" "+ value.themes;
-								return matcher.test(value) || matcher.test( normalize( value ) );
+                                value = normalize(value.title +" "+ value.id +" "+ value.themes + " " + value.shortTitle);
+								return matcher.test(normalize(value));
 							}), function(n, i) {
 								return {
-									"label" : n.title,
+									"label" : n.title + " (" + n.shortTitle.replace(/ \([^)]*\)/g, '') + ")",
 									"value" : n.id,
                                     "themes": n.themes,
                                     "amendements": n.amendements,
-                                    "words": n.words
+                                    "words": n.words,
+                                    "dates": n.startDate + (n.pubDate ? " → " + n.pubDate : "")
 								}
 							}));
 						},
@@ -390,8 +390,9 @@ function(apiService, $rootScope, $location) {
 
 
                         var icodiv=$("<div class='src-ico'>")
-                            .append("<div><span class='glyphicon glyphicon-folder-open'></span> "+item.amendements+"</div>")
-                            .append("<div><span class='glyphicon glyphicon-comment'></span> "+item.words+"</div>")
+                            .append('<div><span class="glyphicon glyphicon-calendar"></span> '+item.dates+"</div>")
+                            .append('<div title="'+item.amendements+' amendements déposés sur ce texte"><span class="glyphicon glyphicon-folder-open"></span> '+item.amendements+"</div>")
+                            .append('<div title="'+item.words+' mots prononcés lors des débats sur ce texte"><span class="glyphicon glyphicon-comment"></span> '+1000*(Math.round(item.words / 1000.))+"</div>")
                             .append(themesdiv);
 
                         var txtdiv=$("<div class='src-txt'>")
