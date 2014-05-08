@@ -1,4 +1,6 @@
+var orderedByStatus = true;
 var sortByStat;
+var sortByParty;
 var draw;
 var drawMerged;
 var grouped=null;
@@ -361,23 +363,24 @@ var api_root;
 			
 
 			d3.json(api_root+d.id_api+'/json',function(error,json){
-				currAmd=json.amendement
-				
-				var source_am = '<a href="'+currAmd.source+'">Link</a>';
-                var statico;
-                var col=color(d);
-                if(d.sort==="adopté") statico= "img/ok.png";
-                else if(d.sort==="rejeté") statico= "img/ko.png";
-                else if(d.sort==="non-voté")statico= "img/nd.png";
-
-			$(".text-container").html(
-				"<p><b>Date :</b> " + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</p>" +
-				"<p><b>Objet :</b> " + currAmd.sujet+"</p>" +
-				"<p><b>Signataires :</b> " + currAmd.signataires+"</p>" + 
-				"<p><b>Statut :</b> <span class='amd-txt-status' style='background-color:"+col+"'><img style='margin:0; padding:4px;' src='"+statico+"'/></span> </p>" +
-				"<p><b>Exposé des motifs :</b> " + currAmd.expose+"</p>" +
-				"<p><b>Texte :</b> " + currAmd.texte +
-				"<p><small><b>Source :</b> " + source_am + "</small></p>");
+				var currAmd = json.amendement,
+                    source_am = '.fr</a> &mdash; <a href="'+currAmd.source+'">',
+                    statico,
+                    col = color(d);
+                if (d.sort==="adopté") statico = "img/ok.png";
+                else if(d.sort==="rejeté") statico = "img/ko.png";
+                else if(d.sort==="non-voté") statico = "img/nd.png";
+                if (currAmd.url_nosdeputes) source_am = '<a href="'+currAmd.url_nosdeputes+'">NosDéputés'+source_am+'Assemblée nationale</a>';
+                else if(currAmd.url_nossenateurs) source_am = '<a href="'+currAmd.url_nossenateurs+'">NosSénateurs'+source_am+'Sénat</a>';
+                $(".text-container").html(
+                    "<p><b>Date :</b> " + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</p>" +
+                    "<p><b>Objet :</b> " + currAmd.sujet+"</p>" +
+                    "<p><b>Signataires :</b> " + currAmd.signataires+"</p>" + 
+                    "<p><b>Statut :</b> " + currAmd.sort + " <span class='amd-txt-status' style='background-color:"+col+"'><img style='margin:0; padding:4px;' src='"+statico+"'/></span> </p>" +
+                    "<p><b>Exposé des motifs :</b> " + currAmd.expose+"</p>" +
+                    "<p><b>Texte :</b> " + currAmd.texte +
+                    "<p><small><b>Source :</b> " + source_am + "</small></p>"
+                );
 			})
 			
 			d3.select(this)
@@ -422,6 +425,8 @@ var api_root;
         $(document).ready(function() {
             legend();
             $('.text-container').bind('scroll',chk_scroll);
+            if (orderedByStatus) sortByStat();
+            else sortByParty();
         });
 
 

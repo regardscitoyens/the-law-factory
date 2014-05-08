@@ -45,7 +45,6 @@ if (app.get('env') === 'production') {
 // serve index and view partials
 //app.get('/', routes.index);
 app.get('/', function(req,res) {
-    console.log(req);
     res.redirect(app.locals.rootUrl+'mod0');
 });
 app.get('/partials/:name', routes.partials);
