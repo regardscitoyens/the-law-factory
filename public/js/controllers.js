@@ -51,22 +51,38 @@ angular.module('theLawFactory.controllers', []).
 
 
         $scope.shortNames = {
+            "1ère lecture": "1<sup>ère</sup> Lect.",
+            "2ème lecture": "2<sup>ère</sup> Lect.",
+            "nouv. lect.": "Nouv. Lect.",
+            "l. définitive.": "L. Définitive.",
             "assemblee": "AN",
             "assemblée nationale": "AN",
             "gouvernement": "Gouv.",
             "commission": "Com.",
-            "hemicycle": "Hem.",
-            "depot": "depot",
-            "senat": "senat",
-            "sénat": "senat"
+            "hemicycle": "Hém.",
+            "depots": "Dépots",
+            "depot": "Dépot",
+            "senat": "Sénat",
+            "sénat": "Sénat"
         }
 
         $scope.longNames = {
-            "assemblee": "assemblée",
-            "assemblée nationale": "assemblée",
-            "senat": "sénat"
+            "1ère lecture": "1<sup>ère</sup> Lecture",
+            "2ème lecture": "2<sup>ère</sup> Lecture",
+            "nouv. lect.": "Nouvelle Lecture",
+            "l. définitive.": "Lecture Définitive.",
+            "assemblee": "Assemblée",
+            "assemblée nationale": "Assemblée",
+            "gouvernement": "Gouvernement",
+            "commission": "Commission",
+            "hemicycle": "Hémicyle",
+            "senat": "Sénat",
+            "cmp": "Commission Mixte Paritaire"
         }
 
+        $scope.cleanLongName = function (l) {
+            return l.replace(/<[^>]*>/, '');
+        }
         $scope.findShortName = function (l) {
 
             var res = null;
@@ -81,9 +97,16 @@ angular.module('theLawFactory.controllers', []).
             else return l;
         }
 
-        $scope.stepLabel= function(el){
+        $scope.stepLegend = function(el){
 
-            if(el.step==="depot") return $scope.l.substr(0,3).toUpperCase();
+            if(el.step==="depot") return (el.auteur_depot == "Gouvernement" ? "Projet de Loi" : "Proposition de Loi");
+            else return $scope.findLongName(el.step);
+
+        }
+
+        $scope.stepLabel = function(el){
+
+            if(el.step==="depot") return (el.auteur_depot == "Gouvernement" ? "PJL" : "PPL");
             else if($scope.total<10) return el.step;
             else return $scope.findShortName(el.step);
 
