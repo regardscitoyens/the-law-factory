@@ -985,5 +985,5 @@ noscript h2 {
     color: #700;
 }
 .amd-txt-status{
-    position:relative; top: 4px;margin-top:4px;border-radius:20%; display:inline-block; overflow:hidden;
+    position:relative; top: 4px;margin-top:4px;border-radius:20%; display:inline-block; overflow:hidden;min-height:18px;
 }
