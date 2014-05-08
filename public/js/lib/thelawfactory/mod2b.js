@@ -286,33 +286,36 @@ sven.viz.streamkey = function(){
 				})
 			})
             .popover(function(d){
-                console.log(d);
-                var titre = d.x,
-                 group = d.label,
-                 val = d.value;
 
 
-                if(titre.length>60) titre=titre.substr(0,60)+"…";
+                    var titre = d.x,
+                        group = d.label,
+                        val = d.value;
 
-                 var div;
-                 div = d3.select(document.createElement("div"))
-                 .style("min-height", "10px")
-                 .style("height","none")
-                 .style("width", "100%")
-                 .attr("class","popup-mod2")
+                    if  (val==1) val=0;
 
-                 div.append("p").html("<b>Groupe :</b> " + group+"<br/><br/>")
-                 div.append("p").html("<b>Mots :</b> " + val+"<br/><br/>")
+                    if (titre.length > 60) titre = titre.substr(0, 60) + "…";
+
+                    var div;
+                    div = d3.select(document.createElement("div"))
+                        .style("min-height", "10px")
+                        .style("height", "none")
+                        .style("width", "100%")
+                        .attr("class", "popup-mod2")
+
+                    div.append("p").html("<b>Groupe :</b> " + group + "<br/><br/>")
+                    div.append("p").html("<b>Mots :</b> " + val + "<br/><br/>")
 
 
-                 return {
-                 title: titre,
-                 content: div ,
-                 placement: "mouse",
-                 gravity: "right",
-                 displacement: [10, -80],
-                 mousemove: true
-                 };
+                    return {
+                        title: titre,
+                        content: div,
+                        placement: "mouse",
+                        gravity: "right",
+                        displacement: [10, -80],
+                        mousemove: true
+                    };
+
             })
 		   .filter(function(d){return d['value'] == null})
 			.attr("display", "none");
