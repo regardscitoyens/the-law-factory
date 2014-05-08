@@ -79,7 +79,7 @@ function init(data,step) {
 	})
 	
 	var w=$("#viz").width();
-	var offset = w*20/100;
+	var offset = w*15/100;
 	var stream = sven.viz.streamkey().data(mydata).target("#viz").height(num*60).width(w).minHeight(1).init()
 	d3.selectAll("g:not(.main-g)")
 	.attr("transform","translate("+offset+",0) scale("+(w-offset)/w+",1)");
@@ -250,6 +250,7 @@ sven.viz.streamkey = function(){
 			.attr("height", barWidth)
 			.attr("display", "inline")
 			.on("click",function(d){
+                console.log(d);
                 $(".text-container").show();
 				d3.event.stopPropagation();
 				svg.selectAll("g").selectAll("path").transition()
@@ -284,6 +285,35 @@ sven.viz.streamkey = function(){
 					$(".orat-info").width($(".text-container").width()*0.63)
 				})
 			})
+            .popover(function(d){
+                console.log(d);
+                var titre = d.x,
+                 group = d.label,
+                 val = d.value;
+
+
+                if(titre.length>60) titre=titre.substr(0,60)+"…";
+
+                 var div;
+                 div = d3.select(document.createElement("div"))
+                 .style("min-height", "10px")
+                 .style("height","none")
+                 .style("width", "100%")
+                 .attr("class","popup-mod2")
+
+                 div.append("p").html("<b>Groupe :</b> " + group+"<br/><br/>")
+                 div.append("p").html("<b>Mots :</b> " + val+"<br/><br/>")
+
+
+                 return {
+                 title: titre,
+                 content: div ,
+                 placement: "mouse",
+                 gravity: "right",
+                 displacement: [10, -80],
+                 mousemove: true
+                 };
+            })
 		   .filter(function(d){return d['value'] == null})
 			.attr("display", "none");
 
@@ -375,8 +405,8 @@ sven.viz.streamkey = function(){
       if (o > max) max = o;
       sums.push(o);
     }
- 	
- 	
+
+
  	scaledBarPadding = barPadding*max/graphHeight;
  	scaledMinHeight = minHeight*(max + scaledBarPadding * n)/graphHeight;
  	
