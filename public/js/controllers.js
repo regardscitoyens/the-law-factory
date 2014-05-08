@@ -60,8 +60,8 @@ angular.module('theLawFactory.controllers', []).
             "gouvernement": "Gouv.",
             "commission": "Com.",
             "hemicycle": "Hém.",
-            "depots": "Dépots",
-            "depot": "Dépot",
+            "depots": "Dépôts",
+            "depot": "Dépôt",
             "senat": "Sénat",
             "sénat": "Sénat"
         }
@@ -77,6 +77,8 @@ angular.module('theLawFactory.controllers', []).
             "commission": "Commission",
             "hemicycle": "Hémicyle",
             "senat": "Sénat",
+            "depots": "Dépôts",
+            "depot": "Dépôt",
             "cmp": "Commission Mixte Paritaire"
         }
 
