@@ -80,6 +80,7 @@ function(apiService, $rootScope, $location, $compile) {
 			$rootScope.l = $scope.l;
 			$scope.step = 0;
 			$scope.s = $rootScope.s = $location.search()['s'];
+            $scope.a = $location.search()['a'];
             $scope.mod="mod2";
 			$scope.hasAmendements = true;
 			$scope.hasInterventions = true;
@@ -118,17 +119,11 @@ function(apiService, $rootScope, $location, $compile) {
 				apiService.getDataSample(scope.procedureUrl + scope.l + "?sect=amd").then(function(data) {
 
 					scope.dataSample = data;
-                    //$(".separator").html('<h4 class="law-title">' + capitalize(data.long_title) + '</h4><span class="links"><a href="' + data.url_dossier_senat + '"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a><br/><a href="' + data.url_dossier_assemblee + '"><span class="glyphicon glyphicon-link"></span> dossier AN</a></span>')
-					/*var len = 95 / scope.dataSample.length;
-					var mar = 5 / scope.dataSample.length;
-					var newElement = $compile( "<div class='stage-container' style='margin-right:"+mar+"%;float:left; width:"+len+"%' ng-repeat='el in dataSample'><ng-switch style='width:100%; height:100%;' on='el.amds'><div class='stage valid-step' ng-click='loadStep(el.step_name, $index)' ng-switch-when='true'>{{el.step_name.split('_').slice(2,4).join(' ')}}</div><div class='stage' ng-switch-default>{{el.step_name.split('_').slice(2,4).join(' ')}}</div></ng-switch></div>" )(scope);
 
-					element.find(".stages").append(newElement);
-                     */
 					if ($location.search()['s'] != null) {
 						
 						apiService.getDataSample(scope.amdUrl + scope.l+'/'+$location.search()['s'] ).then(function(data) {
-							console.log(data)
+
 							var elementPos = scope.dataSample.map(function(x) {
 								return x.step_name;
 							}).indexOf(scope.s);
@@ -137,12 +132,17 @@ function(apiService, $rootScope, $location, $compile) {
 							scope.data = data;
 							d3.select(element[0]).datum(data).call(mod2)
 
+                            if($location.search()['a']!=null) {
+                                selectRow($location.search()['a'],true);
+                            }
+
                             spinner.stop();
 
 						}, function(error) {
 							scope.error = error
 						})
 					}
+
 
 				}, function(error) {
 					scope.error = error
@@ -557,7 +557,6 @@ function(apiService, $rootScope, $location) {
 
                         scope.stages.push(currStage);
                         scope.inst.push(currInst);
-                        console.log(scope.stages,scope.inst)
 
                     }, function(error) {
                         scope.error = error

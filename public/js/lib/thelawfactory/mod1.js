@@ -84,6 +84,11 @@ var stacked;
 		function vis(selection) {
 			selection.each(function(data) {
 
+                var re= /l\=(.*)/;
+                var id= location.search.match(re)[1];
+
+
+
 				var bigList=[]
 				var art = d3.values(data.articles);
 
@@ -527,6 +532,7 @@ var stacked;
 
 				//on click behaviour
 				function onclick(d) {
+                    console.log(d)
                     $(".text-container").show();
 					d3.selectAll("line").style("stroke", "#d0d0e0");
 
@@ -555,6 +561,7 @@ var stacked;
                         (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>Section :</b> " + format_section(d, 2) + "</p>" : "") +
                         "<p><b>Étape :</b> " + titre_etape(d) + "</p>" +
                         (d['status'] == "sup" ? "<p><b>Supprimé à cette étape.</b></p>" : "") +
+                        (d.status!=="depot"? '<p><a href="mod2?l='+id+'&s='+ d.directory+'&a=article_'+ d.article+'">See Amendements</a></p>' : '') +
                         "<p><b>Alinéas :</b></p>"
                     )
 					$("#text-title").html(titre_article(d));
@@ -573,25 +580,13 @@ var stacked;
                             $(".art-txt").html(d.textDiff);
                         }, 0);
                     } else $(".art-txt").html(d.textDiff);
+
+
+
 				}
 
 				$(document).ready(function() {
-					var s = $(".text");
-					var pos = s.offset();
-                    /*var h = Math.min($(window).height(), $(".main").height()).toString() + "px";
-                    s.css("height", h);
-					$(window).scroll(function() {
-						var windowpos = $(window).scrollTop();
-						if (windowpos >= pos.top) {
-							s.addClass("stick");
-							s.css("left", pos.left);
-                            s.css("height", "100%");
-						} else {
-							s.removeClass("stick");
-							s.css("left", "");
-                            s.css("height", h);
-						}
-					})*/;
+
                     if (aligned) valign();
                     else stacked();
 				});

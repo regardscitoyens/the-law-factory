@@ -20,6 +20,29 @@ var api_root;
 		articles=d.sujets;
 		api_root=d.api_root_url;
 	})
+
+
+        selectRow = function(art,pos) {
+
+            if(d3.event) d3.event.stopPropagation();
+
+            var sel = d3.select("."+art);
+
+            if(!sel.empty()) {
+
+                d3.selectAll("g").style("opacity", 0.2);
+
+                sel.style("opacity", 1);
+
+                if(pos) $("#viz").animate({ scrollTop: sel.attr("data-offset") })
+            }
+        };
+
+        deselectRow = function() {
+            d3.selectAll("g").style("opacity",1);
+        };
+
+
 	
 	artArray=d3.values(articles).sort(function(a,b){return a.order-b.order})
 	console.log(artArray)
@@ -38,7 +61,8 @@ var api_root;
 		var offset = 0
 		var svg = d3.select("#viz").append("svg")
 		    .attr("width", rw)
-		    .attr("height", h);
+		    .attr("height", h)
+            .on("click",deselectRow);
 		    
 	draw = function() {
 		jumpLines=0
@@ -60,7 +84,7 @@ var api_root;
 		  d.offset = offset
 		  
 		  var curRow = svg.append("g")
-		  .attr("class",d.titre.replace(/ /g, '_'))
+		  .attr("class",d.titre.replace(/ |'/g, '_').toLowerCase())
 		  .attr("transform","translate("+10+","+(i*20+i*lineh+10+jumpLines*(lineh-10))+")")
 		  .attr("data-offset", (i*20+i*lineh+10+jumpLines*(lineh-10)))
 		  .call(function(){	
@@ -68,6 +92,7 @@ var api_root;
 		  	offset = Math.floor(n/x)
 		  	jumpLines = jumpLines + Math.floor(n/x);
 		  })
+
 		  
 		  var bg = curRow
 		  .selectAll(".bg")
@@ -93,10 +118,12 @@ var api_root;
 		
 		curRow.append("text")
 		.attr("x",20)
+        .attr("class","row-txt")
 		.attr("y",15)
 		.style("fill","#333")
 		.attr("font-size","0.85em")
 		.text(d.titre)
+        .on("click",function(){selectRow(d.titre.toLowerCase().replace(/ |'/g, '_'),false)})
 		
 		
 		  var amds = curRow
@@ -191,6 +218,8 @@ var api_root;
         }
 
 		function select(d) {
+
+            d3.event.stopPropagation()
 			$(".text-container").show();
 			d3.selectAll(".actv-amd")
 			.style("fill",color)
@@ -315,15 +344,15 @@ var api_root;
                             if (a.groupe > b.groupe) return 1;
                         }
 					})
-				})
+				});
 				$("svg").empty();
 				$(".text-container").empty();
 				draw();
 			}
-		}
+		};
 		
 		sortByParty = function() {
-			console.log(artArray)
+
 			if(grouped) {
 				grouped['amendements'].sort(function(a,b){
                     if(a.groupe!= b.groupe) {
@@ -335,7 +364,7 @@ var api_root;
                             if (a.sort > b.sort) return 1;
                     }
 
-                })
+                });
 				$("svg").empty();
 				//$(".art-list").empty();
 				$(".text-container").empty();
@@ -354,12 +383,12 @@ var api_root;
                             if (a.sort > b.sort) return 1;
                         }
 					})
-				})
+				});
 				$("svg").empty();
 				$(".text-container").empty();
 				draw();
 			}
-		}
+		};
 		
 		
 		
@@ -384,17 +413,19 @@ var api_root;
 				$(".text-container").empty();
 				draw();
 			}
-		}
-		
+		};
+
+
+
 		
         $(document).ready(function() {
         	legend();
         	$('.text-container').bind('scroll',chk_scroll);
         	
-            var s = $(".text");
+            /*var s = $(".text");
             var pos = s.offset();
             var w=s.width();
-            //console.log("pos",pos)                    
+
             $(window).scroll(function() {
                 var windowpos = $(window).scrollTop();
                 if (windowpos >= pos.top) {
@@ -406,7 +437,7 @@ var api_root;
                     s.css("left","");
                     s.css("width","18.33%");
                 }
-            });
+            });*/
         });
 
 
