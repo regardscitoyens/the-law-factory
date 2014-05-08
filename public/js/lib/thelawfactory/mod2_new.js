@@ -63,11 +63,143 @@ var api_root;
 		    .attr("width", rw)
 		    .attr("height", h)
             .on("click",deselectRow);
+
+        drawMerged = function() {
+            $("svg").empty();
+
+            if(!grouped) {
+                grouped = {titre:'all articles',key: 'all articles', amendements:[]}
+
+                artArray.forEach(function(d,i) {
+                    grouped.amendements=grouped.amendements.concat(d.amendements)
+                })
+            }
+            console.log(grouped)
+            jumpLines=0
+            drawLines(grouped,0)
+        }
+
+        function chk_scroll(e)
+        {
+            e.stopPropagation();
+            var elem = $(e.currentTarget);
+            if (elem[0].scrollHeight - elem.scrollTop() == elem.outerHeight())
+            {
+                $(".end-tip").fadeOut(200);
+            }
+            else {
+                if(!$(".end-tip").is(":visible")) $(".end-tip").fadeIn(200);
+
+            }
+
+        }
+
+
+        sortByStat = function() {
+            console.log(artArray)
+            if(grouped) {
+                grouped['amendements'].sort(function(a,b){
+                    if(a.sort!= b.sort) {
+                        if (a.sort < b.sort) return -1;
+                        if (a.sort > b.sort) return 1;
+                    }
+                    else {
+                        if (a.groupe < b.groupe) return -1;
+                        if (a.groupe > b.groupe) return 1;
+                    }
+                })
+                $("svg").empty();
+                //$(".art-list").empty();
+                $(".text-container").empty();
+                drawMerged();
+
+            }
+            else {
+                artArray.forEach(function(d,i) {
+                    d['amendements'].sort(function(a,b){
+                        if(a.sort!= b.sort) {
+                            if (a.sort < b.sort) return -1;
+                            if (a.sort > b.sort) return 1;
+                        }
+                        else {
+                            if (a.groupe < b.groupe) return -1;
+                            if (a.groupe > b.groupe) return 1;
+                        }
+                    })
+                });
+                $("svg").empty();
+                $(".text-container").empty();
+                draw();
+            }
+        };
+
+        sortByParty = function() {
+
+            if(grouped) {
+                grouped['amendements'].sort(function(a,b){
+                    if(a.groupe!= b.groupe) {
+                        if (a.groupe < b.groupe) return -1;
+                        if (a.groupe > b.groupe) return 1;
+                    }
+                    else {
+                        if (a.sort < b.sort) return -1;
+                        if (a.sort > b.sort) return 1;
+                    }
+
+                });
+                $("svg").empty();
+                //$(".art-list").empty();
+                $(".text-container").empty();
+                drawMerged();
+
+            }
+            else {
+                artArray.forEach(function(d,i) {
+                    d['amendements'].sort(function(a,b){
+                        if(a.groupe!= b.groupe) {
+                            if (a.groupe < b.groupe) return -1;
+                            if (a.groupe > b.groupe) return 1;
+                        }
+                        else {
+                            if (a.sort < b.sort) return -1;
+                            if (a.sort > b.sort) return 1;
+                        }
+                    })
+                });
+                $("svg").empty();
+                $(".text-container").empty();
+                draw();
+            }
+        };
+
+
+
+        sortByDate = function() {
+
+            if(grouped) {
+                grouped['amendements'].sort(function(a,b){
+                    return Date.parse(a.date) - Date.parse(b.date)
+                })
+                $("svg").empty();
+                $(".text-container").empty();
+                drawMerged();
+
+            }
+            else {
+                artArray.forEach(function(d,i) {
+                    d['amendements'].sort(function(a,b){
+                        return Date.parse(a.date) - Date.parse(b.date)
+                    })
+                })
+                $("svg").empty();
+                $(".text-container").empty();
+                draw();
+            }
+        };
 		    
 	draw = function() {
 		jumpLines=0
 		$("svg").empty();
-			//$(".art-list").empty();
 		artArray.forEach(function(d,i) {
 			drawLines(d,i)
 		})
@@ -75,10 +207,10 @@ var api_root;
 		grouped=null;
 	}
 		
-        draw();
+        sortByParty();
         
         function drawLines(d,i) {
-        	 len = d.amendements.length;
+          len = d.amendements.length;
 		  lines = Math.ceil(len/x);
 		
 		  d.offset = offset
@@ -113,7 +245,6 @@ var api_root;
 		  var margin = d.offset == 0 ? 'style="margin-top : 10px"' : 'style="margin-top : '+(10+20*d.offset)+'px "';
 		  console.log("key",d.key)
           var subj = d.titre
-          console.log("subj",subj)
 		
 		
 		curRow.append("text")
@@ -129,7 +260,7 @@ var api_root;
 		  var amds = curRow
 		  .selectAll(".amd")
 		  .data(d.amendements)
-		  .enter()
+		  .enter();
 		
 		  amds.append("rect")
 		  .attr("x", function(f,i){ return (i % x) * z +21 })
@@ -219,6 +350,8 @@ var api_root;
 
 		function select(d) {
 
+
+            console.log(d)
             d3.event.stopPropagation()
 			$(".text-container").show();
 			d3.selectAll(".actv-amd")
@@ -226,19 +359,22 @@ var api_root;
 			.style("stroke","none" )
 			.classed("actv-amd",false);
 			
-			console.log(api_root+d.id_api)
+
 			d3.json(api_root+d.id_api+'/json',function(error,json){
 				currAmd=json.amendement
 				
-				var source_am = '.fr</a> &mdash; <a href="'+currAmd.source+'">';
-           if (currAmd.url_nosdeputes) source_am = '<a href="'+currAmd.url_nosdeputes+'">NosDéputés'+source_am+'Assemblée nationale</a>';
-            else if(currAmd.url_nossenateurs) source_am = '<a href="'+currAmd.url_nossenateurs+'">NosSénateurs'+source_am+'Sénat</a>';
-            else source_am="";
+				var source_am = '<a href="'+currAmd.source+'">Link</a>';
+                var statico;
+                var col=color(d);
+                if(d.sort==="adopté") statico= "img/ok.png";
+                else if(d.sort==="rejeté") statico= "img/ko.png";
+                else if(d.sort==="non-voté")statico= "img/nd.png";
+
 			$(".text-container").html(
 				"<p><b>Date :</b> " + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</p>" +
 				"<p><b>Objet :</b> " + currAmd.sujet+"</p>" +
 				"<p><b>Signataires :</b> " + currAmd.signataires+"</p>" + 
-				"<p><b>Statut :</b> " + d.sort+"</p>" +
+				"<p><b>Statut :</b> <span class='amd-txt-status' style='background-color:"+col+"'><img style='margin:0; padding:4px;' src='"+statico+"'/></span> </p>" +
 				"<p><b>Exposé des motifs :</b> " + currAmd.expose+"</p>" +
 				"<p><b>Texte :</b> " + currAmd.texte +
 				"<p><small><b>Source :</b> " + source_am + "</small></p>");
@@ -282,162 +418,10 @@ var api_root;
 			
 		}
 
-		drawMerged = function() {
-			$("svg").empty();
 
-			if(!grouped) {
-				grouped = {titre:'all articles',key: 'all articles', amendements:[]}
-				
-				artArray.forEach(function(d,i) {
-					grouped.amendements=grouped.amendements.concat(d.amendements)
-				}) 
-			}
-			console.log(grouped)
-			jumpLines=0
-			drawLines(grouped,0)
-		}
-		
-		function chk_scroll(e)
-		{
-			e.stopPropagation();
-		    var elem = $(e.currentTarget);
-		    if (elem[0].scrollHeight - elem.scrollTop() == elem.outerHeight()) 
-		    {
-		        $(".end-tip").fadeOut(200);
-		    }
-		    else {
-		    	if(!$(".end-tip").is(":visible")) $(".end-tip").fadeIn(200);
-		    	
-		    }
-		
-		}
-
-		
-		sortByStat = function() {
-			console.log(artArray)
-			if(grouped) {
-				grouped['amendements'].sort(function(a,b){
-                    if(a.sort!= b.sort) {
-                        if (a.sort < b.sort) return -1;
-                        if (a.sort > b.sort) return 1;
-                    }
-					else {
-                        if (a.groupe < b.groupe) return -1;
-                        if (a.groupe > b.groupe) return 1;
-                    }
-				})
-				$("svg").empty();
-				//$(".art-list").empty();
-				$(".text-container").empty();
-				drawMerged();
-				
-			}
-			else {
-				artArray.forEach(function(d,i) {
-					d['amendements'].sort(function(a,b){
-                        if(a.sort!= b.sort) {
-                            if (a.sort < b.sort) return -1;
-                            if (a.sort > b.sort) return 1;
-                        }
-                        else {
-                            if (a.groupe < b.groupe) return -1;
-                            if (a.groupe > b.groupe) return 1;
-                        }
-					})
-				});
-				$("svg").empty();
-				$(".text-container").empty();
-				draw();
-			}
-		};
-		
-		sortByParty = function() {
-
-			if(grouped) {
-				grouped['amendements'].sort(function(a,b){
-                    if(a.groupe!= b.groupe) {
-                        if (a.groupe < b.groupe) return -1;
-                        if (a.groupe > b.groupe) return 1;
-                    }
-                        else {
-                            if (a.sort < b.sort) return -1;
-                            if (a.sort > b.sort) return 1;
-                    }
-
-                });
-				$("svg").empty();
-				//$(".art-list").empty();
-				$(".text-container").empty();
-				drawMerged();
-				
-			}
-			else {
-				artArray.forEach(function(d,i) {
-					d['amendements'].sort(function(a,b){
-                        if(a.groupe!= b.groupe) {
-                            if (a.groupe < b.groupe) return -1;
-                            if (a.groupe > b.groupe) return 1;
-                        }
-                        else {
-                            if (a.sort < b.sort) return -1;
-                            if (a.sort > b.sort) return 1;
-                        }
-					})
-				});
-				$("svg").empty();
-				$(".text-container").empty();
-				draw();
-			}
-		};
-		
-		
-		
-		sortByDate = function() {
-			
-			if(grouped) {
-				grouped['amendements'].sort(function(a,b){
-					return Date.parse(a.date) - Date.parse(b.date)	
-				})
-				$("svg").empty();
-				$(".text-container").empty();
-				drawMerged();
-				
-			}
-			else {
-				artArray.forEach(function(d,i) {
-					d['amendements'].sort(function(a,b){
-						return Date.parse(a.date) - Date.parse(b.date)	
-					})
-				})
-				$("svg").empty();
-				$(".text-container").empty();
-				draw();
-			}
-		};
-
-
-
-		
         $(document).ready(function() {
-        	legend();
-        	$('.text-container').bind('scroll',chk_scroll);
-        	
-            /*var s = $(".text");
-            var pos = s.offset();
-            var w=s.width();
-
-            $(window).scroll(function() {
-                var windowpos = $(window).scrollTop();
-                if (windowpos >= pos.top) {
-                    s.addClass("stick");
-                    s.css("left",pos.left);
-                    s.css("width",w);
-                } else {
-                    s.removeClass("stick"); 
-                    s.css("left","");
-                    s.css("width","18.33%");
-                }
-            });*/
+            legend();
+            $('.text-container').bind('scroll',chk_scroll);
         });
 
 

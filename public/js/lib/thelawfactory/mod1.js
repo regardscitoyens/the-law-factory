@@ -561,7 +561,7 @@ var stacked;
                         (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>Section :</b> " + format_section(d, 2) + "</p>" : "") +
                         "<p><b>Étape :</b> " + titre_etape(d) + "</p>" +
                         (d['status'] == "sup" ? "<p><b>Supprimé à cette étape.</b></p>" : "") +
-                        (d.status!=="depot"? '<p><a href="mod2?l='+id+'&s='+ d.directory+'&a=article_'+ d.article+'">See Amendements</a></p>' : '') +
+                        (d.status!=="depot"? '<p><a href="mod2?l='+id+'&s='+ d.directory+'&a=article_'+ d.article.toLowerCase().replace(/ |'/g, '_')+'">See Amendements</a></p>' : '') +
                         "<p><b>Alinéas :</b></p>"
                     )
 					$("#text-title").html(titre_article(d));
