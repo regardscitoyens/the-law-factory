@@ -38,12 +38,11 @@ function(apiService, $rootScope, $location, $compile) {
 				apiService.getDataSample(scope.dataUrl + l).then(function(data) {
 					scope.dataSample = data;
 					d3.select(element[0]).datum(data).call(mod1)
-
+                    spinner.stop();
 				}, function(error) {
 					scope.error = error
 				})
 
-                spinner.stop();
 
 				/*apiService.getDataSample(scope.procedureUrl + l).then(function(data) {
 					var a = data.steps[data.steps.length - 1].source_url
@@ -281,12 +280,12 @@ function(apiService, $rootScope, $location, $compile) {
 				apiService.getDataSample(scope.dossierUrl).then(function(data) {
 					
 					d3.select(element[0]).datum(data).call(mod0)
+                    spinner.stop();
 					
 				}, function(error) {
 					console.log(error)
 				})
 
-                spinner.stop();
 			}
 			scope.$watch('amdUrl', function() {
 				update();
