@@ -18,18 +18,18 @@ var stacked;
                 .replace('CMP ⋅ CMP', 'CMP')
                 .replace('hemicycle', 'hémicycle')
                 .replace('depot', 'dépôt');
-                }
+        }
 
-                function clean_premier(s) {
-                return s.replace('<sup>er</sup>', '');
-                }
+        function clean_premier(s) {
+            return s.replace('<sup>er</sup>', '');
+        }
 
-                function titre_section(s, short_labels) {
-                    if (!s) return s;
-                    var res = "",
-                        s = s.split(/([LTCVS]+\d+[\sa-z]*)/);
-                    for (var i in s) if (s[i]) {
-                        res += (res ? " ⋅ " : "");
+        function titre_section(s, short_labels) {
+            if (!s) return s;
+            var res = "",
+                s = s.split(/([LTCVS]+\d+[\sa-z]*)/);
+            for (var i in s) if (s[i]) {
+                res += (res ? " ⋅ " : "");
                 res += s[i].replace(/([LTCVS]+)(\d+e?r?)\s*([\sa-z]*)/, '$1 $2 $3')
                     .replace(/(\d)er?/g, '$1<sup>er</sup>')
                     .replace("SS", (short_labels ? "S-Sec." : "Sous-section"))
@@ -310,56 +310,31 @@ var stacked;
 					d.attr("class", function(d) {
 						return "article " + d.section.replace(/ |<|\/|>|/g,"") + " sect" + findStage(d.id_step)
 					})
-					.style("stroke", function(d) {
-						return "#d0d0e0";
-						//return d3.hcl(diffcolor(d.n_diff)).darker();
-					})
+					.style("stroke","#d0d0e0")
 					.style("stroke-width", 1).style("stroke-dasharray", "none").style("fill", function(d) {
-						if (d.status == 'sup' || d.id_step.substr(-5) === "depot" || d.n_diff == 0)
-							return '#fff';
-						else
-							return diffcolor(d.n_diff);
+						return (d.status == 'sup' || d.id_step.substr(-5) === "depot" || d.n_diff == 0 ? '#fff' : diffcolor(d.n_diff));
 					});
 				}
 
 				//Utility functions
 				function findStage(s) {
-
-					for (st in stages) {
-						if (encodeURI(s) == encodeURI(stages[st]).substring(3)) {
-							return parseInt(st)
-						}
-					}
-					return -1
+					for (st in stages)
+						if (encodeURI(s) == encodeURI(stages[st]).substring(3))
+							return parseInt(st);
+					return -1;
 				}
 
 
 				function computeStages() {
-
 					stag = []
-
 					art.forEach(function(e, i) {
-						var st = d3.nest().key(function(d) {
-							return d.id_step;
-						})
-						//.entries(e.steps)
-						.map(e.steps, d3.map);
-
-						d3.keys(st).forEach(function(f, i) {
-
-							if (stag.indexOf(f) < 0) {
-								stag.push(f)
-							}
-						})
-					})
-					stag.sort()
-
-					for (s in stag) {
+						var st = d3.nest().key(function(d) { return d.id_step; }).map(e.steps, d3.map);
+						d3.keys(st).forEach(function(f, i) { if (stag.indexOf(f) < 0) stag.push(f); });
+					});
+					stag.sort();
+					for (s in stag)
 						stag_name = stag[s].split("_", 4).splice(2, 3).join(" ");
-						//$(".stages").append('<div class="stage" style="width:' + 100 / stag.length + '%">' + stag_name + '</div>')
-					}
-
-					return stag
+					return stag;
 				}
 
 				function computeSections() {
@@ -553,12 +528,11 @@ var stacked;
 
 					d3.rgb(d3.select(this).style("fill")).darker(2)
 					d3.select(this).style("stroke-dasharray", [3, 3])
-
 					$(".art-meta").html(
                         (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>Section :</b> " + format_section(d, 2) + "</p>" : "") +
                         "<p><b>Étape :</b> " + titre_etape(d) + "</p>" +
                         (d['status'] == "sup" ? "<p><b>Supprimé à cette étape.</b></p>" : "") +
-                        ($(".stb-"+d.directory).find("a.stb-amds:visible").length && d.diff!=="none" ? '<p><a href="mod2?l='+id+'&s='+ d.directory+'&a=article_'+ d.article.toLowerCase().replace(/ |'/g, '_')+'">See Amendements</a></p>' : '') +
+                        (d.n_diff && d.status !== "new" && $(".stb-"+d.directory).find("a.stb-amds:visible").length ? '<p><a href="mod2?l='+id+'&s='+ d.directory+'&a=article_'+ d.article.toLowerCase().replace(/ |'/g, '_')+'">Explorer les amendements</a></p>' : '') +
                         "<p><b>Alinéas :</b></p>"
                     )
 					$("#text-title").html(titre_article(d));
@@ -577,17 +551,12 @@ var stacked;
                             $(".art-txt").html(d.textDiff);
                         }, 0);
                     } else $(".art-txt").html(d.textDiff);
-
-
-
 				}
 
 				$(document).ready(function() {
-
                     if (aligned) valign();
                     else stacked();
 				});
-
 
 		});
 	};

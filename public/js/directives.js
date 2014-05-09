@@ -81,7 +81,7 @@ function(apiService, $rootScope, $location, $compile) {
 					scope.dataSample = data;
 
 					if ($location.search()['s'] != null) {
-						
+
 						apiService.getDataSample(scope.amdUrl + scope.l+'/'+$location.search()['s'] ).then(function(data) {
 
 							var elementPos = scope.dataSample.map(function(x) {
@@ -154,7 +154,6 @@ function(apiService, $rootScope, $location, $compile) {
 
 			}
 
-
 			scope.$watch('amdUrl', function() {
 				update();
 			}, true)
@@ -180,7 +179,7 @@ function(apiService, $rootScope, $location, $compile) {
             })
 			var mod0 = thelawfactory.mod0();
 			var mod0_bars = thelawfactory.mod0_bars();
-			
+
 			function update() {
 
                 var target = document.getElementById('preload');
@@ -188,16 +187,16 @@ function(apiService, $rootScope, $location, $compile) {
 
 				apiService.getDataSample(scope.statsUrl).then(function(data) {
 					d3.select(element[0]).datum(data).call(mod0_bars)
-					
+
 				}, function(error) {
 					console.log(error)
 				})
 
 				apiService.getDataSample(scope.dossierUrl).then(function(data) {
-					
+
 					d3.select(element[0]).datum(data).call(mod0)
                     spinner.stop();
-					
+
 				}, function(error) {
 					console.log(error)
 				})
@@ -341,7 +340,7 @@ return {
         $scope.ymouselerp=d3.scale.linear().range([-100,0,0,100]).clamp(true);
     },
     link : function postLink(scope, element, attrs,movescrollCtrl) {
-    
+
         scope.xmouselerp.domain([0,element.width()*0.2,element.width()*0.8, element.width()])
         scope.ymouselerp.domain([0,element.height()*0.2,element.height()*0.8, element.height()])
 

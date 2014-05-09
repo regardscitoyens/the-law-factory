@@ -32,7 +32,7 @@
                 </a>
                 <span ng-hide="mod!='mod1'" class="stb-link glyphicon glyphicon-list low-vis"></span>
 
-                <a class="stb-link stb-amds"ng-show="i.nb_amendements && (s!=i.directory ||(s==i.directory && mod=='mod2b'))" title="Explorer les amendements" href="mod2/?l={{l}}&s={{i.directory}}">
+                <a class="stb-link stb-amds" ng-show="i.nb_amendements && (s!=i.directory ||(s==i.directory && mod=='mod2b'))" title="Explorer les amendements" href="mod2/?l={{l}}&s={{i.directory}}">
                     <span class="glyphicon glyphicon-folder-open"></span>
                 </a>
                 <span ng-hide="i.nb_amendements && (s!=i.directory ||(s==i.directory && mod=='mod2b'))" class="stb-link glyphicon glyphicon-folder-open low-vis" ng-class="{'stb-curr-st':s==i.directory && mod=='mod2'}"></span>
