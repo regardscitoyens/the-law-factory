@@ -1,5 +1,5 @@
 var num=0;
-var svg;
+var svg, mydata;
 var groupes, participants, factions;
 
 function wrap(width) {
@@ -42,9 +42,9 @@ function init(data,step) {
     factions=data[step].groupes;
     groupes=data[step].groupes;
     participants=data[step].orateurs;
-    
-    var mydata=[],
-        divs=d3.values(data[step].divisions),
+    mydata=[];
+
+    var divs=d3.values(data[step].divisions),
         orderedGroupes = d3.keys(groupes).sort(function(a,b){return groupes[b].order < groupes[a].order});
     for(g in orderedGroupes) {
         e = orderedGroupes[g];
@@ -76,13 +76,23 @@ function init(data,step) {
             }
         });
     });
-    
+    draw(false);
+}
+
+function draw(top_ordered){
+    $("#viz").empty()
     var w=$("#viz").width();
     var offset = w*15/100;
-    var stream = sven.viz.streamkey().data(mydata).target("#viz").height(num*60).width(w).minHeight(1).init();
+    var stream = sven.viz.streamkey()
+        .data(mydata)
+        .target("#viz")
+        .height(num*60)
+        .width(w)
+        .minHeight(1)
+        .sorting(top_ordered)
+        .init();
     d3.selectAll("g:not(.main-g)").attr("transform","translate("+offset+",0) scale("+(w-offset)/w+",1)");
     wrap(offset);
-
 }
 
 sven = {},
@@ -92,6 +102,7 @@ sven.viz.streamkey = function(){
 
     var streamkey = {},
         data,
+        sorting,
         width = 600,
         height = 200,
         barWidth = 12,
@@ -111,6 +122,12 @@ sven.viz.streamkey = function(){
     streamkey.data = function(x){
         if (!arguments.length) return data;
         data = x;
+        return streamkey;
+    };
+
+    streamkey.sorting = function(top_ordered){
+        if (top_ordered) sorting = sortByTop;
+        else sorting = sortByGroupe;
         return streamkey;
     };
 
@@ -191,7 +208,7 @@ sven.viz.streamkey = function(){
         var setMinHeight = d3.scale.linear().domain([d3.min(values),d3.max(values)]);
         
         //sort data, compute baseline and propagate it
-        var dataF = layout(sort(data, null),setMinHeight);
+        var dataF = layout(sorting(data),setMinHeight);
         
         mX = m - 1;
         mY = d3.max(dataF, function(d) {
@@ -322,21 +339,28 @@ sven.viz.streamkey = function(){
         return streamkey;
     };
 
-    function sort(data, sorting){    
+    function sort(data, sorting_key, sorting_function){
         var stepsY = [];
-
         //from fluxs to steps and sorting
         for (j = 0; j < m; ++j) {
             stepsY[j] = [];
             for (i = 0; i < n; i++)
                 stepsY[j].push({'y':data[i]['values'][j]['value'],'value': data[i]['values'][j]['value'], 'index':i, 'x':data[i]['values'][j]['step'],'color':data[i]['color'],'speakers':data[i]['values'][j]['speakers'] ,'category':data[i]['key'], 'label':data[i]['name']});
-            var sorted = d3.nest().key(function(d){return d.category})
-                .sortKeys(function(a,b){return factions[b].order - factions[a].order; })
+            var sorted = d3.nest().key(function(d){return d[sorting_key]})
+                .sortKeys(sorting_function)
                 .entries(stepsY[j]);
             stepsY[j] = [];
             sorted.forEach(function(d){d.values.forEach(function(d){stepsY[j].push(d)})});
         }
         return stepsY;
+    };
+
+    sortByGroupe = function(data){
+        return sort(data, "category", function(a,b){return factions[b].order - factions[a].order; });
+    }
+
+    sortByTop = function(data){   
+        return sort(data, "y", function(a,b){return parseFloat(a) - parseFloat(b); });
     };
     
   function layout(data,minHeightScale){
