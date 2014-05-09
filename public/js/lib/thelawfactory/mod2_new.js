@@ -49,8 +49,6 @@ var api_root;
             d3.selectAll("g").style("opacity",1);
         };
 
-
-
 	artArray=d3.values(articles).sort(function(a,b){return a.order-b.order})
 
 		var w = $("#viz").width()-30,
@@ -194,7 +192,6 @@ var api_root;
 		  	jumpLines = jumpLines + Math.floor(n/x);
 		  })
 
-
 		  var bg = curRow
 		  .selectAll(".bg")
 		  .data(d3.range(x*lines))
@@ -223,16 +220,14 @@ var api_root;
         .on("click",function(){selectRow(d.titre.toLowerCase().replace(/ |'/g, '_'),false)});
 
         var popover = function(d){
-          var titre = d.numero,
-              date = d.date.split('-'),
-              gr = d.groupe,
-              status = d.sort,
+          var date = d.date.split('-'),
               div = d3.select(document.createElement("div")).style("width", "100%");
-          div.append("p").html("<b>" + groups[gr].nom +"</b>");
-          div.append("p").html("Sort : " + status + "");
+          if (!$grouped) div.append("p").html("<b>" + d.sujet +"</b>");
+          div.append("p").html("<b>" + groups[d.groupe].nom +"</b>");
+          div.append("p").html("Sort : " + d.sort + "");
           div.append("p").html("<small>" + [date[2],date[1],date[0]].join("/") + "</small>");
           return {
-              title: "Amendement " + titre,
+              title: "Amendement " + d.numero,
               content: div ,
               placement: "mouse",
               gravity: "right",

@@ -299,11 +299,10 @@ sven.viz.streamkey = function(){
                 })
             })
             .popover(function(d){
-                var val = d.value,
-                    orateurs = (d.speakers ? Object.keys(d.speakers).length : 0),
+                var orateurs = (d.speakers ? Object.keys(d.speakers).length : 0),
                     div = d3.select(document.createElement("div")).style("width", "100%");
                 div.append("p").html("<b>"+ d.x + "</b>");
-                div.append("p").html("<br/>"+val+" mots prononcés par "+orateurs+" orateur" + (orateurs > 1 ? 's': ''));
+                div.append("p").html(d.value+" mots prononcés par "+orateurs+" orateur" + (orateurs > 1 ? 's': ''));
                 return {
                     title: d.label,
                     content: div,
