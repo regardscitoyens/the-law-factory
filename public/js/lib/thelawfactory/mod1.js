@@ -111,10 +111,13 @@ var stacked;
 
 
 				//compute stages and sections
-				var stages = computeStages()
-				var columns = stages.length
-				var sections = computeSections()
-				var sectJump = 40;
+				var stages = computeStages(),
+				    columns = stages.length,
+				    sections = computeSections(),
+				    sectJump = 40;
+
+                if (sections.length < 2 && art.length == 1)
+                    $("#display_menu").hide();
 
 				art.forEach(function(d, i) {
 
