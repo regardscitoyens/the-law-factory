@@ -16,7 +16,7 @@
     </div>
 
     <div class="stb-steps">
-        <div class="stb-step" ng-class="{'current': s === i.directory}" style="width:{{(1/total)*100}}%"ng-repeat="i in steps">
+        <div class="stb-step stb-{{i.directory}}" ng-class="{'current': s === i.directory}" style="width:{{(1/total)*100}}%"ng-repeat="i in steps">
             <div>
                 <span>
                     <span ng-show="total>10" title="{{stepLegend(i)}}">{{stepLabel(i)}}</span>
