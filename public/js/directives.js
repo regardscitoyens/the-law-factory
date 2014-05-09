@@ -2,6 +2,15 @@
 
 /* Directives */
 
+$("#search-btn").on("click", function() {
+    $("body").css("overflow", "hidden");
+    $(".lawlist").effect("slide", {
+        direction : "right",
+        mode : "show"
+    }, 600)
+    $("#search").focus();
+});
+
 angular.module('theLawFactory.directives', []).directive('mod1', ['apiService', '$rootScope', '$location', '$compile',
 function(apiService, $rootScope, $location, $compile) {
 	return {
@@ -16,25 +25,13 @@ function(apiService, $rootScope, $location, $compile) {
             scope.s=null;
 			if ($location.search()['l'] != null)
 				l = $location.search()['l'];
-                else $location.search("l="+l)
-			$("#search-btn").on("click", function() {
-				$("body").css("overflow", "hidden");
-				$(".lawlist").effect("slide", {
-					"direction" : "",
-					"mode" : "show"
-				}, 500)
-                $("#search").focus();
-			})
+            else $location.search("l="+l);
 			var mod1 = thelawfactory.mod1();
-
-
 
 			function update() {
 
                 var target = document.getElementById('preload');
                 var spinner = new Spinner(scope.opts).spin(target);
-
-				$(".lawlist").css("display", "none")
 
 				apiService.getDataSample(scope.dataUrl + l).then(function(data) {
 					scope.dataSample = data;
@@ -43,24 +40,7 @@ function(apiService, $rootScope, $location, $compile) {
 				}, function(error) {
 					scope.error = error
 				})
-
-
-				/*apiService.getDataSample(scope.procedureUrl + l).then(function(data) {
-					var a = data.steps[data.steps.length - 1].source_url
-					//$(".separator").html('<h4 class="law-title">' + capitalize(data.long_title) + '</h4><span class="links"><a href="' + data.url_dossier_senat + '"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a><br/><a href="' + data.url_dossier_assemblee + '"><span class="glyphicon glyphicon-link"></span> dossier AN</a></span>')
-					scope.b = data.steps.filter(function(d) {
-						return d.debats_order != null
-					})
-					scope.b.sort(function(a, b) {
-						return a.debats_order - b.debats_order
-					})
-					var len = 100 / scope.b.length;
-
-					var newElement = $compile( "<div class='stage-container' style='float:left; width:"+len+"%' ng-repeat='el in b'><div class='stage'>{{el.directory.split('_').slice(2,4).join(' ')}}<br/><a ng-if='el.source_url != \"renvoi en commission\"' href='{{el.source_url}}'><span class='glyphicon glyphicon-link'></span></a><span ng-if='el.source_url == \"renvoi en commission\"' class='renvoi'><br/>{{el.source_url}}</span></div></div>" )(scope);
-					element.find(".stages").append(newElement);
-				})*/
 			}
-
 
 			scope.$watch('dataUrl', function() {
 				update();
@@ -85,37 +65,17 @@ function(apiService, $rootScope, $location, $compile) {
 			$scope.hasAmendements = true;
 			$scope.hasInterventions = true;
 
-			/*$scope.loadStep = function(sect, ind) {
-				$scope.step = ind;
-				$scope.s = sect;
-				$(".step-curr").removeClass("step-curr")
-				$(".stage:eq(" + ind + ")").addClass("step-curr")
-				$location.search({
-					l : $scope.l,
-					s : $scope.s
-				})
-			}*/
 		},
 		link : function postLink(scope, element, attrs) {
 
 			if ($location.search()['l'] != null)
 				scope.l = $rootScope.l = $location.search()['l'];
-			$("#search-btn").on("click", function() {
-				$("body").css("overflow", "hidden");
-				$(".lawlist").effect("slide", {
-					"direction" : "",
-					"mode" : "show"
-				}, 500)
-                $("#search").focus();
-			})
 			var mod2 = thelawfactory.mod2();
 
 			function update() {
 
                 var target = document.getElementById('preload');
                 var spinner = new Spinner(scope.opts).spin(target);
-
-				$(".lawlist").css("display", "none")
 				apiService.getDataSample(scope.procedureUrl + scope.l + "?sect=amd").then(function(data) {
 
 					scope.dataSample = data;
@@ -170,51 +130,18 @@ function(apiService, $rootScope, $location, $compile) {
 			$scope.hasAmendements = true;
 			$scope.hasInterventions = true;
 
-			/*$scope.loadStep = function(sect, ind) {
-				$scope.step = ind;
-				$scope.s = sect;
-				$(".step-curr").removeClass("step-curr")
-				console.log($(".stage:eq(" + ind + ")"))
-				$(".stage:eq(" + ind + ")").addClass("step-curr")
-				$location.search({
-					l : $scope.l,
-					s : $scope.s
-				})
-			}*/
 		},
 		link : function postLink(scope, element, attrs) {
 
 			if ($location.search()['l'] != null)
 				scope.l = $location.search()['l'];
-			$("#search-btn").on("click", function() {
-				$("body").css("overflow", "hidden");
-				$(".lawlist").effect("slide", {
-					"direction" : "",
-					"mode" : "show"
-				}, 500)
-                $("#search").focus();
-			})
 			function update() {
-				$(".lawlist").css("display", "none")
-
                 var target = document.getElementById('preload');
                 var spinner = new Spinner(scope.opts).spin(target);
 
-				/*apiService.getDataSample(scope.procedureUrl + scope.l + "?sect=int").then(function(data) {
-
-					scope.dataSample = data;
-					var len = 95 / scope.dataSample.length;
-					var mar = 5 / scope.dataSample.length;
-					var newElement = $compile( "<div class='stage-container' style='margin-right:"+mar+"%;float:left; width:"+len+"%' ng-repeat='el in dataSample'><ng-switch style='width:100%; height:100%;' on='el.ints'><div class='stage valid-step' ng-click='loadStep(el.step_name, $index)' ng-switch-when='true'>{{el.step_name.split('_').slice(2,4).join(' ')}}</div><div class='stage' ng-switch-default>{{el.step_name.split('_').slice(2,4).join(' ')}}</div></ng-switch></div>" )(scope);
-
-					element.find(".stages").append(newElement);
-				}, function(error) {
-					scope.error = error
-				})*/
 				if ($location.search()['s'] != null) {
 
 					apiService.getDataSample(scope.intUrl + scope.l).then(function(data) {
-						console.log(data)
 						scope.data = data;
 						init(data, $location.search()['s'])
 
@@ -240,13 +167,6 @@ function(apiService, $rootScope, $location, $compile) {
 		restrict : 'A',
 		replace : false,
 		templateUrl : 'templates/mod0.html',
-		controller : function($scope, $element, $attrs) {
-
-
-			$scope.loadStep = function(sect, ind) {
-				
-			}
-		},
 		link : function postLink(scope, element, attrs) {
 
             $("#mod0-slider").slider({
@@ -256,7 +176,6 @@ function(apiService, $rootScope, $location, $compile) {
                 value:1,
                 slide: function( event, ui ) {
                     zooming(ui.value);
-
                 }
             })
 			var mod0 = thelawfactory.mod0();
@@ -267,11 +186,7 @@ function(apiService, $rootScope, $location, $compile) {
                 var target = document.getElementById('preload');
                 var spinner = new Spinner(scope.opts).spin(target);
 
-				$(".lawlist").css("display", "none")
-
-
 				apiService.getDataSample(scope.statsUrl).then(function(data) {
-					console.log(data)
 					d3.select(element[0]).datum(data).call(mod0_bars)
 					
 				}, function(error) {
@@ -374,195 +289,184 @@ function(apiService, $rootScope, $location) {
 						select : function(event, ui) {
 							$rootScope.$apply(function() {
 								$("body").css("overflow", "auto");
-								$location.search("l=" + ui.item.value);
+                                $location.path("/mod1");
+                                $location.search("l=" + ui.item.value);
+                        });
+                    }
+                })
 
-							});
-						}
-					})
+                    .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
 
-                        .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-
-                        var themesdiv=$("<div>")
-                        var thms=item.themes.split(", ");
-                        thms.forEach(function(e,j){
-                            themesdiv.append("<span class='glyphicon glyphicon-tag'></span> "+e+" ");
-                        })
-
-
-                        var icodiv=$("<div class='src-ico'>")
-                            .append('<div><span class="glyphicon glyphicon-calendar"></span> '+item.dates+"</div>")
-                            .append('<div title="'+item.amendements+' amendements déposés sur ce texte"><span class="glyphicon glyphicon-folder-open"></span> '+item.amendements+"</div>")
-                            .append('<div title="'+item.words+' mots prononcés lors des débats sur ce texte"><span class="glyphicon glyphicon-comment"></span> '+1000*(Math.round(item.words / 1000.))+"</div>")
-                            .append(themesdiv);
-
-                        var txtdiv=$("<div class='src-txt'>")
-                            .append( "<a>" +item.label + "</a>" )
-                            .append(icodiv)
-
-                        return $( "<li class="+item.value+">" )
-                            .append(txtdiv)
-                            .appendTo( ul );
-                    };
-
-				}, function(error) {
-					scope.error = error
-				})
-			}
+                    var themesdiv=$("<div>")
+                    var thms=item.themes.split(", ");
+                    thms.forEach(function(e,j){
+                        themesdiv.append("<span class='glyphicon glyphicon-tag'></span> "+e+" ");
+                    })
 
 
-			scope.$watch('lawlistUrl', function() {
-				update();
-			}, true)
+                    var icodiv=$("<div class='src-ico'>")
+                        .append('<div><span class="glyphicon glyphicon-calendar"></span> '+item.dates+"</div>")
+                        .append('<div title="'+item.amendements+' amendements déposés sur ce texte"><span class="glyphicon glyphicon-folder-open"></span> '+item.amendements+"</div>")
+                        .append('<div title="'+item.words+' mots prononcés lors des débats sur ce texte"><span class="glyphicon glyphicon-comment"></span> '+1000*(Math.round(item.words / 1000.))+"</div>")
+                        .append(themesdiv);
 
-		}
-	};
+                    var txtdiv=$("<div class='src-txt'>")
+                        .append( "<a>" +item.label + "</a>" )
+                        .append(icodiv)
+
+                    return $( "<li class="+item.value+">" )
+                        .append(txtdiv)
+                        .appendTo( ul );
+                };
+
+            }, function(error) {
+                scope.error = error
+            })
+        }
+
+        scope.$watch('lawlistUrl', function() {
+            update();
+        }, true)
+
+    }
+};
 }])
 
 .directive('movescroll', [ '$rootScope',function($rootScope) {
-	return {
-		restrict : 'A',
-		controller : function($scope, $element, $attrs) {
-			$scope.pos=[-1,-1];
-			$scope.xmouselerp=d3.scale.linear().range([-100,0,0,100]).clamp(true);
-			$scope.ymouselerp=d3.scale.linear().range([-100,0,0,100]).clamp(true);
-		},
-		link : function postLink(scope, element, attrs,movescrollCtrl) {
-		
-		
-			scope.xmouselerp.domain([0,element.width()*0.2,element.width()*0.8, element.width()])
-			scope.ymouselerp.domain([0,element.height()*0.2,element.height()*0.8, element.height()])
+return {
+    restrict : 'A',
+    controller : function($scope, $element, $attrs) {
+        $scope.pos=[-1,-1];
+        $scope.xmouselerp=d3.scale.linear().range([-100,0,0,100]).clamp(true);
+        $scope.ymouselerp=d3.scale.linear().range([-100,0,0,100]).clamp(true);
+    },
+    link : function postLink(scope, element, attrs,movescrollCtrl) {
+    
+        scope.xmouselerp.domain([0,element.width()*0.2,element.width()*0.8, element.width()])
+        scope.ymouselerp.domain([0,element.height()*0.2,element.height()*0.8, element.height()])
 
+        var clicking = false;
+        var inpos=[-1,-1];
 
-            var clicking = false;
-            var inpos=[-1,-1];
+        element.mousedown(function(e){
+            clicking = true;
+            inpos[0]= e.pageX;
+            inpos[1]= e.pageY;
+        });
 
-            element.mousedown(function(e){
-                clicking = true;
-                inpos[0]= e.pageX;
-                inpos[1]= e.pageY;
-            });
+        $(document).mouseup(function(){
+            clicking = false;
+            inpos=[-1,-1];
+        });
 
-            $(document).mouseup(function(){
-                clicking = false;
-                inpos=[-1,-1];
-            });
-
-            element.mousemove(function(e){
-                if(clicking == false) return;
-                e.stopPropagation();
-                var x = (e.pageX-inpos[0])*2;
-                var y = (e.pageY-inpos[1])*2;
-                element.scrollTop(element.scrollTop()-y);
-                element.scrollLeft(element.scrollLeft()-x);
-                inpos[0]=e.pageX;
-                inpos[1]=e.pageY;
-
-
-
-            });
-
-		
-		}
-	};
+        element.mousemove(function(e){
+            if(clicking == false) return;
+            e.stopPropagation();
+            var x = (e.pageX-inpos[0])*2;
+            var y = (e.pageY-inpos[1])*2;
+            element.scrollTop(element.scrollTop()-y);
+            element.scrollLeft(element.scrollLeft()-x);
+            inpos[0]=e.pageX;
+            inpos[1]=e.pageY;
+        });
+    }
+};
 }])
-    .directive('stepsbar', ['apiService', '$rootScope', "$location",
-        function(apiService, $rootScope, $location) {
-            return {
-                restrict : 'A',
-                replace : false,
-                templateUrl : 'templates/stepsbar.html',
-                controller : function($scope, $element, $attrs) {
-                    $scope.s = $rootScope.s;
+.directive('stepsbar', ['apiService', '$rootScope', "$location",
+    function(apiService, $rootScope, $location) { return {
+        restrict : 'A',
+        replace : false,
+        templateUrl : 'templates/stepsbar.html',
+        controller : function($scope, $element, $attrs) {
+            $scope.s = $rootScope.s;
+            $scope.l=$location.search()['l'];
+        },
+        link : function preLink(scope, element, attrs, stepsbarCtrl) {
 
-                    $scope.l=$location.search()['l'];
-                },
-                link : function preLink(scope, element, attrs, stepsbarCtrl) {
+            function capitalize(s) {
+                return s.charAt(0).toUpperCase() + s.substring(1);
+            }
 
-                    function capitalize(s) {
-                        return s.charAt(0).toUpperCase() + s.substring(1);
-                    }
+            scope.total=0;
+            apiService.getDataSample(scope.procedureUrl+scope.l).then(function(data) {
 
-                    //console.log("lol",scope.s);
-                    scope.total=0;
-                    apiService.getDataSample(scope.procedureUrl+scope.l).then(function(data) {
+                $(".separator").html('<h4 class="law-title">' + capitalize(data.long_title) + '</h4><span class="links"><a href="' + data.url_dossier_senat + '"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a><br/><a href="' + data.url_dossier_assemblee + '"><span class="glyphicon glyphicon-link"></span> dossier AN</a></span>')
 
-                        $(".separator").html('<h4 class="law-title">' + capitalize(data.long_title) + '</h4><span class="links"><a href="' + data.url_dossier_senat + '"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a><br/><a href="' + data.url_dossier_assemblee + '"><span class="glyphicon glyphicon-link"></span> dossier AN</a></span>')
+                scope.stages=[],
+                scope.steps=[],
+                scope.inst=[];
+                var currStage,
+                    currInst;
 
-                        scope.stages=[],
-                        scope.steps=[],
-                        scope.inst=[];
-                        var currStage,
-                            currInst;
+                data.steps.forEach(function(e,j){
 
-                        data.steps.forEach(function(e,j){
+                    if(e.debats_order!==null) {
 
-                            if(e.debats_order!==null) {
+                        scope.total++;
+                        scope.steps.push(e);
 
-                                scope.total++;
-                                scope.steps.push(e);
+                        if(!currStage) {
+                            currStage={};
+                            if(e.step==="depot") currStage.name="depot"
+                            else currStage.name = e.stage;
+                            currStage.num = 1;
+                        }
+                        else if(currStage.name.toLowerCase() === e.stage.toLowerCase() || (currStage.name.indexOf("depot")>=0 && e.step.toLowerCase()==="depot")) {
+                            if(currStage.name.indexOf("depot")>=0) currStage.name="depots"
+                            currStage.num++;
+                        }
+                        else {
+                            var obj = $.extend(true, {}, currStage);
+                            scope.stages.push(obj);
+                            if(e.step==="depot") currStage.name="depot"
+                            else currStage.name = e.stage;
+                            currStage.num=1;
+                        }
 
-                                if(!currStage) {
-                                    currStage={};
-                                    if(e.step==="depot") currStage.name="depot"
-                                    else currStage.name = e.stage;
-                                    currStage.num = 1;
-                                }
-                                else if(currStage.name.toLowerCase() === e.stage.toLowerCase() || (currStage.name.indexOf("depot")>=0 && e.step.toLowerCase()==="depot")) {
-                                    if(currStage.name.indexOf("depot")>=0) currStage.name="depots"
-                                    currStage.num++;
-                                }
-                                else {
-                                    var obj = $.extend(true, {}, currStage);
-                                    scope.stages.push(obj);
-                                    if(e.step==="depot") currStage.name="depot"
-                                    else currStage.name = e.stage;
-                                    currStage.num=1;
-                                }
-
-                                if(e.step==="depot") {
-                                    if(!currInst) {
-                                        currInst={};
-                                        currInst.name = e.auteur_depot;
-                                        currInst.num = 1;
-                                    }
-
-                                    else if(currInst.name!==e.auteur_depot) {
-                                        var obj = $.extend(true, {}, currInst);
-                                        scope.inst.push(obj);
-                                        currInst.name = e.auteur_depot;
-                                        currInst.num = 1;
-                                    }
-                                    else currInst.num++;
-                                }
-                                else {
-
-                                    if(!currInst) {
-                                        currInst={};
-                                        currInst.name= e.institution;
-                                        currInst.num=1;
-                                    }
-
-                                    else if(e.institution === currInst.name) {
-                                        currInst.num++;
-                                    }
-                                    else {
-                                        var obj = $.extend(true, {}, currInst);
-                                        scope.inst.push(obj);
-                                        currInst.name= e.institution;
-                                        currInst.num=1;
-                                    }
-                                }
-
+                        if(e.step==="depot") {
+                            if(!currInst) {
+                                currInst={};
+                                currInst.name = e.auteur_depot;
+                                currInst.num = 1;
                             }
-                        });
 
-                        scope.stages.push(currStage);
-                        scope.inst.push(currInst);
+                            else if(currInst.name!==e.auteur_depot) {
+                                var obj = $.extend(true, {}, currInst);
+                                scope.inst.push(obj);
+                                currInst.name = e.auteur_depot;
+                                currInst.num = 1;
+                            }
+                            else currInst.num++;
+                        }
+                        else {
 
-                    }, function(error) {
-                        scope.error = error
-                    })
+                            if(!currInst) {
+                                currInst={};
+                                currInst.name= e.institution;
+                                currInst.num=1;
+                            }
 
-                }
-            };
-        }]);
+                            else if(e.institution === currInst.name) {
+                                currInst.num++;
+                            }
+                            else {
+                                var obj = $.extend(true, {}, currInst);
+                                scope.inst.push(obj);
+                                currInst.name= e.institution;
+                                currInst.num=1;
+                            }
+                        }
+
+                    }
+                });
+
+                scope.stages.push(currStage);
+                scope.inst.push(currInst);
+
+            }, function(error) {
+                scope.error = error
+            })
+
+        }
+    }}
+]);

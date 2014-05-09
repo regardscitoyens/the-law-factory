@@ -160,8 +160,6 @@ body{
 	-moz-box-pack:center;
 	-moz-box-align:center;
 	
-	
-	
 	/* Safari, Opera, and Chrome */
 	display:-webkit-box;
 	-webkit-box-pack:center;
@@ -439,21 +437,27 @@ ul.ui-autocomplete {
 	color:#fff;
 	z-index:2001;
 	position:fixed;
-	width:98% !important;
+	width:73% !important;
 	overflow:auto;
-	
 } 
 
 .lawlist{
-	float:left;
-	width:100%;
+    float:right;
+	width:75%;
 	height:100%;
-	position:fixed;
-	top:0;
-	left:0;
+    position: fixed;
+    top: 0;
+    right: 0;
 	background:#f1f1f1;
 	overflow:auto;
 	z-index:2000;
+    display:none;
+    /* crossplatform shadow */
+    -moz-box-shadow: -5px 1px 3px #ccc;
+    -webkit-box-shadow: -5px 1px 3px #ccc;
+    box-shadow: -5px 1px 3px #ccc; /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=0, Color='#cccccc')"; /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength = 4, Direction = 0, Color = '#cccccc');
 }
 
 .lawlist input {
@@ -468,7 +472,6 @@ ul.ui-autocomplete {
 	outline:none;
 }
 #search-btn, .btn{
-	float:left;
 	border-radius: 0 !important;
 }
 .ui-menu .ui-menu-item {

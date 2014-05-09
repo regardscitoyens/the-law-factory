@@ -87,8 +87,6 @@ var stacked;
                 var re= /l\=(.*)/;
                 var id= location.search.match(re)[1];
 
-
-
 				var bigList=[]
 				var art = d3.values(data.articles);
 
@@ -532,7 +530,6 @@ var stacked;
 
 				//on click behaviour
 				function onclick(d) {
-                    console.log(d)
                     $(".text-container").show();
 					d3.selectAll("line").style("stroke", "#d0d0e0");
 
