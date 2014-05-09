@@ -372,9 +372,10 @@ var stacked;
 
 				//USE THE ARROWS
 				d3.select("body").on("keydown", function() {
-					if (d3.select(".curr").empty()) {
+					/*if (d3.select(".curr").empty()) {
 						d3.select(".article").each(onclick);
-					} else {
+					} else {*/
+
 						c = (d3.select(".curr"))
 						cur = c.datum();
 
@@ -400,15 +401,22 @@ var stacked;
 							el = null;
 
 							//UP
+
+                            var elm;
+
 							if (d3.event.keyCode == 38) {
 								curn=$(c.node())
 								if(curn.prev().length) {
-									d3.select(curn.prev().get([0])).each(onclick)
+                                    elm = d3.select(curn.prev().get([0]))
+                                    elm.each(onclick)
+
 								}
 								else {
 									var a = $(".group.st"+cur.step_num+":lt("+cur.sect_num+"):parent:last")
 									if(a.length) {
-										d3.select(a.children(".article").last().get([0])).each(onclick)
+                                       elm = d3.select(a.children(".article").last().get([0]))
+                                       elm.each(onclick)
+
 									}
 								}
 
@@ -419,21 +427,27 @@ var stacked;
 
 								curn=$(c.node())
 								if(curn.next().length && d3.select(curn.next().get([0])).classed("article")) {
-									d3.select(curn.next().get([0])).each(onclick)
+									elm = d3.select(curn.next().get([0]))
+                                    elm.each(onclick)
+
 								}
 
 								else {
 									var a = $(".group.st"+cur.step_num+":gt("+cur.sect_num+"):parent")
 									if(a.length) {
-										d3.select(a.children().get([0])).each(onclick)
+                                        elm = d3.select(a.children().get([0]))
+                                            elm.each(onclick)
+
 									}
 
 								}
 							}
-							d3.select(el).each(onclick);
+							//d3.select(el).each(onclick);
+                            $("#viz").animate({ scrollTop: elm.node().getBBox().y -20 });
+
 						}
 
-					}
+
 				});
 
 
