@@ -156,7 +156,7 @@ var api_root;
         drawMerged = function() {
 
             if(!grouped) {
-                grouped = {titre:'all articles',key: 'all articles', amendements:[]}
+                grouped = {titre:'Tous les amendements',key: 'all articles', amendements:[]}
                 artArray.forEach(function(d,i) {
                     grouped.amendements=grouped.amendements.concat(d.amendements)
                 });
