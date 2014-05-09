@@ -37,10 +37,10 @@ angular.module('theLawFactory.services', [])
                     return apiService.getDataSample(APIRootUrl + '/' + id + '/viz/articles_etapes.json');
                 },
                 getAmendement: function(id, step) {
-                    return apiService.getDataSample('law-amendments/' + id + '/' + step);
+                    return apiService.getDataSample(APIRootUrl + '/' + id + '/viz/amendements_' + step + '.json');
                 },
                 getIntervention: function(id) {
-                    return apiService.getDataSample('law-interventions/' + id);
+                    return apiService.getDataSample(APIRootUrl + '/' + id + '/viz/interventions.json');
                 },
                 getDossiers: function() {
                     return apiService.getDataSample(APIRootUrl + '/dossiers_0_49.json');
