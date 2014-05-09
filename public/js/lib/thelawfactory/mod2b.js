@@ -6,24 +6,30 @@ function wrap(width) {
   d3.selectAll('text').each(function() {
     var text = d3.select(this),
         words = text.text().split(/\s+/).reverse(),
-        word,
+        word, l,
         line = [],
+        lines = [],
         lineNumber = 0,
         lineHeight = 1.2, // ems
         y = text.attr("y"),
         dy = parseFloat(text.attr("dy")),
         dx = parseFloat(text.attr("dx")),
-        tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+        devy = 0,
+        tspan = text.text(null).append("tspan");
     while (word = words.pop()) {
       line.push(word);
       tspan.text(line.join(" "));
       if (tspan.node().getComputedTextLength() > width) {
         line.pop();
-        tspan.text(line.join(" "));
+        lines.push(line.join(" "));
         line = [word];
-        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").attr("dx",dx).text(word);
       }
     }
+    lines.push(line.join(" "));
+    devy = lineHeight * (lines.length - 1) / 2;
+    tspan.attr("x", 0).attr("y", y).attr("dy", dy - devy + "em").text(lines.shift());
+    while (l = lines.shift())
+        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy - devy + "em").attr("dx",dx).text(l);
   });
 }
 
@@ -82,7 +88,7 @@ function init(data,step) {
 function draw(top_ordered){
     $("#viz").empty()
     var w=$("#viz").width();
-    var offset = w*15/100;
+    var offset = Math.round(w/5);
     var stream = sven.viz.streamkey()
         .data(mydata)
         .target("#viz")
@@ -92,7 +98,7 @@ function draw(top_ordered){
         .sorting(top_ordered)
         .init();
     d3.selectAll("g:not(.main-g)").attr("transform","translate("+offset+",0) scale("+(w-offset)/w+",1)");
-    wrap(offset);
+    wrap(offset-25);
 }
 
 sven = {},
@@ -264,8 +270,9 @@ sven.viz.streamkey = function(){
             .attr("display", "inline")
             .on("click",function(d){
                 d3.event.stopPropagation();
-                $(".text-container").empty();
                 $("#text-title").html(d.label);
+                $(".text-container").empty()
+                $(".text-container").append('<p class="orat-title">'+d.x+"</p>");
                 d3.selectAll("path").transition().attr("fill-opacity",0.1);
                 d3.selectAll("rect").transition().style("opacity",0.1);
                 d3.select(d3.select(this).node().parentNode).selectAll("path").transition().attr("fill-opacity",0.45);
@@ -274,19 +281,21 @@ sven.viz.streamkey = function(){
                 
                 spArray= d3.entries(d.speakers).sort(function(a,b){return b.value.nb_mots - a.value.nb_mots});
                 spArray.forEach(function(g,j){
-                    var ordiv = document.createElement('div')
+                    var ordiv = document.createElement('div');
                     ordiv.className="orateur";
-                    var div = document.createElement('div')
+                    var div = document.createElement('div');
                     div.className="orat-info";
-                    var siz = $(".text-container").width()*0.25
-                    if(participants[g.key].photo) $(ordiv).append("<a href='"+participants[g.key].link+"'><img src='"+participants[g.key].photo+"/"+parseInt(siz)+"'/></a>") 
-                    $(div).append("<p class='orat-name'><b>"+(participants[g.key].photo ? "<a href='"+participants[g.key].link+"'>"+g.key+"</a>" : g.key)+"</b></p>")
-                    if(participants[g.key].fonction.length) $(div).append("<p class='orat-fonction'>"+participants[g.key].fonction+"</p>")
-                    $(div).append("<p class='orat-count'>Mots prononcés : "+g.value.nb_mots+"</p>")
-                    $(div).append("<p><a class='orat-disc' href='"+g.value.link+"'>Lire les interventions</a></p>")
-                    $(ordiv).append(div)
-                    $(".text-container").append(ordiv)
-                    $(".orat-info").width($(".text-container").width()*0.63)
+                    var siz = $(".text-container").width()*0.25;
+                    if(participants[g.key].photo) $(div).append("<a href='"+participants[g.key].link+"'><img src='"+participants[g.key].photo+"/"+parseInt(siz)+"'/></a>");
+                    $(div).append("<p class='orat-name'><b>"+(participants[g.key].photo ? "<a href='"+participants[g.key].link+"'>"+participants[g.key].nom+"</a>" : participants[g.key].nom)+"</b></p>");
+                    if(participants[g.key].fonction.length) $(div).append("<p class='orat-fonction'>"+participants[g.key].fonction+"</p>");
+                    $(div).append("<p><a class='orat-disc' href='"+g.value.link+"'>Lire les interventions</a></p>");
+                    $(ordiv).append(div);
+                    div = document.createElement('div');
+                    div.className="orat-count";
+                    $(div).append("<span>"+g.value.nb_mots+"<br/>mots</span>");
+                    $(ordiv).append(div);
+                    $(".text-container").append(ordiv);
                 })
             })
             .popover(function(d){
@@ -297,8 +306,8 @@ sven.viz.streamkey = function(){
                     .style("height", "none")
                     .style("width", "100%")
                     .attr("class", "popup-mod2");
-                div.append("p").html("<b>"+ d.x + "</b><br/>");
-                div.append("p").html(val + " mots prononcés par " + orateurs + " orateur" + (orateurs > 1 ? 's': ''));
+                div.append("p").html("<b>"+ d.x + "</b>");
+                div.append("p").html("<br/>"+val+" mots prononcés par "+orateurs+" orateur" + (orateurs > 1 ? 's': ''));
                 return {
                     title: d.label,
                     content: div,
@@ -329,7 +338,7 @@ sven.viz.streamkey = function(){
             .attr("y", function(d) { return x(d) + margin.left; })
             .attr("x", function(d) { return y(mY) + margin.top; })
             .attr("dx", 10)
-            .attr("dy", 1)
+            .attr("dy", 0.7)
             .attr("font-family","sans-serif")
             .attr("font-size","0.9em")
             .attr("class", "filter-title")

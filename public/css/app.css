@@ -640,20 +640,31 @@ h4 a{
 	float:left;
 	margin-right:5px;
 }
+.text-container .orat-title  {
+    font-weight: bold;
+    text-align: center;
+}
 .text-container .orat-info{
 	float:left;
+    width: 90%;
 }
-.orat-info p{
-	margin:0;
-	width:100%;
+.text-container .orat-info p{
+    margin:0;
+}
+.text-container .orat-count{
+    width: 9%;
+	float: left;
+    text-align: right;
+    padding-right: 8px;
+    padding-top: 2px;
+    font-size: 0.75em;
 }
 .orateur{
 	display:block;
 	float:left;
-	width:99%;
-	clear:both;
+	width:100%;
 	margin-top:15px;
-	margin-left:1%;
+	padding-left:6px;
 }
 
 .orat-info b{
@@ -672,15 +683,6 @@ h4 a{
 .orat-fonction{
 	font-size: 0.8em;
 	line-height: 0.9em;
-}
-p.orat-count{
-	display:block;
-	margin-top:8px;
-	margin-bottom:0px;
-	padding-bottom:0px;
-}
-p.orat-name{
-	    text-transform:capitalize;
 }
 
 .mod0 #gantt {
