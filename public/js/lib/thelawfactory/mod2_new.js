@@ -227,12 +227,9 @@ var api_root;
               date = d.date.split('-'),
               gr = d.groupe,
               status = d.sort,
-              div = d3.select(document.createElement("div"))
-                .style("height", "120px")
-                .style("width", "100%")
-                .attr("class","popup-mod2");
-          div.append("p").html("<b>" + groups[gr].nom +"</b><br/><br/>");
-          div.append("p").html("Sort : " + status + "<br/>");
+              div = d3.select(document.createElement("div")).style("width", "100%");
+          div.append("p").html("<b>" + groups[gr].nom +"</b>");
+          div.append("p").html("Sort : " + status + "");
           div.append("p").html("<small>" + [date[2],date[1],date[0]].join("/") + "</small>");
           return {
               title: "Amendement " + titre,

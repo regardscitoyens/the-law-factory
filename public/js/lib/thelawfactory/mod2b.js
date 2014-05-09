@@ -301,11 +301,7 @@ sven.viz.streamkey = function(){
             .popover(function(d){
                 var val = d.value,
                     orateurs = (d.speakers ? Object.keys(d.speakers).length : 0),
-                    div = d3.select(document.createElement("div"))
-                    .style("min-height", "10px")
-                    .style("height", "none")
-                    .style("width", "100%")
-                    .attr("class", "popup-mod2");
+                    div = d3.select(document.createElement("div")).style("width", "100%");
                 div.append("p").html("<b>"+ d.x + "</b>");
                 div.append("p").html("<br/>"+val+" mots prononcés par "+orateurs+" orateur" + (orateurs > 1 ? 's': ''));
                 return {

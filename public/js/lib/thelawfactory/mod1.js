@@ -167,7 +167,7 @@ var stacked;
 				var svg = d3.select("#viz").append("svg").attr("width", "100%").attr("height", maxy).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
                 function article_hover(d) {
-                    var div = d3.select(document.createElement("div")).style("height", "120px").style("width", "100%");
+                    var div = d3.select(document.createElement("div")).style("width", "100%");
                     if (d.section.lastIndexOf("A", 0) !== 0)
                       div.append("p").html("<small>"+(data.sections[d.section][d.id_step] && data.sections[d.section][d.id_step].newnum != undefined ? format_section(data.sections[d.section][d.id_step], 2) + " ("+format_section(d, 0)+')' : format_section(d, 2))+"</small>");
                     div.append("p").html("<small>"+titre_etape(d)+"</small>");
@@ -187,7 +187,7 @@ var stacked;
 				}
 
                 function section_hover(d) {
-                    var div = d3.select(document.createElement("div")).style("height", "120px").style("min-width", "100%").style("width", "100%");
+                    var div = d3.select(document.createElement("div")).style("width", "100%");
                     div.append("p").html("<small>"+titre_etape(d)+"</small>");
                     if (data.sections && d.section == "echec") div.append("p").html(data.sections[d.section][d.id_step].title);
                     else div.append("p").html("<small>"+(data.sections && data.sections[d.section][d.id_step] && data.sections[d.section][d.id_step].newnum != undefined ? titre_section(data.sections[d.section][d.id_step].newnum, false)+" ("+format_section(d, 0)+')' : titre_section(d.section, false))+"</small>");
