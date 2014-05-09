@@ -11,8 +11,8 @@ $("#search-btn").on("click", function() {
     $("#search").focus();
 });
 
-angular.module('theLawFactory.directives', []).directive('mod1', ['apiService', '$rootScope', '$location', '$compile',
-function(apiService, $rootScope, $location, $compile) {
+angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootScope', '$location', '$compile',
+function(api, $rootScope, $location, $compile) {
 	return {
 		restrict : 'A',
 		replace : false,
@@ -33,15 +33,16 @@ function(apiService, $rootScope, $location, $compile) {
                 var target = document.getElementById('preload');
                 var spinner = new Spinner(scope.opts).spin(target);
 
-				apiService.getDataSample(scope.dataUrl + l).then(function(data) {
+				api.getArticle(l).then(function(data) {
 					scope.dataSample = data;
 					d3.select(element[0]).datum(data).call(mod1)
                     spinner.stop();
 				}, function(error) {
+                                    console.log(error);
 					scope.error = error
 				})
 			}
-
+                        // Useless watch ?
 			scope.$watch('dataUrl', function() {
 				update();
 			}, true)

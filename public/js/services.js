@@ -21,6 +21,33 @@ angular.module('theLawFactory.services', [])
 	        });
         
         	return deferred.promise;
-    	}
-	  }
+            }
+          }
+        })
+        .factory('api', function($http, $q, apiService) {
+            var APIRootUrl = 'http://www.lafabriquedelaloi.fr/api';
+            var api = {
+                getLawlist: function() {
+                    return apiService.getDataSample('laws/list/');
+                },
+                getProcedure: function(id) {
+                    return apiService.getDataSample('law-procedure/' + id + "?sect=amd");
+                },
+                getArticle: function(id) {
+                    return apiService.getDataSample(APIRootUrl + '/' + id + '/viz/articles_etapes.json');
+                },
+                getAmendement: function(id, step) {
+                    return apiService.getDataSample('law-amendments/' + id + '/' + step);
+                },
+                getIntervention: function(id) {
+                    return apiService.getDataSample('law-interventions/' + id);
+                },
+                getDossier: function() {
+                    return apiService.getDataSample(APIRootUrl + '/dossiers_0_49.json');
+                },
+                getStats: function() {
+                    return apiService.getDataSample(APIRootUrl + '/stats_dossiers.json');
+                }
+            };
+            return api;
 	})
