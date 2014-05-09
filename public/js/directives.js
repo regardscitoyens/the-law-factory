@@ -49,8 +49,8 @@ function(api, $rootScope, $location, $compile) {
 
 		}
 	};
-}]).directive('mod2', ['apiService', '$rootScope', '$location', '$compile',
-function(apiService, $rootScope, $location, $compile) {
+}]).directive('mod2', ['api', '$rootScope', '$location', '$compile',
+function(api, $rootScope, $location, $compile) {
 	return {
 		restrict : 'A',
 		replace : false,
@@ -77,13 +77,13 @@ function(apiService, $rootScope, $location, $compile) {
 
                 var target = document.getElementById('preload');
                 var spinner = new Spinner(scope.opts).spin(target);
-				apiService.getDataSample(scope.procedureUrl + scope.l + "?sect=amd").then(function(data) {
+				api.getProcedure(scope.l + "?sect=amd").then(function(data) {
 
 					scope.dataSample = data;
 
 					if ($location.search()['s'] != null) {
 
-						apiService.getDataSample(scope.amdUrl + scope.l+'/'+$location.search()['s'] ).then(function(data) {
+						api.getAmendement(scope.l, $location.search()['s'] ).then(function(data) {
 
 							var elementPos = scope.dataSample.map(function(x) {
 								return x.step_name;
@@ -116,8 +116,8 @@ function(apiService, $rootScope, $location, $compile) {
 			}, true)
 		}
 	};
-}]).directive('mod2b', ['apiService', '$rootScope', '$location', '$compile',
-function(apiService, $rootScope, $location, $compile) {
+}]).directive('mod2b', ['api', '$rootScope', '$location', '$compile',
+function(api, $rootScope, $location, $compile) {
 	return {
 		restrict : 'A',
 		replace : false,
@@ -142,7 +142,7 @@ function(apiService, $rootScope, $location, $compile) {
 
 				if ($location.search()['s'] != null) {
 
-					apiService.getDataSample(scope.intUrl + scope.l).then(function(data) {
+					api.getIntervention(scope.l).then(function(data) {
 						scope.data = data;
 						init(data, $location.search()['s'])
 
@@ -161,8 +161,8 @@ function(apiService, $rootScope, $location, $compile) {
 		}
 	};
 }])
-.directive('mod0', ['apiService', '$rootScope', '$location', '$compile',
-function(apiService, $rootScope, $location, $compile) {
+.directive('mod0', ['api', '$rootScope', '$location', '$compile',
+function(api, $rootScope, $location, $compile) {
 	return {
 		restrict : 'A',
 		replace : false,
@@ -186,14 +186,14 @@ function(apiService, $rootScope, $location, $compile) {
                 var target = document.getElementById('preload');
                 var spinner = new Spinner(scope.opts).spin(target);
 
-				apiService.getDataSample(scope.statsUrl).then(function(data) {
+				api.getStats().then(function(data) {
 					d3.select(element[0]).datum(data).call(mod0_bars)
 
 				}, function(error) {
 					console.log(error)
 				})
 
-				apiService.getDataSample(scope.dossierUrl).then(function(data) {
+				api.getDossiers(scope.dossierUrl).then(function(data) {
 
 					d3.select(element[0]).datum(data).call(mod0)
                     spinner.stop();
@@ -209,8 +209,8 @@ function(apiService, $rootScope, $location, $compile) {
 		}
 	};
 }])
-.directive('lawlist', ['apiService', '$rootScope', "$location",
-function(apiService, $rootScope, $location) {
+.directive('lawlist', ['api', '$rootScope', "$location",
+function(api, $rootScope, $location) {
 	return {
 		restrict : 'A',
 		replace : false,
@@ -253,7 +253,7 @@ function(apiService, $rootScope, $location) {
 
 			function update() {
 
-				apiService.getDataSample(scope.lawlistUrl).then(function(data) {
+				api.getLawlist().then(function(data) {
 					scope.ll = data;
 
 					$("#search").autocomplete({
@@ -372,8 +372,8 @@ return {
     }
 };
 }])
-.directive('stepsbar', ['apiService', '$rootScope', "$location",
-    function(apiService, $rootScope, $location) { return {
+.directive('stepsbar', ['api', '$rootScope', "$location",
+    function(api, $rootScope, $location) { return {
         restrict : 'A',
         replace : false,
         templateUrl : 'templates/stepsbar.html',
@@ -389,7 +389,7 @@ return {
             }
 
             scope.total=0;
-            apiService.getDataSample(scope.procedureUrl+scope.l).then(function(data) {
+            api.getProcedure(scope.l).then(function(data) {
 
                 $(".separator").html('<h4 class="law-title">' + capitalize(data.long_title) + '</h4><span class="links"><a href="' + data.url_dossier_senat + '"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a><br/><a href="' + data.url_dossier_assemblee + '"><span class="glyphicon glyphicon-link"></span> dossier AN</a></span>')
 

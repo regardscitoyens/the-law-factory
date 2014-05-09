@@ -31,7 +31,7 @@ angular.module('theLawFactory.services', [])
                     return apiService.getDataSample('laws/list/');
                 },
                 getProcedure: function(id) {
-                    return apiService.getDataSample('law-procedure/' + id + "?sect=amd");
+                    return apiService.getDataSample('law-procedure/' + id);
                 },
                 getArticle: function(id) {
                     return apiService.getDataSample(APIRootUrl + '/' + id + '/viz/articles_etapes.json');
@@ -42,7 +42,7 @@ angular.module('theLawFactory.services', [])
                 getIntervention: function(id) {
                     return apiService.getDataSample('law-interventions/' + id);
                 },
-                getDossier: function() {
+                getDossiers: function() {
                     return apiService.getDataSample(APIRootUrl + '/dossiers_0_49.json');
                 },
                 getStats: function() {
