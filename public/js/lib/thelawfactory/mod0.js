@@ -25,6 +25,25 @@
                 qscale = d3.time.scale().range([10, width]),
                 minstr = "2010-01-05",
                 mindate = format.parse(minstr),
+                format_step = function(d){
+                    d = d.replace('depot', 'Dépôt')
+                        .replace('1ère lecture', '1<sup>ère</sup> Lecture')
+                        .replace('2ème lecture', '2<sup>ème</sup> Lecture')
+                        .replace('nouv. lect.', 'Nouvelle Lecture')
+                        .replace('l. définitive', 'Lecture Définitive')
+                        .replace('CMP', 'Commission Mixte Paritaire')
+                        .replace('hemicycle', 'Hémicycle');
+                    return d.charAt(0).toUpperCase() + d.substring(1);
+                },
+                format_instit = function(d){
+                    return d.replace('assemblee', 'Assemblée nationale')
+                        .replace('senat', 'Sénat');
+                },
+                french_date = function(d){
+                    if (!d) return "";
+                    d = d.split('-');
+                    return [d[2], d[1], d[0]].join('/');
+                },
                 today = new Date(),
                 lawh = 50,
                 z = 1,
@@ -376,23 +395,16 @@
                         .append("g")
                         .attr("class", "g-step")
                         .popover(function (d, i) {
-
-
-                            var div;
-                            var start = d.date, end = d.enddate, inst = d.institution, stage = d.stage, step = d.step, amds = d.nb_amendements, source = d.source_url
-                            div = d3.select(document.createElement("div")).style("width", "100%")
-
-                            div.append("p").text("Start : " + start);
-                            div.append("p").text("End : " + end);
-                            div.append("p").text("Institution : " + inst);
-                            div.append("p").text("Stage : " + stage);
-                            if (d.institution=="assemblee" || d.institution=="senat") {
-                                div.append("p").text("Step : " + step);
-                                div.append("p").text("Amendements : " + amds);
-                                //div.append("<a href='"+source+"'>Detail</a>")
+                            var title = (d.institution=="assemblee" || d.institution=="senat" ? format_instit(d.institution) + " — " : "") + format_step(d.step ? d.step : d.stage),
+                                div = d3.select(document.createElement("div")).style("width", "100%");
+                            if (d.step) div.append("p").html('<center>'+format_step(d.stage)+'</center>');
+                            div.append("p").html('<center><span class="glyphicon glyphicon-calendar"></span><span> '+french_date(d.date) + (d.enddate && d.enddate != d.date ? " →  "+ french_date(d.enddate) : '')+'</span><center>');
+                            if ((d.institution=="assemblee" || d.institution=="senat") && d.nb_amendements) {
+                                var legend_amd = '<svg width="13" height="18" style="vertical-align:middle;"><rect class="step" x="0" y="0" width="13" height="18" style="fill: '+(d.institution === "assemblee" ? "#ced6dd" : "#f99b90")+';"></rect><rect class="step-ptn" x="0" y="2" width="13" height="16" style="fill: url(mod0#diagonal'+(d.nb_amendements >= 200 ? '3' : (d.nb_amendements >= 50 ? '2' : '1'))+');"></rect></svg>';
+                                div.append("p").style("vertical-align", "middle").html("<center>"+legend_amd+"&nbsp;&nbsp;"+d.nb_amendements+" amendement"+(d.nb_amendements > 1 ? 's' : ''));
                             }
                             return {
-                                title: "Step " + i,
+                                title: title,
                                 content: div,
                                 placement: "mouse",
                                 gravity: "right",
@@ -835,6 +847,7 @@
                     $(".text-container").append("<p><b>Interventions word count :</b> " + d.total_mots + "</p>")
                     $(".text-container").append("<p><b>Dossiers: </b><a href='" + d.url_dossier_assemblee + "'>Assemblee</a>, <a href='" + d.url_dossier_senat + "'>Senat</a></p>");
                     $(".text-container").append('<div class="gotomod1"><a class="btn"  href="mod1?l=' + d.id + '">View articles</a></div>')
+
 
                     console.log(d);
                 }
