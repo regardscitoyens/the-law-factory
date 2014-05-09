@@ -222,7 +222,7 @@ var api_root;
         var popover = function(d){
           var date = d.date.split('-'),
               div = d3.select(document.createElement("div")).style("width", "100%");
-          if (!$grouped) div.append("p").html("<b>" + d.sujet +"</b>");
+          if (!grouped) div.append("p").html("<b>" + d.sujet +"</b>");
           div.append("p").html("<b>" + groups[d.groupe].nom +"</b>");
           div.append("p").html("Sort : " + d.sort + "");
           div.append("p").html("<small>" + [date[2],date[1],date[0]].join("/") + "</small>");

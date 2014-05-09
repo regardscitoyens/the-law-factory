@@ -383,6 +383,7 @@ return {
         link : function preLink(scope, element, attrs, stepsbarCtrl) {
 
             function capitalize(s) {
+                if (!s) return "";
                 return s.charAt(0).toUpperCase() + s.substring(1);
             }
 

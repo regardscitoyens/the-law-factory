@@ -130,6 +130,7 @@ body{
 	height:100%;
 	width:8.33%;
 	float:left;
+    margin-top: 147px;
 }
 .main{
 	height:100%;
@@ -138,7 +139,6 @@ body{
 }
 .stages{
 	width:100%;
-	background-color:#F9F7F8;
 	color:#AFA19A;
 	text-align:center;
 }
@@ -237,7 +237,7 @@ body{
 	width:60%;
 	float:right;
 	display:inline-block;
-	background-color:#D80053;
+	background-color:#716259;
 	color:#fff;
 	font-weight: normal;
 	font-size:13px;
@@ -245,7 +245,7 @@ body{
 .text h4{
 	padding:20px 4px;
 	width:100%;
-	background-color:#D80053;
+	background-color:#716259;
 	color:#fff;
 	font-weight: normal;
 	font-size:16px;
@@ -302,6 +302,7 @@ ins {
 	color: #716259;
 	font-size: 16px;
 	margin-top: 20px;
+	padding-left: 15px;
     float: left;
     width: 90%;
 }
@@ -322,7 +323,6 @@ ins {
 }
 
 .labels-sc{
-	background-color:transparent;
 	padding:0 !important;
 	width:100%;
 	height:100%;
@@ -333,7 +333,6 @@ ins {
 	max-height:80%;
 	float:left;
 }
-
 
 .labels-sc p{
 	margin:0;
@@ -400,7 +399,7 @@ ins {
 }
 
 .dd-btn>.btn+.dropdown-toggle {
-	background: #D80053;
+	background: #716259;
 	border-radius: 0;
 	margin-left:3px !important;	
 }
@@ -485,9 +484,6 @@ ul.ui-autocomplete {
 	width:18.33%;
     height: 100%;
 }
-.mod2 .scrolling, .mod0 .scrolling  {
-	width: 73.33%;
-}
 .mod2 .labels-sc, .mod0 .labels-sc {
 	height:auto !important;
 }
@@ -502,12 +498,11 @@ ul.ui-autocomplete {
 }
 
 .mod2 #viz,.mod0 #gantt {
-	width:88.5%;
+	width:88.64%;
 	float:right;
 }
 .mod2 .art-list{
-	width: 10%;
-    margin-left: 1.34%;
+	width: 11.36%;
     float: left;
 }
 
@@ -528,10 +523,10 @@ ul.ui-autocomplete {
     padding: 20px 4px;
 	width: 6.8%;
     float: left;
-    margin-left: 4.58%;
+    margin-left: 4.56%;
     margin-bottom:6px;
     display: inline-block;
-    background-color: #D80053;
+    background-color: #716259;
     color: #fff;
     font-weight: normal;
     font-size: 16px;
@@ -539,18 +534,21 @@ ul.ui-autocomplete {
 
 .mod2 .stages,.mod0 #bars{
 	display: inline-block;
-    width: 88.6%;
     text-align: left;
     float: left;
     margin: 0;
     clear:none;
     position:static;
 }
+.shift-steps{
+    padding-left:11.36% !important;
+}
 
 .mod0 #bars{
 	height:100%;
 	background-color:white;
 	padding-bottom:10px;
+    width: 88.64%;
 }
 
 .mod0 .bar-step:first-child {
@@ -574,14 +572,10 @@ ul.ui-autocomplete {
     user-select: none;
 }
 
-.mod2 .labels-sc div,.mod0 .labels-sc div{
+.mod0 .labels-sc div{
 	clear: none !important;
 	text-align:	center;
 } 
-
-.mod2 .btn-group{
-	margin-left:10px;
-}
 
 .mod2 .leg-item{
 	cursor:pointer;
@@ -589,7 +583,7 @@ ul.ui-autocomplete {
 .valid-step{
 	background-color:transparent;
 	cursor: pointer;
-	border-top:3px solid #D80053;
+	border-top:3px solid #716259;
 }
 
 .stage-container {
@@ -617,6 +611,10 @@ h4 a{
 .stage a{
 	color: rgb(175, 161, 154);
 	font-size:0.8em;	
+}
+.btn-group{
+	margin-left:10px;
+    margin-bottom:35px;
 }
 .btn-group .btn{
 	margin-left:2px !important;
@@ -699,33 +697,20 @@ h4 a{
     height:0;
 }
 
-.mod1 .text-container{
-
-    max-height: none;
-}
-
-.text-container{
-    display:none;
-    max-height:542px;
-}
-
 .text:empty {
     padding:0;
     height:0 !important;
 }
 
 #commands{
+    width: 10%;
+    margin-top: 35px;
 	float:left;
 	margin-left:1%;
-	width:10%;
 }
 .commands label{
 	width:100%;
 	font-size:0.9em;
-}
-
-#commands .btn-group{
-    margin-bottom:10px;
 }
 
 .g-law, .law-name{
@@ -754,7 +739,7 @@ text {
 .ui-slider-handle{
     width:10px;
     height:15px;
-    background-color:#D80053 !important;
+    background-color:#716259 !important;
     position:relative;
     display: block;
     outline: none !important;
@@ -803,20 +788,11 @@ text {
     color: #716259;
 }
 
-.labels h4{
-    margin-bottom:30px;
-}
 .cmd-btn{
     float:right;
-    background-color:#D80053 !important;
+    background-color:#716259 !important;
     color:white;
     margin-bottom:10px;
-}
-.art-list .btn-group {
-    margin-bottom:10px;
-}
-.mod2 #commands{
-    padding-top:20px;
 }
 .glass{
     font-size: 0.9em;
@@ -832,7 +808,7 @@ text {
     font-size:1em;
 }
  .src-fcs{
-    background-color:#D80053 !important;
+    background-color:#716259 !important;
     color:white !important;
 }
 
@@ -871,6 +847,7 @@ text {
 #stepsbar{
     width:100%;
     border:1px solid #fff;
+	background-color:#F9F7F8;
     overflow:hidden;
     text-transform: capitalize;
 }
@@ -937,7 +914,7 @@ text {
 }
 .stb-curr-st {
     opacity:0.7 !important;
-    color:#D80053;
+    color:#716259;
 }
 
 .stb-linkstep {
