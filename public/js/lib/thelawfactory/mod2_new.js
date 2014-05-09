@@ -28,6 +28,9 @@ var api_root;
             articles=d.sujets;
             api_root=d.api_root_url;
         })
+        console.log(articles);
+        if (Object.keys(articles).length < 2)
+            $('#display_menu').hide();
 
         selectRow = function(art,pos) {
 

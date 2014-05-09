@@ -117,7 +117,7 @@ var stacked;
 				    sectJump = 40;
 
                 if (sections.length < 2 && art.length == 1)
-                    $(".btn-group").hide();
+                    $("#display_menu").hide();
 
 				art.forEach(function(d, i) {
 
