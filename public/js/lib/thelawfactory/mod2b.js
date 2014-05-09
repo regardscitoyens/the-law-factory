@@ -82,10 +82,10 @@ function init(data,step) {
             }
         });
     });
-    draw(false);
+    drawFlows(false);
 }
 
-function draw(top_ordered){
+function drawFlows(top_ordered){
     $("#viz").empty()
     var w=$("#viz").width();
     var offset = Math.round(w/5);
