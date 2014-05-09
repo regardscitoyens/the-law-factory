@@ -20,15 +20,14 @@ var api_root;
     }
 
   	function vis(selection){
-    	
-		var groups,articles;
-		
-	selection.each(function(d,i){
-		groups=d.groupes;
-		articles=d.sujets;
-		api_root=d.api_root_url;
-	})
 
+		var groups,articles;
+
+        selection.each(function(d,i){
+            groups=d.groupes;
+            articles=d.sujets;
+            api_root=d.api_root_url;
+        })
 
         selectRow = function(art,pos) {
 
@@ -51,9 +50,9 @@ var api_root;
         };
 
 
-	
+
 	artArray=d3.values(articles).sort(function(a,b){return a.order-b.order})
-		
+
 		var w = $("#viz").width()-30,
 		    rw = $("#viz").width(),
 		    lineh = 30,
@@ -67,18 +66,6 @@ var api_root;
 		    .attr("width", rw)
 		    .attr("height", h)
             .on("click",deselectRow);
-
-        drawMerged = function() {
-            $("svg").empty();
-            if(!grouped) {
-                grouped = {titre:'all articles',key: 'all articles', amendements:[]}
-                artArray.forEach(function(d,i) {
-                    grouped.amendements=grouped.amendements.concat(d.amendements)
-                })
-            }
-            jumpLines=0
-            drawLines(grouped,0)
-        }
 
         function chk_scroll(e)
         {
@@ -113,68 +100,75 @@ var api_root;
                 if (a.sort != b.sort) return compare_stats(a.sort, b.sort);
                 if (a.groupe != b.groupe) return compare_partys(a.groupe, b.groupe);
                 return a.numero - b.numero;
+            },
+            order_grouped = function(){
+                grouped['amendements'].sort((orderedByStatus ? compare_by_stat : compare_by_party));
+            },
+            order_ungrouped = function(){
+                artArray.forEach(function(d,i) {
+                    d['amendements'].sort((orderedByStatus ? compare_by_stat : compare_by_party));
+                });
+            },
+            clear_screen = function(){
+                $("svg").empty();
+                $(".text-container").empty();
+                jumpLines=0;
+            },
+            redraw = function(){
+                (grouped ? drawMerged() : draw());
             };
 
         sortByStat = function() {
-            $("svg").empty();
-            $(".text-container").empty();
-            if (grouped) {
-                grouped['amendements'].sort(compare_by_stat);
-                drawMerged();
-            } else {
-                artArray.forEach(function(d,i) {
-                    d['amendements'].sort(compare_by_stat);
-                });
-                draw();
-            }
+            orderedByStatus = true;
+            redraw();
         };
 
         sortByParty = function() {
-            $("svg").empty();
-            $(".text-container").empty();
-            if (grouped) {
-                grouped['amendements'].sort(compare_by_party);
-                drawMerged();
-            } else {
-                artArray.forEach(function(d,i) {
-                    d['amendements'].sort(compare_by_party);
-                });
-                draw();
-            }
+            orderedByStatus = false;
+            redraw();
         };
 
         draw = function() {
-            jumpLines=0
-            $("svg").empty();
-            artArray.forEach(function(d,i) {
-                drawLines(d,i)
-            })
-            
             grouped=null;
+            order_ungrouped();
+            clear_screen();
+            artArray.forEach(function(d,i) {drawLines(d,i)});
         }
-		
+
+        drawMerged = function() {
+            if(!grouped) {
+                grouped = {titre:'all articles',key: 'all articles', amendements:[]}
+                artArray.forEach(function(d,i) {
+                    grouped.amendements=grouped.amendements.concat(d.amendements)
+                });
+            }
+            order_grouped();
+            clear_screen();
+            drawLines(grouped,0);
+        }
+
         function drawLines(d,i) {
           len = d.amendements.length;
 		  lines = Math.ceil(len/x);
-		
+
 		  d.offset = offset
-		  
+
 		  var curRow = svg.append("g")
 		  .attr("class",d.titre.replace(/ |'/g, '_').toLowerCase())
 		  .attr("transform","translate("+10+","+(i*20+i*lineh+10+jumpLines*(lineh-10))+")")
 		  .attr("data-offset", (i*20+i*lineh+10+jumpLines*(lineh-10)))
-		  .call(function(){	
+		  .call(function(){
 		  	n=d.amendements.length;
 		  	offset = Math.floor(n/x)
 		  	jumpLines = jumpLines + Math.floor(n/x);
 		  })
 
-		  
+
 		  var bg = curRow
 		  .selectAll(".bg")
 		  .data(d3.range(x*lines))
 		  .enter()
-		
+
 		  bg.append("rect")
 		  .attr("x", function(f){ return (f % x) * z +21 })
 		  .attr("y", function(f){ return Math.floor(f / x) * z + 21 })
@@ -184,13 +178,10 @@ var api_root;
 		  .attr("ry",2)
 		  .attr("class","bg")
 		  .style("fill", "#E6E6E6")
-		
-		
-		  var margin = d.offset == 0 ? 'style="margin-top : 10px"' : 'style="margin-top : '+(10+20*d.offset)+'px "';
-		  console.log("key",d.key)
-          var subj = d.titre
-		
-		
+
+		  var margin = d.offset == 0 ? 'style="margin-top : 10px"' : 'style="margin-top : '+(10+20*d.offset)+'px "',
+            subj = d.titre;
+
 		curRow.append("text")
 		.attr("x",20)
         .attr("class","row-txt")
@@ -199,29 +190,29 @@ var api_root;
 		.attr("font-size","0.85em")
 		.text(d.titre)
         .on("click",function(){selectRow(d.titre.toLowerCase().replace(/ |'/g, '_'),false)});
-		
+
         var popover = function(d){
           var titre = d.numero,
-              date = d.date,
+              date = d.date.split('-'),
               gr = d.groupe,
               status = d.sort,
               div = d3.select(document.createElement("div"))
                 .style("height", "120px")
                 .style("width", "100%")
                 .attr("class","popup-mod2");
-          div.append("p").html("<b>Date :</b> " + date+"<br/><br/>");
-          div.append("p").html("<b>Groupe politique :</b> " + gr+"<br/><br/>");
-          div.append("p").html("<b>Sort :</b> " + status+"<br/><br/>")
-          return {        
+          div.append("p").html("<b>" + groups[gr].nom +"</b><br/><br/>");
+          div.append("p").html("Sort : " + status + "<br/>");
+          div.append("p").html("<small>" + [date[2],date[1],date[0]].join("/") + "</small>");
+          return {
               title: "Amendement " + titre,
               content: div ,
               placement: "mouse",
               gravity: "right",
-              displacement: [10, -90],          
+              displacement: [10, -90],
               mousemove: true
           };
         }
-		
+
 		var amds = curRow
 		  .selectAll(".amd")
 		  .data(d.amendements)
@@ -233,11 +224,12 @@ var api_root;
 		  .attr("height", z-2)
 		  .attr("rx",2)
 		  .attr("ry",2)
+		  .attr("id",function(d){return "a_"+d.numero.replace(/[^a-z\d]/ig, '')})
 		  .attr("class","amd")
-		  .style("fill", color)
+		  .style("fill", color_amd)
   		  .popover(popover)
           .on("click",select);
-            
+
         var imgs = curRow
           .selectAll("image")
           .data(d.amendements)
@@ -250,7 +242,7 @@ var api_root;
 		    .attr("xlink:href",get_status_img)
 		    .popover(popover)
             .on("click",select);
-            
+
         var a = d3.select("svg").select("g:last-child").attr("data-offset")
 		var ah = d3.select("svg").select("g:last-child").node().getBBox().height;
 		svg.attr("height",parseInt(a)+ah+20)
@@ -258,11 +250,10 @@ var api_root;
         }
 
 		function select(d) {
-
             d3.event.stopPropagation()
 			$(".text-container").show();
 			d3.selectAll(".actv-amd")
-			.style("fill",color)
+			.style("fill",color_amd)
 			.style("stroke","none" )
 			.classed("actv-amd",false);
 
@@ -270,30 +261,29 @@ var api_root;
 				var currAmd = json.amendement,
                     source_am = '.fr</a> &mdash; <a href="'+currAmd.source+'">',
                     statico = get_status_img(d),
-                    col = color(d);
+                    col = color_amd(d);
                 if (currAmd.url_nosdeputes) source_am = '<a href="'+currAmd.url_nosdeputes+'">NosDéputés'+source_am+'Assemblée nationale</a>';
                 else if(currAmd.url_nossenateurs) source_am = '<a href="'+currAmd.url_nossenateurs+'">NosSénateurs'+source_am+'Sénat</a>';
                 $(".text-container").html(
                     "<p><b>Date :</b> " + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</p>" +
                     "<p><b>Objet :</b> " + currAmd.sujet+"</p>" +
-                    "<p><b>Signataires :</b> " + currAmd.signataires+"</p>" + 
+                    "<p><b>Signataires :</b> " + currAmd.signataires+"</p>" +
                     "<p><b>Statut :</b> " + currAmd.sort + " <span class='amd-txt-status' style='background-color:"+col+"'><img style='margin:0; padding:4px;' src='"+statico+"'/></span> </p>" +
                     "<p><b>Exposé des motifs :</b> " + currAmd.expose+"</p>" +
                     "<p><b>Texte :</b> " + currAmd.texte +
                     "<p><small><b>Source :</b> " + source_am + "</small></p>"
                 );
 			})
-		console.log(this);	
-			d3.select(this)
-			.attr("class","actv-amd")
-			//.style("fill","#fff")
-			.style("stroke","#D80053" )
-			.style("stroke-width","2" )
-			$("#text-title").text("Amendement "+d.numero)
+            d3.selectAll("#a_"+d.numero.replace(/[^a-z\d]/ig, ''))
+                .attr("class","actv-amd")
+                .style("fill", color_amd)
+                .style("stroke", "#D80053")
+                .style("stroke-width", 2);
+            $("#text-title").text("Amendement "+d.numero)
 			$('.text-container').scrollTop(0);
 			if(!$(".end-tip").is(":visible")) $(".end-tip").fadeIn(200);
 		}
-		
+
 	    function adjust_color(c){
             var col = d3.hsl(c);
             if (col.s>0.5) col.s = 0.5;
@@ -301,7 +291,7 @@ var api_root;
             return col;
         }
 
-		function color(d) { 
+		function color_amd(d) {
 			if(groups[d.groupe]) {
 				return adjust_color(groups[d.groupe].color).toString();
 			} else return "#E6E6E6";
@@ -317,14 +307,11 @@ var api_root;
         $(document).ready(function() {
             legend();
             $('.text-container').bind('scroll',chk_scroll);
-            if (orderedByStatus) sortByStat();
-            else sortByParty();
+            draw();
         });
-
 
     }; //end function vis
 
-	
     return vis;
   };
 

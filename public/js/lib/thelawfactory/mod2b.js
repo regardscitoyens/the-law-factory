@@ -58,7 +58,7 @@ function init(data,step) {
         mydata.push({key:e, values:[], color:col, name:groupes[e].nom});
         $(".legend").append("<div onclick='highlight(\""+e+"\")' class='leg-item' title='"+groupes[e].nom+"'><div class='leg-value' style='background-color:"+col+"'></div><div class='leg-key'>"+e+"</div></div>");
     }
-    
+
     d3.entries(data[step].divisions).forEach(function(a,b){
         a.value.step = a.key;
     })
@@ -69,7 +69,7 @@ function init(data,step) {
             var filtered = gp.filter(function(k,l){
                     return k.key.toLowerCase()===g.toLowerCase()
                 }),
-                curr = mydata.filter(function(e,n){                
+                curr = mydata.filter(function(e,n){
                     return e.key.toLowerCase()===g.toLowerCase()
                 })[0];
             if (filtered.length) {
@@ -144,7 +144,7 @@ sven.viz.streamkey = function(){
         graphHeight = height - margin.top - margin.bottom;
         streamWidth = graphWidth - barWidth;
         return streamkey;
-    };    
+    };
 
     streamkey.width = function(x){
         if (!arguments.length) return height;
@@ -212,10 +212,10 @@ sven.viz.streamkey = function(){
 
         //min height scale
         var setMinHeight = d3.scale.linear().domain([d3.min(values),d3.max(values)]);
-        
+
         //sort data, compute baseline and propagate it
         var dataF = layout(sorting(data),setMinHeight);
-        
+
         mX = m - 1;
         mY = d3.max(dataF, function(d) {
           return d3.max(d, function(d) {
@@ -249,7 +249,7 @@ sven.viz.streamkey = function(){
             .style("fill", function(d, i) {col = d[0].color; if (col.s>0.5) col.s = 0.5; return col.toString(); })
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             .on("mousemove",function(d){d3.select(".desc").attr("style","top: " + (d3.event.pageY - $(".desc").height() - 15) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2) + "px");});
-        d3.select("svg").on("click", function(){ 
+        d3.select("svg").on("click", function(){
             $(".text-container").empty();
             $("#text-title").html("Sélectionner un groupe d'orateurs");
             d3.select(this).selectAll("rect").transition().style("opacity",0.9);
@@ -278,7 +278,7 @@ sven.viz.streamkey = function(){
                 d3.select(d3.select(this).node().parentNode).selectAll("path").transition().attr("fill-opacity",0.45);
                 d3.select(d3.select(this).node().parentNode).selectAll("rect").transition().style("opacity",0.55);
                 d3.select(this).transition().style("opacity",1);
-                
+
                 spArray= d3.entries(d.speakers).sort(function(a,b){return b.value.nb_mots - a.value.nb_mots});
                 spArray.forEach(function(g,j){
                     var ordiv = document.createElement('div');
@@ -368,10 +368,10 @@ sven.viz.streamkey = function(){
         return sort(data, "category", function(a,b){return factions[b].order - factions[a].order; });
     }
 
-    sortByTop = function(data){   
+    sortByTop = function(data){
         return sort(data, "y", function(a,b){return parseFloat(a) - parseFloat(b); });
     };
-    
+
   function layout(data,minHeightScale){
 
     var sums = [],
@@ -392,12 +392,12 @@ sven.viz.streamkey = function(){
 
      scaledBarPadding = barPadding*max/graphHeight;
      scaledMinHeight = minHeight*(max + scaledBarPadding * n)/graphHeight;
-     
+
      minHeightScale.range([minHeightScale.domain()[0] + scaledMinHeight ,minHeightScale.domain()[1] + scaledMinHeight]);
-    
+
     for (j = 0; j < m; ++j)
       y0[j] = (max - sums[j]) / 2 ;
-    
+
     //...and propagate it to other
     for (j = 0; j < m; ++j) {
         o = y0[j];
@@ -408,7 +408,7 @@ sven.viz.streamkey = function(){
             if (data[j][i-1]['value'] != null)
                 data[j][i]['y'] = minHeightScale(data[j][i]['y'])
             if (data[j][i-1]['value'] != null)
-                o += data[j][i-1]['y'] + scaledBarPadding; 
+                o += data[j][i-1]['y'] + scaledBarPadding;
             data[j][i]['y0'] = o;
         }
     }
@@ -419,9 +419,9 @@ sven.viz.streamkey = function(){
         for (i = 0; i < m; i++)
             dataInit[j][i] = []
     }
-    
-    data.forEach(function(d,i){      
-        d.forEach(function(e,h){          
+
+    data.forEach(function(d,i){
+        d.forEach(function(e,h){
             dataInit[e.index][i] = e;
         })
     });
