@@ -58,7 +58,8 @@ var api_root;
 		    lineh = 30,
 		    h = lineh*artArray.length+40,
 		    z = 20,
-		    x = Math.round((w-40) / z),
+            x= 0,
+		    nsq = Math.round((w-40) / z),
 		    y = h / z;
 	    var jumpLines = 0
 		var offset = 0
@@ -116,6 +117,20 @@ var api_root;
             },
             redraw = function(){
                 (grouped ? drawMerged() : draw());
+            },
+            check_half = function(g) {
+                var half_col=false;
+                var maxlen;
+                if(!g)  maxlen = d3.max(artArray,function(d){return d.amendements.length});
+                else  maxlen = grouped.amendements.length;
+
+                if(maxlen<nsq/2) {
+                    x=nsq/2-1;
+                    half_col=true;
+                }
+                else x = nsq;
+                console.log(half_col)
+                return half_col;
             };
 
         sortByStat = function() {
@@ -132,30 +147,46 @@ var api_root;
             grouped=null;
             order_ungrouped();
             clear_screen();
-            artArray.forEach(function(d,i) {drawLines(d,i)});
+            var half_col=check_half();
+                artArray.forEach(function (d, i) {
+                    drawLines(d, i, half_col)
+                });
         }
 
         drawMerged = function() {
+
             if(!grouped) {
                 grouped = {titre:'all articles',key: 'all articles', amendements:[]}
                 artArray.forEach(function(d,i) {
                     grouped.amendements=grouped.amendements.concat(d.amendements)
                 });
             }
+
+            var half_col=check_half(grouped);
+
             order_grouped();
             clear_screen();
-            drawLines(grouped,0);
+            drawLines(grouped,0,half_col);
         }
 
-        function drawLines(d,i) {
+        function drawLines(d,i, half) {
+
           len = d.amendements.length;
 		  lines = Math.ceil(len/x);
+            var k=Math.floor(i/2);
+
 
 		  d.offset = offset
 
+
 		  var curRow = svg.append("g")
 		  .attr("class",d.titre.replace(/ |'/g, '_').toLowerCase())
-		  .attr("transform","translate("+10+","+(i*20+i*lineh+10+jumpLines*(lineh-10))+")")
+		  .attr("transform",function() {
+                  if(!half) return "translate("+10+","+(i*20+i*lineh+10+jumpLines*(lineh-10))+")";
+                  else {
+                    return "translate(" + (10+(i%2)*w/2) + "," + (k * 20 + k * lineh + 10 + jumpLines * (lineh - 10)) + ")";
+                  }
+              })
 		  .attr("data-offset", (i*20+i*lineh+10+jumpLines*(lineh-10)))
 		  .call(function(){
 		  	n=d.amendements.length;
@@ -245,7 +276,10 @@ var api_root;
 
         var a = d3.select("svg").select("g:last-child").attr("data-offset")
 		var ah = d3.select("svg").select("g:last-child").node().getBBox().height;
-		svg.attr("height",parseInt(a)+ah+20)
+
+            if(!half) svg.attr("height",parseInt(a)+ah+20)
+            else svg.attr("height",(parseInt(a)+ah+80)/2)
+
 
         }
 

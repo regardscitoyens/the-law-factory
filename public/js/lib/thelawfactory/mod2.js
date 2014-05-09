@@ -34,7 +34,7 @@ var grouped=null;
 		.key(function(d) { return (1e7+d.ordre_article+"").slice(-5)+"_"+d.sujet; })
 		.sortKeys(d3.ascending)
 		.entries(clean);
-		console.log(fin)
+		//console.log(fin)
 		
         $(".text").css("height", $(".scrolling").height());
 		
@@ -53,7 +53,8 @@ var grouped=null;
 		    
 	draw = function() {
 		$("svg").empty();
-			$(".art-list").empty();
+        $(".art-list").empty();
+        console.log(fin)
 		fin.forEach(function(d,i) {
 			drawLines(d,i)
 		})
