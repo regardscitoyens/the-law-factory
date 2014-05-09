@@ -901,8 +901,6 @@ text {
     background-color:rgba(1,1,1,0.03);
 }
 
-
-
 .stb-stage, .stb-inst, .stb-step{
     float:left;
     text-align: center;
@@ -923,6 +921,12 @@ text {
     width:33.3%;
     float:left;
     opacity:0.7;
+}
+.stb-renvoi {
+    color: red;
+    opacity:0.5;
+    float:right;
+    font-size: 0.75em;
 }
 .stb-links {
     margin-top:5px;
@@ -947,8 +951,8 @@ text {
   background-color: white;
 }
 .stb-curr-st {
-    color:#D80053;
     opacity:0.7 !important;
+    color:#D80053;
 }
 
 .stb-linkstep {

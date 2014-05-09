@@ -22,6 +22,7 @@
                     <span ng-show="total>10" title="{{stepLegend(i)}}">{{stepLabel(i)}}</span>
                     <span ng-hide="total>10">{{stepLabel(i)}}</span>
                     <a ng-hide="i.source_url=='renvoi en commission'" class="stb-linkstep glyphicon glyphicon-link" title="Voir la source" href="{{i.source_url}}"></a>
+                    <span ng-show="i.source_url=='renvoi en commission'" class="stb-link stb-renvoi glyphicon glyphicon-ban-circle" title="Renvoi en commission"></span>
                 </span>
             </div>
             <div class="stb-links">
