@@ -1,6 +1,36 @@
 'use strict';
 
-/* Directives */
+// Useful functions
+var accentMap = {
+    "á": "a",
+    "à": "a",
+    "â": "a",
+    "é": "e",
+    "è": "e",
+    "ê": "e",
+    "ë": "e",
+    "ç": "c",
+    "î": "i",
+    "ï": "i",
+    "ô": "o",
+    "ö": "o",
+    "ù": "u",
+    "Û": "u",
+    "ü": "u"
+},  clean_accents  = function(term) {
+    var ret = "";
+    for ( var i = 0; i < term.length; i++ ) {
+        ret += accentMap[ term.charAt(i) ] || term.charAt(i);
+    }
+    return ret;
+},  opacity_amdts = function(d){
+    if (d > 1000) d = 1000;
+    return 0.05+0.75*d/1000;
+},  opacity_mots = function(d){
+    if (d > 100000) d = 100000;
+    return 0.05+0.75*d/100000;
+};
+
 
 $("#search-btn").on("click", function() {
     $("body").css("overflow", "hidden");
@@ -10,13 +40,8 @@ $("#search-btn").on("click", function() {
     }, 600)
     $("#search").focus();
 });
-var opacity_amdts = function(d){
-    if (d > 1000) d = 1000;
-    return 0.05+0.75*d/1000;
-},  opacity_mots = function(d){
-    if (d > 100000) d = 100000;
-    return 0.05+0.75*d/100000;
-};
+
+/* Directives */
 
 angular.module('theLawFactory.directives', []).directive('mod1', ['apiService', '$rootScope', '$location', '$compile',
 function(apiService, $rootScope, $location, $compile) {
@@ -230,34 +255,7 @@ function(apiService, $rootScope, $location) {
 		},
 		link : function postLink(scope, element, attrs, lawlistCtrl) {
 
-            var accentMap = {
-
-                "á": "a",
-                "à": "a",
-                "â": "a",
-                "é": "e",
-                "è": "e",
-                "ê": "e",
-                "ë": "e",
-                "ç": "c",
-                "î": "i",
-                "ï": "i",
-                "ô": "o",
-                "ö": "o",
-                "ù": "u",
-                "Û": "u",
-                "ü": "u"
-
-            };
-            var normalize = function( term ) {
-                var ret = "";
-                for ( var i = 0; i < term.length; i++ ) {
-                    ret += accentMap[ term.charAt(i) ] || term.charAt(i);
-                }
-                return ret;
-            };
-
-			function update() {
+    			function update() {
 
 				apiService.getDataSample(scope.lawlistUrl).then(function(data) {
 					scope.ll = data;
@@ -265,10 +263,10 @@ function(apiService, $rootScope, $location) {
 					$("#search").autocomplete({
 						source : function(request, response) {
 
-							var matcher = new RegExp($.ui.autocomplete.escapeRegex(normalize(request.term)), "i");
+							var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(request.term)), "i");
 							response($.map($.grep(scope.ll, function(value) {
-                                value = normalize(value.title +" "+ value.id +" "+ value.themes + " " + value.shortTitle);
-								return matcher.test(normalize(value));
+                                value = clean_accents(value.title +" "+ value.id +" "+ value.themes + " " + value.shortTitle);
+								return matcher.test(clean_accents(value));
 							}), function(n, i) {
 								return {
 									"label" : n.title + " (" + n.shortTitle.replace(/ \([^)]*\)/g, '') + ")",
@@ -304,7 +302,7 @@ function(apiService, $rootScope, $location) {
                     .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
 
                     var themesdiv=$("<div>")
-                    item.themes.split(', ').forEach(function(e,j){
+                    item.themes.replace(/ et /g, ', ').split(', ').forEach(function(e,j){
                         themesdiv.append("<span class='glyphicon glyphicon-tag'></span> "+e+" ");
                     })
 

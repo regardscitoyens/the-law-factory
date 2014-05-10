@@ -700,7 +700,10 @@ h4 a{
 	background-color:rgba(216, 209, 201, 0.6);
 	position:relative;
 	margin:0 auto;
-	/*border:1px solid #ddd;*/
+}
+.filtered_month.bar-value, .bar-value:hover {
+	background-color:rgb(216, 209, 201);
+	border: 1px solid #716259;
 }
 .bar-key {
 	position:relative;
@@ -750,13 +753,18 @@ text {
 .mod0 .text-container p, .pop0 p {
     text-align: center;
 }
-.badge {
+.text-container .badge {
     color: #0505ff;
     background-color: #d0e0ff;
     opacity: 0.85;
 }
-span.badge {
+.text-container a.badge {
     padding: 5px 8px 8px 8px;
+}
+.text-container a.badge:hover {
+    color: #0505ff;
+    background-color: #d0e0ff;
+    opacity: 0.55;
 }
 #mod0-slider {
     clear:both;
@@ -977,9 +985,39 @@ span.badge {
     color:white;
     line-height:75px;
 }
+
+ul.filters {
+    clear: both;
+    list-style-type: none;
+    margin: 0px 5px 25px 0px;
+    font-size:10px;
+    text-align: center;
+}
+ul.filters li {
+    display: inline:
+    width: 100%;
+}
+ul.filters li a.badge {
+    background-color: #e0e3ff;
+    color: #716259;
+    opacity: 0.8;
+    margin: 0px 0px 10px -35px;
+    padding: 1px 5px 4px 4px;
+    text-align: left;
+}
+ul.filters li a.badge:hover {
+    background-color: #e5e8ff;
+    color: #0505ff;
+    text-decoration: none;
+}
+ul.filters li a.badge span.glyphicon {
+    padding: 1px;
+    color: red;
+}
+
 /* bootstrap dropdown submenu add */
 .dropdown-submenu{position:relative;}
-.dropdown-submenu>.dropdown-menu{top:0;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
+.dropdown-submenu>.dropdown-menu{top:-60px;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
 .dropdown-submenu:hover>.dropdown-menu{display:block;}
 .dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
 .dropdown-submenu:hover>a:after{border-left-color:#ffffff;}

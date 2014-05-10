@@ -1,3 +1,23 @@
+var active_filters = {
+    theme: "",
+    year: 2014,
+    length: ""
+}, refreshBillsFilter = function(){
+    for (var k in active_filters) {
+        if (active_filters[k]) {
+            $("ul.filters li."+k).html("<a onclick=\"rmBillsFilter('"+k+"')\" class='badge' title='Supprimer ce filtre'><span class='glyphicon glyphicon-remove-sign'></span> "+active_filters[k]+'</a>');
+            if (k == "length") $(".bar-step #mois_"+active_filters[k].replace(' ', '')).addClass('filtered_month');
+        } else $("ul.filters li."+k).empty();
+    }
+}, addBillsFilter = function(filtype,filval){
+    active_filters[filtype]=filval;
+    refreshBillsFilter();
+    window.alert("Youpii, still needs to be coded, filter on "+filtype+' "'+filval+'"');
+}, rmBillsFilter = function(filtype){
+    if (filtype == "length") $(".bar-value.filtered_month").removeClass('filtered_month');
+    addBillsFilter(filtype,"");
+};
+
 (function () {
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
@@ -13,6 +33,8 @@
                 lbls,
                 steps,
                 laws,
+                allThemes = [],
+                allYears = [],
                 gridrects,
                 gridlines,
                 dossiers = [],
@@ -224,21 +246,8 @@
 
             selection.each(function (data) {
 
-                currFile = data.next_page;
-                //Start drawing
-                prepareData();
-                dynamicLoad();
-
-
-                //Define scroll beahviour
-                d3.select("#gantt").on("scroll", function (e) {
-                    var v = 0;
-                    if (layout === "q") v = -30
-                    d3.select(".timeline").attr("transform", "translate(0," + $(this).scrollTop() + ")");
-                    d3.selectAll(".law-name").attr("transform", "translate(" + $(this).scrollLeft() + "," + v + ")")
-                })
-
                 function prepareData() {
+                    refreshBillsFilter();
                     data.dossiers.forEach(function (d, i) {
                         var st;
 
@@ -293,23 +302,50 @@
                 function dynamicLoad() {
 
                     d3.json('http://www.lafabriquedelaloi.fr/api/' + currFile, function (error, json) {
-
                         data = json;
                         prepareData();
+                        timePosition();
 
                         if (json.next_page) {
                             currFile = json.next_page;
                             dynamicLoad();
                         } else {
-                            drawAxis();
-                            timePosition();
+                            setTimeout(computeFilters, 50);
                         }
                     })
                 }
 
+                function computeFilters() {
+                // Populate years and themes in filter menu
+                    var y1;
+                    dossiers.forEach(function(l,i){
+                        allThemes = allThemes.concat(l.themes.join(',').replace(/ et /g, ',').split(','));
+                        y1 = l.beginning.substr(0,4)-2000;
+                        if (!allYears[y1])
+                            allYears[y1] = true;
+                        y1 = l.end.substr(0,4)-2000;
+                        if (!allYears[y1])
+                            allYears[y1] = true;
+                    });
+                    $("#years").empty();
+                    allYears.forEach(function(d,i){
+                        if (d) $("#years").append("<li><a onclick=\"addBillsFilter('year','"+(i+2000)+"')\">"+(i+2000)+'</a></li>');
+                    });
+                    allThemes = allThemes.filter(function(itm,i,a){
+                        return i==a.indexOf(itm);   // unify
+                    });
+                    allThemes.sort(function(a,b){
+                        var ac = clean_accents(a),
+                            bc = clean_accents(b);
+                        return (ac === bc ? 0 : (ac < bc ? -1 : 1))
+                    });
+                    $("#themes").empty();
+                    allThemes.forEach(function(d){
+                        $("#themes").append("<li><a onclick=\"addBillsFilter('theme','"+d+"')\">"+d+'</a></li>');
+                    });
+                }
 
                 function drawAxis() {
-
 
                     var tl = ganttcontainer.append("g")
                         .attr("class", "timeline")
@@ -852,7 +888,7 @@
                     $("#text-title").text(d.short_title);
                     var themes=$('<p class="themes">');
                     d.themes.join(",").replace(/ et /g, ',').split(',').forEach(function(e,j){
-                        themes.append("<span class='glyphicon glyphicon-tag badge'> "+e+"</span>&nbsp;&nbsp;");
+                        themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='glyphicon glyphicon-tag badge' title='Filtrer les lois correspondant à ce thème'> "+e+"</a>&nbsp;&nbsp;");
                     }),
                         mots=1000*(Math.round(d.total_mots / 1000.));
                     $(".text-container").empty()
@@ -866,6 +902,22 @@
                         .append('<div class="gotomod"><a class="btn btn-info" href="mod1?l=' + d.id + '">Explorer les articles</a></div>');
 
                 }
+
+                //Start drawing
+                currFile = data.next_page;
+                prepareData();
+                timePosition();
+                drawAxis();
+                dynamicLoad();
+
+                //Define scroll behaviour
+                d3.select("#gantt").on("scroll", function (e) {
+                    var v = 0;
+                    if (layout === "q") v = -30
+                    d3.select(".timeline").attr("transform", "translate(0," + $(this).scrollTop() + ")");
+                    d3.selectAll(".law-name").attr("transform", "translate(" + $(this).scrollLeft() + "," + v + ")")
+                })
+
             });
         };
 
@@ -913,22 +965,23 @@
 
 
                 d3.entries(json).forEach(function (e, i) {
-                    var step = barcontainer
+                    var label=(e.key/30) +(e.key === threshold ? "+" : "") + " mois",
+                        step = barcontainer
                         .append("div")
                         .attr("class", "bar-step")
                         .attr("style", "width:" + (w * 93 / 100) + "px; margin-right:" + (w * 5 / 100) + "px");
 
                     step.append("div")
+                        .attr("id", "mois_"+label.replace(' ', ''))
                         .attr("class", "bar-value")
-                        .attr("style", "height:" + bscale(e.value) + "px; width:100%; top:" + bscale(m - e.value) + "px");
+                        .attr("title", function(d){console.log(d); "Filtrer sur ces TEST textes"})
+                        .attr("style", "height:" + bscale(e.value) + "px; width:100%; top:" + bscale(m - e.value) + "px")
+                        .on('click', function(d){ addBillsFilter('length',label) });
 
                     step.append("div")
                         .attr("class", "bar-key")
-                        .text(function () {
-                            if (e.key === threshold) return e.key / 30 + "+ mois";
-                            else return e.key / 30 + " mois";
-                        })
-                        .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(w * 4 / 10), 10]) + "px");
+                        .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(w * 4 / 10), 10]) + "px")
+                        .text(label);
                 })
 
                 function groupStats(i, data) {
