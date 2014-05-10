@@ -374,7 +374,6 @@
                         })
                         .on("click", onclick);
 
-
                     //single law background rectangle
                     laws.append("rect")
                         .attr("x", function (d) {
@@ -559,9 +558,10 @@
                     }
                 }
 
-
                 absolutePosition = function () {
 
+                    $("#display_menu .chosen").removeClass('chosen');
+                    $("#display_menu #dm-absolute").addClass('chosen');
                     //sortByLength();
                     zooming(1);
                     $("#mod0-slider").slider( "value", 1 );
@@ -648,6 +648,8 @@
                 }
 
                 timePosition = function () {
+                    $("#display_menu .chosen").removeClass('chosen');
+                    $("#display_menu #dm-time").addClass('chosen');
 
                     //sortByDate();
                     layout = "t";
@@ -728,6 +730,8 @@
                 };
 
                 quantiPosition = function () {
+                    $("#display_menu .chosen").removeClass('chosen');
+                    $("#display_menu #dm-quanti").addClass('chosen');
 
                     //sortByAmds();
                     zooming(1);
@@ -772,6 +776,9 @@
 
 
                 sortByLength = function() {
+                    $("#display_order .chosen").removeClass('chosen');
+                    $("#display_order #do-length").addClass('chosen');
+
                     zooming(1);
                     $("#mod0-slider").slider( "value", 1 );
                     $("#gantt svg").empty();
@@ -791,6 +798,8 @@
                 };
 
                 sortByDate = function() {
+                    $("#display_order .chosen").removeClass('chosen');
+                    $("#display_order #do-date").addClass('chosen');
 
                     zooming(1);
                     $("#mod0-slider").slider( "value", 1 );
@@ -809,6 +818,8 @@
                 };
 
                 sortByAmds = function() {
+                    $("#display_order .chosen").removeClass('chosen');
+                    $("#display_order #do-amds").addClass('chosen');
 
                     zooming(1);
                     $("#mod0-slider").slider( "value", 1 );

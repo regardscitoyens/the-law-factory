@@ -6,7 +6,6 @@ var drawMerged;
 var grouped=null;
 var api_root;
 
-
 (function(){
 
   var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
@@ -30,7 +29,7 @@ var api_root;
         })
         console.log(articles);
         if (Object.keys(articles).length < 2)
-            $('#display_menu').hide();
+            $('#display_menu').parent().hide();
 
         selectRow = function(art,pos) {
 
@@ -135,16 +134,22 @@ var api_root;
             };
 
         sortByStat = function() {
+            $("#display_order .chosen").removeClass('chosen');
+            $("#display_order #do-stat").addClass('chosen');
             orderedByStatus = true;
             redraw();
         };
 
         sortByParty = function() {
+            $("#display_order .chosen").removeClass('chosen');
+            $("#display_order #do-party").addClass('chosen');
             orderedByStatus = false;
             redraw();
         };
 
         draw = function() {
+            $("#display_menu .chosen").removeClass('chosen');
+            $("#display_menu #dm-draw").addClass('chosen');
             grouped=null;
             order_ungrouped();
             clear_screen();
@@ -156,6 +161,8 @@ var api_root;
 
         drawMerged = function() {
 
+            $("#display_menu .chosen").removeClass('chosen');
+            $("#display_menu #dm-merged").addClass('chosen');
             if(!grouped) {
                 grouped = {titre:'Tous les amendements',key: 'all articles', amendements:[]}
                 artArray.forEach(function(d,i) {

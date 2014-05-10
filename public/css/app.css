@@ -413,6 +413,22 @@ ins {
     background: #FFFFFB;
     border-radius: 0;
 }
+#themes.dropdown-menu {
+    top: -100px;
+    overflow: auto;
+    height: 100%;
+    min-height: 400px;
+}.dropdown-menu li {
+    background-color: white;
+}.dropdown-menu li a:hover {
+    background-color: #716259;
+}.dropdown-menu li .chosen:before {
+  content:"\e013";
+  font-family:"Glyphicons Halflings";
+  line-height:1;
+  margin-right:10px;
+  display:inline-block;
+}
 
 .menu-btn {
 	float:right;
@@ -764,6 +780,10 @@ span.badge {
 .ui-state-focus{
     border:none !important;
 }
+.ctrl-zoom {
+    margin-top: 25px;
+    margin-right: 5px;
+}
 .ctrl-label{
     clear:both;
     width:90%;
@@ -940,6 +960,9 @@ span.badge {
 .btn-group{
 	margin-left:10px;
     margin-bottom:35px;
+}
+.btn-group.filter_menu {
+    margin-bottom: 15px;
 }
 .btn-group .btn{
 	margin-left:2px !important;

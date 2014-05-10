@@ -117,7 +117,7 @@ var stacked;
 				    sectJump = 40;
 
                 if (sections.length < 2 && art.length == 1)
-                    $("#display_menu").hide();
+                    $("#display_menu").parent().hide();
 
 				art.forEach(function(d, i) {
 
@@ -457,6 +457,8 @@ var stacked;
 				//functions for aligned layout
                 var has_echec = sections.indexOf('echec') >= 0;
 				valign = function() {
+                    $("#display_menu display .chosen").removeClass('chosen');
+                    $("#display_menu display #dm-aligned").addClass('chosen');
                     var y0 = 0;
 					for(var se=0; se<sections.length; se++) {
                         if (has_echec && se == 0) continue;
@@ -509,6 +511,8 @@ var stacked;
 
 				//function for stacked layout
 				stacked = function() {
+                    $("#display_menu display .chosen").removeClass('chosen');
+                    $("#display_menu display #dm-stacked").addClass('chosen');
 					d3.selectAll(".group").transition().duration(500)
 					.attr("transform","translate(0,0)")
 
