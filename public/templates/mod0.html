@@ -16,6 +16,34 @@
 
 	    <div class="main-sc">
 	      <div id="commands">
+          <div class="btn-group dd-btn" id="filter_menu">
+            <button type="button" class="btn">Filtrer</button>
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+
+            <ul class="dropdown-menu" role="menu">
+              <li class="dropdown-submenu">
+                <a>par thème</a>
+                <ul class="dropdown-menu">
+                  <li><a onclick="window.alert('youpi!!')">youpi</a></li>
+                  <li><a onclick="window.alert('youpi2!!')">youpi2</a></li>
+                </ul>
+              </li>
+              <li class="divider"></li>
+              <li class="dropdown-submenu">
+                <a>par année</a>
+                <ul class="dropdown-menu">
+                  <li><a onclick="window.alert('youpi!!')">youpi</a></li>
+                  <li><a onclick="window.alert('youpi2!!')">youpi2</a></li>
+                </ul>
+              </li>
+            </ul>
+
+            <ul class="filters"></ul>
+          </div>
+
           <div class="btn-group dd-btn" id="display_menu">
             <button type="button" class="btn">Affichage</button>
             <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
