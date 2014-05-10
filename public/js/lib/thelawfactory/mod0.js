@@ -897,7 +897,7 @@ var active_filters = {
                         .append("<p>(" + d.procedure.toLowerCase().replace('normale', 'procédure normale') + ")</p>")
                         .append("<p><small>"+themes.html()+"</small></p>")
                         .append('<p><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(d.total_amendements)+'"></span>&nbsp;&nbsp;'+(d.total_amendements?d.total_amendements:'aucun')+" amendement"+(d.total_amendements>1?'s déposés':' déposé')+" sur ce texte</p>")
-                        .append('<p><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(d.total_mots)+'"></span>&nbsp;&nbsp;plus de '+(mots?mots:'1')+" mille mots prononcés en débats parlementaires</p>")
+                        .append('<p><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(d.total_mots)+'"></span>&nbsp;&nbsp;plus de '+(mots?mots:'1')+" mille mots prononcés<br>lors des débats parlementaires</p>")
                         .append("<p><small>(sources : <a href='" + d.url_dossier_assemblee + "'>dossier Assemblée</a> &mdash; <a href='" + d.url_dossier_senat + "'>dossier Sénat</a>)</small></p>")
                         .append('<div class="gotomod"><a class="btn btn-info" href="mod1?l=' + d.id + '">Explorer les articles</a></div>');
 

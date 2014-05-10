@@ -750,6 +750,13 @@ text {
 .text-container .glyphicon-folder-open, .search .glyphicon-folder-open, .text-container .glyphicon-comment, .search .glyphicon-comment {
     color: #D80053 !important;
 }
+.text-container .glyphicon-folder-open, .text-container .glyphicon-comment {
+    margin-right: 6px;
+}
+.text-container .glyphicon-comment {
+    position: relative;
+    top: 10px;
+}
 .mod0 .text-container p, .pop0 p {
     text-align: center;
 }
