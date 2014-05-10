@@ -284,6 +284,10 @@ body{
 .popover{
     min-width:200px;
 }
+.popover-title{
+    text-align:center;
+    font-weight:bold;
+}
 del {
 	background:#FFE6E6;
 }
@@ -438,9 +442,9 @@ ul.ui-autocomplete {
 	z-index:2000;
     display:none;
     /* crossplatform shadow */
-    -moz-box-shadow: -5px 1px 3px #ccc;
-    -webkit-box-shadow: -5px 1px 3px #ccc;
-    box-shadow: -5px 1px 3px #ccc; /* For IE 8 */
+    -moz-box-shadow: -3px 1px 2px #ccc;
+    -webkit-box-shadow: -3px 1px 2px #ccc;
+    box-shadow: -3px 1px 2px #ccc; /* For IE 8 */
     -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=0, Color='#cccccc')"; /* For IE 5.5 - 7 */
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength = 4, Direction = 0, Color = '#cccccc');
 }
@@ -456,7 +460,7 @@ ul.ui-autocomplete {
 	border-bottom: 1px solid #333333 !important;
 	outline:none;
 }
-#search-btn, .btn{
+#search-btn{
 	border-radius: 0 !important;
 }
 .ui-menu .ui-menu-item {
@@ -612,13 +616,6 @@ h4 a{
 	color: rgb(175, 161, 154);
 	font-size:0.8em;	
 }
-.btn-group{
-	margin-left:10px;
-    margin-bottom:35px;
-}
-.btn-group .btn{
-	margin-left:2px !important;
-}
 .int-viz{
 	float:right !important;
 }
@@ -716,18 +713,34 @@ h4 a{
 .g-law, .law-name{
 	cursor:pointer;
 }
-.gotomod1{
+.gotomod{
 	width:100%;
 	text-align: center;
 	margin-top:30px;
+    margin-bottom: 30px;
 }
-
-.gotomod1 a {
+.gotomod a.btn-info {
 	display:inline;
 	float:none;
+    font-weight: bold;
 }
 text {
     font-family: "Oxygen", sans-serif;
+}
+
+.text-container .glyphicon-folder-open, .search .glyphicon-folder-open, .text-container .glyphicon-comment, .search .glyphicon-comment {
+    color: #D80053 !important;
+}
+.mod0 .text-container p, .pop0 p {
+    text-align: center;
+}
+.badge {
+    color: #0505ff;
+    background-color: #d0e0ff;
+    opacity: 0.85;
+}
+span.badge {
+    padding: 5px 8px 8px 8px;
 }
 #mod0-slider {
     clear:both;
@@ -825,8 +838,6 @@ text {
     color:white !important;
 }
 
-
-
 .src-ico div{
     float:left;
     margin-right:1em;
@@ -914,7 +925,7 @@ text {
 }
 .stb-curr-st {
     opacity:0.7 !important;
-    color:#716259;
+    color:#D80053;
 }
 
 .stb-linkstep {
@@ -926,6 +937,13 @@ text {
 
 /*END OF STEPSBAR */
 
+.btn-group{
+	margin-left:10px;
+    margin-bottom:35px;
+}
+.btn-group .btn{
+	margin-left:2px !important;
+}
 .btn-title, .btn-title:hover{
     float:right;
     display:inline-block;
