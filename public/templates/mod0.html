@@ -1,77 +1,101 @@
 <script type="text/javascript" src="js/lib/thelawfactory/mod0.js"></script>
-<div class="lawlist" lawlist>
-</div>
+<div class="lawlist" lawlist></div>
 <div class="row">
-    <div class="col-md-10 col-md-offset-1 title">
-        <h4>Explorer les textes promulgués depuis 2010</h4>
-    </div>
+  <div class="col-md-10 col-md-offset-1 title">
+    <h4>Explorer les textes promulgués depuis 2010</h4>
+  </div>
 </div>
 
-<div class="row">
-</div>
+<div class="row"></div>
 <div class="row">
   <div class="col-md-12 viz-container">
 
- 	<div class="scrolling">
+    <div class="scrolling">
 
-	    <div class="main-sc">
-	      <div id="commands">
-          <div class="btn-group dd-btn" id="display_menu">
+      <div class="main-sc">
+        <div id="commands">
+
+          <div class="btn-group dd-btn">
             <button type="button" class="btn">Affichage</button>
             <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
               <span class="caret"></span>
               <span class="sr-only">Toggle Dropdown</span>
             </button>
 
-            <ul class="dropdown-menu" role="menu">
-              <li><a onclick="timePosition()">chronologique</a></li>
-              <li><a onclick="absolutePosition()">comparatif</a></li>
-              <li><a onclick="quantiPosition()">quantitatif</a></li>
+            <ul class="dropdown-menu" role="menu" id="display_menu">
+              <li><a id="dm-time" class="chosen" onclick="timePosition()">chronologique</a></li>
+              <li class="divider"></li>
+              <li><a id="dm-absolute" onclick="absolutePosition()">comparatif</a></li>
+              <li class="divider"></li>
+              <li><a id="dm-quanti" onclick="quantiPosition()">quantitatif</a></li>
             </ul>
           </div>
 
           <div class="btn-group dd-btn ctrl-sort">
-              <button type="button" class="btn">Ordonner</button>
-              <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-                  <span class="caret"></span>
-                  <span class="sr-only">Toggle Dropdown</span>
-              </button>
+            <button type="button" class="btn">Ordonner</button>
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
 
-              <ul class="dropdown-menu" role="menu">
-                  <li><a onclick="sortByLength()">durée d'adoption</a></li>
-                  <li><a onclick="sortByDate()">date de promulgation</a></li>
-                  <li><a onclick="sortByAmds()">amendements déposés</a></li>
-              </ul>
+            <ul class="dropdown-menu" role="menu" id="display_order">
+              <li><a id="do-length" class="chosen" onclick="sortByLength()">durée d'adoption</a></li>
+              <li class="divider"></li>
+              <li><a id="do-date" onclick="sortByDate()">date de promulgation</a></li>
+              <li class="divider"></li>
+              <li><a id="do-amds" onclick="sortByAmds()">amendements déposés</a></li>
+            </ul>
           </div>
+
+          <div class="btn-group dd-btn filter_menu">
+            <button type="button" class="btn">Filtrer par</button>
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+
+            <ul class="dropdown-menu" role="menu">
+              <li class="dropdown-submenu">
+                <a>thème</a>
+                <ul class="dropdown-menu" id="themes"></ul>
+              </li>
+              <li class="divider"></li>
+              <li class="dropdown-submenu">
+                <a>année</a>
+                <ul class="dropdown-menu" id="years"></ul>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="filters">
+            <li class="theme"></li>
+            <li class="year"></li>
+            <li class="length"></li>
+          </ul>
 
           <div class="ctrl-zoom">
-              <div class="ctrl-label"><span>zoom</span></div>
-              <div id="mod0-slider"></div>
+            <div class="ctrl-label"><span>zoom</span></div>
+            <div id="mod0-slider"></div>
           </div>
-
 
         </div>
 
         <div id="gantt" movescroll>
-            <div id="preload"></div>
-
+          <div id="preload"></div>
         </div>
 
-	      </div>
-
-	     <div class="labels-sc">
-          <h4>STATS</h4>
-          <div id="bars">
-        </div>
       </div>
-	    </div>
 
-	     <div class="text">
+      <div class="labels-sc">
+        <h4>STATS</h4>
+        <div id="bars"></div>
+      </div>
+    </div>
+
+    <div class="text">
       <h4 id="text-title">Sélectionner une loi</h4>
       <div class="text-container"></div>
       <!--<div class="end-tip"></div>-->
     </div>
-  </div>
-
   </div>
 </div>

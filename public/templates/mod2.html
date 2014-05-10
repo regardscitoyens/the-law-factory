@@ -1,4 +1,4 @@
-<script type="text/javascript" src="js/lib/thelawfactory/mod2_new.js"></script>
+<script type="text/javascript" src="js/lib/thelawfactory/mod2.js"></script>
 <div class="lawlist" lawlist>
 </div>
 <div class="row">
@@ -24,16 +24,17 @@
 	    <div class="main-sc">
 	    	 <div class="art-list">
 
-                 <div class="btn-group dd-btn" id="display_menu">
+                 <div class="btn-group dd-btn">
                      <button type="button" class="btn">Affichage</button>
                      <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
                          <span class="caret"></span>
                          <span class="sr-only">Toggle Dropdown</span>
                      </button>
 
-                     <ul class="dropdown-menu" role="menu">
-                         <li><a onclick="draw()">par articles</a></li>
-                         <li><a onclick="drawMerged()">assemblé</a></li>
+                     <ul class="dropdown-menu" role="menu" id="display_menu">
+                         <li><a id="dm-draw" class="chosen" onclick="draw()">par articles</a></li>
+                         <li class="divider"></li>
+                         <li><a id="dm-merged" onclick="drawMerged()">assemblé</a></li>
                      </ul>
                  </div>
 
@@ -45,9 +46,10 @@
                          <span class="sr-only">Toggle Dropdown</span>
                      </button>
 
-                     <ul class="dropdown-menu" role="menu">
-                         <li><a onclick="sortByStat()">sort final</a></li>
-                         <li><a onclick="sortByParty()">groupe politique</a></li>
+                     <ul class="dropdown-menu" role="menu" id="display_order">
+                         <li><a id="do-stat" class="chosen" onclick="sortByStat()">sort final</a></li>
+                         <li class="divider"></li>
+                         <li><a id="do-party" onclick="sortByParty()">groupe politique</a></li>
                      </ul>
                  </div>
 

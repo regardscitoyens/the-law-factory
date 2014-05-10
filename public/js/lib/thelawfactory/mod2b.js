@@ -86,6 +86,8 @@ function init(data,step) {
 }
 
 function drawFlows(top_ordered){
+    $("#display_menu .chosen").removeClass('chosen');
+    $("#display_menu #dm-"+(top_ordered ? 'quanti' : 'classic')).addClass('chosen');
     $("#viz").empty()
     var w=$("#viz").width();
     var offset = Math.round(w/5);

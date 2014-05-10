@@ -1,3 +1,23 @@
+var active_filters = {
+    theme: "",
+    year: 2014,
+    length: ""
+}, refreshBillsFilter = function(){
+    for (var k in active_filters) {
+        if (active_filters[k]) {
+            $("ul.filters li."+k).html("<a onclick=\"rmBillsFilter('"+k+"')\" class='badge' title='Supprimer ce filtre'><span class='glyphicon glyphicon-remove-sign'></span> "+active_filters[k]+'</a>');
+            if (k == "length") $(".bar-step #mois_"+active_filters[k].replace(' ', '')).addClass('filtered_month');
+        } else $("ul.filters li."+k).empty();
+    }
+}, addBillsFilter = function(filtype,filval){
+    active_filters[filtype]=filval;
+    refreshBillsFilter();
+    window.alert("Youpii, still needs to be coded, filter on "+filtype+' "'+filval+'"');
+}, rmBillsFilter = function(filtype){
+    if (filtype == "length") $(".bar-value.filtered_month").removeClass('filtered_month');
+    addBillsFilter(filtype,"");
+};
+
 (function () {
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
@@ -13,6 +33,8 @@
                 lbls,
                 steps,
                 laws,
+                allThemes = [],
+                allYears = [],
                 gridrects,
                 gridlines,
                 dossiers = [],
@@ -43,6 +65,10 @@
                     if (!d) return "";
                     d = d.split('-');
                     return [d[2], d[1], d[0]].join('/');
+                },
+                capitalize = function(d){
+                    if (!d) return "";
+                    return d.charAt(0).toUpperCase() + d.substring(1);
                 },
                 today = new Date(),
                 lawh = 50,
@@ -220,21 +246,8 @@
 
             selection.each(function (data) {
 
-                currFile = data.next_page;
-                //Start drawing
-                prepareData();
-                dynamicLoad();
-
-
-                //Define scroll beahviour
-                d3.select("#gantt").on("scroll", function (e) {
-                    var v = 0;
-                    if (layout === "q") v = -30
-                    d3.select(".timeline").attr("transform", "translate(0," + $(this).scrollTop() + ")");
-                    d3.selectAll(".law-name").attr("transform", "translate(" + $(this).scrollLeft() + "," + v + ")")
-                })
-
                 function prepareData() {
+                    refreshBillsFilter();
                     data.dossiers.forEach(function (d, i) {
                         var st;
 
@@ -289,23 +302,50 @@
                 function dynamicLoad() {
 
                     d3.json('http://www.lafabriquedelaloi.fr/api/' + currFile, function (error, json) {
-
                         data = json;
                         prepareData();
+                        timePosition();
 
                         if (json.next_page) {
                             currFile = json.next_page;
                             dynamicLoad();
                         } else {
-                            drawAxis();
-                            timePosition();
+                            setTimeout(computeFilters, 50);
                         }
                     })
                 }
 
+                function computeFilters() {
+                // Populate years and themes in filter menu
+                    var y1;
+                    dossiers.forEach(function(l,i){
+                        allThemes = allThemes.concat(l.themes.join(',').replace(/ et /g, ',').split(','));
+                        y1 = l.beginning.substr(0,4)-2000;
+                        if (!allYears[y1])
+                            allYears[y1] = true;
+                        y1 = l.end.substr(0,4)-2000;
+                        if (!allYears[y1])
+                            allYears[y1] = true;
+                    });
+                    $("#years").empty();
+                    allYears.forEach(function(d,i){
+                        if (d) $("#years").append("<li><a onclick=\"addBillsFilter('year','"+(i+2000)+"')\">"+(i+2000)+'</a></li>');
+                    });
+                    allThemes = allThemes.filter(function(itm,i,a){
+                        return i==a.indexOf(itm);   // unify
+                    });
+                    allThemes.sort(function(a,b){
+                        var ac = clean_accents(a),
+                            bc = clean_accents(b);
+                        return (ac === bc ? 0 : (ac < bc ? -1 : 1))
+                    });
+                    $("#themes").empty();
+                    allThemes.forEach(function(d){
+                        $("#themes").append("<li><a onclick=\"addBillsFilter('theme','"+d+"')\">"+d+'</a></li>');
+                    });
+                }
 
                 function drawAxis() {
-
 
                     var tl = ganttcontainer.append("g")
                         .attr("class", "timeline")
@@ -370,7 +410,6 @@
                         })
                         .on("click", onclick);
 
-
                     //single law background rectangle
                     laws.append("rect")
                         .attr("x", function (d) {
@@ -396,12 +435,12 @@
                         .attr("class", "g-step")
                         .popover(function (d, i) {
                             var title = (d.institution=="assemblee" || d.institution=="senat" ? format_instit(d.institution) + " — " : "") + format_step(d.step ? d.step : d.stage),
-                                div = d3.select(document.createElement("div")).style("width", "100%");
-                            if (d.step) div.append("p").html('<center>'+format_step(d.stage)+'</center>');
-                            div.append("p").html('<center><span class="glyphicon glyphicon-calendar"></span><span> '+french_date(d.date) + (d.enddate && d.enddate != d.date ? " →  "+ french_date(d.enddate) : '')+'</span><center>');
+                                div = d3.select(document.createElement("div")).style("width", "100%").attr('class', 'pop0');
+                            if (d.step) div.append("p").html(format_step(d.stage));
+                            div.append("p").html('<span class="glyphicon glyphicon-calendar"></span><span> '+french_date(d.date) + (d.enddate && d.enddate != d.date ? " →  "+ french_date(d.enddate) : '')+'</span>');
                             if ((d.institution=="assemblee" || d.institution=="senat") && d.nb_amendements) {
                                 var legend_amd = '<svg width="13" height="18" style="vertical-align:middle;"><rect class="step" x="0" y="0" width="13" height="18" style="fill: '+(d.institution === "assemblee" ? "#ced6dd" : "#f99b90")+';"></rect><rect class="step-ptn" x="0" y="2" width="13" height="16" style="fill: url(mod0#diagonal'+(d.nb_amendements >= 200 ? '3' : (d.nb_amendements >= 50 ? '2' : '1'))+');"></rect></svg>';
-                                div.append("p").style("vertical-align", "middle").html("<center>"+legend_amd+"&nbsp;&nbsp;"+d.nb_amendements+" amendement"+(d.nb_amendements > 1 ? 's' : ''));
+                                div.append("p").style("vertical-align", "middle").html(legend_amd+"&nbsp;&nbsp;"+d.nb_amendements+" amendement"+(d.nb_amendements > 1 ? 's' : ''));
                             }
                             return {
                                 title: title,
@@ -449,7 +488,7 @@
                             if (d.institution === "assemblee") return "#ced6dd"
                             else if (d.institution === "senat") return "#f99b90"
                             else if (d.institution === "conseil constitutionnel") return "rgb(231, 221, 158)"
-                            else if (d.stage === "promulgation") return "#d50053"
+                            else if (d.stage === "promulgation") return "#716259"
                             else return "#aea198"
                         })
                         .on("click", function (e) {
@@ -555,9 +594,10 @@
                     }
                 }
 
-
                 absolutePosition = function () {
 
+                    $("#display_menu .chosen").removeClass('chosen');
+                    $("#display_menu #dm-absolute").addClass('chosen');
                     //sortByLength();
                     zooming(1);
                     $("#mod0-slider").slider( "value", 1 );
@@ -644,6 +684,8 @@
                 }
 
                 timePosition = function () {
+                    $("#display_menu .chosen").removeClass('chosen');
+                    $("#display_menu #dm-time").addClass('chosen');
 
                     //sortByDate();
                     layout = "t";
@@ -724,6 +766,8 @@
                 };
 
                 quantiPosition = function () {
+                    $("#display_menu .chosen").removeClass('chosen');
+                    $("#display_menu #dm-quanti").addClass('chosen');
 
                     //sortByAmds();
                     zooming(1);
@@ -747,7 +791,7 @@
                             if (d.institution === "assemblee") return "#ced6dd"
                             else if (d.institution === "senat") return "#f99b90"
                             else if (d.institution === "conseil constitutionnel") return "rgb(231, 221, 158)"
-                            else if (d.stage === "promulgation") return "#d50053"
+                            else if (d.stage === "promulgation") return "#716259"
                             else return "#aea198"
                         });
 
@@ -768,6 +812,9 @@
 
 
                 sortByLength = function() {
+                    $("#display_order .chosen").removeClass('chosen');
+                    $("#display_order #do-length").addClass('chosen');
+
                     zooming(1);
                     $("#mod0-slider").slider( "value", 1 );
                     $("#gantt svg").empty();
@@ -787,6 +834,8 @@
                 };
 
                 sortByDate = function() {
+                    $("#display_order .chosen").removeClass('chosen');
+                    $("#display_order #do-date").addClass('chosen');
 
                     zooming(1);
                     $("#mod0-slider").slider( "value", 1 );
@@ -805,6 +854,8 @@
                 };
 
                 sortByAmds = function() {
+                    $("#display_order .chosen").removeClass('chosen');
+                    $("#display_order #do-amds").addClass('chosen');
 
                     zooming(1);
                     $("#mod0-slider").slider( "value", 1 );
@@ -827,30 +878,46 @@
                     d3.selectAll(".curr")
                         .classed("curr", false)
                         .style("fill", "#f3efed")
-                        .style("opacity", 0.3)
+                        .style("opacity", 0.3);
 
                     d3.select("." + d.id)
                         .classed("curr", true)
                         .style("fill", "#fff")
-                        .style("opacity", 0.6)
+                        .style("opacity", 0.6);
 
-                    //d3.select(this).classed("curr", true);
-                    //var titre = d.article, section = d.section, status = d['id_step'].split('_').slice(1,4).join(', '), length = d['length'];
                     $("#text-title").text(d.short_title);
-                    $(".text-container").empty();
-                    $(".text-container").append("<p><b>Title :</b> " + d.long_title + "</p>")
-                    $(".text-container").append("<p><b>Start :</b> " + d.beginning + "</p>")
-                    $(".text-container").append("<p><b>End :</b> " + d.end + "</p>")
-                    $(".text-container").append("<p><b>Themes :</b> " + d.themes.join(", ") + "</p>")
-                    $(".text-container").append("<p><b>Procedure :</b> " + d.procedure + "</p>")
-                    $(".text-container").append("<p><b>Amendements :</b> " + d.total_amendements + "</p>")
-                    $(".text-container").append("<p><b>Interventions word count :</b> " + d.total_mots + "</p>")
-                    $(".text-container").append("<p><b>Dossiers: </b><a href='" + d.url_dossier_assemblee + "'>Assemblee</a>, <a href='" + d.url_dossier_senat + "'>Senat</a></p>");
-                    $(".text-container").append('<div class="gotomod1"><a class="btn"  href="mod1?l=' + d.id + '">View articles</a></div>')
+                    var themes=$('<p class="themes">');
+                    d.themes.join(",").replace(/ et /g, ',').split(',').forEach(function(e,j){
+                        themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='glyphicon glyphicon-tag badge' title='Filtrer les lois correspondant à ce thème'> "+e+"</a>&nbsp;&nbsp;");
+                    }),
+                        mots=1000*(Math.round(d.total_mots / 1000.));
+                    $(".text-container").empty()
+                        .append("<p><b>"+capitalize(d.long_title)+"</b></p>")
+                        .append('<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + "</p>")
+                        .append("<p>(" + d.procedure.toLowerCase().replace('normale', 'procédure normale') + ")</p>")
+                        .append("<p><small>"+themes.html()+"</small></p>")
+                        .append('<p><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(d.total_amendements)+'"></span>&nbsp;&nbsp;'+(d.total_amendements?d.total_amendements:'aucun')+" amendement"+(d.total_amendements>1?'s déposés':' déposé')+" sur ce texte</p>")
+                        .append('<p><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(d.total_mots)+'"></span>&nbsp;&nbsp;plus de '+(mots?mots:'1')+" mille mots prononcés<br>lors des débats parlementaires</p>")
+                        .append("<p><small>(sources : <a href='" + d.url_dossier_assemblee + "'>dossier Assemblée</a> &mdash; <a href='" + d.url_dossier_senat + "'>dossier Sénat</a>)</small></p>")
+                        .append('<div class="gotomod"><a class="btn btn-info" href="mod1?l=' + d.id + '">Explorer les articles</a></div>');
 
-
-                    console.log(d);
                 }
+
+                //Start drawing
+                currFile = data.next_page;
+                prepareData();
+                timePosition();
+                drawAxis();
+                dynamicLoad();
+
+                //Define scroll behaviour
+                d3.select("#gantt").on("scroll", function (e) {
+                    var v = 0;
+                    if (layout === "q") v = -30
+                    d3.select(".timeline").attr("transform", "translate(0," + $(this).scrollTop() + ")");
+                    d3.selectAll(".law-name").attr("transform", "translate(" + $(this).scrollLeft() + "," + v + ")")
+                })
+
             });
         };
 
@@ -898,22 +965,23 @@
 
 
                 d3.entries(json).forEach(function (e, i) {
-                    var step = barcontainer
+                    var label=(e.key/30) +(e.key === threshold ? "+" : "") + " mois",
+                        step = barcontainer
                         .append("div")
                         .attr("class", "bar-step")
                         .attr("style", "width:" + (w * 93 / 100) + "px; margin-right:" + (w * 5 / 100) + "px");
 
                     step.append("div")
+                        .attr("id", "mois_"+label.replace(' ', ''))
                         .attr("class", "bar-value")
-                        .attr("style", "height:" + bscale(e.value) + "px; width:100%; top:" + bscale(m - e.value) + "px");
+                        .attr("title", function(d){console.log(d); "Filtrer sur ces TEST textes"})
+                        .attr("style", "height:" + bscale(e.value) + "px; width:100%; top:" + bscale(m - e.value) + "px")
+                        .on('click', function(d){ addBillsFilter('length',label) });
 
                     step.append("div")
                         .attr("class", "bar-key")
-                        .text(function () {
-                            if (e.key === threshold) return e.key / 30 + "+ mois";
-                            else return e.key / 30 + " mois";
-                        })
-                        .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(w * 4 / 10), 10]) + "px");
+                        .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(w * 4 / 10), 10]) + "px")
+                        .text(label);
                 })
 
                 function groupStats(i, data) {
