@@ -10,6 +10,13 @@ $("#search-btn").on("click", function() {
     }, 600)
     $("#search").focus();
 });
+var opacity_amdts = function(d){
+    if (d > 1000) d = 1000;
+    return 0.05+0.75*d/1000;
+},  opacity_mots = function(d){
+    if (d > 100000) d = 100000;
+    return 0.05+0.75*d/100000;
+};
 
 angular.module('theLawFactory.directives', []).directive('mod1', ['apiService', '$rootScope', '$location', '$compile',
 function(apiService, $rootScope, $location, $compile) {
@@ -297,16 +304,15 @@ function(apiService, $rootScope, $location) {
                     .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
 
                     var themesdiv=$("<div>")
-                    var thms=item.themes.split(", ");
-                    thms.forEach(function(e,j){
+                    item.themes.split(', ').forEach(function(e,j){
                         themesdiv.append("<span class='glyphicon glyphicon-tag'></span> "+e+" ");
                     })
 
 
                     var icodiv=$("<div class='src-ico'>")
                         .append('<div><span class="glyphicon glyphicon-calendar"></span> '+item.dates+"</div>")
-                        .append('<div title="'+item.amendements+' amendements déposés sur ce texte"><span class="glyphicon glyphicon-folder-open"></span> '+item.amendements+"</div>")
-                        .append('<div title="'+item.words+' mots prononcés lors des débats sur ce texte"><span class="glyphicon glyphicon-comment"></span> '+1000*(Math.round(item.words / 1000.))+"</div>")
+                        .append('<div title="'+item.amendements+' amendements déposés sur ce texte" class="search"><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(item.amendements)+'"></span> '+item.amendements+"</div>")
+                        .append('<div title="'+item.words+' mots prononcés lors des débats sur ce texte" class="search"><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(item.words)+'"></span> '+1000*(Math.round(item.words / 1000.))+"</div>")
                         .append(themesdiv);
 
                     var txtdiv=$("<div class='src-txt'>")
