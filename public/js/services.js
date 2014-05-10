@@ -28,10 +28,10 @@ angular.module('theLawFactory.services', [])
             var APIRootUrl = 'http://www.lafabriquedelaloi.fr/api';
             var api = {
                 getLawlist: function() {
-                    return apiService.getDataSample('laws/list/');
+                    return apiService.getDataSample(APIRootUrl + '/dossiers_promulgues.csv');
                 },
                 getProcedure: function(id) {
-                    return apiService.getDataSample('law-procedure/' + id);
+                    return apiService.getDataSample(APIRootUrl + '/' + id + '/viz/procedure.json');
                 },
                 getArticle: function(id) {
                     return apiService.getDataSample(APIRootUrl + '/' + id + '/viz/articles_etapes.json');
