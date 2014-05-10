@@ -260,22 +260,35 @@ function(api, $rootScope, $location) {
 
 				api.getLawlist().then(function(data) {
 					scope.ll = data;
+                                        // Process data to a list of law object
+                                        // with properties' names set by headers
+                                        var headers, laws, rows = scope.ll.split(/\r\n|\n/);
+                                        headers = rows.splice(0,1)[0].split(";");
+                                        laws = $.map(rows, function(row) {
+                                            var law = {}, lawdata = row.split(';');
+                                            $.each(headers, function(i, header) {
+                                                law[header] = lawdata[i];
+                                            });
+                                            return law;
+                                        });
+
+                                        document.lawlist = laws;
 
 					$("#search").autocomplete({
 						source : function(request, response) {
 
 							var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(request.term)), "i");
-							response($.map($.grep(scope.ll, function(value) {
-                                value = clean_accents(value.title +" "+ value.id +" "+ value.themes + " " + value.shortTitle);
-								return matcher.test(clean_accents(value));
+							response($.map($.grep(laws, function(value) {
+                                                            value = clean_accents(value.Titre +" "+ value.id +" "+ value["Thèmes"] + " " + value.short_title);
+							    return matcher.test(clean_accents(value));
 							}), function(n, i) {
 								return {
-									"label" : n.title + " (" + n.shortTitle.replace(/ \([^)]*\)/g, '') + ")",
+									"label" : n.Titre + " (" + n.short_title.replace(/ \([^)]*\)/g, '') + ")",
 									"value" : n.id,
-                                    "themes": n.themes,
-                                    "amendements": n.amendements,
-                                    "words": n.words,
-                                    "dates": n.startDate + (n.pubDate ? " → " + n.pubDate : "")
+                                    "themes": n["Thèmes"],
+                                    "amendements": n.total_amendements,
+                                    "words": n.total_mots,
+                                    "dates": n["Date initiale"] + (n["Date de promulgation"] ? " → " + n["Date de promulgation"] : "")
 								}
 							}));
 						},
