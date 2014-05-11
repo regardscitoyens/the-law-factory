@@ -43,7 +43,8 @@ var drawGantt,
         function vis(selection) {
 
             //Initialization
-            var ganttcontainer = d3.select("#gantt").append("svg"),
+            var legendcontainer = d3.select("#legend").append("svg"),
+                ganttcontainer = d3.select("#gantt").append("svg"),
                 lawscont, grid,
                 popover, currFile,
                 lbls, steps, laws,
@@ -179,15 +180,16 @@ var drawGantt,
                 d3.selectAll(".tl-bg").attr("transform", "scale(" + z + ",1)");
 
                 if(layout==="a")
-                    d3.selectAll(".g-law").attr("transform", function(d,i){return  "translate(" + (-tscale(format.parse(d.beginning))*z+5) + ","+ (30 + i * (20 + lawh)) +")"});
+                    d3.selectAll(".g-law").attr("transform", function(d,i){return  "translate(" + (-tscale(format.parse(d.beginning))*z+5) + ","+ (i * (20 + lawh)) +")"});
 
                 d3.selectAll(".tick-lbl").attr("x", function (d) {
                     return tscale(d) * z;
                 })
                 .style("opacity",function(d,i){
-                    return (i % Math.round(tickpresence(z))==0 ? 1 : 0);
+                    return (i % Math.round(tickpresence(z))==0 && tscale(d)*z < width*z - 50 ? 1 : 0);
                 });
 
+                legendcontainer.attr("width", width * z);
                 ganttcontainer.attr("width", width * z);
 
                 d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z})
@@ -200,6 +202,7 @@ var drawGantt,
 
             function initGanttSVG() {
                 $("#mod0-slider").slider("value", 1);
+                $("#legend svg").empty();
                 $("#gantt svg").empty();
                 var defs = ganttcontainer
                     .insert('defs', ':first-child');
@@ -247,6 +250,7 @@ var drawGantt,
                         scroll = {scrollTop: "0px", scrollLeft: "0px"};
                     refreshBillsFilter();
                     initGanttSVG();
+                    $("#legend").show(400);
                     if (action == 'time') {
                         layout = "t";
                         zoo = 10;
@@ -272,6 +276,7 @@ var drawGantt,
                         $("#display_menu #dm-quanti").addClass('chosen');
                         $(".ctrl-sort").show(400);
                         $(".ctrl-zoom").hide(400);
+                        $("#legend").hide(400);
                     }
                     if (action == 'filter') {
                         zoo = 1;
@@ -302,12 +307,12 @@ var drawGantt,
                     if (layout == "a") absolutePosition();
                     if (layout == "q") quantiPosition();
                     drawLabels();
-                    if (scroll) $("#gantt").animate(scroll);
                     //Define scroll behaviour
                     d3.select("#gantt").on("scroll", function (e) {
-                        d3.select(".timeline").attr("transform", "translate(0," + $(this).scrollTop() + ")");
-                        d3.selectAll(".law-name").attr("transform", "translate(" + $(this).scrollLeft() + ", "+(layout == "q" ? "-3" : "")+"0)");
+                        d3.select(".timeline").attr("transform", "translate(-" + $(this).scrollLeft() + ", 0)");
+                        d3.selectAll(".law-name").attr("transform", "translate(" + $(this).scrollLeft() + ", 0)");
                     })
+                    if (scroll) $("#gantt").animate(scroll);
                 }
 
                 function prepareData() {
@@ -399,7 +404,7 @@ var drawGantt,
                         .text("Aucun résultat trouvé avec ces filtres, veuillez en supprimer un.");
 
                     if (layout == "q") return;
-                    var tl = ganttcontainer.append("g")
+                    var tl = legendcontainer.append("g")
                         .attr("class", "timeline")
                     tl.append("rect")
                         .attr("x", 0)
@@ -426,7 +431,6 @@ var drawGantt,
                         .attr("y", 20)
                         .attr("x", function (d) { return tscale(d); })
                         .text(function (d) { return tickform(d); })
-                        .attr("text-anchor", "middle");
                 }
 
                 function drawLaws() {
@@ -458,8 +462,8 @@ var drawGantt,
                     //update svg size
                     if (maxdate - mindate > 126144000000) width = 2 * basewidth;
                     else width = basewidth;
-                    ganttcontainer.attr("height", Math.max(2, smallset.length) * (20 + lawh)+30)
-                        .attr("width", width);
+                    ganttcontainer.attr("height", Math.max(2, smallset.length) * (20 + lawh)).attr("width", width);
+                    legendcontainer.attr("width", width);
 
                     ticks = d3.time.months(mindate, maxdate, 1);
                     tscale = d3.time.scale().range([0, width]);
@@ -473,7 +477,7 @@ var drawGantt,
                         .append("rect")
                         .attr("class", function (d) { return "row " + d.id; })
                         .attr("x", 0)
-                        .attr("y", function (d, i) { return 32 + i * (20 + lawh); })
+                        .attr("y", function (d, i) { return i * (20 + lawh); })
                         .attr("opacity", 0.3)
                         .attr("width", width)
                         .attr("height", 20 + lawh - 4)
@@ -485,7 +489,7 @@ var drawGantt,
                         .data(smallset).enter()
                         .append("g")
                         .attr("class", function (d) { return "g-law " + d.id; })
-                        .attr("transform", function (d, i) { return "translate(0," + (30 + i * (20 + lawh)) + ")"; })
+                        .attr("transform", function (d, i) { return "translate(0," + (i * (20 + lawh)) + ")"; })
                         .on("click", onclick);
 
                     //single law background rectangle
@@ -533,14 +537,10 @@ var drawGantt,
                         .data(smallset).enter()
                         .append("text")
                         .attr("x", parseInt(d3.select("#gantt").style("width")) * 0.5)
-                        .attr("y", function (d, i) {
-                            return i * (20 + lawh) + 46
-                        })
-                        .attr("class", "law-name").text(function (e) {
-                            return e.short_title
-                        })
+                        .attr("y", function (d, i) { return i * (20 + lawh) + 17; })
+                        .attr("class", "law-name").text(function (e) { return e.short_title; })
                         .style("fill", "#333")
-                        .attr("font-size", "0.85em")
+                        .attr("font-size", "0.9em")
                         .attr("text-anchor", "middle")
                         .on("click", function (d) {
                             if (layout === "t") {
@@ -605,7 +605,7 @@ var drawGantt,
 
                 absolutePosition = function () {
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
-                        return "translate(" + (-tscale(format.parse(d.beginning))*z + 5) + "," + (30 + i * (20 + lawh)) + ")"
+                        return "translate(" + (-tscale(format.parse(d.beginning))*z + 5) + "," + (i * (20 + lawh)) + ")"
                     })
                     classicPosition();
                     d3.selectAll(".tick-lbl").text(function (d, j) { return (j + 1) + " mois"; })
@@ -613,7 +613,7 @@ var drawGantt,
 
                 timePosition = function () {
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
-                        return "translate(0," + (30 + i * (20 + lawh)) + ")"
+                        return "translate(0," + (i * (20 + lawh)) + ")"
                     });
                     classicPosition();
                     d3.selectAll(".tick-lbl").text(function (d, j) { return tickform(d); });
@@ -623,8 +623,6 @@ var drawGantt,
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
                         return "translate(0," + ( i * (20 + lawh)) + ")"
                     });
-                    d3.selectAll(".row").transition().duration(500).attr("transform", "translate(0,-30)")
-                    d3.selectAll(".law-name").transition().duration(500).attr("transform", "translate(0,-30)")
 
                     d3.selectAll(".step")
                         .attr("x", function (d) {return d.qx; })

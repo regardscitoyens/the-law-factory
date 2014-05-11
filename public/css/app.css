@@ -587,10 +587,18 @@ ul.ui-autocomplete {
 	height:80%;
 }
 
+.mod0 #legend {
+	width:88.64%;
+    height: 6%;
+    background:white;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    float: right;
+}
 .mod0 #gantt {
 	overflow-x:auto;
 	overflow-y:auto;
-	height:100%;
+	height:94%;
     background:white;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -598,9 +606,8 @@ ul.ui-autocomplete {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    padding-left: 5px;
 }
-#gantt svg {
+#gantt svg, #legend svg {
     padding-left: 10px;
 }
 #gantt svg g text {
