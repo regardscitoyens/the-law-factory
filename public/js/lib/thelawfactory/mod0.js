@@ -1,7 +1,7 @@
 var drawGantt,
     active_filters = {
     theme: "",
-    year: 2014,
+    year: 2013,
     length: ""
 }, refreshBillsFilter = function(){
     for (var k in active_filters) {
@@ -14,7 +14,7 @@ var drawGantt,
     if (filtype == "length") $(".bar-value.filtered_month").removeClass('filtered_month');
     active_filters[filtype]=filval;
     refreshBillsFilter();
-    window.alert("Youpii, still needs to be coded, filter on "+filtype+' "'+filval+'"');
+    drawGantt('filter');
 }, rmBillsFilter = function(filtype){
     addBillsFilter(filtype,"");
 };
@@ -42,6 +42,7 @@ var drawGantt,
                 gridrects,
                 gridlines,
                 dossiers = [],
+                smallset = [],
                 format = d3.time.format("%Y-%m-%d"),
                 tickform = d3.time.format("%b %Y"),
                 basewidth = parseInt(d3.select("#gantt").style("width")) - 30,
@@ -49,9 +50,10 @@ var drawGantt,
                 tscale = d3.time.scale().range([0, width]),
                 lblscale = d3.time.scale().range([0, width * 10]),
                 tickpresence=d3.scale.linear().range([3,1]).domain([1,7]).clamp(true),
-                qscale = d3.time.scale().range([10, width]),
-                minstr = "2010-01-05",
-                mindate = format.parse(minstr),
+                sort_function = sortByDate,
+                sortByLeng = function(a,b) { return b.total_days - a.total_days },
+                sortByAmds = function(a,b) { return b.total_amendements - a.total_amendements },
+                sortByDate = function(a,b) { return Date.parse(b.end) - Date.parse(a.end) },
                 format_step = function(d){
                     d = d.replace('depot', 'Dépôt')
                         .replace('1ère lecture', '1<sup>ère</sup> Lecture')
@@ -75,7 +77,6 @@ var drawGantt,
                     if (!d) return "";
                     return d.charAt(0).toUpperCase() + d.substring(1);
                 },
-                today = new Date(),
                 lawh = 50,
                 z = 1,
                 steph = lawh - 16,
@@ -280,20 +281,29 @@ var drawGantt,
                         $(".ctrl-sort").show(400);
                         $(".ctrl-zoom").hide(400);
                     }
+                    if (action == 'filter') {
+                        zoo = 1;
+                        action = 'sortd';
+                        if ($("#display_order #do-length").hasClass('chosen'))
+                            action = 'sortl';
+                        if ($("#display_order #do-amds").hasClass('chosen'))
+                            action = 'sorta';
+                        if (layout == "t") scroll['scrollLeft'] = "100000px";
+                    } else $(".text-container").empty();
                     if (action == 'sortl') {
                         $("#display_order .chosen").removeClass('chosen');
                         $("#display_order #do-length").addClass('chosen');
-                        dossiers.sort(function(a,b){return b.total_days - a.total_days});
+                        sort_function = sortByLeng;
                     } else if (action == 'sorta') {
                         $("#display_order .chosen").removeClass('chosen');
                         $("#display_order #do-amds").addClass('chosen');
-                        dossiers.sort(function(a,b){return b.total_amendements - a.total_amendements});
+                        sort_function = sortByAmds;
                     } else if (action == 'sortd') {
                         $("#display_order .chosen").removeClass('chosen');
                         $("#display_order #do-date").addClass('chosen');
-                        dossiers.sort(function(a,b){return Date.parse(b.end) - Date.parse(a.end)});
+                        sort_function = sortByDate;
                     } else scroll = null;
-                    addLaws();
+                    drawLaws();
                     drawAxis();
                     zooming(zoo);
                     if (layout == "t") timePosition();
@@ -396,6 +406,15 @@ var drawGantt,
                 }
 
                 function drawAxis() {
+                    if (!smallset.length) return ganttcontainer.append("g")
+                        .append("text")
+                        .attr("x", parseInt(d3.select("#gantt").style("width")) * 0.5)
+                        .attr("y", 120)
+                        .style("fill", "#333")
+                        .attr("font-size", "1.5em")
+                        .attr("text-anchor", "middle")
+                        .text("Aucun résultat trouvé avec ces filtres, veuillez en supprimer un.");
+
                     if (layout == "q") return;
                     var tl = ganttcontainer.append("g")
                         .attr("class", "timeline")
@@ -432,9 +451,33 @@ var drawGantt,
                 }
 
                 function drawLaws() {
+                    // filter and sort laws
+                    smallset = dossiers
+                        .filter(function(d){
+                            if (!active_filters['theme']) return true;
+                            return (d.themes.join(',').indexOf(active_filters['theme'])) != -1;
+                        })
+                        .filter(function(d){
+                            if (!active_filters['year']) return true;
+                            return d.beginning.substr(0,4) <= active_filters['year'] && d.end.substr(0,4) >= active_filters['year'];
+                        })
+                        .filter(function(d){
+                            if (!active_filters['length']) return true;
+                            return active_filters['length'].replace(/\D/g,'') == Math.round((format.parse(d.end) - format.parse(d.beginning)) / 2628000000.);
+                        })
+                        .sort(sort_function);
+
+                    // find date range
+                    mindate = ""; maxdate = "";
+                    smallset.forEach(function(d){
+                        mindate = (mindate && mindate < d.beginning ? mindate : d.beginning);
+                        maxdate = (maxdate && maxdate > d.end ? maxdate : d.end);
+                    });
+                    mindate = format.parse(mindate < data.min_date ? data.min_date : mindate);
+                    maxdate = format.parse(maxdate > data.max_date ? data.max_date : maxdate);
 
                     //update svg size
-                    if (today - mindate > 126144000000) width = 2 * basewidth;
+                    if (maxdate - mindate > 126144000000) width = 2 * basewidth;
                     else width = basewidth;
                     ganttcontainer.attr("height", Math.max(2, smallset.length) * (20 + lawh)+30)
                         .attr("width", width);
@@ -447,7 +490,7 @@ var drawGantt,
 
                     //add containing rows
                     gridrects = lawscont.selectAll(".row")
-                        .data(dossiers).enter()
+                        .data(smallset).enter()
                         .append("rect")
                         .attr("class", function (d) {
                             return "row " + d.id
@@ -464,7 +507,7 @@ var drawGantt,
                     //add single law group
 
                     laws = lawscont.selectAll(".g-law")
-                        .data(dossiers).enter()
+                        .data(smallset).enter()
                         .append("g")
                         .attr("class", function (d) {
                             return "g-law " + d.id
@@ -579,10 +622,9 @@ var drawGantt,
                             else if (d.nb_amendements >= 0) return"url(mod0#diagonal1)"
                         })
 
-
                     //add labels
                     ganttcontainer.selectAll(".law-name")
-                        .data(dossiers).enter()
+                        .data(smallset).enter()
                         .append("text")
                         .attr("x", parseInt(d3.select("#gantt").style("width")) * 0.5)
                         .attr("y", function (d, i) {
@@ -614,7 +656,7 @@ var drawGantt,
                         .attr("x1", function(e){return tscale(e)})
                         .attr("y1", 0)
                         .attr("x2", function(e){return tscale(e)})
-                        .attr("y2", dossiers.length * (20 + lawh))
+                        .attr("y2", smallset.length * (20 + lawh))
                         .attr("stroke", "#ddd")
                         .attr("stroke-width", 1)
                         .attr("opacity", 0.6);
@@ -879,9 +921,13 @@ var drawGantt,
                     step.append("div")
                         .attr("id", "mois_"+label.replace(' ', ''))
                         .attr("class", "bar-value")
-                        .attr("title", function(d){console.log(d); "Filtrer sur ces TEST textes"})
                         .attr("style", "height:" + bscale(e.value) + "px; width:100%; top:" + bscale(m - e.value) + "px")
-                        .on('click', function(d){ addBillsFilter('length',label) });
+                        .on('click', function(d){ addBillsFilter('length',label) })
+                        .popover(function(d,i){
+                            var popover_content = d3.select(document.createElement('div')).style("width", "100%").attr('class', 'pop0');
+                            popover_content.append('p').html('Cliquer pour filtrer sur ces textes');
+                            return {title: e.value+' textes adoptés en ' + label.replace('+mois', ' 2 ans et plus'), content: popover_content, placement: "mouse", displacement: [-113, -90], gravity: "top", mousemove: true};
+                        });
 
                     step.append("div")
                         .attr("class", "bar-key")
