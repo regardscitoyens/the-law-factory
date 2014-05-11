@@ -1,4 +1,18 @@
 var drawGantt,
+    locale = d3.locale({
+  decimal: ",",
+  thousands: ".",
+  grouping: [3],
+  currency: ["€", ""],
+  dateTime: "%a %b %e %X %Y",
+  date: "%d/%m/%Y",
+  time: "%H:%M:%S",
+  periods: ["AM", "PM"],
+  days: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
+  shortDays: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
+  months: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+  shortMonths: ["Janv.", "Fév.", "Mars", "Avril", "Mai", "Juin", "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc."]
+}),
     active_filters = {
         theme: "",
         year: 2013,
@@ -50,7 +64,7 @@ var drawGantt,
             sortByDate = function(a,b) { return Date.parse(b.end) - Date.parse(a.end) },
             sort_function = sortByDate,
             format = d3.time.format("%Y-%m-%d"),
-            tickform = d3.time.format("%b %Y"),
+            tickform = locale.timeFormat("%b %Y"),
             tickpresence=d3.scale.linear().range([3,1]).domain([1,7]).clamp(true),
             format_step = function(d){
                 d = d.replace('depot', 'Dépôt')
@@ -453,13 +467,9 @@ var drawGantt,
                     gridrects = lawscont.selectAll(".row")
                         .data(smallset).enter()
                         .append("rect")
-                        .attr("class", function (d) {
-                            return "row " + d.id
-                        })
+                        .attr("class", function (d) { return "row " + d.id; })
                         .attr("x", 0)
-                        .attr("y", function (d, i) {
-                            return 32 + i * (20 + lawh)
-                        })
+                        .attr("y", function (d, i) { return 32 + i * (20 + lawh); })
                         .attr("opacity", 0.3)
                         .attr("width", width)
                         .attr("height", 20 + lawh - 4)
@@ -470,23 +480,15 @@ var drawGantt,
                     laws = lawscont.selectAll(".g-law")
                         .data(smallset).enter()
                         .append("g")
-                        .attr("class", function (d) {
-                            return "g-law " + d.id
-                        })
-                        .attr("transform", function (d, i) {
-                            return "translate(0," + (30 + i * (20 + lawh)) + ")"
-                        })
+                        .attr("class", function (d) { return "g-law " + d.id; })
+                        .attr("transform", function (d, i) { return "translate(0," + (30 + i * (20 + lawh)) + ")"; })
                         .on("click", onclick);
 
                     //single law background rectangle
                     if (layout != "q") laws.append("rect")
-                        .attr("x", function (d) {
-                            return tscale(format.parse(d.beginning))
-                        })
+                        .attr("x", function (d) { return tscale(format.parse(d.beginning)); })
                         .attr("y", 28)
-                        .attr("width", function (d) {
-                            return tscale(format.parse(d.end)) - tscale(format.parse(d.beginning))
-                        })
+                        .attr("width", function (d) { return tscale(format.parse(d.end)) - tscale(format.parse(d.beginning)); })
                         .attr("class", "law-bg")
                         .attr("height", steph)
                         .attr("opacity", 0.3).style("fill", "#d8d1c9");
@@ -494,9 +496,7 @@ var drawGantt,
                     //addsingle law steps
                     steps = laws.append("g")
                         .attr("class", "steps")
-                        .selectAll("step").data(function (d) {
-                            return d.steps
-                        })
+                        .selectAll("step").data(function (d) { return d.steps; })
                         .enter()
                         .append("g")
                         .attr("class", "g-step")
@@ -585,12 +585,7 @@ var drawGantt,
                     else return "#aea198";
                 };
 
-                absolutePosition = function () {
-
-                    d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
-                        return "translate(" + (-tscale(format.parse(d.beginning))*z + 5) + "," + (30 + i * (20 + lawh)) + ")"
-                    })
-
+                classicPosition = function() {
                     d3.selectAll(".step")
                         .attr("x", function (e) { return tscale(scaled_date_val(e)); })
                         .attr("width", getQLwidth);
@@ -600,41 +595,30 @@ var drawGantt,
 
                     d3.selectAll(".step-ptn")
                         .transition().duration(500)
-                        .attr("x", function (e, i) { return tscale(format.parse(e.date)) + (e.overlap ? e.overlap : 0); })
+                        .attr("x", function (e, i) { return tscale(scaled_date_val(e)); })
                         .attr("width", getQLwidth);
+                }
 
-                    d3.selectAll(".tick-lbl").text(function (d, j) {
-                        return (j + 1) + " mois"
+                absolutePosition = function () {
+                    d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
+                        return "translate(" + (-tscale(format.parse(d.beginning))*z + 5) + "," + (30 + i * (20 + lawh)) + ")"
                     })
+                    classicPosition();
+                    d3.selectAll(".tick-lbl").text(function (d, j) { return (j + 1) + " mois"; })
                 }
 
                 timePosition = function () {
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
                         return "translate(0," + (30 + i * (20 + lawh)) + ")"
                     });
-
-                    d3.selectAll(".step")
-                        .attr("x", function (e) { return tscale(scaled_date_val(e)); })
-                        .attr("width", getQLwidth);
-
-                    d3.selectAll(".step-lbl")
-                        .attr("x", function (e, i) { return lblscale(format.parse(e.date)); });
-
-                    d3.selectAll(".step-ptn")
-                        .transition().duration(500)
-                        .attr("x", function (e, i) { return tscale(format.parse(e.date)); })
-                        .attr("width", getQLwidth);
-
-                    d3.selectAll(".tick-lbl").text(function (d, j) {
-                        return tickform(d);
-                    });
+                    classicPosition();
+                    d3.selectAll(".tick-lbl").text(function (d, j) { return tickform(d); });
                 };
 
                 quantiPosition = function () {
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
                         return "translate(0," + ( i * (20 + lawh)) + ")"
                     });
-
                     d3.selectAll(".row").transition().duration(500).attr("transform", "translate(0,-30)")
                     d3.selectAll(".law-name").transition().duration(500).attr("transform", "translate(0,-30)")
 
