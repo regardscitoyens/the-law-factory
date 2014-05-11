@@ -388,6 +388,7 @@ var drawGantt,
                 }
 
                 function drawAxis() {
+
                     if (!smallset.length) return ganttcontainer.append("g")
                         .append("text")
                         .attr("x", parseInt(d3.select("#gantt").style("width")) * 0.5)

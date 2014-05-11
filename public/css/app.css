@@ -1,5 +1,12 @@
 /* app css stylesheet */
 
+::selection { /* Safari */
+    background: rgba(218,209,203,0.3);
+}
+::-moz-selection { /* Firefox */
+    background: rgba(218,209,203,0.3);
+}
+
 body{
     font-family:"Oxygen", sans-serif !important;
 }
