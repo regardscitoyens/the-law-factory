@@ -522,9 +522,6 @@ ul.ui-autocomplete {
     overflow-y:auto;
     overflow-x:hidden;
     height:100%;
-}
-
-.mod2 #viz, #gantt {
 	width:88.64%;
 	float:right;
 }
@@ -596,9 +593,11 @@ ul.ui-autocomplete {
     float: right;
 }
 .mod0 #gantt {
+	height:94%;
+	width:88.64%;
+	float:right;
 	overflow-x:auto;
 	overflow-y:auto;
-	height:94%;
     background:white;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
