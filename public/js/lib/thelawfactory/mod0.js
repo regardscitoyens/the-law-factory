@@ -90,11 +90,14 @@ var drawGantt,
                 return d.charAt(0).toUpperCase() + d.substring(1);
             },
             popover = function(d) {
-                (d.institution=="assemblee" || d.institution=="senat" ? null : console.log("TESTTTTTT", d));
                 var ydisp = -45,
                     title = (d.institution=="assemblee" || d.institution=="senat" ? format_instit(d.institution) + " — " : "") + format_step(d.step ? d.step : d.stage),
                     div = d3.select(document.createElement("div")).style("width", "100%").attr('class', 'pop0');
-                if (d.step) {
+                if (d.stage=="CMP") {
+                    div.append("p").html(title);
+                    title = format_step(d.stage);
+                    ydisp -= 20;
+                } else if (d.step) {
                     div.append("p").html(format_step(d.stage));
                     ydisp -= 20;
                 }
@@ -331,7 +334,7 @@ var drawGantt,
 
                                 // Monitor Overlaps
                                 if (y+"-"+mm+"-"+dd>=e.date) {
-                                    console.log(e.date,y+"-"+mm+"-"+dd)
+                                    console.log("OVERLAP:",e.date,y+"-"+mm+"-"+dd)
                                     e.overlap = d.steps[j - 1].overlap + 1;
                                 }
                             }
