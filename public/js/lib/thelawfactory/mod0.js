@@ -75,7 +75,7 @@ var drawGantt,
                     .replace('l. définitive', 'Lecture Définitive')
                     .replace('CMP', 'Commission Mixte Paritaire')
                     .replace('hemicycle', 'Hémicycle');
-                return d.charAt(0).toUpperCase() + d.substring(1);
+                return upperFirst(d);
             },
             format_instit = function(d){
                 return d.replace('assemblee', 'Assemblée nationale')
@@ -85,10 +85,6 @@ var drawGantt,
                 if (!d) return "";
                 d = d.split('-');
                 return [d[2], d[1], d[0]].join('/');
-            },
-            capitalize = function(d){
-                if (!d) return "";
-                return d.charAt(0).toUpperCase() + d.substring(1);
             },
             popover = function(d) {
                 var ydisp = -45,
@@ -182,9 +178,7 @@ var drawGantt,
                 if(layout==="a")
                     d3.selectAll(".g-law").attr("transform", function(d,i){return  "translate(" + (-tscale(format.parse(d.beginning))*z+5) + ","+ (i * (20 + lawh)) +")"});
 
-                d3.selectAll(".tick-lbl").attr("x", function (d) {
-                    return tscale(d) * z;
-                })
+                d3.selectAll(".tick-lbl").attr("x", function (d) { return tscale(d) * z; })
                 .style("opacity",function(d,i){
                     return (i % Math.round(tickpresence(z))==0 && tscale(d)*z < width*z - 50 ? 1 : 0);
                 });
@@ -656,7 +650,7 @@ var drawGantt,
                     }),
                         mots=1000*(Math.round(d.total_mots / 1000.));
                     $(".text-container").empty()
-                        .append("<p><b>"+capitalize(d.long_title)+"</b></p>")
+                        .append("<p><b>"+upperFirst(d.long_title)+"</b></p>")
                         .append('<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + "</p>")
                         .append("<p>(" + d.procedure.toLowerCase().replace('normale', 'procédure normale') + ")</p>")
                         .append("<p><small>"+themes.html()+"</small></p>")

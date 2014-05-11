@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="theLawFactory">
+
+  <head>
+    <meta charset="utf8">
+
+    <title>La Fabrique de la Loi</title>
+
+  <!-- Library JS-->
+    <script type="text/javascript" src="js/lib/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery/jquery-ui-1.10.4.custom.min.js"></script>
+    <script type="text/javascript" src="js/lib/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lib/d3.v3.4.6.min.js"></script>
+    <script type="text/javascript" src="js/lib/d3-bootstrap/d3-bootstrap-plugins.min.js"></script>
+
+  <!-- CSS-->
+    <script type="text/javascript" src="js/lib/angular-1.1.5.min.js"></script>
+    <script type="text/javascript" src="js/lib/spin/spin.min.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+  <!-- Google fonts-->
+    <link rel="stylesheet" href="fonts/Oxygen.css" type="text/css">
+    <link rel="stylesheet" href="fonts/Noto+Sans-italic.css" type="text/css">
+    <link rel="stylesheet" href="fonts/Open+Sans.css" type="text/css">
+
+  </head>
+
+  <body>
+
+    <nav role="navigation" class="navbar navbar-custom">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand"> <img src="./img/logo.png"></a>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">À PROPOS</a></li>
+          <li><a href="#">CONTACT</a> </li>
+          <li id="search-btn"><span>CHERCHER UNE LOI<span class="glyphicon glyphicon-search glass"></span></span></li>
+        </ul>
+      </div>
+    </nav>
+
+    <noscript>
+      <div>
+        <h2><b>Attention : Javascript semble désactivé</b></h2>
+        <span>Veuillez activer Javascript dans votre navigateur si vous souhaitez pouvoir naviguer sur ce site.</span>
+      </div>
+    </noscript>
+
+  <!-- Page template space -->
+    <div ng-view>
+        <div mod0="mod0" class="padded mod0 ng-scope"></div>
+    </div>
+
+  <!-- Global JS app controllers -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/services.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="js/filters.js"></script>
+    <script type="text/javascript" src="js/directives.js"></script>
+
+  <!-- Specific JS by page -->
+    <script type="text/javascript" src="js/lib/thelawfactory/mod0.js"></script>
+    <script type="text/javascript" src="js/lib/thelawfactory/mod1.js"></script>
+    <script type="text/javascript" src="js/lib/google-diff-match-patch-r106.js"></script>
+    <script type="text/javascript" src="js/lib/thelawfactory/mod2.js"></script>
+    <script type="text/javascript" src="js/lib/thelawfactory/mod2b.js"></script>
+
+  </body>
+</html>

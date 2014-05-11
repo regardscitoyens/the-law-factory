@@ -8,26 +8,17 @@ angular.module('theLawFactory.controllers', []).
         $scope.go = function (path) {
             console.log($location.path("/" + path + "l=" + $rootScope.l))
             $location.path(path).search("l=" + $rootScope.l);
-            //+"l="+$rootScope.l
         };
 
         $scope.select = function (id) {
             console.log("aaarrhh")
             $rootScope.l = id
             $location.path("mod1").search("l=" + $rootScope.l);
-            //+"l="+$rootScope.l
         };
 
         $scope.error = {}
-        $scope.lawlistUrl = 'laws/list'
-        $scope.procedureUrl = 'law-procedure/'
-        $scope.dataUrl = 'law-article/'
-        $scope.amdUrl = 'law-amendments/'
-        $scope.intUrl = 'law-interventions/'
-        $scope.dossierUrl = 'http://www.lafabriquedelaloi.fr/api/dossiers_0_49.json'
         $scope.statsUrl = 'http://www.lafabriquedelaloi.fr/api/stats_dossiers.json'
         $scope.dataSample = {}
-
 
             $scope.opts = {
                 lines: 13, // The number of lines to draw
@@ -47,8 +38,6 @@ angular.module('theLawFactory.controllers', []).
                 top: '50%', // Top position relative to parent
                 left: '50%' // Left position relative to parent
             };
-
-
 
         $scope.shortNames = {
             "1ère lecture": "1<sup>ère</sup> Lect.",
@@ -86,32 +75,19 @@ angular.module('theLawFactory.controllers', []).
             return l.replace(/<[^>]*>/, '');
         }
         $scope.findShortName = function (l) {
-
-            var res = null;
-            if ($scope.shortNames[l.toLowerCase()]) return $scope.shortNames[l.toLowerCase()];
-            else return l;
+            return ($scope.shortNames[l.toLowerCase()] ? $scope.shortNames[l.toLowerCase()] : l);
         }
-
         $scope.findLongName = function (l) {
-
-            var res = null;
-            if ($scope.longNames[l.toLowerCase()]) return $scope.longNames[l.toLowerCase()];
-            else return l;
+            return ($scope.longNames[l.toLowerCase()] ? $scope.longNames[l.toLowerCase()] : l);
         }
-
-        $scope.stepLegend = function(el){
-
-            if(el.step==="depot") return (el.auteur_depot == "Gouvernement" ? "Projet de Loi" : "Proposition de Loi");
+        $scope.stepLegend = function (el){
+            if (el.step==="depot") return (el.auteur_depot == "Gouvernement" ? "Projet de Loi" : "Proposition de Loi");
             else return $scope.findLongName(el.step);
-
         }
-
-        $scope.stepLabel = function(el){
-
+        $scope.stepLabel = function (el){
             if(el.step==="depot") return (el.auteur_depot == "Gouvernement" ? "PJL" : "PPL");
             else if($scope.total<10) return el.step;
             else return $scope.findShortName(el.step);
-
         }
 
         $scope.string_to_slug = function (str) {

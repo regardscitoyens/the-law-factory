@@ -29,8 +29,9 @@ var accentMap = {
 },  opacity_mots = function(d){
     if (d > 100000) d = 100000;
     return 0.05+0.75*d/100000;
+},  upperFirst = function(s){
+    return (!s ? "" : s.charAt(0).toUpperCase() + s.substring(1));
 };
-
 
 $("#search-btn").on("click", function() {
     $("body").css("overflow", "hidden");
@@ -45,162 +46,128 @@ $("#search-btn").on("click", function() {
 
 angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootScope', '$location', '$compile',
 function(api, $rootScope, $location, $compile) {
-	return {
-		restrict : 'A',
-		replace : false,
-		templateUrl : 'templates/mod1.html',
-		link : function postLink(scope, element, attrs) {
+    return {
+        restrict : 'A',
+        replace : false,
+        templateUrl : 'templates/mod1.html',
+        link : function postLink(scope, element, attrs) {
 
             $rootScope.s=null;
-			var l = "pjl12-719"
+            var l = "pjl12-719"
             scope.mod="mod1";
             scope.s=null;
-			if ($location.search()['l'] != null)
-				l = $location.search()['l'];
+            if ($location.search()['l'] != null)
+                l = $location.search()['l'];
             else $location.search("l="+l);
-			var mod1 = thelawfactory.mod1();
+            var mod1 = thelawfactory.mod1();
 
-			function update() {
+            function update() {
 
                 var target = document.getElementById('preload');
                 var spinner = new Spinner(scope.opts).spin(target);
 
-				api.getArticle(l).then(function(data) {
-					scope.dataSample = data;
-					d3.select(element[0]).datum(data).call(mod1)
+                api.getArticle(l).then(function(data) {
+                    scope.dataSample = data;
+                    d3.select(element[0]).datum(data).call(mod1)
                     spinner.stop();
-				}, function(error) {
-                                    console.log(error);
-					scope.error = error
-				})
-			}
-                        // Useless watch ?
-			scope.$watch('dataUrl', function() {
-				update();
-			}, true)
-
-		}
-	};
+                }, function(error) {
+                    console.log(error);
+                    scope.error = error
+                })
+            }
+            update();
+        }
+    };
 }]).directive('mod2', ['api', '$rootScope', '$location', '$compile',
 function(api, $rootScope, $location, $compile) {
-	return {
-		restrict : 'A',
-		replace : false,
-		templateUrl : 'templates/mod2.html',
-		controller : function($scope, $element, $attrs) {
-
-			$scope.l = "pjl09-602"
-			$rootScope.l = $scope.l;
-			$scope.step = 0;
-			$scope.s = $rootScope.s = $location.search()['s'];
+    return {
+        restrict : 'A',
+        replace : false,
+        templateUrl : 'templates/mod2.html',
+        controller : function($scope, $element, $attrs) {
+            $scope.l = "pjl09-602"
+            $rootScope.l = $scope.l;
+            $scope.step = 0;
+            $scope.s = $rootScope.s = $location.search()['s'];
             $scope.a = $location.search()['a'];
             $scope.mod="mod2";
-			$scope.hasAmendements = true;
-			$scope.hasInterventions = true;
+        },
+        link : function postLink(scope, element, attrs) {
 
-		},
-		link : function postLink(scope, element, attrs) {
+            if ($location.search()['l'] != null)
+                scope.l = $rootScope.l = $location.search()['l'];
+            var mod2 = thelawfactory.mod2();
 
-			if ($location.search()['l'] != null)
-				scope.l = $rootScope.l = $location.search()['l'];
-			var mod2 = thelawfactory.mod2();
-
-			function update() {
+            function update() {
 
                 var target = document.getElementById('preload');
                 var spinner = new Spinner(scope.opts).spin(target);
-				api.getProcedure(scope.l).then(function(data) {
+                api.getProcedure(scope.l).then(function(data) {
 
-					scope.dataSample = data;
+                    scope.dataSample = data;
 
-					if ($location.search()['s'] != null) {
-						api.getAmendement(scope.l, $location.search()['s'] ).then(function(data) {
+                    if ($location.search()['s'] != null) api.getAmendement(scope.l, $location.search()['s'] ).then(function(data) {
+                        scope.data = data;
+                        d3.select(element[0]).datum(data).call(mod2)
 
-							var elementPos = $.grep(scope.dataSample.steps, function(step) {
-                                                            return (step.directory);
-                                                            }).map(function(step) {
-								return step.directory;
-							}).indexOf(scope.s);
-							$(".stage:eq(" + elementPos + ")").addClass("step-curr")
-
-							scope.data = data;
-							d3.select(element[0]).datum(data).call(mod2)
-
-                            if($location.search()['a']!=null) {
-                                selectRow($location.search()['a'],true);
-                            }
-
-                            spinner.stop();
-
-						}, function(error) {
-							scope.error = error
-						})
-					}
-
-
-				}, function(error) {
-					scope.error = error
-				})
-			}
-
-
-			scope.$watch('amdUrl', function() {
-				update();
-			}, true)
-		}
-	};
-}]).directive('mod2b', ['api', '$rootScope', '$location', '$compile',
-function(api, $rootScope, $location, $compile) {
-	return {
-		restrict : 'A',
-		replace : false,
-		templateUrl : 'templates/mod2b.html',
-		controller : function($scope, $element, $attrs) {
-
-			$scope.l = "pjl09-602"
-			$scope.step = 0;
-            $scope.mod="mod2b";
-			$scope.s = $rootScope.s = $location.search()['s'];
-			$scope.hasAmendements = true;
-			$scope.hasInterventions = true;
-
-		},
-		link : function postLink(scope, element, attrs) {
-
-			if ($location.search()['l'] != null)
-				scope.l = $location.search()['l'];
-			function update() {
-                var target = document.getElementById('preload');
-                var spinner = new Spinner(scope.opts).spin(target);
-
-				if ($location.search()['s'] != null) {
-
-					api.getIntervention(scope.l).then(function(data) {
-						scope.data = data;
-						init(data, $location.search()['s'])
+                        if ($location.search()['a']!=null)
+                            selectRow($location.search()['a'],true);
 
                         spinner.stop();
 
-					}, function(error) {
-						scope.error = error
-					})
-				}
+                    }, function(error) {
+                        scope.error = error
+                    });
+                });
+            }
+            update();
+        }
+    }
+}])
+.directive('mod2b', ['api', '$rootScope', '$location', '$compile',
+function(api, $rootScope, $location, $compile) {
+    return {
+        restrict : 'A',
+        replace : false,
+        templateUrl : 'templates/mod2b.html',
+        controller : function($scope, $element, $attrs) {
+            $scope.l = "pjl09-602"
+            $scope.step = 0;
+            $scope.mod="mod2b";
+            $scope.s = $rootScope.s = $location.search()['s'];
+        },
+        link : function postLink(scope, element, attrs) {
 
-			}
+            if ($location.search()['l'] != null)
+                scope.l = $location.search()['l'];
+            function update() {
+                var target = document.getElementById('preload');
+                var spinner = new Spinner(scope.opts).spin(target);
 
-			scope.$watch('amdUrl', function() {
-				update();
-			}, true)
-		}
-	};
+                if ($location.search()['s'] != null) {
+
+                    api.getIntervention(scope.l).then(function(data) {
+                        scope.data = data;
+                        init(data, $location.search()['s'])
+
+                        spinner.stop();
+
+                    }, function(error) {
+                        scope.error = error
+                    })
+                }
+            }
+            update();
+        }
+    };
 }])
 .directive('mod0', ['api', '$rootScope', '$location', '$compile',
 function(api, $rootScope, $location, $compile) {
-	return {
-		restrict : 'A',
-		replace : false,
-		templateUrl : 'templates/mod0.html',
-		link : function postLink(scope, element, attrs) {
+    return {
+        restrict : 'A',
+        replace : false,
+        templateUrl : 'templates/mod0.html',
+        link : function postLink(scope, element, attrs) {
 
             $("#mod0-slider").slider({
                 min:1,
@@ -211,56 +178,54 @@ function(api, $rootScope, $location, $compile) {
                     zooming(ui.value);
                 }
             })
-			var mod0 = thelawfactory.mod0();
-			var mod0_bars = thelawfactory.mod0_bars();
+            var mod0 = thelawfactory.mod0();
+            var mod0_bars = thelawfactory.mod0_bars();
 
-			function update() {
+            function update() {
 
                 var target = document.getElementById('preload');
                 var spinner = new Spinner(scope.opts).spin(target);
 
-				api.getStats().then(function(data) {
-					d3.select(element[0]).datum(data).call(mod0_bars)
+                api.getStats().then(function(data) {
+                    d3.select(element[0]).datum(data).call(mod0_bars)
 
-				}, function(error) {
-					console.log(error)
-				})
+                }, function(error) {
+                    console.log(error)
+                })
 
-				api.getDossiers(scope.dossierUrl).then(function(data) {
+                api.getDossiers().then(function(data) {
 
-					d3.select(element[0]).datum(data).call(mod0)
+                    d3.select(element[0]).datum(data).call(mod0)
                     spinner.stop();
 
-				}, function(error) {
-					console.log(error)
-				})
+                }, function(error) {
+                    console.log(error)
+                })
 
-			}
-			scope.$watch('amdUrl', function() {
-				update();
-			}, true)
-		}
-	};
+            }
+            update();
+        }
+    };
 }])
 .directive('lawlist', ['api', '$rootScope', "$location",
 function(api, $rootScope, $location) {
-	return {
-		restrict : 'A',
-		replace : false,
-		template : '<input auto-complete id="search" placeholder="Chercher une loi" ng-model="selected"><img ng-click="closeSearch()" class ="cls" src="img/cross.png"/> ',
-		controller : function($scope, $element, $attrs) {
+    return {
+        restrict : 'A',
+        replace : false,
+        template : '<input auto-complete id="search" placeholder="Chercher une loi" ng-model="selected"><img ng-click="closeSearch()" class ="cls" src="img/cross.png"/> ',
+        controller : function($scope, $element, $attrs) {
 
-			$scope.closeSearch = function() {
-				$(".lawlist").fadeOut(200);
-				$("body").css("overflow", "auto");
-			}
-		},
-		link : function postLink(scope, element, attrs, lawlistCtrl) {
+            $scope.closeSearch = function() {
+                $(".lawlist").fadeOut(200);
+                $("body").css("overflow", "auto");
+            }
+        },
+        link : function postLink(scope, element, attrs, lawlistCtrl) {
 
-    			function update() {
+                function update() {
 
-				api.getLawlist().then(function(data) {
-					scope.ll = data;
+                api.getLawlist().then(function(data) {
+                    scope.ll = data;
                                         // Process data to a list of law object
                                         // with properties' names set by headers
                                         var headers, laws, rows = scope.ll.split(/\r\n|\n/);
@@ -275,39 +240,39 @@ function(api, $rootScope, $location) {
 
                                         document.lawlist = laws;
 
-					$("#search").autocomplete({
-						source : function(request, response) {
+                    $("#search").autocomplete({
+                        source : function(request, response) {
 
-							var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(request.term)), "i");
-							response($.map($.grep(laws, function(value) {
+                            var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(request.term)), "i");
+                            response($.map($.grep(laws, function(value) {
                                                             value = clean_accents(value.Titre +" "+ value.id +" "+ value["Thèmes"] + " " + value.short_title);
-							    return matcher.test(clean_accents(value));
-							}), function(n, i) {
-								return {
-									"label" : n.Titre + " (" + n.short_title.replace(/ \([^)]*\)/g, '') + ")",
-									"value" : n.id,
+                                return matcher.test(clean_accents(value));
+                            }), function(n, i) {
+                                return {
+                                    "label" : n.Titre + " (" + n.short_title.replace(/ \([^)]*\)/g, '') + ")",
+                                    "value" : n.id,
                                     "themes": n["Thèmes"],
                                     "amendements": n.total_amendements,
                                     "words": n.total_mots,
                                     "dates": n["Date initiale"] + (n["Date de promulgation"] ? " → " + n["Date de promulgation"] : "")
-								}
-							}));
-						},
+                                }
+                            }));
+                        },
                         focus : function(event, ui) {
                             event.preventDefault();
                             $(".src-fcs").removeClass("src-fcs");
                             $("."+ui.item.value).addClass("src-fcs");
                         },
-						open : function() {
+                        open : function() {
 
-							var h = $(".ui-autocomplete").position().top;
-							$(".ui-autocomplete").height($(window).height() - h);
+                            var h = $(".ui-autocomplete").position().top;
+                            $(".ui-autocomplete").height($(window).height() - h);
 
-						},
-						appendTo : ".lawlist",
-						select : function(event, ui) {
-							$rootScope.$apply(function() {
-								$("body").css("overflow", "auto");
+                        },
+                        appendTo : ".lawlist",
+                        select : function(event, ui) {
+                            $rootScope.$apply(function() {
+                                $("body").css("overflow", "auto");
                                 $location.path("/mod1");
                                 $location.search("l=" + ui.item.value);
                         });
@@ -341,11 +306,7 @@ function(api, $rootScope, $location) {
                 scope.error = error
             })
         }
-
-        scope.$watch('lawlistUrl', function() {
-            update();
-        }, true)
-
+        update();
     }
 };
 }])
@@ -407,15 +368,11 @@ return {
         },
         link : function preLink(scope, element, attrs, stepsbarCtrl) {
 
-            function capitalize(s) {
-                if (!s) return "";
-                return s.charAt(0).toUpperCase() + s.substring(1);
-            }
 
             scope.total=0;
             api.getProcedure(scope.l).then(function(data) {
 
-                $(".separator").html('<h4 class="law-title">' + capitalize(data.long_title) + '</h4><span class="links"><a href="' + data.url_dossier_senat + '"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a><br/><a href="' + data.url_dossier_assemblee + '"><span class="glyphicon glyphicon-link"></span> dossier AN</a></span>')
+                $(".separator").html('<h4 class="law-title">' + upperFirst(data.long_title) + '</h4><span class="links"><a href="' + data.url_dossier_senat + '"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a><br/><a href="' + data.url_dossier_assemblee + '"><span class="glyphicon glyphicon-link"></span> dossier AN</a></span>')
 
                 scope.stages=[],
                 scope.steps=[],
