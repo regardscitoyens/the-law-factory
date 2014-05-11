@@ -12,10 +12,10 @@ config(function ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/',{redirectTo: '/'})
 // templateUrl: 'partials/main', controller: 'mainCtrl'})
-    .when('/mod0',{templateUrl: 'partials/mod0', controller: 'mainCtrl'})
-    .when('/mod1',{templateUrl: 'partials/mod1', controller: 'mainCtrl'})
-    .when('/mod2',{templateUrl: 'partials/mod2', controller: 'mainCtrl'})
-    .when('/mod2b',{templateUrl: 'partials/mod2b', controller: 'mainCtrl'})
+    .when('/mod0',{templateUrl: 'templates/mod0.html', controller: 'mainCtrl'})
+    .when('/mod1',{templateUrl: 'templates/mod1.html', controller: 'mainCtrl'})
+    .when('/mod2',{templateUrl: 'templates/mod2.html', controller: 'mainCtrl'})
+    .when('/mod2b',{templateUrl: 'templates/mod2b.html', controller: 'mainCtrl'})
     .otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
 });
