@@ -114,11 +114,12 @@ function(api, $rootScope, $location, $compile) {
 					scope.dataSample = data;
 
 					if ($location.search()['s'] != null) {
-
 						api.getAmendement(scope.l, $location.search()['s'] ).then(function(data) {
 
-							var elementPos = scope.dataSample.map(function(x) {
-								return x.step_name;
+							var elementPos = $.grep(scope.dataSample.steps, function(step) {
+                                                            return (step.directory);
+                                                            }).map(function(step) {
+								return step.directory;
 							}).indexOf(scope.s);
 							$(".stage:eq(" + elementPos + ")").addClass("step-curr")
 
