@@ -109,7 +109,7 @@ function(api, $rootScope, $location, $compile) {
 
                 var target = document.getElementById('preload');
                 var spinner = new Spinner(scope.opts).spin(target);
-				api.getProcedure(scope.l + "?sect=amd").then(function(data) {
+				api.getProcedure(scope.l).then(function(data) {
 
 					scope.dataSample = data;
 
