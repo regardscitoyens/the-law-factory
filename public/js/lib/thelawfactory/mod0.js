@@ -1,23 +1,24 @@
 var drawGantt,
     active_filters = {
-    theme: "",
-    year: 2013,
-    length: ""
-}, refreshBillsFilter = function(){
-    for (var k in active_filters) {
-        if (active_filters[k]) {
-            $("ul.filters li."+k).html("<a onclick=\"rmBillsFilter('"+k+"')\" class='badge' title='Supprimer ce filtre'><span class='glyphicon glyphicon-remove-sign'></span> "+active_filters[k]+'</a>');
-            if (k == "length") $(".bar-step #mois_"+active_filters[k].replace(' ', '')).addClass('filtered_month');
-        } else $("ul.filters li."+k).empty();
-    }
-}, addBillsFilter = function(filtype,filval){
-    if (filtype == "length") $(".bar-value.filtered_month").removeClass('filtered_month');
-    active_filters[filtype]=filval;
-    refreshBillsFilter();
-    drawGantt('filter');
-}, rmBillsFilter = function(filtype){
-    addBillsFilter(filtype,"");
-};
+        theme: "",
+        year: 2013,
+        length: ""
+    },
+    refreshBillsFilter = function(){
+        for (var k in active_filters) {
+            if (active_filters[k]) {
+                $("ul.filters li."+k).html("<a onclick=\"rmBillsFilter('"+k+"')\" class='badge' title='Supprimer ce filtre'><span class='glyphicon glyphicon-remove-sign'></span> "+active_filters[k]+'</a>');
+                if (k == "length") $(".bar-step #mois_"+active_filters[k].replace(' ', '')).addClass('filtered_month');
+            } else $("ul.filters li."+k).empty();
+        }
+    },
+    addBillsFilter = function(filtype, filval){
+        if (filtype == "length") $(".bar-value.filtered_month").removeClass('filtered_month');
+        active_filters[filtype]=filval;
+        refreshBillsFilter();
+        drawGantt('filter');
+    },
+    rmBillsFilter = function(filtype){ addBillsFilter(filtype,""); };
 
 (function () {
 
@@ -29,66 +30,57 @@ var drawGantt,
 
             //Initialization
             var ganttcontainer = d3.select("#gantt").append("svg"),
-                lawscont,
-                grid,
-                popover,
-                currFile,
-                layout = "t",
-                lbls,
-                steps,
-                laws,
-                allThemes = [],
-                allYears = [],
-                gridrects,
-                gridlines,
-                dossiers = [],
-                smallset = [],
-                format = d3.time.format("%Y-%m-%d"),
-                tickform = d3.time.format("%b %Y"),
+                lawscont, grid,
+                popover, currFile,
+                lbls, steps, laws,
+                gridrects, gridlines,
+                allThemes = [], allYears = [],
+                dossiers = [], smallset = [],
+                mindate, maxdate,
+                tscale, lblscale,
+                ticks,
                 basewidth = parseInt(d3.select("#gantt").style("width")) - 30,
                 width = basewidth,
-                tscale = d3.time.scale().range([0, width]),
-                lblscale = d3.time.scale().range([0, width * 10]),
-                tickpresence=d3.scale.linear().range([3,1]).domain([1,7]).clamp(true),
-                sort_function = sortByDate,
-                sortByLeng = function(a,b) { return b.total_days - a.total_days },
-                sortByAmds = function(a,b) { return b.total_amendements - a.total_amendements },
-                sortByDate = function(a,b) { return Date.parse(b.end) - Date.parse(a.end) },
-                format_step = function(d){
-                    d = d.replace('depot', 'Dépôt')
-                        .replace('1ère lecture', '1<sup>ère</sup> Lecture')
-                        .replace('2ème lecture', '2<sup>ème</sup> Lecture')
-                        .replace('nouv. lect.', 'Nouvelle Lecture')
-                        .replace('l. définitive', 'Lecture Définitive')
-                        .replace('CMP', 'Commission Mixte Paritaire')
-                        .replace('hemicycle', 'Hémicycle');
-                    return d.charAt(0).toUpperCase() + d.substring(1);
-                },
-                format_instit = function(d){
-                    return d.replace('assemblee', 'Assemblée nationale')
-                        .replace('senat', 'Sénat');
-                },
-                french_date = function(d){
-                    if (!d) return "";
-                    d = d.split('-');
-                    return [d[2], d[1], d[0]].join('/');
-                },
-                capitalize = function(d){
-                    if (!d) return "";
-                    return d.charAt(0).toUpperCase() + d.substring(1);
-                },
                 lawh = 50,
-                z = 1,
                 steph = lawh - 16,
-                ticks,
-                mindate, maxdate;
-
+                z = 1,
+                layout = "t",
+            sortByLeng = function(a,b) { return b.total_days - a.total_days },
+            sortByAmds = function(a,b) { return b.total_amendements - a.total_amendements },
+            sortByDate = function(a,b) { return Date.parse(b.end) - Date.parse(a.end) },
+            sort_function = sortByDate,
+            format = d3.time.format("%Y-%m-%d"),
+            tickform = d3.time.format("%b %Y"),
+            tickpresence=d3.scale.linear().range([3,1]).domain([1,7]).clamp(true),
+            format_step = function(d){
+                d = d.replace('depot', 'Dépôt')
+                    .replace('1ère lecture', '1<sup>ère</sup> Lecture')
+                    .replace('2ème lecture', '2<sup>ème</sup> Lecture')
+                    .replace('nouv. lect.', 'Nouvelle Lecture')
+                    .replace('l. définitive', 'Lecture Définitive')
+                    .replace('CMP', 'Commission Mixte Paritaire')
+                    .replace('hemicycle', 'Hémicycle');
+                return d.charAt(0).toUpperCase() + d.substring(1);
+            },
+            format_instit = function(d){
+                return d.replace('assemblee', 'Assemblée nationale')
+                    .replace('senat', 'Sénat');
+            },
+            french_date = function(d){
+                if (!d) return "";
+                d = d.split('-');
+                return [d[2], d[1], d[0]].join('/');
+            },
+            capitalize = function(d){
+                if (!d) return "";
+                return d.charAt(0).toUpperCase() + d.substring(1);
+            },
             popover = function(d) {
                 (d.institution=="assemblee" || d.institution=="senat" ? null : console.log("TESTTTTTT", d));
                 var ydisp = -45,
                     title = (d.institution=="assemblee" || d.institution=="senat" ? format_instit(d.institution) + " — " : "") + format_step(d.step ? d.step : d.stage),
                     div = d3.select(document.createElement("div")).style("width", "100%").attr('class', 'pop0');
-                if (d.step) { 
+                if (d.step) {
                     div.append("p").html(format_step(d.stage));
                     ydisp -= 20;
                 }
@@ -108,6 +100,17 @@ var drawGantt,
                 };
             };
 
+            function scaled_date_val(e) {
+                var val = e.date;
+                if (e.overlap) {
+                    var mydate = format.parse(e.date),
+                        dd = mydate.getDate() + e.overlap,
+                        mm = mydate.getMonth() + 1,
+                        y = mydate.getFullYear();
+                    val = y + "-" + mm + "-" + dd;
+                }
+                return format.parse(val);
+            }
 
             function drawLabels() {
                 d3.selectAll(".g-law").append("g").attr("class", "lbls")
@@ -119,51 +122,23 @@ var drawGantt,
                     .attr("class", "step-lbl")
                     .each(function(d,i){
 
-                        var strg;
-
+                        var strg = "";
                         if(d.step!=="depot" && (d.institution==="assemblee" || d.institution==="senat")) {
                             strg = d.step.substr(0, 1).toUpperCase();
-                        }
-                        else if(d.step==="depot") {
-
+                        } else if(d.step==="depot") {
                             var dv = $(this).closest(".g-law").attr('class').split(/\s+/);
                             strg= dv[1].substr(0,3).toUpperCase();
-                        }
-                        else if(d.institution==="CMP") {
+                        } else if(d.institution==="CMP") {
                             strg = "CMP";
-                        }
-                        else if(d.institution==="conseil constitutionnel"){
+                        } else if(d.institution==="conseil constitutionnel"){
                             strg="CC";
-                        }
-                        else if (d.stage==="promulgation") {
+                        } else if (d.stage==="promulgation") {
                             strg="JO";
                         }
-                        else strg="";
 
                         for(var j = 0; j<strg.length; j++) {
-
                             d3.select(this).append("text")
-                                .attr("x", function (e, i) {
-
-                                    if (layout === "q") {
-                                        return e.qx+2;
-                                    }
-                                    else {
-
-                                    var val;
-
-                                    if (e.overlap) {
-                                        var mydate = format.parse(e.date);
-                                        var dd = mydate.getDate() + e.overlap;
-                                        var mm = mydate.getMonth() + 1;
-                                        var y = mydate.getFullYear();
-
-                                        val = lblscale(format.parse(y + "-" + mm + "-" + dd));
-                                    }
-                                    else val = lblscale(format.parse(e.date));
-                                    return val;
-                                }
-                                })
+                                .attr("x", function (e) {return (layout === "q" ? e.qx+2 : lblscale(scaled_date_val(e)));})
                                 .attr("y", 38+j*9)
                                 .attr("dx", 5)
                                 .text(strg[j])
@@ -247,7 +222,7 @@ var drawGantt,
                 lawscont = ganttcontainer.append("g").attr("class", "laws");
                 grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
             }
-            
+
             selection.each(function (data) {
 
                 drawGantt = function(action) {
@@ -328,45 +303,35 @@ var drawGantt,
                             if (e.date && e.date != "" && e.enddate < e.date) e.enddate = e.date
                             if (!e.date || e.date === "") e.date = e.enddate;
 
-                            if(j>0 && d.steps[j-1].enddate == e.date) {
-                                if(d.steps[j-1].overlap) e.overlap=d.steps[j-1].overlap+1;
+                            if (j>0 && d.steps[j-1].enddate == e.date) {
+                                if (d.steps[j-1].overlap) e.overlap=d.steps[j-1].overlap+1;
                                 else e.overlap=1
-                            }
+                            } else if (j>0 && d.steps[j-1].overlap) {
 
-                            else if(j>0 && d.steps[j-1].overlap) {
-
-                                var pastdate=format.parse(d.steps[j-1].enddate);
-
-                                var dd = pastdate.getDate()+d.steps[j-1].overlap;
+                                var pastdate=format.parse(d.steps[j-1].enddate),
+                                    dd = pastdate.getDate()+d.steps[j-1].overlap,
+                                    mm = pastdate.getMonth()+1,
+                                    y = pastdate.getFullYear();
+                                if (mm<10) mm="0"+mm;
                                 if (dd<10) dd="0"+dd;
 
-                                var mm = pastdate.getMonth()+1;
-                                if (mm<10) mm="0"+mm;
-
-                                var y = pastdate.getFullYear();
-
-
-                                if(y+"-"+mm+"-"+dd>=e.date) {
+                                // Monitor Overlaps
+                                if (y+"-"+mm+"-"+dd>=e.date) {
                                     console.log(e.date,y+"-"+mm+"-"+dd)
                                     e.overlap = d.steps[j - 1].overlap + 1;
-
                                 }
                             }
 
                             e.qw = getQwidth(e);
-
                             if (j == 0) e.qx = 5;
-                            else {
-                                e.qx = d.steps[j - 1].qx + d.steps[j - 1].qw + 3;
-                            }
+                            else e.qx = d.steps[j - 1].qx + d.steps[j - 1].qw + 3;
                         })
                     })
                     dossiers = dossiers.concat(data.dossiers)
                 }
 
-                //function used for multiple data files - progressive loading
+            // function used for multiple data files - progressive loading
                 function dynamicLoad() {
-
                     d3.json('http://www.lafabriquedelaloi.fr/api/' + currFile, function (error, json) {
                         data = json;
                         prepareData();
@@ -375,8 +340,8 @@ var drawGantt,
                     })
                 }
 
+            // Populate years and themes in filter menu
                 function computeFilters() {
-                // Populate years and themes in filter menu
                     var y1;
                     dossiers.forEach(function(l,i){
                         allThemes = allThemes.concat(l.themes.join(',').replace(/ et /g, ',').split(','));
@@ -441,12 +406,8 @@ var drawGantt,
                     tk.append("text")
                         .attr("class", "tick-lbl")
                         .attr("y", 20)
-                        .attr("x", function (d) {
-                            return tscale(d);
-                        })
-                        .text(function (d) {
-                            return tickform(d);
-                        })
+                        .attr("x", function (d) { return tscale(d); })
+                        .text(function (d) { return tickform(d); })
                         .attr("text-anchor", "middle");
                 }
 
@@ -543,78 +504,19 @@ var drawGantt,
 
                     steps.append("rect")
                         .attr("class", "step")
-                        .attr("x", function (e, i) {
-                            var val;
-
-                            if(e.overlap) {
-                                var mydate=format.parse(e.date);
-                                var dd = mydate.getDate()+ e.overlap;
-                                var mm = mydate.getMonth()+1;
-                                var y = mydate.getFullYear();
-
-                                val = tscale(format.parse(y+"-"+mm+"-"+dd));
-                            }
-                            else val= tscale(format.parse(e.date));
-                            return val;
-                        })
+                        .attr("x", function (e) { return tscale(scaled_date_val(e)); })
                         .attr("y", 28)
-                        .attr("width", function (e) {
-                            if (e.stage === "promulgation")
-                                return 3;
-                            else {
-                                if (e.date === "")
-                                    e.date = e.enddate
-                                //if e.date<
-                                var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date))
-                                if (val >= 3)
-                                    return val - 2;
-                                else
-                                    return 1
-                            }
-                        })
+                        .attr("width", getQLwidth)
                         .attr("height", steph)
-                        .style("fill", function (d) {
-                            if (d.institution === "assemblee") return "#ced6dd"
-                            else if (d.institution === "senat") return "#f99b90"
-                            else if (d.institution === "conseil constitutionnel") return "rgb(231, 221, 158)"
-                            else if (d.stage === "promulgation") return "#716259"
-                            else return "#aea198"
-                        })
-                        .on("click", function (e) {
-                            console.log(e);
-                        })
-
+                        .style("fill", color_step);
 
                     //fill pattern
                     steps.append("rect")
-                        .filter(function (e) {
-                            return e.stage !== "promulgation" && e.nb_amendements > 0
-                        })
+                        .filter(function (e) { return e.stage !== "promulgation" && e.nb_amendements > 0; })
                         .attr("class", "step-ptn")
-                        .attr("x", function (e, i) {
-                            var val;
-
-                            if(e.overlap) {
-                                var mydate=format.parse(e.date);
-                                var dd = mydate.getDate()+ e.overlap;
-                                var mm = mydate.getMonth()+1;
-                                var y = mydate.getFullYear();
-
-                                val = tscale(format.parse(y+"-"+mm+"-"+dd));
-                            }
-                            else val= tscale(format.parse(e.date));
-                            return val;
-                        })
+                        .attr("x", function (e) { return tscale(scaled_date_val(e)); })
                         .attr("y", 48)
-                        .attr("width", function (e) {
-                            if (e.stage === "promulgation") return 3;
-                            else {
-                                if (e.date === "") e.date = e.enddate
-                                var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date))
-                                if (val >= 3) return val - 2;
-                                else return 1
-                            }
-                        })
+                        .attr("width", getQLwidth)
                         .attr("height", steph - 20)
                         .style("fill", function (d) {
                             if (d.nb_amendements >= 200) return"url(mod0#diagonal3)"
@@ -663,18 +565,25 @@ var drawGantt,
                 }
 
                 function getQwidth(e) {
-                    //console.log(e)
-                    if (e.stage === "promulgation")
-                        return 10;
-                    else {
-                        var diff = format.parse(e.enddate) - format.parse(e.date)
-                        var day = 1000 * 60 * 60 * 24;
-                        //console.log(e.enddate, e.date, diff/day)
-                        var val = Math.floor(diff / day)
-                        if (val > 15) return val
-                        else return 15
-                    }
+                    if (e.stage === "promulgation") return 10;
+                    var diff = format.parse(e.enddate) - format.parse(e.date);
+                    return Math.max(15, Math.floor(diff / 86400000));
                 }
+
+                function getQLwidth(e) {
+                    if (e.stage === "promulgation") return 3;
+                    if (e.date === "") e.date = e.enddate;
+                    var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date));
+                    return (val >= 3 ? val - 2 : 1);
+                }
+
+                function color_step(d) {
+                    if (d.institution === "assemblee") return "#ced6dd";
+                    else if (d.institution === "senat") return "#f99b90";
+                    else if (d.institution === "conseil constitutionnel") return "rgb(231, 221, 158)";
+                    else if (d.stage === "promulgation") return "#716259";
+                    else return "#aea198";
+                };
 
                 absolutePosition = function () {
 
@@ -683,61 +592,16 @@ var drawGantt,
                     })
 
                     d3.selectAll(".step")
-                        .attr("x", function (e, i) {
-                            var val;
-
-                            if(e.overlap) {
-                                var mydate=format.parse(e.date);
-                                var dd = mydate.getDate()+ e.overlap;
-                                var mm = mydate.getMonth()+1;
-                                var y = mydate.getFullYear();
-
-                                val = tscale(format.parse(y+"-"+mm+"-"+dd));
-                            }
-                            else val= tscale(format.parse(e.date));
-                            return val;
-                        })
-                    .attr("width", function (e) {
-                        if (e.stage === "promulgation")
-                            return 3;
-                        else {
-                            if (e.date === "")
-                                e.date = e.enddate
-                            //if e.date<
-                            var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date))
-                            if (val >= 3)
-                                return val - 2;
-                            else
-                                return 1
-                        }
-                    });
+                        .attr("x", function (e) { return tscale(scaled_date_val(e)); })
+                        .attr("width", getQLwidth);
 
                     d3.selectAll(".step-lbl")
-                        .attr("x", function (e, i) {
-                            var val = lblscale(format.parse(e.date));
-                            return val
-                        })
+                        .attr("x", function (e, i) { return lblscale(format.parse(e.date)); });
 
                     d3.selectAll(".step-ptn")
                         .transition().duration(500)
-                        .attr("x", function (e, i) {
-                            var val = tscale(format.parse(e.date));
-                            if (e.overlap) val+= e.overlap;
-                            return val
-                        })
-                        .attr("width", function (e) {
-                            if (e.stage === "promulgation")
-                                return 3;
-                            else {
-                                if (e.date === "")
-                                    e.date = e.enddate
-                                var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date))
-                                if (val >= 3)
-                                    return val - 2;
-                                else
-                                    return 1
-                            }
-                        });
+                        .attr("x", function (e, i) { return tscale(format.parse(e.date)) + (e.overlap ? e.overlap : 0); })
+                        .attr("width", getQLwidth);
 
                     d3.selectAll(".tick-lbl").text(function (d, j) {
                         return (j + 1) + " mois"
@@ -747,59 +611,19 @@ var drawGantt,
                 timePosition = function () {
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
                         return "translate(0," + (30 + i * (20 + lawh)) + ")"
-                    })
-
-                    d3.selectAll(".step")
-                        .attr("x", function (e, i) {
-                            var val;
-
-                            if(e.overlap) {
-                                var mydate=format.parse(e.date);
-                                var dd = mydate.getDate()+ e.overlap;
-                                var mm = mydate.getMonth()+1;
-                                var y = mydate.getFullYear();
-
-                                val = tscale(format.parse(y+"-"+mm+"-"+dd));
-                            }
-                            else val= tscale(format.parse(e.date));
-                            return val;
-                        })
-                        .attr("width", function (e) {
-                        if (e.stage === "promulgation")
-                            return 3;
-                        else {
-                            if (e.date === "")
-                                e.date = e.enddate;
-                            var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date));
-                            if (val >= 3)
-                                return val - 2;
-                            else
-                                return 1
-                        }
                     });
 
+                    d3.selectAll(".step")
+                        .attr("x", function (e) { return tscale(scaled_date_val(e)); })
+                        .attr("width", getQLwidth);
+
                     d3.selectAll(".step-lbl")
-                        .attr("x", function (e, i) {
-                            var val = lblscale(format.parse(e.date));
-                            return val
-                        });
+                        .attr("x", function (e, i) { return lblscale(format.parse(e.date)); });
 
                     d3.selectAll(".step-ptn")
                         .transition().duration(500)
-                        .attr("x", function (e, i) {
-                            var val = tscale(format.parse(e.date));
-                            return val
-                        })
-                        .attr("width", function (e) {
-                            if (e.stage === "promulgation") return 3;
-                            else {
-                                if (e.date === "") e.date = e.enddate
-                                var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date))
-                                if (val >= 3) return val - 2;
-                                else return 1
-                            }
-                        });
-
+                        .attr("x", function (e, i) { return tscale(format.parse(e.date)); })
+                        .attr("width", getQLwidth);
 
                     d3.selectAll(".tick-lbl").text(function (d, j) {
                         return tickform(d);
@@ -810,31 +634,19 @@ var drawGantt,
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
                         return "translate(0," + ( i * (20 + lawh)) + ")"
                     });
+
                     d3.selectAll(".row").transition().duration(500).attr("transform", "translate(0,-30)")
                     d3.selectAll(".law-name").transition().duration(500).attr("transform", "translate(0,-30)")
 
                     d3.selectAll(".step")
-                        .attr("x", function (d) {
-                            return d.qx
-                        })
-                        .attr("width", function (d) {
-                            if (d.stage === "promulgation") return 15; else return d.qw
-                        })
-                        .style("fill", function (d) {
-                            if (d.institution === "assemblee") return "#ced6dd"
-                            else if (d.institution === "senat") return "#f99b90"
-                            else if (d.institution === "conseil constitutionnel") return "rgb(231, 221, 158)"
-                            else if (d.stage === "promulgation") return "#716259"
-                            else return "#aea198"
-                        });
+                        .attr("x", function (d) {return d.qx; })
+                        .attr("width", function (d) { return (d.stage === "promulgation" ? 15 : d.qw); })
+                        .style("fill", color_step);
 
                     d3.selectAll(".step-ptn")
-                        .attr("x", function (d) {
-                            return d.qx
-                        })
-                        .attr("width", function (d) {
-                            if (d.stage === "promulgation") return 15; else return d.qw
-                        })
+                        .attr("x", function (d) {return d.qx; })
+                        .attr("width", function (d) { return (d.stage === "promulgation" ? 15 : d.qw); });
+
                     d3.selectAll(".law-bg").transition().duration(500).style("opacity", 0);
                 }
 
