@@ -457,7 +457,9 @@ var drawGantt,
                         maxdate = (maxdate && maxdate > d.end ? maxdate : d.end);
                     });
                     mindate = format.parse(mindate < data.min_date ? data.min_date : mindate);
+                    mindate.setDate(mindate.getDate() - 10);
                     maxdate = format.parse(maxdate > data.max_date ? data.max_date : maxdate);
+                    maxdate.setDate(maxdate.getDate() + 10);
 
                     //update svg size
                     if (maxdate - mindate > 126144000000) width = 2 * basewidth;
