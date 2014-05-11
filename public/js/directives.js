@@ -364,8 +364,15 @@ return {
 
         var clicking = false;
         var inpos=[-1,-1];
+        // No dragging in the borders because of issues with the overflow scollbar
+        var gantt_o = $('#gantt').offset(),
+            mouse_xmax = gantt_o.left + $('#gantt').width() - 20,
+            mouse_ymin = gantt_o.top + 35,
+            mouse_ymax = gantt_o.top + $('#gantt').height() - 20;
 
         element.mousedown(function(e){
+            if (e.pageX > mouse_xmax || e.pageY < mouse_ymin || e.pageY > mouse_ymax)
+                return;
             clicking = true;
             inpos[0]= e.pageX;
             inpos[1]= e.pageY;
