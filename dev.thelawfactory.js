@@ -14,8 +14,6 @@ var app = module.exports = express();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
 app.locals({rootUrl: process.env.ROOTURL || '/'});
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
@@ -36,17 +34,10 @@ if (app.get('env') === 'production') {
 
 /**
  * Routes
- * serve view partial and edirect everything to mod0 index
+ * serve everything to mod0 index
  */
-app.get('/partials/:name', function (req, res) {
-  var name = req.params.name;
-  res.render('partials/' + name);
-});
-app.get('/', function(req,res) {
-    res.redirect(app.locals.rootUrl+'mod0');
-});
 app.get('*', function(req,res) {
-    res.render('index');
+    res.sendfile('public/index.html');
 });
 
 /**
