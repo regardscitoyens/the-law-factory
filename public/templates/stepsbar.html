@@ -5,7 +5,6 @@
             <span ng-show="(i.num==1 || i.num==2 && i.name=='CMP') && total>7" title="{{cleanLongName(findLongName(i.name))}}" ng-bind-html-unsafe="findShortName(i.name)"></span>
             <span ng-hide="(i.num==1 || i.num==2 && i.name=='CMP') && total>7" ng-bind-html-unsafe="findLongName(i.name)"></span>
         </div>
-
     </div>
 
     <div class="stb-insts">
@@ -17,6 +16,7 @@
 
     <div class="stb-steps">
         <div class="stb-step stb-{{i.directory}}" ng-class="{'current': s === i.directory}" style="width:{{(1/total)*100}}%"ng-repeat="i in steps">
+
             <div>
                 <span>
                     <span ng-show="total>8" title="{{stepLegend(i)}}">{{stepLabel(i)}}</span>
@@ -25,27 +25,25 @@
                     <span ng-show="i.source_url=='renvoi en commission'" class="stb-link stb-renvoi glyphicon glyphicon-ban-circle" title="Renvoi en commission"></span>
                 </span>
             </div>
+
             <div class="stb-links">
-
-
-                <a class="stb-link stb-txt" ng-show="mod!='mod1'" title="Explorer les articles" href="mod1/?l={{l}}">
+                <a class="stb-link stb-txt" ng-show="mod!='mod1'" title="Explorer les articles" href="mod1?l={{l}}">
                     <span class="glyphicon glyphicon-list"></span>
                 </a>
                 <span ng-hide="mod!='mod1'" class="stb-link glyphicon glyphicon-list low-vis"></span>
 
-                <a class="stb-link stb-amds" ng-show="i.nb_amendements && (s!=i.directory ||(s==i.directory && mod=='mod2b'))" title="Explorer les amendements" href="mod2/?l={{l}}&s={{i.directory}}">
+                <a class="stb-link stb-amds" ng-show="i.nb_amendements && (s!=i.directory ||(s==i.directory && mod=='mod2b'))" title="Explorer les amendements" href="mod2?l={{l}}&s={{i.directory}}">
                     <span class="glyphicon glyphicon-folder-open"></span>
                 </a>
                 <span ng-hide="i.nb_amendements && (s!=i.directory ||(s==i.directory && mod=='mod2b'))" class="stb-link glyphicon glyphicon-folder-open low-vis" ng-class="{'stb-curr-st':s==i.directory && mod=='mod2'}"></span>
 
-                <a class="stb-link stb-ints" ng-show="i.has_interventions && (s!=i.directory ||(s==i.directory && mod=='mod2'))" title="Explorer les débats" href="mod2b/?l={{l}}&s={{i.directory}}">
+                <a class="stb-link stb-ints" ng-show="i.has_interventions && (s!=i.directory ||(s==i.directory && mod=='mod2'))" title="Explorer les débats" href="mod2b?l={{l}}&s={{i.directory}}">
                     <span class="glyphicon glyphicon-comment"></span>
                 </a>
                 <span ng-hide="i.has_interventions && (s!=i.directory ||(s==i.directory && mod=='mod2'))" class="stb-link glyphicon glyphicon-comment low-vis" ng-class="{'stb-curr-st':s==i.directory && mod=='mod2b'}"></span>
-
             </div>
-        </div>
 
+        </div>
     </div>
 
 </div>
