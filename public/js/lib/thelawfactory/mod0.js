@@ -1,4 +1,5 @@
-var active_filters = {
+var drawGantt,
+    active_filters = {
     theme: "",
     year: 2014,
     length: ""
@@ -28,6 +29,8 @@ var active_filters = {
 
             //Initialization
             var ganttcontainer = d3.select("#gantt").append("svg"),
+                lawscont,
+                grid,
                 currFile,
                 layout = "t",
                 lbls,
@@ -73,26 +76,13 @@ var active_filters = {
                 today = new Date(),
                 lawh = 50,
                 z = 1,
-                steph = lawh - 16;
-            ticks = d3.time.months(mindate, today, 1);
-
+                steph = lawh - 16,
+                ticks = d3.time.months(mindate, today, 1);
 
             tscale.domain([mindate, today]);
             lblscale.domain([mindate, today]);
             qscale.domain([0, today]);
             ganttcontainer.attr("width", width).attr("height", 2900);
-
-
-            //var zoom = d3.behavior.zoom()
-            //    .scaleExtent([1, 10])
-            //    .on('zoom', zooming);
-
-
-            //ganttcontainer.call(zoom);
-
-            var lawscont = ganttcontainer.append("g").attr("class", "laws")
-            var grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
-            writeDefs();
 
             function drawLabels() {
                 d3.selectAll(".g-law").append("g").attr("class", "lbls")
@@ -101,7 +91,6 @@ var active_filters = {
                     })
                     .enter()
                     .append("g")
-                    //.append("text")
                     .attr("class", "step-lbl")
                     .each(function(d,i){
 
@@ -158,49 +147,43 @@ var active_filters = {
             }
 
             zooming = function(lvl) {
-               lastz = z;
                 var perc=($("#gantt").scrollLeft()+$("#gantt").width()/2)/(width*z);
                 if(layout==="q") return;
                 if(d3.event && d3.event.scale) z = d3.event.scale;
                 else if(lvl) z=lvl;
                 else z=1;
+                $("#mod0-slider").slider("value", z);
 
                 d3.selectAll(".steps").attr("transform", "scale(" + z + ",1)");
                 d3.selectAll(".law-bg").attr("transform", "scale(" + z + ",1)");
                 d3.selectAll(".row").attr("transform", "scale(" + z + ",1)");
+                d3.selectAll(".tl-bg").attr("transform", "scale(" + z + ",1)");
 
-                if(layout==="a") {
+                if(layout==="a")
                     d3.selectAll(".g-law").attr("transform", function(d,i){return  "translate(" + (-d.xoffset*z+5) + ","+ (30 + i * (20 + lawh)) +")"});
-                    //d3.selectAll(".law-bg").attr("transform", function(d,i){return  "translate(" + (-d.xoffset*z+5) + ","+ (30 + i * (20 + lawh)) +")"});
-                }
 
-
-                d3.select(".tl-bg").attr("width", width * z);
                 d3.selectAll(".tick-lbl").attr("x", function (d) {
                     return tscale(d) * z;
                 })
                 .style("opacity",function(d,i){
-                    if (i % Math.round(tickpresence(z))==0) return 1;
-                    else return 0;
+                    return (i % Math.round(tickpresence(z))==0 ? 1 : 0);
                 });
 
                 ganttcontainer.attr("width", width * z);
 
-                if (z < 10) d3.selectAll(".lbls").remove();
-                else  {
-                    drawLabels();
-                }
-
                 d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z})
+
+                if (z < 10 && layout != "q") d3.selectAll(".lbls").attr('opacity', 0);
+                else d3.selectAll(".lbls").attr("opacity", 1);
 
                 $("#gantt").scrollLeft(perc*width*z- $("#gantt").width()/2);
             };
 
-
-            function writeDefs() {
+            function initGanttSVG() {
+                $("#mod0-slider").slider("value", 1);
+                $("#gantt svg").empty();
                 var defs = ganttcontainer
-                    .insert('defs', ':first-child')
-
+                    .insert('defs', ':first-child');
                 defs.append('pattern')
                     .attr('id', 'diagonal1')
                     .attr('patternUnits', 'userSpaceOnUse')
@@ -209,11 +192,9 @@ var active_filters = {
                     .attr('height', 16)
                     .append('path')
                     .attr('d', 'M0,11L10,11')
-                    //.style("fill","#fff")
                     .style('stroke', '#fff')
                     .style('stroke-width', 2)
-                    .style("opacity", 0.7)
-
+                    .style("opacity", 0.7);
                 defs.append('pattern')
                     .attr('id', 'diagonal2')
                     .attr('patternUnits', 'userSpaceOnUse')
@@ -222,11 +203,9 @@ var active_filters = {
                     .attr('height', 16)
                     .append('path')
                     .attr('d', 'M0,11L10,11M0,8L10,8')
-                    //.style("fill","#fff")
                     .style('stroke', '#fff')
                     .style('stroke-width', 2)
-                    .style("opacity", 0.7)
-
+                    .style("opacity", 0.7);
                 defs.append('pattern')
                     .attr('id', 'diagonal3')
                     .attr('patternUnits', 'userSpaceOnUse')
@@ -235,19 +214,75 @@ var active_filters = {
                     .attr('height', 16)
                     .append('path')
                     .attr('d', 'M0,11L10,11M0,8L10,8M0,5L10,5')
-                    //.style("fill","#fff")
                     .style('stroke', '#fff')
                     .style('stroke-width', 2)
-                    .style("opacity", 0.7)
-
+                    .style("opacity", 0.7);
+                lawscont = ganttcontainer.append("g").attr("class", "laws");
+                grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
             }
-
-
-
+            
             selection.each(function (data) {
 
-                function prepareData() {
+                drawGantt = function(action) {
+                    var zoo = $("#mod0-slider").attr('value'),
+                        scroll = {scrollTop: "0px", scrollLeft: "0px"};
                     refreshBillsFilter();
+                    initGanttSVG();
+                    if (action == 'time') {
+                        layout = "t";
+                        zoo = 10;
+                        action = 'sortd';
+                        scroll['scrollLeft'] = "100000px";
+                        $("#display_menu .chosen").removeClass('chosen');
+                        $("#display_menu #dm-time").addClass('chosen');
+                        $(".ctrl-sort").hide(400);
+                        $(".ctrl-zoom").show(400);
+                    } else if (action == 'absolute') {
+                        layout = "a";
+                        zoo = 1;
+                        action = 'sorta';
+                        $("#display_menu .chosen").removeClass('chosen');
+                        $("#display_menu #dm-absolute").addClass('chosen');
+                        $(".ctrl-sort").show(400);
+                        $(".ctrl-zoom").show(400);
+                    } else if (action == 'quanti') {
+                        layout = "q";
+                        zoo = 1;
+                        action = 'sortl';
+                        $("#display_menu .chosen").removeClass('chosen');
+                        $("#display_menu #dm-quanti").addClass('chosen');
+                        $(".ctrl-sort").show(400);
+                        $(".ctrl-zoom").hide(400);
+                    }
+                    if (action == 'sortl') {
+                        $("#display_order .chosen").removeClass('chosen');
+                        $("#display_order #do-length").addClass('chosen');
+                        dossiers.sort(function(a,b){return b.total_days - a.total_days});
+                    } else if (action == 'sorta') {
+                        $("#display_order .chosen").removeClass('chosen');
+                        $("#display_order #do-amds").addClass('chosen');
+                        dossiers.sort(function(a,b){return b.total_amendements - a.total_amendements});
+                    } else if (action == 'sortd') {
+                        $("#display_order .chosen").removeClass('chosen');
+                        $("#display_order #do-date").addClass('chosen');
+                        dossiers.sort(function(a,b){return Date.parse(b.end) - Date.parse(a.end)});
+                    } else scroll = null;
+                    addLaws();
+                    drawAxis();
+                    zooming(zoo);
+                    if (layout == "t") timePosition();
+                    if (layout == "a") absolutePosition();
+                    if (layout == "q") quantiPosition();
+                    drawLabels();
+                    if (scroll) $("#gantt").animate(scroll);
+                    //Define scroll behaviour
+                    d3.select("#gantt").on("scroll", function (e) {
+                        d3.select(".timeline").attr("transform", "translate(0," + $(this).scrollTop() + ")");
+                        d3.selectAll(".law-name").attr("transform", "translate(" + $(this).scrollLeft() + ", "+(layout == "q" ? "-3" : "")+"0)");
+                    })
+                }
+
+                function prepareData() {
                     data.dossiers.forEach(function (d, i) {
                         var st;
 
@@ -293,9 +328,6 @@ var active_filters = {
                         })
                     })
                     dossiers = dossiers.concat(data.dossiers)
-
-                    //draws current selection
-                    addLaws();
                 }
 
                 //function used for multiple data files - progressive loading
@@ -304,14 +336,8 @@ var active_filters = {
                     d3.json('http://www.lafabriquedelaloi.fr/api/' + currFile, function (error, json) {
                         data = json;
                         prepareData();
-                        timePosition();
-
-                        if (json.next_page) {
-                            currFile = json.next_page;
-                            dynamicLoad();
-                        } else {
-                            setTimeout(computeFilters, 50);
-                        }
+                        currFile = json.next_page;
+                        setTimeout((currFile ? dynamicLoad : computeFilters), 0);
                     })
                 }
 
@@ -346,10 +372,9 @@ var active_filters = {
                 }
 
                 function drawAxis() {
-
+                    if (layout == "q") return;
                     var tl = ganttcontainer.append("g")
                         .attr("class", "timeline")
-
                     tl.append("rect")
                         .attr("x", 0)
                         .attr("y", 0)
@@ -357,25 +382,29 @@ var active_filters = {
                         .attr("class", "tl-bg")
                         .attr("height", 30)
                         .style("fill", "white")
-                        .style("stroke", "none")
+                        .style("stroke", "none");
+                    tl.append("rect")
+                        .attr("x", 0)
+                        .attr("y", 30)
+                        .attr("width", width)
+                        .attr("class", "tl-bg")
+                        .attr("height", 2)
+                        .style("fill", "grey")
+                        .style("fill-opacity", 0.3)
+                        .style("stroke", "none");
 
                     var tk = tl.selectAll(".tick-lbl")
                         .data(ticks).enter();
-
                     tk.append("text")
                         .attr("class", "tick-lbl")
                         .attr("y", 20)
                         .attr("x", function (d) {
-                            return tscale(d) * z;
+                            return tscale(d);
                         })
                         .text(function (d) {
-                            return tickform(d)
+                            return tickform(d);
                         })
-                        .attr("text-anchor", "middle")
-                        .style("opacity",function(d,i){
-                            if (i % tickpresence(z)==0) return 1;
-                            else return 0;
-                        })
+                        .attr("text-anchor", "middle");
                 }
 
                 function addLaws() {
@@ -396,7 +425,6 @@ var active_filters = {
                         .attr("height", 20 + lawh - 4)
                         .style("fill", "#f3efed")
 
-
                     //add single law group
 
                     laws = lawscont.selectAll(".g-law")
@@ -411,7 +439,7 @@ var active_filters = {
                         .on("click", onclick);
 
                     //single law background rectangle
-                    laws.append("rect")
+                    if (layout != "q") laws.append("rect")
                         .attr("x", function (d) {
                             return tscale(format.parse(d.beginning))
                         })
@@ -422,7 +450,6 @@ var active_filters = {
                         .attr("class", "law-bg")
                         .attr("height", steph)
                         .attr("opacity", 0.3).style("fill", "#d8d1c9");
-
 
                     //addsingle law steps
                     steps = laws.append("g")
@@ -551,7 +578,6 @@ var active_filters = {
                         .on("click", function (d) {
                             if (layout === "t") {
                                 var posx = tscale(format.parse(d.beginning)) * z - 15;
-                                //console.log(posx,d.id,".g-law."+d.id)
                                 $("#gantt").animate({ scrollLeft: posx + "px" });
                             }
                             else $("#gantt").animate({ scrollLeft: 0 + "px" });
@@ -596,20 +622,9 @@ var active_filters = {
 
                 absolutePosition = function () {
 
-                    $("#display_menu .chosen").removeClass('chosen');
-                    $("#display_menu #dm-absolute").addClass('chosen');
-                    //sortByLength();
-                    zooming(1);
-                    $("#mod0-slider").slider( "value", 1 );
-                    $(".ctrl-sort").show(400);
-                    layout = "a";
-                    $(".ctrl-zoom").show(400);
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
                         return "translate(" + (-d.xoffset*z + 5) + "," + (30 + i * (20 + lawh)) + ")"
                     })
-                    d3.selectAll(".row").transition().duration(500).attr("transform", "translate(0,0) scale("+z+",1)")
-                    d3.selectAll(".law-name").transition().duration(500).attr("transform", "translate(0,0)")
-
 
                     d3.selectAll(".step")
                         .attr("x", function (e, i) {
@@ -660,7 +675,6 @@ var active_filters = {
                             else {
                                 if (e.date === "")
                                     e.date = e.enddate
-                                //if e.date<
                                 var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date))
                                 if (val >= 3)
                                     return val - 2;
@@ -669,34 +683,15 @@ var active_filters = {
                             }
                         });
 
-                    d3.selectAll(".law-bg").style("opacity", 0.2)
-
                     d3.selectAll(".tick-lbl").text(function (d, j) {
-                        console.log(d, j)
                         return (j + 1) + " mois"
                     })
-                    d3.select(".timeline").transition().duration(500).style("opacity", 1)
-
-                    $("#gantt").animate({ scrollTop: "0px",scrollLeft: "0px" });
-                    //zooming(1);
-                    //$("#mod0-slider").slider( "value", 1 );
-
                 }
 
                 timePosition = function () {
-                    $("#display_menu .chosen").removeClass('chosen');
-                    $("#display_menu #dm-time").addClass('chosen');
-
-                    //sortByDate();
-                    layout = "t";
-                    $(".ctrl-sort").hide(400);
-                    $(".ctrl-zoom").show(400);
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
                         return "translate(0," + (30 + i * (20 + lawh)) + ")"
                     })
-                    //d3.selectAll(".row").transition().duration(500).attr("transform", "translate(0,0) scale("+z+",1)" )
-                    d3.selectAll(".law-name").transition().duration(500).attr("transform", "translate(0,0)")
-
 
                     d3.selectAll(".step")
                         .attr("x", function (e, i) {
@@ -719,7 +714,6 @@ var active_filters = {
                         else {
                             if (e.date === "")
                                 e.date = e.enddate;
-                            //if e.date<
                             var val = tscale(format.parse(e.enddate)) - tscale(format.parse(e.date));
                             if (val >= 3)
                                 return val - 2;
@@ -754,26 +748,9 @@ var active_filters = {
                     d3.selectAll(".tick-lbl").text(function (d, j) {
                         return tickform(d);
                     });
-
-
-                    d3.select(".timeline").transition().duration(500).style("opacity", 1)
-
-                    d3.selectAll(".law-bg").style("opacity", 0.2)
-                    zooming(10);
-                    $("#mod0-slider").slider( "value", 10 );
-                    $("#gantt").animate({scrollTop:"0px", scrollLeft: "100000px" });
-
                 };
 
                 quantiPosition = function () {
-                    $("#display_menu .chosen").removeClass('chosen');
-                    $("#display_menu #dm-quanti").addClass('chosen');
-
-                    //sortByAmds();
-                    zooming(1);
-                    $(".ctrl-zoom").hide(400);
-                    $(".ctrl-sort").show(400);
-                    layout = "q";
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
                         return "translate(0," + ( i * (20 + lawh)) + ")"
                     });
@@ -795,8 +772,6 @@ var active_filters = {
                             else return "#aea198"
                         });
 
-                        drawLabels();
-
                     d3.selectAll(".step-ptn")
                         .attr("x", function (d) {
                             return d.qx
@@ -804,74 +779,8 @@ var active_filters = {
                         .attr("width", function (d) {
                             if (d.stage === "promulgation") return 15; else return d.qw
                         })
-
-                    d3.selectAll(".law-bg").transition().duration(500).style("opacity", 0)
-                    d3.select(".timeline").transition().duration(500).style("opacity", 0)
-                    $("#gantt").animate({ scrollLeft: "0px" });
+                    d3.selectAll(".law-bg").transition().duration(500).style("opacity", 0);
                 }
-
-
-                sortByLength = function() {
-                    $("#display_order .chosen").removeClass('chosen');
-                    $("#display_order #do-length").addClass('chosen');
-
-                    zooming(1);
-                    $("#mod0-slider").slider( "value", 1 );
-                    $("#gantt svg").empty();
-                    writeDefs();
-                    lawscont = ganttcontainer.append("g").attr("class", "laws")
-                    grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
-
-                    dossiers.sort(function(a,b){return b.total_days - a.total_days})
-                    addLaws();
-                    drawAxis();
-                    //$("#gantt").animate({ scrollLeft: 100000 + "px" })
-
-                    if(layout==="q") quantiPosition();
-                    if(layout==="a") absolutePosition();
-
-
-                };
-
-                sortByDate = function() {
-                    $("#display_order .chosen").removeClass('chosen');
-                    $("#display_order #do-date").addClass('chosen');
-
-                    zooming(1);
-                    $("#mod0-slider").slider( "value", 1 );
-                    $("#gantt svg").empty();
-                    writeDefs();
-                    lawscont = ganttcontainer.append("g").attr("class", "laws");
-                    grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
-
-                    dossiers.sort(function(a,b){return  Date.parse(b.end) - Date.parse(a.end)});
-                    addLaws();
-                    drawAxis();
-                    //$("#gantt").animate({ scrollLeft: 100000 + "px" });
-
-                    if(layout==="q") quantiPosition();
-                    if(layout==="a") absolutePosition();
-                };
-
-                sortByAmds = function() {
-                    $("#display_order .chosen").removeClass('chosen');
-                    $("#display_order #do-amds").addClass('chosen');
-
-                    zooming(1);
-                    $("#mod0-slider").slider( "value", 1 );
-                    $("#gantt svg").empty();
-                    writeDefs();
-                    lawscont = ganttcontainer.append("g").attr("class", "laws");
-                    grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
-
-                    dossiers.sort(function(a,b){return  b.total_amendements - a.total_amendements});
-                    addLaws();
-                    drawAxis();
-                    //$("#gantt").animate({ scrollLeft: 100000 + "px" })
-
-                    if(layout==="q") quantiPosition();
-                    if(layout==="a") absolutePosition();
-                };
 
                 function onclick(d) {
                     $(".text-container").show();
@@ -903,20 +812,11 @@ var active_filters = {
 
                 }
 
-                //Start drawing
+                //Start drawing first sample
                 currFile = data.next_page;
                 prepareData();
-                timePosition();
-                drawAxis();
-                dynamicLoad();
-
-                //Define scroll behaviour
-                d3.select("#gantt").on("scroll", function (e) {
-                    var v = 0;
-                    if (layout === "q") v = -30
-                    d3.select(".timeline").attr("transform", "translate(0," + $(this).scrollTop() + ")");
-                    d3.selectAll(".law-name").attr("transform", "translate(" + $(this).scrollLeft() + "," + v + ")")
-                })
+                drawGantt('time');
+                setTimeout((currFile ? dynamicLoad : computeFilters),0);
 
             });
         };
@@ -933,12 +833,7 @@ var active_filters = {
             //var width = parseInt(barcontainer.style("width"))
             var bscale = d3.scale.linear().range([0, 60]);
 
-
             selection.each(function (json) {
-
-                //json=groupStats(3,json);
-
-                console.log(json)
 
                 var threshold = 720;
                 var count = 0;
@@ -963,7 +858,6 @@ var active_filters = {
                 console.log(width, l)
                 var w = width / l
 
-
                 d3.entries(json).forEach(function (e, i) {
                     var label=(e.key/30) +(e.key === threshold ? "+" : "") + " mois",
                         step = barcontainer
@@ -985,7 +879,6 @@ var active_filters = {
                 })
 
                 function groupStats(i, data) {
-
                     data = d3.entries(data)
                     newData = {}
                     for (var j = 0; j < data.length; j += i) {
@@ -996,13 +889,9 @@ var active_filters = {
 
                     }
                     return newData;
-
                 }
-
             })
-
         }
-
         return vis;
     };
 })()
