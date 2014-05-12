@@ -1024,7 +1024,7 @@ ul.filters {
     text-align: center;
 }
 ul.filters li {
-    display: inline:
+    display: inline;
     width: 100%;
 }
 ul.filters li a.badge {
@@ -1086,4 +1086,9 @@ noscript h2 {
 }
 .row-txt{
     cursor:pointer;
+}
+
+.btn-group>.btn+.dropdown-toggle {
+    padding-right: 2px;
+    padding-left: 2px;
 }

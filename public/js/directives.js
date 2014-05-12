@@ -152,6 +152,11 @@ function(api, $rootScope, $location, $compile) {
 
                         spinner.stop();
 
+                        if($("svg").height()<$("#viz").height()) {
+                           var offs=($("#viz").height() - $("svg").height())/2;
+                           $("svg").css("margin-top",offs);
+                        }0
+
                     }, function(error) {
                         scope.error = error
                     })
