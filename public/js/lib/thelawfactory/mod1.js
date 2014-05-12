@@ -21,7 +21,7 @@ var stacked;
         }
 
         function clean_premier(s) {
-            (s ? s.replace('<sup>er</sup>', '') : '');
+            return (s ? s.replace('<sup>er</sup>', '') : '');
         }
 
         function titre_section(s, short_labels) {
