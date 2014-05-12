@@ -195,7 +195,10 @@ var api_root;
                     return "translate(" + (10+(i%2)*w/2) + "," + (k * 20 + k * lineh + 10 + jumpLines * (lineh - 10)) + ")";
                   }
               })
-		  .attr("data-offset", (i*20+i*lineh+10+jumpLines*(lineh-10)))
+		  .attr("data-offset",function(){
+                  if(!half) return i*20+i*lineh+10+jumpLines*(lineh-10)
+                  else return k * 20 + k * lineh + 10 + jumpLines * (lineh - 10);
+              })
 		  .call(function(){
 		  	n=d.amendements.length;
 		  	offset = Math.floor(n/x)
@@ -333,9 +336,11 @@ var api_root;
         }
 
 		function legend(t) {
+
 			d3.entries(groups).forEach(function(e,i){
                 var col = adjust_color(e.value.color);
-				$(".colors").append('<div class="leg-item"><div class="leg-value" style="background-color:'+col+'"></div><div class="leg-key">'+e.key+'</div></div>')
+                if(e.value.link!=="") $(".colors").append('<div class="leg-item"><div class="leg-value" style="background-color:'+col+'"></div><div class="leg-key">'+e.key+'</div></div>')
+                else $(".others").append('<div class="leg-item"><div class="leg-value" style="background-color:'+col+'"></div><div class="leg-key">'+e.key+'</div></div>')
 			})
 		}
 

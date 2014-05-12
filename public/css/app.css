@@ -337,6 +337,9 @@ ins {
 .mod0 .scrolling{
     height:750px;
 }
+.step-lbl{
+    font-family:"arial",sans-serif;
+}
 
 .labels-sc{
 	padding:0 !important;
@@ -380,9 +383,15 @@ ins {
 	border-radius:2px;
 	float:left;
 }
-.colors{
+.colors, .others{
 	margin-top:2px;
+    overflow:hidden;
 }
+
+.others {
+    margin-top:10px;
+}
+
 .leg-key{
 	float: left;
 	margin-left:4px;
@@ -616,9 +625,9 @@ ul.ui-autocomplete {
 #gantt svg, #legend svg {
     padding-left: 10px;
 }
-#gantt svg g text {
+/*#gantt svg g text {
     font-family:"Oxygen", sans-serif !important;
-}
+}*/
 
 .mod0 .labels-sc {
     width: 99%;

@@ -49,14 +49,16 @@ function init(data,step) {
     groupes=data[step].groupes;
     participants=data[step].orateurs;
     mydata=[];
-
+    console.log(groupes)
     var divs=d3.values(data[step].divisions),
         orderedGroupes = d3.keys(groupes).sort(function(a,b){return groupes[b].order < groupes[a].order});
     for(g in orderedGroupes) {
         e = orderedGroupes[g];
+        console.log(groupes[e])
         var col = d3.hsl(groupes[e].color); if(col.s>0.5) col.s=0.5; col.l=0.75;
         mydata.push({key:e, values:[], color:col, name:groupes[e].nom});
-        $(".legend").append("<div onclick='highlight(\""+e+"\")' class='leg-item' title='"+groupes[e].nom+"'><div class='leg-value' style='background-color:"+col+"'></div><div class='leg-key'>"+e+"</div></div>");
+        if(groupes[e].link!=="") $(".colors").append("<div onclick='highlight(\""+e+"\")' class='leg-item' title='"+groupes[e].nom+"'><div class='leg-value' style='background-color:"+col+"'></div><div class='leg-key'>"+e+"</div></div>");
+       else $(".others").append("<div onclick='highlight(\""+e+"\")' class='leg-item' title='"+groupes[e].nom+"'><div class='leg-value' style='background-color:"+col+"'></div><div class='leg-key'>"+e+"</div></div>");
     }
 
     d3.entries(data[step].divisions).forEach(function(a,b){
