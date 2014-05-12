@@ -21,7 +21,7 @@ var stacked;
         }
 
         function clean_premier(s) {
-            return s.replace('<sup>er</sup>', '');
+            (s ? s.replace('<sup>er</sup>', '') : '');
         }
 
         function titre_section(s, short_labels) {
@@ -60,6 +60,7 @@ var stacked;
         }
 
         function section_opacity(s) {
+            if (!s) return 0.95;
             if (s === "echec") return 0.35;
             if (s.lastIndexOf("A", 0) === 0)
                 return 0.65;
@@ -114,7 +115,14 @@ var stacked;
 				var stages = computeStages(),
 				    columns = stages.length,
 				    sections = computeSections(),
-				    sectJump = 40;
+				    sectJump = 40,
+                    test_section_details = function(section, etape, field) {
+                        return (data.sections && data.sections[section] && data.sections[section][etape] && data.sections[section][etape][field] != undefined);
+                    },
+                    get_section_details = function(section, etape, field) {
+                        return (test_section_details(section, etape, field) ? data.sections[section][etape][field] : "");
+                    };
+
 
                 if (sections.length < 2 && art.length == 1)
                     $("#display_menu").parent().hide();
@@ -172,7 +180,7 @@ var stacked;
                 function article_hover(d) {
                     var div = d3.select(document.createElement("div")).style("width", "100%");
                     if (d.section.lastIndexOf("A", 0) !== 0)
-                      div.append("p").html("<small>"+(data.sections[d.section][d.id_step] && data.sections[d.section][d.id_step].newnum != undefined ? format_section(data.sections[d.section][d.id_step], 2) + " ("+format_section(d, 0)+')' : format_section(d, 2))+"</small>");
+                      div.append("p").html("<small>"+(test_section_details(d.section, d.id_step, 'newnum') ? format_section(data.sections[d.section][d.id_step], 2) + " ("+format_section(d, 0)+')' : format_section(d, 2))+"</small>");
                     div.append("p").html("<small>"+titre_etape(d)+"</small>");
                     if (d['status'] != "sup") {
                         if (d['n_diff'] == 0) div.append("p").text("Non modifié")
@@ -192,10 +200,10 @@ var stacked;
                 function section_hover(d) {
                     var div = d3.select(document.createElement("div")).style("width", "100%");
                     div.append("p").html("<small>"+titre_etape(d)+"</small>");
-                    if (data.sections && d.section == "echec") div.append("p").html(data.sections[d.section][d.id_step].title);
-                    else div.append("p").html("<small>"+(data.sections && data.sections[d.section][d.id_step] && data.sections[d.section][d.id_step].newnum != undefined ? titre_section(data.sections[d.section][d.id_step].newnum, false)+" ("+format_section(d, 0)+')' : titre_section(d.section, false))+"</small>");
+                    if (test_section_details(d.section, d.id_step, 'title') && d.section == "echec") div.append("p").html(get_section_details(d.section, d.id_step, 'title'));
+                    else div.append("p").html("<small>"+(test_section_details(d.section, d.id_step, 'newnum' ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), false)+" ("+format_section(d, 0)+')' : titre_section(d.section, false))+"</small>"));
                     return {
-                        title : (data.sections && d.section == "echec" ? d.status : clean_premier(format_section((data.sections && data.sections[d.section][d.id_step] && data.sections[d.section][d.id_step].newnum != undefined ? data.sections[d.section][d.id_step] : d), 1)) + (data.sections && data.sections[d.section][d.id_step] ? " : " + data.sections[d.section][d.id_step].title : "")),
+                        title : (data.sections && d.section == "echec" ? d.status : clean_premier(format_section(data.sections && data.sections[d.section] && data.sections[d.section][d.id_step] ? data.sections[d.section][d.id_step] : "undefined"), 1) + (test_section_details(d.section, d.id_step, 'title') ? " : " + get_section_details(d.section, d.id_step, 'title') : "")),
                         content : div,
                         placement : "mouse",
                         gravity : "right",
@@ -279,7 +287,7 @@ var stacked;
 						.attr("font-size", function(d){return (d.section === 'echec' ? '10px' : '9px')})
 						.attr("font-weight", "bold")
 						.style("fill", 'white')
-						.text(function(d){return (d.section === 'echec' ? d.status : clean_premier(format_section(data.sections && data.sections[d.section] && data.sections[d.section][d.id_step] && data.sections[d.section][d.id_step].newnum != undefined ? data.sections[d.section][d.id_step] : d, (width < 120 * columns ? 0 : 1))))})
+						.text(function(d){return (data.sections && d.section === 'echec' ? d.status : clean_premier(format_section(test_section_details(d.section, d.id_step, 'newnum') ? data.sections[d.section][d.id_step] : d, (width < 120 * columns ? 0 : 1))))})
 						.popover(function(d){return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))})
                         .filter(function(d){return d.section.lastIndexOf("A", 0) === 0}).on("click", onclick);
 					}
