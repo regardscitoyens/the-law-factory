@@ -207,6 +207,9 @@ body{
     overflow-y:auto;
 	
 }
+.txt-center {
+    text-align: center;
+}
 .mod1 .text-container{
    height:560px;
 }

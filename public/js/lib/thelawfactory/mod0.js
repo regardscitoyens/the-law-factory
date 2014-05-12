@@ -651,9 +651,9 @@ var drawGantt,
                         mots=1000*(Math.round(d.total_mots / 1000.));
                     $(".text-container").empty()
                         .append("<p><b>"+upperFirst(d.long_title)+"</b></p>")
-                        .append('<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + "</p>")
-                        .append("<p>(" + d.procedure.toLowerCase().replace('normale', 'procédure normale') + ")</p>")
-                        .append("<p><small>"+themes.html()+"</small></p>")
+                        .append('<p class="txt-center"><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + "</p>");
+                    if (d.procedure != "normale") $(".text-container").append('<p class="txt-center">(' + d.procedure.toLowerCase() + ")</p>");
+                    $(".text-container").append('<p class="txt-center"><small>'+themes.html()+"</small></p>")
                         .append('<p><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(d.total_amendements)+'"></span>&nbsp;&nbsp;'+(d.total_amendements?d.total_amendements:'aucun')+" amendement"+(d.total_amendements>1?'s déposés':' déposé')+" sur ce texte</p>")
                         .append('<p><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(d.total_mots)+'"></span>&nbsp;&nbsp;plus de '+(mots?mots:'1')+" mille mots prononcés<br>lors des débats parlementaires</p>")
                         .append("<p><small>(sources : <a href='" + d.url_dossier_assemblee + "'>dossier Assemblée</a> &mdash; <a href='" + d.url_dossier_senat + "'>dossier Sénat</a>)</small></p>")
