@@ -203,7 +203,16 @@ body{
 	height:90%;
 	overflow:auto;
 	padding-top:10px;
+    height:540px;
+    overflow-y:auto;
 	
+}
+.mod1 .text-container{
+   height:560px;
+}
+
+.mod2 .text-container{
+    height:535px;
 }
 
 .art-txt{
@@ -228,10 +237,6 @@ body{
 
 .mod1 #viz {
     height:500px;
-    overflow-y:auto;
-}
-.mod1 .text {
-    max-height:620px;
     overflow-y:auto;
 }
 
@@ -540,6 +545,8 @@ ul.ui-autocomplete {
 	width:100% !important;
 	margin:0 !important;
 	margin-bottom:1%;
+    position: relative;
+    z-index: 1;
 }
 
 .mod2 .viz-container h4,.mod0 .viz-container h4{
@@ -735,7 +742,7 @@ h4 a{
 }
 .text-container:empty {
 	padding:0;
-    height:0;
+
 }
 
 .text:empty {
@@ -780,9 +787,10 @@ text {
 }
 .text-container .glyphicon-comment {
     position: relative;
-    top: 10px;
+    top: 0.3em;
 }
-.mod0 .text-container p, .pop0 p {
+/*.mod0 .text-container p,*/
+.pop0 p {
     text-align: center;
 }
 .text-container .badge {
@@ -791,7 +799,8 @@ text {
     opacity: 0.85;
 }
 .text-container a.badge {
-    padding: 5px 8px 8px 8px;
+    padding: 2px 8px 5px 8px;
+    margin-top:0.2em;
 }
 .text-container a.badge:hover {
     color: #0505ff;
@@ -1091,4 +1100,24 @@ noscript h2 {
 .btn-group>.btn+.dropdown-toggle {
     padding-right: 2px;
     padding-left: 2px;
+}
+
+.grad-white{
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    width:100%;
+    height:30px;
+    z-index:0;
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.mod0 .badge .glyphicon {
+    top:0.2em;
 }

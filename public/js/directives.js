@@ -154,7 +154,7 @@ function(api, $rootScope, $location, $compile) {
 
                         if($("svg").height()<$("#viz").height()) {
                            var offs=($("#viz").height() - $("svg").height())/2;
-                           $("svg").css("margin-top",offs);
+                           $("svg").css({"margin-top":offs,"padding-top":"5px"});
                         }0
 
                     }, function(error) {

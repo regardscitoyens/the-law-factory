@@ -646,7 +646,7 @@ var drawGantt,
                     $("#text-title").text(d.short_title);
                     var themes=$('<p class="themes">');
                     d.themes.join(",").replace(/ et /g, ',').split(',').forEach(function(e,j){
-                        themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='glyphicon glyphicon-tag badge' title='Filtrer les lois correspondant à ce thème'> "+e+"</a>&nbsp;&nbsp;");
+                        themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les lois correspondant à ce thème'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
                     }),
                         mots=1000*(Math.round(d.total_mots / 1000.));
                     $(".text-container").empty()
