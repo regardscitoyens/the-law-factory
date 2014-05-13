@@ -6,8 +6,6 @@ angular.module('theLawFactory.controllers', []).
     controller('mainCtrl', function ($scope, $http, apiService, $rootScope, $location) {
 
         $scope.error = {}
-        $scope.statsUrl = 'http://www.lafabriquedelaloi.fr/api/stats_dossiers.json'
-        $scope.dataSample = {}
 
         $scope.spinner_opts = {
             lines: 13, // The number of lines to draw

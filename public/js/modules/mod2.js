@@ -13,9 +13,9 @@ var api_root;
   thelawfactory.mod2 = function(){
 
     function get_status_img(e){
-        if(e.sort==="adopté") return "img/ok.png";
-        else if(e.sort==="rejeté") return "img/ko.png";
-        else if(e.sort==="non-voté") return "img/nd.png";
+        if (e.sort==="adopté") return "img/ok.png";
+        if (e.sort==="rejeté") return "img/ko.png";
+        if (e.sort==="non-voté") return "img/nd.png";
     }
 
   	function vis(selection){
@@ -27,7 +27,6 @@ var api_root;
             articles=d.sujets;
             api_root=d.api_root_url;
         })
-        console.log(articles);
         if (Object.keys(articles).length < 2)
             $('#display_menu').parent().hide();
 
@@ -129,7 +128,6 @@ var api_root;
                     half_col=true;
                 }
                 else x = nsq;
-                console.log(half_col)
                 return half_col;
             };
 

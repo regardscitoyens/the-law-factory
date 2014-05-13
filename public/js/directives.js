@@ -90,7 +90,6 @@ function(api, $rootScope, $location, $compile) {
                 var spinner = new Spinner(scope.spinner_opts).spin(target);
 
                 api.getArticle(l).then(function(data) {
-                    scope.dataSample = data;
                     d3.select(element[0]).datum(data).call(mod1)
                     spinner.stop();
                 }, function(error) {
@@ -127,22 +126,17 @@ function(api, $rootScope, $location, $compile) {
 
                 var target = document.getElementById('preload');
                 var spinner = new Spinner(scope.spinner_opts).spin(target);
-                api.getProcedure(scope.l).then(function(data) {
+                if ($location.search()['s'] != null) api.getAmendement(scope.l, $location.search()['s'] ).then(function(data) {
+                    scope.data = data;
+                    d3.select(element[0]).datum(data).call(mod2);
 
-                    scope.dataSample = data;
+                    if ($location.search()['a']!=null)
+                        selectRow($location.search()['a'],true);
 
-                    if ($location.search()['s'] != null) api.getAmendement(scope.l, $location.search()['s'] ).then(function(data) {
-                        scope.data = data;
-                        d3.select(element[0]).datum(data).call(mod2)
+                    spinner.stop();
 
-                        if ($location.search()['a']!=null)
-                            selectRow($location.search()['a'],true);
-
-                        spinner.stop();
-
-                    }, function(error) {
-                        scope.error = error
-                    });
+                }, function(error) {
+                    scope.error = error
                 });
             }
             update();
