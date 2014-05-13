@@ -27,17 +27,17 @@
             </div>
 
             <div class="stb-links">
-                <a class="stb-link stb-txt" ng-show="mod!='mod1'" title="Explorer les articles" href="mod1?l={{l}}">
+                <a class="stb-link stb-txt" ng-show="mod!='mod1'" title="Explorer les articles" href="loi?l={{l}}">
                     <span class="glyphicon glyphicon-list"></span>
                 </a>
                 <span ng-hide="mod!='mod1'" class="stb-link glyphicon glyphicon-list low-vis"></span>
 
-                <a class="stb-link stb-amds" ng-show="i.nb_amendements && (s!=i.directory ||(s==i.directory && mod=='mod2b'))" title="Explorer les amendements" href="mod2?l={{l}}&s={{i.directory}}">
+                <a class="stb-link stb-amds" ng-show="i.nb_amendements && (s!=i.directory ||(s==i.directory && mod=='mod2b'))" title="Explorer les amendements" href="amendements?l={{l}}&s={{i.directory}}">
                     <span class="glyphicon glyphicon-folder-open"></span>
                 </a>
                 <span ng-hide="i.nb_amendements && (s!=i.directory ||(s==i.directory && mod=='mod2b'))" class="stb-link glyphicon glyphicon-folder-open low-vis" ng-class="{'stb-curr-st':s==i.directory && mod=='mod2'}"></span>
 
-                <a class="stb-link stb-ints" ng-show="i.has_interventions && (s!=i.directory ||(s==i.directory && mod=='mod2'))" title="Explorer les débats" href="mod2b?l={{l}}&s={{i.directory}}">
+                <a class="stb-link stb-ints" ng-show="i.has_interventions && (s!=i.directory ||(s==i.directory && mod=='mod2'))" title="Explorer les débats" href="debats?l={{l}}&s={{i.directory}}">
                     <span class="glyphicon glyphicon-comment"></span>
                 </a>
                 <span ng-hide="i.has_interventions && (s!=i.directory ||(s==i.directory && mod=='mod2'))" class="stb-link glyphicon glyphicon-comment low-vis" ng-class="{'stb-curr-st':s==i.directory && mod=='mod2b'}"></span>

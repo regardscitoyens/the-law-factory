@@ -64,7 +64,7 @@ function(api, $rootScope, $location, $compile) {
             function update() {
 
                 var target = document.getElementById('preload');
-                var spinner = new Spinner(scope.opts).spin(target);
+                var spinner = new Spinner(scope.spinner_opts).spin(target);
 
                 api.getArticle(l).then(function(data) {
                     scope.dataSample = data;
@@ -101,7 +101,7 @@ function(api, $rootScope, $location, $compile) {
             function update() {
 
                 var target = document.getElementById('preload');
-                var spinner = new Spinner(scope.opts).spin(target);
+                var spinner = new Spinner(scope.spinner_opts).spin(target);
                 api.getProcedure(scope.l).then(function(data) {
 
                     scope.dataSample = data;
@@ -142,7 +142,7 @@ function(api, $rootScope, $location, $compile) {
                 scope.l = $location.search()['l'];
             function update() {
                 var target = document.getElementById('preload');
-                var spinner = new Spinner(scope.opts).spin(target);
+                var spinner = new Spinner(scope.spinner_opts).spin(target);
 
                 if ($location.search()['s'] != null) {
 
@@ -189,7 +189,7 @@ function(api, $rootScope, $location, $compile) {
             function update() {
 
                 var target = document.getElementById('preload');
-                var spinner = new Spinner(scope.opts).spin(target);
+                var spinner = new Spinner(scope.spinner_opts).spin(target);
 
                 api.getStats().then(function(data) {
                     d3.select(element[0]).datum(data).call(mod0_bars)
@@ -278,7 +278,7 @@ function(api, $rootScope, $location) {
                         select : function(event, ui) {
                             $rootScope.$apply(function() {
                                 $("body").css("overflow", "auto");
-                                $location.path("/mod1");
+                                $location.path("/loi");
                                 $location.search("l=" + ui.item.value);
                         });
                     }

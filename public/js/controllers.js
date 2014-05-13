@@ -5,39 +5,28 @@
 angular.module('theLawFactory.controllers', []).
     controller('mainCtrl', function ($scope, $http, apiService, $rootScope, $location) {
 
-        $scope.go = function (path) {
-            console.log($location.path("/" + path + "l=" + $rootScope.l))
-            $location.path(path).search("l=" + $rootScope.l);
-        };
-
-        $scope.select = function (id) {
-            console.log("aaarrhh")
-            $rootScope.l = id
-            $location.path("mod1").search("l=" + $rootScope.l);
-        };
-
         $scope.error = {}
         $scope.statsUrl = 'http://www.lafabriquedelaloi.fr/api/stats_dossiers.json'
         $scope.dataSample = {}
 
-            $scope.opts = {
-                lines: 13, // The number of lines to draw
-                length: 20, // The length of each line
-                width: 10, // The line thickness
-                radius: 30, // The radius of the inner circle
-                corners: 1, // Corner roundness (0..1)
-                rotate: 0, // The rotation offset
-                direction: 1, // 1: clockwise, -1: counterclockwise
-                color: '#bbb', // #rgb or #rrggbb or array of colors
-                speed: 1, // Rounds per second
-                trail: 60, // Afterglow percentage
-                shadow: false, // Whether to render a shadow
-                hwaccel: false, // Whether to use hardware acceleration
-                className: 'spinner', // The CSS class to assign to the spinner
-                zIndex: 2e9, // The z-index (defaults to 2000000000)
-                top: '50%', // Top position relative to parent
-                left: '50%' // Left position relative to parent
-            };
+        $scope.spinner_opts = {
+            lines: 13, // The number of lines to draw
+            length: 20, // The length of each line
+            width: 10, // The line thickness
+            radius: 30, // The radius of the inner circle
+            corners: 1, // Corner roundness (0..1)
+            rotate: 0, // The rotation offset
+            direction: 1, // 1: clockwise, -1: counterclockwise
+            color: '#bbb', // #rgb or #rrggbb or array of colors
+            speed: 1, // Rounds per second
+            trail: 60, // Afterglow percentage
+            shadow: false, // Whether to render a shadow
+            hwaccel: false, // Whether to use hardware acceleration
+            className: 'spinner', // The CSS class to assign to the spinner
+            zIndex: 2e9, // The z-index (defaults to 2000000000)
+            top: '50%', // Top position relative to parent
+            left: '50%' // Left position relative to parent
+        };
 
         $scope.shortNames = {
             "1ère lecture": "1<sup>ère</sup> Lect.",

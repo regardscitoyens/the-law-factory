@@ -566,7 +566,7 @@ var stacked;
                         (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>Section :</b> " + format_section(d, 2) + "</p>" : "") +
                         "<p><b>Étape :</b> " + titre_etape(d) + "</p>" +
                         (d['status'] == "sup" ? "<p><b>Supprimé à cette étape.</b></p>" : "") +
-                        (d.n_diff && d.status !== "new" && $(".stb-"+d.directory).find("a.stb-amds:visible").length ? '<p><a href="mod2?l='+id+'&s='+ d.directory+'&a=article_'+ d.article.toLowerCase().replace(/ |'/g, '_')+'">Explorer les amendements</a></p>' : '') +
+                        (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory).find("a.stb-amds:visible").length ? '<p><a href="amendements?l='+id+'&s='+ d.directory+'&a=article_'+ d.article.toLowerCase().replace(/ |'/g, '_')+'">Explorer les amendements</a></p>' : '') +
                         "<p><b>Alinéas :</b></p>"
                     )
 					$("#text-title").html(titre_article(d));

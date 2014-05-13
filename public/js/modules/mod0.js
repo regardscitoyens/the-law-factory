@@ -101,7 +101,7 @@ var drawGantt,
                 }
                 div.append("p").html('<span class="glyphicon glyphicon-calendar"></span><span> '+french_date(d.date) + (d.enddate && d.enddate != d.date ? " →  "+ french_date(d.enddate) : '')+'</span>');
                 if ((d.institution=="assemblee" || d.institution=="senat") && d.nb_amendements) {
-                    var legend_amd = '<svg width="13" height="18" style="vertical-align:middle;"><rect class="step" x="0" y="0" width="13" height="18" style="fill: '+(d.institution === "assemblee" ? "#ced6dd" : "#f99b90")+';"></rect><rect class="step-ptn" x="0" y="2" width="13" height="16" style="fill: url(mod0#diagonal'+(d.nb_amendements >= 200 ? '3' : (d.nb_amendements >= 50 ? '2' : '1'))+');"></rect></svg>';
+                    var legend_amd = '<svg width="13" height="18" style="vertical-align:middle;"><rect class="step" x="0" y="0" width="13" height="18" style="fill: '+(d.institution === "assemblee" ? "#ced6dd" : "#f99b90")+';"></rect><rect class="step-ptn" x="0" y="2" width="13" height="16" style="fill: url(#diagonal'+(d.nb_amendements >= 200 ? '3' : (d.nb_amendements >= 50 ? '2' : '1'))+');"></rect></svg>';
                     div.append("p").style("vertical-align", "middle").html(legend_amd+"&nbsp;&nbsp;"+d.nb_amendements+" amendement"+(d.nb_amendements > 1 ? 's' : ''));
                     ydisp -= 22;
                 }
@@ -525,9 +525,9 @@ var drawGantt,
                         .attr("width", getQLwidth)
                         .attr("height", steph - 20)
                         .style("fill", function (d) {
-                            if (d.nb_amendements >= 200) return"url(mod0#diagonal3)"
-                            else if (d.nb_amendements >= 50) return"url(mod0#diagonal2)"
-                            else if (d.nb_amendements >= 0) return"url(mod0#diagonal1)"
+                            if (d.nb_amendements >= 200) return"url(#diagonal3)"
+                            if (d.nb_amendements >= 50) return"url(#diagonal2)"
+                            if (d.nb_amendements >= 0) return"url(#diagonal1)"
                         })
 
                     //add labels
@@ -653,7 +653,7 @@ var drawGantt,
                         .append('<p><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(d.total_amendements)+'"></span>&nbsp;&nbsp;'+(d.total_amendements?d.total_amendements:'aucun')+" amendement"+(d.total_amendements>1?'s déposés':' déposé')+" sur ce texte</p>")
                         .append('<p><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(d.total_mots)+'"></span>&nbsp;&nbsp;plus de '+(mots?mots:'1')+" mille mots prononcés<br>lors des débats parlementaires</p>")
                         .append("<p><small>(sources : <a href='" + d.url_dossier_assemblee + "'>dossier Assemblée</a> &mdash; <a href='" + d.url_dossier_senat + "'>dossier Sénat</a>)</small></p>")
-                        .append('<div class="gotomod"><a class="btn btn-info" href="mod1?l=' + d.id + '">Explorer les articles</a></div>');
+                        .append('<div class="gotomod"><a class="btn btn-info" href="loi?l=' + d.id + '">Explorer les articles</a></div>');
 
                 }
 
