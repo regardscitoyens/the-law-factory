@@ -296,11 +296,11 @@ var api_root;
 
 			d3.json(api_root+d.id_api+'/json',function(error,json){
 				var currAmd = json.amendement,
-                    source_am = '.fr</a> &mdash; <a href="'+currAmd.source+'">',
+                    source_am = '.fr</a> &mdash; <a href="'+currAmd.source+'" target="_blank">',
                     statico = get_status_img(d),
                     col = color_amd(d);
-                if (currAmd.url_nosdeputes) source_am = '<a href="'+currAmd.url_nosdeputes+'">NosDéputés'+source_am+'Assemblée nationale</a>';
-                else if(currAmd.url_nossenateurs) source_am = '<a href="'+currAmd.url_nossenateurs+'">NosSénateurs'+source_am+'Sénat</a>';
+                if (currAmd.url_nosdeputes) source_am = currAmd.url_nosdeputes+'">NosDéputés'+source_am+'Assemblée nationale';
+                else if(currAmd.url_nossenateurs) source_am = currAmd.url_nossenateurs+'">NosSénateurs'+source_am+'Sénat';
                 $(".text-container").html(
                     "<p><b>Date :</b> " + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</p>" +
                     "<p><b>Objet :</b> " + currAmd.sujet+"</p>" +
@@ -308,7 +308,7 @@ var api_root;
                     "<p><b>Statut :</b> " + currAmd.sort + " <span class='amd-txt-status' style='background-color:"+col+"'><img style='margin:0; padding:4px;' src='"+statico+"'/></span> </p>" +
                     "<p><b>Exposé des motifs :</b> " + currAmd.expose+"</p>" +
                     "<p><b>Texte :</b> " + currAmd.texte +
-                    "<p><small><b>Source :</b> " + source_am + "</small></p>"
+                    '<p><small><b>Source :</b> <a target="_blank" href="' + source_am + "</a></small></p>"
                 );
 			})
             d3.selectAll("#a_"+d.numero.replace(/[^a-z\d]/ig, ''))
