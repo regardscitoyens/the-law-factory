@@ -250,19 +250,19 @@ function(api, $rootScope, $location) {
 
                 api.getLawlist().then(function(data) {
                     scope.ll = data;
-                                        // Process data to a list of law object
-                                        // with properties' names set by headers
-                                        var headers, laws, rows = scope.ll.split(/\r\n|\n/);
-                                        headers = rows.splice(0,1)[0].split(";");
-                                        laws = $.map(rows, function(row) {
-                                            var law = {}, lawdata = row.split(';');
-                                            $.each(headers, function(i, header) {
-                                                law[header] = lawdata[i];
-                                            });
-                                            return law;
-                                        });
+                    // Process data to a list of law object
+                    // with properties' names set by headers
+                    var headers, laws, rows = scope.ll.split(/\r\n|\n/);
+                headers = rows.splice(0,1)[0].split(";").map(function(x){return x.replace(/(^"|"$)/g, '')});
+                    laws = $.map(rows, function(row) {
+                        var law = {}, lawdata = row.split(';').map(function(x){return x.replace(/(^"|"$)/g, '')});
+                        $.each(headers, function(i, header) {
+                            law[header] = lawdata[i];
+                        });
+                        return law;
+                    });
 
-                                        document.lawlist = laws;
+                    document.lawlist = laws;
 
                     $("#search").autocomplete({
                         source : function(request, response) {
