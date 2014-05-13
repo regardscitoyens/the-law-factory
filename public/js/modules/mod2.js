@@ -155,6 +155,7 @@ var api_root;
                 artArray.forEach(function (d, i) {
                     drawLines(d, i, half_col)
                 });
+            adjustHeight(half_col);
         }
 
         drawMerged = function() {
@@ -173,6 +174,13 @@ var api_root;
             order_grouped();
             clear_screen();
             drawLines(grouped,0,half_col);
+            adjustHeight(half_col);
+        }
+
+        function adjustHeight(half) {
+            var a = d3.select("svg").select("g:last-child").attr("data-offset"),
+               ah = d3.select("svg").select("g:last-child").node().getBBox().height;
+            svg.attr("height",80+(parseInt(a)+ah)/(half ? 2 : 1));
         }
 
         function drawLines(d,i, half) {
@@ -275,13 +283,6 @@ var api_root;
 		    .attr("xlink:href",get_status_img)
 		    .popover(popover)
             .on("click",select);
-
-        var a = d3.select("svg").select("g:last-child").attr("data-offset")
-		var ah = d3.select("svg").select("g:last-child").node().getBBox().height;
-
-            if(!half) svg.attr("height",parseInt(a)+ah+20)
-            else svg.attr("height",(parseInt(a)+ah+80)/2)
-
 
         }
 
