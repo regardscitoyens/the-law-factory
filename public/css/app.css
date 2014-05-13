@@ -211,7 +211,7 @@ body{
     text-align: center;
 }
 .mod1 .text-container{
-   height:560px;
+   height:543px;
 }
 
 .mod2 .text-container{
@@ -236,6 +236,8 @@ body{
 }
 .viz-container{
 	padding: 0 !important;
+    overflow:visible;
+    position:relative;
 }
 
 .mod1 #viz {
@@ -291,6 +293,11 @@ body{
 	color:#333;
 	margin-bottom:15px;
 }
+
+.mod1 .text p{
+    margin-left:30px;
+}
+
 .stick{
 	position:fixed;
     top:0px;
@@ -528,6 +535,17 @@ ul.ui-autocomplete {
 	width:18.33%;
     height: 100%;
 }
+
+.mod1 .text  {
+    position:absolute;
+    left: 73.3%;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+
 .mod2 .labels-sc {
 	height:auto !important;
 }
@@ -1132,3 +1150,17 @@ noscript h2 {
 .mod0 .badge .glyphicon {
     top:0.2em;
 }
+
+.wide-read{
+    position:relative;
+    color:#666;
+    top:6px;
+    float:right;
+    margin-right:18px;
+}
+.wide-read .glyphicon {
+    padding-left:3px;
+}
+.tooltip-inner {background-color: #716259;border-radius:0;border: solid 1px #716259;}
+
+.tooltip.bottom .tooltip-arrow{border-bottom-color:#716259}

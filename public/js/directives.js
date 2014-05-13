@@ -50,6 +50,29 @@ function(api, $rootScope, $location, $compile) {
         restrict : 'A',
         replace : false,
         templateUrl : 'templates/mod1.html',
+        controller: function($scope,$element,$attrs) {
+        $scope.read=false;
+        $scope.revs=true;
+        $scope.readmode = function() {
+            $(".text").css({"width":"83.4%","left":"8.3%"});
+            $scope.read=true;
+        }
+        $scope.viewmode = function() {
+            $(".text").css({"width":"18.33%","left":"73.3%"});
+            $scope.read=false;
+        }
+            $scope.hiderevs = function() {
+                $("ins").css({"background-color":"transparent", "text-decoration":"none"})
+                $("del").hide();
+                $scope.revs=false;
+            }
+
+            $scope.showrevs = function() {
+                $("ins").css({"background-color":"#E6FFE6", "text-decoration":"underline"})
+                $("del").show();
+                $scope.revs=true;
+            }
+    },
         link : function postLink(scope, element, attrs) {
 
             $rootScope.s=null;
@@ -91,6 +114,8 @@ function(api, $rootScope, $location, $compile) {
             $scope.s = $rootScope.s = $location.search()['s'];
             $scope.a = $location.search()['a'];
             $scope.mod="mod2";
+
+
         },
         link : function postLink(scope, element, attrs) {
 
@@ -362,8 +387,8 @@ return {
     }
 };
 }])
-.directive('stepsbar', ['api', '$rootScope', "$location",
-    function(api, $rootScope, $location) { return {
+.directive('stepsbar', ['$timeout','api', '$rootScope', "$location",
+    function(timer,api, $rootScope, $location) { return {
         restrict : 'A',
         replace : false,
         templateUrl : 'templates/stepsbar.html',
@@ -371,6 +396,7 @@ return {
             $scope.s = $rootScope.s;
             $scope.l=$location.search()['l'];
         },
+
         link : function preLink(scope, element, attrs, stepsbarCtrl) {
 
 
@@ -449,6 +475,14 @@ return {
 
                 scope.stages.push(currStage);
                 scope.inst.push(currInst);
+                timer(function(){
+                    $(".stb-step div span").tooltip()
+                    $(".stb-step div span a").tooltip()
+                    $(".stb-step div a").tooltip()
+                    $(".stb-inst span").tooltip()
+                    $(".stb-stage span").tooltip()
+                },0);
+
 
             }, function(error) {
                 scope.error = error
