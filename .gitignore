@@ -1,9 +1,6 @@
-node_modules/*
 .DS_Store
 .nide
 .settings
 .project
 .pydevproject
 .idea
-nohup.out
-update.sh

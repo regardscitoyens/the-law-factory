@@ -1,23 +1,24 @@
 The Law Factory
 ===============
 
-software developed for the law factory project
+Web frontend developed for The Law Factory project
 
-##Installation
-In order to try the web application in a locale environment, follow this steps:
-
-* Install [Node.js](http://nodejs.org/)
+## Installation
 
 * Checkout the project from git:
-<pre><code>https://github.com/regardscitoyens/the-law-factory.git</code></pre>
 
-* Install the node modules by executing in the project directory:
-<pre><code>npm install</code></pre>
+  ```bash
+    git clone https://github.com/regardscitoyens/the-law-factory.git
+    cd the-law-factory
+  ```
 
-* If you need to install the app in a subdirectory, set the env variable ROOTURL
-<pre><code>export ROOTURL=/myrooturl/</code></pre>
+* Serve the ```public``` directory on a webserver
+ - for instance, to run locally on http://localhost:8001
 
-* Run the application in localhost with:
-<pre><code>node dev.thelawfactory.js</code></pre> 
+  ```bash
+    cd public
+    python -m SimpleHTTPServer 8001
+  ```
 
-* You may now try the application on your browser at the address *localhost:3000*
+ - for production, a sample Apache configuration is given in the ```conf``` directory
+
