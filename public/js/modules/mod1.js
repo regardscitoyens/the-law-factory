@@ -572,7 +572,7 @@ var stacked;
                     )
 					$("#text-title").html(titre_article(d));
                     if (!d.textDiff) {
-                        var lasttxt=bigList.filter(function(e){return e.article===d.article && e.prev_step==d.step_num})[0].text;
+                        var lasttxt=bigList.filter(function(e){return e.article===d.article && d.prev_step==e.step_num})[0].text;
                         setTimeout(function() {
                             var dmp = new diff_match_patch();
                             dmp.Diff_Timeout = 1;
