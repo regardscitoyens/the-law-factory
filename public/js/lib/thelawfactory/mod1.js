@@ -64,7 +64,12 @@ var stacked;
             if (s === "echec") return 0.35;
             if (s.lastIndexOf("A", 0) === 0)
                 return 0.65;
-            return 1.25-0.3*s.match(/[LCVTS]+\d+/g).length;
+            try {
+                return 1.25-0.3*s.match(/[LCVTS]+\d+/g).length;
+            } catch(e) {
+                console.log("ERREUR section with bad id:", s, e);
+                return 0.95;
+            }
         }
 
         function diff_to_html(diffs) {
