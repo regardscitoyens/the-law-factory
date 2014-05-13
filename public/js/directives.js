@@ -474,7 +474,7 @@ return {
                     $(".stb-step div span a").tooltip()
                     $(".stb-step div a").tooltip()
                     $(".stb-inst span").tooltip()
-                    $(".stb-stage span").tooltip()
+                    $(".stb-stage span").tooltip({html: true})
                 },0);
 
 

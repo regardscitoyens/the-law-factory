@@ -58,9 +58,6 @@ angular.module('theLawFactory.controllers', []).
             "cmp": "Commission Mixte Paritaire"
         }
 
-        $scope.cleanLongName = function (l) {
-            return l.replace(/<[^>]*>/, '');
-        }
         $scope.findShortName = function (l) {
             return ($scope.shortNames[l.toLowerCase()] ? $scope.shortNames[l.toLowerCase()] : l);
         }
