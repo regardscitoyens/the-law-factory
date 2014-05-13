@@ -39,6 +39,12 @@
 		</div>
 		<div class="text">
 			<h4 id="text-title">Sélectionner un article</h4>
+            <div class="wide-read">
+                <span ng-hide="read" ng-click="readmode()" class="glyphicon glyphicon-resize-full"></span>
+                <span ng-show="read" ng-click="viewmode()" class="glyphicon glyphicon-resize-small"></span>
+                <span ng-show="revs" ng-click="hiderevs()" class="glyphicon glyphicon glyphicon-check"></span>
+                <span ng-hide="revs" ng-click="showrevs()" class="glyphicon glyphicon glyphicon-edit"></span>
+            </div>
 			<div class="text-container">
 				<div class="art-meta"></div>
 				<div class="art-txt"></div>
