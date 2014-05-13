@@ -32,7 +32,7 @@ angular.module('theLawFactory.controllers', []).
             "1ère lecture": "1<sup>ère</sup> Lect.",
             "2ème lecture": "2<sup>ère</sup> Lect.",
             "nouv. lect.": "Nouv. Lect.",
-            "l. définitive": "L. Définitive",
+            "l. définitive": "Lect. Déf.",
             "assemblee": "AN",
             "assemblée nationale": "AN",
             "gouvernement": "Gouv.",

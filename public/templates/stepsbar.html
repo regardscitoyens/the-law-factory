@@ -2,15 +2,15 @@
 
     <div class="stb-stages">
         <div class="stb-stage" style="width:{{(i.num/total)*100}}%"ng-repeat="i in stages">
-            <span ng-show="(i.num==1 || i.num==2 && i.name=='CMP') && total>7" title="{{cleanLongName(findLongName(i.name))}}" ng-bind-html-unsafe="findShortName(i.name)"></span>
-            <span ng-hide="(i.num==1 || i.num==2 && i.name=='CMP') && total>7" ng-bind-html-unsafe="findLongName(i.name)"></span>
+            <span ng-show="i.num==1 || (i.name == CMP ? 2 : 1) * total < 7*i.num" title="{{cleanLongName(findLongName(i.name))}}" ng-bind-html-unsafe="findShortName(i.name)"></span>
+            <span ng-hide="i.num==1 || (i.name == CMP ? 2 : 1) * total < 7*i.num" ng-bind-html-unsafe="findLongName(i.name)"></span>
         </div>
     </div>
 
     <div class="stb-insts">
         <div class="stb-inst {{string_to_slug(i.name)}}" style="width:{{(i.num/total)*100}}%"ng-repeat="i in inst">
-            <span ng-show="(i.num==1 || i.num==2 && i.name=='CMP') && total>7" title="{{findLongName(i.name)}}">{{findShortName(i.name)}}</span>
-            <span ng-hide="(i.num==1 || i.num==2 && i.name=='CMP') && total>7">{{findLongName(i.name)}}</span>
+            <span ng-show="i.num==1 || (i.name == CMP ? 2 : 1) * total < 7*i.num" title="{{findLongName(i.name)}}">{{findShortName(i.name)}}</span>
+            <span ng-hide="i.num==1 || (i.name == CMP ? 2 : 1) * total < 7*i.num">{{findLongName(i.name)}}</span>
         </div>
     </div>
 

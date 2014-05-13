@@ -525,9 +525,9 @@ var drawGantt,
                         .attr("width", getQLwidth)
                         .attr("height", steph - 20)
                         .style("fill", function (d) {
-                            if (d.nb_amendements >= 200) return"url(#diagonal3)"
-                            if (d.nb_amendements >= 50) return"url(#diagonal2)"
-                            if (d.nb_amendements >= 0) return"url(#diagonal1)"
+                            if (d.nb_amendements >= 200) return"url(#diagonal3)";
+                            if (d.nb_amendements >= 50) return"url(#diagonal2)";
+                            if (d.nb_amendements >= 0) return"url(#diagonal1)";
                         })
 
                     //add labels
