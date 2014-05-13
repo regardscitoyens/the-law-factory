@@ -1152,6 +1152,7 @@ noscript h2 {
 }
 
 .wide-read{
+    display: none;
     position:relative;
     color:#666;
     top:6px;

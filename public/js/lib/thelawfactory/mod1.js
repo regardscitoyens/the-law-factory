@@ -540,6 +540,7 @@ var stacked;
 				//on click behaviour
 				function onclick(d) {
                     $(".text-container").show();
+                    $(".wide-read").show();
 					d3.selectAll("line").style("stroke", "#d0d0e0");
 
 					//STYLE OF CLICKED ELEMENT AND ROW
