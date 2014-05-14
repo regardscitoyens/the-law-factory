@@ -127,7 +127,8 @@ sven.viz.streamkey = function(){
         colors = ["#afa", "#669"],
         graphWidth = width - margin.left - margin.right,
         graphHeight = height - margin.top - margin.bottom,
-        streamWidth = graphWidth - barWidth;
+        streamWidth = graphWidth - barWidth,
+        filter_small = function(d) {return d['value'] != null && d['value'] > 3};
 
     streamkey.data = function(x){
         if (!arguments.length) return data;
@@ -207,7 +208,7 @@ sven.viz.streamkey = function(){
 
         //get values
         data.forEach(function(d,i){
-            d['values'].forEach(function(d){if(d['value'] != null){values.push(Math.sqrt(d['value']))}})
+            d['values'].forEach(function(d){if(d['value'] != null){values.push(d['value'])}})
         });
 
         //get steps
@@ -263,6 +264,7 @@ sven.viz.streamkey = function(){
         var rect = layer.selectAll("rect")
             .data(function(d) { return d; })
             .enter().append("rect")
+            .filter(filter_small)
             .attr("class", function(d) { return "g_"+d.category.replace(/[^a-z]/ig, '')})
             .attr("y", function(d) { return x(d.x); })
             .attr("x", function(d) { return y(d.y0 + d.y); })
@@ -315,20 +317,17 @@ sven.viz.streamkey = function(){
                     displacement: [10, -80],
                     mousemove: true
                 };
-            })
-            .filter(function(d){return d['value'] == null || d['value'] < 5})
-            .attr("display", "none");
+            });
 
         var stream = layer.selectAll("path")
             .data(function(d){return areaStreamKey(d, xF)})
             .enter().append("path")
+            .filter(function(d){return d[4]})
             .attr("d", function(d){return drawLink(d[0], d[1], d[2], d[3])})
             .attr("fill-opacity", 0.3)
             .attr("class", function(d){return "g_"+d[5].replace(/[^a-z]/ig, '')})
             .attr("stroke", "none")
-            .attr("display", "inline")
-            .filter(function(d){return !d[4]})
-            .attr("display", "none");
+            .attr("display", "inline");
 
                 //labels
         var stepsLabel = svg.selectAll("text")
@@ -432,7 +431,7 @@ sven.viz.streamkey = function(){
         data.forEach(function(d,i){
           if (i < mX) {
             var label = d.category,
-                vis = (d['value'] != null && data[i+1]['value'] != null),
+                vis = filter_small(d) && filter_small(data[i+1]),
                 points = [],
                 p0 = [ graphHeight - (d.y + d.y0 ) * graphHeight / mY ,xScale(d.x)*streamWidth/mX + barWidth], // upper left point
                 p1 = [ graphHeight - (data[i+1].y + data[i+1].y0) * graphHeight / mY , xScale(data[i+1].x)*streamWidth/mX], // upper right point
