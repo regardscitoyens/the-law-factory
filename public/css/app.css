@@ -46,6 +46,8 @@ h1,h2,h3,h4 {
 
 .navbar-brand {
 	padding: 0 !important;
+    margin-top: 8px;
+    margin-left: 8px;
 }
 
 .navbar-custom{
@@ -1134,15 +1136,9 @@ noscript h2 {
     bottom:0px;
     left:0px;
     width:100%;
-    height:30px;
+    height:10px;
     z-index:0;
-    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    background-color:white;
 }
 
 .mod0 .badge .glyphicon {
@@ -1159,6 +1155,7 @@ noscript h2 {
 }
 .wide-read .glyphicon {
     padding-left:3px;
+    cursor:pointer;
 }
 .tooltip-inner {background-color: #716259;border-radius:0;border: solid 1px #716259;}
 
