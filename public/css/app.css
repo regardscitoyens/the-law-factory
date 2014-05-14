@@ -111,6 +111,15 @@ body{
     margin-bottom:20px;
 }
 
+.title .subtitle {
+	color:#dde;
+	line-height:75px;
+	font-size:12px;
+	margin-top: 15px;
+	margin-left: 50px;
+	font-weight:600;
+	float: left;
+}
 .title h4 {
 	color:#fff;
 	line-height:75px;
