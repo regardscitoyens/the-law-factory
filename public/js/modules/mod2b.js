@@ -50,8 +50,8 @@ function init(data,step) {
     participants=data[step].orateurs;
     mydata=[];
     console.log(groupes)
-    var divs=d3.values(data[step].divisions),
-        orderedGroupes = d3.keys(groupes).sort(function(a,b){return groupes[b].order < groupes[a].order});
+    var divs=d3.values(data[step].divisions).sort(function(a,b){return a.order - b.order;}),
+        orderedGroupes = d3.keys(groupes).sort(function(a,b){return groupes[a].order - groupes[b].order});
     for(g in orderedGroupes) {
         e = orderedGroupes[g];
         console.log(groupes[e])
