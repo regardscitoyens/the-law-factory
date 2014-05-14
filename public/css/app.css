@@ -440,16 +440,20 @@ ins {
 }
 
 .dd-btn .caret{
-	border-top: 6px solid #FFF;
+	border-left: 7px solid #FFF;
+    border-right: 0 dotted;
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+    margin-left: 3px;
 }
 
-.dd-btn>.btn+.dropdown-toggle {
+.dd-btn>.btn+.dropdown-toggle.arrow {
 	background: #716259;
 	border-radius: 0;
 	margin-left:3px !important;	
 }
 
-.dd-btn>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+.dd-btn>.btn:first-child:not(:last-child) {
 	color: #716259;
     background: #FFFFFB;
     border-radius: 0;
@@ -466,7 +470,7 @@ ins {
 }.dropdown-menu li {
     background-color: white;
 }.dropdown-menu li a {
-    padding-left: 32px;
+    padding-left: 34px;
 }.dropdown-menu li.dropdown-submenu a {
     padding-left: 15px;
 }.dropdown-menu li a.chosen {
