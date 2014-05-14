@@ -640,21 +640,22 @@ var drawGantt,
                         .style("opacity", 0.6);
 
                     $("#text-title").text(d.short_title);
-                    var themes=$('<p class="themes">');
+                    var themes=$('<p>');
                     d.themes.join(",").replace(/ et /g, ',').split(',').forEach(function(e,j){
                         themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les lois correspondant à ce thème'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
                     }),
                         mots=1000*(Math.round(d.total_mots / 1000.));
                     $(".text-container").empty()
-                        .append("<p><b>"+upperFirst(d.long_title)+"</b></p>")
-                        .append('<p class="txt-center"><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + "</p>");
-                    if (d.procedure != "Normale") $(".text-container").append('<p class="txt-center">(' + d.procedure.toLowerCase() + ")</p>");
-                    $(".text-container").append('<p class="txt-center"><small>'+themes.html()+"</small></p>")
-                        .append('<p><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(d.total_amendements)+'"></span>&nbsp;&nbsp;'+(d.total_amendements?d.total_amendements:'aucun')+" amendement"+(d.total_amendements>1?'s déposés':' déposé')+" sur ce texte</p>")
-                        .append('<p><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(d.total_mots)+'"></span>&nbsp;&nbsp;plus de '+(mots?mots:'1')+" mille mots prononcés<br>lors des débats parlementaires</p>")
-                        .append("<p><small>(sources : <a href='" + d.url_dossier_assemblee + "'>dossier Assemblée</a> &mdash; <a href='" + d.url_dossier_senat + "'>dossier Sénat</a>)</small></p>")
-                        .append('<div class="gotomod"><a class="btn btn-info" href="loi?l=' + d.id + '">Explorer les articles</a></div>');
-
+                        .append('<p><b>'+upperFirst(d.long_title)+"</b></p>")
+                        .append('<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + "</p>");
+                    if (d.procedure != "Normale") $(".text-container").append('<p>(' + d.procedure.toLowerCase() + ")</p>");
+                    $(".text-container").append('<div class="gotomod"><a class="btn btn-info" href="loi?l=' + d.id + '">Explorer les articles</a></div>');
+                    var extrainfo = $('<div class="extrainfos">');
+                    extrainfo.append('<p><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(d.total_amendements)+'"></span>&nbsp;&nbsp;'+(d.total_amendements?d.total_amendements:'aucun')+" amendement"+(d.total_amendements>1?'s déposés':' déposé')+"</p>")
+                        .append('<p><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(d.total_mots)+'"></span><span>&nbsp;&nbsp;plus de '+(mots?mots:'1')+" mille mots prononcés lors des débats parlementaires</span></p>")
+                        .append(themes)
+                        .append("<p><small>(sources : <a href='" + d.url_dossier_assemblee + "'>dossier Assemblée</a> &mdash; <a href='" + d.url_dossier_senat + "'>dossier Sénat</a>)</small></p>");
+                    $(".text-container").append(extrainfo);
                 }
 
                 //Start drawing first sample

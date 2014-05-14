@@ -796,13 +796,23 @@ h4 a{
 .gotomod{
 	width:100%;
 	text-align: center;
-	margin-top:30px;
-    margin-bottom: 30px;
+    margin-top: 10%;
 }
 .gotomod a.btn-info {
 	display:inline;
 	float:none;
     font-weight: bold;
+    font-size: 1.4em;
+    border-color: #1080a0;
+}
+.mod0 .extrainfos {
+    vertical-align: bottom;
+    position: absolute;
+    bottom: 3%;
+    width: 100%;
+}
+.mod0 .text-container p {
+    margin-top: 3%;
 }
 text {
     font-family: "Oxygen", sans-serif;
@@ -818,8 +828,7 @@ text {
     position: relative;
     top: 0.3em;
 }
-/*.mod0 .text-container p,*/
-.pop0 p {
+.mod0 .text-container p, .pop0 p {
     text-align: center;
 }
 .text-container .badge {
