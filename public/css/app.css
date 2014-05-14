@@ -382,8 +382,9 @@ ins {
 
 .leg-item{
 	float:left;
-	width:200px;
+	width:11%;
 	margin-top:5px;
+	margin-left:25px;
 }
 
 .leg-value{
@@ -405,7 +406,6 @@ ins {
 	float: left;
 	margin-left:4px;
 	font-size: 0.9em;
-	width:160px;
 }
 
 .end-tip{
