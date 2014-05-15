@@ -93,7 +93,7 @@ function(api, $rootScope, $location, $compile) {
                 api.getArticle(l).then(function(data) {
                     console.log(data)
                     $rootScope.lawTitle = data.short_title
-                    $rootScope.pageTitle =  $rootScope.lawTitle + " - articles";
+                    $rootScope.pageTitle =  $rootScope.lawTitle + " - Articles | ";
                         d3.select(element[0]).datum(data).call(mod1)
                     spinner.stop();
                 }, function(error) {
@@ -132,7 +132,7 @@ function(api, $rootScope, $location, $compile) {
                 var spinner = new Spinner(scope.spinner_opts).spin(target);
                 if ($location.search()['s'] != null) api.getAmendement(scope.l, $location.search()['s'] ).then(function(data) {
                     scope.data = data;
-                    $rootScope.pageTitle =  $rootScope.lawTitle + " - amendements";
+                    $rootScope.pageTitle =  $rootScope.lawTitle + " - Amendements | ";
                     d3.select(element[0]).datum(data).call(mod2);
 
                     if ($location.search()['a']!=null)
@@ -172,7 +172,7 @@ function(api, $rootScope, $location, $compile) {
 
                     api.getIntervention(scope.l).then(function(data) {
                         scope.data = data;
-                        $rootScope.pageTitle =  $rootScope.lawTitle + " - discussions";
+                        $rootScope.pageTitle =  $rootScope.lawTitle + " - Débats | ";
                         init(data, $location.search()['s'])
 
                         spinner.stop();
@@ -199,7 +199,7 @@ function(api, $rootScope, $location, $compile) {
         templateUrl : 'templates/mod0.html',
         link : function postLink(scope, element, attrs) {
 
-            $rootScope.pageTitle ="Laws list";
+            $rootScope.pageTitle = "";
 
             $("#mod0-slider").slider({
                 min:1,
