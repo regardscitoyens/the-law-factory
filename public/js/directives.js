@@ -91,7 +91,6 @@ function(api, $rootScope, $location, $compile) {
                 var spinner = new Spinner(scope.spinner_opts).spin(target);
 
                 api.getArticle(l).then(function(data) {
-                    console.log(data)
                     $rootScope.lawTitle = data.short_title
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Articles | ";
                         d3.select(element[0]).datum(data).call(mod1)
