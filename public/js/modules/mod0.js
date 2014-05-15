@@ -96,6 +96,8 @@ var drawGantt,
                     title = format_step(d.stage);
                     ydisp -= 20;
                 } else if (d.step) {
+                    if (d.step == "depot" && d.debats_order != null)
+                        title = "Pro" + (d.auteur_depot == "Gouvernement" ? "jet" : "position") + " de loi";
                     div.append("p").html(format_step(d.stage));
                     ydisp -= 20;
                 }
