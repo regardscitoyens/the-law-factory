@@ -177,6 +177,7 @@ var api_root;
             adjustHeight(half_col);
         }
 
+
         function adjustHeight(half) {
             var a = d3.select("svg").select("g:last-child").attr("data-offset"),
                ah = d3.select("svg").select("g:last-child").node().getBBox().height;
@@ -185,104 +186,141 @@ var api_root;
 
         function drawLines(d,i, half) {
 
+          var multi=false;
           len = d.amendements.length;
 		  lines = Math.ceil(len/x);
-            var k=Math.floor(i/2);
+          if(lines>1) {
+              multi=true;
+              lines=lines+2;
+          }
+              var k = Math.floor(i / 2);
+              d.offset = offset;
+
+              var curRow = svg.append("g")
+                  .attr("class", d.titre.replace(/ |'/g, '_').toLowerCase())
+                  .attr("transform", function () {
+                      if (!half) return "translate(" + 10 + "," + (i * 20 + i * lineh + 10 + jumpLines * (lineh - 10)) + ")";
+                      else {
+                          return "translate(" + (10 + (i % 2) * w / 2) + "," + (k * 20 + k * lineh + 10 + jumpLines * (lineh - 10)) + ")";
+                      }
+                  })
+                  .attr("data-offset", function () {
+                      if (!half) return i * 20 + i * lineh + 10 + jumpLines * (lineh - 10)
+                      else return k * 20 + k * lineh + 10 + jumpLines * (lineh - 10);
+                  })
+                  .call(function () {
+                    if(!multi) {
+                        n = d.amendements.length;
+                        offset = Math.floor(n / x)
+                        jumpLines = jumpLines + offset;
+                    }
+                      else jumpLines+=lines-1;
+                  })
+
+              curRow.append("text")
+                  .attr("x", 20)
+                  .attr("class", "row-txt")
+                  .attr("y", 15)
+                  .style("fill", "#333")
+                  .attr("font-size", "0.85em")
+                  .text(d.titre)
+                  .on("click", function () {
+                      selectRow(d.titre.toLowerCase().replace(/ |'/g, '_'), false)
+                  });
 
 
-		  d.offset = offset
+              var bg = curRow
+                  .selectAll(".bg")
+                  .data(d3.range(x * lines))
+                  .enter()
 
+              bg.append("rect")
+                  .attr("x", function (f) {
+                      return (f % x) * z + 21
+                  })
+                  .attr("y", function (f) {
+                      return Math.floor(f / x) * z + 21
+                  })
+                  .attr("width", z - 2)
+                  .attr("height", z - 2)
+                  .attr("rx", 2)
+                  .attr("ry", 2)
+                  .attr("class", "bg")
+                  .style("fill", "#E6E6E6")
 
-		  var curRow = svg.append("g")
-		  .attr("class",d.titre.replace(/ |'/g, '_').toLowerCase())
-		  .attr("transform",function() {
-                  if(!half) return "translate("+10+","+(i*20+i*lineh+10+jumpLines*(lineh-10))+")";
-                  else {
-                    return "translate(" + (10+(i%2)*w/2) + "," + (k * 20 + k * lineh + 10 + jumpLines * (lineh - 10)) + ")";
-                  }
-              })
-		  .attr("data-offset",function(){
-                  if(!half) return i*20+i*lineh+10+jumpLines*(lineh-10)
-                  else return k * 20 + k * lineh + 10 + jumpLines * (lineh - 10);
-              })
-		  .call(function(){
-		  	n=d.amendements.length;
-		  	offset = Math.floor(n/x)
-		  	jumpLines = jumpLines + Math.floor(n/x);
-		  })
+             /* var margin = d.offset == 0 ? 'style="margin-top : 10px"' : 'style="margin-top : ' + (10 + 20 * d.offset) + 'px "',
+                  subj = d.titre;*/
 
-		  var bg = curRow
-		  .selectAll(".bg")
-		  .data(d3.range(x*lines))
-		  .enter()
+              curRow.append("text")
+                  .attr("x", 20)
+                  .attr("class", "row-txt")
+                  .attr("y", 15)
+                  .style("fill", "#333")
+                  .attr("font-size", "0.85em")
+                  .text(d.titre)
+                  .on("click", function () {
+                      selectRow(d.titre.toLowerCase().replace(/ |'/g, '_'), false)
+                  });
 
-		  bg.append("rect")
-		  .attr("x", function(f){ return (f % x) * z +21 })
-		  .attr("y", function(f){ return Math.floor(f / x) * z + 21 })
-		  .attr("width", z-2)
-		  .attr("height", z-2)
-		  .attr("rx",2)
-		  .attr("ry",2)
-		  .attr("class","bg")
-		  .style("fill", "#E6E6E6")
+              var popover = function (d) {
+                  var date = d.date.split('-'),
+                      div = d3.select(document.createElement("div")).style("width", "100%");
+                  div.append("p").html("<b>" + groups[d.groupe].nom + "</b>");
+                  div.append("p").html("Sort : " + d.sort + "");
+                  div.append("p").html("<small>" + [date[2], date[1], date[0]].join("/") + "</small>");
+                  return {
+                      title: "Amendement " + d.numero,
+                      content: div,
+                      placement: "mouse",
+                      gravity: "right",
+                      displacement: [10, -90],
+                      mousemove: true
+                  };
+              }
 
-		  var margin = d.offset == 0 ? 'style="margin-top : 10px"' : 'style="margin-top : '+(10+20*d.offset)+'px "',
-            subj = d.titre;
+              var amds = curRow
+                  .selectAll(".amd")
+                  .data(d.amendements)
+                  .enter();
+              amds.append("rect")
+                  .attr("x", function (f, i) {
+                      if(multi)  return Math.floor(i / lines) * z + 21;
+                      else return (i % x) * z + 21
+                  })
+                  .attr("y", function (f, i) {
+                      if(multi)  return Math.floor(i % lines) * z + 21;
+                      return Math.floor(i / x) * z + 21
+                  })
+                  .attr("width", z - 2)
+                  .attr("height", z - 2)
+                  .attr("rx", 2)
+                  .attr("ry", 2)
+                  .attr("id", function (d) {
+                      return "a_" + d.numero.replace(/[^a-z\d]/ig, '')
+                  })
+                  .attr("class", "amd")
+                  .style("fill", color_amd)
+                  .popover(popover)
+                  .on("click", select);
 
-		curRow.append("text")
-		.attr("x",20)
-        .attr("class","row-txt")
-		.attr("y",15)
-		.style("fill","#333")
-		.attr("font-size","0.85em")
-		.text(d.titre)
-        .on("click",function(){selectRow(d.titre.toLowerCase().replace(/ |'/g, '_'),false)});
-
-        var popover = function(d){
-          var date = d.date.split('-'),
-              div = d3.select(document.createElement("div")).style("width", "100%");
-          div.append("p").html("<b>" + groups[d.groupe].nom +"</b>");
-          div.append("p").html("Sort : " + d.sort + "");
-          div.append("p").html("<small>" + [date[2],date[1],date[0]].join("/") + "</small>");
-          return {
-              title: "Amendement " + d.numero,
-              content: div ,
-              placement: "mouse",
-              gravity: "right",
-              displacement: [10, -90],
-              mousemove: true
-          };
-        }
-
-		var amds = curRow
-		  .selectAll(".amd")
-		  .data(d.amendements)
-		  .enter();
-		amds.append("rect")
-		  .attr("x", function(f,i){ return (i % x) * z +21 })
-		  .attr("y", function(f,i){ return Math.floor(i / x) * z + 21 })
-		  .attr("width", z-2)
-		  .attr("height", z-2)
-		  .attr("rx",2)
-		  .attr("ry",2)
-		  .attr("id",function(d){return "a_"+d.numero.replace(/[^a-z\d]/ig, '')})
-		  .attr("class","amd")
-		  .style("fill", color_amd)
-  		  .popover(popover)
-          .on("click",select);
-
-        var imgs = curRow
-          .selectAll("image")
-          .data(d.amendements)
-          .enter();
-        imgs.append("svg:image")
-            .attr("x", function(f,i){ return (i % x) * z +25 })
-		    .attr("y", function(f,i){ return Math.floor(i / x) * z + 25 })
-		    .attr("width", z-10)
-		    .attr("height", z-10)
-		    .attr("xlink:href",get_status_img)
-		    .popover(popover)
-            .on("click",select);
+              var imgs = curRow
+                  .selectAll("image")
+                  .data(d.amendements)
+                  .enter();
+              imgs.append("svg:image")
+                  .attr("x", function (f, i) {
+                      if(multi)  return Math.floor(i / lines) * z + 25;
+                      else return (i % x) * z + 25
+                  })
+                  .attr("y", function (f, i) {
+                      if(multi)  return Math.floor(i % lines) * z + 25;
+                      return Math.floor(i / x) * z + 25
+                  })
+                  .attr("width", z - 10)
+                  .attr("height", z - 10)
+                  .attr("xlink:href", get_status_img)
+                  .popover(popover)
+                  .on("click", select);
 
         }
 
