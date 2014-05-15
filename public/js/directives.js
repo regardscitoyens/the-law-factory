@@ -72,6 +72,7 @@ function(api, $rootScope, $location, $compile) {
                 $("del").show();
                 $scope.revs=true;
             }
+
     },
         link : function postLink(scope, element, attrs) {
 
@@ -90,7 +91,10 @@ function(api, $rootScope, $location, $compile) {
                 var spinner = new Spinner(scope.spinner_opts).spin(target);
 
                 api.getArticle(l).then(function(data) {
-                    d3.select(element[0]).datum(data).call(mod1)
+                    console.log(data)
+                    $rootScope.lawTitle = data.short_title
+                    $rootScope.pageTitle =  $rootScope.lawTitle + " - articles";
+                        d3.select(element[0]).datum(data).call(mod1)
                     spinner.stop();
                 }, function(error) {
                     console.log(error);
@@ -128,6 +132,7 @@ function(api, $rootScope, $location, $compile) {
                 var spinner = new Spinner(scope.spinner_opts).spin(target);
                 if ($location.search()['s'] != null) api.getAmendement(scope.l, $location.search()['s'] ).then(function(data) {
                     scope.data = data;
+                    $rootScope.pageTitle =  $rootScope.lawTitle + " - amendements";
                     d3.select(element[0]).datum(data).call(mod2);
 
                     if ($location.search()['a']!=null)
@@ -167,6 +172,7 @@ function(api, $rootScope, $location, $compile) {
 
                     api.getIntervention(scope.l).then(function(data) {
                         scope.data = data;
+                        $rootScope.pageTitle =  $rootScope.lawTitle + " - discussions";
                         init(data, $location.search()['s'])
 
                         spinner.stop();
@@ -192,6 +198,8 @@ function(api, $rootScope, $location, $compile) {
         replace : false,
         templateUrl : 'templates/mod0.html',
         link : function postLink(scope, element, attrs) {
+
+            $rootScope.pageTitle ="Laws list";
 
             $("#mod0-slider").slider({
                 min:1,
