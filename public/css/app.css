@@ -437,20 +437,48 @@ ins {
 
 .dd-btn {
 	float:right;
+    margin: 0;
+    height: 35px
 }
 
-.dd-btn .caret{
-	border-left: 7px solid #FFF;
-    border-right: 0 dotted;
-    border-bottom: 4px solid transparent;
-    border-top: 4px solid transparent;
-    margin-left: 3px;
+.btn-group{
+    margin-bottom:35px;
+    width: 90%;
 }
-
-.dd-btn>.btn+.dropdown-toggle.arrow {
+.btn-group.filter_menu {
+    margin-bottom: 15px;
+}
+.btn-group .btn{
+	margin:0 !important;
+	padding:0 !important;
+    width: 90%;
+}
+.dd-btn button {
+    padding: 3px;
+    height: 32px;
+}
+.dd-btn .dropdown-toggle.arrow {
 	background: #716259;
 	border-radius: 0;
-	margin-left:3px !important;	
+    margin: 0;
+    width: 10%;
+    padding: 3px;
+}
+.dd-btn .caret{
+    border-top: 5px solid transparent;
+	border-left: 5px solid #FFF;
+    border-right: 0px dotted;
+    border-bottom: 5px solid transparent;
+    margin-bottom: 2px;
+}
+.btn-title, .btn-title:hover{
+    float:right;
+    display:inline-block;
+    cursor:pointer;
+    text-decoration: none;
+    background-color:#716259;
+    color:white;
+    line-height:75px;
 }
 
 .dd-btn>.btn:first-child:not(:last-child) {
@@ -488,7 +516,7 @@ ins {
 
 .menu-btn {
 	float:right;
-	padding:4px;
+	padding:2px;
 	margin-top:25px;
 	background:#DAD1CB;
 	height:100%;
@@ -1068,26 +1096,6 @@ text {
 
 /*END OF STEPSBAR */
 
-.btn-group{
-    margin-bottom:35px;
-}
-.btn-group.filter_menu {
-    margin-bottom: 15px;
-}
-.btn-group .btn{
-	margin-left:2px !important;
-}
-.btn-title, .btn-title:hover{
-    float:right;
-    display:inline-block;
-    padding: 0 10px;
-    cursor:pointer;
-    text-decoration: none;
-    background-color:#716259;
-    color:white;
-    line-height:75px;
-}
-
 ul.filters {
     clear: both;
     list-style-type: none;
@@ -1154,14 +1162,10 @@ noscript h2 {
 }
 .row {
     width: 100%;
+    margin: 0;
 }
 .row-txt{
     cursor:pointer;
-}
-
-.btn-group>.btn+.dropdown-toggle {
-    padding-right: 2px;
-    padding-left: 2px;
 }
 
 .grad-white{
