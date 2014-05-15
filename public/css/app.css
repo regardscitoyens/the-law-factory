@@ -146,7 +146,8 @@ body{
 	background-color:transparent;
 	padding:0 !important;
 	height:100%;
-	width:8.33%;
+	width:8.1%;
+	margin-right:0.23%;
 	float:left;
     margin-top: 147px;
 }
@@ -613,7 +614,7 @@ ul.ui-autocomplete {
 	float:right;
 }
 .mod2 .art-list{
-	width: 11.36%;
+	width: 11%;
     float: left;
 }
 
