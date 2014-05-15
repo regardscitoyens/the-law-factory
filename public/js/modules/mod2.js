@@ -191,7 +191,7 @@ var api_root;
 		  lines = Math.ceil(len/x);
           if(lines>1) {
               multi=true;
-              lines=lines+2;
+              lines += 1;
           }
               var k = Math.floor(i / 2);
               d.offset = offset;
@@ -288,7 +288,7 @@ var api_root;
                       else return (i % x) * z + 21
                   })
                   .attr("y", function (f, i) {
-                      if(multi)  return Math.floor(i % lines) * z + 21;
+                      if(multi)  return Math.floor(Math.floor(i / lines) % 2 == 0 ? i % lines : lines - (i % lines) - 1) * z + 21;
                       return Math.floor(i / x) * z + 21
                   })
                   .attr("width", z - 2)
@@ -313,7 +313,7 @@ var api_root;
                       else return (i % x) * z + 25
                   })
                   .attr("y", function (f, i) {
-                      if(multi)  return Math.floor(i % lines) * z + 25;
+                      if(multi)  return Math.floor(Math.floor(i / lines) % 2 == 0 ? i % lines : lines - (i % lines) - 1) * z + 25;
                       return Math.floor(i / x) * z + 25
                   })
                   .attr("width", z - 10)
