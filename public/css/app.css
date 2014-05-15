@@ -283,11 +283,9 @@ body{
 	position: relative;
 	clear: both;
 	display: inline-block;
-	width: auto;
 	text-align: left;
 	float: right;
 	margin: 0;
-	
 }
 .labels p{
 	margin:0;
@@ -340,7 +338,7 @@ ins {
 	margin-top: 20px;
 	padding-left: 15px;
     float: left;
-    width: 90%;
+    width: 80%;
 }
 .separator .links{
     float: right;
@@ -348,6 +346,7 @@ ins {
     margin-right: 8px;
     font-size: 12px;
     text-align: center;
+    width: 15%
 }
 .scrolling{
 	width: 73.33%;
