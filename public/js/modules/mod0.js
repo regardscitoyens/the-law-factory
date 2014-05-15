@@ -147,7 +147,9 @@ var drawGantt,
             }
 
             zooming = function(lvl) {
-                var perc = ($("#gantt").width() / 2) / (width * z);
+
+                var perc=($("#gantt").scrollLeft()+$("#gantt").width()/2)/(width*z);
+                console.log(perc);
                 if(layout==="q") return;
                 if(d3.event && d3.event.scale) z = d3.event.scale;
                 else if(lvl) z=lvl;
@@ -176,6 +178,7 @@ var drawGantt,
                 else d3.selectAll(".lbls").attr("opacity", 1);
 
                 $("#gantt").scrollLeft(perc * width * z - $("#gantt").width() / 2 );
+
             };
 
             function initGanttSVG() {
