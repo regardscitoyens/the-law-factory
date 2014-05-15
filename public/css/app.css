@@ -469,6 +469,7 @@ ins {
     min-height: 400px;
 }.dropdown-menu li {
     background-color: white;
+    cursor: pointer;
 }.dropdown-menu li a {
     padding-left: 34px;
 }.dropdown-menu li.dropdown-submenu a {
