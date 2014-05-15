@@ -70,8 +70,7 @@ angular.module('theLawFactory.controllers', []).
         }
         $scope.stepLabel = function (el){
             if(el.step==="depot") return (el.auteur_depot == "Gouvernement" ? "PJL" : "PPL");
-            else if($scope.total<10) return el.step;
-            else return $scope.findShortName(el.step);
+            return ($scope.total<10 ?$scope.findLongName : $scope.findShortName)(el.step);
         }
 
         $scope.string_to_slug = function (str) {

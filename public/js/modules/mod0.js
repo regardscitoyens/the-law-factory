@@ -102,6 +102,8 @@ var drawGantt,
                     ydisp -= 20;
                 }
                 div.append("p").html('<span class="glyphicon glyphicon-calendar"></span><span> '+french_date(d.date) + (d.enddate && d.enddate != d.date ? " →  "+ french_date(d.enddate) : '')+'</span>');
+                if (d.echec) div.append("p").html(d.echec.toUpperCase());
+                if (d.decision) div.append("p").html(d.decision.toUpperCase());
                 if ((d.institution=="assemblee" || d.institution=="senat") && d.nb_amendements) {
                     var legend_amd = '<svg width="13" height="18" style="vertical-align:middle;"><rect class="step" x="0" y="0" width="13" height="18" style="fill: '+(d.institution === "assemblee" ? "#ced6dd" : "#f99b90")+';"></rect><rect class="step-ptn" x="0" y="2" width="13" height="16" style="fill: url(#diagonal'+(d.nb_amendements >= 200 ? '3' : (d.nb_amendements >= 50 ? '2' : '1'))+');"></rect></svg>';
                     div.append("p").style("vertical-align", "middle").html(legend_amd+"&nbsp;&nbsp;"+d.nb_amendements+" amendement"+(d.nb_amendements > 1 ? 's' : ''));
@@ -301,7 +303,6 @@ var drawGantt,
 
                         d.steps.forEach(function (e, j) {
 
-                            e.stepname = "STRANGE";
                             if(e.step!=="depot" && (e.institution==="assemblee" || e.institution==="senat")) {
                                 e.stepname = e.step.substr(0, 1).toUpperCase();
                             } else if(e.step==="depot") {
