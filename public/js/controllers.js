@@ -126,4 +126,14 @@ angular.module('theLawFactory.controllers', []).
             return "g_" + group.replace(/[^a-z]/ig, '');
         }
 
+        $scope.resetHighlight = function(type) {
+            $(".text-container").empty();
+            $("#text-title").html("Sélectionner un "+(type == "amds" ? "amendement" : "groupe d'orateurs"));
+            d3.selectAll("rect").transition().style("opacity",0.9);
+            d3.selectAll("path").transition().attr("fill-opacity",0.3);
+            if (type == "amds") d3.selectAll(".actv-amd")
+			.style("stroke","none" )
+			.classed("actv-amd",false);
+        }
+
     })

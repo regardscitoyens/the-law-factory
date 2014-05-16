@@ -69,8 +69,9 @@ var utils, highlight;
 		    .attr("height", h)
             .on("click",deselectRow);
 
-        function chk_scroll(e)
-        {
+        d3.select("svg").on("click", function(){ utils.resetHighlight('amds'); });
+
+        function chk_scroll(e) {
             e.stopPropagation();
             var elem = $(e.currentTarget);
             if (elem[0].scrollHeight - elem.scrollTop() == elem.outerHeight())
@@ -353,7 +354,6 @@ var utils, highlight;
 			})
             d3.selectAll("#a_"+d.numero.replace(/[^a-z\d]/ig, ''))
                 .attr("class","actv-amd")
-                .style("fill", color_amd)
                 .style("stroke", "#D80053")
                 .style("stroke-width", 2);
             $("#text-title").text("Amendement "+d.numero)
