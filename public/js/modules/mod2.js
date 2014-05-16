@@ -374,7 +374,7 @@ var api_root;
 
 		function legend(t) {
 
-			d3.entries(groups).sort(function(a,b) { return a.order - b.order; })
+			d3.entries(groups).sort(function(a,b) { return a.value.order - b.value.order; })
             .forEach(function(e,i){
                 var col = adjust_color(e.value.color);
                 $("."+(e.value.link!=="" ? 'colors' : 'others')).append('<div class="leg-item" title="'+e.value.nom+'" data-toggle="tooltip" data-placement="left"><div class="leg-value" style="background-color:'+col+'"></div><div class="leg-key">'+e.key+'</div></div>');
