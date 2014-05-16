@@ -91,6 +91,13 @@ angular.module('theLawFactory.controllers', []).
             return str;
         }
 
+        $scope.shortenString = function(s,n) {
+            if (s.length > n) {
+                s = s.substr(0, s.indexOf(' ', n-20)) + "…";
+            }
+            return s;
+        }
+
 	    $scope.adjustColor = function(c) {
             var col = d3.hsl(c);
             if (col.s>0.5) col.s = 0.5;

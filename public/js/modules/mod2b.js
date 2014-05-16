@@ -47,7 +47,7 @@ function init(data,step) {
         mydata.push({key: d.key,
                      values: [],
                      color: utils.adjustColor(d.value.color),
-                     name:d.value.nom});
+                     name: d.value.nom});
     });
 
     d3.entries(data[step].divisions).forEach(function(a,b){
@@ -327,7 +327,7 @@ sven.viz.streamkey = function(){
             .attr("font-size","0.9em")
             .attr("class", "filter-title")
             .attr("fill", "#333")
-            .text(function(d){return d});
+            .text(function(d){return utils.shortenString(d, 110); });
 
         return streamkey;
     };
