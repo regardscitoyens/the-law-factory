@@ -815,6 +815,7 @@ h4 a{
 	background-color:rgba(216, 209, 201, 0.6);
 	position:relative;
 	margin:0 auto;
+	cursor:pointer;
 }
 .filtered_month.bar-value, .bar-value:hover {
 	background-color:rgb(216, 209, 201);

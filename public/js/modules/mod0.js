@@ -21,7 +21,7 @@ var drawGantt,
     refreshBillsFilter = function(){
         for (var k in active_filters) {
             if (active_filters[k]) {
-                $("ul.filters li."+k).html("<a onclick=\"rmBillsFilter('"+k+"')\" class='badge' title='Supprimer ce filtre'><span class='glyphicon glyphicon-remove-sign'></span> "+active_filters[k]+'</a>');
+                $("ul.filters li."+k).html("<a onclick=\"rmBillsFilter('"+k+"')\" class='badge' title='Supprimer ce filtre' data-toggle='tooltip' data-placement='right'><span class='glyphicon glyphicon-remove-sign'></span> "+active_filters[k]+'</a>');
                 if (k == "length") $(".bar-step #mois_"+active_filters[k].replace(' ', '')).addClass('filtered_month');
             } else $("ul.filters li."+k).empty();
         }
@@ -647,7 +647,7 @@ var drawGantt,
                     $("#text-title").text(d.short_title);
                     var themes=$('<p>');
                     d.themes.join(",").replace(/ et /g, ',').split(',').forEach(function(e,j){
-                        themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les lois correspondant à ce thème'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
+                        themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les lois correspondant à ce thème' data-toggle='tooltip' data-placement='left'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
                     }),
                         mots=(Math.round(d.total_mots / 1000. ) + "" ).replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;").replace(/^0/, '');
                     $(".text-container").empty()
@@ -661,6 +661,7 @@ var drawGantt,
                         .append(themes)
                         .append("<p><small>(sources : <a href='" + d.url_dossier_assemblee + "'>dossier Assemblée</a> &mdash; <a href='" + d.url_dossier_senat + "'>dossier Sénat</a>)</small></p>");
                     $(".text-container").append(extrainfo);
+                    $("a.badge").tooltip();
                 }
 
                 //Start drawing first sample
@@ -668,6 +669,7 @@ var drawGantt,
                 prepareData();
                 drawGantt('time');
                 setTimeout((currFile ? dynamicLoad : computeFilters),0);
+                $("a.badge").tooltip();
 
             });
         };
@@ -718,11 +720,12 @@ var drawGantt,
                         .attr("id", "mois_"+label.replace(' ', ''))
                         .attr("class", "bar-value")
                         .attr("style", "height:" + bscale(e.value) + "px; width:100%; top:" + bscale(m - e.value) + "px")
-                        .on('click', function(d){ addBillsFilter('length',label) })
-                        .popover(function(d,i){
-                            var popover_content = d3.select(document.createElement('div')).style("width", "100%").attr('class', 'pop0');
+                        .on('click', function(){ addBillsFilter('length',label) })
+                        .popover(function(){
+                            var popover_content = d3.select(document.createElement('div')).style("width", "100%").attr('class', 'pop0'),
+                                plural = (e.value > 1 ? 's' : '');
                             popover_content.append('p').html('Cliquer pour filtrer sur ces textes');
-                            return {title: e.value+' textes adoptés en ' + label.replace('+mois', ' 2 ans et plus'), content: popover_content, placement: "mouse", displacement: [-113, -90], gravity: "top", mousemove: true};
+                            return {title: e.value+' texte'+plural+' adopté'+plural+' en ' + label.replace('24+ mois', ' 2 ans et plus'), content: popover_content, placement: "mouse", displacement: [-113, -90], gravity: "top", mousemove: true};
                         });
 
                     step.append("div")

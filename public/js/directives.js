@@ -227,6 +227,7 @@ function(api, $rootScope, $location, $compile) {
                 api.getDossiers().then(function(data) {
 
                     d3.select(element[0]).datum(data).call(mod0)
+                    $("a.badge").tooltip();
                     spinner.stop();
 
                 }, function(error) {
@@ -483,7 +484,6 @@ return {
                     $(".stb-inst span").tooltip()
                     $(".stb-stage span").tooltip({html: true})
                 },0);
-
 
             }, function(error) {
                 scope.error = error
