@@ -410,8 +410,10 @@ return {
                 scope.inst=[];
                 var currStage,
                     currInst;
-                $rootScope.lawTitle = data.short_title;
-                $rootScope.pageTitle = $rootScope.pageTitle.replace('undefined', $rootScope.lawTitle);
+                if (! $rootScope.lawTitle) {
+                    $rootScope.lawTitle = data.short_title;
+                    $rootScope.pageTitle = ($rootScope.pageTitle+"").replace('undefined', $rootScope.lawTitle);
+                }
 
                 data.steps.forEach(function(e,j){
 
