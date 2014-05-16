@@ -5,6 +5,7 @@ var draw;
 var drawMerged;
 var grouped=null;
 var api_root;
+var utils, highlight;
 
 (function(){
 
@@ -20,10 +21,11 @@ var api_root;
 
   	function vis(selection){
 
-		var groups,articles;
-
+		var articles;
+        utils = $('.mod2').scope();
+        highlight = utils.highlightGroup;
         selection.each(function(d,i){
-            groups=d.groupes;
+            utils.groups = d.groupes;
             articles=d.sujets;
             api_root=d.api_root_url;
         })
@@ -38,16 +40,16 @@ var api_root;
 
             if(!sel.empty()) {
 
-                d3.selectAll("g").style("opacity", 0.2);
+                d3.selectAll("g").style("opacity", 0.1);
 
-                sel.style("opacity", 1);
+                sel.style("opacity", 0.9);
 
                 if(pos) $("#viz").animate({ scrollTop: sel.attr("data-offset") })
             }
         };
 
         deselectRow = function() {
-            d3.selectAll("g").style("opacity",1);
+            d3.selectAll("g").style("opacity",0.9);
         };
 
 	artArray=d3.values(articles).sort(function(a,b){return a.order-b.order})
@@ -83,8 +85,8 @@ var api_root;
         }
 
         var compare_partys = function(a,b){
-                if (groups[a].order < groups[b].order) return -1;
-                if (groups[a].order > groups[b].order) return 1;
+                if (utils.groups[a].order < utils.groups[b].order) return -1;
+                if (utils.groups[a].order > utils.groups[b].order) return 1;
             },
             statsorder = {"adopté": 0, "rejeté": 1, "non-voté": 2},
             compare_stats = function(a,b){
@@ -263,7 +265,7 @@ var api_root;
               var popover = function (d) {
                   var date = d.date.split('-'),
                       div = d3.select(document.createElement("div")).style("width", "100%");
-                  div.append("p").html("<b>" + groups[d.groupe].nom + "</b>");
+                  div.append("p").html("<b>" + utils.groups[d.groupe].nom + "</b>");
                   div.append("p").html("Sort : " + d.sort + "");
                   div.append("p").html("<small>" + [date[2], date[1], date[0]].join("/") + "</small>");
                   return {
@@ -297,6 +299,7 @@ var api_root;
                       return "a_" + d.numero.replace(/[^a-z\d]/ig, '')
                   })
                   .attr("class", "amd")
+                  .attr("class", function(d) { return utils.slugGroup(d.groupe)})
                   .style("fill", color_amd)
                   .popover(popover)
                   .on("click", select);
@@ -317,6 +320,7 @@ var api_root;
                   .attr("width", z - 10)
                   .attr("height", z - 10)
                   .attr("xlink:href", get_status_img)
+                  .attr("class", function(d) { return utils.slugGroup(d.groupe)})
                   .popover(popover)
                   .on("click", select);
 
@@ -357,31 +361,14 @@ var api_root;
 			if(!$(".end-tip").is(":visible")) $(".end-tip").fadeIn(200);
 		}
 
-	    function adjust_color(c){
-            var col = d3.hsl(c);
-            if (col.s>0.5) col.s = 0.5;
-            if (col.l<0.7) col.l = 0.7;
-            return col;
-        }
-
 		function color_amd(d) {
-			if(groups[d.groupe]) {
-				return adjust_color(groups[d.groupe].color).toString();
+			if(utils.groups[d.groupe]) {
+				return utils.adjustColor(utils.groups[d.groupe].color).toString();
 			} else return "#E6E6E6";
         }
 
-		function legend(t) {
-
-			d3.entries(groups).sort(function(a,b) { return a.value.order - b.value.order; })
-            .forEach(function(e,i){
-                var col = adjust_color(e.value.color);
-                $("."+(e.value.link!=="" ? 'colors' : 'others')).append('<div class="leg-item" title="'+e.value.nom+'" data-toggle="tooltip" data-placement="left"><div class="leg-value" style="background-color:'+col+'"></div><div class="leg-key">'+e.key+'</div></div>');
-			})
-            $(".leg-item").tooltip();
-		}
-
         $(document).ready(function() {
-            legend();
+            utils.drawGroupsLegend();
             $('.text-container').bind('scroll',chk_scroll);
             draw();
         });

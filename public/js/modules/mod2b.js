@@ -1,6 +1,6 @@
 var num=0;
 var svg, mydata;
-var groupes, participants, factions;
+var participants, utils, highlight;
 
 function wrap(width) {
   d3.selectAll('text').each(function() {
@@ -33,35 +33,26 @@ function wrap(width) {
   });
 }
 
-function highlight(b) {
-    $(".text-container").empty();
-    $("#text-title").html(groupes[b].nom);
-    b = ".g_"+b.replace(/[^a-z]/ig, '');
-    d3.selectAll("path").transition().attr("fill-opacity",0.1);
-    d3.selectAll("rect").transition().style("opacity",0.1);
-    d3.selectAll("path").filter(b).transition().attr("fill-opacity",0.45);
-    d3.selectAll("rect").filter(b).transition().style("opacity",0.55);
-}
-
 function init(data,step) {
 
-    factions=data[step].groupes;
-    groupes=data[step].groupes;
+    utils = $('.mod2').scope();
+    highlight = utils.highlightGroup;
+    utils.groups = data[step].groupes
     participants=data[step].orateurs;
     mydata=[];
     var divs=d3.values(data[step].divisions).sort(function(a,b){return a.order - b.order;}),
-        orderedGroupes = d3.keys(groupes).sort(function(a,b){return groupes[a].order - groupes[b].order});
-    for(g in orderedGroupes) {
-        e = orderedGroupes[g];
-        var col = d3.hsl(groupes[e].color); if(col.s>0.5) col.s=0.5; col.l=0.75;
-        mydata.push({key:e, values:[], color:col, name:groupes[e].nom});
-        if(groupes[e].link!=="") $(".colors").append("<div onclick='highlight(\""+e+"\")' class='leg-item' title='"+groupes[e].nom+"'><div class='leg-value' style='background-color:"+col+"'></div><div class='leg-key'>"+e+"</div></div>");
-       else $(".others").append("<div onclick='highlight(\""+e+"\")' class='leg-item' title='"+groupes[e].nom+"'><div class='leg-value' style='background-color:"+col+"'></div><div class='leg-key'>"+e+"</div></div>");
-    }
+        orderedGroupes = d3.keys(utils.groups).sort(function(a,b){return utils.groups[a].order - utils.groups[b].order});
+    utils.drawGroupsLegend();
+    d3.entries(utils.groups).forEach(function(d){
+        mydata.push({key: d.key,
+                     values: [],
+                     color: utils.adjustColor(d.value.color),
+                     name:d.value.nom});
+    });
 
     d3.entries(data[step].divisions).forEach(function(a,b){
         a.value.step = a.key;
-    })
+    });
     num = divs.length;
     divs.forEach(function(f,j){
         var gp = d3.entries(f.groupes);
@@ -74,7 +65,7 @@ function init(data,step) {
                 })[0];
             if (filtered.length) {
                 filtered=filtered[0]
-                toAdd={label:g,value:filtered.value.nb_mots,step:f.step, name:e.name,speakers:filtered.value.orateurs}
+                toAdd={label:g,value:filtered.value.nb_mots,step:f.step,speakers:filtered.value.orateurs}
                 curr.values.push(toAdd)
             } else {
                 toAdd={label:g,value:1,step:f.step}
@@ -249,7 +240,7 @@ sven.viz.streamkey = function(){
             .data(dataF)
             .enter().append("g")
             .attr("class", function(d,i){return "layer_"+i})
-            .style("fill", function(d, i) {col = d[0].color; if (col.s>0.5) col.s = 0.5; return col.toString(); })
+            .style("fill", function(d, i) {return utils.adjustColor(d[0].color).toString(); })
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             .on("mousemove",function(d){d3.select(".desc").attr("style","top: " + (d3.event.pageY - $(".desc").height() - 15) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2) + "px");});
         d3.select("svg").on("click", function(){
@@ -263,7 +254,7 @@ sven.viz.streamkey = function(){
             .data(function(d) { return d; })
             .enter().append("rect")
             .filter(filter_small)
-            .attr("class", function(d) { return "g_"+d.category.replace(/[^a-z]/ig, '')})
+            .attr("class", function(d) { return utils.slugGroup(d.category)})
             .attr("y", function(d) { return x(d.x); })
             .attr("x", function(d) { return y(d.y0 + d.y); })
             .attr("rx", "3px")
@@ -325,7 +316,7 @@ sven.viz.streamkey = function(){
             .filter(function(d){return d[4]})
             .attr("d", function(d){return drawLink(d[0], d[1], d[2], d[3])})
             .attr("fill-opacity", 0.3)
-            .attr("class", function(d){return "g_"+d[5].replace(/[^a-z]/ig, '')})
+            .attr("class", function(d){return utils.slugGroup(d[5]); })
             .attr("stroke", "none")
             .attr("display", "inline");
 
@@ -363,7 +354,7 @@ sven.viz.streamkey = function(){
     };
 
     sortByGroupe = function(data){
-        return sort(data, "category", function(a,b){return factions[b].order - factions[a].order; });
+        return sort(data, "category", function(a,b){return utils.groups[b].order - utils.groups[a].order; });
     }
 
     sortByTop = function(data){

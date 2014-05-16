@@ -91,4 +91,39 @@ angular.module('theLawFactory.controllers', []).
             return str;
         }
 
+	    $scope.adjustColor = function(c) {
+            var col = d3.hsl(c);
+            if (col.s>0.5) col.s = 0.5;
+            if (col.l<0.7) col.l = 0.7;
+            return col;
+        }
+
+        $scope.groups = {};
+
+	    $scope.drawGroupsLegend = function() {
+            var col, type;
+            d3.entries($scope.groups)
+            .sort(function(a,b) { return a.value.order - b.value.order; })
+            .forEach(function(d) {
+                col = $scope.adjustColor(d.value.color);
+                type = (d.value.link !== "" ? 'colors' : 'others');
+               $("."+type).append('<div class="leg-item" onclick="highlight(\''+d.key+'\');" title="'+d.value.nom+'" data-toggle="tooltip" data-placement="left"><div class="leg-value" style="background-color:'+col+'"></div><div class="leg-key">'+d.key+'</div></div>');
+			});
+            $(".leg-item").tooltip();
+        }
+
+        $scope.highlightGroup = function(group) {
+            $(".text-container").empty();
+            $("#text-title").html($scope.groups[group].nom);
+            group = ".g_"+group.replace(/[^a-z]/ig, '');
+            d3.selectAll("path").transition().attr("fill-opacity",0.1);
+            d3.selectAll("rect").transition().style("opacity",0.1);
+            d3.selectAll("path").filter(group).transition().attr("fill-opacity",0.3);
+            d3.selectAll("rect").filter(group).transition().style("opacity", 0.9);
+        }
+
+        $scope.slugGroup = function(group) {
+            return "g_" + group.replace(/[^a-z]/ig, '');
+        }
+
     })
