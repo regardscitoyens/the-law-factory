@@ -346,7 +346,7 @@ var api_root;
                     "<p><b>Statut :</b> " + currAmd.sort + " <span class='amd-txt-status' style='background-color:"+col+"'><img style='margin:0; padding:4px;' src='"+statico+"'/></span> </p>" +
                     "<p><b>Exposé des motifs :</b> " + currAmd.expose+"</p>" +
                     "<p><b>Texte :</b> " + currAmd.texte +
-                    '<p><small><b>Source :</b> <a target="_blank" href="' + source_am + "</a></small></p>"
+                    '<p><small><b>Sources :</b> <a target="_blank" href="' + source_am + "</a></small></p>"
                 );
 			})
             d3.selectAll("#a_"+d.numero.replace(/[^a-z\d]/ig, ''))
@@ -374,11 +374,12 @@ var api_root;
 
 		function legend(t) {
 
-			d3.entries(groups).forEach(function(e,i){
+			d3.entries(groups).sort(function(a,b) { return a.order - b.order; })
+            .forEach(function(e,i){
                 var col = adjust_color(e.value.color);
-                if(e.value.link!=="") $(".colors").append('<div class="leg-item"><div class="leg-value" style="background-color:'+col+'"></div><div class="leg-key">'+e.key+'</div></div>')
-                else $(".others").append('<div class="leg-item"><div class="leg-value" style="background-color:'+col+'"></div><div class="leg-key">'+e.key+'</div></div>')
+                $("."+(e.value.link!=="" ? 'colors' : 'others')).append('<div class="leg-item" title="'+e.value.nom+'" data-toggle="tooltip" data-placement="left"><div class="leg-value" style="background-color:'+col+'"></div><div class="leg-key">'+e.key+'</div></div>');
 			})
+            $(".leg-item").tooltip();
 		}
 
         $(document).ready(function() {
