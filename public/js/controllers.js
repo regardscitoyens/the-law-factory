@@ -114,7 +114,7 @@ angular.module('theLawFactory.controllers', []).
 
         $scope.highlightGroup = function(group) {
             $(".text-container").empty();
-            $("#text-title").html($scope.groups[group].nom);
+            if ($scope.groups[group]) $("#text-title").html($scope.groups[group].nom);
             group = ".g_"+group.replace(/[^a-z]/ig, '');
             d3.selectAll("path").transition().attr("fill-opacity",0.1);
             d3.selectAll("rect").transition().style("opacity",0.1);

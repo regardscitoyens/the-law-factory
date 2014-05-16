@@ -300,7 +300,7 @@ var utils, highlight;
                       return "a_" + d.numero.replace(/[^a-z\d]/ig, '')
                   })
                   .attr("class", "amd")
-                  .attr("class", function(d) { return utils.slugGroup(d.groupe)})
+                  .attr("class", function(d) { return utils.slugGroup(d.groupe) + " " + utils.slugGroup(d.sort); })
                   .style("fill", color_amd)
                   .popover(popover)
                   .on("click", select);
@@ -321,7 +321,6 @@ var utils, highlight;
                   .attr("width", z - 10)
                   .attr("height", z - 10)
                   .attr("xlink:href", get_status_img)
-                  .attr("class", function(d) { return utils.slugGroup(d.groupe)})
                   .popover(popover)
                   .on("click", select);
 
@@ -365,6 +364,15 @@ var utils, highlight;
 
         $(document).ready(function() {
             utils.drawGroupsLegend();
+            if ($(".others div").length) $(".others").append('<div class="leg-item"></div>');
+            [
+                {nom: 'Adopté', id: 'adopt', img: 'ok'},
+                {nom: 'Rejeté', id: 'rejet', img: 'ko'},
+                {nom: 'Non voté', id: 'nonvot', img: 'nd'}
+            ].forEach(function(d) {
+                $(".others").append('<div class="leg-item" onclick="highlight(\''+d.id+'\')" title="Amendements '+d.nom.toLowerCase()+'s" data-toggle="tooltip" data-placement="left"><div class="leg-value" style="background-color: black; background-image: url(img/'+d.img+'.png); background-repeat:no-repeat; background-position:50% 50%;"></div><div class="leg-key">'+d.nom+'</div></div>');
+            });
+            $(".leg-item").tooltip();
             $('.text-container').bind('scroll',chk_scroll);
             draw();
         });
