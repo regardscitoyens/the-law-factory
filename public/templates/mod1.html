@@ -40,10 +40,10 @@
 		<div class="text">
 			<h4 id="text-title">Sélectionner un article</h4>
             <div class="wide-read">
-                <span ng-hide="read" ng-click="readmode()" class="glyphicon glyphicon-resize-full"></span>
-                <span ng-show="read" ng-click="viewmode()" class="glyphicon glyphicon-resize-small"></span>
-                <span ng-show="revs" ng-click="hiderevs()" class="glyphicon glyphicon glyphicon-check"></span>
-                <span ng-hide="revs" ng-click="showrevs()" class="glyphicon glyphicon glyphicon-edit"></span>
+                <div ng-hide="read" ng-click="readmode()"><span  class="glyphicon glyphicon-chevron-left"> </span> Expand panel</div>
+                <div ng-show="read" ng-click="viewmode()"><span  class="glyphicon glyphicon-chevron-right"> </span> Shrink panel</div>
+                <div ng-show="revs" ng-click="hiderevs()"><span  class="glyphicon glyphicon glyphicon-check"> </span> Hide diffs</div>
+                <div ng-hide="revs" ng-click="showrevs()"><span  class="glyphicon glyphicon glyphicon-edit"> </span> Show diffs</div>
             </div>
 			<div class="text-container">
 				<div class="art-meta"></div>

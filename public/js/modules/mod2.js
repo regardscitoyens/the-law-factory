@@ -243,8 +243,8 @@ var api_root;
                   })
                   .attr("width", z - 2)
                   .attr("height", z - 2)
-                  .attr("rx", 2)
-                  .attr("ry", 2)
+                  //.attr("rx", 2)
+                  //.attr("ry", 2)
                   .attr("class", "bg")
                   .style("fill", "#E6E6E6")
 
@@ -293,8 +293,8 @@ var api_root;
                   })
                   .attr("width", z - 2)
                   .attr("height", z - 2)
-                  .attr("rx", 2)
-                  .attr("ry", 2)
+                  //.attr("rx", 2)
+                  //.attr("ry", 2)
                   .attr("id", function (d) {
                       return "a_" + d.numero.replace(/[^a-z\d]/ig, '')
                   })
@@ -352,7 +352,7 @@ var api_root;
             d3.selectAll("#a_"+d.numero.replace(/[^a-z\d]/ig, ''))
                 .attr("class","actv-amd")
                 .style("fill", color_amd)
-                .style("stroke", "#D80053")
+                .style("stroke", "#333344")
                 .style("stroke-width", 2);
             $("#text-title").text("Amendement "+d.numero)
 			$('.text-container').scrollTop(0);

@@ -113,7 +113,7 @@ sven.viz.streamkey = function(){
         sorting,
         width = 600,
         height = 200,
-        barWidth = 35,
+        barWidth = 15,
         barPadding = 5,
         minHeight = 0,
         margin = {top: 30, right: 30, bottom: 30, left: 12},
@@ -266,8 +266,8 @@ sven.viz.streamkey = function(){
             .attr("class", function(d) { return "g_"+d.category.replace(/[^a-z]/ig, '')})
             .attr("y", function(d) { return x(d.x); })
             .attr("x", function(d) { return y(d.y0 + d.y); })
-            .attr("rx", "3px")
-            .attr("ry", "3px")
+            //.attr("rx", "3px")
+            //.attr("ry", "3px")
             .style("opacity",.9)
             .style("stroke-width",1)
             .style("stroke",function(d){return d.color.darker().toString()})

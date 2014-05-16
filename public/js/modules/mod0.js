@@ -589,7 +589,7 @@ var drawGantt,
                     if (d.institution === "assemblee") return "#ced6dd";
                     if (d.institution === "senat") return "#f99b90";
                     if (d.institution === "conseil constitutionnel") return "rgb(231, 221, 158)";
-                    if (d.stage === "promulgation") return "#716259";
+                    if (d.stage === "promulgation") return "#333344";
                     return "#aea198";
                 };
 

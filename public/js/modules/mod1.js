@@ -272,7 +272,7 @@ var stacked;
 						.attr("class","header")
 						.attr("width", width / columns - 30)
 						.attr("height", function(d){return (d.section === 'echec' ? maxy-50 : 15)})
-						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#2553C2")})
+						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#333344")})
 						.style("stroke", "none")
 						.style("opacity", function(d){return section_opacity(d.section)})
 						.style("stroke-width", "1px")
@@ -551,7 +551,7 @@ var stacked;
 
 					//Select the elements in same group
 					d3.selectAll(".article").filter(function(e){return e.article==d.article})
-					.style("stroke", "#D80053").style("stroke-width", 1).style("fill", function(d) {
+					.style("stroke", "#333344").style("stroke-width", 1).style("fill", function(d) {
 						hsl = d3.rgb(d3.select(this).style("fill")).hsl()
 						hsl.s += 0.1;
 						return hsl.rgb()
@@ -559,7 +559,7 @@ var stacked;
 
 					d3.selectAll("line")
 					.filter(function(e){return e.article==d.article})
-					.style("stroke", "#D80053");
+					.style("stroke", "#333344");
 
 					d3.rgb(d3.select(this).style("fill")).darker(2)
 					d3.select(this).style("stroke-dasharray", [3, 3])

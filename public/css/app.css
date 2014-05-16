@@ -68,7 +68,7 @@ h1,h2,h3,h4 {
 }
 
 .navbar-right a:hover{
-	color:#716259;
+	color:#333344;
 }
 
 .navbar{
@@ -88,27 +88,27 @@ box-shadow: inset 10px 10px 10px #000;
 }
 
 .subheader li{
-	background-color:#dad1cb;
+	background-color:#eeeeee;
 	font-weight:bold;
 	font-size: 11px;
 }
 
 .subheader li a{
-	color:#716259;
+	color:#333344;
 }
 
 body{
-	background-color:#dad1cb !important;
+	background-color:#eeeeee !important;
 }
 .selected{
-	background-color:#716259;
+	background-color:#333344;
 }
 .selected a{
-	color:#dad1cb !important;
+	color:#eeeeee !important;
 }
 .title{
 	height:75px;
-	background-color:#716259;
+	background-color:#333344;
 	overflow:hidden;
     margin-bottom:20px;
 }
@@ -158,7 +158,7 @@ body{
 }
 .stages{
 	width:100%;
-	color:#AFA19A;
+	color:#333;
 	text-align:center;
 }
 .stage{
@@ -193,15 +193,15 @@ body{
 
 #viz{
 	background-color:#fff;
-	/*border-right:1px solid #716259;*/
+	/*border-right:1px solid #333344;*/
 	padding:0 !important;
 }
 .text{
 	background-color:#fff;
-	border-right:1px solid #DAD1CB;
+	border-right:1px solid #eeeeee;
 	padding:0 !important;
-	border-bottom:1px solid #DAD1CB;
-	border-left: 1px solid #DAD1CB;
+	border-bottom:1px solid #eeeeee;
+	border-left: 1px solid #eeeeee;
 	width:18.33%;
 	float:left;
 	position:relative;
@@ -265,7 +265,7 @@ body{
 	width:60%;
 	float:right;
 	display:inline-block;
-	background-color:#716259;
+	background-color:#333344;
 	color:#fff;
 	font-weight: normal;
 	font-size:13px;
@@ -273,7 +273,7 @@ body{
 .text h4{
 	padding:20px 4px;
 	width:100%;
-	background-color:#716259;
+	background-color:#333344;
 	color:#fff;
 	font-weight: normal;
 	font-size:16px;
@@ -334,7 +334,7 @@ ins {
 }
 
 .law-title{
-	color: #716259;
+	color: #333344;
 	font-size: 16px;
 	margin-top: 20px;
 	padding-left: 15px;
@@ -401,7 +401,6 @@ ins {
 .leg-value{
     width:18px;
 	height:18px;
-	border-radius:2px;
 	float:left;
 }
 .colors, .others{
@@ -431,7 +430,7 @@ ins {
 	display:none;
 }
 .menu-hide{
-	background-color:#DAD1CB;
+	background-color:#eeeeee;
 	padding:15px;
 }
 
@@ -458,7 +457,7 @@ ins {
     height: 32px;
 }
 .dd-btn .dropdown-toggle.arrow {
-	background: #716259;
+	background: #333344;
 	border-radius: 0;
     margin: 0;
     width: 10%;
@@ -476,13 +475,13 @@ ins {
     display:inline-block;
     cursor:pointer;
     text-decoration: none;
-    background-color:#716259;
+    background-color:#333344;
     color:white;
     line-height:75px;
 }
 
 .dd-btn>.btn:first-child:not(:last-child) {
-	color: #716259;
+	color: #333344;
     background: #FFFFFB;
     border-radius: 0;
 }
@@ -505,7 +504,7 @@ ins {
 }.dropdown-menu li a.chosen {
     padding-left: 10px;
 }.dropdown-menu li a:hover {
-    background-color: #716259;
+    background-color: #333344;
 }.dropdown-menu li .chosen:before {
   content:"\e013";
   font-family:"Glyphicons Halflings";
@@ -518,7 +517,7 @@ ins {
 	float:right;
 	padding:2px;
 	margin-top:25px;
-	background:#DAD1CB;
+	background:#eeeeee;
 	height:100%;
 }
 ul.ui-autocomplete { 
@@ -556,8 +555,8 @@ ul.ui-autocomplete {
 	margin-top:4%;
 	margin-left:2%;
 	font-size:4em;
-	color:#333333;
-	border-bottom: 1px solid #333333 !important;
+	color:#333344;
+	border-bottom: 1px solid #333344 !important;
 	outline:none;
 }
 #search-btn{
@@ -570,7 +569,7 @@ ul.ui-autocomplete {
 /*.ui-autocomplete li a:hover,.ui-autocomplete li a:focus,a.ui-corner-all:hover, .ui-menu .ui-menu-item a.ui-corner-all:focus, .ui-menu .ui-menu-item a.ui-corner-all:active
 {
     color:white;
-    background:#D80053;
+    background:#000000;
     border:none;
     outline:none;
 }*/
@@ -640,7 +639,7 @@ ul.ui-autocomplete {
     margin-left: 4.56%;
     margin-bottom:6px;
     display: inline-block;
-    background-color: #716259;
+    background-color: #333344;
     color: #fff;
     font-weight: normal;
     font-size: 16px;
@@ -723,7 +722,7 @@ ul.ui-autocomplete {
 .valid-step{
 	background-color:transparent;
 	cursor: pointer;
-	border-top:3px solid #716259;
+	border-top:3px solid #333344;
 }
 
 .stage-container {
@@ -734,7 +733,7 @@ ul.ui-autocomplete {
 .step-curr {
 	/*background-color:rgb(218, 209, 203);*/
 	background:#fff;
-	color:rgb(113, 98, 89);
+	color:#333344;
 }
 .cls{
 	position: absolute;
@@ -746,10 +745,10 @@ h4 .glyphicon {
 	font-size:0.8em;
 }
 h4 a{
-	/*color: #716259;*/
+	/*color: #333344;*/
 }
 .stage a{
-	color: rgb(175, 161, 154);
+	color: #eeeeee;
 	font-size:0.8em;	
 }
 .int-viz{
@@ -812,14 +811,14 @@ h4 a{
 	margin-top:10px;
 }
 .bar-value {
-	background-color:rgba(216, 209, 201, 0.6);
+	background-color:#EEEEEE;
 	position:relative;
 	margin:0 auto;
 	cursor:pointer;
 }
 .filtered_month.bar-value, .bar-value:hover {
 	background-color:rgb(216, 209, 201);
-	border: 1px solid #716259;
+	border: 1px solid #333344;
 }
 .bar-key {
 	position:relative;
@@ -857,8 +856,10 @@ h4 a{
 	display:inline;
 	float:none;
     font-weight: bold;
-    font-size: 1.4em;
-    border-color: #1080a0;
+    font-size: 1em;
+    border: none;
+    border-radius: 0;
+    background-color:#657C8F;
 }
 .mod0 .extrainfos {
     vertical-align: bottom;
@@ -874,7 +875,7 @@ text {
 }
 
 .text-container .glyphicon-folder-open, .search .glyphicon-folder-open, .text-container .glyphicon-comment, .search .glyphicon-comment {
-    color: #D80053 !important;
+    color: #000000 !important;
 }
 .text-container .glyphicon-folder-open, .text-container .glyphicon-comment {
     margin-right: 6px;
@@ -887,9 +888,9 @@ text {
     text-align: center;
 }
 .text-container .badge {
-    color: #0505ff;
-    background-color: #d0e0ff;
-    opacity: 0.85;
+    color: #333344;
+    background-color: #eeeeee;
+    opacity: 1;
 }
 .text-container a.badge {
     padding: 2px 8px 5px 8px;
@@ -911,7 +912,7 @@ text {
 .ui-slider-handle{
     width:10px;
     height:15px;
-    background-color: #716259;
+    background-color: #333344;
     position: relative;
     display: block;
     outline: none !important;
@@ -932,7 +933,7 @@ text {
     width:90%;
     float:right;
     text-align: center;
-    color:#716259;
+    color:#333344;
 }
 .ctrl-sort {
     display:none;
@@ -959,12 +960,12 @@ text {
     background-color: #eee;
 }
 .navbar-right span:hover {
-    color: #716259;
+    color: #333344;
 }
 
 .cmd-btn{
     float:right;
-    background-color:#716259 !important;
+    background-color:#333344 !important;
     color:white;
     margin-bottom:10px;
 }
@@ -982,7 +983,7 @@ text {
     font-size:1em;
 }
  .src-fcs{
-    background-color:#716259 !important;
+    background-color:#333344 !important;
     color:white !important;
 }
 
@@ -1042,7 +1043,7 @@ text {
 }
 
 #stepsbar a {
-    color:#AFA19A;
+    color:#888;
     text-decoration: none;
 }
 
@@ -1084,8 +1085,8 @@ text {
   background-color: white;
 }
 .stb-curr-st {
-    opacity:0.7 !important;
-    color:#D80053;
+    opacity:0.9 !important;
+    color:#000000;
 }
 
 .stb-linkstep {
@@ -1109,7 +1110,7 @@ ul.filters li {
 }
 ul.filters li a.badge {
     background-color: #e0e3ff;
-    color: #716259;
+    color: #333344;
     opacity: 0.8;
     margin: 0px 0px 10px -35px;
     padding: 1px 5px 4px 4px;
@@ -1185,16 +1186,38 @@ noscript h2 {
 
 .wide-read{
     display: none;
-    position:relative;
-    color:#666;
-    top:6px;
-    float:right;
-    margin-right:18px;
-}
-.wide-read .glyphicon {
-    padding-left:3px;
-    cursor:pointer;
-}
-.tooltip-inner {background-color: #716259;border-radius:0;border: solid 1px #716259;}
+    position: relative;
+    color: #333344;
+    background-color: #eee;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    
 
-.tooltip.bottom .tooltip-arrow{border-bottom-color:#716259}
+}
+.wide-read div {
+    padding-left:10px;
+    cursor:pointer;
+    max-width:50%;
+    float:left;
+    dispay:  block;
+    margin-right:5px;
+}
+.tooltip-inner {background-color: #333344;border-radius:0;border: solid 1px #333344;}
+
+.tooltip.bottom .tooltip-arrow{border-bottom-color:#333344}
+
+.badge{
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+.popover-title {
+    color: white;
+    font-size: 15px;
+    background-color: #333344;
+    border-radius: 0;
+}
+.popover{
+    border-radius: 0;
+}
