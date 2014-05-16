@@ -329,11 +329,7 @@ var utils, highlight;
 
 		function select(d) {
             d3.event.stopPropagation()
-			$(".text-container").show();
-			d3.selectAll(".actv-amd")
-			.style("fill",color_amd)
-			.style("stroke","none" )
-			.classed("actv-amd",false);
+            utils.resetHighlight('amds');
 
 			d3.json(api_root+d.id_api+'/json',function(error,json){
 				var currAmd = json.amendement,
