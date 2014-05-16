@@ -117,7 +117,6 @@ function(api, $rootScope, $location, $compile) {
             $scope.a = $location.search()['a'];
             $scope.mod="mod2";
 
-
         },
         link : function postLink(scope, element, attrs) {
 
@@ -411,6 +410,8 @@ return {
                 scope.inst=[];
                 var currStage,
                     currInst;
+                $rootScope.lawTitle = data.short_title;
+                $rootScope.pageTitle = $rootScope.pageTitle.replace('undefined', $rootScope.lawTitle);
 
                 data.steps.forEach(function(e,j){
 
