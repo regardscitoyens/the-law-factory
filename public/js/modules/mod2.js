@@ -299,8 +299,7 @@ var utils, highlight;
                   .attr("id", function (d) {
                       return "a_" + d.numero.replace(/[^a-z\d]/ig, '')
                   })
-                  .attr("class", "amd")
-                  .attr("class", function(d) { return utils.slugGroup(d.groupe) + " " + utils.slugGroup(d.sort); })
+                  .attr("class", function(d) { return "amd " + utils.slugGroup(d.groupe) + " " + utils.slugGroup(d.sort); })
                   .style("fill", color_amd)
                   .popover(popover)
                   .on("click", select);
@@ -348,7 +347,7 @@ var utils, highlight;
                 );
 			})
             d3.selectAll("#a_"+d.numero.replace(/[^a-z\d]/ig, ''))
-                .attr("class","actv-amd")
+                .classed("actv-amd", true)
                 .style("stroke", "#D80053")
                 .style("stroke-width", 2);
             $("#text-title").text("Amendement "+d.numero)
