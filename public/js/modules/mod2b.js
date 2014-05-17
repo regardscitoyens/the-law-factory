@@ -278,8 +278,8 @@ sven.viz.streamkey = function(){
                     var div = document.createElement('div');
                     div.className="orat-info";
                     var siz = $(".text-container").width()*0.25;
-                    if(participants[g.key].photo) $(div).append("<a href='"+participants[g.key].link+"'><img src='"+participants[g.key].photo+"/"+parseInt(siz)+"'/></a>");
-                    $(div).append("<p class='orat-name'><b>"+(participants[g.key].photo ? "<a href='"+participants[g.key].link+"'>"+participants[g.key].nom+"</a>" : participants[g.key].nom)+"</b></p>");
+                    if(participants[g.key].photo) $(div).append('<a href="'+participants[g.key].link+'" target="_blank"><img src="'+participants[g.key].photo+"/"+parseInt(siz)+'"/></a>');
+                    $(div).append("<p class='orat-name'><b>"+(participants[g.key].photo ? '<a href="'+participants[g.key].link+'" target="_blank">'+participants[g.key].nom+"</a>" : participants[g.key].nom)+"</b></p>");
                     if(participants[g.key].fonction.length) $(div).append("<p class='orat-fonction'>"+participants[g.key].fonction+"</p>");
                     $(div).append('<p><a class="orat-disc" href="'+g.value.link+'" target="_blank">Lire les interventions</a></p>');
                     $(ordiv).append(div);

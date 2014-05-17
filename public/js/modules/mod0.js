@@ -659,7 +659,7 @@ var drawGantt,
                     extrainfo.append('<p><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(d.total_amendements)+'"></span>&nbsp;&nbsp;'+(d.total_amendements?d.total_amendements:'aucun')+" amendement"+(d.total_amendements>1?'s déposés':' déposé')+"</p>")
                         .append('<p><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(d.total_mots)+'"></span><span>&nbsp;&nbsp;plus de '+mots+" mille mots prononcés lors des débats parlementaires</span></p>")
                         .append(themes)
-                        .append("<p><small>(sources : <a href='" + d.url_dossier_assemblee + "'>dossier Assemblée</a> &mdash; <a href='" + d.url_dossier_senat + "'>dossier Sénat</a>)</small></p>");
+                        .append('<p><small>(sources : <a href="' + d.url_dossier_assemblee + '" target="_blank">dossier Assemblée</a> &mdash; <a href="' + d.url_dossier_senat + '" target="_blank">dossier Sénat</a>)</small></p>');
                     $(".text-container").append(extrainfo);
                     $("a.badge").tooltip();
                 }
