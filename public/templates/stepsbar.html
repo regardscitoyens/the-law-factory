@@ -2,15 +2,15 @@
 
     <div class="stb-stages">
         <div class="stb-stage" style="width:{{(i.num/total)*100}}%" ng-repeat="i in stages">
-            <span ng-show="i.num==1 || (i.name == CMP ? 1.5 : 1) * total > 7*i.num" data-toggle="tooltip" data-placement="bottom" title="{{findLongName(i.name)}}" ng-bind-html-unsafe="findShortName(i.name)"></span>
-            <span ng-hide="i.num==1 || (i.name == CMP ? 1.5 : 1) * total > 7*i.num" ng-bind-html-unsafe="findLongName(i.name)"></span>
+            <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}" ng-bind-html-unsafe="i.short_name"></span>
+            <span ng-hide="i.display_short" ng-bind-html-unsafe="i.long_name"></span>
         </div>
     </div>
 
     <div class="stb-insts">
         <div class="stb-inst {{string_to_slug(i.name)}}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in inst">
-            <span ng-show="i.num==1 || (i.name == CMP ? 1.5 : 1) * total > 7*i.num" data-toggle="tooltip" data-placement="bottom" title="{{findLongName(i.name)}}">{{findShortName(i.name)}}</span>
-            <span ng-hide="i.num==1 || (i.name == CMP ? 1.5 : 1) * total > 7*i.num">{{findLongName(i.name)}}</span>
+            <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}">{{i.short_name}}</span>
+            <span ng-hide="i.display_short">{{i.long_name}}</span>
         </div>
     </div>
 
@@ -19,8 +19,8 @@
 
             <div>
                 <span>
-                    <span ng-show="total>8" data-toggle="tooltip" data-placement="bottom" data-placement="bottom" title="{{stepLegend(i)}}">{{stepLabel(i)}}</span>
-                    <span ng-hide="total>8">{{stepLabel(i)}}</span>
+                    <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" data-placement="bottom" title="{{i.long_name}}">{{i.short_name}}</span>
+                    <span ng-hide="i.display_short">{{i.long_name}}</span>
                     <a ng-hide="i.source_url=='renvoi en commission'" class="stb-linkstep glyphicon glyphicon-link" data-toggle="tooltip" data-placement="bottom" data-placement="bottom" title="Voir la source" href="{{i.source_url}}" target="_blank"></a>
                     <span ng-show="i.source_url=='renvoi en commission'" class="stb-link stb-renvoi glyphicon glyphicon-ban-circle" data-toggle="tooltip" data-placement="bottom" data-placement="bottom" title="Renvoi en commission"></span>
                 </span>

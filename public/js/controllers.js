@@ -30,7 +30,7 @@ angular.module('theLawFactory.controllers', []).
             "1ère lecture": "1<sup>ère</sup> Lect.",
             "2ème lecture": "2<sup>ère</sup> Lect.",
             "nouv. lect.": "Nouv. Lect.",
-            "l. définitive": "Lect. Déf.",
+            "l. définitive": "Lect.&nbsp;Déf.",
             "assemblee": "AN",
             "assemblée nationale": "AN",
             "gouvernement": "Gouv.",
@@ -58,19 +58,27 @@ angular.module('theLawFactory.controllers', []).
             "cmp": "Commission Mixte Paritaire"
         }
 
-        $scope.findShortName = function (l) {
+        $scope.getShortName = function (l) {
             return ($scope.shortNames[l.toLowerCase()] ? $scope.shortNames[l.toLowerCase()] : l);
         }
-        $scope.findLongName = function (l) {
+        $scope.getLongName = function (l) {
             return ($scope.longNames[l.toLowerCase()] ? $scope.longNames[l.toLowerCase()] : l);
+        }
+        $scope.addStageInst = function(currObj) {
+            var obj = $.extend(true, {}, currObj);
+            obj.long_name = $scope.getLongName(obj.name);
+            obj.short_name = $scope.getShortName(obj.name);
+            obj.display_short = (obj.long_name != obj.short_name && $scope.barwidth * obj.num / $scope.total < (obj.name === "CMP" ? 190 : 130));
+            return obj;
+
         }
         $scope.stepLegend = function (el){
             if (el.step==="depot") return (el.auteur_depot == "Gouvernement" ? "Projet de Loi" : "Proposition de Loi");
-            else return $scope.findLongName(el.step);
+            else return $scope.getLongName(el.step);
         }
         $scope.stepLabel = function (el){
             if(el.step==="depot") return (el.auteur_depot == "Gouvernement" ? "PJL" : "PPL");
-            return ($scope.total<10 ?$scope.findLongName : $scope.findShortName)(el.step);
+            return $scope.getShortName(el.step);
         }
 
         $scope.string_to_slug = function (str) {
