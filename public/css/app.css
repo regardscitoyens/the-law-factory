@@ -860,8 +860,10 @@ h4 a{
 	display:inline;
 	float:none;
     font-weight: bold;
-    font-size: 1.4em;
-    border-color: #1080a0;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 0;
+    background-color:#657C8F;
 }
 .mod0 .extrainfos {
     vertical-align: bottom;
@@ -1074,6 +1076,10 @@ text {
     color:white;
 }
 
+.stb-inst.gouvernement {
+    background-color: #cccbb3;
+    color:white;
+}
 .stb-inst.cmp {
     background-color:rgb(231, 221, 158);
     color:white;
