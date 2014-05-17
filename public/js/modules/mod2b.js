@@ -68,7 +68,7 @@ function init(data,step) {
                 toAdd={label:g,value:filtered.value.nb_mots,step:f.step,speakers:filtered.value.orateurs}
                 curr.values.push(toAdd)
             } else {
-                toAdd={label:g,value:1,step:f.step}
+                toAdd={label:g,value:null,step:f.step}
                 curr.values.push(toAdd)
             }
         });
@@ -87,7 +87,7 @@ function drawFlows(top_ordered){
         .target("#viz")
         .height(num*60)
         .width(w)
-        .minHeight(1)
+        .minHeight(8)
         .sorting(top_ordered)
         .init();
     d3.selectAll("g:not(.main-g)").attr("transform","translate("+offset+",0) scale("+(w-offset)/w+",1)");
@@ -117,7 +117,7 @@ sven.viz.streamkey = function(){
         graphWidth = width - margin.left - margin.right,
         graphHeight = height - margin.top - margin.bottom,
         streamWidth = graphWidth - barWidth,
-        filter_small = function(d) {return d['value'] != null && d['value'] > 3};
+        filter_small = function(d) {return d['value'] != null};
 
     streamkey.data = function(x){
         if (!arguments.length) return data;
@@ -385,13 +385,10 @@ sven.viz.streamkey = function(){
     //...and propagate it to other
     for (j = 0; j < m; ++j) {
         o = y0[j];
-        data[j][0]['y0'] = o;
-        data[j][0]['y'] = minHeightScale(data[j][0]['y']);
 
-        for (i = 1; i < n; i++){
-            if (data[j][i-1]['value'] != null)
-                data[j][i]['y'] = minHeightScale(data[j][i]['y'])
-            if (data[j][i-1]['value'] != null)
+        for (i = 0; i < n; i++){
+            data[j][i]['y'] = minHeightScale(data[j][i]['y'])
+            if (i && data[j][i-1]['value'] != null)
                 o += data[j][i-1]['y'] + scaledBarPadding;
             data[j][i]['y0'] = o;
         }
