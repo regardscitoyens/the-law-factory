@@ -390,14 +390,16 @@ ins {
     padding-top: 0.8%;
     margin-bottom: 30px;
 }
-
 .leg-item{
 	float:left;
-	width:12%;
+	width: 12%;
 	margin-top:5px;
-	margin-left:25px;
+	margin-left:2%;
 }
-
+.others .leg-item {
+    min-width: 12%;
+    width: auto;
+}
 .leg-value{
     width:18px;
 	height:18px;
