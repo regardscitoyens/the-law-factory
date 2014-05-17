@@ -393,7 +393,8 @@ var stacked;
 					} else {*/
 
 						c = (d3.select(".curr"))
-						cur = c.datum();
+						if (c.empty()) return;
+                        cur = c.datum();
 
 						//LEFT
 						if (d3.event.keyCode == 37) {
@@ -459,7 +460,7 @@ var stacked;
 								}
 							}
 							//d3.select(el).each(onclick);
-                            $("#viz").animate({ scrollTop: elm.node().getBBox().y -20 });
+                            if (elm) $("#viz").animate({ scrollTop: elm.node().getBBox().y -20 });
 
 						}
 
