@@ -7,6 +7,7 @@ angular.module('theLawFactory.controllers', []).
 
         $scope.error = {}
 
+        $scope.spinner = null;
         $scope.spinner_opts = {
             lines: 13, // The number of lines to draw
             length: 20, // The length of each line
@@ -25,6 +26,20 @@ angular.module('theLawFactory.controllers', []).
             top: '50%', // Top position relative to parent
             left: '50%' // Left position relative to parent
         };
+        $scope.startSpinner = function(divid) {
+            if (!divid) divid = 'preload';
+            $('#'+divid).show();
+            if ($scope.spinner != null) return;
+            var target = document.getElementById(divid);
+            $scope.spinner = new Spinner($scope.spinner_opts).spin(target);
+        }
+        $scope.stopSpinner = function(divid) {
+            if (!divid) divid = 'preload';
+            $('#'+divid).hide();
+            if ($scope.spinner == null) return;
+            $scope.spinner.stop();
+            $scope.spinner = null;
+        }
 
         $scope.shortNames = {
             "1ère lecture": "1<sup>ère</sup> Lect.",

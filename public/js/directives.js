@@ -87,14 +87,13 @@ function(api, $rootScope, $location, $compile) {
 
             function update() {
 
-                var target = document.getElementById('preload');
-                var spinner = new Spinner(scope.spinner_opts).spin(target);
+                scope.startSpinner();
 
                 api.getArticle(l).then(function(data) {
                     $rootScope.lawTitle = data.short_title
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Articles | ";
                         d3.select(element[0]).datum(data).call(mod1)
-                    spinner.stop();
+                    scope.stopSpinner();
                 }, function(error) {
                     console.log(error);
                     scope.error = error
@@ -126,8 +125,8 @@ function(api, $rootScope, $location, $compile) {
 
             function update() {
 
-                var target = document.getElementById('preload');
-                var spinner = new Spinner(scope.spinner_opts).spin(target);
+                scope.startSpinner();
+
                 if ($location.search()['s'] != null) api.getAmendement(scope.l, $location.search()['s'] ).then(function(data) {
                     scope.data = data;
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Amendements | ";
@@ -136,7 +135,7 @@ function(api, $rootScope, $location, $compile) {
                     if ($location.search()['a']!=null)
                         selectRow($location.search()['a'],true);
 
-                    spinner.stop();
+                    scope.stopSpinner();
 
                 }, function(error) {
                     scope.error = error
@@ -163,8 +162,8 @@ function(api, $rootScope, $location, $compile) {
             if ($location.search()['l'] != null)
                 scope.l = $location.search()['l'];
             function update() {
-                var target = document.getElementById('preload');
-                var spinner = new Spinner(scope.spinner_opts).spin(target);
+
+                scope.startSpinner();
 
                 if ($location.search()['s'] != null) {
 
@@ -173,7 +172,7 @@ function(api, $rootScope, $location, $compile) {
                         $rootScope.pageTitle =  $rootScope.lawTitle + " - Débats | ";
                         init(data, $location.search()['s'])
 
-                        spinner.stop();
+                        scope.stopSpinner();
 
                         if($("svg").height()<$("#viz").height()) {
                            var offs=($("#viz").height() - $("svg").height())/2;
@@ -213,8 +212,7 @@ function(api, $rootScope, $location, $compile) {
 
             function update() {
 
-                var target = document.getElementById('preload');
-                var spinner = new Spinner(scope.spinner_opts).spin(target);
+                scope.startSpinner();
 
                 api.getStats().then(function(data) {
                     d3.select(element[0]).datum(data).call(mod0_bars)
@@ -226,7 +224,7 @@ function(api, $rootScope, $location, $compile) {
                 api.getDossiers().then(function(data) {
 
                     d3.select(element[0]).datum(data).call(mod0)
-                    spinner.stop();
+                    scope.stopSpinner();
 
                 }, function(error) {
                     console.log(error)
