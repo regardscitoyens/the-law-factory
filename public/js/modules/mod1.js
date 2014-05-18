@@ -10,7 +10,13 @@ var valign, stacked, utils;
         utils = $(".mod1").scope();
 
         function titre_etape(article) {
-            return article['id_step'].split('_').slice(1,4).map(function(d) { return utils.getLongName(d);}).join(' ⋅ ');
+            return article['id_step']
+                .replace('CMP_CMP', 'CMP')
+                .split('_')
+                .slice(1,4)
+                .map(function(d) {
+                     return utils.getLongName(d);}
+                ).join(' ⋅ ');
         }
 
         function clean_premier(s) {
@@ -51,12 +57,13 @@ var valign, stacked, utils;
             return res;
         }
 
-        function titre_article(article, short_labels) {
-            var num = (article.newnum != undefined ? article.newnum : article.article);
-            if (short_labels) return "A." + num.replace(/(\d)er?/, '$1');
-            return ("Article ") + num +
-                (article.newnum != undefined ? " (" + article.article + ")" : "")
-                .replace(/(\d)er?/, '$1<sup>er</sup>');
+        function titre_article(article, length) {
+            var num = (article.newnum != undefined ? article.newnum : article.article)
+                    .replace(/(\d)er?/, '$1'),
+                newnum = (article.newnum != undefined ? " (" + article.article + ")" : "")
+                    .replace(/(\d)er?/, '$1<sup>er</sup>'),
+                res = (length ? (length == 1 ? "Art." : "Article ") : "A ")
+            return res + num + newnum;
         }
 
         function section_opacity(s) {
@@ -128,12 +135,12 @@ var valign, stacked, utils;
                         return (test_section_details(section, etape, field) ? data.sections[section][etape][field] : "");
                     },
                     format_section = function(obj, length) {
-                        if (obj.section && obj.section.lastIndexOf("A", 0) === 0)
-                            return titre_article(obj, (!length));
-                        var num = obj.section;
-                        if (length < 2 && num)
-                            num = sub_section(num);
-                        return titre_section(num, length);
+                        var sec = (obj.section ? obj.section : obj);
+                        if (sec.lastIndexOf("A", 0) === 0)
+                            return titre_article(obj, length);
+                        if (length < 2 && sec)
+                            sec = sub_section(sec);
+                        return titre_section(sec, length);
                     };
 
 
@@ -201,7 +208,7 @@ var valign, stacked, utils;
                     else if (d.id_step.substr(-5) != "depot") div.append("p").html("Modifications : " + d3.round(d['n_diff'] * 100, 2) + "&nbsp;%");
                     div.append("p").html("<small>Longueur du texte : " + d['length'] + " caractères</small>");
                     return {
-                        title : clean_premier(titre_article(d, false)),
+                        title : clean_premier(titre_article(d, 2)),
                         content : div,
                         placement : "mouse",
                         gravity : "right",
@@ -315,7 +322,14 @@ var valign, stacked, utils;
 						.attr("font-size", function(d){return (d.section === 'echec' ? '10px' : '9px')})
 						.attr("font-weight", "bold")
 						.style("fill", 'white')
-						.text(function(d){return data.sections && d.section === 'echec' ? d.status : clean_premier(titre_section(sub_section(test_section_details(d.section, d.id_step, 'newnum') ? data.sections[d.section][d.id_step]['newnum'] : d.section), (colwidth < 120 ? (colwidth < 80 ? 0 : 1) : 2)))})
+						.text(function(d){
+                            if (data.sections && d.section === 'echec') return d.status;
+                            var length = (colwidth < 120 ? (colwidth < 80 ? 0 : 1) : 2),
+                                sec; 
+                            if (d.section.lastIndexOf("A", 0) === 0) sec = d;
+                            else sec = sub_section(test_section_details(d.section, d.id_step, 'newnum') ? data.sections[d.section][d.id_step]['newnum'] : d.section)
+                            return clean_premier(format_section(sec, length));
+                        })
 						.popover(function(d){return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))})
                         .filter(function(d){return d.section.lastIndexOf("A", 0) === 0}).on("click", onclick);
 					}
@@ -562,7 +576,7 @@ var valign, stacked, utils;
                         $(".art-meta").empty();
                         $(".art-txt").empty();
                         $(".wide-read").show();
-                        $("#text-title").html(titre_article(d));
+                        $("#text-title").html(titre_article(d, 2));
                         var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " ("+format_section(d, 1)+')' : format_section(d, 2)) + "</b></p>" : "") +
                         "<p><b>" + titre_etape(d) + "</b></p>" +
                         (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ? 
