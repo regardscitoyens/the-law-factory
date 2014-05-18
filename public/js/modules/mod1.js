@@ -547,14 +547,15 @@ var valign, stacked, utils;
                         hsl = d3.rgb(d3.select(this).style("fill")).hsl()
                         hsl.s += 0.1;
                         return hsl.rgb()
-                    })
+                    }).style("stroke-dasharray", [3, 3]);
+                    d3.select(this).style("stroke-dasharray", "none");
 
                     d3.selectAll("line")
                     .filter(function(e){return e.article==d.article})
-                    .style("stroke", "#D80053");
+                    .style("stroke", "#D80053")
+                    .style("stroke-dasharray", [3, 3]);
 
                     d3.rgb(d3.select(this).style("fill")).darker(2)
-                    d3.select(this).style("stroke-dasharray", [3, 3])
 
                     $(".art-txt").animate({opacity: 0}, 100, function() { 
                         $("#text-title").empty();
