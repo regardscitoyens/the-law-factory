@@ -81,10 +81,11 @@ h1,h2,h3,h4 {
 }
 
 .article {
-box-shadow: inset 10px 10px 10px #000;
--webkit-box-shadow: inset 10px 10px 10px #000;
--moz-box-shadow: inset 10px 10px 10px #000;
--o-box-shadow: inset 10px 10px 10px #000;
+    box-shadow: inset 10px 10px 10px #000;
+    -webkit-box-shadow: inset 10px 10px 10px #000;
+    -moz-box-shadow: inset 10px 10px 10px #000;
+    -o-box-shadow: inset 10px 10px 10px #000;
+    cursor: pointer;
 }
 
 .subheader li{
@@ -824,11 +825,15 @@ h4 a{
 	text-align: center;
     margin-top: 10%;
 }
+.mod1 .gotomod {
+    margin-top: 7%;
+    margin-bottom: 8%;
+}
 .gotomod a.btn-info {
 	display:inline;
 	float:none;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.1em;
     border: none;
     border-radius: 0;
     background-color:#657C8F;

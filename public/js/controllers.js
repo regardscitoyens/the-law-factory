@@ -45,43 +45,42 @@ angular.module('theLawFactory.controllers', []).
             });
         }
 
+        $scope.hashName = function(n){
+            return n.replace(/\W/g, '').toLowerCase();
+        }
         $scope.shortNames = {
-            "1ère lecture": "1<sup>ère</sup> Lect.",
-            "2ème lecture": "2<sup>ère</sup> Lect.",
-            "nouv. lect.": "Nouv. Lect.",
-            "l. définitive": "Lect.&nbsp;Déf.",
+            "1relecture": "1<sup>ère</sup> Lect.",
+            "2melecture": "2<sup>ère</sup> Lect.",
+            "nouvlect": "Nouv. Lect.",
+            "ldfinitive": "Lect.&nbsp;Déf.",
             "assemblee": "AN",
-            "assemblée nationale": "AN",
             "gouvernement": "Gouv.",
             "commission": "Com.",
             "hemicycle": "Hém.",
-            "depots": "Dépôts",
             "depot": "Dépôt",
             "senat": "Sénat",
-            "sénat": "Sénat"
+            "cmp": "C.M.P.",
         }
 
         $scope.longNames = {
-            "1ère lecture": "1<sup>ère</sup> Lecture",
-            "2ème lecture": "2<sup>ère</sup> Lecture",
-            "nouv. lect.": "Nouvelle Lecture",
-            "l. définitive": "Lecture Définitive",
+            "1relecture": "1<sup>ère</sup> Lecture",
+            "2melecture": "2<sup>ère</sup> Lecture",
+            "nouvlect": "Nouvelle Lecture",
+            "ldfinitive": "Lecture Définitive",
             "assemblee": "Assemblée",
-            "assemblée nationale": "Assemblée",
             "gouvernement": "Gouvernement",
             "commission": "Commission",
             "hemicycle": "Hémicyle",
-            "senat": "Sénat",
-            "depots": "Dépôts",
             "depot": "Dépôt",
+            "senat": "Sénat",
             "cmp": "Commission Mixte Paritaire"
         }
 
         $scope.getShortName = function (l) {
-            return ($scope.shortNames[l.toLowerCase()] ? $scope.shortNames[l.toLowerCase()] : l);
+            return ($scope.shortNames[$scope.hashName(l)] ? $scope.shortNames[$scope.hashName(l)] : l);
         }
         $scope.getLongName = function (l) {
-            return ($scope.longNames[l.toLowerCase()] ? $scope.longNames[l.toLowerCase()] : l);
+            return ($scope.longNames[$scope.hashName(l)] ? $scope.longNames[$scope.hashName(l)] : l);
         }
         $scope.addStageInst = function(currObj) {
             var obj = $.extend(true, {}, currObj);

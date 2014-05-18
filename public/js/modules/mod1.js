@@ -10,35 +10,43 @@ var valign, stacked, utils;
         utils = $(".mod1").scope();
 
         function titre_etape(article) {
-            return article['id_step'].split('_').slice(1,4).join(' ⋅ ')
-                .replace(/(\d)([eéè][rm]e?)/, '$1<sup>$2</sup> ')
-                .replace('nouv.lect.', 'nouvelle lecture')
-                .replace('l.définitive', 'lecture définitive')
-                .replace('senat', 'Sénat')
-                .replace('assemblee', 'AN')
-                .replace('CMP ⋅ CMP', 'CMP')
-                .replace('hemicycle', 'hémicycle')
-                .replace('depot', 'dépôt');
+            return article['id_step'].split('_').slice(1,4).map(function(d) { return utils.getLongName(d);}).join(' ⋅ ');
         }
 
         function clean_premier(s) {
             return (s ? s.replace('<sup>er</sup>', '') : '');
         }
 
-        function titre_section(s, short_labels) {
+        function split_section(s) {
+            s = s.replace(/<[^>]*>/g, '');
+            return s.split(/([LTCVS]+\d+[\s<\/>a-z]*)/);
+        }
+        function sub_section(s) {
+            s = split_section(s);
+            return s.length > 1 ? s[s.length-2] : s[0];
+        }
+        function num_sub_section(s) {
+            return sub_section(s).replace(/^[LTCVS]+/, '');
+        }
+        function titre_parent(s, length) {
+            s = split_section(s);
+            if (s.length > 1) s = s.slice(0, s.length-2)
+            return titre_section(s.join(''), length);
+        }
+        function titre_section(s, length) {
             if (!s) return s;
             var res = "",
-                s = s.split(/([LTCVS]+\d+[\sa-z]*)/);
+                s = split_section(s);
             for (var i in s) if (s[i]) {
                 res += (res ? " ⋅ " : "");
                 res += s[i].replace(/([LTCVS]+)(\d+e?r?)\s*([\sa-z]*)/, '$1 $2 $3')
                     .replace(/(\d)er?/g, '$1<sup>er</sup>')
-                    .replace("SS", (short_labels ? "S-Sec." : "Sous-section"))
-                    .replace("S", (short_labels ? "Sect." : "Section"))
-                    .replace("C", (short_labels ? "Chap." : "Chapitre"))
-                    .replace("L", "Livre")
-                    .replace("V", (short_labels ? "Vol." : "Volume"))
-                    .replace("T", "Titre");
+                    .replace(/^SS( \d)/, (length ? (length == 1 ? "S-Sec." : "Sous-section") : "SS") + '$1')
+                    .replace(/^S( \d)/, (length ? (length == 1 ? "Sect." : "Section") : "S") + '$1')
+                    .replace("C ", (length ? (length == 1 ? "Chap." : "Chapitre") : "C") + " ")
+                    .replace("V ", (length ? (length == 1 ? "Vol." : "Volume") : "V") + " ")
+                    .replace("L ", (length ? "Livre" : "L") + " ")
+                    .replace("T ", (length ? "Titre" : "T") + " ");
             }
             return res;
         }
@@ -51,22 +59,13 @@ var valign, stacked, utils;
                 .replace(/(\d)er?/, '$1<sup>er</sup>');
         }
 
-        function format_section(obj, length) {
-            if (obj.section && obj.section.lastIndexOf("A", 0) === 0)
-                return titre_article(obj, (!length));
-            var res = (obj.section ? obj.section : obj.newnum);
-            if (length < 2 && res)
-                res = res.replace(/^.*([LTCVS]+\d+[\sa-z]*)$/, '$1');
-            return titre_section(res, (!length));
-        }
-
         function section_opacity(s) {
             if (!s) return 0.95;
             if (s === "echec") return 0.35;
             if (s.lastIndexOf("A", 0) === 0)
                 return 0.65;
             try {
-                return 1.25-0.3*s.match(/[LCVTS]+\d+/g).length;
+                return 0.95-0.1*(split_section(s).length-1);
             } catch(e) {
                 console.log("ERREUR section with bad id:", s, e);
                 return 0.95;
@@ -127,6 +126,14 @@ var valign, stacked, utils;
                     },
                     get_section_details = function(section, etape, field) {
                         return (test_section_details(section, etape, field) ? data.sections[section][etape][field] : "");
+                    },
+                    format_section = function(obj, length) {
+                        if (obj.section && obj.section.lastIndexOf("A", 0) === 0)
+                            return titre_article(obj, (!length));
+                        var num = obj.section;
+                        if (length < 2 && num)
+                            num = sub_section(num);
+                        return titre_section(num, length);
                     };
 
 
@@ -175,8 +182,8 @@ var valign, stacked, utils;
 					right : 10,
 					bottom : 20,
 					left : 0
-				}, width = $("#viz").width();
-
+				}, width = $("#viz").width(),
+				colwidth = width / columns - 30;
 				//init coordinates
 				setCoordinates();
 
@@ -187,13 +194,12 @@ var valign, stacked, utils;
                 function article_hover(d) {
                     var div = d3.select(document.createElement("div")).style("width", "100%");
                     if (d.section.lastIndexOf("A", 0) !== 0)
-                      div.append("p").html("<small>"+(test_section_details(d.section, d.id_step, 'newnum') ? format_section(data.sections[d.section][d.id_step], 2) + " ("+format_section(d, 0)+')' : format_section(d, 2))+"</small>");
+                        div.append("p").html("<small>"+(test_section_details(d.section, d.id_step, 'newnum') ? titre_section(data.sections[d.section][d.id_step]['newnum'], 2) + " ("+format_section(d, 1)+')' : format_section(d, 2))+"</small>");
                     div.append("p").html("<small>"+titre_etape(d)+"</small>");
-                    if (d['status'] != "sup") {
-                        if (d['n_diff'] == 0) div.append("p").text("Non modifié")
-                        else if (d.status != "new" && d.id_step.substr(-5) != "depot") div.append("p").html("<small>Modifications : " + d3.round(d['n_diff'] * 100, 2) + " %</small>")
-                        div.append("p").html("<small>Longueur du texte : " + d['length'] + " caractères</small>")
-                    } else div.append("p").text("Supprimé à cette étape");
+                    if (d.n_diff == 0) div.append("p").text(d.status == "sup" ? "Supprimé à cette étape" : "Aucune modification");
+                    else if (d.n_diff == 1 && d.id_step.substr(-5) !== "depot") div.append("p").text((d.prev_step ? "Réintroduit" : "Ajouté") + " à cette étape");
+                    else if (d.id_step.substr(-5) != "depot") div.append("p").html("Modifications : " + d3.round(d['n_diff'] * 100, 2) + "&nbsp;%");
+                    div.append("p").html("<small>Longueur du texte : " + d['length'] + " caractères</small>");
                     return {
                         title : clean_premier(titre_article(d, false)),
                         content : div,
@@ -205,12 +211,27 @@ var valign, stacked, utils;
 				}
 
                 function section_hover(d) {
-                    var div = d3.select(document.createElement("div")).style("width", "100%");
+                    var title,
+                        title_details,
+                        div = d3.select(document.createElement("div")).style("width", "100%");
                     div.append("p").html("<small>"+titre_etape(d)+"</small>");
-                    if (test_section_details(d.section, d.id_step, 'title') && d.section == "echec") div.append("p").html(get_section_details(d.section, d.id_step, 'title'));
-                    else div.append("p").html("<small>"+(test_section_details(d.section, d.id_step, 'newnum' ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), false)+" ("+format_section(d, 0)+')' : titre_section(d.section, false))+"</small>"));
+                    if (test_section_details(d.section, d.id_step, 'title') && d.section == "echec") {
+                        title = d.status;
+                        title_details = get_section_details(d.section, d.id_step, 'title');
+                    } else {
+                        if (test_section_details(d.section, d.id_step, 'newnum')) {
+                            var newnum = get_section_details(d.section, d.id_step, 'newnum');
+                            title = titre_section(newnum, 2) + " (" + num_sub_section(d.section) + ")";
+                            title_details = titre_section(newnum.replace(sub_section(newnum), ''), 2) + " (" + format_section(d, 1) + ')';
+                        } else {
+                            title = titre_section(d.section, 2);
+                            title_details = titre_parent(d.section, 2);
+                        }
+                        title += (test_section_details(d.section, d.id_step, 'title') ? " : " + get_section_details(d.section, d.id_step, 'title') : "");
+                    }
+                    if (title_details) div.append("p").html("<small>" + title_details + "</small>");
                     return {
-                        title : (data.sections && d.section == "echec" ? d.status : clean_premier(format_section(data.sections && data.sections[d.section] && data.sections[d.section][d.id_step] ? data.sections[d.section][d.id_step] : "undefined"), 1) + (test_section_details(d.section, d.id_step, 'title') ? " : " + get_section_details(d.section, d.id_step, 'title') : "")),
+                        title : clean_premier(title),
                         content : div,
                         placement : "mouse",
                         gravity : "right",
@@ -231,7 +252,7 @@ var valign, stacked, utils;
 						.attr("x", function(d){return d.x})
 						.attr("y", function(d){return d.y})
 						.attr("class","article")
-						.attr("width", width / columns - 30)
+						.attr("width", colwidth)
 						.attr("height", function(d){return lerp(d.length)})
 						.call(styleRect)
 						.on("click",onclick)
@@ -272,7 +293,7 @@ var valign, stacked, utils;
 						.attr("x", function(d){return d.x})
 						.attr("y", function(d){return d.y-15})
 						.attr("class","header")
-						.attr("width", width / columns - 30)
+						.attr("width", colwidth)
 						.attr("height", function(d){return (d.section === 'echec' ? maxy-50 : 15)})
 						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#2553C2")})
 						.style("stroke", "none")
@@ -285,7 +306,7 @@ var valign, stacked, utils;
 						group.selectAll(".head-lbl")
 						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head)}))
 						.enter().append("text")
-						.attr("x", function(d){return d.x + width / columns / 2 - 17})
+						.attr("x", function(d){return d.x - 2 + colwidth / 2})
 						.attr("y", function(d){return d.y - (d.section === 'echec' ? 2 : 4)})
 						.attr("class", "head-lbl")
 						.attr("font-family", "sans-serif")
@@ -294,7 +315,7 @@ var valign, stacked, utils;
 						.attr("font-size", function(d){return (d.section === 'echec' ? '10px' : '9px')})
 						.attr("font-weight", "bold")
 						.style("fill", 'white')
-						.text(function(d){return (data.sections && d.section === 'echec' ? d.status : clean_premier(format_section(test_section_details(d.section, d.id_step, 'newnum') ? data.sections[d.section][d.id_step] : d, (width < 120 * columns ? 0 : 1))))})
+						.text(function(d){return data.sections && d.section === 'echec' ? d.status : clean_premier(titre_section(sub_section(test_section_details(d.section, d.id_step, 'newnum') ? data.sections[d.section][d.id_step]['newnum'] : d.section), (colwidth < 120 ? (colwidth < 80 ? 0 : 1) : 2)))})
 						.popover(function(d){return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))})
                         .filter(function(d){return d.section.lastIndexOf("A", 0) === 0}).on("click", onclick);
 					}
@@ -309,7 +330,7 @@ var valign, stacked, utils;
 				})).enter();
 
 				lines.append("line")
-				.attr("x1", function(d){return d.x + width / columns - 30})
+				.attr("x1", function(d){return d.x + colwidth;})
 				.attr("y1", function(d){return d.y + (lerp(d.length)) / 2})
 				.attr("x2", function(d){return bigList.filter(function(e){return d.article == e.article && d.step_num==e.prev_step})[0].x})
 				.attr("y2", function(d){
@@ -541,14 +562,13 @@ var valign, stacked, utils;
                         $(".art-txt").empty();
                         $(".wide-read").show();
                         $("#text-title").html(titre_article(d));
-
-                        $(".art-meta").html(
-                            (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>Section :</b> " + format_section(d, 2) + "</p>" : "") +
-                            "<p><b>Étape :</b> " + titre_etape(d) + "</p>" +
-                            (d['status'] == "sup" ? "<p><b>Supprimé à cette étape.</b></p>" : "") +
-                            (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ? '<p><a href="amendements?l='+id+'&s='+ d.directory+'&a=article_'+ d.article.toLowerCase().replace(/ |'/g, '_')+'">Explorer les amendements</a></p>' : '') +
-                            "<p><b>Alinéas :</b></p>"
-                        )
+                        var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " ("+format_section(d, 1)+')' : format_section(d, 2)) + "</b></p>" : "") +
+                        "<p><b>" + titre_etape(d) + "</b></p>" +
+                        (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ? 
+                            '<div class="gotomod"><a class="btn btn-info" href="amendements?l='+id+'&s='+ d.directory+'&a=article_'+ d.article.toLowerCase().replace(/ |'/g, '_')+'">Explorer les amendements</a></div>' : '') +
+                            (d.n_diff == 1 && d.id_step.substr(-5) != "depot" ? "<p><b>"+(d.prev_step ? "Réintroduit" : "Ajouté") + " à cette étape</b></p>" : "") +
+                            (d.n_diff == 0 ? "<p><b>"+ (d.status == "sup" ? "Supprimé" : "Aucune modification") + " à cette étape</b></p>" : "");
+                        $(".art-meta").html(descr);
 
                         if (spin) {
                             setTimeout(function() {
