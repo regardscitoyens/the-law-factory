@@ -381,7 +381,7 @@ ins {
     padding: 15px;
     margin-top: 1px;
     float: right;
-	width:88.6%;
+	width:88.64%;
     position: relative;
     padding-bottom: 0.9%;
     padding-top: 0.8%;
@@ -663,21 +663,24 @@ ul.ui-autocomplete {
 	height:80%;
 }
 
+.mod0 #commands{
+    width: 10.34%;
+}
 .mod0 #legend {
-	width:88.64%;
+	width:88.34%;
     height: 6%;
-    background:white;
+    float: left;
+    background-color:white;
     overflow-x:hidden;
     overflow-y:hidden;
-    float: right;
 }
 .mod0 #gantt {
 	height:94%;
-	width:88.64%;
-	float:right;
-	overflow-x:auto;
-	overflow-y:auto;
-    background:white;
+	width:88.34%;
+	float:left;
+    background-color:white;
+    overflow-x:auto;
+    overflow-y:auto;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -685,8 +688,12 @@ ul.ui-autocomplete {
     -ms-user-select: none;
     user-select: none;
 }
-#gantt svg, #legend svg {
-    padding-left: 10px;
+.mod0 #margin{
+    float:left;
+    width:0.3%;
+    height:100%;
+    z-index:0;
+    background-color:white;
 }
 /*#gantt svg g text {
     font-family:"Oxygen", sans-serif !important;
@@ -1166,7 +1173,6 @@ noscript h2 {
     z-index:0;
     background-color:white;
 }
-
 .mod0 .badge .glyphicon {
     top:0.2em;
 }
