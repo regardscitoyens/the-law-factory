@@ -1,5 +1,6 @@
 var aligned = true;
 var valign, stacked, utils;
+var textArticles;
 
 (function() {
 
@@ -8,6 +9,7 @@ var valign, stacked, utils;
 	thelawfactory.mod1 = function() {
 
         utils = $(".mod1").scope();
+        textArticles = {};
 
         function titre_etape(article) {
             return article['id_step']
@@ -97,8 +99,8 @@ var valign, stacked, utils;
 		function vis(selection) {
 			selection.each(function(data) {
 
-                var re= /l\=(.*)/;
-                var id= location.search.match(re)[1];
+                var re = /l\=(.*)/;
+                var id = location.search.match(re)[1];
 
 				var bigList=[]
 				var art = d3.values(data.articles);
@@ -122,9 +124,29 @@ var valign, stacked, utils;
 					return ao / a.steps.length - bo / b.steps.length;
 				});
 
+                // Dynamic load of articles text at each step
+                function load_texte_articles() {
+                    var delay = 500;
+                    d3.set(bigList.map(function(d){return d.directory;})).values().sort()
+                    .forEach(function(d) {
+                        delay += 50;
+                        setTimeout(function() {
+                            d3.json(encodeURI(APIRootUrl + id + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
+                                json.articles.forEach(function (a) {
+                                    if (!textArticles[a.titre]) textArticles[a.titre] = {};
+                                    textArticles[a.titre][d] = []
+                                    Object.keys(a.alineas).sort().forEach(function (k) {
+                                        textArticles[a.titre][d].push(a.alineas[k]);
+                                    });
+                                });
+                            });
+                        }, delay);
+                    });
+                }
+
 
 				//compute stages and sections
-				var stages = computeStages(),
+                var stages = computeStages(),
 				    columns = stages.length,
 				    sections = computeSections(),
 				    sectJump = 40,
@@ -148,27 +170,23 @@ var valign, stacked, utils;
                     $("#display_menu").parent().hide();
 
 				art.forEach(function(d, i) {
-
 					d.steps.forEach(function(f, j) {
 						f.textDiff = "";
 						f.article = d.titre;
 						f.section = d.section;
                         f.prev_step = null;
+                        f.prev_dir = null;
 						f.sect_num=findSection(f.section)
 					    f.step_num=findStage(f.id_step)
                         if (j != 0 && f.id_step.substr(-5) != "depot") {
                             k = j-1;
                             while (k > 0 && d.steps[k].status === "echec") k--;
                             f.prev_step = d.steps[k].step_num;
-                        }
-                        if (j == 0 || f.id_step.substr(-5) == "depot" ||( f.n_diff == 0 && f.status != "sup")) {
-                            f.textDiff = "<ul><li><span>" + $.map(f.text, function(i) {
-                                    return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
-                                }).join("</span></li><li><span>") + "</span></li></ul>";
+                            f.prev_dir = d.steps[k].directory;
                         }
 						bigList.push(f);
 					});
-				})
+				});
 
 				var maxlen = d3.max(art, function(d) {
 					return d3.max(d.steps, function(e) {
@@ -377,7 +395,6 @@ var valign, stacked, utils;
 					return -1;
 				}
 
-
 				function computeStages() {
 					stag = []
 					art.forEach(function(e, i) {
@@ -524,8 +541,8 @@ var valign, stacked, utils;
 							if(!he) he=0;
 							a.he=parseFloat(he)
 						}
-					return a.he + a.y + (lerp(a.length)) / 2;
-				})
+                        return a.he + a.y + (lerp(a.length)) / 2;
+                    });
 				}
 
 
@@ -534,21 +551,22 @@ var valign, stacked, utils;
                     $("#display_menu .chosen").removeClass('chosen');
                     $("#display_menu #dm-stacked").addClass('chosen');
 					d3.selectAll(".group").transition().duration(500)
-					.attr("transform","translate(0,0)")
+                        .attr("transform","translate(0,0)");
 
 					d3.selectAll("line").transition().duration(500)
 						.attr("y1", function(d) {return d.y + (lerp(d.length)) / 2})
 						.attr("y2", function(d){
 							var a=bigList.filter(function(e){return e.article===d.article && e.prev_step==d.step_num})[0]
 							return a.y + (lerp(a.length)) / 2;
-						})
-					}
+						});
+                }
 
 				//on click behaviour
 				function onclick(d) {
-                    var spin = ((d.status == "sup" || d.n_diff) && !d.textDiff);
+                    var spin = !d.textDiff && d.prev_dir && (d.status == "sup" || d.n_diff) && d.id_step.substr(-5) != "depot";
                     if (spin) utils.startSpinner('load_art');
-                    d3.selectAll("line").style("stroke", "#d0d0e0");
+                    d3.selectAll("line").style("stroke", "#d0d0e0")
+                        .style("stroke-dasharray", "none");
                     //STYLE OF CLICKED ELEMENT AND ROW
                     //Reset rectangles
                     d3.selectAll(".article").call(styleRect);
@@ -587,11 +605,10 @@ var valign, stacked, utils;
 
                         if (spin) {
                             setTimeout(function() {
-                                var lasttxt=bigList.filter(function(e){return e.article===d.article && d.prev_step==e.step_num})[0].text;
                                 var dmp = new diff_match_patch();
                                 dmp.Diff_Timeout = 1;
                                 dmp.Diff_EditCost = 25;
-                                var diff = dmp.diff_main(lasttxt.join("\n"), d.text.join("\n"));
+                                var diff = dmp.diff_main(textArticles[d.article][d.prev_dir].join("\n"), textArticles[d.article][d.directory].join("\n"));
                                 dmp.diff_cleanupEfficiency(diff);
                                 d.textDiff = "<ul><li>";
                                 d.textDiff += diff_to_html(diff)
@@ -601,17 +618,23 @@ var valign, stacked, utils;
                                     $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
                                 }, 'load_art');
                             }, 0);
-                        } else $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
+                        } else {
+                            if (!d.textDiff) d.textDiff = "<ul><li><span>" + $.map(textArticles[d.article][d.directory], function(i) {
+                                return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
+                            }).join("</span></li><li><span>") + "</span></li></ul>";
+                            $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
+                        }
                     });
                 }
 
-				$(document).ready(function() {
+                $(document).ready(function() {
                     if (aligned) valign();
                     else stacked();
-				});
+                    load_texte_articles();
+                });
 
-		});
+            });
+		}
+        return vis;
 	};
-	return vis;
-};
 })();
