@@ -468,7 +468,10 @@ ins {
     color:white;
     line-height:75px;
 }
-
+.btn-group.open .dropdown-toggle {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
 .dd-btn>.btn:first-child:not(:last-child) {
 	color: #716259;
     background: #FFFFFB;
@@ -477,6 +480,7 @@ ins {
 .dropdown-menu {
     top: 0px;
     left: 100%;
+    border-radius: 0;
 }
 #themes.dropdown-menu {
     top: -100px;
