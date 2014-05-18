@@ -417,17 +417,6 @@ ins {
 	font-size: 0.9em;
 }
 
-.end-tip{
-	height:20px;
-	background-color:#F9F7F8;
-	position:absolute;
-	bottom:0px;
-	width:100%;
-	background-image:url('../img/down.png');
-	background-repeat:no-repeat;
-	background-position:	center center;
-	display:none;
-}
 .menu-hide{
 	background-color:#DAD1CB;
 	padding:15px;

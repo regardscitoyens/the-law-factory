@@ -92,7 +92,7 @@ function(api, $rootScope, $location, $compile) {
                 api.getArticle(l).then(function(data) {
                     $rootScope.lawTitle = data.short_title
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Articles | ";
-                        d3.select(element[0]).datum(data).call(mod1)
+                    d3.select(element[0]).datum(data).call(mod1);
                     scope.stopSpinner();
                 }, function(error) {
                     console.log(error);
@@ -131,12 +131,8 @@ function(api, $rootScope, $location, $compile) {
                     scope.data = data;
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Amendements | ";
                     d3.select(element[0]).datum(data).call(mod2);
-
                     if ($location.search()['a']!=null)
                         selectRow($location.search()['a'],true);
-
-                    scope.stopSpinner();
-
                 }, function(error) {
                     scope.error = error
                 });
@@ -170,10 +166,7 @@ function(api, $rootScope, $location, $compile) {
                     api.getIntervention(scope.l).then(function(data) {
                         scope.data = data;
                         $rootScope.pageTitle =  $rootScope.lawTitle + " - Débats | ";
-                        init(data, $location.search()['s'])
-
-                        scope.stopSpinner();
-
+                        init(data, $location.search()['s']);
                         if($("svg").height()<$("#viz").height()) {
                            var offs=($("#viz").height() - $("svg").height())/2;
                            $("svg").css({"margin-top":offs,"padding-top":"5px"});
@@ -430,7 +423,7 @@ return {
                         currStage.num++;
                         if(currStage.name.indexOf("depot")>=0) currStage.name="Dépôts";
                     } else {
-                        if (currStage.name) 
+                        if (currStage.name)
                             scope.stages.push(scope.addStageInst(currStage));
                         currStage.num=1;
                         currStage.name = (e.step==="depot" ? "Dépôt" : e.stage);
