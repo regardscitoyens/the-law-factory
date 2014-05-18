@@ -1,8 +1,7 @@
 var orderedByStatus = true;
 var sortByStat;
 var sortByParty;
-var draw;
-var drawMerged;
+var redraw;
 var grouped=null;
 var api_root;
 var utils, highlight;
@@ -28,27 +27,22 @@ var utils, highlight;
             utils.groups = d.groupes;
             articles=d.sujets;
             api_root=d.api_root_url;
-        })
+        });
         if (Object.keys(articles).length < 2)
             $('#display_menu').parent().hide();
 
         selectRow = function(art,pos) {
-
             if(d3.event) d3.event.stopPropagation();
-
             var sel = d3.select("."+art);
-
             if(!sel.empty()) {
-
                 d3.selectAll("g").style("opacity", 0.1);
-
                 sel.style("opacity", 0.9);
-
                 if(pos) $("#viz").animate({ scrollTop: sel.attr("data-offset") })
             }
         };
 
         deselectRow = function() {
+            utils.resetHighlight('amds');
             d3.selectAll("g").style("opacity",0.9);
         };
 
@@ -69,22 +63,6 @@ var utils, highlight;
 		    .attr("height", h)
             .on("click",deselectRow);
 
-        d3.select("svg").on("click", function(){ utils.resetHighlight('amds'); });
-
-        function chk_scroll(e) {
-            e.stopPropagation();
-            var elem = $(e.currentTarget);
-            if (elem[0].scrollHeight - elem.scrollTop() == elem.outerHeight())
-            {
-                $(".end-tip").fadeOut(200);
-            }
-            else {
-                if(!$(".end-tip").is(":visible")) $(".end-tip").fadeIn(200);
-
-            }
-
-        }
-
         var compare_partys = function(a,b){
                 if (utils.groups[a].order < utils.groups[b].order) return -1;
                 if (utils.groups[a].order > utils.groups[b].order) return 1;
@@ -104,27 +82,11 @@ var utils, highlight;
                 if (a.groupe != b.groupe) return compare_partys(a.groupe, b.groupe);
                 return a.numero - b.numero;
             },
-            order_grouped = function(){
-                grouped['amendements'].sort((orderedByStatus ? compare_by_stat : compare_by_party));
-            },
-            order_ungrouped = function(){
-                artArray.forEach(function(d,i) {
-                    d['amendements'].sort((orderedByStatus ? compare_by_stat : compare_by_party));
-                });
-            },
-            clear_screen = function(){
-                $("svg").empty();
-                $(".text-container").empty();
-                jumpLines=0;
-            },
-            redraw = function(){
-                (grouped ? drawMerged() : draw());
-            },
             check_half = function(g) {
                 var half_col=false;
                 var maxlen;
-                if(!g)  maxlen = d3.max(artArray,function(d){return d.amendements.length});
-                else  maxlen = grouped.amendements.length;
+                if(!g) maxlen = d3.max(artArray,function(d){return d.amendements.length});
+                else maxlen = grouped.amendements.length;
 
                 if(maxlen<nsq/2) {
                     x=nsq/2-1;
@@ -147,22 +109,38 @@ var utils, highlight;
             orderedByStatus = false;
             redraw();
         };
+        redraw = function(merged) {
+            if (merged == undefined) merged = grouped;
+            utils.startSpinner();
+            $("svg").animate({opacity: 0}, 200, function() {
+                $("svg").empty();
+                $(".text-container").empty();
+                jumpLines=0;
+                (merged ? drawMerged() : draw());
+                var a = d3.select("svg").select("g:last-child").attr("data-offset"),
+                   ah = d3.select("svg").select("g:last-child").node().getBBox().height;
+                svg.attr("height",z+parseInt(a)+ah);
+                utils.stopSpinner(function() {
+                    $("svg").animate({opacity: 1}, 500);
+                });
+            });
+        }
 
-        draw = function() {
+        function draw() {
             $("#display_menu .chosen").removeClass('chosen');
             $("#display_menu #dm-draw").addClass('chosen');
             grouped=null;
-            order_ungrouped();
-            clear_screen();
+            artArray.forEach(function(d,i) {
+                d['amendements'].sort((orderedByStatus ? compare_by_stat : compare_by_party));
+            });
+
             var half_col=check_half();
-                artArray.forEach(function (d, i) {
-                    drawLines(d, i, half_col)
-                });
-            adjustHeight();
+            artArray.forEach(function (d, i) {
+                drawLines(d, i, half_col)
+            });
         }
 
-        drawMerged = function() {
-
+        function drawMerged() {
             $("#display_menu .chosen").removeClass('chosen');
             $("#display_menu #dm-merged").addClass('chosen');
             if(!grouped) {
@@ -173,16 +151,8 @@ var utils, highlight;
             }
 
             var half_col=check_half(grouped);
-            order_grouped();
-            clear_screen();
+            grouped['amendements'].sort((orderedByStatus ? compare_by_stat : compare_by_party));
             drawLines(grouped,0,half_col);
-            adjustHeight();
-        }
-
-        function adjustHeight() {
-            var a = d3.select("svg").select("g:last-child").attr("data-offset"),
-               ah = d3.select("svg").select("g:last-child").node().getBBox().height;
-            svg.attr("height",z+parseInt(a)+ah);
         }
 
         function drawLines(d,i, half) {
@@ -248,9 +218,6 @@ var utils, highlight;
                   .attr("ry", 2)
                   .attr("class", "bg")
                   .style("fill", "#E6E6E6")
-
-             /* var margin = d.offset == 0 ? 'style="margin-top : 10px"' : 'style="margin-top : ' + (10 + 20 * d.offset) + 'px "',
-                  subj = d.titre;*/
 
               curRow.append("text")
                   .attr("x", 20)
@@ -322,15 +289,14 @@ var utils, highlight;
                   .attr("xlink:href", get_status_img)
                   .popover(popover)
                   .on("click", select);
-
         }
 
 		function select(d) {
             d3.event.stopPropagation()
             utils.resetHighlight('amds');
-
-			d3.json(api_root+d.id_api+'/json',function(error,json){
-				var currAmd = json.amendement,
+            utils.startSpinner('load_amd');
+            setTimeout(function(){ d3.json(api_root+d.id_api+'/json',function(error, json){
+                var currAmd = json.amendement,
                     source_am = '.fr</a> &mdash; <a href="'+currAmd.source+'" target="_blank">',
                     statico = get_status_img(d),
                     col = color_amd(d);
@@ -345,14 +311,16 @@ var utils, highlight;
                     "<p><b>Texte :</b> " + currAmd.texte +
                     '<p><small><b>Sources :</b> <a target="_blank" href="' + source_am + "</a></small></p>"
                 );
-			})
+                utils.stopSpinner(function() {
+                    $(".text-container").animate({opacity: 1}, 350);
+                    $('.text-container').scrollTop(0);
+                }, 'load_amd');
+            });});
             d3.selectAll("#a_"+d.numero.replace(/[^a-z\d]/ig, ''))
                 .classed("actv-amd", true)
                 .style("stroke", "#D80053")
                 .style("stroke-width", 2);
-            $("#text-title").text("Amendement "+d.numero)
-			$('.text-container').scrollTop(0);
-			if(!$(".end-tip").is(":visible")) $(".end-tip").fadeIn(200);
+            $("#text-title").text("Amendement "+d.numero);
 		}
 
 		function color_amd(d) {
@@ -372,8 +340,7 @@ var utils, highlight;
                 $(".others").append('<div class="leg-item" onclick="highlight(\''+d.id+'\')" title="Amendements '+d.nom.toLowerCase()+'s" data-toggle="tooltip" data-placement="left"><div class="leg-value" style="background-color: black; background-image: url(img/'+d.img+'.png); background-repeat:no-repeat; background-position:50% 50%;"></div><div class="leg-key">'+d.nom+'</div></div>');
             });
             $(".leg-item").tooltip();
-            $('.text-container').bind('scroll',chk_scroll);
-            draw();
+            redraw(false);
         });
 
     }; //end function vis

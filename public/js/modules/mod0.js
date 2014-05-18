@@ -1,4 +1,4 @@
-var drawGantt,
+var drawGantt, utils,
     locale = d3.locale({
   decimal: ",",
   thousands: ".",
@@ -29,7 +29,6 @@ var drawGantt,
     addBillsFilter = function(filtype, filval){
         if (filtype == "length") $(".bar-value.filtered_month").removeClass('filtered_month');
         active_filters[filtype]=filval;
-        refreshBillsFilter();
         drawGantt('filter');
     },
     rmBillsFilter = function(filtype){ addBillsFilter(filtype,""); };
@@ -43,6 +42,7 @@ var drawGantt,
         function vis(selection) {
 
             //Initialization
+            utils = $('.mod0').scope();
             var legendcontainer = d3.select("#legend").append("svg"),
                 ganttcontainer = d3.select("#gantt").append("svg"),
                 lawscont, grid,
@@ -185,9 +185,6 @@ var drawGantt,
             };
 
             function initGanttSVG() {
-                $("#mod0-slider").slider("value", 1);
-                $("#legend svg").empty();
-                $("#gantt svg").empty();
                 var defs = ganttcontainer
                     .insert('defs', ':first-child');
                 defs.append('pattern')
@@ -230,11 +227,24 @@ var drawGantt,
             selection.each(function (data) {
 
                 drawGantt = function(action) {
+                    utils.startSpinner();
+                    $("#gantt svg").animate({opacity: 0}, 200, function() {
+                        updateGantt(action);
+                        utils.stopSpinner(function() {
+                            $("#gantt svg").animate({opacity: 1}, 500);
+                        });
+                    });
+                }
+
+                updateGantt = function(action) {
+                    $("#gantt svg").empty();
+                    $("#legend svg").empty();
+                    $("#text-title").text("Sélectionner une loi");
+                    $(".text-container").empty();
+                    refreshBillsFilter();
                     var zoo = $("#mod0-slider").attr('value'),
                         scroll = {scrollTop: "0px", scrollLeft: "0px"};
-                    refreshBillsFilter();
                     initGanttSVG();
-                    $("#legend").show(400);
                     if (action == 'time') {
                         layout = "t";
                         zoo = 10;
@@ -260,7 +270,6 @@ var drawGantt,
                         $("#display_menu #dm-quanti").addClass('chosen');
                         $(".ctrl-sort").show(400);
                         $(".ctrl-zoom").hide(400);
-                        $("#legend").hide(400);
                     }
                     if (action == 'filter') {
                         zoo = 1;
@@ -623,12 +632,12 @@ var drawGantt,
                 quantiPosition = function () {
                     d3.selectAll(".step")
                         .attr("x", function (d) {return d.qx; })
-                        .attr("width", function (d) { return d.qw })
+                        .attr("width", function (d) { return Math.max(0, d.qw); })
                         .style("fill", color_step);
 
                     d3.selectAll(".step-ptn")
                         .attr("x", function (d) {return d.qx; })
-                        .attr("width", function (d) { return d.qw });
+                        .attr("width", function (d) { return Math.max(0, d.qw); });
 
                     d3.selectAll(".law-bg").transition().duration(500).style("opacity", 0);
                 }
@@ -668,7 +677,7 @@ var drawGantt,
                 currFile = data.next_page;
                 prepareData();
                 drawGantt('time');
-                setTimeout((currFile ? dynamicLoad : computeFilters),0);
+                setTimeout((currFile ? dynamicLoad : computeFilters), 1000);
                 $("a.badge").tooltip();
 
             });

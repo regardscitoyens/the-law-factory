@@ -1,6 +1,7 @@
 var num=0;
 var svg, mydata;
 var participants, utils, highlight;
+var width;
 
 function wrap(width) {
   d3.selectAll('text').each(function() {
@@ -36,6 +37,7 @@ function wrap(width) {
 function init(data,step) {
 
     utils = $('.mod2').scope();
+    width = $("#viz").width();
     highlight = utils.highlightGroup;
     utils.groups = data[step].groupes
     participants=data[step].orateurs;
@@ -76,22 +78,28 @@ function init(data,step) {
     drawFlows(false);
 }
 
-function drawFlows(top_ordered){
+function drawFlows(top_ordered) {
     $("#display_menu .chosen").removeClass('chosen');
     $("#display_menu #dm-"+(top_ordered ? 'quanti' : 'classic')).addClass('chosen');
-    $("#viz").empty()
-    var w=$("#viz").width();
-    var offset = Math.round(w/5);
-    var stream = sven.viz.streamkey()
-        .data(mydata)
-        .target("#viz")
-        .height(num*60)
-        .width(w)
-        .minHeight(8)
-        .sorting(top_ordered)
-        .init();
-    d3.selectAll("g:not(.main-g)").attr("transform","translate("+offset+",0) scale("+(w-offset)/w+",1)");
-    wrap(offset-25);
+    utils.startSpinner();
+    $("#viz-int").animate({opacity: 0}, 200, function() {
+        $("#viz-int").empty();
+        $(".text-container").empty();
+        var offset = Math.round(width/5);
+        var stream = sven.viz.streamkey()
+            .data(mydata)
+            .target("#viz-int")
+            .height(num*60)
+            .width(width)
+            .minHeight(8)
+            .sorting(top_ordered)
+            .init();
+        d3.selectAll("g:not(.main-g)").attr("transform","translate("+offset+",0) scale("+(width-offset)/width+",1)");
+        wrap(offset-25);
+        utils.stopSpinner(function() {
+            $("#viz-int").animate({opacity: 1}, 500);
+        });
+    });
 }
 
 sven = {},
@@ -194,7 +202,6 @@ sven.viz.streamkey = function(){
             i, j;
         n = data.length;
         m = data[0]['values'].length;
-
         //get values
         data.forEach(function(d,i){
             d['values'].forEach(function(d){if(d['value'] != null){values.push(d['value'])}})

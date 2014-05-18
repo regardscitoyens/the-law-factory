@@ -27,18 +27,22 @@ angular.module('theLawFactory.controllers', []).
             left: '50%' // Left position relative to parent
         };
         $scope.startSpinner = function(divid) {
-            if (!divid) divid = 'preload';
-            $('#'+divid).show();
             if ($scope.spinner != null) return;
-            var target = document.getElementById(divid);
-            $scope.spinner = new Spinner($scope.spinner_opts).spin(target);
-        }
-        $scope.stopSpinner = function(divid) {
             if (!divid) divid = 'preload';
-            $('#'+divid).hide();
-            if ($scope.spinner == null) return;
-            $scope.spinner.stop();
-            $scope.spinner = null;
+            var target = document.getElementById(divid);
+            $scope.spinner = new Spinner($scope.spinner_opts);
+            $('#'+divid).animate({opacity: 1}, 0 , function() {
+                $scope.spinner.spin(target);
+            });
+        }
+        $scope.stopSpinner = function(callback, divid) {
+            if ($scope.spinner == null) return (callback ? callback() : undefined);
+            if (!divid) divid = 'preload';
+            $('#'+divid).animate({opacity: 0}, 0, function() {
+                $scope.spinner.stop();
+                $scope.spinner = null;
+                return (callback ? callback(): undefined);
+            });
         }
 
         $scope.shortNames = {

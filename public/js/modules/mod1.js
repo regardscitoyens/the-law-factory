@@ -1,12 +1,13 @@
 var aligned = true;
-var valign;
-var stacked;
+var valign, stacked, utils;
 
 (function() {
 
 	var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
 	thelawfactory.mod1 = function() {
+
+        utils = $(".mod1").scope();
 
         function titre_etape(article) {
             return article['id_step'].split('_').slice(1,4).join(' ⋅ ')
@@ -145,8 +146,9 @@ var stacked;
                             k = j-1;
                             while (k > 0 && d.steps[k].status === "echec") k--;
                             f.prev_step = d.steps[k].step_num;
-                        } else {
-                            f.textDiff += "<ul><li><span>" + $.map(f.text, function(i) {
+                        }
+                        if (j == 0 || f.id_step.substr(-5) == "depot" ||( f.n_diff == 0 && f.status != "sup")) {
+                            f.textDiff = "<ul><li><span>" + $.map(f.text, function(i) {
                                     return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
                                 }).join("</span></li><li><span>") + "</span></li></ul>";
                         }
@@ -388,83 +390,52 @@ var stacked;
 
 				//USE THE ARROWS
 				d3.select("body").on("keydown", function() {
-					/*if (d3.select(".curr").empty()) {
-						d3.select(".article").each(onclick);
-					} else {*/
+                    var c = (d3.select(".curr")),
+                        sel, elm;
+                    if (c.empty()) return;
+                    cur = c.datum();
 
-						c = (d3.select(".curr"))
-						if (c.empty()) return;
-                        cur = c.datum();
+                    //LEFT
+                    if (d3.event.keyCode == 37) {
+                        sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && cur.prev_step==e.step_num})
+                    }
+                    //RIGHT
+                    else if (d3.event.keyCode == 39) {
+                        var sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && e.prev_step==cur.step_num})
+                    }
+                    //UP AND DOWN
+                    else if (d3.event.keyCode == 38 || d3.event.keyCode == 40) {
+                        d3.event.preventDefault();
+                        var g = $(".curr").parent(),
+                            curn=$(c.node());
 
-						//LEFT
-						if (d3.event.keyCode == 37) {
-							var sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && cur.prev_step==e.step_num})
-							if(!sel.empty()) {sel.each(onclick);}
-						}
-						//RIGHT
-						else if (d3.event.keyCode == 39) {
-							var sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && e.prev_step==cur.step_num})
-							if(!sel.empty()) sel.each(onclick);
-						}
-						//UP AND DOWN
-						else if (d3.event.keyCode == 38 || d3.event.keyCode == 40) {
+                        //UP
+                        if (d3.event.keyCode == 38) {
+                            if(curn.prev().length)
+                                elm = d3.select(curn.prev().get([0]))
+                            else {
+                                var a = $(".group.st"+cur.step_num+":lt("+cur.sect_num+"):parent:last")
+                                if(a.length)
+                                   elm = d3.select(a.children(".article").last().get([0]))
+                            }
+                        }
+                        //DOWN
+                        else if(d3.event.keyCode == 40) {
+                            if(curn.next().length && d3.select(curn.next().get([0])).classed("article"))
+                                elm = d3.select(curn.next().get([0]))
+                            else {
+                                var a = $(".group.st"+cur.step_num+":gt("+cur.sect_num+"):parent")
+                                if(a.length)
+                                    elm = d3.select(a.children().get([0]))
+                            }
+                        }
+                    }
 
-							d3.event.preventDefault();
-
-							var g = $(".curr").parent()
-
-							found = false;
-							end = false;
-							el = null;
-
-							//UP
-
-                            var elm;
-
-							if (d3.event.keyCode == 38) {
-								curn=$(c.node())
-								if(curn.prev().length) {
-                                    elm = d3.select(curn.prev().get([0]))
-                                    elm.each(onclick)
-
-								}
-								else {
-									var a = $(".group.st"+cur.step_num+":lt("+cur.sect_num+"):parent:last")
-									if(a.length) {
-                                       elm = d3.select(a.children(".article").last().get([0]))
-                                       elm.each(onclick)
-
-									}
-								}
-
-							}
-
-							//DOWN
-							else if(d3.event.keyCode == 40) {
-
-								curn=$(c.node())
-								if(curn.next().length && d3.select(curn.next().get([0])).classed("article")) {
-									elm = d3.select(curn.next().get([0]))
-                                    elm.each(onclick)
-
-								}
-
-								else {
-									var a = $(".group.st"+cur.step_num+":gt("+cur.sect_num+"):parent")
-									if(a.length) {
-                                        elm = d3.select(a.children().get([0]))
-                                            elm.each(onclick)
-
-									}
-
-								}
-							}
-							//d3.select(el).each(onclick);
-                            if (elm) $("#viz").animate({ scrollTop: elm.node().getBBox().y -20 });
-
-						}
-
-
+                    if(sel && !sel.empty()) sel.each(onclick);
+                    else if (elm) {
+                        $("#viz").animate({ scrollTop: elm.node().getBBox().y -20 });
+                        elm.each(onclick)
+                    }
 				});
 
 
@@ -540,54 +511,64 @@ var stacked;
 
 				//on click behaviour
 				function onclick(d) {
-                    $(".text-container").show();
-                    $(".wide-read").show();
-					d3.selectAll("line").style("stroke", "#d0d0e0");
+                    var spin = ((d.status == "sup" || d.n_diff) && !d.textDiff);
+                    if (spin) utils.startSpinner('load_art');
+                    d3.selectAll("line").style("stroke", "#d0d0e0");
+                    //STYLE OF CLICKED ELEMENT AND ROW
+                    //Reset rectangles
+                    d3.selectAll(".article").call(styleRect);
+                    d3.selectAll(".curr").classed("curr", false);
+                    d3.select(this).classed("curr", true);
 
-					//STYLE OF CLICKED ELEMENT AND ROW
-					//Reset rectangles
-					d3.selectAll(".article").call(styleRect);
-					d3.selectAll(".curr").classed("curr", false);
-					d3.select(this).classed("curr", true);
+                    //Select the elements in same group
+                    d3.selectAll(".article").filter(function(e){return e.article==d.article})
+                    .style("stroke", "#D80053").style("stroke-width", 1).style("fill", function(d) {
+                        hsl = d3.rgb(d3.select(this).style("fill")).hsl()
+                        hsl.s += 0.1;
+                        return hsl.rgb()
+                    })
 
-					//Select the elements in same group
-					d3.selectAll(".article").filter(function(e){return e.article==d.article})
-					.style("stroke", "#D80053").style("stroke-width", 1).style("fill", function(d) {
-						hsl = d3.rgb(d3.select(this).style("fill")).hsl()
-						hsl.s += 0.1;
-						return hsl.rgb()
-					})
+                    d3.selectAll("line")
+                    .filter(function(e){return e.article==d.article})
+                    .style("stroke", "#D80053");
 
-					d3.selectAll("line")
-					.filter(function(e){return e.article==d.article})
-					.style("stroke", "#D80053");
+                    d3.rgb(d3.select(this).style("fill")).darker(2)
+                    d3.select(this).style("stroke-dasharray", [3, 3])
 
-					d3.rgb(d3.select(this).style("fill")).darker(2)
-					d3.select(this).style("stroke-dasharray", [3, 3])
-					$(".art-meta").html(
-                        (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>Section :</b> " + format_section(d, 2) + "</p>" : "") +
-                        "<p><b>Étape :</b> " + titre_etape(d) + "</p>" +
-                        (d['status'] == "sup" ? "<p><b>Supprimé à cette étape.</b></p>" : "") +
-                        (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ? '<p><a href="amendements?l='+id+'&s='+ d.directory+'&a=article_'+ d.article.toLowerCase().replace(/ |'/g, '_')+'">Explorer les amendements</a></p>' : '') +
-                        "<p><b>Alinéas :</b></p>"
-                    )
-					$("#text-title").html(titre_article(d));
-                    if (!d.textDiff) {
-                        var lasttxt=bigList.filter(function(e){return e.article===d.article && d.prev_step==e.step_num})[0].text;
-                        setTimeout(function() {
-                            var dmp = new diff_match_patch();
-                            dmp.Diff_Timeout = 1;
-                            dmp.Diff_EditCost = 25;
-                            var diff = dmp.diff_main(lasttxt.join("\n"), d.text.join("\n"));
-                            dmp.diff_cleanupEfficiency(diff);
-                            d.textDiff = "<ul><li>";
-                            d.textDiff += diff_to_html(diff)
-                                .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
-                            d.textDiff += "</li></ul>";
-                            $(".art-txt").html(d.textDiff);
-                        }, 0);
-                    } else $(".art-txt").html(d.textDiff);
-				}
+                    $(".art-txt").animate({opacity: 0}, 100, function() { 
+                        $("#text-title").empty();
+                        $(".art-meta").empty();
+                        $(".art-txt").empty();
+                        $(".wide-read").show();
+                        $("#text-title").html(titre_article(d));
+
+                        $(".art-meta").html(
+                            (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>Section :</b> " + format_section(d, 2) + "</p>" : "") +
+                            "<p><b>Étape :</b> " + titre_etape(d) + "</p>" +
+                            (d['status'] == "sup" ? "<p><b>Supprimé à cette étape.</b></p>" : "") +
+                            (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ? '<p><a href="amendements?l='+id+'&s='+ d.directory+'&a=article_'+ d.article.toLowerCase().replace(/ |'/g, '_')+'">Explorer les amendements</a></p>' : '') +
+                            "<p><b>Alinéas :</b></p>"
+                        )
+
+                        if (spin) {
+                            setTimeout(function() {
+                                var lasttxt=bigList.filter(function(e){return e.article===d.article && d.prev_step==e.step_num})[0].text;
+                                var dmp = new diff_match_patch();
+                                dmp.Diff_Timeout = 1;
+                                dmp.Diff_EditCost = 25;
+                                var diff = dmp.diff_main(lasttxt.join("\n"), d.text.join("\n"));
+                                dmp.diff_cleanupEfficiency(diff);
+                                d.textDiff = "<ul><li>";
+                                d.textDiff += diff_to_html(diff)
+                                    .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
+                                d.textDiff += "</li></ul>";
+                                utils.stopSpinner(function() {
+                                    $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
+                                }, 'load_art');
+                            }, 0);
+                        } else $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
+                    });
+                }
 
 				$(document).ready(function() {
                     if (aligned) valign();

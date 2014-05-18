@@ -224,7 +224,6 @@ function(api, $rootScope, $location, $compile) {
                 api.getDossiers().then(function(data) {
 
                     d3.select(element[0]).datum(data).call(mod0)
-                    scope.stopSpinner();
 
                 }, function(error) {
                     console.log(error)

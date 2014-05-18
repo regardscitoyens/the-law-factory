@@ -325,10 +325,6 @@ del {
 ins {
 	background:#E6FFE6;
 }
-.art-list{
-	margin-top:-4px !important;
-    padding-top:30px;
-}
 .padded{
 	padding: 20px 0;
 }
@@ -614,16 +610,13 @@ ul.ui-autocomplete {
     height:100%;
 	width:88.64%;
 	float:right;
+    background-color: white;
 }
-.mod2 .art-list{
-	width: 11%;
-    float: left;
-}
-
-.mod2 .art-list p {
-	background-color:#F9F7F8;
-	padding-right: 10px;
-    text-align: right;
+#commands{
+    width: 10%;
+    margin-top: 35px;
+	float:left;
+	margin-left:1%;
 }
 
 .mod2 #text-title,.mod0 #text-title{
@@ -754,9 +747,6 @@ h4 a{
 	color: rgb(175, 161, 154);
 	font-size:0.8em;	
 }
-.int-viz{
-	float:right !important;
-}
 .text-container img{
 	display:block;
 	float:left;
@@ -835,17 +825,6 @@ h4 a{
 .text:empty {
     padding:0;
     height:0 !important;
-}
-
-#commands{
-    width: 10%;
-    margin-top: 35px;
-	float:left;
-	margin-left:1%;
-}
-.commands label{
-	width:100%;
-	font-size:0.9em;
 }
 
 .g-law, .law-name{
@@ -1142,7 +1121,7 @@ ul.filters li a.badge span.glyphicon {
 .dropdown-submenu:hover>a:after{border-left-color:#ffffff;}
 .dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
 
-#preload{
+#preload, #load_art {
     position:relative;
     width:100%;
     text-align: center;
