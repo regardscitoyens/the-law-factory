@@ -419,14 +419,17 @@ return {
                     e.long_name = scope.stepLegend(e);
                     e.display_short = (scope.barwidth / scope.total < (e.step == "depot" && e.auteur_depot != "Gouvernement" ? 150 : 120));
 
-                    if (currStage.name.toLowerCase().substr(0,5) === e.stage.toLowerCase().substr(0,5)) {
+                    if (e.step === "depot") {
+                        if (currStage.name) currStage.num++;
+                        else currStage.name = "depot";
+                        if (currStage.num == 2) currStage.name += "s";
+                    } else if (currStage.name === e.stage) {
                         currStage.num++;
-                        if(currStage.name.indexOf("depot")>=0) currStage.name="Dépôts";
                     } else {
                         if (currStage.name)
                             scope.stages.push(scope.addStageInst(currStage));
                         currStage.num=1;
-                        currStage.name = (e.step==="depot" ? "Dépôt" : e.stage);
+                        currStage.name = e.stage;
                     }
 
                     if ((e.step === "depot" && currInst.name === e.auteur_depot) || (e.step !== "depot" && e.institution === currInst.name))

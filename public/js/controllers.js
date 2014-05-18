@@ -61,6 +61,7 @@ angular.module('theLawFactory.controllers', []).
             "commission": "Com.",
             "hemicycle": "Hém.",
             "depot": "Dépôt",
+            "depots": "Dépôts",
             "cmp": "C.M.P.",
         }
 
@@ -77,6 +78,7 @@ angular.module('theLawFactory.controllers', []).
             "commission": "Commission",
             "hemicycle": "Hémicyle",
             "depot": "Dépôt",
+            "depots": "Dépôts",
             "cmp": "Commission Mixte Paritaire"
         }
 
