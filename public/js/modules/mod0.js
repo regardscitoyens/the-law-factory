@@ -16,13 +16,20 @@ var drawGantt, utils,
     active_filters = {
         theme: "",
         year: 2013,
-        length: ""
+        length: ''
     },
     refreshBillsFilter = function(){
+        var label;
         for (var k in active_filters) {
             if (active_filters[k]) {
-                $("ul.filters li."+k).html("<a onclick=\"rmBillsFilter('"+k+"')\" class='badge' title='Supprimer ce filtre' data-toggle='tooltip' data-placement='right'><span class='glyphicon glyphicon-remove-sign'></span> "+active_filters[k]+'</a>');
-                if (k == "length") $(".bar-step #mois_"+active_filters[k].replace(' ', '')).addClass('filtered_month');
+                label = active_filters[k];
+                if (k == "length") {
+                    $(".bar-step #mois_"+active_filters[k]).addClass('filtered_month');
+                    label = (label/30 + " mois").replace("24 mois", "2 ans et +");
+                    type = "durée";
+                } else if (k == "theme") type = "thème";
+                else type = "année";
+                $("ul.filters li."+k).html("<a onclick=\"rmBillsFilter('"+k+"')\" class='badge' title='Supprimer ce filtre' data-toggle='tooltip' data-placement='right'><span class='glyphicon glyphicon-remove-sign'></span> <b>"+type+":</b> "+label+'</a>');
             } else $("ul.filters li."+k).empty();
         }
     },
@@ -51,6 +58,7 @@ var drawGantt, utils,
                 gridrects, gridlines,
                 allThemes = [], allYears = [],
                 dossiers = [], smallset = [],
+                stats = {},
                 mindate, maxdate, maxduration,
                 tscale, lblscale,
                 ticks,
@@ -60,6 +68,8 @@ var drawGantt, utils,
                 steph = lawh - 16,
                 z = 1,
                 layout = "t",
+                maxstat = 24, binstat = 30,
+            get_stat_bin = function(v) { return Math.min(maxstat, Math.ceil((v - 1) / binstat)) * binstat; },
             sortByLeng = function(a,b) { return b.total_days - a.total_days },
             sortByAmds = function(a,b) { return b.total_amendements - a.total_amendements },
             sortByDate = function(a,b) { return Date.parse(b.end) - Date.parse(a.end) },
@@ -239,6 +249,7 @@ var drawGantt, utils,
                 updateGantt = function(action) {
                     $("#gantt svg").empty();
                     $("#legend svg").empty();
+                    $("#bars").empty();
                     $("#text-title").text("Sélectionner une loi");
                     $(".text-container").empty();
                     refreshBillsFilter();
@@ -452,17 +463,27 @@ var drawGantt, utils,
                         })
                         .filter(function(d){
                             if (!active_filters['length']) return true;
-                            return active_filters['length'].replace(/\D/g,'') == Math.round((format.parse(d.end) - format.parse(d.beginning)) / 2628000000.);
+                            return active_filters['length'] == get_stat_bin(d.total_days);
                         })
                         .sort(sort_function);
 
                     // find date range
+                    for (i = 1; i <= maxstat; i++) stats[binstat*i] = 0;
                     mindate = ""; maxdate = ""; maxduration = 0;
                     smallset.forEach(function(d){
                         mindate = (mindate && mindate < d.beginning ? mindate : d.beginning);
                         maxdate = (maxdate && maxdate > d.end ? maxdate : d.end);
                         maxduration = Math.max(maxduration, d.total_days);
+                        stats[get_stat_bin(d.total_days)]++;
                     });
+                    setTimeout(drawStats, 50);
+                    if (smallset.length == 0) {
+                        width = basewidth;
+                        ganttcontainer.attr("height", 3*(20 + lawh)).attr("width", width);
+                        legendcontainer.attr("width", width);
+                        return;
+                    }
+
                     if (layout != "t") {
                         maxdate = format.parse(mindate > data.min_date ? data.min_date : mindate);
                         maxdate.setDate(maxdate.getDate() + maxduration + 50);
@@ -680,83 +701,50 @@ var drawGantt, utils,
                 setTimeout((currFile ? dynamicLoad : computeFilters), 1000);
                 $("a.badge").tooltip();
 
-            });
-        };
 
-        return vis;
-    };
+                function drawStats() {
 
-    thelawfactory.mod0_bars = function () {
+                    var height = 60,
+                        barcontainer = d3.select("#bars"),
+                        m = d3.max(d3.values(stats)),
+                        bscale = d3.scale.linear().range([0, height]);
+                    bscale.domain([0, m]);
 
-        function vis(selection) {
-
-            var barcontainer = d3.select("#bars")
-            var barwidth = parseInt(barcontainer.style("width"))
-            var bscale = d3.scale.linear().range([0, 60]);
-
-            selection.each(function (json) {
-
-                var threshold = 720;
-                var count = 0;
-
-                for (k in json) {
-                    if (parseInt(k) >= threshold) {
-                        count += json[k]
-                        delete json[k]
-                    }
-                }
-
-                threshold = threshold.toString()
-
-                json[threshold] = count;
-
-                var keys = d3.keys(json)
-                var vals = d3.values(json)
-                var l = vals.length;
-                var m = d3.max(vals)
-                bscale.domain([0, m])
-
-                var w = barwidth / l
-
-                d3.entries(json).forEach(function (e, i) {
-                    var label=(e.key/30) +(e.key === threshold ? "+" : "") + " mois",
+                    d3.entries(stats).forEach(function (e, i) {
+                        var label=(e.key == maxstat * binstat ? '2 ans et +' : e.key/binstat + " mois"),
                         step = barcontainer
-                        .append("div")
-                        .attr("class", "bar-step")
-                        .attr("style", "width:" + (w * 93 / 100) + "px; margin-right:" + (w * 5 / 100) + "px");
+                            .append("div")
+                            .attr("class", "bar-step")
+                            .attr("style", "width: " + 95/(maxstat+1) + "%; margin-right: " + 5/(maxstat+1) + "%");
 
-                    step.append("div")
-                        .attr("id", "mois_"+label.replace(' ', ''))
-                        .attr("class", "bar-value")
-                        .attr("style", "height:" + bscale(e.value) + "px; width:100%; top:" + bscale(m - e.value) + "px")
-                        .on('click', function(){ addBillsFilter('length',label) })
-                        .popover(function(){
-                            var popover_content = d3.select(document.createElement('div')).style("width", "100%").attr('class', 'pop0'),
-                                plural = (e.value > 1 ? 's' : '');
-                            popover_content.append('p').html('Cliquer pour filtrer sur ces textes');
-                            return {title: e.value+' texte'+plural+' adopté'+plural+' en ' + label.replace('24+ mois', ' 2 ans et plus'), content: popover_content, placement: "mouse", displacement: [-113, -90], gravity: "top", mousemove: true};
-                        });
+                        step.append("div")
+                            .attr("id", "mois_"+e.key)
+                            .attr("class", (active_filters['length'] == e.key ? "filtered_month " : "") + "bar-value")
+                            .attr("style", "height:" + bscale(e.value) + "px; width:100%; top:" + bscale(m - e.value) + "px")
+                            .on('click', function(){
+                                if (active_filters['length'] == e.key) rmBillsFilter('length');
+                                else addBillsFilter('length', e.key);
+                            }).popover(function(){
+                                var popover_content = d3.select(document.createElement('div')).style("width", "100%").attr('class', 'pop0'),
+                                    plural = (e.value > 1 ? 's' : '');
+                                popover_content.append('p').html(active_filters['length'] == e.key ? 'Supprimer le filtre' : 'Cliquer pour filtrer sur ces textes');
+                                return {
+                                    title: e.value+' texte'+plural+' adopté'+plural+' en '+label,
+                                    content: popover_content,
+                                    placement: "mouse",
+                                    displacement: [-113, -90],
+                                    gravity: "top",
+                                    mousemove: true};
+                            });
 
-                    step.append("div")
-                        .attr("class", "bar-key")
-                        .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(w * 4 / 10), 10]) + "px")
-                        .text(label);
-                })
-
-                function groupStats(i, data) {
-                    data = d3.entries(data)
-                    newData = {}
-                    for (var j = 0; j < data.length; j += i) {
-                        var key = (j + 1) * 30 + (i - 1) * 30
-                        if (j < data.length - 2) newData[key] = data[j].value + data[j + 1].value + data[j + 2].value
-                        else if (j < data.length - 1) newData[key] = data[j].value + data[j + 1].value
-                        else newData[key] = data[j].value;
-
-                    }
-                    return newData;
+                        step.append("div")
+                            .attr("class", "bar-key")
+                            .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(parseInt(barcontainer.style("width")) / maxstat), 8]) + "px")
+                            .text(label);
+                    });
                 }
-            })
+            });
         }
         return vis;
-    };
+    }
 })()

@@ -201,27 +201,15 @@ function(api, $rootScope, $location, $compile) {
                 }
             })
             var mod0 = thelawfactory.mod0();
-            var mod0_bars = thelawfactory.mod0_bars();
-
             function update() {
-
                 scope.startSpinner();
 
-                api.getStats().then(function(data) {
-                    d3.select(element[0]).datum(data).call(mod0_bars)
-
-                }, function(error) {
-                    console.log(error)
-                })
-
                 api.getDossiers().then(function(data) {
-
-                    d3.select(element[0]).datum(data).call(mod0)
+                    d3.select(element[0]).datum(data).call(mod0);
 
                 }, function(error) {
                     console.log(error)
                 })
-
             }
             update();
         }
