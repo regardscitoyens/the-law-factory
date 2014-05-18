@@ -1044,7 +1044,7 @@ text {
     min-height: 20px;
     overflow: hidden;
 }
-.stb-inst.senat {
+.stb-inst.senat, .stb-inst.senateurs {
     background-color:#e6c0ba;
     color:white;
 }
@@ -1058,7 +1058,7 @@ text {
     color:white;
 }
 
-.stb-inst.assemblee {
+.stb-inst.assemblee, .stb-inst.deputes {
     background-color:#b6c5cc;
     color:white;
 }

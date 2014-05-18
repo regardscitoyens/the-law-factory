@@ -54,11 +54,13 @@ angular.module('theLawFactory.controllers', []).
             "nouvlect": "Nouv. Lect.",
             "ldfinitive": "Lect.&nbsp;Déf.",
             "assemblee": "AN",
+            "dputs": "AN",
+            "snateurs": "Sénat",
+            "senat": "Sénat",
             "gouvernement": "Gouv.",
             "commission": "Com.",
             "hemicycle": "Hém.",
             "depot": "Dépôt",
-            "senat": "Sénat",
             "cmp": "C.M.P.",
         }
 
@@ -68,11 +70,13 @@ angular.module('theLawFactory.controllers', []).
             "nouvlect": "Nouvelle Lecture",
             "ldfinitive": "Lecture Définitive",
             "assemblee": "Assemblée",
+            "dputs": "Députés",
+            "snateurs": "Sénateurs",
+            "senat": "Sénat",
             "gouvernement": "Gouvernement",
             "commission": "Commission",
             "hemicycle": "Hémicyle",
             "depot": "Dépôt",
-            "senat": "Sénat",
             "cmp": "Commission Mixte Paritaire"
         }
 
