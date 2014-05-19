@@ -343,7 +343,7 @@ var textArticles;
                                     .attr("class","header")
                                     .attr("width", colwidth)
                                     .attr("height", sectHeight)
-                                    .style("fill", "#2553C2")
+                                    .style("fill", "#333344")
                                     .style("stroke", "none")
                                     .style("opacity", section_opacity(curS))
                                     .popover(function(){ return section_hover(d)});
