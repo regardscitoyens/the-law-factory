@@ -81,10 +81,11 @@ h1,h2,h3,h4 {
 }
 
 .article {
-box-shadow: inset 10px 10px 10px #000;
--webkit-box-shadow: inset 10px 10px 10px #000;
--moz-box-shadow: inset 10px 10px 10px #000;
--o-box-shadow: inset 10px 10px 10px #000;
+    box-shadow: inset 10px 10px 10px #000;
+    -webkit-box-shadow: inset 10px 10px 10px #000;
+    -moz-box-shadow: inset 10px 10px 10px #000;
+    -o-box-shadow: inset 10px 10px 10px #000;
+    cursor: pointer;
 }
 
 .subheader li{
@@ -297,7 +298,7 @@ body{
 }
 .text p{
 	display:block;
-	width:90%;
+	width:95%;
 	margin:0 auto;
 	color:#333;
 	margin-bottom:15px;
@@ -324,10 +325,6 @@ del {
 }
 ins {
 	background:#E6FFE6;
-}
-.art-list{
-	margin-top:-4px !important;
-    padding-top:30px;
 }
 .padded{
 	padding: 20px 0;
@@ -384,20 +381,22 @@ ins {
     padding: 15px;
     margin-top: 1px;
     float: right;
-	width:88.6%;
+	width:88.64%;
     position: relative;
     padding-bottom: 0.9%;
     padding-top: 0.8%;
     margin-bottom: 30px;
 }
-
 .leg-item{
 	float:left;
-	width:12%;
+	width: 12%;
 	margin-top:5px;
-	margin-left:25px;
+	margin-left:2%;
 }
-
+.others .leg-item {
+    min-width: 12%;
+    width: auto;
+}
 .leg-value{
     width:18px;
 	height:18px;
@@ -418,17 +417,6 @@ ins {
 	font-size: 0.9em;
 }
 
-.end-tip{
-	height:20px;
-	background-color:#F9F7F8;
-	position:absolute;
-	bottom:0px;
-	width:100%;
-	background-image:url('../img/down.png');
-	background-repeat:no-repeat;
-	background-position:	center center;
-	display:none;
-}
 .menu-hide{
 	background-color:#eeeeee;
 	padding:15px;
@@ -479,7 +467,10 @@ ins {
     color:white;
     line-height:75px;
 }
-
+.btn-group.open .dropdown-toggle {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
 .dd-btn>.btn:first-child:not(:last-child) {
 	color: #333344;
     background: #FFFFFB;
@@ -488,6 +479,7 @@ ins {
 .dropdown-menu {
     top: 0px;
     left: 100%;
+    border-radius: 0;
 }
 #themes.dropdown-menu {
     top: -100px;
@@ -611,16 +603,13 @@ ul.ui-autocomplete {
     height:100%;
 	width:88.64%;
 	float:right;
+    background-color: white;
 }
-.mod2 .art-list{
-	width: 11%;
-    float: left;
-}
-
-.mod2 .art-list p {
-	background-color:#F9F7F8;
-	padding-right: 10px;
-    text-align: right;
+#commands{
+    width: 10%;
+    margin-top: 35px;
+	float:left;
+	margin-left:1%;
 }
 
 .mod2 #text-title,.mod0 #text-title{
@@ -658,7 +647,7 @@ ul.ui-autocomplete {
 }
 
 .mod0 #bars{
-	height:100%;
+	height:110%;
 	background-color:white;
 	padding-bottom:10px;
     width: 89.57%;
@@ -673,21 +662,24 @@ ul.ui-autocomplete {
 	height:80%;
 }
 
+.mod0 #commands{
+    width: 10.34%;
+}
 .mod0 #legend {
-	width:88.64%;
+	width:88.34%;
     height: 6%;
-    background:white;
+    float: left;
+    background-color:white;
     overflow-x:hidden;
     overflow-y:hidden;
-    float: right;
 }
 .mod0 #gantt {
 	height:94%;
-	width:88.64%;
-	float:right;
-	overflow-x:auto;
-	overflow-y:auto;
-    background:white;
+	width:88.34%;
+	float:left;
+    background-color:white;
+    overflow-x:auto;
+    overflow-y:auto;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -695,8 +687,12 @@ ul.ui-autocomplete {
     -ms-user-select: none;
     user-select: none;
 }
-#gantt svg, #legend svg {
-    padding-left: 10px;
+.mod0 #margin{
+    float:left;
+    width:0.3%;
+    height:100%;
+    z-index:0;
+    background-color:white;
 }
 /*#gantt svg g text {
     font-family:"Oxygen", sans-serif !important;
@@ -751,9 +747,6 @@ h4 a{
 	color: #eeeeee;
 	font-size:0.8em;	
 }
-.int-viz{
-	float:right !important;
-}
 .text-container img{
 	display:block;
 	float:left;
@@ -765,18 +758,19 @@ h4 a{
 }
 .text-container .orat-info{
 	float:left;
-    width: 90%;
+    width: 82%;
 }
 .text-container .orat-info p{
-    margin:0;
+    margin:1px;
+    font-size: 0.9em;
 }
 .text-container .orat-count{
-    width: 9%;
+    width: 15%;
 	float: left;
-    text-align: right;
-    padding-right: 8px;
+    text-align: center;
     padding-top: 2px;
     font-size: 0.75em;
+    margin-right: 3%
 }
 .orateur{
 	display:block;
@@ -833,17 +827,6 @@ h4 a{
     height:0 !important;
 }
 
-#commands{
-    width: 10%;
-    margin-top: 35px;
-	float:left;
-	margin-left:1%;
-}
-.commands label{
-	width:100%;
-	font-size:0.9em;
-}
-
 .g-law, .law-name{
 	cursor:pointer;
 }
@@ -852,11 +835,15 @@ h4 a{
 	text-align: center;
     margin-top: 10%;
 }
+.mod1 .gotomod {
+    margin-top: 7%;
+    margin-bottom: 8%;
+}
 .gotomod a.btn-info {
 	display:inline;
 	float:none;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 1.1em;
     border: none;
     border-radius: 0;
     background-color:#657C8F;
@@ -1067,17 +1054,21 @@ text {
     min-height: 20px;
     overflow: hidden;
 }
-.stb-inst.senat {
+.stb-inst.senat, .stb-inst.senateurs {
     background-color:#e6c0ba;
     color:white;
 }
 
+.stb-inst.gouvernement {
+    background-color: #cccbb3;
+    color:white;
+}
 .stb-inst.cmp {
     background-color:rgb(231, 221, 158);
     color:white;
 }
 
-.stb-inst.assemblee {
+.stb-inst.assemblee, .stb-inst.deputes {
     background-color:#b6c5cc;
     color:white;
 }
@@ -1103,7 +1094,6 @@ ul.filters {
     list-style-type: none;
     margin: 0px 5px 25px 0px;
     font-size:10px;
-    text-align: center;
 }
 ul.filters li {
     width: 100%;
@@ -1125,6 +1115,9 @@ ul.filters li a.badge span.glyphicon {
     padding: 1px;
     color: red;
 }
+ul.filters li a.badge b {
+    color: #333;
+}
 
 /* bootstrap dropdown submenu add */
 .dropdown-submenu{position:relative;}
@@ -1134,13 +1127,13 @@ ul.filters li a.badge span.glyphicon {
 .dropdown-submenu:hover>a:after{border-left-color:#ffffff;}
 .dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
 
-#preload{
+#preload, #load_art {
     position:relative;
     width:100%;
     text-align: center;
 }
 .spinner {
-    margin-top:10%;
+    margin-top: 20%;
 }
 
 noscript {
@@ -1179,7 +1172,6 @@ noscript h2 {
     z-index:0;
     background-color:white;
 }
-
 .mod0 .badge .glyphicon {
     top:0.2em;
 }

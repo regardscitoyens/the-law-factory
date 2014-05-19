@@ -1,7 +1,7 @@
 'use strict';
 
 /* Services */
-
+var APIRootUrl = 'http://www.lafabriquedelaloi.fr/api/';
 
 angular.module('theLawFactory.services', [])
 	.config(['$httpProvider', function($httpProvider) {
@@ -25,28 +25,25 @@ angular.module('theLawFactory.services', [])
           }
         })
         .factory('api', function($http, $q, apiService) {
-            var APIRootUrl = 'http://www.lafabriquedelaloi.fr/api';
+            if (APIRootUrl.substr(-1) != "/") APIRootUrl += "/";
             var api = {
                 getLawlist: function() {
-                    return apiService.getDataSample(APIRootUrl + '/dossiers_promulgues.csv');
+                    return apiService.getDataSample(APIRootUrl + 'dossiers_promulgues.csv');
                 },
                 getProcedure: function(id) {
-                    return apiService.getDataSample(APIRootUrl + '/' + id + '/viz/procedure.json');
+                    return apiService.getDataSample(APIRootUrl + id + '/viz/procedure.json');
                 },
                 getArticle: function(id) {
-                    return apiService.getDataSample(APIRootUrl + '/' + id + '/viz/articles_etapes.json');
+                    return apiService.getDataSample(APIRootUrl + id + '/viz/articles_etapes.json');
                 },
                 getAmendement: function(id, step) {
-                    return apiService.getDataSample(APIRootUrl + '/' + id + '/viz/amendements_' + step + '.json');
+                    return apiService.getDataSample(APIRootUrl + id + '/viz/amendements_' + step + '.json');
                 },
                 getIntervention: function(id) {
-                    return apiService.getDataSample(APIRootUrl + '/' + id + '/viz/interventions.json');
+                    return apiService.getDataSample(APIRootUrl + id + '/viz/interventions.json');
                 },
                 getDossiers: function() {
-                    return apiService.getDataSample(APIRootUrl + '/dossiers_0_49.json');
-                },
-                getStats: function() {
-                    return apiService.getDataSample(APIRootUrl + '/stats_dossiers.json');
+                    return apiService.getDataSample(APIRootUrl + 'dossiers_0_49.json');
                 }
             };
             return api;

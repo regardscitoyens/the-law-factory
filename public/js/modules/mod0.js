@@ -1,4 +1,4 @@
-var drawGantt,
+var drawGantt, utils,
     locale = d3.locale({
   decimal: ",",
   thousands: ".",
@@ -16,20 +16,26 @@ var drawGantt,
     active_filters = {
         theme: "",
         year: 2013,
-        length: ""
+        length: ''
     },
     refreshBillsFilter = function(){
+        var label;
         for (var k in active_filters) {
             if (active_filters[k]) {
-                $("ul.filters li."+k).html("<a onclick=\"rmBillsFilter('"+k+"')\" class='badge' title='Supprimer ce filtre' data-toggle='tooltip' data-placement='right'><span class='glyphicon glyphicon-remove-sign'></span> "+active_filters[k]+'</a>');
-                if (k == "length") $(".bar-step #mois_"+active_filters[k].replace(' ', '')).addClass('filtered_month');
+                label = active_filters[k];
+                if (k == "length") {
+                    $(".bar-step #mois_"+active_filters[k]).addClass('filtered_month');
+                    label = (label/30 + " mois").replace("24 mois", "2 ans et +");
+                    type = "durée";
+                } else if (k == "theme") type = "thème";
+                else type = "année";
+                $("ul.filters li."+k).html("<a onclick=\"rmBillsFilter('"+k+"')\" class='badge' title='Supprimer ce filtre' data-toggle='tooltip' data-placement='right'><span class='glyphicon glyphicon-remove-sign'></span> <b>"+type+":</b> "+label+'</a>');
             } else $("ul.filters li."+k).empty();
         }
     },
     addBillsFilter = function(filtype, filval){
         if (filtype == "length") $(".bar-value.filtered_month").removeClass('filtered_month');
         active_filters[filtype]=filval;
-        refreshBillsFilter();
         drawGantt('filter');
     },
     rmBillsFilter = function(filtype){ addBillsFilter(filtype,""); };
@@ -43,6 +49,7 @@ var drawGantt,
         function vis(selection) {
 
             //Initialization
+            utils = $('.mod0').scope();
             var legendcontainer = d3.select("#legend").append("svg"),
                 ganttcontainer = d3.select("#gantt").append("svg"),
                 lawscont, grid,
@@ -51,15 +58,19 @@ var drawGantt,
                 gridrects, gridlines,
                 allThemes = [], allYears = [],
                 dossiers = [], smallset = [],
+                stats = {},
                 mindate, maxdate, maxduration,
                 tscale, lblscale,
                 ticks,
                 basewidth = parseInt(d3.select("#gantt").style("width")) - 30,
                 width = basewidth,
+                widthratio = 1,
                 lawh = 50,
                 steph = lawh - 16,
                 z = 1,
                 layout = "t",
+                maxstat = 24, binstat = 30,
+            get_stat_bin = function(v) { return Math.min(maxstat, Math.ceil((v - 1) / binstat)) * binstat; },
             sortByLeng = function(a,b) { return b.total_days - a.total_days },
             sortByAmds = function(a,b) { return b.total_amendements - a.total_amendements },
             sortByDate = function(a,b) { return Date.parse(b.end) - Date.parse(a.end) },
@@ -165,7 +176,7 @@ var drawGantt,
                 d3.selectAll(".tl-bg").attr("transform", "scale(" + z + ",1)");
 
                 if(layout==="a")
-                    d3.selectAll(".g-law").attr("transform", function(d,i){return "translate(" + (-tscale(format.parse(d.beginning))*z+5) + ","+ (i * (20 + lawh)) +")"});
+                    d3.selectAll(".g-law").attr("transform", function(d,i){return "translate(" + width_ratio*(-tscale(format.parse(d.beginning))*z+5) + ","+ (i * (20 + lawh)) +"), scale("+width_ratio+",1)"});
 
                 d3.selectAll(".tick-lbl").attr("x", function (d) { return tscale(d) * z; })
                 .style("opacity",function(d,i){
@@ -185,9 +196,6 @@ var drawGantt,
             };
 
             function initGanttSVG() {
-                $("#mod0-slider").slider("value", 1);
-                $("#legend svg").empty();
-                $("#gantt svg").empty();
                 var defs = ganttcontainer
                     .insert('defs', ':first-child');
                 defs.append('pattern')
@@ -230,11 +238,25 @@ var drawGantt,
             selection.each(function (data) {
 
                 drawGantt = function(action) {
+                    utils.startSpinner();
+                    $("#gantt svg").animate({opacity: 0}, 200, function() {
+                        updateGantt(action);
+                        utils.stopSpinner(function() {
+                            $("#gantt svg").animate({opacity: 1}, 500);
+                        });
+                    });
+                }
+
+                updateGantt = function(action) {
+                    $("#gantt svg").empty();
+                    $("#legend svg").empty();
+                    $("#bars").empty();
+                    $("#text-title").text("Sélectionner une loi");
+                    $(".text-container").empty();
+                    refreshBillsFilter();
                     var zoo = $("#mod0-slider").attr('value'),
                         scroll = {scrollTop: "0px", scrollLeft: "0px"};
-                    refreshBillsFilter();
                     initGanttSVG();
-                    $("#legend").show(400);
                     if (action == 'time') {
                         layout = "t";
                         zoo = 10;
@@ -260,7 +282,6 @@ var drawGantt,
                         $("#display_menu #dm-quanti").addClass('chosen');
                         $(".ctrl-sort").show(400);
                         $(".ctrl-zoom").hide(400);
-                        $("#legend").hide(400);
                     }
                     if (action == 'filter') {
                         zoo = 1;
@@ -351,7 +372,7 @@ var drawGantt,
 
             // function used for multiple data files - progressive loading
                 function dynamicLoad() {
-                    d3.json('http://www.lafabriquedelaloi.fr/api/' + currFile, function (error, json) {
+                    d3.json(APIRootUrl + currFile, function (error, json) {
                         data = json;
                         prepareData();
                         currFile = json.next_page;
@@ -443,18 +464,28 @@ var drawGantt,
                         })
                         .filter(function(d){
                             if (!active_filters['length']) return true;
-                            return active_filters['length'].replace(/\D/g,'') == Math.round((format.parse(d.end) - format.parse(d.beginning)) / 2628000000.);
+                            return active_filters['length'] == get_stat_bin(d.total_days);
                         })
                         .sort(sort_function);
 
                     // find date range
+                    for (i = 1; i <= maxstat; i++) stats[binstat*i] = 0;
                     mindate = ""; maxdate = ""; maxduration = 0;
                     smallset.forEach(function(d){
                         mindate = (mindate && mindate < d.beginning ? mindate : d.beginning);
                         maxdate = (maxdate && maxdate > d.end ? maxdate : d.end);
                         maxduration = Math.max(maxduration, d.total_days);
+                        stats[get_stat_bin(d.total_days)]++;
                     });
-                    if (layout != "t") {
+                    setTimeout(drawStats, 50);
+                    if (smallset.length == 0) {
+                        width = basewidth;
+                        ganttcontainer.attr("height", 3*(20 + lawh)).attr("width", width);
+                        legendcontainer.attr("width", width);
+                        return;
+                    }
+
+                    if (layout == "q") {
                         maxdate = format.parse(mindate > data.min_date ? data.min_date : mindate);
                         maxdate.setDate(maxdate.getDate() + maxduration + 50);
                     } else maxdate = format.parse(maxdate > data.max_date ? data.max_date : maxdate);
@@ -464,6 +495,10 @@ var drawGantt,
 
                     //update svg size
                     width = (maxdate - mindate < 94608000000 || layout == "q" ? 1 : 2) * basewidth;
+
+                    if (layout == "a")
+                        width_ratio = 0.8*(maxdate - mindate)/(maxduration*86400000.);
+
                     ganttcontainer.attr("height", Math.max(2, smallset.length) * (20 + lawh)).attr("width", width);
                     legendcontainer.attr("width", width);
 
@@ -609,7 +644,7 @@ var drawGantt,
 
                 absolutePosition = function () {
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
-                        return "translate(" + (-tscale(format.parse(d.beginning))*z + 5) + "," + (i * (20 + lawh)) + ")"
+                        return "translate(" + width_ratio*(-tscale(format.parse(d.beginning))*z + 5) + "," + (i * (20 + lawh)) + "), scale("+width_ratio+",1)";
                     })
                     classicPosition();
                     d3.selectAll(".tick-lbl").text(function (d, j) { return (j + 1) + " mois"; })
@@ -623,12 +658,12 @@ var drawGantt,
                 quantiPosition = function () {
                     d3.selectAll(".step")
                         .attr("x", function (d) {return d.qx; })
-                        .attr("width", function (d) { return d.qw })
+                        .attr("width", function (d) { return Math.max(0, d.qw); })
                         .style("fill", color_step);
 
                     d3.selectAll(".step-ptn")
                         .attr("x", function (d) {return d.qx; })
-                        .attr("width", function (d) { return d.qw });
+                        .attr("width", function (d) { return Math.max(0, d.qw); });
 
                     d3.selectAll(".law-bg").transition().duration(500).style("opacity", 0);
                 }
@@ -659,7 +694,7 @@ var drawGantt,
                     extrainfo.append('<p><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(d.total_amendements)+'"></span>&nbsp;&nbsp;'+(d.total_amendements?d.total_amendements:'aucun')+" amendement"+(d.total_amendements>1?'s déposés':' déposé')+"</p>")
                         .append('<p><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(d.total_mots)+'"></span><span>&nbsp;&nbsp;plus de '+mots+" mille mots prononcés lors des débats parlementaires</span></p>")
                         .append(themes)
-                        .append("<p><small>(sources : <a href='" + d.url_dossier_assemblee + "'>dossier Assemblée</a> &mdash; <a href='" + d.url_dossier_senat + "'>dossier Sénat</a>)</small></p>");
+                        .append('<p><small>(sources : <a href="' + d.url_dossier_assemblee + '" target="_blank">dossier Assemblée</a> &mdash; <a href="' + d.url_dossier_senat + '" target="_blank">dossier Sénat</a>)</small></p>');
                     $(".text-container").append(extrainfo);
                     $("a.badge").tooltip();
                 }
@@ -668,86 +703,53 @@ var drawGantt,
                 currFile = data.next_page;
                 prepareData();
                 drawGantt('time');
-                setTimeout((currFile ? dynamicLoad : computeFilters),0);
+                setTimeout((currFile ? dynamicLoad : computeFilters), 1000);
                 $("a.badge").tooltip();
 
-            });
-        };
 
-        return vis;
-    };
+                function drawStats() {
 
-    thelawfactory.mod0_bars = function () {
+                    var height = 60,
+                        barcontainer = d3.select("#bars"),
+                        m = d3.max(d3.values(stats)),
+                        bscale = d3.scale.linear().range([0, height]);
+                    bscale.domain([0, m]);
 
-        function vis(selection) {
-
-            var barcontainer = d3.select("#bars")
-            var barwidth = parseInt(barcontainer.style("width"))
-            var bscale = d3.scale.linear().range([0, 60]);
-
-            selection.each(function (json) {
-
-                var threshold = 720;
-                var count = 0;
-
-                for (k in json) {
-                    if (parseInt(k) >= threshold) {
-                        count += json[k]
-                        delete json[k]
-                    }
-                }
-
-                threshold = threshold.toString()
-
-                json[threshold] = count;
-
-                var keys = d3.keys(json)
-                var vals = d3.values(json)
-                var l = vals.length;
-                var m = d3.max(vals)
-                bscale.domain([0, m])
-
-                var w = barwidth / l
-
-                d3.entries(json).forEach(function (e, i) {
-                    var label=(e.key/30) +(e.key === threshold ? "+" : "") + " mois",
+                    d3.entries(stats).forEach(function (e, i) {
+                        var label=(e.key == maxstat * binstat ? '2 ans et +' : e.key/binstat + " mois"),
                         step = barcontainer
-                        .append("div")
-                        .attr("class", "bar-step")
-                        .attr("style", "width:" + (w * 93 / 100) + "px; margin-right:" + (w * 5 / 100) + "px");
+                            .append("div")
+                            .attr("class", "bar-step")
+                            .attr("style", "width: " + 95/(maxstat+1) + "%; margin-right: " + 5/(maxstat+1) + "%");
 
-                    step.append("div")
-                        .attr("id", "mois_"+label.replace(' ', ''))
-                        .attr("class", "bar-value")
-                        .attr("style", "height:" + bscale(e.value) + "px; width:100%; top:" + bscale(m - e.value) + "px")
-                        .on('click', function(){ addBillsFilter('length',label) })
-                        .popover(function(){
-                            var popover_content = d3.select(document.createElement('div')).style("width", "100%").attr('class', 'pop0'),
-                                plural = (e.value > 1 ? 's' : '');
-                            popover_content.append('p').html('Cliquer pour filtrer sur ces textes');
-                            return {title: e.value+' texte'+plural+' adopté'+plural+' en ' + label.replace('24+ mois', ' 2 ans et plus'), content: popover_content, placement: "mouse", displacement: [-113, -90], gravity: "top", mousemove: true};
-                        });
+                        step.append("div")
+                            .attr("id", "mois_"+e.key)
+                            .attr("class", (active_filters['length'] == e.key ? "filtered_month " : "") + "bar-value")
+                            .attr("style", "height:" + bscale(e.value) + "px; width:100%; top:" + bscale(m - e.value) + "px")
+                            .on('click', function(){
+                                if (active_filters['length'] == e.key) rmBillsFilter('length');
+                                else addBillsFilter('length', e.key);
+                            }).popover(function(){
+                                var popover_content = d3.select(document.createElement('div')).style("width", "100%").attr('class', 'pop0'),
+                                    plural = (e.value > 1 ? 's' : '');
+                                popover_content.append('p').html(active_filters['length'] == e.key ? 'Supprimer le filtre' : 'Cliquer pour filtrer sur ces textes');
+                                return {
+                                    title: e.value+' texte'+plural+' adopté'+plural+' en '+label,
+                                    content: popover_content,
+                                    placement: "mouse",
+                                    displacement: [-113, -90],
+                                    gravity: "top",
+                                    mousemove: true};
+                            });
 
-                    step.append("div")
-                        .attr("class", "bar-key")
-                        .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(w * 4 / 10), 10]) + "px")
-                        .text(label);
-                })
-
-                function groupStats(i, data) {
-                    data = d3.entries(data)
-                    newData = {}
-                    for (var j = 0; j < data.length; j += i) {
-                        var key = (j + 1) * 30 + (i - 1) * 30
-                        if (j < data.length - 2) newData[key] = data[j].value + data[j + 1].value + data[j + 2].value
-                        else if (j < data.length - 1) newData[key] = data[j].value + data[j + 1].value
-                        else newData[key] = data[j].value;
-
-                    }
-                    return newData;
+                        step.append("div")
+                            .attr("class", "bar-key")
+                            .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(parseInt(barcontainer.style("width")) / maxstat), 8]) + "px")
+                            .text(label);
+                    });
                 }
-            })
+            });
         }
         return vis;
-    };
+    }
 })()

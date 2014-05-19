@@ -1,6 +1,6 @@
 var aligned = true;
-var valign;
-var stacked;
+var valign, stacked, utils;
+var textArticles;
 
 (function() {
 
@@ -8,55 +8,64 @@ var stacked;
 
 	thelawfactory.mod1 = function() {
 
+        utils = $(".mod1").scope();
+        textArticles = {};
+
         function titre_etape(article) {
-            return article['id_step'].split('_').slice(1,4).join(' ⋅ ')
-                .replace(/(\d)([eéè][rm]e?)/, '$1<sup>$2</sup> ')
-                .replace('nouv.lect.', 'nouvelle lecture')
-                .replace('l.définitive', 'lecture définitive')
-                .replace('senat', 'Sénat')
-                .replace('assemblee', 'AN')
-                .replace('CMP ⋅ CMP', 'CMP')
-                .replace('hemicycle', 'hémicycle')
-                .replace('depot', 'dépôt');
+            return article['id_step']
+                .replace('CMP_CMP', 'CMP')
+                .split('_')
+                .slice(1,4)
+                .map(function(d) {
+                     return utils.getLongName(d);}
+                ).join(' ⋅ ');
         }
 
         function clean_premier(s) {
-            return (s ? s.replace('<sup>er</sup>', '') : '');
+            return (s ? s.replace(/(<sup>)?er(<\/sup>)?/ig, '') : '');
         }
 
-        function titre_section(s, short_labels) {
+        function split_section(s) {
+            s = s.replace(/<[^>]*>/g, '');
+            return s.split(/([ALTCVS]+\d+[\s<\/>a-z]*)/);
+        }
+        function sub_section(s) {
+            s = split_section(s);
+            return s.length > 1 ? s[s.length-2] : s[0];
+        }
+        function num_sub_section(s) {
+            return sub_section(s).replace(/^[LTCVS]+/, '');
+        }
+        function titre_parent(s, length) {
+            s = split_section(s);
+            if (s.length > 1) s = s.slice(0, s.length-2)
+            return titre_section(s.join(''), length);
+        }
+        function titre_section(s, length) {
             if (!s) return s;
             var res = "",
-                s = s.split(/([LTCVS]+\d+[\sa-z]*)/);
+                s = split_section(s);
             for (var i in s) if (s[i]) {
                 res += (res ? " ⋅ " : "");
                 res += s[i].replace(/([LTCVS]+)(\d+e?r?)\s*([\sa-z]*)/, '$1 $2 $3')
                     .replace(/(\d)er?/g, '$1<sup>er</sup>')
-                    .replace("SS", (short_labels ? "S-Sec." : "Sous-section"))
-                    .replace("S", (short_labels ? "Sect." : "Section"))
-                    .replace("C", (short_labels ? "Chap." : "Chapitre"))
-                    .replace("L", "Livre")
-                    .replace("V", (short_labels ? "Vol." : "Volume"))
-                    .replace("T", "Titre");
+                    .replace(/^SS( \d)/, (length ? (length == 1 ? "S-Sec." : "Sous-section") : "SS") + '$1')
+                    .replace(/^S( \d)/, (length ? (length == 1 ? "Sect." : "Section") : "S") + '$1')
+                    .replace("C ", (length ? (length == 1 ? "Chap." : "Chapitre") : "C") + " ")
+                    .replace("V ", (length ? (length == 1 ? "Vol." : "Volume") : "V") + " ")
+                    .replace("L ", (length ? "Livre" : "L") + " ")
+                    .replace("T ", (length ? "Titre" : "T") + " ");
             }
             return res;
         }
 
-        function titre_article(article, short_labels) {
-            var num = (article.newnum != undefined ? article.newnum : article.article);
-            if (short_labels) return "A." + num.replace(/(\d)er?/, '$1');
-            return ("Article ") + num +
-                (article.newnum != undefined ? " (" + article.article + ")" : "")
-                .replace(/(\d)er?/, '$1<sup>er</sup>');
-        }
-
-        function format_section(obj, length) {
-            if (obj.section && obj.section.lastIndexOf("A", 0) === 0)
-                return titre_article(obj, (!length));
-            var res = (obj.section ? obj.section : obj.newnum);
-            if (length < 2 && res)
-                res = res.replace(/^.*([LTCVS]+\d+[\sa-z]*)$/, '$1');
-            return titre_section(res, (!length));
+        function titre_article(article, length) {
+            var num = (article.newnum != undefined ? article.newnum : article.article)
+                    .replace(/(\d)er?/, '$1'),
+                newnum = (article.newnum != undefined ? " (" + article.article + ")" : "")
+                    .replace(/(\d)er?/, '$1<sup>er</sup>'),
+                res = (length ? (length == 1 ? "Art." : "Article ") : "A ")
+            return res + num + newnum;
         }
 
         function section_opacity(s) {
@@ -65,7 +74,7 @@ var stacked;
             if (s.lastIndexOf("A", 0) === 0)
                 return 0.65;
             try {
-                return 1.25-0.3*s.match(/[LCVTS]+\d+/g).length;
+                return 0.95-0.1*(split_section(s).length-1);
             } catch(e) {
                 console.log("ERREUR section with bad id:", s, e);
                 return 0.95;
@@ -90,8 +99,8 @@ var stacked;
 		function vis(selection) {
 			selection.each(function(data) {
 
-                var re= /l\=(.*)/;
-                var id= location.search.match(re)[1];
+                var re = /l\=(.*)/;
+                var id = location.search.match(re)[1];
 
 				var bigList=[]
 				var art = d3.values(data.articles);
@@ -115,17 +124,46 @@ var stacked;
 					return ao / a.steps.length - bo / b.steps.length;
 				});
 
+                // Dynamic load of articles text at each step
+                function load_texte_articles() {
+                    var delay = 500;
+                    d3.set(bigList.map(function(d){return d.directory;})).values().sort()
+                    .forEach(function(d) {
+                        delay += 50;
+                        setTimeout(function() {
+                            d3.json(encodeURI(APIRootUrl + id + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
+                                json.articles.forEach(function (a) {
+                                    if (!textArticles[a.titre]) textArticles[a.titre] = {};
+                                    textArticles[a.titre][d] = []
+                                    Object.keys(a.alineas).sort().forEach(function (k) {
+                                        textArticles[a.titre][d].push(a.alineas[k]);
+                                    });
+                                });
+                            });
+                        }, delay);
+                    });
+                }
+
 
 				//compute stages and sections
-				var stages = computeStages(),
+                var stages = computeStages(),
 				    columns = stages.length,
 				    sections = computeSections(),
-				    sectJump = 40,
+				    sectHeight = 15,
+				    sectJump = 25,
                     test_section_details = function(section, etape, field) {
                         return (data.sections && data.sections[section] && data.sections[section][etape] && data.sections[section][etape][field] != undefined);
                     },
                     get_section_details = function(section, etape, field) {
                         return (test_section_details(section, etape, field) ? data.sections[section][etape][field] : "");
+                    },
+                    format_section = function(obj, length) {
+                        var sec = (obj.section ? obj.section : obj);
+                        if (sec.lastIndexOf("A", 0) === 0)
+                            return titre_article(obj, length);
+                        if (length < 2 && sec)
+                            sec = sub_section(sec);
+                        return titre_section(sec, length);
                     };
 
 
@@ -133,26 +171,23 @@ var stacked;
                     $("#display_menu").parent().hide();
 
 				art.forEach(function(d, i) {
-
 					d.steps.forEach(function(f, j) {
 						f.textDiff = "";
 						f.article = d.titre;
 						f.section = d.section;
                         f.prev_step = null;
+                        f.prev_dir = null;
 						f.sect_num=findSection(f.section)
 					    f.step_num=findStage(f.id_step)
                         if (j != 0 && f.id_step.substr(-5) != "depot") {
                             k = j-1;
                             while (k > 0 && d.steps[k].status === "echec") k--;
                             f.prev_step = d.steps[k].step_num;
-                        } else {
-                            f.textDiff += "<ul><li><span>" + $.map(f.text, function(i) {
-                                    return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
-                                }).join("</span></li><li><span>") + "</span></li></ul>";
+                            f.prev_dir = d.steps[k].directory;
                         }
 						bigList.push(f);
 					});
-				})
+				});
 
 				var maxlen = d3.max(art, function(d) {
 					return d3.max(d.steps, function(e) {
@@ -173,8 +208,9 @@ var stacked;
 					right : 10,
 					bottom : 20,
 					left : 0
-				}, width = $("#viz").width();
-
+				}, width = $("#viz").width(),
+				colwidth = width / columns - 30,
+                longlabel = (colwidth < 120 ? (colwidth < 80 ? 0 : 1) : 2);
 				//init coordinates
 				setCoordinates();
 
@@ -185,15 +221,14 @@ var stacked;
                 function article_hover(d) {
                     var div = d3.select(document.createElement("div")).style("width", "100%");
                     if (d.section.lastIndexOf("A", 0) !== 0)
-                      div.append("p").html("<small>"+(test_section_details(d.section, d.id_step, 'newnum') ? format_section(data.sections[d.section][d.id_step], 2) + " ("+format_section(d, 0)+')' : format_section(d, 2))+"</small>");
+                        div.append("p").html("<small>"+(test_section_details(d.section, d.id_step, 'newnum') ? titre_section(data.sections[d.section][d.id_step]['newnum'], 2) + " ("+format_section(d, 1)+')' : format_section(d, 2))+"</small>");
                     div.append("p").html("<small>"+titre_etape(d)+"</small>");
-                    if (d['status'] != "sup") {
-                        if (d['n_diff'] == 0) div.append("p").text("Non modifié")
-                        else if (d.status != "new" && d.id_step.substr(-5) != "depot") div.append("p").html("<small>Modifications : " + d3.round(d['n_diff'] * 100, 2) + " %</small>")
-                        div.append("p").html("<small>Longueur du texte : " + d['length'] + " caractères</small>")
-                    } else div.append("p").text("Supprimé à cette étape");
+                    if (d.n_diff == 0) div.append("p").text(d.status == "sup" ? "Supprimé à cette étape" : "Aucune modification");
+                    else if (d.n_diff == 1 && d.id_step.substr(-5) !== "depot") div.append("p").text((d.prev_step ? "Réintroduit" : "Ajouté") + " à cette étape");
+                    else if (d.id_step.substr(-5) != "depot") div.append("p").html("Modifications : " + d3.round(d['n_diff'] * 100, 2) + "&nbsp;%");
+                    div.append("p").html("<small>Longueur du texte : " + d['length'] + " caractères</small>");
                     return {
-                        title : clean_premier(titre_article(d, false)),
+                        title : clean_premier(titre_article(d, 2)),
                         content : div,
                         placement : "mouse",
                         gravity : "right",
@@ -203,12 +238,27 @@ var stacked;
 				}
 
                 function section_hover(d) {
-                    var div = d3.select(document.createElement("div")).style("width", "100%");
+                    var title,
+                        title_details,
+                        div = d3.select(document.createElement("div")).style("width", "100%");
                     div.append("p").html("<small>"+titre_etape(d)+"</small>");
-                    if (test_section_details(d.section, d.id_step, 'title') && d.section == "echec") div.append("p").html(get_section_details(d.section, d.id_step, 'title'));
-                    else div.append("p").html("<small>"+(test_section_details(d.section, d.id_step, 'newnum' ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), false)+" ("+format_section(d, 0)+')' : titre_section(d.section, false))+"</small>"));
+                    if (test_section_details(d.section, d.id_step, 'title') && d.section == "echec") {
+                        title = d.status;
+                        title_details = get_section_details(d.section, d.id_step, 'title');
+                    } else {
+                        if (test_section_details(d.section, d.id_step, 'newnum')) {
+                            var newnum = get_section_details(d.section, d.id_step, 'newnum');
+                            title = titre_section(newnum, 2) + " (" + num_sub_section(d.section) + ")";
+                            title_details = titre_section(newnum.replace(sub_section(newnum), ''), 2) + " (" + format_section(d, 1) + ')';
+                        } else {
+                            title = titre_section(d.section, 2);
+                            title_details = titre_parent(d.section, 2);
+                        }
+                        title += (test_section_details(d.section, d.id_step, 'title') ? " : " + get_section_details(d.section, d.id_step, 'title') : "");
+                    }
+                    if (title_details) div.append("p").html("<small>" + title_details + "</small>");
                     return {
-                        title : (data.sections && d.section == "echec" ? d.status : clean_premier(format_section(data.sections && data.sections[d.section] && data.sections[d.section][d.id_step] ? data.sections[d.section][d.id_step] : "undefined"), 1) + (test_section_details(d.section, d.id_step, 'title') ? " : " + get_section_details(d.section, d.id_step, 'title') : "")),
+                        title : clean_premier(title),
                         content : div,
                         placement : "mouse",
                         gravity : "right",
@@ -229,7 +279,7 @@ var stacked;
 						.attr("x", function(d){return d.x})
 						.attr("y", function(d){return d.y})
 						.attr("class","article")
-						.attr("width", width / columns - 30)
+						.attr("width", colwidth)
 						.attr("height", function(d){return lerp(d.length)})
 						.call(styleRect)
 						.on("click",onclick)
@@ -268,22 +318,44 @@ var stacked;
 						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head)}))
 						.enter().append("rect")
 						.attr("x", function(d){return d.x})
-						.attr("y", function(d){return d.y-15})
+						.attr("y", function(d){return d.y-sectHeight})
 						.attr("class","header")
-						.attr("width", width / columns - 30)
-						.attr("height", function(d){return (d.section === 'echec' ? maxy-50 : 15)})
+						.attr("width", colwidth)
+						.attr("height", function(d){return (d.section === 'echec' ? maxy-50 : colwidth);})
 						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#333344")})
 						.style("stroke", "none")
 						.style("opacity", function(d){return section_opacity(d.section)})
-						.style("stroke-width", "1px")
 						.popover(function(d){return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))})
                         .filter(function(d){return d.section.lastIndexOf("A", 0) === 0}).on("click", onclick);
 
+                        group.selectAll(".header")
+                        .filter(function(d) {return d.head > 1})
+                        .each(function(d) {
+                            var lastS, curS = d.section,
+                                ct = 1;
+                            while (ct < d.head) {
+                                ct++;
+                                lastS = sub_section(curS);
+                                curS = d.section.substr(0, curS.length - lastS.length);
+                                group.append("rect")
+                                    .attr("x", d.x)
+                                    .attr("y", d.y-ct*sectHeight)
+                                    .attr("class","header")
+                                    .attr("width", colwidth)
+                                    .attr("height", sectHeight)
+                                    .style("fill", "#2553C2")
+                                    .style("stroke", "none")
+                                    .style("opacity", section_opacity(curS))
+                                    .popover(function(){ return section_hover(d)});
+                            }
+                        });
+
+
 						//Add header labels
 						group.selectAll(".head-lbl")
-						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head)}))
+						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head); }))
 						.enter().append("text")
-						.attr("x", function(d){return d.x + width / columns / 2 - 17})
+						.attr("x", function(d){return d.x - 2 + colwidth / 2})
 						.attr("y", function(d){return d.y - (d.section === 'echec' ? 2 : 4)})
 						.attr("class", "head-lbl")
 						.attr("font-family", "sans-serif")
@@ -292,9 +364,39 @@ var stacked;
 						.attr("font-size", function(d){return (d.section === 'echec' ? '10px' : '9px')})
 						.attr("font-weight", "bold")
 						.style("fill", 'white')
-						.text(function(d){return (data.sections && d.section === 'echec' ? d.status : clean_premier(format_section(test_section_details(d.section, d.id_step, 'newnum') ? data.sections[d.section][d.id_step] : d, (width < 120 * columns ? 0 : 1))))})
+						.text(function(d){
+                            if (data.sections && d.section === 'echec') return d.status;
+                            var sec;
+                            if (d.section.lastIndexOf("A", 0) === 0) sec = d;
+                            else sec = sub_section(test_section_details(d.section, d.id_step, 'newnum') ? data.sections[d.section][d.id_step]['newnum'] : d.section)
+                            return clean_premier(format_section(sec, longlabel));
+                        })
 						.popover(function(d){return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))})
                         .filter(function(d){return d.section.lastIndexOf("A", 0) === 0}).on("click", onclick);
+
+                        group.selectAll(".head-lbl")
+                        .filter(function(d) {return d.head > 1})
+                        .each(function(d) {
+                            var lastS, curS = d.section,
+                                ct = 1;
+                            while (ct < d.head) {
+                                lastS = sub_section(curS);
+                                curS = d.section.substr(0, curS.length - lastS.length);
+                                group.append("text")
+                                    .attr("x", d.x - 2 + colwidth / 2)
+                                    .attr("y", d.y - 4 - ct*sectHeight)
+                                    .attr("class", "head-lbl")
+                                    .attr("font-family", "sans-serif")
+                                    .attr("text-anchor", "middle")
+                                    .attr("letter-spacing", "0.2em")
+                                    .attr("font-size", '9px')
+                                    .attr("font-weight", "bold")
+                                    .style("fill", 'white')
+                                    .popover(function(){ return section_hover(d)})
+                                    .text(clean_premier(titre_section(curS, longlabel)));
+                                ct++;
+                            };
+                        });
 					}
 				}
 
@@ -307,7 +409,7 @@ var stacked;
 				})).enter();
 
 				lines.append("line")
-				.attr("x1", function(d){return d.x + width / columns - 30})
+				.attr("x1", function(d){return d.x + colwidth;})
 				.attr("y1", function(d){return d.y + (lerp(d.length)) / 2})
 				.attr("x2", function(d){return bigList.filter(function(e){return d.article == e.article && d.step_num==e.prev_step})[0].x})
 				.attr("y2", function(d){
@@ -340,7 +442,6 @@ var stacked;
 					return -1;
 				}
 
-
 				function computeStages() {
 					stag = []
 					art.forEach(function(e, i) {
@@ -368,19 +469,39 @@ var stacked;
 
 				function setCoordinates() {
 					for (t in stages) {
-						currT=bigList.filter(function(d){return d.step_num==t})
-						currY=sectJump;
+						var currT = bigList.filter(function(d){return d.step_num==t}),
+                            currY = sectJump + sectHeight,
+                            artS, piece,
+                            lastS = "";
+                        
 						for (s in sections) {
 							currS=currT.filter(function(e){return e.sect_num==s})
 							if(currS.length) {
 								currS.sort(function(a,b){return a.order - b.order})
-								currS.forEach(function(f,k){
-									if (k==0) f.head=true;
+							    .forEach(function(f,k){
+									if (k==0) {
+                                        f.head=1;
+                                        artS = f;
+                                    }
 									f.y = currY;
 									f.x = f.step_num * width / columns + 10;
 									currY+=lerp(f.length)+1
-								})
-								currY+=sectJump;
+								});
+                            // Identify section jumps 
+                                lastsplit = split_section(lastS);
+                                cursplit = split_section(artS.section);
+							    while(lastsplit.length) {
+                                    piece = newpiece = "";
+                                    while (lastsplit.length && !piece) piece = lastsplit.shift();
+                                    while (cursplit.length && !newpiece) newpiece = cursplit.shift();
+                                    if (newpiece != piece) break;
+                                }
+                                while (cursplit.length) if (cursplit.shift()) artS.head += 1;
+                                currY += artS.head * sectHeight + sectJump;
+                                if (artS.head > 1) currS.forEach(function(f){
+                                    f.y += artS.head * sectHeight;
+                                });
+                                lastS = artS.section;
 							}
 						}
 					}
@@ -388,82 +509,52 @@ var stacked;
 
 				//USE THE ARROWS
 				d3.select("body").on("keydown", function() {
-					/*if (d3.select(".curr").empty()) {
-						d3.select(".article").each(onclick);
-					} else {*/
+                    var c = (d3.select(".curr")),
+                        sel, elm;
+                    if (c.empty()) return;
+                    cur = c.datum();
 
-						c = (d3.select(".curr"))
-						cur = c.datum();
+                    //LEFT
+                    if (d3.event.keyCode == 37) {
+                        sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && cur.prev_step==e.step_num})
+                    }
+                    //RIGHT
+                    else if (d3.event.keyCode == 39) {
+                        var sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && e.prev_step==cur.step_num})
+                    }
+                    //UP AND DOWN
+                    else if (d3.event.keyCode == 38 || d3.event.keyCode == 40) {
+                        d3.event.preventDefault();
+                        var g = $(".curr").parent(),
+                            curn=$(c.node());
 
-						//LEFT
-						if (d3.event.keyCode == 37) {
-							var sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && cur.prev_step==e.step_num})
-							if(!sel.empty()) {sel.each(onclick);}
-						}
-						//RIGHT
-						else if (d3.event.keyCode == 39) {
-							var sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && e.prev_step==cur.step_num})
-							if(!sel.empty()) sel.each(onclick);
-						}
-						//UP AND DOWN
-						else if (d3.event.keyCode == 38 || d3.event.keyCode == 40) {
+                        //UP
+                        if (d3.event.keyCode == 38) {
+                            if(curn.prev().length)
+                                elm = d3.select(curn.prev().get([0]))
+                            else {
+                                var a = $(".group.st"+cur.step_num+":lt("+cur.sect_num+"):parent:last")
+                                if(a.length)
+                                   elm = d3.select(a.children(".article").last().get([0]))
+                            }
+                        }
+                        //DOWN
+                        else if(d3.event.keyCode == 40) {
+                            if(curn.next().length && d3.select(curn.next().get([0])).classed("article"))
+                                elm = d3.select(curn.next().get([0]))
+                            else {
+                                var a = $(".group.st"+cur.step_num+":gt("+cur.sect_num+"):parent")
+                                if(a.length)
+                                    elm = d3.select(a.children().get([0]))
+                            }
+                        }
+                    }
 
-							d3.event.preventDefault();
-
-							var g = $(".curr").parent()
-
-							found = false;
-							end = false;
-							el = null;
-
-							//UP
-
-                            var elm;
-
-							if (d3.event.keyCode == 38) {
-								curn=$(c.node())
-								if(curn.prev().length) {
-                                    elm = d3.select(curn.prev().get([0]))
-                                    elm.each(onclick)
-
-								}
-								else {
-									var a = $(".group.st"+cur.step_num+":lt("+cur.sect_num+"):parent:last")
-									if(a.length) {
-                                       elm = d3.select(a.children(".article").last().get([0]))
-                                       elm.each(onclick)
-
-									}
-								}
-
-							}
-
-							//DOWN
-							else if(d3.event.keyCode == 40) {
-
-								curn=$(c.node())
-								if(curn.next().length && d3.select(curn.next().get([0])).classed("article")) {
-									elm = d3.select(curn.next().get([0]))
-                                    elm.each(onclick)
-
-								}
-
-								else {
-									var a = $(".group.st"+cur.step_num+":gt("+cur.sect_num+"):parent")
-									if(a.length) {
-                                        elm = d3.select(a.children().get([0]))
-                                            elm.each(onclick)
-
-									}
-
-								}
-							}
-							//d3.select(el).each(onclick);
-                            $("#viz").animate({ scrollTop: elm.node().getBBox().y -20 });
-
-						}
-
-
+                    if(sel && !sel.empty()) sel.each(onclick);
+                    else if (elm) {
+                        $("#viz").animate({ scrollTop: elm.node().getBBox().y -20 });
+                        elm.each(onclick)
+                    }
 				});
 
 
@@ -517,8 +608,8 @@ var stacked;
 							if(!he) he=0;
 							a.he=parseFloat(he)
 						}
-					return a.he + a.y + (lerp(a.length)) / 2;
-				})
+                        return a.he + a.y + (lerp(a.length)) / 2;
+                    });
 				}
 
 
@@ -527,74 +618,90 @@ var stacked;
                     $("#display_menu .chosen").removeClass('chosen');
                     $("#display_menu #dm-stacked").addClass('chosen');
 					d3.selectAll(".group").transition().duration(500)
-					.attr("transform","translate(0,0)")
+                        .attr("transform","translate(0,0)");
 
 					d3.selectAll("line").transition().duration(500)
 						.attr("y1", function(d) {return d.y + (lerp(d.length)) / 2})
 						.attr("y2", function(d){
 							var a=bigList.filter(function(e){return e.article===d.article && e.prev_step==d.step_num})[0]
 							return a.y + (lerp(a.length)) / 2;
-						})
-					}
+						});
+                }
 
 				//on click behaviour
 				function onclick(d) {
-                    $(".text-container").show();
-                    $(".wide-read").show();
-					d3.selectAll("line").style("stroke", "#d0d0e0");
+                    var spin = !d.textDiff && d.prev_dir && (d.status == "sup" || d.n_diff) && d.id_step.substr(-5) != "depot";
+                    if (spin) utils.startSpinner('load_art');
+                    d3.selectAll("line").style("stroke", "#d0d0e0")
+                        .style("stroke-dasharray", "none");
+                    //STYLE OF CLICKED ELEMENT AND ROW
+                    //Reset rectangles
+                    d3.selectAll(".article").call(styleRect);
+                    d3.selectAll(".curr").classed("curr", false);
+                    d3.select(this).classed("curr", true);
 
-					//STYLE OF CLICKED ELEMENT AND ROW
-					//Reset rectangles
-					d3.selectAll(".article").call(styleRect);
-					d3.selectAll(".curr").classed("curr", false);
-					d3.select(this).classed("curr", true);
-
-					//Select the elements in same group
-					d3.selectAll(".article").filter(function(e){return e.article==d.article})
+                    //Select the elements in same group
+                    d3.selectAll(".article").filter(function(e){return e.article==d.article})
 					.style("stroke", "#333344").style("stroke-width", 1).style("fill", function(d) {
-						hsl = d3.rgb(d3.select(this).style("fill")).hsl()
-						hsl.s += 0.1;
-						return hsl.rgb()
-					})
+                        hsl = d3.rgb(d3.select(this).style("fill")).hsl()
+                        hsl.s += 0.1;
+                        return hsl.rgb()
+                    }).style("stroke-dasharray", [3, 3]);
+                    d3.select(this).style("stroke-dasharray", "none");
 
-					d3.selectAll("line")
-					.filter(function(e){return e.article==d.article})
+                    d3.selectAll("line")
+                    .filter(function(e){return e.article==d.article})
 					.style("stroke", "#333344");
+                    .style("stroke-dasharray", [3, 3]);
 
-					d3.rgb(d3.select(this).style("fill")).darker(2)
-					d3.select(this).style("stroke-dasharray", [3, 3])
-					$(".art-meta").html(
-                        (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>Section :</b> " + format_section(d, 2) + "</p>" : "") +
-                        "<p><b>Étape :</b> " + titre_etape(d) + "</p>" +
-                        (d['status'] == "sup" ? "<p><b>Supprimé à cette étape.</b></p>" : "") +
-                        (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ? '<p><a href="amendements?l='+id+'&s='+ d.directory+'&a=article_'+ d.article.toLowerCase().replace(/ |'/g, '_')+'">Explorer les amendements</a></p>' : '') +
-                        "<p><b>Alinéas :</b></p>"
-                    )
-					$("#text-title").html(titre_article(d));
-                    if (!d.textDiff) {
-                        var lasttxt=bigList.filter(function(e){return e.article===d.article && d.prev_step==e.step_num})[0].text;
-                        setTimeout(function() {
-                            var dmp = new diff_match_patch();
-                            dmp.Diff_Timeout = 1;
-                            dmp.Diff_EditCost = 25;
-                            var diff = dmp.diff_main(lasttxt.join("\n"), d.text.join("\n"));
-                            dmp.diff_cleanupEfficiency(diff);
-                            d.textDiff = "<ul><li>";
-                            d.textDiff += diff_to_html(diff)
-                                .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
-                            d.textDiff += "</li></ul>";
-                            $(".art-txt").html(d.textDiff);
-                        }, 0);
-                    } else $(".art-txt").html(d.textDiff);
-				}
+                    d3.rgb(d3.select(this).style("fill")).darker(2)
 
-				$(document).ready(function() {
+                    $(".art-txt").animate({opacity: 0}, 100, function() { 
+                        $("#text-title").empty();
+                        $(".art-meta").empty();
+                        $(".art-txt").empty();
+                        $(".wide-read").show();
+                        $("#text-title").html(titre_article(d, 2));
+                        var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " ("+format_section(d, 1)+')' : format_section(d, 2)) + "</b></p>" : "") +
+                        "<p><b>" + titre_etape(d) + "</b></p>" +
+                        (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ? 
+                            '<div class="gotomod"><a class="btn btn-info" href="amendements?l='+id+'&s='+ d.directory+'&a=article_'+ d.article.toLowerCase().replace(/ |'/g, '_')+'">Explorer les amendements</a></div>' : '') +
+                            (d.n_diff == 1 && d.id_step.substr(-5) != "depot" ? "<p><b>"+(d.prev_step ? "Réintroduit" : "Ajouté") + " à cette étape</b></p>" : "") +
+                            (d.n_diff == 0 ? "<p><b>"+ (d.status == "sup" ? "Supprimé" : "Aucune modification") + " à cette étape</b></p>" : "");
+                        $(".art-meta").html(descr);
+
+                        if (spin) {
+                            setTimeout(function() {
+                                var dmp = new diff_match_patch();
+                                dmp.Diff_Timeout = 1;
+                                dmp.Diff_EditCost = 25;
+                                var diff = dmp.diff_main(textArticles[d.article][d.prev_dir].join("\n"), textArticles[d.article][d.directory].join("\n"));
+                                dmp.diff_cleanupEfficiency(diff);
+                                d.textDiff = "<ul><li>";
+                                d.textDiff += diff_to_html(diff)
+                                    .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
+                                d.textDiff += "</li></ul>";
+                                utils.stopSpinner(function() {
+                                    $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
+                                }, 'load_art');
+                            }, 0);
+                        } else {
+                            if (!d.textDiff) d.textDiff = "<ul><li><span>" + $.map(textArticles[d.article][d.directory], function(i) {
+                                return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
+                            }).join("</span></li><li><span>") + "</span></li></ul>";
+                            $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
+                        }
+                    });
+                }
+
+                $(document).ready(function() {
                     if (aligned) valign();
                     else stacked();
-				});
+                    load_texte_articles();
+                });
 
-		});
+            });
+		}
+        return vis;
 	};
-	return vis;
-};
 })();

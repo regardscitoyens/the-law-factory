@@ -1,6 +1,7 @@
 var num=0;
 var svg, mydata;
-var groupes, participants, factions;
+var participants, utils, highlight;
+var width;
 
 function wrap(width) {
   d3.selectAll('text').each(function() {
@@ -33,35 +34,27 @@ function wrap(width) {
   });
 }
 
-function highlight(b) {
-    $(".text-container").empty();
-    $("#text-title").html(groupes[b].nom);
-    b = ".g_"+b.replace(/[^a-z]/ig, '');
-    d3.selectAll("path").transition().attr("fill-opacity",0.1);
-    d3.selectAll("rect").transition().style("opacity",0.1);
-    d3.selectAll("path").filter(b).transition().attr("fill-opacity",0.45);
-    d3.selectAll("rect").filter(b).transition().style("opacity",0.55);
-}
-
 function init(data,step) {
 
-    factions=data[step].groupes;
-    groupes=data[step].groupes;
+    utils = $('.mod2').scope();
+    width = $("#viz").width();
+    highlight = utils.highlightGroup;
+    utils.groups = data[step].groupes
     participants=data[step].orateurs;
     mydata=[];
     var divs=d3.values(data[step].divisions).sort(function(a,b){return a.order - b.order;}),
-        orderedGroupes = d3.keys(groupes).sort(function(a,b){return groupes[a].order - groupes[b].order});
-    for(g in orderedGroupes) {
-        e = orderedGroupes[g];
-        var col = d3.hsl(groupes[e].color); if(col.s>0.5) col.s=0.5; col.l=0.75;
-        mydata.push({key:e, values:[], color:col, name:groupes[e].nom});
-        if(groupes[e].link!=="") $(".colors").append("<div onclick='highlight(\""+e+"\")' class='leg-item' title='"+groupes[e].nom+"'><div class='leg-value' style='background-color:"+col+"'></div><div class='leg-key'>"+e+"</div></div>");
-       else $(".others").append("<div onclick='highlight(\""+e+"\")' class='leg-item' title='"+groupes[e].nom+"'><div class='leg-value' style='background-color:"+col+"'></div><div class='leg-key'>"+e+"</div></div>");
-    }
+        orderedGroupes = d3.keys(utils.groups).sort(function(a,b){return utils.groups[a].order - utils.groups[b].order});
+    utils.drawGroupsLegend();
+    d3.entries(utils.groups).forEach(function(d){
+        mydata.push({key: d.key,
+                     values: [],
+                     color: utils.adjustColor(d.value.color),
+                     name: d.value.nom});
+    });
 
     d3.entries(data[step].divisions).forEach(function(a,b){
         a.value.step = a.key;
-    })
+    });
     num = divs.length;
     divs.forEach(function(f,j){
         var gp = d3.entries(f.groupes);
@@ -74,10 +67,10 @@ function init(data,step) {
                 })[0];
             if (filtered.length) {
                 filtered=filtered[0]
-                toAdd={label:g,value:filtered.value.nb_mots,step:f.step, name:e.name,speakers:filtered.value.orateurs}
+                toAdd={label:g,value:filtered.value.nb_mots,step:f.step,speakers:filtered.value.orateurs}
                 curr.values.push(toAdd)
             } else {
-                toAdd={label:g,value:1,step:f.step}
+                toAdd={label:g,value:null,step:f.step}
                 curr.values.push(toAdd)
             }
         });
@@ -85,22 +78,28 @@ function init(data,step) {
     drawFlows(false);
 }
 
-function drawFlows(top_ordered){
+function drawFlows(top_ordered) {
     $("#display_menu .chosen").removeClass('chosen');
     $("#display_menu #dm-"+(top_ordered ? 'quanti' : 'classic')).addClass('chosen');
-    $("#viz").empty()
-    var w=$("#viz").width();
-    var offset = Math.round(w/5);
-    var stream = sven.viz.streamkey()
-        .data(mydata)
-        .target("#viz")
-        .height(num*60)
-        .width(w)
-        .minHeight(1)
-        .sorting(top_ordered)
-        .init();
-    d3.selectAll("g:not(.main-g)").attr("transform","translate("+offset+",0) scale("+(w-offset)/w+",1)");
-    wrap(offset-25);
+    utils.startSpinner();
+    $("#viz-int").animate({opacity: 0}, 200, function() {
+        $("#viz-int").empty();
+        $(".text-container").empty();
+        var offset = Math.round(width/5);
+        var stream = sven.viz.streamkey()
+            .data(mydata)
+            .target("#viz-int")
+            .height(num*60)
+            .width(width)
+            .minHeight(8)
+            .sorting(top_ordered)
+            .init();
+        d3.selectAll("g:not(.main-g)").attr("transform","translate("+offset+",0) scale("+(width-offset)/width+",1)");
+        wrap(offset-25);
+        utils.stopSpinner(function() {
+            $("#viz-int").animate({opacity: 1}, 500);
+        });
+    });
 }
 
 sven = {},
@@ -126,7 +125,7 @@ sven.viz.streamkey = function(){
         graphWidth = width - margin.left - margin.right,
         graphHeight = height - margin.top - margin.bottom,
         streamWidth = graphWidth - barWidth,
-        filter_small = function(d) {return d['value'] != null && d['value'] > 3};
+        filter_small = function(d) {return d['value'] != null};
 
     streamkey.data = function(x){
         if (!arguments.length) return data;
@@ -203,7 +202,6 @@ sven.viz.streamkey = function(){
             i, j;
         n = data.length;
         m = data[0]['values'].length;
-
         //get values
         data.forEach(function(d,i){
             d['values'].forEach(function(d){if(d['value'] != null){values.push(d['value'])}})
@@ -249,21 +247,16 @@ sven.viz.streamkey = function(){
             .data(dataF)
             .enter().append("g")
             .attr("class", function(d,i){return "layer_"+i})
-            .style("fill", function(d, i) {col = d[0].color; if (col.s>0.5) col.s = 0.5; return col.toString(); })
+            .style("fill", function(d, i) {return utils.adjustColor(d[0].color).toString(); })
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             .on("mousemove",function(d){d3.select(".desc").attr("style","top: " + (d3.event.pageY - $(".desc").height() - 15) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2) + "px");});
-        d3.select("svg").on("click", function(){
-            $(".text-container").empty();
-            $("#text-title").html("Sélectionner un groupe d'orateurs");
-            d3.select(this).selectAll("rect").transition().style("opacity",0.9);
-            d3.select(this).selectAll("path").transition().attr("fill-opacity",0.3);
-        });
+        d3.select("svg").on("click", function(){ utils.resetHighlight('ints'); });
 
         var rect = layer.selectAll("rect")
             .data(function(d) { return d; })
             .enter().append("rect")
             .filter(filter_small)
-            .attr("class", function(d) { return "g_"+d.category.replace(/[^a-z]/ig, '')})
+            .attr("class", function(d) { return utils.slugGroup(d.category)})
             .attr("y", function(d) { return x(d.x); })
             .attr("x", function(d) { return y(d.y0 + d.y); })
             //.attr("rx", "3px")
@@ -292,8 +285,8 @@ sven.viz.streamkey = function(){
                     var div = document.createElement('div');
                     div.className="orat-info";
                     var siz = $(".text-container").width()*0.25;
-                    if(participants[g.key].photo) $(div).append("<a href='"+participants[g.key].link+"'><img src='"+participants[g.key].photo+"/"+parseInt(siz)+"'/></a>");
-                    $(div).append("<p class='orat-name'><b>"+(participants[g.key].photo ? "<a href='"+participants[g.key].link+"'>"+participants[g.key].nom+"</a>" : participants[g.key].nom)+"</b></p>");
+                    if(participants[g.key].photo) $(div).append('<a href="'+participants[g.key].link+'" target="_blank"><img src="'+participants[g.key].photo+"/"+parseInt(siz)+'"/></a>');
+                    $(div).append("<p class='orat-name'><b>"+(participants[g.key].photo ? '<a href="'+participants[g.key].link+'" target="_blank">'+participants[g.key].nom+"</a>" : participants[g.key].nom)+"</b></p>");
                     if(participants[g.key].fonction.length) $(div).append("<p class='orat-fonction'>"+participants[g.key].fonction+"</p>");
                     $(div).append('<p><a class="orat-disc" href="'+g.value.link+'" target="_blank">Lire les interventions</a></p>');
                     $(ordiv).append(div);
@@ -325,7 +318,7 @@ sven.viz.streamkey = function(){
             .filter(function(d){return d[4]})
             .attr("d", function(d){return drawLink(d[0], d[1], d[2], d[3])})
             .attr("fill-opacity", 0.3)
-            .attr("class", function(d){return "g_"+d[5].replace(/[^a-z]/ig, '')})
+            .attr("class", function(d){return utils.slugGroup(d[5]); })
             .attr("stroke", "none")
             .attr("display", "inline");
 
@@ -341,7 +334,7 @@ sven.viz.streamkey = function(){
             .attr("font-size","0.9em")
             .attr("class", "filter-title")
             .attr("fill", "#333")
-            .text(function(d){return d});
+            .text(function(d){return utils.shortenString(d, 110); });
 
         return streamkey;
     };
@@ -363,7 +356,7 @@ sven.viz.streamkey = function(){
     };
 
     sortByGroupe = function(data){
-        return sort(data, "category", function(a,b){return factions[b].order - factions[a].order; });
+        return sort(data, "category", function(a,b){return utils.groups[b].order - utils.groups[a].order; });
     }
 
     sortByTop = function(data){
@@ -399,13 +392,10 @@ sven.viz.streamkey = function(){
     //...and propagate it to other
     for (j = 0; j < m; ++j) {
         o = y0[j];
-        data[j][0]['y0'] = o;
-        data[j][0]['y'] = minHeightScale(data[j][0]['y']);
 
-        for (i = 1; i < n; i++){
-            if (data[j][i-1]['value'] != null)
-                data[j][i]['y'] = minHeightScale(data[j][i]['y'])
-            if (data[j][i-1]['value'] != null)
+        for (i = 0; i < n; i++){
+            data[j][i]['y'] = minHeightScale(data[j][i]['y'])
+            if (i && data[j][i-1]['value'] != null)
                 o += data[j][i-1]['y'] + scaledBarPadding;
             data[j][i]['y0'] = o;
         }

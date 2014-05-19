@@ -1,10 +1,10 @@
 var orderedByStatus = true;
 var sortByStat;
 var sortByParty;
-var draw;
-var drawMerged;
+var redraw;
 var grouped=null;
 var api_root;
+var utils, highlight;
 
 (function(){
 
@@ -20,34 +20,30 @@ var api_root;
 
   	function vis(selection){
 
-		var groups,articles;
-
+		var articles;
+        utils = $('.mod2').scope();
+        highlight = utils.highlightGroup;
         selection.each(function(d,i){
-            groups=d.groupes;
+            utils.groups = d.groupes;
             articles=d.sujets;
             api_root=d.api_root_url;
-        })
+        });
         if (Object.keys(articles).length < 2)
             $('#display_menu').parent().hide();
 
         selectRow = function(art,pos) {
-
             if(d3.event) d3.event.stopPropagation();
-
             var sel = d3.select("."+art);
-
             if(!sel.empty()) {
-
-                d3.selectAll("g").style("opacity", 0.2);
-
-                sel.style("opacity", 1);
-
+                d3.selectAll("g").style("opacity", 0.1);
+                sel.style("opacity", 0.9);
                 if(pos) $("#viz").animate({ scrollTop: sel.attr("data-offset") })
             }
         };
 
         deselectRow = function() {
-            d3.selectAll("g").style("opacity",1);
+            utils.resetHighlight('amds');
+            d3.selectAll("g").style("opacity",0.9);
         };
 
 	artArray=d3.values(articles).sort(function(a,b){return a.order-b.order})
@@ -67,24 +63,9 @@ var api_root;
 		    .attr("height", h)
             .on("click",deselectRow);
 
-        function chk_scroll(e)
-        {
-            e.stopPropagation();
-            var elem = $(e.currentTarget);
-            if (elem[0].scrollHeight - elem.scrollTop() == elem.outerHeight())
-            {
-                $(".end-tip").fadeOut(200);
-            }
-            else {
-                if(!$(".end-tip").is(":visible")) $(".end-tip").fadeIn(200);
-
-            }
-
-        }
-
         var compare_partys = function(a,b){
-                if (groups[a].order < groups[b].order) return -1;
-                if (groups[a].order > groups[b].order) return 1;
+                if (utils.groups[a].order < utils.groups[b].order) return -1;
+                if (utils.groups[a].order > utils.groups[b].order) return 1;
             },
             statsorder = {"adopté": 0, "rejeté": 1, "non-voté": 2},
             compare_stats = function(a,b){
@@ -101,27 +82,11 @@ var api_root;
                 if (a.groupe != b.groupe) return compare_partys(a.groupe, b.groupe);
                 return a.numero - b.numero;
             },
-            order_grouped = function(){
-                grouped['amendements'].sort((orderedByStatus ? compare_by_stat : compare_by_party));
-            },
-            order_ungrouped = function(){
-                artArray.forEach(function(d,i) {
-                    d['amendements'].sort((orderedByStatus ? compare_by_stat : compare_by_party));
-                });
-            },
-            clear_screen = function(){
-                $("svg").empty();
-                $(".text-container").empty();
-                jumpLines=0;
-            },
-            redraw = function(){
-                (grouped ? drawMerged() : draw());
-            },
             check_half = function(g) {
                 var half_col=false;
                 var maxlen;
-                if(!g)  maxlen = d3.max(artArray,function(d){return d.amendements.length});
-                else  maxlen = grouped.amendements.length;
+                if(!g) maxlen = d3.max(artArray,function(d){return d.amendements.length});
+                else maxlen = grouped.amendements.length;
 
                 if(maxlen<nsq/2) {
                     x=nsq/2-1;
@@ -144,22 +109,38 @@ var api_root;
             orderedByStatus = false;
             redraw();
         };
+        redraw = function(merged) {
+            if (merged == undefined) merged = grouped;
+            utils.startSpinner();
+            $("svg").animate({opacity: 0}, 200, function() {
+                $("svg").empty();
+                $(".text-container").empty();
+                jumpLines=0;
+                (merged ? drawMerged() : draw());
+                var a = d3.select("svg").select("g:last-child").attr("data-offset"),
+                   ah = d3.select("svg").select("g:last-child").node().getBBox().height;
+                svg.attr("height",z+parseInt(a)+ah);
+                utils.stopSpinner(function() {
+                    $("svg").animate({opacity: 1}, 500);
+                });
+            });
+        }
 
-        draw = function() {
+        function draw() {
             $("#display_menu .chosen").removeClass('chosen');
             $("#display_menu #dm-draw").addClass('chosen');
             grouped=null;
-            order_ungrouped();
-            clear_screen();
+            artArray.forEach(function(d,i) {
+                d['amendements'].sort((orderedByStatus ? compare_by_stat : compare_by_party));
+            });
+
             var half_col=check_half();
-                artArray.forEach(function (d, i) {
-                    drawLines(d, i, half_col)
-                });
-            adjustHeight(half_col);
+            artArray.forEach(function (d, i) {
+                drawLines(d, i, half_col)
+            });
         }
 
-        drawMerged = function() {
-
+        function drawMerged() {
             $("#display_menu .chosen").removeClass('chosen');
             $("#display_menu #dm-merged").addClass('chosen');
             if(!grouped) {
@@ -170,18 +151,8 @@ var api_root;
             }
 
             var half_col=check_half(grouped);
-
-            order_grouped();
-            clear_screen();
+            grouped['amendements'].sort((orderedByStatus ? compare_by_stat : compare_by_party));
             drawLines(grouped,0,half_col);
-            adjustHeight(half_col);
-        }
-
-
-        function adjustHeight(half) {
-            var a = d3.select("svg").select("g:last-child").attr("data-offset"),
-               ah = d3.select("svg").select("g:last-child").node().getBBox().height;
-            svg.attr("height",80+(parseInt(a)+ah)/(half ? 2 : 1));
         }
 
         function drawLines(d,i, half) {
@@ -248,9 +219,6 @@ var api_root;
                   .attr("class", "bg")
                   .style("fill", "#E6E6E6")
 
-             /* var margin = d.offset == 0 ? 'style="margin-top : 10px"' : 'style="margin-top : ' + (10 + 20 * d.offset) + 'px "',
-                  subj = d.titre;*/
-
               curRow.append("text")
                   .attr("x", 20)
                   .attr("class", "row-txt")
@@ -265,7 +233,7 @@ var api_root;
               var popover = function (d) {
                   var date = d.date.split('-'),
                       div = d3.select(document.createElement("div")).style("width", "100%");
-                  div.append("p").html("<b>" + groups[d.groupe].nom + "</b>");
+                  div.append("p").html("<b>" + utils.groups[d.groupe].nom + "</b>");
                   div.append("p").html("Sort : " + d.sort + "");
                   div.append("p").html("<small>" + [date[2], date[1], date[0]].join("/") + "</small>");
                   return {
@@ -298,7 +266,7 @@ var api_root;
                   .attr("id", function (d) {
                       return "a_" + d.numero.replace(/[^a-z\d]/ig, '')
                   })
-                  .attr("class", "amd")
+                  .attr("class", function(d) { return "amd " + utils.slugGroup(d.groupe) + " " + utils.slugGroup(d.sort); })
                   .style("fill", color_amd)
                   .popover(popover)
                   .on("click", select);
@@ -321,19 +289,14 @@ var api_root;
                   .attr("xlink:href", get_status_img)
                   .popover(popover)
                   .on("click", select);
-
         }
 
 		function select(d) {
             d3.event.stopPropagation()
-			$(".text-container").show();
-			d3.selectAll(".actv-amd")
-			.style("fill",color_amd)
-			.style("stroke","none" )
-			.classed("actv-amd",false);
-
-			d3.json(api_root+d.id_api+'/json',function(error,json){
-				var currAmd = json.amendement,
+            utils.resetHighlight('amds');
+            utils.startSpinner('load_amd');
+            setTimeout(function(){ d3.json(api_root+d.id_api+'/json',function(error, json){
+                var currAmd = json.amendement,
                     source_am = '.fr</a> &mdash; <a href="'+currAmd.source+'" target="_blank">',
                     statico = get_status_img(d),
                     col = color_amd(d);
@@ -348,44 +311,36 @@ var api_root;
                     "<p><b>Texte :</b> " + currAmd.texte +
                     '<p><small><b>Sources :</b> <a target="_blank" href="' + source_am + "</a></small></p>"
                 );
-			})
+                utils.stopSpinner(function() {
+                    $(".text-container").animate({opacity: 1}, 350);
+                    $('.text-container').scrollTop(0);
+                }, 'load_amd');
+            });});
             d3.selectAll("#a_"+d.numero.replace(/[^a-z\d]/ig, ''))
-                .attr("class","actv-amd")
-                .style("fill", color_amd)
+                .classed("actv-amd", true)
                 .style("stroke", "#333344")
                 .style("stroke-width", 2);
-            $("#text-title").text("Amendement "+d.numero)
-			$('.text-container').scrollTop(0);
-			if(!$(".end-tip").is(":visible")) $(".end-tip").fadeIn(200);
+            $("#text-title").text("Amendement "+d.numero);
 		}
 
-	    function adjust_color(c){
-            var col = d3.hsl(c);
-            if (col.s>0.5) col.s = 0.5;
-            if (col.l<0.7) col.l = 0.7;
-            return col;
-        }
-
 		function color_amd(d) {
-			if(groups[d.groupe]) {
-				return adjust_color(groups[d.groupe].color).toString();
+			if(utils.groups[d.groupe]) {
+				return utils.adjustColor(utils.groups[d.groupe].color).toString();
 			} else return "#E6E6E6";
         }
 
-		function legend(t) {
-
-			d3.entries(groups).sort(function(a,b) { return a.order - b.order; })
-            .forEach(function(e,i){
-                var col = adjust_color(e.value.color);
-                $("."+(e.value.link!=="" ? 'colors' : 'others')).append('<div class="leg-item" title="'+e.value.nom+'" data-toggle="tooltip" data-placement="left"><div class="leg-value" style="background-color:'+col+'"></div><div class="leg-key">'+e.key+'</div></div>');
-			})
-            $(".leg-item").tooltip();
-		}
-
         $(document).ready(function() {
-            legend();
-            $('.text-container').bind('scroll',chk_scroll);
-            draw();
+            utils.drawGroupsLegend();
+            if ($(".others div").length) $(".others").append('<div class="leg-item"></div>');
+            [
+                {nom: 'Adopté', id: 'adopt', img: 'ok'},
+                {nom: 'Rejeté', id: 'rejet', img: 'ko'},
+                {nom: 'Non voté', id: 'nonvot', img: 'nd'}
+            ].forEach(function(d) {
+                $(".others").append('<div class="leg-item" onclick="highlight(\''+d.id+'\')" title="Amendements '+d.nom.toLowerCase()+'s" data-toggle="tooltip" data-placement="left"><div class="leg-value" style="background-color: black; background-image: url(img/'+d.img+'.png); background-repeat:no-repeat; background-position:50% 50%;"></div><div class="leg-key">'+d.nom+'</div></div>');
+            });
+            $(".leg-item").tooltip();
+            redraw(false);
         });
 
     }; //end function vis

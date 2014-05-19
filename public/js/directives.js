@@ -87,14 +87,13 @@ function(api, $rootScope, $location, $compile) {
 
             function update() {
 
-                var target = document.getElementById('preload');
-                var spinner = new Spinner(scope.spinner_opts).spin(target);
+                scope.startSpinner();
 
                 api.getArticle(l).then(function(data) {
                     $rootScope.lawTitle = data.short_title
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Articles | ";
-                        d3.select(element[0]).datum(data).call(mod1)
-                    spinner.stop();
+                    d3.select(element[0]).datum(data).call(mod1);
+                    scope.stopSpinner();
                 }, function(error) {
                     console.log(error);
                     scope.error = error
@@ -117,7 +116,6 @@ function(api, $rootScope, $location, $compile) {
             $scope.a = $location.search()['a'];
             $scope.mod="mod2";
 
-
         },
         link : function postLink(scope, element, attrs) {
 
@@ -127,18 +125,14 @@ function(api, $rootScope, $location, $compile) {
 
             function update() {
 
-                var target = document.getElementById('preload');
-                var spinner = new Spinner(scope.spinner_opts).spin(target);
+                scope.startSpinner();
+
                 if ($location.search()['s'] != null) api.getAmendement(scope.l, $location.search()['s'] ).then(function(data) {
                     scope.data = data;
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Amendements | ";
                     d3.select(element[0]).datum(data).call(mod2);
-
                     if ($location.search()['a']!=null)
                         selectRow($location.search()['a'],true);
-
-                    spinner.stop();
-
                 }, function(error) {
                     scope.error = error
                 });
@@ -164,18 +158,15 @@ function(api, $rootScope, $location, $compile) {
             if ($location.search()['l'] != null)
                 scope.l = $location.search()['l'];
             function update() {
-                var target = document.getElementById('preload');
-                var spinner = new Spinner(scope.spinner_opts).spin(target);
+
+                scope.startSpinner();
 
                 if ($location.search()['s'] != null) {
 
                     api.getIntervention(scope.l).then(function(data) {
                         scope.data = data;
                         $rootScope.pageTitle =  $rootScope.lawTitle + " - Débats | ";
-                        init(data, $location.search()['s'])
-
-                        spinner.stop();
-
+                        init(data, $location.search()['s']);
                         if($("svg").height()<$("#viz").height()) {
                            var offs=($("#viz").height() - $("svg").height())/2;
                            $("svg").css({"margin-top":offs,"padding-top":"5px"});
@@ -210,30 +201,15 @@ function(api, $rootScope, $location, $compile) {
                 }
             })
             var mod0 = thelawfactory.mod0();
-            var mod0_bars = thelawfactory.mod0_bars();
-
             function update() {
-
-                var target = document.getElementById('preload');
-                var spinner = new Spinner(scope.spinner_opts).spin(target);
-
-                api.getStats().then(function(data) {
-                    d3.select(element[0]).datum(data).call(mod0_bars)
-
-                }, function(error) {
-                    console.log(error)
-                })
+                scope.startSpinner();
 
                 api.getDossiers().then(function(data) {
-
-                    d3.select(element[0]).datum(data).call(mod0)
-                    $("a.badge").tooltip();
-                    spinner.stop();
+                    d3.select(element[0]).datum(data).call(mod0);
 
                 }, function(error) {
                     console.log(error)
                 })
-
             }
             update();
         }
@@ -410,73 +386,52 @@ return {
                 scope.stages=[],
                 scope.steps=[],
                 scope.inst=[];
-                var currStage,
-                    currInst;
+                var currStage = {name: "", num: 1},
+                    currInst  = {name: "", num: 1};
+                if (! $rootScope.lawTitle) {
+                    $rootScope.lawTitle = data.short_title;
+                    $rootScope.pageTitle = ($rootScope.pageTitle+"").replace('undefined', $rootScope.lawTitle);
+                }
 
                 data.steps.forEach(function(e,j){
+                    if(e.debats_order!==null) scope.total++;
+                });
+                scope.barwidth = $("#stepsbar").width();
 
-                    if(e.debats_order!==null) {
+                data.steps.filter(function(e) { return e.debats_order != null; })
+                .forEach(function(e) {
+                    if (e.debats_order==null) return;
 
-                        scope.total++;
-                        scope.steps.push(e);
+                    scope.steps.push(e);
+                    e.short_name = scope.stepLabel(e);
+                    e.long_name = scope.stepLegend(e);
+                    e.display_short = (scope.barwidth / scope.total < (e.step == "depot" && e.auteur_depot != "Gouvernement" ? 150 : 120));
 
-                        if(!currStage) {
-                            currStage={};
-                            if(e.step==="depot") currStage.name="depot"
-                            else currStage.name = e.stage;
-                            currStage.num = 1;
-                        }
-                        else if(currStage.name.toLowerCase() === e.stage.toLowerCase() || (currStage.name.indexOf("depot")>=0 && e.step.toLowerCase()==="depot")) {
-                            if(currStage.name.indexOf("depot")>=0) currStage.name="depots"
-                            currStage.num++;
-                        }
-                        else {
-                            var obj = $.extend(true, {}, currStage);
-                            scope.stages.push(obj);
-                            if(e.step==="depot") currStage.name="depot"
-                            else currStage.name = e.stage;
-                            currStage.num=1;
-                        }
+                    if (e.step === "depot") {
+                        if (currStage.name) currStage.num++;
+                        else currStage.name = "depot";
+                        if (currStage.num == 2) currStage.name += "s";
+                    } else if (currStage.name === e.stage) {
+                        currStage.num++;
+                    } else {
+                        if (currStage.name)
+                            scope.stages.push(scope.addStageInst(currStage));
+                        currStage.num=1;
+                        currStage.name = e.stage;
+                    }
 
-                        if(e.step==="depot") {
-                            if(!currInst) {
-                                currInst={};
-                                currInst.name = e.auteur_depot;
-                                currInst.num = 1;
-                            }
-
-                            else if(currInst.name!==e.auteur_depot) {
-                                var obj = $.extend(true, {}, currInst);
-                                scope.inst.push(obj);
-                                currInst.name = e.auteur_depot;
-                                currInst.num = 1;
-                            }
-                            else currInst.num++;
-                        }
-                        else {
-
-                            if(!currInst) {
-                                currInst={};
-                                currInst.name= e.institution;
-                                currInst.num=1;
-                            }
-
-                            else if(e.institution === currInst.name) {
-                                currInst.num++;
-                            }
-                            else {
-                                var obj = $.extend(true, {}, currInst);
-                                scope.inst.push(obj);
-                                currInst.name= e.institution;
-                                currInst.num=1;
-                            }
-                        }
-
+                    if ((e.step === "depot" && currInst.name === e.auteur_depot) || (e.step !== "depot" && e.institution === currInst.name))
+                        currInst.num++;
+                    else {
+                        if (currInst.name)
+                            scope.inst.push(scope.addStageInst(currInst));
+                        currInst.num = 1;
+                        currInst.name = (e.step==="depot" ? e.auteur_depot : e.institution);
                     }
                 });
 
-                scope.stages.push(currStage);
-                scope.inst.push(currInst);
+                scope.stages.push(scope.addStageInst(currStage));
+                scope.inst.push(scope.addStageInst(currInst));
                 timer(function(){
                     $(".stb-step div span").tooltip()
                     $(".stb-step div span a").tooltip()
