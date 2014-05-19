@@ -326,17 +326,16 @@ var drawGantt, utils,
 
                         d.steps.forEach(function (e, j) {
 
-                            if(e.step!=="depot" && (e.institution==="assemblee" || e.institution==="senat")) {
-                                e.stepname = e.step.substr(0, 1).toUpperCase();
-                            } else if(e.step==="depot") {
-                                e.stepname= d.id.substr(0,3).toUpperCase();
-                            } else if(e.institution==="CMP") {
-                                e.stepname = "CMP";
-                            } else if(e.institution==="conseil constitutionnel"){
+                            if(e.stage==="constitutionnalité" || e.institution==="conseil constitutionnel")
                                 e.stepname="CC";
-                            } else if (e.stage==="promulgation") {
+                            else if (e.stage==="promulgation")
                                 e.stepname="JO";
-                            }
+                            else if(e.step!=="depot" && (e.institution==="assemblee" || e.institution==="senat"))
+                                e.stepname = e.step.substr(0, 1).toUpperCase();
+                            else if(e.step==="depot")
+                                e.stepname= d.id.substr(0,3).toUpperCase();
+                            else if(e.institution==="CMP")
+                                e.stepname = "CMP";
 
                             //if (j == 0 && (e.date === "" || e.date < d.beginning)) e.date = d.beginning
                             if (e.date && e.date != "" && e.enddate < e.date) e.enddate = e.date
@@ -376,7 +375,7 @@ var drawGantt, utils,
                         data = json;
                         prepareData();
                         currFile = json.next_page;
-                        setTimeout((currFile ? dynamicLoad : computeFilters), 0);
+                        setTimeout((currFile ? dynamicLoad : computeFilters), 50);
                     })
                 }
 
@@ -703,7 +702,7 @@ var drawGantt, utils,
                 currFile = data.next_page;
                 prepareData();
                 drawGantt('time');
-                setTimeout((currFile ? dynamicLoad : computeFilters), 1000);
+                setTimeout((currFile ? dynamicLoad : computeFilters), 500);
                 $("a.badge").tooltip();
 
 
