@@ -848,6 +848,9 @@ h4 a{
     border-radius: 0;
     background-color:#657C8F;
 }
+.gotomod a.btn-info:hover {
+    opacity: 0.85;
+}
 .mod0 .extrainfos {
     vertical-align: bottom;
     position: absolute;
@@ -884,9 +887,9 @@ text {
     margin-top:0.2em;
 }
 .text-container a.badge:hover {
-    color: #0505ff;
-    background-color: #d0e0ff;
-    opacity: 0.55;
+    color: #333344;
+    background-color: #eeeeee;
+    opacity: 0.85;
 }
 #mod0-slider {
     clear:both;
@@ -894,6 +897,7 @@ text {
     width:80%;
     float:right;
     background-color: #F6F6F6;
+    border-radius: 0;
 }
 
 .ui-slider-handle{
@@ -1108,24 +1112,25 @@ ul.filters li a.badge {
 }
 ul.filters li a.badge:hover {
     background-color: #e5e8ff;
-    color: #0505ff;
+    color: #333;
     text-decoration: none;
+    opacity: 0.85;
+}
+ul.filters li a.badge b {
+    color: #333;
 }
 ul.filters li a.badge span.glyphicon {
     padding: 1px;
     color: red;
 }
-ul.filters li a.badge b {
-    color: #333;
-}
 
 /* bootstrap dropdown submenu add */
 .dropdown-submenu{position:relative;}
-.dropdown-submenu>.dropdown-menu{top:-60px;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
+.dropdown-submenu>.dropdown-menu{top:-60px;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}
 .dropdown-submenu:hover>.dropdown-menu{display:block;}
 .dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
 .dropdown-submenu:hover>a:after{border-left-color:#ffffff;}
-.dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
+.dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}
 
 #preload, #load_art {
     position:relative;
@@ -1153,7 +1158,7 @@ noscript h2 {
     color: #700;
 }
 .amd-txt-status{
-    position:relative; top: 4px;margin-top:4px;border-radius:20%; display:inline-block; overflow:hidden;min-height:18px;
+    position:relative; top: 4px;margin-top:4px;border-radius:0; display:inline-block; overflow:hidden;min-height:18px;
 }
 .row {
     width: 100%;
