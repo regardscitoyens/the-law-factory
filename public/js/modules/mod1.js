@@ -22,12 +22,12 @@ var textArticles;
         }
 
         function clean_premier(s) {
-            return (s ? s.replace('<sup>er</sup>', '') : '');
+            return (s ? s.replace(/(<sup>)?er(<\/sup>)?/ig, '') : '');
         }
 
         function split_section(s) {
             s = s.replace(/<[^>]*>/g, '');
-            return s.split(/([LTCVS]+\d+[\s<\/>a-z]*)/);
+            return s.split(/([ALTCVS]+\d+[\s<\/>a-z]*)/);
         }
         function sub_section(s) {
             s = split_section(s);
@@ -149,7 +149,8 @@ var textArticles;
                 var stages = computeStages(),
 				    columns = stages.length,
 				    sections = computeSections(),
-				    sectJump = 40,
+				    sectHeight = 15,
+				    sectJump = 25,
                     test_section_details = function(section, etape, field) {
                         return (data.sections && data.sections[section] && data.sections[section][etape] && data.sections[section][etape][field] != undefined);
                     },
@@ -208,7 +209,8 @@ var textArticles;
 					bottom : 20,
 					left : 0
 				}, width = $("#viz").width(),
-				colwidth = width / columns - 30;
+				colwidth = width / columns - 30,
+                longlabel = (colwidth < 120 ? (colwidth < 80 ? 0 : 1) : 2);
 				//init coordinates
 				setCoordinates();
 
@@ -316,20 +318,42 @@ var textArticles;
 						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head)}))
 						.enter().append("rect")
 						.attr("x", function(d){return d.x})
-						.attr("y", function(d){return d.y-15})
+						.attr("y", function(d){return d.y-sectHeight})
 						.attr("class","header")
 						.attr("width", colwidth)
-						.attr("height", function(d){return (d.section === 'echec' ? maxy-50 : 15)})
+						.attr("height", function(d){return (d.section === 'echec' ? maxy-50 : sectHeight)})
 						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#2553C2")})
 						.style("stroke", "none")
 						.style("opacity", function(d){return section_opacity(d.section)})
-						.style("stroke-width", "1px")
 						.popover(function(d){return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))})
                         .filter(function(d){return d.section.lastIndexOf("A", 0) === 0}).on("click", onclick);
 
+                        group.selectAll(".header")
+                        .filter(function(d) {return d.head > 1})
+                        .each(function(d) {
+                            var lastS, curS = d.section,
+                                ct = 1;
+                            while (ct < d.head) {
+                                ct++;
+                                lastS = sub_section(curS);
+                                curS = d.section.substr(0, curS.length - lastS.length);
+                                group.append("rect")
+                                    .attr("x", d.x)
+                                    .attr("y", d.y-ct*sectHeight)
+                                    .attr("class","header")
+                                    .attr("width", colwidth)
+                                    .attr("height", sectHeight)
+                                    .style("fill", "#2553C2")
+                                    .style("stroke", "none")
+                                    .style("opacity", section_opacity(curS))
+                                    .popover(function(){ return section_hover(d)});
+                            }
+                        });
+
+
 						//Add header labels
 						group.selectAll(".head-lbl")
-						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head)}))
+						.data(bigList.filter(function(d){return (d.step_num==st && d.sect_num==se && d.head); }))
 						.enter().append("text")
 						.attr("x", function(d){return d.x - 2 + colwidth / 2})
 						.attr("y", function(d){return d.y - (d.section === 'echec' ? 2 : 4)})
@@ -342,14 +366,37 @@ var textArticles;
 						.style("fill", 'white')
 						.text(function(d){
                             if (data.sections && d.section === 'echec') return d.status;
-                            var length = (colwidth < 120 ? (colwidth < 80 ? 0 : 1) : 2),
-                                sec; 
+                            var sec;
                             if (d.section.lastIndexOf("A", 0) === 0) sec = d;
                             else sec = sub_section(test_section_details(d.section, d.id_step, 'newnum') ? data.sections[d.section][d.id_step]['newnum'] : d.section)
-                            return clean_premier(format_section(sec, length));
+                            return clean_premier(format_section(sec, longlabel));
                         })
 						.popover(function(d){return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))})
                         .filter(function(d){return d.section.lastIndexOf("A", 0) === 0}).on("click", onclick);
+
+                        group.selectAll(".head-lbl")
+                        .filter(function(d) {return d.head > 1})
+                        .each(function(d) {
+                            var lastS, curS = d.section,
+                                ct = 1;
+                            while (ct < d.head) {
+                                lastS = sub_section(curS);
+                                curS = d.section.substr(0, curS.length - lastS.length);
+                                group.append("text")
+                                    .attr("x", d.x - 2 + colwidth / 2)
+                                    .attr("y", d.y - 4 - ct*sectHeight)
+                                    .attr("class", "head-lbl")
+                                    .attr("font-family", "sans-serif")
+                                    .attr("text-anchor", "middle")
+                                    .attr("letter-spacing", "0.2em")
+                                    .attr("font-size", '9px')
+                                    .attr("font-weight", "bold")
+                                    .style("fill", 'white')
+                                    .popover(function(){ return section_hover(d)})
+                                    .text(clean_premier(titre_section(curS, longlabel)));
+                                ct++;
+                            };
+                        });
 					}
 				}
 
@@ -422,19 +469,39 @@ var textArticles;
 
 				function setCoordinates() {
 					for (t in stages) {
-						currT=bigList.filter(function(d){return d.step_num==t})
-						currY=sectJump;
+						var currT = bigList.filter(function(d){return d.step_num==t}),
+                            currY = sectJump + sectHeight,
+                            artS, piece,
+                            lastS = "";
+                        
 						for (s in sections) {
 							currS=currT.filter(function(e){return e.sect_num==s})
 							if(currS.length) {
 								currS.sort(function(a,b){return a.order - b.order})
-								currS.forEach(function(f,k){
-									if (k==0) f.head=true;
+							    .forEach(function(f,k){
+									if (k==0) {
+                                        f.head=1;
+                                        artS = f;
+                                    }
 									f.y = currY;
 									f.x = f.step_num * width / columns + 10;
 									currY+=lerp(f.length)+1
-								})
-								currY+=sectJump;
+								});
+                            // Identify section jumps 
+                                lastsplit = split_section(lastS);
+                                cursplit = split_section(artS.section);
+							    while(lastsplit.length) {
+                                    piece = newpiece = "";
+                                    while (lastsplit.length && !piece) piece = lastsplit.shift();
+                                    while (cursplit.length && !newpiece) newpiece = cursplit.shift();
+                                    if (newpiece != piece) break;
+                                }
+                                while (cursplit.length) if (cursplit.shift()) artS.head += 1;
+                                currY += artS.head * sectHeight + sectJump;
+                                if (artS.head > 1) currS.forEach(function(f){
+                                    f.y += artS.head * sectHeight;
+                                });
+                                lastS = artS.section;
 							}
 						}
 					}
