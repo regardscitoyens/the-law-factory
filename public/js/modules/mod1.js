@@ -22,7 +22,7 @@ var textArticles;
         }
 
         function clean_premier(s) {
-            return (s ? s.replace(/(<sup>)?er(<\/sup>)?/ig, '') : '');
+            return (s ? s.replace(/1(<sup>)?er(<\/sup>)?/ig, '1') : '');
         }
 
         function split_section(s) {
@@ -48,7 +48,7 @@ var textArticles;
             for (var i in s) if (s[i]) {
                 res += (res ? " ⋅ " : "");
                 res += s[i].replace(/([LTCVS]+)(\d+e?r?)\s*([\sa-z]*)/, '$1 $2 $3')
-                    .replace(/(\d)er?/g, '$1<sup>er</sup>')
+                    .replace(/1er?/g, '1<sup>er</sup>')
                     .replace(/^SS( \d)/, (length ? (length == 1 ? "S-Sec." : "Sous-section") : "SS") + '$1')
                     .replace(/^S( \d)/, (length ? (length == 1 ? "Sect." : "Section") : "S") + '$1')
                     .replace("C ", (length ? (length == 1 ? "Chap." : "Chapitre") : "C") + " ")
@@ -61,9 +61,9 @@ var textArticles;
 
         function titre_article(article, length) {
             var num = (article.newnum != undefined ? article.newnum : article.article)
-                    .replace(/(\d)er?/, '$1'),
+                    .replace(/1er?/, '1'),
                 newnum = (article.newnum != undefined ? " (" + article.article + ")" : "")
-                    .replace(/(\d)er?/, '$1<sup>er</sup>'),
+                    .replace(/1er?/, '1<sup>er</sup>'),
                 res = (length ? (length == 1 ? "Art." : "Article ") : "A ")
             return res + num + newnum;
         }
