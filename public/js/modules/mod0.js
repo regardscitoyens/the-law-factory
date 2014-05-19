@@ -64,6 +64,7 @@ var drawGantt, utils,
                 ticks,
                 basewidth = parseInt(d3.select("#gantt").style("width")) - 30,
                 width = basewidth,
+                widthratio = 1,
                 lawh = 50,
                 steph = lawh - 16,
                 z = 1,
@@ -175,7 +176,7 @@ var drawGantt, utils,
                 d3.selectAll(".tl-bg").attr("transform", "scale(" + z + ",1)");
 
                 if(layout==="a")
-                    d3.selectAll(".g-law").attr("transform", function(d,i){return "translate(" + (-tscale(format.parse(d.beginning))*z+5) + ","+ (i * (20 + lawh)) +")"});
+                    d3.selectAll(".g-law").attr("transform", function(d,i){return "translate(" + width_ratio*(-tscale(format.parse(d.beginning))*z+5) + ","+ (i * (20 + lawh)) +"), scale("+width_ratio+",1)"});
 
                 d3.selectAll(".tick-lbl").attr("x", function (d) { return tscale(d) * z; })
                 .style("opacity",function(d,i){
@@ -484,7 +485,7 @@ var drawGantt, utils,
                         return;
                     }
 
-                    if (layout != "t") {
+                    if (layout == "q") {
                         maxdate = format.parse(mindate > data.min_date ? data.min_date : mindate);
                         maxdate.setDate(maxdate.getDate() + maxduration + 50);
                     } else maxdate = format.parse(maxdate > data.max_date ? data.max_date : maxdate);
@@ -494,6 +495,10 @@ var drawGantt, utils,
 
                     //update svg size
                     width = (maxdate - mindate < 94608000000 || layout == "q" ? 1 : 2) * basewidth;
+
+                    if (layout == "a")
+                        width_ratio = 0.8*(maxdate - mindate)/(maxduration*86400000.);
+
                     ganttcontainer.attr("height", Math.max(2, smallset.length) * (20 + lawh)).attr("width", width);
                     legendcontainer.attr("width", width);
 
@@ -639,7 +644,7 @@ var drawGantt, utils,
 
                 absolutePosition = function () {
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
-                        return "translate(" + (-tscale(format.parse(d.beginning))*z + 5) + "," + (i * (20 + lawh)) + ")"
+                        return "translate(" + width_ratio*(-tscale(format.parse(d.beginning))*z + 5) + "," + (i * (20 + lawh)) + "), scale("+width_ratio+",1)";
                     })
                     classicPosition();
                     d3.selectAll(".tick-lbl").text(function (d, j) { return (j + 1) + " mois"; })
