@@ -321,7 +321,7 @@ var textArticles;
 						.attr("y", function(d){return d.y-sectHeight})
 						.attr("class","header")
 						.attr("width", colwidth)
-						.attr("height", function(d){return (d.section === 'echec' ? maxy-50 : colwidth);})
+						.attr("height", function(d){return (d.section === 'echec' ? maxy-50 : sectHeight);})
 						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#333344")})
 						.style("stroke", "none")
 						.style("opacity", function(d){return section_opacity(d.section)})
@@ -349,7 +349,6 @@ var textArticles;
                                     .popover(function(){ return section_hover(d)});
                             }
                         });
-
 
 						//Add header labels
 						group.selectAll(".head-lbl")
@@ -651,7 +650,7 @@ var textArticles;
 
                     d3.selectAll("line")
                     .filter(function(e){return e.article==d.article})
-					.style("stroke", "#333344");
+					.style("stroke", "#333344")
                     .style("stroke-dasharray", [3, 3]);
 
                     d3.rgb(d3.select(this).style("fill")).darker(2)
