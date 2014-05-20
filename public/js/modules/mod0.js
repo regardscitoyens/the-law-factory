@@ -720,6 +720,9 @@ var drawGantt, utils,
                             .append("div")
                             .attr("class", "bar-step")
                             .attr("style", "width: " + 95/(maxstat+1) + "%; margin-right: " + 5/(maxstat+1) + "%");
+                        if (active_filters['length'] && active_filters['length'] != e.key)
+                            step.style("height", "100%")
+                            .on('click', function() { rmBillsFilter('length'); });
 
                         step.append("div")
                             .attr("id", "mois_"+e.key)
