@@ -74,7 +74,7 @@ var textArticles;
             if (s.lastIndexOf("A", 0) === 0)
                 return 0.65;
             try {
-                return 0.95-0.1*(split_section(s).length-1);
+                return 0.95-0.07*(split_section(s).length-1);
             } catch(e) {
                 console.log("ERREUR section with bad id:", s, e);
                 return 0.95;
