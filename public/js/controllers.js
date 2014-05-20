@@ -152,12 +152,14 @@ angular.module('theLawFactory.controllers', []).
         }
 
         $scope.highlightGroup = function(group) {
-            $(".text-container").empty();
-            if ($scope.groups[group]) $("#text-title").html($scope.groups[group].nom);
-            group = ".g_"+group.replace(/[^a-z]/ig, '');
-            d3.selectAll("path").transition().attr("fill-opacity",0.1);
+            if (!$('.focused').length) {
+                $(".text-container").empty();
+                if ($scope.groups[group]) $("#text-title").html($scope.groups[group].nom);
+            }
+            group = "."+ $scope.slugGroup(group)
+            d3.selectAll("path").transition().style("fill-opacity",0.1);
             d3.selectAll("rect").transition().style("opacity",0.1);
-            d3.selectAll("path").filter(group).transition().attr("fill-opacity",0.3);
+            d3.selectAll("path").filter(group).transition().style("fill-opacity",0.6);
             d3.selectAll("rect").filter(group).transition().style("opacity", 0.9);
         }
 
@@ -166,12 +168,20 @@ angular.module('theLawFactory.controllers', []).
         }
 
         $scope.resetHighlight = function(type) {
-            $(".text-container").empty();
-            $("#text-title").html("Sélectionner un "+(type == "amds" ? "amendement" : "groupe d'orateurs"));
-            d3.selectAll("rect").transition().style("opacity",0.9);
-            d3.selectAll("path").transition().attr("fill-opacity",0.3);
+            if ($('.focused').length) {
+                d3.selectAll("rect.focused").transition().style("opacity",0.55);
+                d3.selectAll("path.focused").transition().style("fill-opacity",0.45);
+                d3.selectAll("rect.main-focused").transition().style("opacity",1);
+                d3.selectAll("rect:not(.focused)").transition().style("opacity",0.1);
+                d3.selectAll("path:not(.focused)").transition().style("fill-opacity",0.1);
+            } else {
+                $(".text-container").empty();
+                $("#text-title").html("Sélectionner un "+(type == "amds" ? "amendement" : "groupe d'orateurs"));
+                d3.selectAll("rect").transition().style("opacity",0.9);
+                d3.selectAll("path").transition().style("fill-opacity",0.3);
+            }
             if (type == "amds") d3.selectAll(".actv-amd")
-			.style("stroke","none" )
+			.style("stroke","none")
 			.classed("actv-amd",false);
         }
 

@@ -246,11 +246,14 @@ sven.viz.streamkey = function(){
         var layer = svg.selectAll("g")
             .data(dataF)
             .enter().append("g")
-            .attr("class", function(d,i){return "layer_"+i})
+            .attr("class", function(d, i) {return "layer_"+i; })
             .style("fill", function(d, i) {return utils.adjustColor(d[0].color).toString(); })
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             .on("mousemove",function(d){d3.select(".desc").attr("style","top: " + (d3.event.pageY - $(".desc").height() - 15) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2) + "px");});
-        d3.select("svg").on("click", function(){ utils.resetHighlight('ints'); });
+        d3.select("svg").on("click", function(){ 
+            d3.selectAll(".focused").classed('focused', false);
+            utils.resetHighlight('ints');
+        });
 
         var rect = layer.selectAll("rect")
             .data(function(d) { return d; })
@@ -266,17 +269,19 @@ sven.viz.streamkey = function(){
             .style("stroke",function(d){return d.color.darker().toString()})
             .attr("width", function(d) { return y(d.y0) - y(d.y0 + d.y); })
             .attr("height", barWidth)
+            .attr("cursor", "pointer")
             .attr("display", "inline")
             .on("click",function(d){
                 d3.event.stopPropagation();
                 $("#text-title").html(d.label);
                 $(".text-container").empty()
                 $(".text-container").append('<p class="orat-title">'+d.x+"</p>");
-                d3.selectAll("path").transition().attr("fill-opacity",0.1);
+                d3.selectAll("path").transition().style("fill-opacity",0.1);
                 d3.selectAll("rect").transition().style("opacity",0.1);
-                d3.select(d3.select(this).node().parentNode).selectAll("path").transition().attr("fill-opacity",0.45);
-                d3.select(d3.select(this).node().parentNode).selectAll("rect").transition().style("opacity",0.55);
-                d3.select(this).transition().style("opacity",1);
+                d3.selectAll(".focused").classed('focused', false).classed('main-focused', false);
+                d3.select(d3.select(this).node().parentNode).selectAll("path").classed('focused', true).transition().style("fill-opacity",0.45);
+                d3.select(d3.select(this).node().parentNode).selectAll("rect").classed('focused', true).transition().style("opacity",0.55);
+                d3.select(this).classed('main-focused', true).transition().style("opacity",1);
 
                 spArray= d3.entries(d.speakers).sort(function(a,b){return b.value.nb_mots - a.value.nb_mots});
                 spArray.forEach(function(g,j){
@@ -310,14 +315,16 @@ sven.viz.streamkey = function(){
                     displacement: [10, -80],
                     mousemove: true
                 };
-            });
+            })
+            .on('mouseenter', function(d){ highlight(d.category);})
+            .on('mouseleave', utils.resetHighlight);
 
         var stream = layer.selectAll("path")
             .data(function(d){return areaStreamKey(d, xF)})
             .enter().append("path")
             .filter(function(d){return d[4]})
             .attr("d", function(d){return drawLink(d[0], d[1], d[2], d[3])})
-            .attr("fill-opacity", 0.3)
+            .style("fill-opacity", 0.3)
             .attr("class", function(d){return utils.slugGroup(d[5]); })
             .attr("stroke", "none")
             .attr("display", "inline");
