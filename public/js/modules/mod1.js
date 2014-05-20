@@ -27,7 +27,7 @@ var textArticles;
 
         function split_section(s) {
             s = s.replace(/<[^>]*>/g, '');
-            return s.split(/([ALTCVS]+\d+[\s<\/>a-z]*(?:[A-Z]$)?)/);
+            return s.split(/([ALTCVS]+\d+[\s<\/>a-z]*(?:[A-Z]+$)?)/);
         }
         function sub_section(s) {
             s = split_section(s);
