@@ -322,7 +322,7 @@ var textArticles;
 						.attr("class","header")
 						.attr("width", colwidth)
 						.attr("height", function(d){return (d.section === 'echec' ? maxy-50 : sectHeight);})
-						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#333760")})
+						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#445151")})
 						.style("stroke", "none")
 						.style("opacity", function(d){return section_opacity(d.section)})
 						.popover(function(d){return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))})
@@ -343,7 +343,7 @@ var textArticles;
                                     .attr("class","header")
                                     .attr("width", colwidth)
                                     .attr("height", sectHeight)
-                                    .style("fill", "#333760")
+                                    .style("fill", "#333c3c")
                                     .style("stroke", "none")
                                     .style("opacity", section_opacity(curS))
                                     .popover(function(){ return section_hover(d)});
@@ -664,7 +664,7 @@ var textArticles;
                         var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " ("+format_section(d, 1)+')' : format_section(d, 2)) + "</b></p>" : "") +
                         "<p><b>" + titre_etape(d) + "</b></p>" +
                         (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ? 
-                            '<div class="gotomod"><a class="btn btn-info" href="amendements?l='+id+'&s='+ d.directory+'&a=article_'+ d.article.toLowerCase().replace(/ |'/g, '_')+'">Explorer les amendements</a></div>' : '') +
+                            '<div class="gotomod"><a class="btn btn-info" href="amendements.html?l='+id+'&s='+ d.directory+'&a=article_'+ d.article.toLowerCase().replace(/ |'/g, '_')+'">Explorer les amendements</a></div>' : '') +
                             (d.n_diff == 1 && d.id_step.substr(-5) != "depot" ? "<p><b>"+(d.prev_step ? "Réintroduit" : "Ajouté") + " à cette étape</b></p>" : "") +
                             (d.n_diff == 0 ? "<p><b>"+ (d.status == "sup" ? "Supprimé" : "Aucune modification") + " à cette étape</b></p>" : "");
                         $(".art-meta").html(descr);

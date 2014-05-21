@@ -15,20 +15,30 @@ var drawGantt, utils,
 }),
     active_filters = {
         theme: "",
-        year: 2013,
-        length: ''
+        length: '',
+        amendment: '1'
     },
     refreshBillsFilter = function(){
         var label;
         for (var k in active_filters) {
             if (active_filters[k]) {
                 label = active_filters[k];
-                if (k == "length") {
-                    $(".bar-step #mois_"+active_filters[k]).addClass('filtered_month');
-                    label = (label/30 + " mois").replace("24 mois", "2 ans et +");
-                    type = "durée";
-                } else if (k == "theme") type = "thème";
-                else type = "année";
+                switch(k) {
+                    case 'length' :
+                        $(".bar-step #mois_"+active_filters[k]).addClass('filtered_month');
+                        label = (label/30 + " mois").replace("24 mois", "2 ans et +");
+                        type = 'durée';
+                        break;
+                    case 'theme' :
+                        type = 'thème';
+                        break;
+                    case 'year' :
+                        type = 'année';
+                        break;
+                    case 'amendment' :
+                        type = 'amendement';
+                        break;
+                }
                 $("ul.filters li."+k).html("<a onclick=\"rmBillsFilter('"+k+"')\" class='badge' title='Supprimer ce filtre' data-toggle='tooltip' data-placement='right'><span class='glyphicon glyphicon-remove-sign'></span> <b>"+type+":</b> "+label+'</a>');
             } else $("ul.filters li."+k).empty();
         }
@@ -54,17 +64,15 @@ var drawGantt, utils,
                 ganttcontainer = d3.select("#gantt").append("svg"),
                 lawscont, grid,
                 popover, currFile,
-                lbls, steps, laws,
+                steps, laws,
                 gridrects, gridlines,
                 allThemes = [], allYears = [],
                 dossiers = [], smallset = [],
                 stats = {},
                 mindate, maxdate, maxduration,
-                tscale, lblscale,
-                ticks,
-                basewidth = parseInt(d3.select("#gantt").style("width")) - 30,
-                width = basewidth,
-                widthratio = 1,
+                tscale, ticks,
+                width = parseInt(d3.select("#gantt").style("width")) - 30,
+                width_ratio = 1,
                 lawh = 50,
                 steph = lawh - 16,
                 z = 1,
@@ -116,8 +124,8 @@ var drawGantt, utils,
                 if (d.echec) div.append("p").html(d.echec.toUpperCase());
                 if (d.decision) div.append("p").html(d.decision.toUpperCase());
                 if ((d.institution=="assemblee" || d.institution=="senat") && d.nb_amendements) {
-                    var legend_amd = '<svg width="13" height="18" style="vertical-align:middle;"><rect class="step" x="0" y="0" width="13" height="18" style="fill: '+(d.institution === "assemblee" ? "#ced6dd" : "#f99b90")+';"></rect><rect class="step-ptn" x="0" y="2" width="13" height="16" style="fill: url(#diagonal'+(d.nb_amendements >= 200 ? '3' : (d.nb_amendements >= 50 ? '2' : '1'))+');"></rect></svg>';
-                    div.append("p").style("vertical-align", "middle").html(legend_amd+"&nbsp;&nbsp;"+d.nb_amendements+" amendement"+(d.nb_amendements > 1 ? 's' : ''));
+                    var legend_amd = '<svg width="13" height="18" style="vertical-align:middle;"><rect class="step" x="0" y="0" width="13" height="18" style="fill: '+(d.institution === "assemblee" ? "#ced6dd" : "#f99b90")+';"></rect></svg>';
+                    div.append("p").style("vertical-align", "middle").html(d.nb_amendements+" amendement"+(d.nb_amendements > 1 ? 's' : ''));
                     ydisp -= 22;
                 }
                 return {
@@ -142,25 +150,6 @@ var drawGantt, utils,
                 return format.parse(val);
             }
 
-            function drawLabels() {
-                d3.selectAll(".g-law").append("g").attr("class", "lbls")
-                    .selectAll(".step-lbl")
-                    .data(function (d) { return d.steps.filter(function(d, i){ return i == 0 || layout != "q" || d.step != "depot";} ); })
-                    .enter()
-                    .append("g")
-                    .attr("class", "step-lbl")
-                    .each(function(d,i){
-                        for(var j = 0; j<d.stepname.length; j++) {
-                            d3.select(this).append("text")
-                                .attr("x", function (e) {return (layout === "q" ? e.qx+2 : lblscale(scaled_date_val(e)));})
-                                .attr("y", 38+j*9)
-                                .attr("dx", 5)
-                                .text(d.stepname[j])
-                                .popover(popover);
-                        }
-                    })
-            }
-
             zooming = function(lvl) {
 
                 var perc=($("#gantt").scrollLeft()+$("#gantt").width()/2)/(width*z);
@@ -178,59 +167,21 @@ var drawGantt, utils,
                 if(layout==="a")
                     d3.selectAll(".g-law").attr("transform", function(d,i){return "translate(" + width_ratio*(-tscale(format.parse(d.beginning))*z+5) + ","+ (i * (20 + lawh)) +"), scale("+width_ratio+",1)"});
 
-                d3.selectAll(".tick-lbl").attr("x", function (d) { return tscale(d) * z; })
+                d3.selectAll(".tick-lbl").attr("x", function (d) { return tscale(d) * z * width_ratio; })
                 .style("opacity",function(d,i){
-                    return (i % Math.round(tickpresence(z))==0 && tscale(d)*z < width*z - 50 ? 1 : 0);
+                    return (i % Math.round(tickpresence(z))==0 && tscale(d)*z*width_ratio < width*z - 50 ? 1 : 0);
                 });
 
                 legendcontainer.attr("width", width * z);
                 ganttcontainer.attr("width", width * z);
 
-                d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z})
-
-                if (z < 10) d3.selectAll(".lbls").attr('opacity', 0);
-                else d3.selectAll(".lbls").attr("opacity", 1);
+                d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z/width_ratio}).attr("x2",function(d){return tscale(d)*z/width_ratio})
 
                 $("#gantt").scrollLeft(perc * width * z - $("#gantt").width() / 2 );
 
             };
 
             function initGanttSVG() {
-                var defs = ganttcontainer
-                    .insert('defs', ':first-child');
-                defs.append('pattern')
-                    .attr('id', 'diagonal1')
-                    .attr('patternUnits', 'userSpaceOnUse')
-                    .attr("x", 0).attr("y", 0)
-                    .attr('width', 10)
-                    .attr('height', 16)
-                    .append('path')
-                    .attr('d', 'M0,11L10,11')
-                    .style('stroke', '#fff')
-                    .style('stroke-width', 2)
-                    .style("opacity", 0.7);
-                defs.append('pattern')
-                    .attr('id', 'diagonal2')
-                    .attr('patternUnits', 'userSpaceOnUse')
-                    .attr("x", 0).attr("y", 0)
-                    .attr('width', 10)
-                    .attr('height', 16)
-                    .append('path')
-                    .attr('d', 'M0,11L10,11M0,8L10,8')
-                    .style('stroke', '#fff')
-                    .style('stroke-width', 2)
-                    .style("opacity", 0.7);
-                defs.append('pattern')
-                    .attr('id', 'diagonal3')
-                    .attr('patternUnits', 'userSpaceOnUse')
-                    .attr("x", 0).attr("y", 0)
-                    .attr('width', 10)
-                    .attr('height', 16)
-                    .append('path')
-                    .attr('d', 'M0,11L10,11M0,8L10,8M0,5L10,5')
-                    .style('stroke', '#fff')
-                    .style('stroke-width', 2)
-                    .style("opacity", 0.7);
                 lawscont = ganttcontainer.append("g").attr("class", "laws");
                 grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
             }
@@ -259,7 +210,7 @@ var drawGantt, utils,
                     initGanttSVG();
                     if (action == 'time') {
                         layout = "t";
-                        zoo = 10;
+                        zoo = 1;
                         action = 'sortd';
                         scroll['scrollLeft'] = "100000px";
                         $("#display_menu .chosen").removeClass('chosen');
@@ -307,11 +258,11 @@ var drawGantt, utils,
                     } else scroll = null;
                     drawLaws();
                     drawAxis();
-                    zooming(zoo);
                     if (layout == "t") timePosition();
                     if (layout == "a") absolutePosition();
                     if (layout == "q") quantiPosition();
-                    drawLabels();
+                    zooming(zoo);
+
                     //Define scroll behaviour
                     d3.select("#gantt").on("scroll", function (e) {
                         d3.select(".timeline").attr("transform", "translate(-" + $(this).scrollLeft() + ", 0)");
@@ -320,12 +271,8 @@ var drawGantt, utils,
                     if (scroll) $("#gantt").animate(scroll);
                 }
 
-                function prepareData() {
-                    data.dossiers.forEach(function (d, i) {
-                        var st;
-
-                        d.steps.forEach(function (e, j) {
-
+                function prepareSteps(steps, id) {
+                        steps.forEach(function (e, j) {
                             if(e.stage==="constitutionnalité" || e.institution==="conseil constitutionnel")
                                 e.stepname="CC";
                             else if (e.stage==="promulgation")
@@ -333,21 +280,20 @@ var drawGantt, utils,
                             else if(e.step!=="depot" && (e.institution==="assemblee" || e.institution==="senat"))
                                 e.stepname = e.step.substr(0, 1).toUpperCase();
                             else if(e.step==="depot")
-                                e.stepname= d.id.substr(0,3).toUpperCase();
+                                e.stepname= id.substr(0,3).toUpperCase();
                             else if(e.institution==="CMP")
                                 e.stepname = "CMP";
 
-                            //if (j == 0 && (e.date === "" || e.date < d.beginning)) e.date = d.beginning
                             if (e.date && e.date != "" && e.enddate < e.date) e.enddate = e.date
                             if (!e.date || e.date === "") e.date = e.enddate;
 
-                            if (j>0 && d.steps[j-1].enddate == e.date) {
-                                if (d.steps[j-1].overlap) e.overlap=d.steps[j-1].overlap+1;
+                            if (j>0 && steps[j-1].enddate == e.date) {
+                                if (steps[j-1].overlap) e.overlap=steps[j-1].overlap+1;
                                 else e.overlap=1
-                            } else if (j>0 && d.steps[j-1].overlap) {
+                            } else if (j>0 && steps[j-1].overlap) {
 
-                                var pastdate=format.parse(d.steps[j-1].enddate),
-                                    dd = pastdate.getDate()+d.steps[j-1].overlap,
+                                var pastdate=format.parse(steps[j-1].enddate),
+                                    dd = pastdate.getDate()+steps[j-1].overlap,
                                     mm = pastdate.getMonth()+1,
                                     y = pastdate.getFullYear();
                                 if (mm<10) mm="0"+mm;
@@ -356,15 +302,37 @@ var drawGantt, utils,
                                 // Monitor Overlaps
                                 if (y+"-"+mm+"-"+dd>=e.date) {
                                     console.log("OVERLAP:",e.date,y+"-"+mm+"-"+dd)
-                                    e.overlap = d.steps[j - 1].overlap + 1;
+                                    e.overlap = steps[j - 1].overlap + 1;
                                 }
                             }
 
                             if (j != 0 && e.step == "depot") e.qw = -3;
                             else e.qw = getQwidth(e);
                             if (j == 0) e.qx = 5;
-                            else e.qx = d.steps[j - 1].qx + d.steps[j - 1].qw + 3;
+                            else e.qx = steps[j - 1].qx + steps[j - 1].qw + 3;
                         })
+		}
+		
+                function prepareData() {
+                    data.dossiers.forEach(function (d, i) {
+			if (!d.timesteps) {
+			    d.timesteps = angular.copy(d.steps);
+			    
+			    var remove = [];
+                            d.timesteps.forEach(function(s, j) {
+				if (s.step === 'hemicycle' || (s.step === 'depot' && j)) {
+                                    remove.unshift(j);
+                                    d.timesteps[j-1].enddate = s.enddate;
+				    d.timesteps[j-1].step = s.institution;
+				}
+                            });
+                            remove.forEach(function(id, j) {
+				d.timesteps.splice(id, 1);
+                            });
+			
+			    prepareSteps(d.timesteps, d.id);
+			    prepareSteps(d.steps, d.id);
+			}
                     })
                     dossiers = dossiers.concat(data.dossiers)
                 }
@@ -379,7 +347,7 @@ var drawGantt, utils,
                     })
                 }
 
-            // Populate years and themes in filter menu
+                // Populate themes, years and amendments in filter menu
                 function computeFilters() {
                     var y1;
                     dossiers.forEach(function(l,i){
@@ -390,6 +358,7 @@ var drawGantt, utils,
                         y1 = l.end.substr(0,4)-2000;
                         if (!allYears[y1])
                             allYears[y1] = true;
+                        allAmendment = ['1', '50', '100', '200'];
                     });
                     $("#years").empty();
                     allYears.forEach(function(d,i){
@@ -406,6 +375,10 @@ var drawGantt, utils,
                     $("#themes").empty();
                     allThemes.forEach(function(d){
                         $("#themes").append("<li><a onclick=\"addBillsFilter('theme','"+d+"')\">"+d+'</a></li>');
+                    });
+                    $("#amendment").empty();
+                    allAmendment.forEach(function(d){
+                        $("#amendment").append("<li><a onclick=\"addBillsFilter('amendment','"+d+"')\"> >= "+d+'</a></li>');
                     });
                 }
 
@@ -465,6 +438,10 @@ var drawGantt, utils,
                             if (!active_filters['length']) return true;
                             return active_filters['length'] == get_stat_bin(d.total_days);
                         })
+                        .filter(function(d){
+                            if (!active_filters['amendment']) return true;
+                            return d.total_amendements >= active_filters['amendment'];
+                        })
                         .sort(sort_function);
 
                     // find date range
@@ -478,7 +455,6 @@ var drawGantt, utils,
                     });
                     setTimeout(drawStats, 50);
                     if (smallset.length == 0) {
-                        width = basewidth;
                         ganttcontainer.attr("height", 3*(20 + lawh)).attr("width", width);
                         legendcontainer.attr("width", width);
                         return;
@@ -493,8 +469,6 @@ var drawGantt, utils,
                     maxdate.setDate(maxdate.getDate() + 10);
 
                     //update svg size
-                    width = (maxdate - mindate < 94608000000 || layout == "q" ? 1 : 2) * basewidth;
-
                     if (layout == "a")
                         width_ratio = 0.8*(maxdate - mindate)/(maxduration*86400000.);
 
@@ -504,8 +478,6 @@ var drawGantt, utils,
                     ticks = d3.time.months(mindate, maxdate, 1);
                     tscale = d3.time.scale().range([0, width]);
                     tscale.domain([mindate, maxdate]);
-                    lblscale = d3.time.scale().range([0, width * 10]);
-                    lblscale.domain([mindate, maxdate]);
 
                     //add containing rows
                     gridrects = lawscont.selectAll(".row")
@@ -541,7 +513,7 @@ var drawGantt, utils,
                     steps = laws.append("g")
                         .attr("class", "steps")
                         .selectAll("step")
-                        .data(function (d) { return d.steps.filter(function(d, i){ return i == 0 || layout != "q" || d.step != "depot";} ); })
+                        .data(function (d) { return d[layout === 'q' ? 'steps' : 'timesteps'].filter(function(d, i){ return i == 0 || layout != "q" || d.step != "depot";} ); })
                         .enter()
                         .append("g")
                         .attr("class", "g-step")
@@ -554,20 +526,6 @@ var drawGantt, utils,
                         .attr("width", getQLwidth)
                         .attr("height", steph)
                         .style("fill", color_step);
-
-                    //fill pattern
-                    steps.append("rect")
-                        .filter(function (e) { return e.stage !== "promulgation" && e.nb_amendements > 0; })
-                        .attr("class", "step-ptn")
-                        .attr("x", function (e) { return tscale(scaled_date_val(e)); })
-                        .attr("y", 48)
-                        .attr("width", getQLwidth)
-                        .attr("height", steph - 20)
-                        .style("fill", function (d) {
-                            if (d.nb_amendements >= 200) return"url(#diagonal3)";
-                            if (d.nb_amendements >= 50) return"url(#diagonal2)";
-                            if (d.nb_amendements >= 0) return"url(#diagonal1)";
-                        })
 
                     //add labels
                     ganttcontainer.selectAll(".law-name")
@@ -619,25 +577,18 @@ var drawGantt, utils,
                 }
 
                 function color_step(d, i) {
+		    if (d.institution === "CMP") return "#E7DD9E";
                     if (i == 0 && d.stepname === "PJL") return "#BBBBBF";
-                    if (d.institution === "assemblee") return "#ced6dd";
-                    if (d.institution === "senat") return "#f99b90";
-                    if (d.institution === "conseil constitutionnel") return "rgb(231, 221, 158)";
-                    if (d.stage === "promulgation") return "#333344";
+                    if (d.institution === "assemblee" && d.step != "depot") return "#ced6dd";
+                    if (d.institution === "senat" && d.step != "depot") return "#f99b90";
+                    if (d.institution === "conseil constitutionnel") return "#aeeaaa";
+                    if (d.stage === "promulgation") return "#597171";
                     return "#aea198";
                 };
 
                 classicPosition = function() {
                     d3.selectAll(".step")
                         .attr("x", function (e) { return tscale(scaled_date_val(e)); })
-                        .attr("width", getQLwidth);
-
-                    d3.selectAll(".step-lbl")
-                        .attr("x", function (e, i) { return lblscale(format.parse(e.date)); });
-
-                    d3.selectAll(".step-ptn")
-                        .transition().duration(500)
-                        .attr("x", function (e, i) { return tscale(scaled_date_val(e)); })
                         .attr("width", getQLwidth);
                 }
 
@@ -659,10 +610,6 @@ var drawGantt, utils,
                         .attr("x", function (d) {return d.qx; })
                         .attr("width", function (d) { return Math.max(0, d.qw); })
                         .style("fill", color_step);
-
-                    d3.selectAll(".step-ptn")
-                        .attr("x", function (d) {return d.qx; })
-                        .attr("width", function (d) { return Math.max(0, d.qw); });
 
                     d3.selectAll(".law-bg").transition().duration(500).style("opacity", 0);
                 }
@@ -688,7 +635,7 @@ var drawGantt, utils,
                         .append('<p><b>'+upperFirst(d.long_title)+"</b></p>")
                         .append('<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + "</p>");
                     if (d.procedure != "Normale") $(".text-container").append('<p>(' + d.procedure.toLowerCase() + ")</p>");
-                    $(".text-container").append('<div class="gotomod"><a class="btn btn-info" href="loi?l=' + d.id + '">Explorer les articles</a></div>');
+                    $(".text-container").append('<div class="gotomod"><a class="btn btn-info" href="loi.html?l=' + d.id + '">Explorer les articles</a></div>');
                     var extrainfo = $('<div class="extrainfos">');
                     extrainfo.append('<p><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(d.total_amendements)+'"></span>&nbsp;&nbsp;'+(d.total_amendements?d.total_amendements:'aucun')+" amendement"+(d.total_amendements>1?'s déposés':' déposé')+"</p>")
                         .append('<p><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(d.total_mots)+'"></span><span>&nbsp;&nbsp;plus de '+mots+" mille mots prononcés lors des débats parlementaires</span></p>")
@@ -701,7 +648,7 @@ var drawGantt, utils,
                 //Start drawing first sample
                 currFile = data.next_page;
                 prepareData();
-                drawGantt('time');
+                drawGantt('quanti');
                 setTimeout((currFile ? dynamicLoad : computeFilters), 500);
                 $("a.badge").tooltip();
 
