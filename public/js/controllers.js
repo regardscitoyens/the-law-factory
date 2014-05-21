@@ -5,6 +5,15 @@
                     
 
 angular.module('theLawFactory.controllers', []).
+    /*
+      Specific controller for the naigation Part.
+    */
+    controller('navigationCtrl', function($scope, $rootScope) {
+      $scope.startTutorial = function() {
+        console.log('%c navigationCtrl', 'background-color:gold','broadcasting start tutorial')
+        $rootScope.$broadcast('MAIN_CTRL_START_TUTORIAL');
+      };
+    }).
     controller('mainCtrl', function ($scope, $http, apiService, api, $rootScope, $location) {
 
         $scope.error = {}
@@ -28,6 +37,9 @@ angular.module('theLawFactory.controllers', []).
             top: '50%', // Top position relative to parent
             left: '50%' // Left position relative to parent
         };
+
+        
+        
         $scope.startSpinner = function(divid) {
             if ($scope.spinner != null) return;
             if (!divid) divid = 'preload';

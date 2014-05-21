@@ -208,14 +208,24 @@ function(api, $rootScope, $location, $compile) {
                     zooming(ui.value);
                 }
             })
-            var mod0 = thelawfactory.mod0();
+            var mod0 = thelawfactory.mod0(),
+                synced = false;
+
+            
+            scope.$on('MAIN_CTRL_START_TUTORIAL', function(event, mass) {
+              if(!synced)
+                return;
+
+              scope.toggleTutorial(true);
+            });
+
             function update() {
                 scope.startSpinner();
                 
 
                 api.getDossiers().then(function(data) {
-                    d3.select(element[0]).datum(data).call(mod0);
-
+                  d3.select(element[0]).datum(data).call(mod0);
+                    synced = true;
                     if(!localStorage.getItem("tuto-"+scope.mod) || localStorage.getItem("tuto-"+scope.mod)!="done")
                         scope.toggleTutorial(true);
 
