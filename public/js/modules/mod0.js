@@ -295,10 +295,11 @@ var drawGantt, utils,
                     } else scroll = null;
                     drawLaws();
                     drawAxis();
-                    zooming(zoo);
                     if (layout == "t") timePosition();
                     if (layout == "a") absolutePosition();
                     if (layout == "q") quantiPosition();
+                    zooming(zoo);
+
                     //Define scroll behaviour
                     d3.select("#gantt").on("scroll", function (e) {
                         d3.select(".timeline").attr("transform", "translate(-" + $(this).scrollLeft() + ", 0)");
@@ -307,62 +308,70 @@ var drawGantt, utils,
                     if (scroll) $("#gantt").animate(scroll);
                 }
 
+                function prepareSteps(steps, id) {
+                    steps.forEach(function (e, j) {
+                        if(e.stage==="constitutionnalité" || e.institution==="conseil constitutionnel")
+                            e.stepname="CC";
+                        else if (e.stage==="promulgation")
+                            e.stepname="JO";
+                        else if(e.step!=="depot" && (e.institution==="assemblee" || e.institution==="senat"))
+                            e.stepname = e.step.substr(0, 1).toUpperCase();
+                        else if(e.step==="depot")
+                            e.stepname= id.substr(0,3).toUpperCase();
+                        else if(e.institution==="CMP")
+                            e.stepname = "CMP";
+			
+                        if (e.date && e.date != "" && e.enddate < e.date) e.enddate = e.date
+                        if (!e.date || e.date === "") e.date = e.enddate;
+			
+                        if (j>0 && steps[j-1].enddate == e.date) {
+                            if (steps[j-1].overlap) e.overlap=steps[j-1].overlap+1;
+                            else e.overlap=1
+                        } else if (j>0 && steps[j-1].overlap) {
+			    
+                            var pastdate=format.parse(steps[j-1].enddate),
+                            dd = pastdate.getDate()+steps[j-1].overlap,
+                            mm = pastdate.getMonth()+1,
+                            y = pastdate.getFullYear();
+                            if (mm<10) mm="0"+mm;
+                            if (dd<10) dd="0"+dd;
+			    
+                            // Monitor Overlaps
+                            if (y+"-"+mm+"-"+dd>=e.date) {
+                                console.log("OVERLAP:",e.date,y+"-"+mm+"-"+dd)
+                                e.overlap = steps[j - 1].overlap + 1;
+                            }
+                        }
+			
+                        if (j != 0 && e.step == "depot") e.qw = -3;
+                        else e.qw = getQwidth(e);
+                        if (j == 0) e.qx = 5;
+                        else e.qx = steps[j - 1].qx + steps[j - 1].qw + 3;
+                    })
+		}
+		
                 function prepareData() {
                     data.dossiers.forEach(function (d, i) {
                         var st;
 
 			var remove = [];
-                        d.steps.forEach(function(s, j) {
-                            if (s.step === 'hemicycle' || (s.step === 'depot' && j)) {
-                                remove.unshift(j);
-                                d.steps[j-1].enddate = s.enddate;
-				d.steps[j-1].step = s.institution;
-                            }
-                        });
-                        remove.forEach(function(id, j) {
-                            d.steps.splice(id, 1);
-                        });
-
-                        d.steps.forEach(function (e, j) {
-                            if(e.stage==="constitutionnalité" || e.institution==="conseil constitutionnel")
-                                e.stepname="CC";
-                            else if (e.stage==="promulgation")
-                                e.stepname="JO";
-                            else if(e.step!=="depot" && (e.institution==="assemblee" || e.institution==="senat"))
-                                e.stepname = e.step.substr(0, 1).toUpperCase();
-                            else if(e.step==="depot")
-                                e.stepname= d.id.substr(0,3).toUpperCase();
-                            else if(e.institution==="CMP")
-                                e.stepname = "CMP";
-
-                            //if (j == 0 && (e.date === "" || e.date < d.beginning)) e.date = d.beginning
-                            if (e.date && e.date != "" && e.enddate < e.date) e.enddate = e.date
-                            if (!e.date || e.date === "") e.date = e.enddate;
-
-                            if (j>0 && d.steps[j-1].enddate == e.date) {
-                                if (d.steps[j-1].overlap) e.overlap=d.steps[j-1].overlap+1;
-                                else e.overlap=1
-                            } else if (j>0 && d.steps[j-1].overlap) {
-
-                                var pastdate=format.parse(d.steps[j-1].enddate),
-                                    dd = pastdate.getDate()+d.steps[j-1].overlap,
-                                    mm = pastdate.getMonth()+1,
-                                    y = pastdate.getFullYear();
-                                if (mm<10) mm="0"+mm;
-                                if (dd<10) dd="0"+dd;
-
-                                // Monitor Overlaps
-                                if (y+"-"+mm+"-"+dd>=e.date) {
-                                    // console.log("OVERLAP:",e.date,y+"-"+mm+"-"+dd)
-                                    e.overlap = d.steps[j - 1].overlap + 1;
-                                }
-                            }
-
-                            if (j != 0 && e.step == "depot") e.qw = -3;
-                            else e.qw = getQwidth(e);
-                            if (j == 0) e.qx = 5;
-                            else e.qx = d.steps[j - 1].qx + d.steps[j - 1].qw + 3;
-                        })
+			if (!d.timesteps) {
+			    d.timesteps = angular.copy(d.steps);
+			    
+                            d.timesteps.forEach(function(s, j) {
+				if (s.step === 'hemicycle' || (s.step === 'depot' && j)) {
+                                    remove.unshift(j);
+                                    d.timesteps[j-1].enddate = s.enddate;
+				    d.timesteps[j-1].step = s.institution;
+				}
+                            });
+                            remove.forEach(function(id, j) {
+				d.timesteps.splice(id, 1);
+                            });
+			
+			    prepareSteps(d.timesteps, d.id);
+			    prepareSteps(d.steps, d.id);
+			}
                     })
                     dossiers = dossiers.concat(data.dossiers)
                 }
@@ -546,7 +555,7 @@ var drawGantt, utils,
                     steps = laws.append("g")
                         .attr("class", "steps")
                         .selectAll("step")
-                        .data(function (d) { return d.steps.filter(function(d, i){ return i == 0 || layout != "q" || d.step != "depot";} ); })
+                        .data(function (d) { return d[layout === 'q' ? 'steps' : 'timesteps'].filter(function(d, i){ return i == 0 || layout != "q" || d.step != "depot";} ); })
                         .enter()
                         .append("g")
                         .attr("class", "g-step")
