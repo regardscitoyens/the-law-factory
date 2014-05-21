@@ -1011,7 +1011,7 @@ text {
 #stepsbar{
     width:100%;
     border:1px solid #fff;
-	background-color:#F9F7F8;
+	background-color: #E5E5E5;
     overflow:hidden;
 }
 .stb-stages, .stb-insts, .stb-steps{
@@ -1023,7 +1023,7 @@ text {
 }
 
 .stb-stage:nth-child(even), .stb-step:nth-child(even) {
-    background-color:rgba(1,1,1,0.03);
+    background-color:rgba(1,1,1,0.06);
 }
 
 .stb-stage, .stb-inst, .stb-step{
@@ -1059,8 +1059,7 @@ text {
     overflow: hidden;
 }
 .stb-inst.senat, .stb-inst.senateurs {
-    background-color:#e6c0ba;
-    color:white;
+    background-color: #F2E0DC;
 }
 
 .stb-inst.gouvernement {
@@ -1073,11 +1072,16 @@ text {
 }
 
 .stb-inst.assemblee, .stb-inst.deputes {
-    background-color:#b6c5cc;
-    color:white;
+    background-color: #E0E8EC;
+}
+.stb-step {
+    border-bottom: 1px solid #888;
 }
 .stb-step.current{
   background-color: white;
+  border-bottom: none;
+  border-left: 1px solid #888;
+  border-right: 1px solid #888;
 }
 .stb-curr-st {
     opacity:0.9 !important;
