@@ -207,41 +207,6 @@ var drawGantt, utils,
             };
 
             function initGanttSVG() {
-                var defs = ganttcontainer
-                    .insert('defs', ':first-child');
-                defs.append('pattern')
-                    .attr('id', 'diagonal1')
-                    .attr('patternUnits', 'userSpaceOnUse')
-                    .attr("x", 0).attr("y", 0)
-                    .attr('width', 10)
-                    .attr('height', 16)
-                    .append('path')
-                    .attr('d', 'M0,11L10,11')
-                    .style('stroke', '#fff')
-                    .style('stroke-width', 2)
-                    .style("opacity", 0.7);
-                defs.append('pattern')
-                    .attr('id', 'diagonal2')
-                    .attr('patternUnits', 'userSpaceOnUse')
-                    .attr("x", 0).attr("y", 0)
-                    .attr('width', 10)
-                    .attr('height', 16)
-                    .append('path')
-                    .attr('d', 'M0,11L10,11M0,8L10,8')
-                    .style('stroke', '#fff')
-                    .style('stroke-width', 2)
-                    .style("opacity", 0.7);
-                defs.append('pattern')
-                    .attr('id', 'diagonal3')
-                    .attr('patternUnits', 'userSpaceOnUse')
-                    .attr("x", 0).attr("y", 0)
-                    .attr('width', 10)
-                    .attr('height', 16)
-                    .append('path')
-                    .attr('d', 'M0,11L10,11M0,8L10,8M0,5L10,5')
-                    .style('stroke', '#fff')
-                    .style('stroke-width', 2)
-                    .style("opacity", 0.7);
                 lawscont = ganttcontainer.append("g").attr("class", "laws");
                 grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
             }
