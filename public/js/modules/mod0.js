@@ -122,7 +122,6 @@ var drawGantt, utils,
                 if (d.echec) div.append("p").html(d.echec.toUpperCase());
                 if (d.decision) div.append("p").html(d.decision.toUpperCase());
                 if ((d.institution=="assemblee" || d.institution=="senat") && d.nb_amendements) {
-                    var legend_amd = '<svg width="13" height="18" style="vertical-align:middle;"><rect class="step" x="0" y="0" width="13" height="18" style="fill: '+(d.institution === "assemblee" ? "#ced6dd" : "#f99b90")+';"></rect></svg>';
                     div.append("p").style("vertical-align", "middle").html(d.nb_amendements+" amendement"+(d.nb_amendements > 1 ? 's' : ''));
                     ydisp -= 22;
                 }
@@ -218,7 +217,7 @@ var drawGantt, utils,
                     } else if (action == 'absolute') {
                         layout = "a";
                         zoo = 1;
-                        action = 'sorta';
+                        action = 'sortl';
                         $("#display_menu .chosen").removeClass('chosen');
                         $("#display_menu #dm-absolute").addClass('chosen');
                         $(".ctrl-sort").show(400);
@@ -259,16 +258,13 @@ var drawGantt, utils,
                     if (layout == "t") timePosition();
                     if (layout == "a") absolutePosition();
                     if (layout == "q") {
-			quantiPosition();
-			drawLabels();
-		    }
-                    zooming(zoo);
-
-                    //Define scroll behaviour
-                    d3.select("#gantt").on("scroll", function (e) {
+                        quantiPosition();
+                        drawLabels();
+                    } else d3.select("#gantt").on("scroll", function (e) {
                         d3.select(".timeline").attr("transform", "translate(-" + $(this).scrollLeft() + ", 0)");
                         d3.selectAll(".law-name").attr("transform", "translate(" + $(this).scrollLeft() + ", 0)");
-                    })
+                    });
+                    zooming(zoo);
                     if (scroll) $("#gantt").animate(scroll);
                 }
 
@@ -602,10 +598,10 @@ var drawGantt, utils,
                 }
 
                 function color_step(d, i) {
-		    if (d.institution === "CMP") return "#E7DD9E";
-                    if (i == 0 && d.stepname === "PJL") return "#BBBBBF";
-                    if (d.institution === "assemblee" && d.step != "depot") return "#ced6dd";
-                    if (d.institution === "senat" && d.step != "depot") return "#f99b90";
+                    if (d.institution === "CMP") return "#E7DD9E";
+                    if (i == 0 && d.stepname === "PJL") return "#cccbb3";
+                    if (d.institution === "assemblee") return "#ced6dd";
+                    if (d.institution === "senat") return "#f99b90";
                     if (d.institution === "conseil constitutionnel") return "#aeeaaa";
                     if (d.stage === "promulgation") return "#597171";
                     return "#aea198";
