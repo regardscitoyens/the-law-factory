@@ -16,19 +16,30 @@ var drawGantt, utils,
     active_filters = {
         theme: "",
         year: 2013,
-        length: ''
+        length: '',
+        amendment: '1'
     },
     refreshBillsFilter = function(){
         var label;
         for (var k in active_filters) {
             if (active_filters[k]) {
                 label = active_filters[k];
-                if (k == "length") {
-                    $(".bar-step #mois_"+active_filters[k]).addClass('filtered_month');
-                    label = (label/30 + " mois").replace("24 mois", "2 ans et +");
-                    type = "durée";
-                } else if (k == "theme") type = "thème";
-                else type = "année";
+                switch(k) {
+                    case 'length' :
+                        $(".bar-step #mois_"+active_filters[k]).addClass('filtered_month');
+                        label = (label/30 + " mois").replace("24 mois", "2 ans et +");
+                        type = 'durée';
+                        break;
+                    case 'theme' :
+                        type = 'thème';
+                        break;
+                    case 'year' :
+                        type = 'année';
+                        break;
+                    case 'amendment' :
+                        type = 'amendement';
+                        break;
+                }
                 $("ul.filters li."+k).html("<a onclick=\"rmBillsFilter('"+k+"')\" class='badge' title='Supprimer ce filtre' data-toggle='tooltip' data-placement='right'><span class='glyphicon glyphicon-remove-sign'></span> <b>"+type+":</b> "+label+'</a>');
             } else $("ul.filters li."+k).empty();
         }
@@ -355,7 +366,7 @@ var drawGantt, utils,
 
                                 // Monitor Overlaps
                                 if (y+"-"+mm+"-"+dd>=e.date) {
-                                    console.log("OVERLAP:",e.date,y+"-"+mm+"-"+dd)
+                                    // console.log("OVERLAP:",e.date,y+"-"+mm+"-"+dd)
                                     e.overlap = d.steps[j - 1].overlap + 1;
                                 }
                             }
@@ -379,7 +390,7 @@ var drawGantt, utils,
                     })
                 }
 
-            // Populate years and themes in filter menu
+                // Populate themes, years and amendments in filter menu
                 function computeFilters() {
                     var y1;
                     dossiers.forEach(function(l,i){
@@ -390,6 +401,7 @@ var drawGantt, utils,
                         y1 = l.end.substr(0,4)-2000;
                         if (!allYears[y1])
                             allYears[y1] = true;
+                        allAmendment = ['1', '50', '100', '200'];
                     });
                     $("#years").empty();
                     allYears.forEach(function(d,i){
@@ -406,6 +418,10 @@ var drawGantt, utils,
                     $("#themes").empty();
                     allThemes.forEach(function(d){
                         $("#themes").append("<li><a onclick=\"addBillsFilter('theme','"+d+"')\">"+d+'</a></li>');
+                    });
+                    $("#amendment").empty();
+                    allAmendment.forEach(function(d){
+                        $("#amendment").append("<li><a onclick=\"addBillsFilter('amendment','"+d+"')\"> >= "+d+'</a></li>');
                     });
                 }
 
@@ -464,6 +480,10 @@ var drawGantt, utils,
                         .filter(function(d){
                             if (!active_filters['length']) return true;
                             return active_filters['length'] == get_stat_bin(d.total_days);
+                        })
+                        .filter(function(d){
+                            if (!active_filters['amendment']) return true;
+                            return d.total_amendements >= active_filters['amendment'];
                         })
                         .sort(sort_function);
 
@@ -555,20 +575,6 @@ var drawGantt, utils,
                         .attr("height", steph)
                         .style("fill", color_step);
 
-                    //fill pattern
-                    steps.append("rect")
-                        .filter(function (e) { return e.stage !== "promulgation" && e.nb_amendements > 0; })
-                        .attr("class", "step-ptn")
-                        .attr("x", function (e) { return tscale(scaled_date_val(e)); })
-                        .attr("y", 48)
-                        .attr("width", getQLwidth)
-                        .attr("height", steph - 20)
-                        .style("fill", function (d) {
-                            if (d.nb_amendements >= 200) return"url(#diagonal3)";
-                            if (d.nb_amendements >= 50) return"url(#diagonal2)";
-                            if (d.nb_amendements >= 0) return"url(#diagonal1)";
-                        })
-
                     //add labels
                     ganttcontainer.selectAll(".law-name")
                         .data(smallset).enter()
@@ -635,11 +641,6 @@ var drawGantt, utils,
 
                     d3.selectAll(".step-lbl")
                         .attr("x", function (e, i) { return lblscale(format.parse(e.date)); });
-
-                    d3.selectAll(".step-ptn")
-                        .transition().duration(500)
-                        .attr("x", function (e, i) { return tscale(scaled_date_val(e)); })
-                        .attr("width", getQLwidth);
                 }
 
                 absolutePosition = function () {
@@ -660,10 +661,6 @@ var drawGantt, utils,
                         .attr("x", function (d) {return d.qx; })
                         .attr("width", function (d) { return Math.max(0, d.qw); })
                         .style("fill", color_step);
-
-                    d3.selectAll(".step-ptn")
-                        .attr("x", function (d) {return d.qx; })
-                        .attr("width", function (d) { return Math.max(0, d.qw); });
 
                     d3.selectAll(".law-bg").transition().duration(500).style("opacity", 0);
                 }
