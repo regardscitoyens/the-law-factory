@@ -94,12 +94,15 @@ function(api, $rootScope, $location, $compile) {
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Articles | ";
                     d3.select(element[0]).datum(data).call(mod1);
                     scope.stopSpinner();
+                    if(!localStorage.getItem("tuto-"+scope.mod) || localStorage.getItem("tuto-"+scope.mod)!="done")
+                        scope.toggleTutorial(true);
                 }, function(error) {
                     console.log(error);
                     scope.error = error
                 })
             }
             update();
+            
         }
     };
 }]).directive('mod2', ['api', '$rootScope', '$location', '$compile',
@@ -138,6 +141,8 @@ function(api, $rootScope, $location, $compile) {
                 });
             }
             update();
+            if(!localStorage.getItem("tuto-"+scope.mod) || localStorage.getItem("tuto-"+scope.mod)!="done")
+                scope.toggleTutorial(true);
         }
     }
 }])
@@ -178,6 +183,8 @@ function(api, $rootScope, $location, $compile) {
                 }
             }
             update();
+            if(!localStorage.getItem("tuto-"+scope.mod) || localStorage.getItem("tuto-"+scope.mod)!="done")
+                scope.toggleTutorial(true);
         }
     };
 }])
@@ -204,15 +211,20 @@ function(api, $rootScope, $location, $compile) {
             var mod0 = thelawfactory.mod0();
             function update() {
                 scope.startSpinner();
+                
 
                 api.getDossiers().then(function(data) {
                     d3.select(element[0]).datum(data).call(mod0);
+
+                    if(!localStorage.getItem("tuto-"+scope.mod) || localStorage.getItem("tuto-"+scope.mod)!="done")
+                        scope.toggleTutorial(true);
 
                 }, function(error) {
                     console.log(error)
                 })
             }
-            update();
+            update();    
+            
         }
     };
 }])

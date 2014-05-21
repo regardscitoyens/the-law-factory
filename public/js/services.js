@@ -3,6 +3,8 @@
 /* Services */
 var APIRootUrl = 'http://www.lafabriquedelaloi.fr/api/';
 
+
+
 angular.module('theLawFactory.services', [])
 	.config(['$httpProvider', function($httpProvider) {
 	        delete $httpProvider.defaults.headers.common["X-Requested-With"]
@@ -24,7 +26,7 @@ angular.module('theLawFactory.services', [])
             }
           }
         })
-        .factory('api', function($http, $q, apiService) {
+    .factory('api', function($http, $q, apiService) {
             if (APIRootUrl.substr(-1) != "/") APIRootUrl += "/";
             var api = {
                 getLawlist: function() {
@@ -44,7 +46,13 @@ angular.module('theLawFactory.services', [])
                 },
                 getDossiers: function() {
                     return apiService.getDataSample(APIRootUrl + 'dossiers_0_49.json');
+                },
+                getTutorials: function() {
+                    return apiService.getDataSample('tutorial.json');
                 }
             };
             return api;
 	})
+
+                  
+
