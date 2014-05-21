@@ -1406,4 +1406,18 @@ margin: 10px 0 10px 10px;
 
 }
 
+.revsMode {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  color: #FFFFFF;
+  font-size: 26px;
+  right: 0;
+margin: 10px 10px 10px 0px;
+  position: absolute;
+
+}
+
+.links a{
+	
+	color: #FFF;
+}
 
