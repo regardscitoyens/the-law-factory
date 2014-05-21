@@ -75,14 +75,20 @@
 		<div class="text" id="Articles">
 			<div ng-hide="read" class="interactive readMode" ng-click="readmode()" data-toggle="tooltip" title="Déployer le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span  class="glyphicon glyphicon-chevron-left"> </span ></div>
 			<div ng-show="read" class="interactive readMode" ng-click="viewmode()" data-toggle="tooltip" title="Replier le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span  class="glyphicon glyphicon-chevron-right"> </div>
+			
+			 <div ng-show="revs" class="interactive revsMode" ng-click="hiderevs()"  data-toggle="tooltip" title="Cacher les modifications" data-placement="bottom" data-original-title="Cacher les modifications"><span  class="glyphicon glyphicon glyphicon-check"> </span></div>
+			  
+                <div ng-hide="revs"  class="interactive revsMode" ng-click="showrevs()" data-toggle="tooltip" title="Afficher les modifications" data-placement="bottom" data-original-title="afficher les modifications"><span  class="glyphicon glyphicon glyphicon-edit"> </span></div>
+
+			
 			<h4 id="text-title">Sélectionner un article</h4>
-            <div class="wide-read">
+			             <div class="wide-read">
                 <!--
                 <div ng-hide="read" ng-click="readmode()"> Expand panel</div>
                 <div ng-show="read" ng-click="viewmode()"><span  class="glyphicon glyphicon-chevron-right"> </span> Shrink panel</div>
-                -->
                 <div ng-show="revs" ng-click="hiderevs()"><span  class="glyphicon glyphicon glyphicon-check"> </span> Hide diffs</div>
                 <div ng-hide="revs" ng-click="showrevs()"><span  class="glyphicon glyphicon glyphicon-edit"> </span> Show diffs</div>
+				-->
             </div>
 			<div class="text-container">
 				<div class="art-meta"></div>
