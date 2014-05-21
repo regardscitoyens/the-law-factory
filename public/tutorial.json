@@ -1,0 +1,10 @@
+{
+"mod0":{
+    ".navbar-header":"bottom = youpi !",
+    "#commands":"right = Hello World !"
+},
+"mod1":{
+    "#stepsbar":"top = Explorez l’évolution des articles du texte au fil des étapes législatives : dépôt, examen à l’Assemblée Nationale, au Sénat ou en  Commission mixte paritaire (CMP).",
+    ".article:first":"right = Chaque boite correspond à une fraction du texte : chapitre (C), section (S) ou article (A). Plus le texte de l’article est long, plus la boite est grande. Plus la section du texte a été modifiée pendant cette étape, plus la boite est foncée. Les liens en pointillés symbolisent l’évolution du texte au cours de la procédure."                
+    }
+}

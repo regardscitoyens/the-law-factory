@@ -13,17 +13,159 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.css">
     <link rel="stylesheet" href="css/app.css">
-
+    <link rel="stylesheet" href="css/introjs.min.css">
+    <link rel="stylesheet" href="css/introjs-rtl.min.css">
   </head>
 
   <body>
+    <style>
+      body{
+        
+      }
 
+      footer{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        background: #ccc;
+      }
+
+      footer ul{
+        padding: 0;
+        margin: 0;
+      }
+
+      footer ul li{
+        display: inline-block;
+        list-style-type: none;
+      }
+
+
+
+      .navbar-brand{
+        margin-top: 4px;
+        margin-left: 8px;
+        margin-bottom: 4px;
+      }
+
+
+
+      .nav>li>a, #search-btn>span{
+        padding: 0;
+        line-height: 26px;
+        margin: 12px 8px;
+        font-size: 13px;
+        padding: 0px 8px;
+      }
+
+
+
+      #search-btn>span{
+        background-color: #eee;
+      }
+
+
+
+      a.button{
+        background: #50a477;
+        color: white;
+        /* text-transform: uppercase; */
+        padding: 0px 18px;
+        line-height: 42px;
+        font-size: 18px;
+        display: inline-block;
+        border-radius: 2px;
+        transition: background-color .2s ease-in-out;
+        cursor: pointer;
+      }
+
+      a.button:hover{
+        background: #581e19;
+        text-decoration: none;
+      }
+
+
+
+      #headline, #laws{
+        text-align: center;
+      }
+
+      #headline h1{
+        display: inline-block;
+        text-align: center;
+        /* margin: 0 auto; */
+        padding-bottom: 12px;
+        padding-top: 24px;
+      }
+
+      #headline h4{
+        line-height:24px;
+        font-size:18px;
+        padding-bottom: 24px;
+      }
+
+
+
+      #laws{
+        width: 640px;
+        margin: 36px auto;
+      }
+
+
+      #laws ul{
+        padding: 0;
+      }
+
+      #laws ul li{
+        text-align:left;
+        padding: 0px;
+        list-style-type: none;
+        background: white;
+        margin-top: 18px;
+      }
+
+       #laws ul li:hover{
+      background:#EBEBEB;
+      }
+
+      #laws ul li h2{
+        padding:0;
+        margin: 0;
+        font-size: 16px;
+        line-height: 21px;
+      }
+
+      #laws ul li h3{
+        padding:0;
+        margin: 0;
+        font-size: 13px;
+        line-height: 21px;
+        color: #333;
+      }
+
+     #laws ul li a{
+        color: #996247;
+        padding: 8px;
+      }
+
+      #laws .stat{
+        text-align: center;
+      }
+
+      #laws .number{
+        font-size: 18px;
+      }
+    </style>
+    
     <nav role="navigation" class="navbar navbar-custom">
       <div class="navbar-header">
-        <a href="index.html" class="navbar-brand"><img src="./img/logo2.png"></a>
+        <a href="index.html" class="navbar-brand"><img src="./img/the-law-factory-logo.svg"></a>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">À PROPOS</a></li>
-          <li><a href="#">CONTACT</a></li>
+
+          <li><a href="lois.html">EXPLORER LES LOIS</a></li>
+          <li><a href="#" id="tutorial-btn">TUTORIEL</a></li>
+
           <li id="search-btn"><span>CHERCHER UNE LOI<span class="glyphicon glyphicon-search glass"></span></span></li>
         </ul>
       </div>
@@ -43,6 +185,15 @@
 
     </div>
 
+  <!-- Footer space -->
+  <footer>
+    <ul>
+      <li>credits</li>
+      <li>|</li>
+      <li>contacts</li>
+    </ul>
+  </footer>
+
   <!-- Library JS-->
     <script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="js/lib/jquery-ui-1.10.4.custom.min.js"></script>
@@ -51,6 +202,7 @@
     <script type="text/javascript" src="js/lib/d3-bootstrap-plugins.js"></script>
     <script type="text/javascript" src="js/lib/angular-1.1.5.min.js"></script>
     <script type="text/javascript" src="js/lib/spin.min.js"></script>
+    <script type="text/javascript" src="js/lib/intro.min.js"></script>
 
   <!-- Global JS app controllers -->
     <script type="text/javascript" src="js/app.js"></script>

@@ -2,8 +2,10 @@
 
 /* Controllers */
 
+                    
+
 angular.module('theLawFactory.controllers', []).
-    controller('mainCtrl', function ($scope, $http, apiService, $rootScope, $location) {
+    controller('mainCtrl', function ($scope, $http, apiService, api, $rootScope, $location) {
 
         $scope.error = {}
 
@@ -186,4 +188,85 @@ angular.module('theLawFactory.controllers', []).
 			    .classed("actv-amd",false);
         }
 
+        /////////////////////////////////////////////////////////////
+        $scope.toggleTutorial = function(show) {
+            
+            if(!$scope.tutorial && show) {
+                $scope.tutorial = true;
+
+                api.getTutorials().then(function(data){
+                    var tuto=data[$scope.mod];
+                    var step = 1;
+                    console.log("tuto in "+$scope.mod)
+                    console.log(tuto)
+                    for(var id in tuto) 
+                    {    
+
+                            var infos = tuto[id].split(" = ");
+                            //$('#'+k).attr('data-position',infos[0]);
+                            //$('#'+k).attr('data-intro',infos[1]);
+
+                            //$('#'+k).addClass('hint-bounce hint--always hint--rounded hint-'+infos[0]);
+                            //$('#'+k).attr('data-hint',infos[1]);
+                            console.log(id)
+                            $(id).attr('data-position',infos[0]);
+                            $(id).attr('data-tooltipClass','tooltip-'+id.replace(/^[#\.]/,"")); // remove selector (first # or .)
+                            $(id).attr('data-intro',infos[1]);
+                            $(id).attr('data-step',step++);
+                    }
+                    
+                    var introjs = introJs().setOptions({
+                        showBullets: false,
+                        showStepNumbers: false,
+                        skipLabel: "Sortir",
+                        nextLabel:  "Suivant",
+                        prevLabel:  "Précédent",
+                        doneLabel:  "Terminer",
+                    });
+                    introjs.onbeforechange(function(e) {
+                        var id = $(e).attr('id');
+                        //var dat = $(e).data('fortuto');
+                        console.log("intro.js, before change: "+id);
+                        // here we need to trigger clicks 'cause don't have access to $scope var
+
+                        //if(id=='switch') $('#modecross').click();
+                        //else $('.matrixwrapper').click();
+                        // if(id=='about') $('.matrixwrapper').click();
+
+                        //var menuCollapsed = $("#tutoheaderwrapper").hasClass('collapsed');
+                        //var ontriangle = $("#tutoswitcher").hasClass('ontriangle');
+
+                        //if(id=='tutoheaderwrapper' && menuCollapsed) $("#menutoggle").click();
+                        //if(id=='tutoabout' && !menuCollapsed) $("#menutoggle").click();
+
+                        //if(id=='tutosidebar' && !ontriangle) $("#tutoswitcher").click();
+                        //if(id=='description' && ontriangle) $("#tutoswitcher").click();
+
+                        // if(id=='tutoscenar_exploration') $('#tutoscenar_exploration div.name').click();
+                        // if(id=='tutoscenar_0') $('#tutoscenar_0 div.name').click();
+
+                        //if(id=='theatrenext') $(".mosaic_1").click();
+                        //if(id=='theatreclose') $("#theatrenext").click();
+
+                    });
+                    introjs.onexit(function() {
+                        console.log("intro.js: exited.");
+                        $scope.tutorial = false;
+                        localStorage.setItem("tuto-"+$scope.mod, "done");
+                    });
+                    introjs.oncomplete(function() {
+                        console.log("intro.js: completed.");
+                        $scope.tutorial = false;
+                        localStorage.setItem("tuto-"+$scope.mod, "done");
+                    });
+                    introjs.start();
+                },
+                function(error){
+                    console.log("could'nt retrieve json tutorial")
+                }
+                );
+            }
+        };
+
+        
     })
