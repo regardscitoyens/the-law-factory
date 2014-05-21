@@ -322,7 +322,7 @@ var textArticles;
 						.attr("class","header")
 						.attr("width", colwidth)
 						.attr("height", function(d){return (d.section === 'echec' ? maxy-50 : sectHeight);})
-						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#333760")})
+						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#445151")})
 						.style("stroke", "none")
 						.style("opacity", function(d){return section_opacity(d.section)})
 						.popover(function(d){return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))})
@@ -343,7 +343,7 @@ var textArticles;
                                     .attr("class","header")
                                     .attr("width", colwidth)
                                     .attr("height", sectHeight)
-                                    .style("fill", "#333760")
+                                    .style("fill", "#333c3c")
                                     .style("stroke", "none")
                                     .style("opacity", section_opacity(curS))
                                     .popover(function(){ return section_hover(d)});
