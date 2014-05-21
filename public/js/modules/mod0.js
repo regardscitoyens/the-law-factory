@@ -85,7 +85,7 @@ var drawGantt, utils,
             sort_function = sortByDate,
             format = d3.time.format("%Y-%m-%d"),
             tickform = locale.timeFormat("%b %Y"),
-            tickpresence=d3.scale.linear().range([3,1]).domain([1,7]).clamp(true),
+            tickpresence=d3.scale.linear().range([6,1]).domain([1,7]).clamp(true),
             format_title = function(d){
                 d = d.replace('depot', 'Dépôt')
                     .replace('1ère lecture', '1<sup>ère</sup> Lecture')
@@ -95,7 +95,7 @@ var drawGantt, utils,
                     .replace('CMP', 'Commission Mixte Paritaire')
                     .replace('hemicycle', 'Hémicycle')
                     .replace('constitutionnalité', 'Conseil Constitutionnel')
-		    .replace('assemblee', 'Assemblée nationale')
+                    .replace('assemblee', 'Assemblée nationale')
                     .replace('senat', 'Sénat');
                 return upperFirst(d);
             },
@@ -161,18 +161,25 @@ var drawGantt, utils,
                 d3.selectAll(".row").attr("transform", "scale(" + z + ",1)");
                 d3.selectAll(".tl-bg").attr("transform", "scale(" + z + ",1)");
 
-                if(layout==="a")
-                    d3.selectAll(".g-law").attr("transform", function(d,i){return "translate(" + width_ratio*(-tscale(format.parse(d.beginning))*z+5) + ","+ (i * (20 + lawh)) +"), scale("+width_ratio+",1)"});
+                d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z});
+                if(layout==="a") {
+                    d3.selectAll(".g-law").attr("transform", function(d,i){return "translate(" + -tscale(format.parse(d.beginning)) * z + 5 + "," + (i * (20 + lawh)) +")"; });
+                    lscale = d3.time.scale().range([0, width * width_ratio]);;
+                    lscale.domain([mindate, maxdate]);
+                    d3.selectAll(".tick-lbl").attr("x", function (d) { return lscale(d) * z; });
+                    d3.selectAll(".tick-lbl").style("opacity",function(d,i){
+                        return (i % Math.round(tickpresence(z))==0 && lscale(d)*z< width*z - 50 ? 1 : 0);
+                    });
+                    
+                } else {
+                    d3.selectAll(".tick-lbl").attr("x", function (d) { return tscale(d) * z; });
+                    d3.selectAll(".tick-lbl").style("opacity",function(d,i){
+                        return (i % Math.round(tickpresence(z))==0 && tscale(d)*z< width*z - 50 ? 1 : 0);
+                    });
+                }
 
-                d3.selectAll(".tick-lbl").attr("x", function (d) { return tscale(d) * z * width_ratio; })
-                .style("opacity",function(d,i){
-                    return (i % Math.round(tickpresence(z))==0 && tscale(d)*z*width_ratio < width*z - 50 ? 1 : 0);
-                });
-
-                legendcontainer.attr("width", width * z);
+                legendcontainer.attr("width", width * z * width_ratio);
                 ganttcontainer.attr("width", width * z);
-
-                d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z/width_ratio}).attr("x2",function(d){return tscale(d)*z/width_ratio})
 
                 $("#gantt").scrollLeft(perc * width * z - $("#gantt").width() / 2 );
 
@@ -470,6 +477,7 @@ var drawGantt, utils,
                     //update svg size
                     if (layout == "a")
                         width_ratio = 0.8*(maxdate - mindate)/(maxduration*86400000.);
+                    else width_ratio = 1;
 
                     ganttcontainer.attr("height", Math.max(2, smallset.length) * (20 + lawh)).attr("width", width);
                     legendcontainer.attr("width", width);
@@ -614,7 +622,7 @@ var drawGantt, utils,
 
                 absolutePosition = function () {
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
-                        return "translate(" + width_ratio*(-tscale(format.parse(d.beginning))*z + 5) + "," + (i * (20 + lawh)) + "), scale("+width_ratio+",1)";
+                        return "translate(" + -tscale(format.parse(d.beginning)) * z * width_ratio + 5 + "," + (i * (20 + lawh)) + "), scale("+width_ratio+",1)";
                     })
                     classicPosition();
                     d3.selectAll(".tick-lbl").text(function (d, j) { return (j + 1) + " mois"; })
