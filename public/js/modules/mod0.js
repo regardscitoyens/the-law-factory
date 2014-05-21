@@ -74,7 +74,7 @@ var drawGantt, utils,
                 width = parseInt(d3.select("#gantt").style("width")) - 30,
                 width_ratio = 1,
                 lawh = 50,
-                steph = lawh - 16,
+            steph = lawh - 16,
                 z = 1,
                 layout = "t",
                 maxstat = 24, binstat = 30,
@@ -86,7 +86,7 @@ var drawGantt, utils,
             format = d3.time.format("%Y-%m-%d"),
             tickform = locale.timeFormat("%b %Y"),
             tickpresence=d3.scale.linear().range([3,1]).domain([1,7]).clamp(true),
-            format_step = function(d){
+            format_title = function(d){
                 d = d.replace('depot', 'Dépôt')
                     .replace('1ère lecture', '1<sup>ère</sup> Lecture')
                     .replace('2ème lecture', '2<sup>ème</sup> Lecture')
@@ -94,12 +94,10 @@ var drawGantt, utils,
                     .replace('l. définitive', 'Lecture Définitive')
                     .replace('CMP', 'Commission Mixte Paritaire')
                     .replace('hemicycle', 'Hémicycle')
-                    .replace('constitutionnalité', 'Conseil Constitutionnel');
-                return upperFirst(d);
-            },
-            format_instit = function(d){
-                return d.replace('assemblee', 'Assemblée nationale')
+                    .replace('constitutionnalité', 'Conseil Constitutionnel')
+		    .replace('assemblee', 'Assemblée nationale')
                     .replace('senat', 'Sénat');
+                return upperFirst(d);
             },
             french_date = function(d){
                 if (!d) return "";
@@ -108,16 +106,16 @@ var drawGantt, utils,
             },
             popover = function(d) {
                 var ydisp = -45,
-                    title = (d.institution=="assemblee" || d.institution=="senat" ? format_instit(d.institution) + " — " : "") + format_step(d.step ? d.step : d.stage),
+                title = ((d.institution=="assemblee" || d.institution=="senat") && layout == 'q' ? format_title(d.institution) + " — " : "") + format_title(d.step ? d.step : d.stage),
                     div = d3.select(document.createElement("div")).style("width", "100%").attr('class', 'pop0');
                 if (d.stage=="CMP") {
                     div.append("p").html(title);
-                    title = format_step(d.stage);
+                    title = format_title(d.stage);
                     ydisp -= 20;
                 } else if (d.step) {
                     if (d.step == "depot" && d.debats_order != null)
                         title = "Pro" + (d.auteur_depot == "Gouvernement" ? "jet" : "position") + " de loi";
-                    div.append("p").html(format_step(d.stage));
+                    div.append("p").html(format_title(d.stage));
                     ydisp -= 20;
                 }
                 div.append("p").html('<span class="glyphicon glyphicon-calendar"></span><span> '+french_date(d.date) + (d.enddate && d.enddate != d.date ? " →  "+ french_date(d.enddate) : '')+'</span>');
@@ -260,7 +258,10 @@ var drawGantt, utils,
                     drawAxis();
                     if (layout == "t") timePosition();
                     if (layout == "a") absolutePosition();
-                    if (layout == "q") quantiPosition();
+                    if (layout == "q") {
+			quantiPosition();
+			drawLabels();
+		    }
                     zooming(zoo);
 
                     //Define scroll behaviour
@@ -278,7 +279,7 @@ var drawGantt, utils,
                             else if (e.stage==="promulgation")
                                 e.stepname="JO";
                             else if(e.step!=="depot" && (e.institution==="assemblee" || e.institution==="senat"))
-                                e.stepname = e.step.substr(0, 1).toUpperCase();
+                                e.stepname = e.step.substr(0, 3).toUpperCase();
                             else if(e.step==="depot")
                                 e.stepname= id.substr(0,3).toUpperCase();
                             else if(e.institution==="CMP")
@@ -301,7 +302,7 @@ var drawGantt, utils,
 
                                 // Monitor Overlaps
                                 if (y+"-"+mm+"-"+dd>=e.date) {
-                                    console.log("OVERLAP:",e.date,y+"-"+mm+"-"+dd)
+//                                    console.log("OVERLAP:",e.date,y+"-"+mm+"-"+dd)
                                     e.overlap = steps[j - 1].overlap + 1;
                                 }
                             }
@@ -325,6 +326,7 @@ var drawGantt, utils,
                                     remove.unshift(j);
                                     d.timesteps[j-1].enddate = s.enddate;
 				    d.timesteps[j-1].step = s.institution;
+				    d.timesteps[j-1].nb_amendements += s.nb_amendements;
 				}
                             });
                             remove.forEach(function(id, j) {
@@ -564,10 +566,31 @@ var drawGantt, utils,
                         .attr("opacity", 0.6);
                 }
 
+		
+		function drawLabels() {
+                    d3.selectAll(".g-law").append("g").attr("class", "lbls")
+			.selectAll(".step-lbl")
+			.data(function (d) { return d.steps.filter(function(d, i){ return i == 0 || layout != "q" || d.step != "depot";} ); })
+			.enter()
+			.append("g")
+			.attr("class", "step-lbl")
+			.each(function(d,i){
+                            for(var j = 0; j<d.stepname.length; j++) {
+				d3.select(this).append("text")
+                                    .attr("x", d.qx + 3)
+                                    .attr("y", 38+j*9)
+                                    .attr("dx", 5)
+                                    .text(d.stepname[j])
+                                    .popover(popover);
+                            }
+			});
+		}
+
+
                 function getQwidth(e) {
                     if (e.stage === "promulgation" || e.step == "depot") return 15;
                     var diff = format.parse(e.enddate) - format.parse(e.date);
-                    return Math.max(15, Math.floor(40 * Math.log(diff / 86400000)));
+                    return Math.max(15, Math.floor(35 * Math.log(diff / 86400000)));
                 }
 
                 function getQLwidth(e) {
@@ -607,7 +630,7 @@ var drawGantt, utils,
                 };
 
                 quantiPosition = function () {
-                    d3.selectAll(".step")
+                    d3.selectAll('.steps').selectAll(".step")
                         .attr("x", function (d) {return d.qx; })
                         .attr("width", function (d) { return Math.max(0, d.qw); })
                         .style("fill", color_step);
