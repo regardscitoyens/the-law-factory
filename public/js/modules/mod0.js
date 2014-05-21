@@ -74,7 +74,7 @@ var drawGantt, utils,
                 width = parseInt(d3.select("#gantt").style("width")) - 30,
                 width_ratio = 1,
                 lawh = 50,
-                steph = lawh - 16,
+            steph = lawh - 16,
                 z = 1,
                 layout = "t",
                 maxstat = 24, binstat = 30,
@@ -258,7 +258,10 @@ var drawGantt, utils,
                     drawAxis();
                     if (layout == "t") timePosition();
                     if (layout == "a") absolutePosition();
-                    if (layout == "q") quantiPosition();
+                    if (layout == "q") {
+			quantiPosition();
+			drawLabels();
+		    }
                     zooming(zoo);
 
                     //Define scroll behaviour
@@ -276,7 +279,7 @@ var drawGantt, utils,
                             else if (e.stage==="promulgation")
                                 e.stepname="JO";
                             else if(e.step!=="depot" && (e.institution==="assemblee" || e.institution==="senat"))
-                                e.stepname = e.step.substr(0, 1).toUpperCase();
+                                e.stepname = e.step.substr(0, 3).toUpperCase();
                             else if(e.step==="depot")
                                 e.stepname= id.substr(0,3).toUpperCase();
                             else if(e.institution==="CMP")
@@ -562,6 +565,27 @@ var drawGantt, utils,
                         .attr("stroke-width", 1)
                         .attr("opacity", 0.6);
                 }
+
+		
+		function drawLabels() {
+                    d3.selectAll(".g-law").append("g").attr("class", "lbls")
+			.selectAll(".step-lbl")
+			.data(function (d) { return d.steps.filter(function(d, i){ return i == 0 || layout != "q" || d.step != "depot";} ); })
+			.enter()
+			.append("g")
+			.attr("class", "step-lbl")
+			.each(function(d,i){
+                            for(var j = 0; j<d.stepname.length; j++) {
+				d3.select(this).append("text")
+                                    .attr("x", d.qx + 3)
+                                    .attr("y", 38+j*9)
+                                    .attr("dx", 5)
+                                    .text(d.stepname[j])
+                                    .popover(popover);
+                            }
+			});
+		}
+
 
                 function getQwidth(e) {
                     if (e.stage === "promulgation" || e.step == "depot") return 15;
