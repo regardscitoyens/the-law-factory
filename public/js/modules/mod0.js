@@ -126,8 +126,8 @@ var drawGantt, utils,
                 if (d.echec) div.append("p").html(d.echec.toUpperCase());
                 if (d.decision) div.append("p").html(d.decision.toUpperCase());
                 if ((d.institution=="assemblee" || d.institution=="senat") && d.nb_amendements) {
-                    var legend_amd = '<svg width="13" height="18" style="vertical-align:middle;"><rect class="step" x="0" y="0" width="13" height="18" style="fill: '+(d.institution === "assemblee" ? "#ced6dd" : "#f99b90")+';"></rect><rect class="step-ptn" x="0" y="2" width="13" height="16" style="fill: url(#diagonal'+(d.nb_amendements >= 200 ? '3' : (d.nb_amendements >= 50 ? '2' : '1'))+');"></rect></svg>';
-                    div.append("p").style("vertical-align", "middle").html(legend_amd+"&nbsp;&nbsp;"+d.nb_amendements+" amendement"+(d.nb_amendements > 1 ? 's' : ''));
+                    var legend_amd = '<svg width="13" height="18" style="vertical-align:middle;"><rect class="step" x="0" y="0" width="13" height="18" style="fill: '+(d.institution === "assemblee" ? "#ced6dd" : "#f99b90")+';"></rect></svg>';
+                    div.append("p").style("vertical-align", "middle").html(d.nb_amendements+" amendement"+(d.nb_amendements > 1 ? 's' : ''));
                     ydisp -= 22;
                 }
                 return {
@@ -365,7 +365,7 @@ var drawGantt, utils,
 
                                 // Monitor Overlaps
                                 if (y+"-"+mm+"-"+dd>=e.date) {
-                                    // console.log("OVERLAP:",e.date,y+"-"+mm+"-"+dd)
+                                    console.log("OVERLAP:",e.date,y+"-"+mm+"-"+dd)
                                     e.overlap = d.steps[j - 1].overlap + 1;
                                 }
                             }
