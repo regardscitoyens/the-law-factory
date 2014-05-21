@@ -15,7 +15,6 @@ var drawGantt, utils,
 }),
     active_filters = {
         theme: "",
-        year: 2013,
         length: '',
         amendment: '1'
     },
@@ -269,7 +268,7 @@ var drawGantt, utils,
                     initGanttSVG();
                     if (action == 'time') {
                         layout = "t";
-                        zoo = 10;
+                        zoo = 1;
                         action = 'sortd';
                         scroll['scrollLeft'] = "100000px";
                         $("#display_menu .chosen").removeClass('chosen');
@@ -695,7 +694,7 @@ var drawGantt, utils,
                 //Start drawing first sample
                 currFile = data.next_page;
                 prepareData();
-                drawGantt('time');
+                drawGantt('quanti');
                 setTimeout((currFile ? dynamicLoad : computeFilters), 500);
                 $("a.badge").tooltip();
 
