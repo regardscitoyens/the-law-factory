@@ -64,14 +64,13 @@ var drawGantt, utils,
                 ganttcontainer = d3.select("#gantt").append("svg"),
                 lawscont, grid,
                 popover, currFile,
-                lbls, steps, laws,
+                steps, laws,
                 gridrects, gridlines,
                 allThemes = [], allYears = [],
                 dossiers = [], smallset = [],
                 stats = {},
                 mindate, maxdate, maxduration,
-                tscale, lblscale,
-                ticks,
+                tscale, ticks,
                 width = parseInt(d3.select("#gantt").style("width")) - 30,
                 width_ratio = 1,
                 lawh = 50,
@@ -151,25 +150,6 @@ var drawGantt, utils,
                 return format.parse(val);
             }
 
-            function drawLabels() {
-                d3.selectAll(".g-law").append("g").attr("class", "lbls")
-                    .selectAll(".step-lbl")
-                    .data(function (d) { return d.steps.filter(function(d, i){ return i == 0 || layout != "q" || d.step != "depot";} ); })
-                    .enter()
-                    .append("g")
-                    .attr("class", "step-lbl")
-                    .each(function(d,i){
-                        for(var j = 0; j<d.stepname.length; j++) {
-                            d3.select(this).append("text")
-                                .attr("x", function (e) {return (layout === "q" ? e.qx+2 : lblscale(scaled_date_val(e)));})
-                                .attr("y", 38+j*9)
-                                .attr("dx", 5)
-                                .text(d.stepname[j])
-                                .popover(popover);
-                        }
-                    })
-            }
-
             zooming = function(lvl) {
 
                 var perc=($("#gantt").scrollLeft()+$("#gantt").width()/2)/(width*z);
@@ -196,9 +176,6 @@ var drawGantt, utils,
                 ganttcontainer.attr("width", width * z);
 
                 d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z/width_ratio}).attr("x2",function(d){return tscale(d)*z/width_ratio})
-
-                if (z < 10) d3.selectAll(".lbls").attr('opacity', 0);
-                else d3.selectAll(".lbls").attr("opacity", 1);
 
                 $("#gantt").scrollLeft(perc * width * z - $("#gantt").width() / 2 );
 
@@ -316,11 +293,11 @@ var drawGantt, utils,
                     } else scroll = null;
                     drawLaws();
                     drawAxis();
-                    zooming(zoo);
                     if (layout == "t") timePosition();
                     if (layout == "a") absolutePosition();
                     if (layout == "q") quantiPosition();
-                    drawLabels();
+                    zooming(zoo);
+
                     //Define scroll behaviour
                     d3.select("#gantt").on("scroll", function (e) {
                         d3.select(".timeline").attr("transform", "translate(-" + $(this).scrollLeft() + ", 0)");
@@ -329,12 +306,8 @@ var drawGantt, utils,
                     if (scroll) $("#gantt").animate(scroll);
                 }
 
-                function prepareData() {
-                    data.dossiers.forEach(function (d, i) {
-                        var st;
-
-                        d.steps.forEach(function (e, j) {
-
+                function prepareSteps(steps, id) {
+                        steps.forEach(function (e, j) {
                             if(e.stage==="constitutionnalité" || e.institution==="conseil constitutionnel")
                                 e.stepname="CC";
                             else if (e.stage==="promulgation")
@@ -342,21 +315,20 @@ var drawGantt, utils,
                             else if(e.step!=="depot" && (e.institution==="assemblee" || e.institution==="senat"))
                                 e.stepname = e.step.substr(0, 1).toUpperCase();
                             else if(e.step==="depot")
-                                e.stepname= d.id.substr(0,3).toUpperCase();
+                                e.stepname= id.substr(0,3).toUpperCase();
                             else if(e.institution==="CMP")
                                 e.stepname = "CMP";
 
-                            //if (j == 0 && (e.date === "" || e.date < d.beginning)) e.date = d.beginning
                             if (e.date && e.date != "" && e.enddate < e.date) e.enddate = e.date
                             if (!e.date || e.date === "") e.date = e.enddate;
 
-                            if (j>0 && d.steps[j-1].enddate == e.date) {
-                                if (d.steps[j-1].overlap) e.overlap=d.steps[j-1].overlap+1;
+                            if (j>0 && steps[j-1].enddate == e.date) {
+                                if (steps[j-1].overlap) e.overlap=steps[j-1].overlap+1;
                                 else e.overlap=1
-                            } else if (j>0 && d.steps[j-1].overlap) {
+                            } else if (j>0 && steps[j-1].overlap) {
 
-                                var pastdate=format.parse(d.steps[j-1].enddate),
-                                    dd = pastdate.getDate()+d.steps[j-1].overlap,
+                                var pastdate=format.parse(steps[j-1].enddate),
+                                    dd = pastdate.getDate()+steps[j-1].overlap,
                                     mm = pastdate.getMonth()+1,
                                     y = pastdate.getFullYear();
                                 if (mm<10) mm="0"+mm;
@@ -365,15 +337,37 @@ var drawGantt, utils,
                                 // Monitor Overlaps
                                 if (y+"-"+mm+"-"+dd>=e.date) {
                                     console.log("OVERLAP:",e.date,y+"-"+mm+"-"+dd)
-                                    e.overlap = d.steps[j - 1].overlap + 1;
+                                    e.overlap = steps[j - 1].overlap + 1;
                                 }
                             }
 
                             if (j != 0 && e.step == "depot") e.qw = -3;
                             else e.qw = getQwidth(e);
                             if (j == 0) e.qx = 5;
-                            else e.qx = d.steps[j - 1].qx + d.steps[j - 1].qw + 3;
+                            else e.qx = steps[j - 1].qx + steps[j - 1].qw + 3;
                         })
+		}
+		
+                function prepareData() {
+                    data.dossiers.forEach(function (d, i) {
+			if (!d.timesteps) {
+			    d.timesteps = angular.copy(d.steps);
+			    
+			    var remove = [];
+                            d.timesteps.forEach(function(s, j) {
+				if (s.step === 'hemicycle' || (s.step === 'depot' && j)) {
+                                    remove.unshift(j);
+                                    d.timesteps[j-1].enddate = s.enddate;
+				    d.timesteps[j-1].step = s.institution;
+				}
+                            });
+                            remove.forEach(function(id, j) {
+				d.timesteps.splice(id, 1);
+                            });
+			
+			    prepareSteps(d.timesteps, d.id);
+			    prepareSteps(d.steps, d.id);
+			}
                     })
                     dossiers = dossiers.concat(data.dossiers)
                 }
@@ -519,8 +513,6 @@ var drawGantt, utils,
                     ticks = d3.time.months(mindate, maxdate, 1);
                     tscale = d3.time.scale().range([0, width]);
                     tscale.domain([mindate, maxdate]);
-                    lblscale = d3.time.scale().range([0, width * 10]);
-                    lblscale.domain([mindate, maxdate]);
 
                     //add containing rows
                     gridrects = lawscont.selectAll(".row")
@@ -556,7 +548,7 @@ var drawGantt, utils,
                     steps = laws.append("g")
                         .attr("class", "steps")
                         .selectAll("step")
-                        .data(function (d) { return d.steps.filter(function(d, i){ return i == 0 || layout != "q" || d.step != "depot";} ); })
+                        .data(function (d) { return d[layout === 'q' ? 'steps' : 'timesteps'].filter(function(d, i){ return i == 0 || layout != "q" || d.step != "depot";} ); })
                         .enter()
                         .append("g")
                         .attr("class", "g-step")
@@ -625,7 +617,7 @@ var drawGantt, utils,
                     if (d.institution === "assemblee" && d.step != "depot") return "#ced6dd";
                     if (d.institution === "senat" && d.step != "depot") return "#f99b90";
                     if (d.institution === "conseil constitutionnel") return "#aeeaaa";
-                    if (d.stage === "promulgation") return "#333344";
+                    if (d.stage === "promulgation") return "#597171";
                     return "#aea198";
                 };
 
@@ -633,9 +625,6 @@ var drawGantt, utils,
                     d3.selectAll(".step")
                         .attr("x", function (e) { return tscale(scaled_date_val(e)); })
                         .attr("width", getQLwidth);
-
-                    d3.selectAll(".step-lbl")
-                        .attr("x", function (e, i) { return lblscale(format.parse(e.date)); });
                 }
 
                 absolutePosition = function () {

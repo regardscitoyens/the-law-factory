@@ -5,7 +5,7 @@
 angular.module('theLawFactory', [
   'theLawFactory.controllers',
   'theLawFactory.services',
-  'theLawFactory.directives',
+  'theLawFactory.directives'
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider
