@@ -688,7 +688,7 @@ var drawGantt, utils,
                         .append('<p><b>'+upperFirst(d.long_title)+"</b></p>")
                         .append('<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + "</p>");
                     if (d.procedure != "Normale") $(".text-container").append('<p>(' + d.procedure.toLowerCase() + ")</p>");
-                    $(".text-container").append('<div class="gotomod"><a class="btn btn-info" href="loi?l=' + d.id + '">Explorer les articles</a></div>');
+                    $(".text-container").append('<div class="gotomod"><a class="btn btn-info" href="loi.html?l=' + d.id + '">Explorer les articles</a></div>');
                     var extrainfo = $('<div class="extrainfos">');
                     extrainfo.append('<p><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(d.total_amendements)+'"></span>&nbsp;&nbsp;'+(d.total_amendements?d.total_amendements:'aucun')+" amendement"+(d.total_amendements>1?'s déposés':' déposé')+"</p>")
                         .append('<p><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(d.total_mots)+'"></span><span>&nbsp;&nbsp;plus de '+mots+" mille mots prononcés lors des débats parlementaires</span></p>")
