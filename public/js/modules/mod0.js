@@ -335,8 +335,19 @@ var drawGantt, utils,
                     data.dossiers.forEach(function (d, i) {
                         var st;
 
-                        d.steps.forEach(function (e, j) {
+			var remove = [];
+                        d.steps.forEach(function(s, j) {
+                            if (s.step === 'hemicycle' || (s.step === 'depot' && j)) {
+                                remove.unshift(j);
+                                d.steps[j-1].enddate = s.enddate;
+				d.steps[j-1].step = s.institution;
+                            }
+                        });
+                        remove.forEach(function(id, j) {
+                            d.steps.splice(id, 1);
+                        });
 
+                        d.steps.forEach(function (e, j) {
                             if(e.stage==="constitutionnalité" || e.institution==="conseil constitutionnel")
                                 e.stepname="CC";
                             else if (e.stage==="promulgation")
