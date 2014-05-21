@@ -626,7 +626,7 @@ var drawGantt, utils,
                     if (d.institution === "assemblee" && d.step != "depot") return "#ced6dd";
                     if (d.institution === "senat" && d.step != "depot") return "#f99b90";
                     if (d.institution === "conseil constitutionnel") return "#aeeaaa";
-                    if (d.stage === "promulgation") return "#333344";
+                    if (d.stage === "promulgation") return "#597171";
                     return "#aea198";
                 };
 
