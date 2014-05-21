@@ -567,7 +567,7 @@ var drawGantt, utils,
                 function getQwidth(e) {
                     if (e.stage === "promulgation" || e.step == "depot") return 15;
                     var diff = format.parse(e.enddate) - format.parse(e.date);
-                    return Math.max(15, Math.floor(40 * Math.log(diff / 86400000)));
+                    return Math.max(15, Math.floor(35 * Math.log(diff / 86400000)));
                 }
 
                 function getQLwidth(e) {
