@@ -604,7 +604,7 @@ var drawGantt, utils,
                     if (d.institution === "senat") return "SE";
                     if (d.institution === "conseil constitutionnel") return "CC";
                     if (d.stage === "promulgation") return "PR";
-                    return "color_default";
+                    return "Color_Default";
                 };
 				
                 classicPosition = function() {
