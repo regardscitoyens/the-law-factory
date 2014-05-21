@@ -324,9 +324,10 @@ var drawGantt, utils,
                             d.timesteps.forEach(function(s, j) {
 				if (s.step === 'hemicycle' || (s.step === 'depot' && j)) {
                                     remove.unshift(j);
-                                    d.timesteps[j-1].enddate = s.enddate;
-				    d.timesteps[j-1].step = s.institution;
-				    d.timesteps[j-1].nb_amendements += s.nb_amendements;
+				    if (s.step === 'hemicycle') {
+					d.timesteps[j-1].enddate = s.enddate;
+					d.timesteps[j-1].nb_amendements += s.nb_amendements;
+				    }
 				}
                             });
                             remove.forEach(function(id, j) {
