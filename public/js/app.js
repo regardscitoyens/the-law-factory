@@ -9,7 +9,8 @@ angular.module('theLawFactory', [
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider
-    .when('/',              {template: '<div  mod0="mod0"  class="padded mod0"></div>', controller: 'mainCtrl'})
+    .when('/',              {templateUrl: '/templates/home.html', controller: 'mainCtrl'})
+    .when('/lois',       {template: '<div  mod0="mod0"  class="padded mod0"></div>', controller: 'mainCtrl'})
     .when('/loi',           {template: '<div  mod1="mod1"  class="padded mod1"></div>', controller: 'mainCtrl'})
     .when('/amendements',   {template: '<div  mod2="mod2"  class="padded mod2"></div>', controller: 'mainCtrl'})
     .when('/debats',        {template: '<div mod2b="mod2b" class="padded mod2"></div>', controller: 'mainCtrl'})
