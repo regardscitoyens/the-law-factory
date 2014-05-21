@@ -1343,6 +1343,10 @@ noscript h2 {
 	color: #FFF;
 }
 
+#ToolsPanel{
+	margin-bottom: 10px;
+	
+}
 #ToolsPanel ul li ul {
 
   display: none;
@@ -1372,6 +1376,7 @@ noscript h2 {
 }
 #ToolsPanel ul > li > ul > li:hover{
 	
+	background: #8e7b6f;
 	
 }
 
@@ -1380,11 +1385,24 @@ font-family: "Helvetica Neue","Oxygen",sans-serif !important;
 }
 
 
-
 body{
 overflow-x: hidden;
 	width: 100%;
 	height: 100%;
+
+}
+
+.interactive{
+	cursor: pointer;
+}
+
+.readMode {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  color: #FFFFFF;
+  font-size: 30px;
+  left: 0;
+margin: 10px 0 10px 10px;
+  position: absolute;
 
 }
 
