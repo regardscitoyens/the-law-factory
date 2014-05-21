@@ -73,9 +73,8 @@ var drawGantt, utils,
                 mindate, maxdate, maxduration,
                 tscale, lblscale,
                 ticks,
-                basewidth = parseInt(d3.select("#gantt").style("width")) - 30,
-                width = basewidth,
-                widthratio = 1,
+                width = parseInt(d3.select("#gantt").style("width")) - 30,
+                width_ratio = 1,
                 lawh = 50,
                 steph = lawh - 16,
                 z = 1,
@@ -189,15 +188,15 @@ var drawGantt, utils,
                 if(layout==="a")
                     d3.selectAll(".g-law").attr("transform", function(d,i){return "translate(" + width_ratio*(-tscale(format.parse(d.beginning))*z+5) + ","+ (i * (20 + lawh)) +"), scale("+width_ratio+",1)"});
 
-                d3.selectAll(".tick-lbl").attr("x", function (d) { return tscale(d) * z; })
+                d3.selectAll(".tick-lbl").attr("x", function (d) { return tscale(d) * z * width_ratio; })
                 .style("opacity",function(d,i){
-                    return (i % Math.round(tickpresence(z))==0 && tscale(d)*z < width*z - 50 ? 1 : 0);
+                    return (i % Math.round(tickpresence(z))==0 && tscale(d)*z*width_ratio < width*z - 50 ? 1 : 0);
                 });
 
                 legendcontainer.attr("width", width * z);
                 ganttcontainer.attr("width", width * z);
 
-                d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z})
+                d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z/width_ratio}).attr("x2",function(d){return tscale(d)*z/width_ratio})
 
                 if (z < 10) d3.selectAll(".lbls").attr('opacity', 0);
                 else d3.selectAll(".lbls").attr("opacity", 1);
@@ -498,7 +497,6 @@ var drawGantt, utils,
                     });
                     setTimeout(drawStats, 50);
                     if (smallset.length == 0) {
-                        width = basewidth;
                         ganttcontainer.attr("height", 3*(20 + lawh)).attr("width", width);
                         legendcontainer.attr("width", width);
                         return;
@@ -513,8 +511,6 @@ var drawGantt, utils,
                     maxdate.setDate(maxdate.getDate() + 10);
 
                     //update svg size
-                    width = (maxdate - mindate < 94608000000 || layout == "q" ? 1 : 2) * basewidth;
-
                     if (layout == "a")
                         width_ratio = 0.8*(maxdate - mindate)/(maxduration*86400000.);
 
