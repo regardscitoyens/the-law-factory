@@ -625,10 +625,11 @@ var drawGantt, utils,
                 }
 
                 function color_step(d, i) {
+		    if (d.institution === "CMP") return "#E7DD9E";
                     if (i == 0 && d.stepname === "PJL") return "#BBBBBF";
-                    if (d.institution === "assemblee") return "#ced6dd";
-                    if (d.institution === "senat") return "#f99b90";
-                    if (d.institution === "conseil constitutionnel") return "rgb(231, 221, 158)";
+                    if (d.institution === "assemblee" && d.step != "depot") return "#ced6dd";
+                    if (d.institution === "senat" && d.step != "depot") return "#f99b90";
+                    if (d.institution === "conseil constitutionnel") return "#aeeaaa";
                     if (d.stage === "promulgation") return "#333344";
                     return "#aea198";
                 };
