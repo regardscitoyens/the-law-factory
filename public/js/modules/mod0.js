@@ -532,8 +532,7 @@ var drawGantt, utils,
                         .attr("x", function (e) { return tscale(scaled_date_val(e)); })
                         .attr("y", 28)
                         .attr("width", getQLwidth)
-                        .attr("height", steph)
-                        .style("fill", color_step);
+                        .attr("height", steph);
 
                     //add labels
                     ganttcontainer.selectAll(".law-name")
@@ -572,24 +571,24 @@ var drawGantt, utils,
                 }
 
 		
-		function drawLabels() {
+                function drawLabels() {
                     d3.selectAll(".g-law").append("g").attr("class", "lbls")
-			.selectAll(".step-lbl")
-			.data(function (d) { return d.steps.filter(function(d, i){ return i == 0 || layout != "q" || d.step != "depot";} ); })
-			.enter()
-			.append("g")
-			.attr("class", "step-lbl")
-			.each(function(d,i){
+                        .selectAll(".step-lbl")
+                        .data(function (d) { return d.steps.filter(function(d, i){ return i == 0 || layout != "q" || d.step != "depot";} ); })
+                        .enter()
+                        .append("g")
+                        .attr("class", "step-lbl")
+                        .each(function(d,i){
                             for(var j = 0; j<d.stepname.length; j++) {
-				d3.select(this).append("text")
+                                d3.select(this).append("text")
                                     .attr("x", d.qx + 3)
                                     .attr("y", 38+j*9)
                                     .attr("dx", 5)
                                     .text(d.stepname[j])
                                     .popover(popover);
                             }
-			});
-		}
+                        });
+                }
 
 
                 function getQwidth(e) {
