@@ -13,6 +13,7 @@ body{
     overflow-x:hidden;
 }
 
+
 h1,h2,h3,h4 {
     font-family:"Oxygen", sans-serif !important;
 }
@@ -372,6 +373,8 @@ ins {
 	float:left;
 }
 
+
+
 .labels-sc p{
 	margin:0;
 	padding: 0 5px;
@@ -430,6 +433,7 @@ ins {
     margin: 0;
     height: 35px
 }
+
 
 .btn-group{
     margin-bottom:35px;
@@ -508,6 +512,8 @@ ins {
   display:inline-block;
 }
 
+
+
 .menu-btn {
 	float:right;
 	padding:2px;
@@ -550,8 +556,9 @@ ul.ui-autocomplete {
 	margin-top:4%;
 	margin-left:2%;
 	font-size:4em;
-	color:#333333;
-	border-bottom: 1px solid #333333 !important;
+
+	color:#716259;
+	border-bottom: 1px solid #716259 !important;
 	outline:none;
 }
 #search-btn{
@@ -582,6 +589,7 @@ ul.ui-autocomplete {
 	width:18.33%;
     height: 100%;
 }
+
 
 .mod1 .text  {
     position:absolute;
@@ -701,6 +709,7 @@ ul.ui-autocomplete {
     font-family:"Oxygen", sans-serif !important;
 }*/
 
+
 .mod0 .labels-sc {
     width: 99%;
     height: 94px;
@@ -732,7 +741,8 @@ ul.ui-autocomplete {
 .step-curr {
 	/*background-color:rgb(218, 209, 203);*/
 	background:#fff;
-	color:rgb(113, 98, 89);
+
+	color:#716259;
 }
 .cls{
 	position: absolute;
@@ -783,6 +793,9 @@ h4 a{
 	padding-left:6px;
 }
 
+
+
+
 .orat-info b{
 	margin-bottom:3px;
 }
@@ -824,6 +837,7 @@ h4 a{
 	padding:0;
 
 }
+
 
 .text:empty {
     padding:0;
@@ -877,19 +891,23 @@ text {
     text-align: center;
 }
 .text-container .badge {
-    color: #597171;
-    background-color: #eee;
+
+    color: #716259;
+    background-color: #eeeeee;
     opacity: 0.85;
+
 }
 .text-container a.badge {
     padding: 2px 8px 5px 8px;
     margin-top:0.2em;
 }
 .text-container a.badge:hover {
-    color: #597171;
-    background-color: #eee;
+
+    color: #716259;
+    background-color: #eeeeee;
     opacity: 0.55;
 }
+
 #mod0-slider {
     clear:both;
     margin-right:6%;
@@ -984,6 +1002,8 @@ text {
     font-size:0.8em;
     color:#555;
 }
+
+
 
  .src-fcs .src-ico, .src-fcs .src-ico .glyphicon, .src-fcs a{
     color:white !important;
@@ -1093,6 +1113,8 @@ text {
     opacity: 0.6;
 }
 
+
+
 /*END OF STEPSBAR */
 
 ul.filters {
@@ -1105,8 +1127,9 @@ ul.filters li {
     width: 100%;
 }
 ul.filters li a.badge {
-    background-color: #eee;
-    color: #597171;
+
+    background-color: #e0e3ff;
+    color: #716259;
     opacity: 0.8;
     margin: 0px 0px 10px -35px;
     padding: 1px 5px 4px 4px;
@@ -1141,6 +1164,7 @@ ul.filters li a.badge b {
 .spinner {
     margin-top: 20%;
 }
+
 
 noscript {
     margin-left:2%;
@@ -1184,23 +1208,27 @@ noscript h2 {
 
 .wide-read{
     display: none;
-    position:relative;
-    color:#666;
-    top:6px;
-    float:right;
-    margin-right:18px;
-    padding-bottom: 10px;
+    position: relative;
+    color: #716259;
+    background-color: #eee;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    
 }
 .wide-read .glyphicon {
     padding-left:3px;
     cursor:pointer;
 }
+
 .tooltip-inner {background-color: #597171;border-radius:0;border: solid 1px #597171;}
 
 .tooltip.bottom .tooltip-arrow{border-bottom-color:#597171}
 .tooltip.top .tooltip-arrow{border-top-color:#597171}
 .tooltip.left .tooltip-arrow{border-left-color:#597171}
 .tooltip.right .tooltip-arrow{border-right-color:#597171}
+
+
 
 .help-ico{
     position:absolute;
@@ -1218,6 +1246,22 @@ noscript h2 {
     -moz-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
+    }
+.tooltip-inner {background-color: #716259;border-radius:0;border: solid 1px #716259;}
+
+.tooltip.bottom .tooltip-arrow{border-bottom-color:#716259;}
+
+.badge{
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+.popover-title {
+    color: white;
+    font-size: 15px;
+    background-color: #716259;
+    border-radius: 0;
+
 }
 .help-ico h4{
     margin:0;
@@ -1243,7 +1287,105 @@ noscript h2 {
     height:570px;
     border: 1px solid #597171;
 }
+
 .badge{
     border-radius:0;
 }
+
+
+/*------- Nelson's mess --------*/
+
+*[mod1="mod1"] .law-title{
+	font-size: 26px;
+	color: #FFF;
+	line-height: 32px;
+	
+}
+
+*[mod1="mod1"] .separator{
+	background-color: #716259;
+	height: auto;
+}
+
+*[mod="mod1"] .title{
+	height: auto;
+	background: #FFF;
+}
+
+*[mod1="mod1"] .btn-title{
+	line-height: 1em;
+	height: auto;
+	
+}
+
+*[mod1="mod1"] .title{
+	height: auto;
+	margin: 10px 0;
+	padding-bottom: 2px;
+}
+
+*[mod1="mod1"] .title h4{
+	line-height: 1em;   
+	
+}
+
+*[mod1="mod1"]{font-family: "Oxygen";}
+
+
+*[mod1="mod1"] .list-inline > li {
+	padding: 5px 20px;
+	position: relative;
+	cursor: pointer;
+}
+
+.burntsiena{
+	background: #716259;
+	color: #FFF;
+}
+
+#ToolsPanel ul li ul {
+
+  display: none;
+  margin-top: 5px;
+  position: absolute;
+  z-index: 100;
+  padding: 0;
+}
+#ToolsPanel ul li ul li ul{
+	display: none;
+	position: absolute;
+	left: 100%;
+	top: 0;
+	margin: 0;
+}
+
+#ToolsPanel ul li ul li{
+	padding: 8px 20px;
+	list-style-type: none;
+	border-bottom: solid 1px #FFF;
+	min-width: 240px;
+}
+
+#ToolsPanel ul li:hover > ul{
+	display: block;
+	
+}
+#ToolsPanel ul > li > ul > li:hover{
+	
+	
+}
+
+*[mod1="mod1"] .list-inline{
+font-family: "Helvetica Neue","Oxygen",sans-serif !important;
+}
+
+
+
+body{
+overflow-x: hidden;
+	width: 100%;
+	height: 100%;
+
+}
+
 
