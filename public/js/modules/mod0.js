@@ -631,7 +631,7 @@ var drawGantt, utils,
                         .attr("x", function (d) {return d.qx; })
                         .attr("width", function (d) { return Math.max(0, d.qw); })
 						.attr("class", color_step);
-                       //  .style("fill", color_step);
+                    
 
                     d3.selectAll(".law-bg").transition().duration(500).style("opacity", 0);
                 }
