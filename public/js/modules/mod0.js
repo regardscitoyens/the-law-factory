@@ -317,6 +317,7 @@ var drawGantt, utils,
                     data.dossiers.forEach(function (d, i) {
 			if (!d.timesteps) {
 			    d.timesteps = angular.copy(d.steps);
+			    d.quantisteps = angular.copy(d.steps);
 			    
 			    var remove = [];
                             d.timesteps.forEach(function(s, j) {
@@ -331,7 +332,7 @@ var drawGantt, utils,
                             });
 			
 			    prepareSteps(d.timesteps, d.id);
-			    prepareSteps(d.steps, d.id);
+			    prepareSteps(d.quantisteps, d.id);
 			}
                     })
                     dossiers = dossiers.concat(data.dossiers)
@@ -513,7 +514,7 @@ var drawGantt, utils,
                     steps = laws.append("g")
                         .attr("class", "steps")
                         .selectAll("step")
-                        .data(function (d) { return d[layout === 'q' ? 'steps' : 'timesteps'].filter(function(d, i){ return i == 0 || layout != "q" || d.step != "depot";} ); })
+                        .data(function (d) { d.steps = d[layout === 'q' ? 'quantisteps' : 'timesteps'] ; return d.steps.filter(function(d, i){ return i == 0 || layout != "q" || d.step != "depot";} ); })
                         .enter()
                         .append("g")
                         .attr("class", "g-step")
