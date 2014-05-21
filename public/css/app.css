@@ -1038,6 +1038,7 @@ text {
     border-right:1px solid white;
     border-bottom:1px solid white;
     overflow:hidden;
+    color: #333;
 }
 
 .stb-stage:nth-child(even), .stb-step:nth-child(even) {
@@ -1047,7 +1048,7 @@ text {
 .stb-stage, .stb-inst, .stb-step{
     float:left;
     text-align: center;
-    border-left:2px solid white;
+    border-left: 2px solid white;
     padding:5px 0;
 }
 
@@ -1082,11 +1083,9 @@ text {
 
 .stb-inst.gouvernement {
     background-color: #cccbb3;
-    color:white;
 }
 .stb-inst.cmp {
     background-color:rgb(231, 221, 158);
-    color:white;
 }
 
 .stb-inst.assemblee, .stb-inst.deputes {
@@ -1095,11 +1094,13 @@ text {
 .stb-step {
     border-bottom: 1px solid #888;
 }
-.stb-step.current{
-  background-color: white;
-  border-bottom: none;
-  border-left: 1px solid #888;
-  border-right: 1px solid #888;
+.stb-step.current {
+    background-color: white;
+    border-bottom: 1px solid white;
+    border-left: 1px solid #888;
+}
+.stb-step.current + .stb-step {
+    border-left: 1px solid #888;
 }
 .stb-curr-st {
     opacity:0.7 !important;
