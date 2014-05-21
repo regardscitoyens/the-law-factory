@@ -630,7 +630,7 @@ var drawGantt, utils,
                 };
 
                 quantiPosition = function () {
-                    d3.selectAll(".step")
+                    d3.selectAll('.steps').selectAll(".step")
                         .attr("x", function (d) {return d.qx; })
                         .attr("width", function (d) { return Math.max(0, d.qw); })
                         .style("fill", color_step);
