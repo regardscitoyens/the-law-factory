@@ -10,7 +10,7 @@ angular.module('theLawFactory', [
 config(function ($routeProvider, $locationProvider) {
   $routeProvider
 
-    .when('/',           {templateUrl: '/templates/home.html', controller: 'mainCtrl'})
+    .when('/',           {templateUrl: 'templates/home.html', controller: 'mainCtrl'})
     .when('/lois.html',       {template: '<div  mod0="mod0"  class="padded mod0"></div>', controller: 'mainCtrl'})
     
 //    .when('/',              {template: '<div  mod0="mod0"  class="padded mod0"></div>', controller: 'mainCtrl'})
