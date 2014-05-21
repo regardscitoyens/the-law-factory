@@ -65,14 +65,13 @@ var drawGantt, utils,
                 ganttcontainer = d3.select("#gantt").append("svg"),
                 lawscont, grid,
                 popover, currFile,
-                lbls, steps, laws,
+                steps, laws,
                 gridrects, gridlines,
                 allThemes = [], allYears = [],
                 dossiers = [], smallset = [],
                 stats = {},
                 mindate, maxdate, maxduration,
-                tscale, lblscale,
-                ticks,
+                tscale, ticks,
                 basewidth = parseInt(d3.select("#gantt").style("width")) - 30,
                 width = basewidth,
                 widthratio = 1,
@@ -153,25 +152,6 @@ var drawGantt, utils,
                 return format.parse(val);
             }
 
-            function drawLabels() {
-                d3.selectAll(".g-law").append("g").attr("class", "lbls")
-                    .selectAll(".step-lbl")
-                    .data(function (d) { return d.steps.filter(function(d, i){ return i == 0 || layout != "q" || d.step != "depot";} ); })
-                    .enter()
-                    .append("g")
-                    .attr("class", "step-lbl")
-                    .each(function(d,i){
-                        for(var j = 0; j<d.stepname.length; j++) {
-                            d3.select(this).append("text")
-                                .attr("x", function (e) {return (layout === "q" ? e.qx+2 : lblscale(scaled_date_val(e)));})
-                                .attr("y", 38+j*9)
-                                .attr("dx", 5)
-                                .text(d.stepname[j])
-                                .popover(popover);
-                        }
-                    })
-            }
-
             zooming = function(lvl) {
 
                 var perc=($("#gantt").scrollLeft()+$("#gantt").width()/2)/(width*z);
@@ -198,9 +178,6 @@ var drawGantt, utils,
                 ganttcontainer.attr("width", width * z);
 
                 d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z})
-
-                if (z < 10) d3.selectAll(".lbls").attr('opacity', 0);
-                else d3.selectAll(".lbls").attr("opacity", 1);
 
                 $("#gantt").scrollLeft(perc * width * z - $("#gantt").width() / 2 );
 
@@ -322,7 +299,6 @@ var drawGantt, utils,
                     if (layout == "t") timePosition();
                     if (layout == "a") absolutePosition();
                     if (layout == "q") quantiPosition();
-                    drawLabels();
                     //Define scroll behaviour
                     d3.select("#gantt").on("scroll", function (e) {
                         d3.select(".timeline").attr("transform", "translate(-" + $(this).scrollLeft() + ", 0)");
@@ -535,8 +511,6 @@ var drawGantt, utils,
                     ticks = d3.time.months(mindate, maxdate, 1);
                     tscale = d3.time.scale().range([0, width]);
                     tscale.domain([mindate, maxdate]);
-                    lblscale = d3.time.scale().range([0, width * 10]);
-                    lblscale.domain([mindate, maxdate]);
 
                     //add containing rows
                     gridrects = lawscont.selectAll(".row")
@@ -649,9 +623,6 @@ var drawGantt, utils,
                     d3.selectAll(".step")
                         .attr("x", function (e) { return tscale(scaled_date_val(e)); })
                         .attr("width", getQLwidth);
-
-                    d3.selectAll(".step-lbl")
-                        .attr("x", function (e, i) { return lblscale(format.parse(e.date)); });
                 }
 
                 absolutePosition = function () {
