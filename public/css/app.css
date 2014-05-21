@@ -1338,10 +1338,6 @@ noscript h2 {
 	cursor: pointer;
 }
 
-.burntsiena{
-	background: #716259;
-	color: #FFF;
-}
 
 #ToolsPanel{
 	margin-bottom: 10px;
@@ -1421,3 +1417,32 @@ margin: 10px 10px 10px 0px;
 	color: #FFF;
 }
 
+
+/* ----- HERE COMES THE FUCKING COLORS - Create here the classes for color styling. And Don't, DON'T style elements inline ! ------- */
+
+.burntsiena{
+	background: #716259;
+	color: #FFF;
+}
+.CMP{
+	fill: #E7DD9E;
+}
+.PJL{
+	fill: #CCCBB3;
+}
+.AN{
+	fill: #CED6DD ;
+}
+.SE{
+	fill: #F99B90	
+}
+.CC{
+	fill: #AEEAAA;
+}
+.PR{
+	fill: #597171;
+}
+.Color_Default{
+	fill: #aea198;
+}
+  

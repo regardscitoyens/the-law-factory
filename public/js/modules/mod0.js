@@ -598,15 +598,15 @@ var drawGantt, utils,
                 }
 
                 function color_step(d, i) {
-                    if (d.institution === "CMP") return "#E7DD9E";
-                    if (i == 0 && d.stepname === "PJL") return "#cccbb3";
-                    if (d.institution === "assemblee") return "#ced6dd";
-                    if (d.institution === "senat") return "#f99b90";
-                    if (d.institution === "conseil constitutionnel") return "#aeeaaa";
-                    if (d.stage === "promulgation") return "#597171";
-                    return "#aea198";
+                    if (d.institution === "CMP") return "CMP";
+                    if (i == 0 && d.stepname === "PJL") return "PJL";
+                    if (d.institution === "assemblee") return "AN";
+                    if (d.institution === "senat") return "SE";
+                    if (d.institution === "conseil constitutionnel") return "CC";
+                    if (d.stage === "promulgation") return "PR";
+                    return "color_default";
                 };
-
+				
                 classicPosition = function() {
                     d3.selectAll(".step")
                         .attr("x", function (e) { return tscale(scaled_date_val(e)); })
@@ -630,7 +630,8 @@ var drawGantt, utils,
                     d3.selectAll('.steps').selectAll(".step")
                         .attr("x", function (d) {return d.qx; })
                         .attr("width", function (d) { return Math.max(0, d.qw); })
-                        .style("fill", color_step);
+						.attr("class", color_step);
+                       //  .style("fill", color_step);
 
                     d3.selectAll(".law-bg").transition().duration(500).style("opacity", 0);
                 }
