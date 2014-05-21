@@ -337,7 +337,7 @@ var utils, highlight;
                 {nom: 'Rejeté', id: 'rejet', img: 'ko'},
                 {nom: 'Non voté', id: 'nonvot', img: 'nd'}
             ].forEach(function(d) {
-                $(".others").append('<div class="leg-item" onclick="highlight(\''+d.id+'\')" title="Amendements '+d.nom.toLowerCase()+'s" data-toggle="tooltip" data-placement="left"><div class="leg-value" style="background-color: black; background-image: url(img/'+d.img+'.png); background-repeat:no-repeat; background-position:50% 50%;"></div><div class="leg-key">'+d.nom+'</div></div>');
+                $(".others").append('<div class="leg-item" onclick="highlight(\''+d.id+'\')" title="Amendements '+d.nom.toLowerCase()+'s" data-toggle="tooltip" data-placement="left"><div class="leg-value" style="background-color: rgb(180,180,180); background-image: url(img/'+d.img+'.png); background-repeat:no-repeat; background-position:50% 50%;"></div><div class="leg-key">'+d.nom+'</div></div>');
             });
             $(".leg-item").tooltip();
             redraw(false);

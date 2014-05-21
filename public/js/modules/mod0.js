@@ -72,9 +72,8 @@ var drawGantt, utils,
                 stats = {},
                 mindate, maxdate, maxduration,
                 tscale, ticks,
-                basewidth = parseInt(d3.select("#gantt").style("width")) - 30,
-                width = basewidth,
-                widthratio = 1,
+                width = parseInt(d3.select("#gantt").style("width")) - 30,
+                width_ratio = 1,
                 lawh = 50,
                 steph = lawh - 16,
                 z = 1,
@@ -126,8 +125,8 @@ var drawGantt, utils,
                 if (d.echec) div.append("p").html(d.echec.toUpperCase());
                 if (d.decision) div.append("p").html(d.decision.toUpperCase());
                 if ((d.institution=="assemblee" || d.institution=="senat") && d.nb_amendements) {
-                    var legend_amd = '<svg width="13" height="18" style="vertical-align:middle;"><rect class="step" x="0" y="0" width="13" height="18" style="fill: '+(d.institution === "assemblee" ? "#ced6dd" : "#f99b90")+';"></rect><rect class="step-ptn" x="0" y="2" width="13" height="16" style="fill: url(#diagonal'+(d.nb_amendements >= 200 ? '3' : (d.nb_amendements >= 50 ? '2' : '1'))+');"></rect></svg>';
-                    div.append("p").style("vertical-align", "middle").html(legend_amd+"&nbsp;&nbsp;"+d.nb_amendements+" amendement"+(d.nb_amendements > 1 ? 's' : ''));
+                    var legend_amd = '<svg width="13" height="18" style="vertical-align:middle;"><rect class="step" x="0" y="0" width="13" height="18" style="fill: '+(d.institution === "assemblee" ? "#ced6dd" : "#f99b90")+';"></rect></svg>';
+                    div.append("p").style("vertical-align", "middle").html(d.nb_amendements+" amendement"+(d.nb_amendements > 1 ? 's' : ''));
                     ydisp -= 22;
                 }
                 return {
@@ -169,15 +168,15 @@ var drawGantt, utils,
                 if(layout==="a")
                     d3.selectAll(".g-law").attr("transform", function(d,i){return "translate(" + width_ratio*(-tscale(format.parse(d.beginning))*z+5) + ","+ (i * (20 + lawh)) +"), scale("+width_ratio+",1)"});
 
-                d3.selectAll(".tick-lbl").attr("x", function (d) { return tscale(d) * z; })
+                d3.selectAll(".tick-lbl").attr("x", function (d) { return tscale(d) * z * width_ratio; })
                 .style("opacity",function(d,i){
-                    return (i % Math.round(tickpresence(z))==0 && tscale(d)*z < width*z - 50 ? 1 : 0);
+                    return (i % Math.round(tickpresence(z))==0 && tscale(d)*z*width_ratio < width*z - 50 ? 1 : 0);
                 });
 
                 legendcontainer.attr("width", width * z);
                 ganttcontainer.attr("width", width * z);
 
-                d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z})
+                d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z/width_ratio}).attr("x2",function(d){return tscale(d)*z/width_ratio})
 
                 $("#gantt").scrollLeft(perc * width * z - $("#gantt").width() / 2 );
 
@@ -309,55 +308,53 @@ var drawGantt, utils,
                 }
 
                 function prepareSteps(steps, id) {
-                    steps.forEach(function (e, j) {
-                        if(e.stage==="constitutionnalité" || e.institution==="conseil constitutionnel")
-                            e.stepname="CC";
-                        else if (e.stage==="promulgation")
-                            e.stepname="JO";
-                        else if(e.step!=="depot" && (e.institution==="assemblee" || e.institution==="senat"))
-                            e.stepname = e.step.substr(0, 1).toUpperCase();
-                        else if(e.step==="depot")
-                            e.stepname= id.substr(0,3).toUpperCase();
-                        else if(e.institution==="CMP")
-                            e.stepname = "CMP";
-			
-                        if (e.date && e.date != "" && e.enddate < e.date) e.enddate = e.date
-                        if (!e.date || e.date === "") e.date = e.enddate;
-			
-                        if (j>0 && steps[j-1].enddate == e.date) {
-                            if (steps[j-1].overlap) e.overlap=steps[j-1].overlap+1;
-                            else e.overlap=1
-                        } else if (j>0 && steps[j-1].overlap) {
-			    
-                            var pastdate=format.parse(steps[j-1].enddate),
-                            dd = pastdate.getDate()+steps[j-1].overlap,
-                            mm = pastdate.getMonth()+1,
-                            y = pastdate.getFullYear();
-                            if (mm<10) mm="0"+mm;
-                            if (dd<10) dd="0"+dd;
-			    
-                            // Monitor Overlaps
-                            if (y+"-"+mm+"-"+dd>=e.date) {
-                                console.log("OVERLAP:",e.date,y+"-"+mm+"-"+dd)
-                                e.overlap = steps[j - 1].overlap + 1;
+                        steps.forEach(function (e, j) {
+                            if(e.stage==="constitutionnalité" || e.institution==="conseil constitutionnel")
+                                e.stepname="CC";
+                            else if (e.stage==="promulgation")
+                                e.stepname="JO";
+                            else if(e.step!=="depot" && (e.institution==="assemblee" || e.institution==="senat"))
+                                e.stepname = e.step.substr(0, 1).toUpperCase();
+                            else if(e.step==="depot")
+                                e.stepname= id.substr(0,3).toUpperCase();
+                            else if(e.institution==="CMP")
+                                e.stepname = "CMP";
+
+                            if (e.date && e.date != "" && e.enddate < e.date) e.enddate = e.date
+                            if (!e.date || e.date === "") e.date = e.enddate;
+
+                            if (j>0 && steps[j-1].enddate == e.date) {
+                                if (steps[j-1].overlap) e.overlap=steps[j-1].overlap+1;
+                                else e.overlap=1
+                            } else if (j>0 && steps[j-1].overlap) {
+
+                                var pastdate=format.parse(steps[j-1].enddate),
+                                    dd = pastdate.getDate()+steps[j-1].overlap,
+                                    mm = pastdate.getMonth()+1,
+                                    y = pastdate.getFullYear();
+                                if (mm<10) mm="0"+mm;
+                                if (dd<10) dd="0"+dd;
+
+                                // Monitor Overlaps
+                                if (y+"-"+mm+"-"+dd>=e.date) {
+                                    console.log("OVERLAP:",e.date,y+"-"+mm+"-"+dd)
+                                    e.overlap = steps[j - 1].overlap + 1;
+                                }
                             }
-                        }
-			
-                        if (j != 0 && e.step == "depot") e.qw = -3;
-                        else e.qw = getQwidth(e);
-                        if (j == 0) e.qx = 5;
-                        else e.qx = steps[j - 1].qx + steps[j - 1].qw + 3;
-                    })
+
+                            if (j != 0 && e.step == "depot") e.qw = -3;
+                            else e.qw = getQwidth(e);
+                            if (j == 0) e.qx = 5;
+                            else e.qx = steps[j - 1].qx + steps[j - 1].qw + 3;
+                        })
 		}
 		
                 function prepareData() {
                     data.dossiers.forEach(function (d, i) {
-                        var st;
-
-			var remove = [];
 			if (!d.timesteps) {
 			    d.timesteps = angular.copy(d.steps);
 			    
+			    var remove = [];
                             d.timesteps.forEach(function(s, j) {
 				if (s.step === 'hemicycle' || (s.step === 'depot' && j)) {
                                     remove.unshift(j);
@@ -494,7 +491,6 @@ var drawGantt, utils,
                     });
                     setTimeout(drawStats, 50);
                     if (smallset.length == 0) {
-                        width = basewidth;
                         ganttcontainer.attr("height", 3*(20 + lawh)).attr("width", width);
                         legendcontainer.attr("width", width);
                         return;
@@ -509,8 +505,6 @@ var drawGantt, utils,
                     maxdate.setDate(maxdate.getDate() + 10);
 
                     //update svg size
-                    width = (maxdate - mindate < 94608000000 || layout == "q" ? 1 : 2) * basewidth;
-
                     if (layout == "a")
                         width_ratio = 0.8*(maxdate - mindate)/(maxduration*86400000.);
 
@@ -624,7 +618,7 @@ var drawGantt, utils,
                     if (d.institution === "assemblee" && d.step != "depot") return "#ced6dd";
                     if (d.institution === "senat" && d.step != "depot") return "#f99b90";
                     if (d.institution === "conseil constitutionnel") return "#aeeaaa";
-                    if (d.stage === "promulgation") return "#333344";
+                    if (d.stage === "promulgation") return "#597171";
                     return "#aea198";
                 };
 
