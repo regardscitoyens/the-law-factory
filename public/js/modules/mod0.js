@@ -528,7 +528,8 @@ var drawGantt, utils,
                         .popover(popover);
 
                     steps.append("rect")
-                        .attr("class", "step")
+                        .attr("class", color_step)
+		        .classed('step', true)
                         .attr("x", function (e) { return tscale(scaled_date_val(e)); })
                         .attr("y", 28)
                         .attr("width", getQLwidth)
