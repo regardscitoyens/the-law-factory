@@ -1077,19 +1077,19 @@ text {
     overflow: hidden;
 }
 .stb-inst.gouvernement {
-	background-color: rgba(204,203,179,0.45);
+	background-color: rgba(204,203,179,0.3);
 }
 .stb-inst.cmp {
-	background-color: rgba(231,221,158,0.45);
+	background-color: rgba(231,221,158,0.3);
 }
 .stb-inst.assemblee, .stb-inst.deputes {
-	background-color: rgba(206,214,221,0.45);
+	background-color: rgba(206,214,221,0.3);
 }
 .stb-inst.senat, .stb-inst.senateurs {
-	background-color: rgba(249,155,144,0.45);
+	background-color: rgba(249,155,144,0.3);
 }
 .stb-inst.cc {
-	background-color: rgba(174,234,170,0.45);
+	background-color: rgba(174,234,170,0.3);
 }
 .mod2 .stb-step {
     border-bottom: 1px solid #AAA;
