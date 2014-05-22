@@ -697,6 +697,8 @@ var textArticles;
                     if (aligned) valign();
                     else stacked();
                     load_texte_articles();
+                    $('.readMode').tooltip({ animated: 'fade', placement: 'bottom'});
+                    $('.revsMode').tooltip({ animated: 'fade', placement: 'bottom'});
                 });
 
             });
