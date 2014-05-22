@@ -16,7 +16,7 @@ var drawGantt, utils,
     active_filters = {
         theme: "",
         length: '',
-        amendment: '1'
+        amendments: 'au moins 50'
     },
     refreshBillsFilter = function(){
         var label;
@@ -35,8 +35,8 @@ var drawGantt, utils,
                     case 'year' :
                         type = 'année';
                         break;
-                    case 'amendment' :
-                        type = 'amendement';
+                    case 'amendments' :
+                        type = 'amendements';
                         break;
                 }
                 $("ul.filters li."+k).html("<a onclick=\"rmBillsFilter('"+k+"')\" class='badge' title='Supprimer ce filtre' data-toggle='tooltip' data-placement='right'><span class='glyphicon glyphicon-remove-sign'></span> <b>"+type+":</b> "+label+'</a>');
@@ -365,7 +365,7 @@ var drawGantt, utils,
                         y1 = l.end.substr(0,4)-2000;
                         if (!allYears[y1])
                             allYears[y1] = true;
-                        allAmendment = ['1', '50', '100', '200'];
+                        allAmendments = ['aucun', 'moins de 50', 'plus de 50'];
                     });
                     $("#years").empty();
                     allYears.forEach(function(d,i){
@@ -383,9 +383,9 @@ var drawGantt, utils,
                     allThemes.forEach(function(d){
                         $("#themes").append("<li><a onclick=\"addBillsFilter('theme','"+d+"')\">"+d+'</a></li>');
                     });
-                    $("#amendment").empty();
-                    allAmendment.forEach(function(d){
-                        $("#amendment").append("<li><a onclick=\"addBillsFilter('amendment','"+d+"')\"> >= "+d+'</a></li>');
+                    $("#amendments").empty();
+                    allAmendments.forEach(function(d){
+                        $("#amendments").append("<li><a onclick=\"addBillsFilter('amendments','"+d+"')\"> >= "+d+'</a></li>');
                     });
                 }
 
@@ -446,8 +446,15 @@ var drawGantt, utils,
                             return active_filters['length'] == get_stat_bin(d.total_days);
                         })
                         .filter(function(d){
-                            if (!active_filters['amendment']) return true;
-                            return d.total_amendements >= active_filters['amendment'];
+                            if (!active_filters['amendments']) return true;
+                            switch(active_filters['amendments']) {
+                                case 'aucun':
+                                    return !d.total_amendements; break;
+                                case 'moins de 50':
+                                    return d.total_amendements && d.total_amendements < 51; break;
+                                case 'plus de 50':
+                                    return d.total_amendements > 50; break;
+                            };
                         })
                         .sort(sort_function);
 
@@ -681,7 +688,7 @@ var drawGantt, utils,
                 //Start drawing first sample
                 currFile = data.next_page;
                 prepareData();
-                drawGantt('quanti');
+                drawGantt('time');
                 setTimeout((currFile ? dynamicLoad : computeFilters), 500);
                 $("a.badge").tooltip();
 
