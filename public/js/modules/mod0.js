@@ -330,6 +330,7 @@ var drawGantt, utils,
 				    if (s.step === 'hemicycle') {
 					d.timesteps[j-1].enddate = s.enddate;
 					d.timesteps[j-1].nb_amendements += s.nb_amendements;
+					d.timesteps[j-1].step = s.institution;
 				    }
 				}
                             });
