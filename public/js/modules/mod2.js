@@ -214,10 +214,8 @@ var utils, highlight;
                   })
                   .attr("width", z - 2)
                   .attr("height", z - 2)
-                  //.attr("rx", 2)
-                  //.attr("ry", 2)
                   .attr("class", "bg")
-                  .style("fill", "#E6E6E6")
+                  .style("fill", "#F0F0F0")
 
               curRow.append("text")
                   .attr("x", 20)
@@ -261,8 +259,6 @@ var utils, highlight;
                   })
                   .attr("width", z - 2)
                   .attr("height", z - 2)
-                  //.attr("rx", 2)
-                  //.attr("ry", 2)
                   .attr("id", function (d) {
                       return "a_" + d.numero.replace(/[^a-z\d]/ig, '')
                   })

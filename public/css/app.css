@@ -1057,7 +1057,7 @@ text {
 }
 
 .low-vis{
-    opacity: 0.1 !important;
+    opacity: 0.05 !important;
 }
 .stb-link{
     display:block;
