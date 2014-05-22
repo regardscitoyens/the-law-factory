@@ -35,7 +35,7 @@ var utils, highlight;
             if(d3.event) d3.event.stopPropagation();
             var sel = d3.select("."+art);
             if(!sel.empty()) {
-                d3.selectAll("g").style("opacity", 0.1);
+                d3.selectAll("g").style("opacity", 0.2);
                 sel.style("opacity", 0.9);
                 if(pos) $("#viz").animate({ scrollTop: sel.attr("data-offset") })
             }
@@ -43,7 +43,6 @@ var utils, highlight;
 
         deselectRow = function() {
             utils.resetHighlight('amds');
-            d3.selectAll("g").style("opacity",0.9);
         };
 
 	artArray=d3.values(articles).sort(function(a,b){return a.order-b.order})
@@ -264,6 +263,7 @@ var utils, highlight;
                   })
                   .attr("class", function(d) { return "amd " + utils.slugGroup(d.groupe) + " " + utils.slugGroup(d.sort); })
                   .style("fill", color_amd)
+                  .style("opacity", 0.9)
                   .popover(popover)
                   .on("click", select);
 
@@ -311,9 +311,10 @@ var utils, highlight;
                     $(".text-container").animate({opacity: 1}, 350);
                     $('.text-container').scrollTop(0);
                 }, 'load_amd');
-            });});
+            });}, 50);
             d3.selectAll("#a_"+d.numero.replace(/[^a-z\d]/ig, ''))
                 .classed("actv-amd", true)
+                .style("opacity", 1)
                 .style("stroke", "#333344")
                 .style("stroke-width", 2);
             $("#text-title").text("Amendement "+d.numero);
