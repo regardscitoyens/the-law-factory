@@ -302,7 +302,7 @@ var utils, highlight;
                     "<p><b>Date :</b> " + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</p>" +
                     "<p><b>Objet :</b> " + currAmd.sujet+"</p>" +
                     "<p><b>Signataires :</b> " + currAmd.signataires+"</p>" +
-                    "<p><b>Statut :</b> " + currAmd.sort + " <span class='amd-txt-status' style='background-color:"+col+"'><img style='margin:0; padding:4px;' src='"+statico+"'/></span> </p>" +
+                    "<p><b>Sort :</b> " + currAmd.sort + " <span class='amd-txt-status' style='background-color:"+col+"'><img style='margin:0; padding:4px;' src='"+statico+"'/></span> </p>" +
                     "<p><b>Exposé des motifs :</b> " + currAmd.expose+"</p>" +
                     "<p><b>Texte :</b> " + currAmd.texte +
                     '<p><small><b>Sources :</b> <a target="_blank" href="' + source_am + "</a></small></p>"
