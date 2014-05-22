@@ -1028,7 +1028,7 @@ text {
 #stepsbar{
     width:100%;
     border:1px solid #fff;
-    background-color: rgb(253,238,229);
+    background-color: rgb(243,238,229);
     overflow:hidden;
 }
 .stb-stages, .stb-insts, .stb-steps{
@@ -1041,7 +1041,7 @@ text {
 }
 
 .stb-stage:nth-child(even), .stb-step:nth-child(even) {
-    background-color: rgb(243,228,219);
+    background-color: rgb(233,228,219);
 }
 
 .stb-stage, .stb-inst, .stb-step{
