@@ -637,8 +637,7 @@ var drawGantt, utils,
                 quantiPosition = function () {
                     d3.selectAll('.steps').selectAll(".step")
                         .attr("x", function (d) {return d.qx; })
-                        .attr("width", function (d) { return Math.max(0, d.qw); })
-						.attr("class", color_step);
+                        .attr("width", function (d) { return Math.max(0, d.qw); });
                     
 
                     d3.selectAll(".law-bg").transition().duration(500).style("opacity", 0);
