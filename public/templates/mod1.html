@@ -4,14 +4,10 @@
 <div class="row">
 	<div class="col-md-10 col-md-offset-1 separator">
 	</div>
-	
 </div>
 
 <div class="row">
-<div class="col-md-10 col-md-offset-1 burntsiena" id="ToolsPanel">
-	<!-- <div class="col-md-5 title">
-		<h4>Explorer l'évolution des articles du texte au fil des étapes législatives</h4>
-    </div> -->
+  <div class="col-md-10 col-md-offset-1 burntsiena" id="ToolsPanel">
     <div class="col-md-10">
 	    <ul class="list-inline">
 	    	<li><span class="glyphicon glyphicon-filter"></span>filtres
@@ -42,6 +38,7 @@
     </div>
     <div class="col-md-2"> <a class="btn-title" ng-href="/lois.html"><span class="glyphicon glyphicon-align-left"></span>&nbsp;&nbsp;Explorer d'autres lois</a></div>
     </div>
+  </div>
 </div>
 <div class="row">
 	<div class="col-md-12 viz-container">
@@ -68,28 +65,22 @@
 			<div id="viz">
                 <div id="preload"></div>
 			</div>
-			
-							
 		</div>
 		
 		<div class="text" id="Articles">
-			<div ng-hide="read" class="interactive readMode" ng-click="readmode()" data-toggle="tooltip" title="Déployer le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span  class="glyphicon glyphicon-chevron-left"> </span ></div>
-			<div ng-show="read" class="interactive readMode" ng-click="viewmode()" data-toggle="tooltip" title="Replier le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span  class="glyphicon glyphicon-chevron-right"> </div>
+          <div id="readMode">
+			<div ng-hide="read" class="interactive readMode" ng-click="readmode()" data-toggle="tooltip" title="Déployer le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-left"></span></div>
+			<div ng-show="read" class="interactive readMode" ng-click="viewmode()" data-toggle="tooltip" title="Replier le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-right"></div>
+          </div>
 			
-			 <div ng-show="revs" class="interactive revsMode" ng-click="hiderevs()"  data-toggle="tooltip" title="Cacher les modifications" data-placement="bottom" data-original-title="Cacher les modifications"><span  class="glyphicon glyphicon glyphicon-check"> </span></div>
+          <div id="revsMode">
+			<div ng-show="revs" class="interactive revsMode" ng-click="hiderevs()"  data-toggle="tooltip" title="Cacher les modifications" data-placement="bottom" data-original-title="Cacher les modifications"><span  class="glyphicon glyphicon glyphicon-check"> </span></div>
 			  
-                <div ng-hide="revs"  class="interactive revsMode" ng-click="showrevs()" data-toggle="tooltip" title="Afficher les modifications" data-placement="bottom" data-original-title="afficher les modifications"><span  class="glyphicon glyphicon glyphicon-edit"> </span></div>
+            <div ng-hide="revs" class="interactive revsMode" ng-click="showrevs()" data-toggle="tooltip" title="Afficher les modifications" data-placement="bottom" data-original-title="Afficher les modifications"><span class="glyphicon glyphicon glyphicon-edit"></span></div>
+          </div>
 
-			
 			<h4 id="text-title">Sélectionner un article</h4>
-			             <div class="wide-read">
-                <!--
-                <div ng-hide="read" ng-click="readmode()"> Expand panel</div>
-                <div ng-show="read" ng-click="viewmode()"><span  class="glyphicon glyphicon-chevron-right"> </span> Shrink panel</div>
-                <div ng-show="revs" ng-click="hiderevs()"><span  class="glyphicon glyphicon glyphicon-check"> </span> Hide diffs</div>
-                <div ng-hide="revs" ng-click="showrevs()"><span  class="glyphicon glyphicon glyphicon-edit"> </span> Show diffs</div>
-				-->
-            </div>
+            <div class="wide-read"></div>
 			<div class="text-container">
 				<div class="art-meta"></div>
                 <div id="load_art"></div>
@@ -97,19 +88,9 @@
                 <div class="grad-white"></div>
 			</div>
 		</div>
-
-
 		
-		</div>
-		
+	</div>
 	
 </div>
-<script type="text/javascript">
-$('.readMode').tooltip({
-    animated: 'fade',
-    placement: 'bottom',
-});
-	
-</script>
 <script type="text/javascript" src="js/lib/google-diff-match-patch-r106.min.js"></script>
 <script type="text/javascript" src="js/modules/mod1.js"></script>

@@ -35,7 +35,7 @@ var utils, highlight;
             if(d3.event) d3.event.stopPropagation();
             var sel = d3.select("."+art);
             if(!sel.empty()) {
-                d3.selectAll("g").style("opacity", 0.1);
+                d3.selectAll("g").style("opacity", 0.2);
                 sel.style("opacity", 0.9);
                 if(pos) $("#viz").animate({ scrollTop: sel.attr("data-offset") })
             }
@@ -43,7 +43,6 @@ var utils, highlight;
 
         deselectRow = function() {
             utils.resetHighlight('amds');
-            d3.selectAll("g").style("opacity",0.9);
         };
 
 	artArray=d3.values(articles).sort(function(a,b){return a.order-b.order})
@@ -214,10 +213,8 @@ var utils, highlight;
                   })
                   .attr("width", z - 2)
                   .attr("height", z - 2)
-                  //.attr("rx", 2)
-                  //.attr("ry", 2)
                   .attr("class", "bg")
-                  .style("fill", "#E6E6E6")
+                  .style("fill", "#F0F0F0")
 
               curRow.append("text")
                   .attr("x", 20)
@@ -261,13 +258,12 @@ var utils, highlight;
                   })
                   .attr("width", z - 2)
                   .attr("height", z - 2)
-                  //.attr("rx", 2)
-                  //.attr("ry", 2)
                   .attr("id", function (d) {
                       return "a_" + d.numero.replace(/[^a-z\d]/ig, '')
                   })
                   .attr("class", function(d) { return "amd " + utils.slugGroup(d.groupe) + " " + utils.slugGroup(d.sort); })
                   .style("fill", color_amd)
+                  .style("opacity", 0.9)
                   .popover(popover)
                   .on("click", select);
 
@@ -306,7 +302,7 @@ var utils, highlight;
                     "<p><b>Date :</b> " + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</p>" +
                     "<p><b>Objet :</b> " + currAmd.sujet+"</p>" +
                     "<p><b>Signataires :</b> " + currAmd.signataires+"</p>" +
-                    "<p><b>Statut :</b> " + currAmd.sort + " <span class='amd-txt-status' style='background-color:"+col+"'><img style='margin:0; padding:4px;' src='"+statico+"'/></span> </p>" +
+                    "<p><b>Sort :</b> " + currAmd.sort + " <span class='amd-txt-status' style='background-color:"+col+"'><img style='margin:0; padding:4px;' src='"+statico+"'/></span> </p>" +
                     "<p><b>Exposé des motifs :</b> " + currAmd.expose+"</p>" +
                     "<p><b>Texte :</b> " + currAmd.texte +
                     '<p><small><b>Sources :</b> <a target="_blank" href="' + source_am + "</a></small></p>"
@@ -315,9 +311,10 @@ var utils, highlight;
                     $(".text-container").animate({opacity: 1}, 350);
                     $('.text-container').scrollTop(0);
                 }, 'load_amd');
-            });});
+            });}, 50);
             d3.selectAll("#a_"+d.numero.replace(/[^a-z\d]/ig, ''))
                 .classed("actv-amd", true)
+                .style("opacity", 1)
                 .style("stroke", "#333344")
                 .style("stroke-width", 2);
             $("#text-title").text("Amendement "+d.numero);
