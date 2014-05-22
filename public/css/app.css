@@ -1387,16 +1387,23 @@ overflow-x: hidden;
 	cursor: pointer;
 }
 
+#readMode {
+  display: none;
+  width: 10%;
+}
 .readMode {
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
   color: #FFFFFF;
   font-size: 30px;
   left: 0;
-margin: 10px 0 10px 10px;
+margin: 9px 0 10px 10px;
   position: absolute;
-
 }
 
+#revsMode {
+  display: none;
+  width: 10%;
+}
 .revsMode {
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
   color: #FFFFFF;
@@ -1405,6 +1412,9 @@ margin: 10px 0 10px 10px;
 margin: 10px 10px 10px 0px;
   position: absolute;
 
+}
+#Articles.h4 {
+  width: 80%;
 }
 
 .links a{

@@ -656,10 +656,14 @@ var textArticles;
                     d3.rgb(d3.select(this).style("fill")).darker(2)
 
                     $(".art-txt").animate({opacity: 0}, 100, function() { 
+                        $("#readMode").show();
+
                         $("#text-title").empty();
                         $(".art-meta").empty();
                         $(".art-txt").empty();
                         $(".wide-read").show();
+                        if (d.n_diff) $("#revsMode").show();
+                        else $("#revsMode").hide();
                         $("#text-title").html(titre_article(d, 2));
                         var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " ("+format_section(d, 1)+')' : format_section(d, 2)) + "</b></p>" : "") +
                         "<p><b>" + titre_etape(d) + "</b></p>" +
