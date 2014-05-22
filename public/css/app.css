@@ -1027,14 +1027,17 @@ text {
 
 #stepsbar{
     width:100%;
-    border:1px solid #fff;
     background-color: rgb(243,238,229);
     overflow:hidden;
 }
+
+#stepsbar .stb-stages .stb-stage:first-child,
+#stepsbar .stb-insts .stb-inst:first-child,
+#stepsbar .stb-steps .stb-step:first-child { 
+    border-left: 0px;
+}
 .stb-stages, .stb-insts, .stb-steps{
     width:100%;
-    border-left:1px solid white;
-    border-right:1px solid white;
     border-bottom:1px solid white;
     overflow:hidden;
     color: #333;
