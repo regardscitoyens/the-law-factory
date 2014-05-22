@@ -76,7 +76,7 @@ angular.module('theLawFactory.controllers', []).
             "hemicycle": "Hém.",
             "depot": "Dépôt",
             "depots": "Dépôts",
-            "cmp": "C.M.P.",
+            "cmp": "CMP",
         }
 
         $scope.longNames = {
