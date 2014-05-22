@@ -645,6 +645,10 @@ var drawGantt, utils,
                 }
 
                 function onclick(d) {
+
+                    d3.selectAll(".g-law").style("opacity",0.2);
+                    d3.select(".g-law."+ d.id).style("opacity",1);
+
                     d3.selectAll(".curr")
                         .classed("curr", false)
                         .style("fill", "#f3efed")
