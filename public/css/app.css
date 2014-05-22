@@ -1097,10 +1097,6 @@ text {
 .stb-step.current {
     background-color: white;
     border-bottom: 1px solid white;
-    border-left: 1px solid #888;
-}
-.stb-step.current + .stb-step {
-    border-left: 1px solid #888;
 }
 .stb-curr-st {
     opacity:0.7 !important;
