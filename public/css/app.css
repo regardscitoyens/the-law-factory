@@ -861,7 +861,7 @@ h4 a{
     font-size: 1.1em;
     border: none;
     border-radius: 0;
-    background-color:#597171;
+    background-color:#716259;
 }
 .mod0 .extrainfos {
     vertical-align: bottom;
@@ -877,7 +877,7 @@ text {
 }
 
 .text-container .glyphicon-folder-open, .search .glyphicon-folder-open, .text-container .glyphicon-comment, .search .glyphicon-comment {
-    color: #597171 !important;
+    color: #716259 !important;
 }
 .text-container .glyphicon-folder-open, .text-container .glyphicon-comment {
     margin-right: 6px;
@@ -1028,7 +1028,7 @@ text {
 #stepsbar{
     width:100%;
     border:1px solid #fff;
-	background-color: #E5E5E5;
+    background-color: rgb(253,238,229);
     overflow:hidden;
 }
 .stb-stages, .stb-insts, .stb-steps{
@@ -1041,7 +1041,7 @@ text {
 }
 
 .stb-stage:nth-child(even), .stb-step:nth-child(even) {
-    background-color:rgba(1,1,1,0.06);
+    background-color: rgb(243,228,219);
 }
 
 .stb-stage, .stb-inst, .stb-step{
@@ -1076,34 +1076,31 @@ text {
     min-height: 20px;
     overflow: hidden;
 }
-.stb-inst.senat, .stb-inst.senateurs {
-    background-color: #F2E0DC;
-}
-
 .stb-inst.gouvernement {
-    background-color: #cccbb3;
+	background-color: rgba(204,203,179,0.45);
 }
 .stb-inst.cmp {
-    background-color:rgb(231, 221, 158);
+	background-color: rgba(231,221,158,0.45);
 }
-
 .stb-inst.assemblee, .stb-inst.deputes {
-    background-color: #E0E8EC;
+	background-color: rgba(206,214,221,0.45);
 }
-.stb-step {
-    border-bottom: 1px solid #888;
+.stb-inst.senat, .stb-inst.senateurs {
+	background-color: rgba(249,155,144,0.45);
+}
+.stb-inst.cc {
+	background-color: rgba(174,234,170,0.45);
+}
+.mod2 .stb-step {
+    border-bottom: 1px solid #AAA;
 }
 .stb-step.current {
     background-color: white;
     border-bottom: 1px solid white;
-    border-left: 1px solid #888;
-}
-.stb-step.current + .stb-step {
-    border-left: 1px solid #888;
 }
 .stb-curr-st {
     opacity:0.7 !important;
-    color:#597171;
+    color:#716259;
 }
 
 .stb-linkstep {
@@ -1112,8 +1109,6 @@ text {
     font-size: 10px;
     opacity: 0.6;
 }
-
-
 
 /*END OF STEPSBAR */
 
@@ -1221,12 +1216,12 @@ noscript h2 {
     cursor:pointer;
 }
 
-.tooltip-inner {background-color: #597171;border-radius:0;border: solid 1px #597171;}
+.tooltip-inner {background-color: #716259;border-radius:0;border: solid 1px #716259;}
 
-.tooltip.bottom .tooltip-arrow{border-bottom-color:#597171}
-.tooltip.top .tooltip-arrow{border-top-color:#597171}
-.tooltip.left .tooltip-arrow{border-left-color:#597171}
-.tooltip.right .tooltip-arrow{border-right-color:#597171}
+.tooltip.bottom .tooltip-arrow{border-bottom-color:#716259}
+.tooltip.top .tooltip-arrow{border-top-color:#716259}
+.tooltip.left .tooltip-arrow{border-left-color:#716259}
+.tooltip.right .tooltip-arrow{border-right-color:#716259}
 
 
 
@@ -1238,7 +1233,7 @@ noscript h2 {
     height:30px;
     line-height:30px;
     font-size:16px;
-    background-color:#597171;
+    background-color:#716259;
     color:white;
     text-align:center;
     z-index:3;
@@ -1285,7 +1280,7 @@ noscript h2 {
     line-height:1em;
     padding:0 15px 15px 15px;
     height:570px;
-    border: 1px solid #597171;
+    border: 1px solid #716259;
 }
 
 .badge{
@@ -1425,22 +1420,22 @@ margin: 10px 10px 10px 0px;
 	color: #FFF;
 }
 .CMP{
-	fill: #E7DD9E;
+	fill: rgb(231,221,158);
 }
 .PJL{
-	fill: #CCCBB3;
+	fill: rgb(204,203,179);
 }
 .AN{
-	fill: #CED6DD ;
+	fill: rgb(206,214,221);
 }
 .SE{
-	fill: #F99B90	
+	fill: rgb(249,155,144);
 }
 .CC{
-	fill: #AEEAAA;
+	fill: rgb(174,234,170);
 }
 .PR{
-	fill: #597171;
+	fill: #716259;
 }
 .Color_Default{
 	fill: #aea198;

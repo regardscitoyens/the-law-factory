@@ -322,7 +322,7 @@ var textArticles;
 						.attr("class","header")
 						.attr("width", colwidth)
 						.attr("height", function(d){return (d.section === 'echec' ? maxy-50 : sectHeight);})
-						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#445151")})
+						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#716259")})
 						.style("stroke", "none")
 						.style("opacity", function(d){return section_opacity(d.section)})
 						.popover(function(d){return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))})
