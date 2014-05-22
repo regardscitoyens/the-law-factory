@@ -16,7 +16,7 @@ var drawGantt, utils,
     active_filters = {
         theme: "",
         length: '',
-        amendments: 'au moins 50'
+        amendments: 'plus de 50'
     },
     refreshBillsFilter = function(){
         var label;
@@ -385,7 +385,7 @@ var drawGantt, utils,
                     });
                     $("#amendments").empty();
                     allAmendments.forEach(function(d){
-                        $("#amendments").append("<li><a onclick=\"addBillsFilter('amendments','"+d+"')\"> >= "+d+'</a></li>');
+                        $("#amendments").append("<li><a onclick=\"addBillsFilter('amendments','"+d+"')\">"+d+'</a></li>');
                     });
                 }
 
