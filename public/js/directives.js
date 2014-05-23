@@ -455,9 +455,8 @@ return {
                 scope.barwidth = $("#stepsbar").width();
 
                 data.steps.filter(function(e) { return e.debats_order != null; })
+                .sort(function(a,b) { return a.debats_order - b.debats_order; })
                 .forEach(function(e) {
-                    if (e.debats_order==null) return;
-
                     scope.steps.push(e);
                     e.short_name = scope.stepLabel(e);
                     e.long_name = scope.stepLegend(e);
