@@ -489,9 +489,8 @@ return {
                 scope.stages.push(scope.addStageInst(currStage));
                 scope.inst.push(scope.addStageInst(currInst));
                 timer(function(){
-                    $(".stb-step div span").tooltip()
-                    $(".stb-step div span a").tooltip()
-                    $(".stb-step div a").tooltip()
+                    $(".stb-step span").tooltip({html: true})
+                    $(".stb-step a").tooltip({html: true})
                     $(".stb-inst span").tooltip()
                     $(".stb-stage span").tooltip({html: true})
                 },0);
