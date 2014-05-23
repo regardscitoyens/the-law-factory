@@ -314,7 +314,7 @@ function(api, $rootScope, $location) {
 
                     var themesdiv=$("<div>")
                     item.themes.replace(/ et /g, ', ').split(', ').forEach(function(e,j){
-                        themesdiv.append("<span class='glyphicon glyphicon-tag'></span> "+e+" ");
+                        themesdiv.append("<span class='glyphicon glyphicon-tag'></span> "+e.toLowerCase()+" ");
                     })
 
 
