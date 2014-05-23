@@ -39,6 +39,7 @@ $("#search-btn").on("click", function() {
         direction : "right",
         mode : "show"
     }, 600)
+    $(".close-search").show();
     $("#search").focus();
 });
 
@@ -248,6 +249,7 @@ function(api, $rootScope, $location) {
 
             $scope.closeSearch = function() {
                 $(".lawlist").fadeOut(200);
+                $(".close-search").hide();
                 $("body").css("overflow", "auto");
             }
         },

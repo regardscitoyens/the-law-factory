@@ -560,6 +560,18 @@ ul.ui-autocomplete {
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength = 4, Direction = 0, Color = '#cccccc');
 }
 
+.close-search{
+    float:left;
+    width:25%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:transparent;
+    display:none;
+}
+
 .lawlist input {
 	border:none;
 	background:transparent;
