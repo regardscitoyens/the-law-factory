@@ -361,26 +361,38 @@ ins {
     font-family:"arial",sans-serif;
 }
 
-.labels-sc{
-	padding:0 !important;
-	width:100%;
-	height:100%;
-	float:left;
-}
 .main-sc{
 	width:100%;
 	max-height:80%;
 	float:left;
 }
-
-
-
+.labels-sc{
+	padding:0 !important;
+    width: 100%;
+	height:100%;
+	float:left;
+}
+.labels-sc h5 {
+    border-top: 1px solid #CCC;
+    background-color: white;
+    margin: 0px;
+    padding: 8px;
+}
 .labels-sc p{
 	margin:0;
 	padding: 0 5px;
 	font-style: italic;
 	background-color: #F9F7F8;
 }
+.mod0 .labels-sc {
+	width: 88.66%;
+    height: 94px;
+    float: right;
+}
+.mod0 .labels-sc div{
+	clear: none !important;
+	text-align:	center;
+} 
 .legend {
     background-color: white;
     padding: 15px;
@@ -660,7 +672,7 @@ ul.ui-autocomplete {
 	height:110%;
 	background-color:white;
 	padding-bottom:10px;
-    width: 89.57%;
+    width: 100%;
 }
 
 .mod0 .bar-step:first-child {
@@ -707,21 +719,6 @@ ul.ui-autocomplete {
 /*#gantt svg g text {
     font-family:"Oxygen", sans-serif !important;
 }*/
-
-
-.mod0 .labels-sc {
-    width: 99%;
-    height: 94px;
-    float: right;
-}
-.mod0 .labels-sc h4 {
-    width: 9.43%;
-    margin: 0 0.5% 0 0.5%;
-}
-.mod0 .labels-sc div{
-	clear: none !important;
-	text-align:	center;
-} 
 
 .mod2 .leg-item{
 	cursor:pointer;
