@@ -854,11 +854,12 @@ text {
 }
 
 #mod0-slider {
-    clear:both;
-    margin-right:6%;
-    width:80%;
-    float:right;
+    border-color: #333;
     background-color: #F6F6F6;
+    margin: 0px;
+    padding: 0px;
+    padding-right: 10px;
+    border-radius: 0px;
 }
 
 .ui-slider-handle{
