@@ -34,6 +34,7 @@ var accentMap = {
 };
 
 $("#search-btn").on("click", function() {
+    $("#search").val($("#search").text())
     $("body").css("overflow", "hidden");
     $(".lawlist").effect("slide", {
         direction : "right",
@@ -284,9 +285,10 @@ function(api, $rootScope, $location) {
                         },
                         appendTo : ".lawlist",
                         select : function(event, ui) {
+                            setTimeout(function() { scope.closeSearch(); },0);
                             $rootScope.$apply(function() {
                                 $("body").css("overflow", "auto");
-                                $location.path(scope.mod==='mod0' ? '/lois' : '/articles');
+                                $location.path((scope.mod==='mod0' ? '/loi' : '/article') + "s.html");
                                 $location.search("loi=" + ui.item.value);
                         });
                     }

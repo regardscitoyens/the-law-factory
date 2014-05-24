@@ -168,22 +168,29 @@ angular.module('theLawFactory.controllers', []).
         $scope.groups = {};
 
 	    $scope.drawGroupsLegend = function() {
-            var col, type;
+            var col, type, oncl;
             d3.entries($scope.groups)
             .sort(function(a,b) { return a.value.order - b.value.order; })
             .forEach(function(d) {
                 col = $scope.adjustColor(d.value.color);
                 type = (d.value.link !== "" ? 'colors' : 'others');
-               $("."+type).append('<div class="leg-item" onclick="highlight(\''+d.key+'\');" title="'+d.value.nom+'" data-toggle="tooltip" data-placement="left"><div class="leg-value" style="background-color:'+col+'"></div><div class="leg-key">'+d.key+'</div></div>');
+                oncl = ' onclick="highlight(\''+d.key+'\');" title="'+d.value.nom+'" data-toggle="tooltip" data-placement="left">';
+               $("."+type).append('<div class="leg-item"><div class="leg-value" style="background-color:'+col+'"' + oncl + '</div>' +
+                    '<div class="leg-key"' + oncl + d.key + '</div></div>');
 			});
-            $(".leg-item").tooltip();
+            $(".leg-value").tooltip();
+            $(".leg-key").tooltip();
         }
 
         $scope.highlightGroup = function(group) {
+   if (!e) var e = window.event;
+    e.cancelBubble = true;
+    if (e.stopPropagation) e.stopPropagation();
             if (!$('.focused')) {
                 $(".text-container").empty();
                 if ($scope.groups[group]) $("#text-title").html($scope.groups[group].nom);
             }
+            $(".legend").on("click", $scope.resetHighlight);
             group = "."+ $scope.slugGroup(group)
             d3.selectAll("path"+group).transition(50).style("fill-opacity",0.6);
             d3.selectAll("rect"+group).transition(50).style("opacity", 0.9);
@@ -196,6 +203,9 @@ angular.module('theLawFactory.controllers', []).
         }
 
         $scope.resetHighlight = function(type) {
+   if (!e) var e = window.event;
+    e.cancelBubble = true;
+    if (e.stopPropagation) e.stopPropagation();
             if ($('.focused').length) {
                 d3.selectAll("rect.focused").transition(50).style("opacity",0.55);
                 d3.selectAll("path.focused").transition(50).style("fill-opacity",0.45);
@@ -208,10 +218,14 @@ angular.module('theLawFactory.controllers', []).
                 d3.selectAll("rect").transition(50).style("opacity",0.9);
                 d3.selectAll("path").transition(50).style("fill-opacity",0.3);
             }
-            if (type == "amds")
             d3.selectAll(".actv-amd")
                 .style("stroke","none")
 			    .classed("actv-amd",false);
+        }
+
+        $scope.formatDate = function(d) {
+            var d2 = d.split('-');
+            return d2[2]+"/"+d2[1]+"/"+d2[0];
         }
 
         /////////////////////////////////////////////////////////////

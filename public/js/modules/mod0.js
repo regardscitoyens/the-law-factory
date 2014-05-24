@@ -76,6 +76,7 @@ var drawGantt, utils,
                 stats = {},
                 mindate, maxdate, maxduration,
                 tscale, ticks,
+                minheight,
                 width = parseInt(d3.select("#gantt").style("width")) - 30,
                 width_ratio = 1,
                 lawh = 50,
@@ -190,11 +191,6 @@ var drawGantt, utils,
 
             };
 
-            function initGanttSVG() {
-                lawscont = ganttcontainer.append("g").attr("class", "laws");
-                grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
-            }
-
             selection.each(function (data) {
 
                 drawGantt = function(action) {
@@ -218,7 +214,8 @@ var drawGantt, utils,
                     refreshBillsFilter();
                     var zoo = $("#mod0-slider").attr('value'),
                         scroll = {scrollTop: "0px", scrollLeft: "0px"};
-                    initGanttSVG();
+                    lawscont = ganttcontainer.append("g").attr("class", "laws");
+                    grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
                     if (action == 'time') {
                         layout = "t";
                         zoo = 1;
@@ -312,16 +309,16 @@ var drawGantt, utils,
                                 // Monitor Overlaps
                                 if (y+"-"+mm+"-"+dd>=e.date) {
 //                                    console.log("OVERLAP:",e.date,y+"-"+mm+"-"+dd)
-                                    e.overlap = steps[j - 1].overlap + 1;
-                                }
+                                e.overlap = steps[j - 1].overlap + 1;
                             }
+                        }
 
-                            if (j != 0 && e.step == "depot") e.qw = -3;
-                            else e.qw = getQwidth(e);
-                            if (j == 0) e.qx = 5;
-                            else e.qx = steps[j - 1].qx + steps[j - 1].qw + 3;
-                        })
-		}
+                        if (j != 0 && e.step == "depot") e.qw = -3;
+                        else e.qw = getQwidth(e);
+                        if (j == 0) e.qx = 5;
+                        else e.qx = steps[j - 1].qx + steps[j - 1].qw + 3;
+                    })
+                }
 		
                 function prepareData() {
                     data.dossiers.forEach(function (d, i) {
@@ -426,7 +423,7 @@ var drawGantt, utils,
                         .attr("class", "tl-bg")
                         .attr("height", 2)
                         .style("fill", "grey")
-                        .style("fill-opacity", 0.3)
+                        .style("opacity", 0.3)
                         .style("stroke", "none");
 
                     var tk = tl.selectAll(".tick-lbl")
@@ -480,7 +477,7 @@ var drawGantt, utils,
                     });
                     setTimeout(drawStats, 50);
                     if (smallset.length == 0) {
-                        ganttcontainer.attr("height", 3*(20 + lawh)).attr("width", width);
+                        ganttcontainer.attr(minheight).attr("width", width);
                         legendcontainer.attr("width", width);
                         return;
                     }
@@ -498,7 +495,9 @@ var drawGantt, utils,
                         width_ratio = 0.8*(maxdate - mindate)/(maxduration*86400000.);
                     else width_ratio = 1;
 
-                    ganttcontainer.attr("height", Math.max(2, smallset.length) * (20 + lawh)).attr("width", width);
+                    ganttcontainer.attr("height", Math.max(minheight, smallset.length * (20 + lawh)))
+                        .attr("width", width)
+                        .on("click", unclick);
                     legendcontainer.attr("width", width);
 
                     ticks = d3.time.months(mindate, maxdate, 1);
@@ -515,7 +514,7 @@ var drawGantt, utils,
                         .attr("opacity", 0.3)
                         .attr("width", width)
                         .attr("height", 20 + lawh - 4)
-                        .style("fill", "#f3efed")
+                        .style("fill", "transparent")
 
                     //add single law group
 
@@ -547,7 +546,7 @@ var drawGantt, utils,
 
                     steps.append("rect")
                         .attr("class", color_step)
-		        .classed('step', true)
+                        .classed('step', true)
                         .attr("x", function (e) { return tscale(scaled_date_val(e)); })
                         .attr("y", 28)
                         .attr("width", getQLwidth)
@@ -665,20 +664,16 @@ var drawGantt, utils,
                     d3.selectAll(".law-bg").transition().duration(500).style("opacity", 0);
                 }
 
-                function onclick(d) {
+                function unclick() {
+                    $("#text-title").text("Sélectionner une loi");
+                    $(".text-container").empty();
+                    d3.selectAll(".g-law").style("opacity",1);
+                }
 
+                function onclick(d) {
+                    if(d3.event) d3.event.stopPropagation();
                     d3.selectAll(".g-law").style("opacity",0.2);
                     d3.select(".g-law."+ d.id).style("opacity",1);
-
-                    d3.selectAll(".curr")
-                        .classed("curr", false)
-                        .style("fill", "#f3efed")
-                        .style("opacity", 0.3);
-
-                    d3.select("." + d.id)
-                        .classed("curr", true)
-                        .style("fill", "#fff")
-                        .style("opacity", 0.6);
 
                     $("#text-title").text(d.short_title);
                     var themes=$('<p>');
@@ -702,27 +697,7 @@ var drawGantt, utils,
                             '</small></p>');
                     $(".text-container").append(extrainfo);
                     $("a.badge").tooltip();
-		    d3.selectAll(".laws .row").on('click', onunclick);
                 }
-
-		function onunclick(d) {
-                    if ($(".text-container").html()) {
-			$(".text-container").empty();
-			$("#text-title").text("Sélectionner un texte");
-			d3.selectAll(".curr")
-                            .classed("curr", false)
-                            .style("fill", "#f3efed")
-                            .style("opacity", 0.3);
-			d3.selectAll(".g-law").style("opacity", 1);
-                    }
-		}
-
-                //Start drawing first sample
-                prepareData();
-                currFile = data.next_page;
-                setTimeout((currFile ? dynamicLoad : drawGantt), 0);
-                $("a.badge").tooltip();
-
 
                 function drawStats() {
 
@@ -768,6 +743,17 @@ var drawGantt, utils,
                             .text(label);
                     });
                 }
+
+                //Start drawing first sample
+                $(document).ready(function() {
+                    prepareData();
+                    minheight = $("#gantt").height() - 10;
+                    currFile = data.next_page;
+                    $("a.badge").tooltip();
+                    setTimeout((currFile ? dynamicLoad : drawGantt), 0);
+                });
+
+
             });
         }
         return vis;
