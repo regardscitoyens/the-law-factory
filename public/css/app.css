@@ -601,13 +601,11 @@ ul.ui-autocomplete {
 	width:100%;
 	height:auto;
 }
-.mod2 .text, .mod0 .text  {
+.mod0 .text  {
 	width:18.33%;
     height: 100%;
 }
-
-
-.mod1 .text  {
+.mod1 .text, .mod2 .text  {
     position:absolute;
     left: 73.3%;
     -webkit-transition: all 0.4s ease-in-out;
@@ -639,7 +637,7 @@ ul.ui-autocomplete {
 	margin-left:1%;
 }
 
-.mod2 #text-title,.mod0 #text-title{
+.mod0 #text-title{
 	width:100% !important;
 	margin:0 !important;
 	margin-bottom:1%;
@@ -1309,16 +1307,23 @@ noscript h2 {
 	cursor: pointer;
 }
 
+.mod2 .text h4 {
+    width: 100%;
+    float: right;
+    height: 100%:
+}
 #readMode {
   display: none;
   width: 10%;
+  height: 100%:
 }
 .readMode {
+  background-color: #716259;
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
   color: #FFFFFF;
   font-size: 30px;
   left: 0;
-margin: 9px 0 10px 10px;
+  margin: 9px 0 10px 10px;
   position: absolute;
 }
 
@@ -1338,7 +1343,7 @@ margin: 9px 0 10px 10px;
 .title {
   min-height: 35px;
 }
-.title h4, #Articles.h4 {
+.title h4, #guide.h4 {
   width: 80%;
   float:left;
 }
