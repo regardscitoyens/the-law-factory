@@ -167,7 +167,7 @@ var utils, highlight;
               d.offset = offset;
 
               var curRow = svg.append("g")
-                  .attr("class", d.titre.replace(/ |'/g, '_').toLowerCase())
+                  .classed(utils.slugArticle(d.titre), true)
                   .attr("transform", function () {
                       if (!half) return "translate(" + 10 + "," + (i * 20 + i * lineh + 10 + jumpLines * (lineh - 10)) + ")";
                       else {
@@ -189,13 +189,13 @@ var utils, highlight;
 
               curRow.append("text")
                   .attr("x", 20)
-                  .attr("class", "row-txt")
+                  .classed("row-txt", true)
                   .attr("y", 15)
                   .style("fill", "#333")
                   .attr("font-size", "0.85em")
                   .text(d.titre)
                   .on("click", function () {
-                      selectRow(d.titre.toLowerCase().replace(/ |'/g, '_'), false)
+                      selectRow(utils.slugArticle(d.titre), false);
                   });
 
 
@@ -213,28 +213,28 @@ var utils, highlight;
                   })
                   .attr("width", z - 2)
                   .attr("height", z - 2)
-                  .attr("class", "bg")
+                  .classed("bg", true)
                   .style("fill", "#F0F0F0")
 
               curRow.append("text")
                   .attr("x", 20)
-                  .attr("class", "row-txt")
+                  .classed("row-txt", true)
                   .attr("y", 15)
                   .style("fill", "#333")
                   .attr("font-size", "0.85em")
                   .text(d.titre)
                   .on("click", function () {
-                      selectRow(d.titre.toLowerCase().replace(/ |'/g, '_'), false)
+                      selectRow(utils.slugArticle(d.titre), false)
                   });
 
-              var popover = function (d) {
-                  var date = d.date.split('-'),
+              var popover = function (e) {
+                  var date = e.date.split('-'),
                       div = d3.select(document.createElement("div")).style("width", "100%");
-                  div.append("p").html("<b>" + utils.groups[d.groupe].nom + "</b>");
-                  div.append("p").html("Sort : " + d.sort + "");
+                  div.append("p").html("<b>" + utils.groups[e.groupe].nom + "</b>");
+                  div.append("p").html("Sort : " + e.sort + "");
                   div.append("p").html("<small>" + [date[2], date[1], date[0]].join("/") + "</small>");
                   return {
-                      title: "Amendement " + d.numero,
+                      title: "Amendement " + e.numero,
                       content: div,
                       placement: "mouse",
                       gravity: "right",
@@ -258,10 +258,10 @@ var utils, highlight;
                   })
                   .attr("width", z - 2)
                   .attr("height", z - 2)
-                  .attr("id", function (d) {
-                      return "a_" + d.numero.replace(/[^a-z\d]/ig, '')
+                  .attr("id", function (e) {
+                      return "a_" + e.numero.replace(/[^a-z\d]/ig, '')
                   })
-                  .attr("class", function(d) { return "amd " + utils.slugGroup(d.groupe) + " " + utils.slugGroup(d.sort); })
+                  .attr("class", function(e) { return "amd " + utils.slugGroup(e.groupe) + " " + utils.slugGroup(e.sort) + " " + utils.slugArticle(d.titre); })
                   .style("fill", color_amd)
                   .style("opacity", 0.9)
                   .popover(popover)

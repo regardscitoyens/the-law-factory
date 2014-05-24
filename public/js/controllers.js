@@ -17,6 +17,12 @@ angular.module('theLawFactory.controllers', []).
     controller('mainCtrl', function ($scope, $http, apiService, api, $rootScope, $location) {
 
         $rootScope.tuto_btn = false;
+
+        $scope.mod = null;
+        $scope.loi = $location.search()['loi'];
+        $scope.etape = $location.search()['etape'];
+        $scope.article = $location.search()['article'];
+        $scope.loi = $location.search()['loi'];
         $scope.error = {};
 
         $scope.spinner = null;
@@ -116,6 +122,14 @@ angular.module('theLawFactory.controllers', []).
         $scope.stepLabel = function (el){
             if(el.step==="depot") return (el.auteur_depot == "Gouvernement" ? "PJL" : "PPL");
             return $scope.getShortName(el.step);
+        }
+
+        $scope.slugArticle = function(a) {
+            return "art_" + a.replace("è", "e")
+                .replace(/article/, '')
+                .replace(/[I1]er?/i, '1')
+                .replace(/\W/g, '-')
+                .toLowerCase();
         }
 
         $scope.string_to_slug = function (str) {
@@ -278,6 +292,12 @@ angular.module('theLawFactory.controllers', []).
                 );
             }
         };
+
+        $scope.showFirstTimeTutorial = function() {
+            if(!localStorage.getItem("tuto-"+$scope.mod) || localStorage.getItem("tuto-"+$scope.mod)!="done")
+                $scope.toggleTutorial(true);
+
+        }
 
 
     })

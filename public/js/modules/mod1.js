@@ -100,8 +100,6 @@ var textArticles;
 			selection.each(function(data) {
 
                 var re = /l\=(.*)/;
-                var id = location.search.match(re)[1];
-
 				var bigList=[]
 				var art = d3.values(data.articles);
 
@@ -131,7 +129,7 @@ var textArticles;
                     .forEach(function(d) {
                         delay += 50;
                         setTimeout(function() {
-                            d3.json(encodeURI(APIRootUrl + id + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
+                            d3.json(encodeURI(APIRootUrl + utils.loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
                                 json.articles.forEach(function (a) {
                                     if (!textArticles[a.titre]) textArticles[a.titre] = {};
                                     textArticles[a.titre][d] = []
@@ -668,7 +666,7 @@ var textArticles;
                         var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " ("+format_section(d, 1)+')' : format_section(d, 2)) + "</b></p>" : "") +
                         "<p><b>" + titre_etape(d) + "</b></p>" +
                         (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ? 
-                            '<div class="gotomod"><a class="btn btn-info" href="amendements.html?l='+id+'&s='+ d.directory+'&a=article_'+ d.article.toLowerCase().replace(/ |'/g, '_')+'">Explorer les amendements</a></div>' : '') +
+                            '<div class="gotomod"><a class="btn btn-info" href="amendements.html?loi='+utils.loi+'&etape='+ d.directory+'&article='+utils.slugArticle(d.article)+'">Explorer les amendements</a></div>' : '') +
                             (d.n_diff == 1 && d.id_step.substr(-5) != "depot" ? "<p><b>"+(d.prev_step ? "Réintroduit" : "Ajouté") + " à cette étape</b></p>" : "") +
                             (d.n_diff == 0 ? "<p><b>"+ (d.status == "sup" ? "Supprimé" : "Aucune modification") + " à cette étape</b></p>" : "");
                         $(".art-meta").html(descr);

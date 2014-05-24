@@ -52,52 +52,45 @@ function(api, $rootScope, $location, $compile) {
         replace : false,
         templateUrl : 'templates/mod1.html',
         controller: function($scope,$element,$attrs) {
-        $scope.read=false;
-        $scope.revs=true;
-        $scope.readmode = function() {
-            $(".text").css({"width":"83.4%","left":"8.3%"});
-            $scope.read=true;
-        }
-        $scope.viewmode = function() {
-            $(".text").css({"width":"18.33%","left":"73.3%"});
             $scope.read=false;
-        }
+            $scope.revs=true;
+            $scope.readmode = function() {
+                $(".text").css({"width":"83.4%","left":"8.3%"});
+                $scope.read=true;
+            }
+            $scope.viewmode = function() {
+                $(".text").css({"width":"18.33%","left":"73.3%"});
+                $scope.read=false;
+            }
             $scope.hiderevs = function() {
                 $("ins").css({"background-color":"transparent", "text-decoration":"none"})
                 $("del").hide();
                 $scope.revs=false;
             }
-
             $scope.showrevs = function() {
                 $("ins").css({"background-color":"#E6FFE6", "text-decoration":"underline"})
                 $("del").show();
                 $scope.revs=true;
             }
 
-    },
+        },
         link : function postLink(scope, element, attrs) {
 
-            $rootScope.s=null;
-            var l = "pjl12-719"
             scope.mod="mod1";
             $rootScope.tuto_btn = true;
-            scope.s=null;
-            if ($location.search()['l'] != null)
-                l = $location.search()['l'];
-            else $location.search("l="+l);
+
             var mod1 = thelawfactory.mod1();
 
             function update() {
 
                 scope.startSpinner();
 
-                api.getArticle(l).then(function(data) {
+                api.getArticle(scope.loi).then(function(data) {
                     $rootScope.lawTitle = data.short_title
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Articles | ";
                     d3.select(element[0]).datum(data).call(mod1);
                     scope.stopSpinner();
-                    if(!localStorage.getItem("tuto-"+scope.mod) || localStorage.getItem("tuto-"+scope.mod)!="done")
-                        scope.toggleTutorial(true);
+                    scope.showFirstTimeTutorial();
                 }, function(error) {
                     console.log(error);
                     scope.error = error
@@ -114,38 +107,30 @@ function(api, $rootScope, $location, $compile) {
         replace : false,
         templateUrl : 'templates/mod2.html',
         controller : function($scope, $element, $attrs) {
-            $scope.l = "pjl09-602"
-            $rootScope.l = $scope.l;
             $scope.step = 0;
-            $scope.s = $rootScope.s = $location.search()['s'];
-            $scope.a = $location.search()['a'];
             $scope.mod="mod2";
             $rootScope.tuto_btn = true;
-
         },
         link : function postLink(scope, element, attrs) {
 
-            if ($location.search()['l'] != null)
-                scope.l = $rootScope.l = $location.search()['l'];
             var mod2 = thelawfactory.mod2();
 
             function update() {
 
                 scope.startSpinner();
 
-                if ($location.search()['s'] != null) api.getAmendement(scope.l, $location.search()['s'] ).then(function(data) {
+                if (scope.etape != null) api.getAmendement(scope.loi, scope.etape).then(function(data) {
                     scope.data = data;
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Amendements | ";
                     d3.select(element[0]).datum(data).call(mod2);
-                    if ($location.search()['a']!=null)
-                        selectRow($location.search()['a'],true);
+                    if (scope.article!=null)
+                        selectRow(scope.article, true);
                 }, function(error) {
                     scope.error = error
                 });
             }
             update();
-            if(!localStorage.getItem("tuto-"+scope.mod) || localStorage.getItem("tuto-"+scope.mod)!="done")
-                scope.toggleTutorial(true);
+            scope.showFirstTimeTutorial();
         }
     }
 }])
@@ -156,26 +141,22 @@ function(api, $rootScope, $location, $compile) {
         replace : false,
         templateUrl : 'templates/mod2b.html',
         controller : function($scope, $element, $attrs) {
-            $scope.l = "pjl09-602"
             $scope.step = 0;
             $scope.mod="mod2b";
             $rootScope.tuto_btn = true;
-            $scope.s = $rootScope.s = $location.search()['s'];
         },
         link : function postLink(scope, element, attrs) {
 
-            if ($location.search()['l'] != null)
-                scope.l = $location.search()['l'];
             function update() {
 
                 scope.startSpinner();
 
-                if ($location.search()['s'] != null) {
+                if (scope.etape != null) {
 
-                    api.getIntervention(scope.l).then(function(data) {
+                    api.getIntervention(scope.loi).then(function(data) {
                         scope.data = data;
                         $rootScope.pageTitle =  $rootScope.lawTitle + " - Débats | ";
-                        init(data, $location.search()['s']);
+                        init(data, scope.etape);
                         if($("svg").height()<$("#viz").height()) {
                            var offs=($("#viz").height() - $("svg").height())/2;
                            $("svg").css({"margin-top":offs,"padding-top":"5px"});
@@ -187,8 +168,7 @@ function(api, $rootScope, $location, $compile) {
                 }
             }
             update();
-            if(!localStorage.getItem("tuto-"+scope.mod) || localStorage.getItem("tuto-"+scope.mod)!="done")
-                scope.toggleTutorial(true);
+            scope.showFirstTimeTutorial();
         }
     };
 }])
@@ -231,9 +211,7 @@ function(api, $rootScope, $location, $compile) {
                 api.getDossiers().then(function(data) {
                   d3.select(element[0]).datum(data).call(mod0);
                     synced = true;
-                    if(!localStorage.getItem("tuto-"+scope.mod) || localStorage.getItem("tuto-"+scope.mod)!="done")
-                        scope.toggleTutorial(true);
-
+                    scope.showFirstTimeTutorial();
                 }, function(error) {
                     console.log(error)
                 })
@@ -400,15 +378,13 @@ return {
         replace : false,
         templateUrl : 'templates/stepsbar.html',
         controller : function($scope, $element, $attrs) {
-            $scope.s = $rootScope.s;
-            $scope.l=$location.search()['l'];
         },
 
         link : function preLink(scope, element, attrs, stepsbarCtrl) {
 
 
             scope.total=0;
-            api.getProcedure(scope.l).then(function(data) {
+            api.getProcedure(scope.loi).then(function(data) {
 
                 $(".title").html(
                   '<h4 class="law-title">'+upperFirst(data.long_title)+'</h4>' +
