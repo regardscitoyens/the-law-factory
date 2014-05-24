@@ -695,7 +695,11 @@ var drawGantt, utils,
                     extrainfo.append('<p><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(d.total_amendements)+'"></span>&nbsp;&nbsp;'+(d.total_amendements?d.total_amendements:'aucun')+" amendement"+(d.total_amendements>1?'s déposés':' déposé')+"</p>")
                         .append('<p><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(d.total_mots)+'"></span><span>&nbsp;&nbsp;plus de '+mots+" mille mots prononcés lors des débats parlementaires</span></p>")
                         .append(themes)
-                        .append('<p><small>(sources : <a href="' + d.url_dossier_assemblee + '" target="_blank">dossier Assemblée</a> &mdash; <a href="' + d.url_dossier_senat + '" target="_blank">dossier Sénat</a>)</small></p>');
+                        .append('<p><small>' +
+                            '<a href="'+d.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a> &mdash; ' +
+                            '<a href="'+d.url_dossier_assemblee+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Assemblée</a>' +
+                            (d.url_jo ? '<br/><a href="'+d.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur LégiFrance</a>' : '') +
+                            '</small></p>');
                     $(".text-container").append(extrainfo);
                     $("a.badge").tooltip();
                 }
