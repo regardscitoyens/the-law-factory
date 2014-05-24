@@ -1454,7 +1454,7 @@ footer a:hover {
 #search-btn>span{
     background-color: #eee;
 }
-a.button{
+#home a.button{
     background: #50a477;
     color: white;
     /* text-transform: uppercase; */
@@ -1465,12 +1465,14 @@ a.button{
     border-radius: 2px;
     transition: background-color .2s ease-in-out;
     cursor: pointer;
+    margin-bottom: 25px;
 }
-a.button:hover {
+#home a.button:hover {
     background: #581e19;
     text-decoration: none;
 }
-#headline, #laws{
+#headline, #homelinks{
+    width: 100%;
     text-align: center;
 }
 #headline h1{
@@ -1485,44 +1487,65 @@ a.button:hover {
     font-size:18px;
     padding-bottom: 24px;
 }
-#laws{
-    width: 640px;
-    margin: 36px auto;
+#homelinks {
+    padding-left: 20%;
+    padding-right: 20%;
 }
-#laws ul{
+#homelinks h5 {
+    font-size: 16px;
+    line-height: 1.8em;
+    background-color: #716259;
+    color: white;
+    text-transform: uppercase;
+}
+#homelinks .laws{
+    float: left;
+    width: 44%;
+    margin: 3%;
+}
+#homelinks .laws ul{
     padding: 0;
 }
-#laws ul li{
+#homelinks .laws ul li{
     text-align:left;
     padding: 0px;
     list-style-type: none;
     background: white;
     margin-top: 18px;
 }
-#laws ul li:hover{
+#homelinks .laws ul li:hover {
     background:#EBEBEB;
 }
-#laws ul li h2{
+#homelinks .laws ul li a{
+    color: #996247;
+    padding: 4px;
+    margin: 0;
+}
+#homelinks .laws ul li h2{
     padding:0;
     margin: 0;
     font-size: 16px;
-    line-height: 21px;
+    line-height: 1.8em;
 }
-#laws ul li h3{
-    padding:0;
-    margin: 0;
-    font-size: 13px;
-    line-height: 21px;
-    color: #333;
-}
-#laws ul li a{
-    color: #996247;
-    padding: 8px;
-}
-#laws .stat{
+#homelinks .laws .stat{
     text-align: center;
+    padding: 0px;
+    line-height: 2em;
 }
-#laws .number{
+#homelinks .laws .number{
     font-size: 18px;
 }
+#homelinks .laws a.button {
+    width: 100%;
+    margin-top: 12px;
+}
+#disclaimer {
+    clear: both;
+    text-align: left; 
+    width: 60;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+#credits {
 
+}
