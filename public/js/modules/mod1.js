@@ -659,7 +659,6 @@ var textArticles;
                         $("#text-title").empty();
                         $(".art-meta").empty();
                         $(".art-txt").empty();
-                        $(".wide-read").show();
                         if (d.n_diff) $("#revsMode").show();
                         else $("#revsMode").hide();
                         $("#text-title").html(titre_article(d, 2));

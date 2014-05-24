@@ -1207,21 +1207,6 @@ noscript h2 {
     top:0.2em;
 }
 
-.wide-read{
-    display: none;
-    position: relative;
-    color: #716259;
-    background-color: #eee;
-    float: left;
-    width: 100%;
-    overflow: hidden;
-
-}
-.wide-read .glyphicon {
-    padding-left:3px;
-    cursor:pointer;
-}
-
 .tooltip-inner {background-color: #716259;border-radius:0;border: solid 1px #716259;}
 
 .tooltip.bottom .tooltip-arrow{border-bottom-color:#716259}
