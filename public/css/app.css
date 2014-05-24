@@ -525,6 +525,13 @@ ul.ui-autocomplete {
 	overflow:auto;
 }
 
+#lawlist>span.ui-helper-hidden-accessible {
+    float: right;
+    margin-top: 118px;
+    width: 14%;
+    position: relative;
+    overflow: visible;
+}
 .lawlist{
     float:right;
 	width:75%;
