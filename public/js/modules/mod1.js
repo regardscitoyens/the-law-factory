@@ -661,7 +661,7 @@ var textArticles;
                         $(".art-meta").empty();
                         $(".art-txt").empty();
                         //if (d.n_diff) $("#revsMode").show();
-                        if(d.n_diff && d.status!=="depot") $("#revsMode").show();
+                        if(d.n_diff && d.id_step.substr(-5) !=="depot" && d.status != "new") $("#revsMode").show();
                         else $("#revsMode").hide();
                         $("#text-title").html(titre_article(d, 2));
                         var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " ("+format_section(d, 1)+')' : format_section(d, 2)) + "</b></p>" : "") +
@@ -700,8 +700,8 @@ var textArticles;
                     if (aligned) valign();
                     else stacked();
                     load_texte_articles();
-                    $('#readMode').tooltip({ animated: 'fade', placement: 'bottom'});
-                    $('#revsMode').tooltip({ animated: 'fade', placement: 'bottom'});
+                    $('.readMode').tooltip({ animated: 'fade', placement: 'bottom'});
+                    $('.revsMode').tooltip({ animated: 'fade', placement: 'bottom'});
                 });
 
             });
