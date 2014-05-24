@@ -302,7 +302,6 @@ var drawGantt, utils,
                                 if (steps[j-1].overlap) e.overlap=steps[j-1].overlap+1;
                                 else e.overlap=1
                             } else if (j>0 && steps[j-1].overlap) {
-
                                 var pastdate=format.parse(steps[j-1].enddate),
                                     dd = pastdate.getDate()+steps[j-1].overlap,
                                     mm = pastdate.getMonth()+1,
@@ -332,7 +331,7 @@ var drawGantt, utils,
 			    
 			    var remove = [];
                             d.timesteps.forEach(function(s, j) {
-				if (s.step === 'hemicycle' || (s.step === 'depot' && j)) {
+				if ((s.step === 'hemicycle' && d.timesteps[j-1].stage != 'l. définitive') || (s.step === 'depot' && j)) {
                                     remove.unshift(j);
 				    if (s.step === 'hemicycle') {
 					d.timesteps[j-1].enddate = s.enddate;
@@ -340,6 +339,7 @@ var drawGantt, utils,
 					d.timesteps[j-1].step = s.institution;
 				    }
 				}
+
                             });
                             remove.forEach(function(id, j) {
 				d.timesteps.splice(id, 1);
