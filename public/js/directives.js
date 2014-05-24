@@ -410,7 +410,14 @@ return {
             scope.total=0;
             api.getProcedure(scope.l).then(function(data) {
 
-                $(".title").html('<h4 class="law-title">' + upperFirst(data.long_title) + '</h4><span class="links"><a href="' + data.url_dossier_senat + '" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a><br/><a href="' + data.url_dossier_assemblee + '" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier AN</a></span>')
+                $(".title").html(
+                  '<h4 class="law-title">'+upperFirst(data.long_title)+'</h4>' +
+                  '<span class="links">' +
+                    '<a href="'+data.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a><br/>' +
+                    '<a href="'+data.url_dossier_assemblee+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Assemblée</a>' +
+                    (data.url_jo ? '<br/><a href="'+data.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur LégiFrance</a>' : '') +
+                  '<span>'
+                );
 
                 scope.stages=[],
                 scope.steps=[],
