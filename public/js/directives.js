@@ -396,7 +396,7 @@ return {
                   '<span class="links">' +
                     '<a href="'+data.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a><br/>' +
                     '<a href="'+data.url_dossier_assemblee+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Assemblée</a>' +
-                    (data.url_jo ? '<br/><a href="'+data.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur LégiFrance</a>' : '') +
+                    (data.url_jo ? '<br/><a href="'+data.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur Légifrance</a>' : '') +
                   '<span>'
                 );
                 if (leg) $(".law-title").tooltip();

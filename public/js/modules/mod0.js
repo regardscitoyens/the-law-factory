@@ -699,7 +699,7 @@ var drawGantt, utils,
                         .append('<p><small>' +
                             '<a href="'+d.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a> &mdash; ' +
                             '<a href="'+d.url_dossier_assemblee+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Assemblée</a>' +
-                            (d.url_jo ? '<br/><a href="'+d.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur LégiFrance</a>' : '') +
+                            (d.url_jo ? '<br/><a href="'+d.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur Légifrance</a>' : '') +
                             '</small></p>');
                     $(".text-container").append(extrainfo);
                     $("a.badge").tooltip();
