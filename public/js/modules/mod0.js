@@ -119,7 +119,7 @@ var drawGantt, utils,
                     ydisp -= 20;
                 } else if (d.step) {
                     if (d.step == "depot" && d.debats_order != null)
-                        title = "Pro" + (d.auteur_depot == "Gouvernement" ? "jet" : "position") + " de loi";
+                        title = "Pro" + (d.auteur_depot == "Gouvernement" ? "jet" : "position") + " de loi" + " — " + d.auteur_depot;
                     div.append("p").html(format_title(d.stage));
                     ydisp -= 20;
                 }
