@@ -12,7 +12,7 @@
     ".stb-steps":"top = L’examen d’un projet de loi (PJL: origine governamentale) ou d'une proposition de loi (PPL: origine parlementaire) par une assemblée comporte toujours deux étapes : commission (Com) puis hémicycle (Hém).",
     ".stb-step stb-01":"right = Ici vous pouvez avoir accès à l’ensemble des amendements déposés à cette étape (s’il y en a) ou à l’ensemble des débats et élégamment au texte de loi issu de cette étape.",
     ".btn-group dd-btn" : "top = Le mode aligné présente l’évolution d’une section de la loi sur une même ligne. En supprimant les espaces le mode compact permet de comparer le taille totale du texte à chaque étape.", 
-    ".links": "top = Vous pouvez voir l’ensemble des dossiers législatifs sur les sites de l’Assemblée et du Sénat.",
+    ".links": "top = Vous pouvez voir l’ensemble des dossiers législatifs sur les sites de l’Assemblée et du Sénat."
     
     }
 }
