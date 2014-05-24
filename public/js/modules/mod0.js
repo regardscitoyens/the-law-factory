@@ -119,9 +119,10 @@ var drawGantt, utils,
                     title = format_title(d.stage);
                     ydisp -= 20;
                 } else if (d.step) {
-                    if (d.step == "depot" && d.debats_order != null)
-                        title = "Pro" + (d.auteur_depot == "Gouvernement" ? "jet" : "position") + " de loi" + " — " + d.auteur_depot;
-                    div.append("p").html(format_title(d.stage));
+                    if (d.step == "depot" && d.debats_order != null) {
+                        title = "Dépôt — " + d.auteur_depot;
+			div.append("p").html("Pro" + (d.auteur_depot == "Gouvernement" ? "jet" : "position") + " de loi");
+		    }
                     ydisp -= 20;
                 }
                 div.append("p").html('<span class="glyphicon glyphicon-calendar"></span><span> '+french_date(d.date) + (d.enddate && d.enddate != d.date ? " →  "+ french_date(d.enddate) : '')+'</span>');
