@@ -1,7 +1,11 @@
 'use strict';
+//Default configuration
+angular.module('theLawFactory.config', [])
+    .constant('API_ROOT_URL', 'http://www.lafabriquedelaloi.fr/api/')
+    .constant('HOST', 'localhost:8001')
+    .constant('GOOGLE_ANALYTICS_ID','');
 
 // Declare app level module which depends on filters, and services
-
 angular.module('theLawFactory', [
   'theLawFactory.config',
   'theLawFactory.controllers',
