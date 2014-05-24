@@ -14,6 +14,7 @@ var drawGantt, utils,
   shortMonths: ["Janv.", "Fév.", "Mars", "Avril", "Mai", "Juin", "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc."]
 }),
     active_filters = {
+        year: 2013,
         theme: "",
         length: '',
         amendments: 'plus de 50'
@@ -197,6 +198,8 @@ var drawGantt, utils,
             selection.each(function (data) {
 
                 drawGantt = function(action) {
+                    setTimeout(computeFilters, 50);
+                    if (!action) action = 'time';
                     utils.startSpinner();
                     $("#gantt svg").animate({opacity: 0}, 200, function() {
                         updateGantt(action);
@@ -355,7 +358,7 @@ var drawGantt, utils,
                         data = json;
                         prepareData();
                         currFile = json.next_page;
-                        setTimeout((currFile ? dynamicLoad : computeFilters), 50);
+                        setTimeout((currFile ? dynamicLoad : drawGantt), 50);
                     })
                 }
 
@@ -692,16 +695,19 @@ var drawGantt, utils,
                     extrainfo.append('<p><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(d.total_amendements)+'"></span>&nbsp;&nbsp;'+(d.total_amendements?d.total_amendements:'aucun')+" amendement"+(d.total_amendements>1?'s déposés':' déposé')+"</p>")
                         .append('<p><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(d.total_mots)+'"></span><span>&nbsp;&nbsp;plus de '+mots+" mille mots prononcés lors des débats parlementaires</span></p>")
                         .append(themes)
-                        .append('<p><small>(sources : <a href="' + d.url_dossier_assemblee + '" target="_blank">dossier Assemblée</a> &mdash; <a href="' + d.url_dossier_senat + '" target="_blank">dossier Sénat</a>)</small></p>');
+                        .append('<p><small>' +
+                            '<a href="'+d.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a> &mdash; ' +
+                            '<a href="'+d.url_dossier_assemblee+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Assemblée</a>' +
+                            (d.url_jo ? '<br/><a href="'+d.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur LégiFrance</a>' : '') +
+                            '</small></p>');
                     $(".text-container").append(extrainfo);
                     $("a.badge").tooltip();
                 }
 
                 //Start drawing first sample
-                currFile = data.next_page;
                 prepareData();
-                drawGantt('time');
-                setTimeout((currFile ? dynamicLoad : computeFilters), 500);
+                currFile = data.next_page;
+                setTimeout((currFile ? dynamicLoad : drawGantt), 0);
                 $("a.badge").tooltip();
 
 
