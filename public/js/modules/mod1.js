@@ -74,7 +74,7 @@ var textArticles;
             if (s.lastIndexOf("A", 0) === 0)
                 return 0.65;
             try {
-                return 0.95-0.07*(split_section(s).length-1);
+                return 0.95-0.12*(split_section(s).filter(function(d){return d != "";}).length-1);
             } catch(e) {
                 console.log("ERREUR section with bad id:", s, e);
                 return 0.95;
@@ -390,7 +390,7 @@ var textArticles;
                                     .attr("font-weight", "bold")
                                     .style("fill", 'white')
                                     .popover(function(){ return section_hover(d)})
-                                    .text(clean_premier(titre_section(curS, longlabel)));
+                                    .text(clean_premier(titre_section(sub_section(curS), longlabel)));
                                 ct++;
                             };
                         });
@@ -468,17 +468,18 @@ var textArticles;
 					for (t in stages) {
 						var currT = bigList.filter(function(d){return d.step_num==t}),
                             currY = sectJump + sectHeight,
-                            artS, piece,
+                            piece,
                             lastS = "";
                         
 						for (s in sections) {
 							currS=currT.filter(function(e){return e.sect_num==s})
-							if(currS.length) {
-								currS.sort(function(a,b){return a.order - b.order})
-							    .forEach(function(f,k){
+							    .sort(function(a,b){return a.order - b.order});
+                            if(currS.length) {
+                                var currIdx;
+								currS.forEach(function(f,k){
 									if (k==0) {
-                                        f.head=1;
-                                        artS = f;
+                                        currIdx = k;
+                                        currS[currIdx].head = 1;
                                     }
 									f.y = currY;
 									f.x = f.step_num * width / columns + 10;
@@ -486,19 +487,19 @@ var textArticles;
 								});
                             // Identify section jumps 
                                 lastsplit = split_section(lastS);
-                                cursplit = split_section(artS.section);
+                                cursplit = split_section(currS[currIdx].section);
 							    while(lastsplit.length) {
                                     piece = newpiece = "";
                                     while (lastsplit.length && !piece) piece = lastsplit.shift();
                                     while (cursplit.length && !newpiece) newpiece = cursplit.shift();
                                     if (newpiece != piece) break;
                                 }
-                                while (cursplit.length) if (cursplit.shift()) artS.head += 1;
-                                currY += artS.head * sectHeight + sectJump;
-                                if (artS.head > 1) currS.forEach(function(f){
-                                    f.y += artS.head * sectHeight;
+                                while (cursplit.length) if (cursplit.shift()) currS[currIdx].head += 1;
+                                currY += currS[currIdx].head * sectHeight + sectJump;
+                                if (currS[currIdx].head > 1) currS.forEach(function(f){
+                                    f.y += currS[currIdx].head * sectHeight;
                                 });
-                                lastS = artS.section;
+                                lastS = currS[currIdx].section;
 							}
 						}
 					}
