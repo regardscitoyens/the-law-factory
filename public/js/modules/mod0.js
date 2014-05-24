@@ -275,8 +275,12 @@ var drawGantt, utils,
                         $("#display_order #do-date").addClass('chosen');
                         sort_function = sortByDate;
                     } else scroll = null;
-		    $("#menu-amendments .selectedchoice").text(active_filters['amendments']);
-		    if (active_filters['year'] == allYears[0]) {
+		    if (!active_filters['amendments']) {
+			$("#menu-amendments .selectedchoice").text(allAmendments[0]);
+		    }else{
+			$("#menu-amendments .selectedchoice").text(active_filters['amendments']);
+		    }
+		    if (!active_filters['year']) {
 			$("#menu-years .selectedchoice").text(allYears[0]);
 		    }else{
 			$("#menu-years .selectedchoice").text("Étudié en "+active_filters['year']);
@@ -415,30 +419,25 @@ var drawGantt, utils,
 			});
 			allThemes.unshift('Tous les thèmes');
 		    }
+		    var construct_menu_filter = function(filter, cssid, d, i) {
+			if (!i) {
+			    if (active_filters[filter] == d || !active_filters[filter]) {
+				$(cssid).append("<li><a class='chosen' onclick=\"rmBillsFilter('"+filter+"','')\">"+d+'</a></li>');
+			    }else{
+				$(cssid).append("<li><a onclick=\"rmBillsFilter('"+filter+"','"+active_filters[filter]+"')\">"+d+'</a></li>');
+			    }
+			} else if (active_filters[filter] == d) {
+			    $(cssid).append("<li><a class='chosen' onclick=\"rmBillsFilter('"+filter+"','"+d+"')\">"+d+'</a></li>');
+			}else{
+			    $(cssid).append("<li><a onclick=\"addBillsFilter('"+filter+"','"+d+"')\">"+d+'</a></li>');
+			}
+		    };
 		    $("#years").empty();
-                    allYears.forEach(function(d,i){
-			if (active_filters['year'] == d) {
-			    $("#years").append("<li><a class='chosen' onclick=\"rmBillsFilter('year',"+d+")\">"+d+'</a></li>');
-			}else{
-			    $("#years").append("<li><a onclick=\"addBillsFilter('year',"+d+")\">"+d+'</a></li>');
-			}
-                    });
+		    allYears.forEach(function(d,i){construct_menu_filter('year', '#years', d, i);});
                     $("#themes").empty();
-                    allThemes.forEach(function(d){
-			if (active_filters['theme'] == d) {
-                            $("#themes").append("<li><a class='chosen' onclick=\"rmBillsFilter('theme','"+d+"')\">"+d+'</a></li>');
-			}else{
-                            $("#themes").append("<li><a onclick=\"addBillsFilter('theme','"+d+"')\">"+d+'</a></li>');
-			}
-                    });
+		    allThemes.forEach(function(d,i){construct_menu_filter('theme', '#themes', d, i);});
                     $("#amendments").empty();
-                    allAmendments.forEach(function(d){
-			if (active_filters['amendments'] == d) {
-                            $("#amendments").append("<li><a class='chosen' onclick=\"rmBillsFilter('amendments','"+d+"')\">"+d+'</a></li>');
-			}else{
-                            $("#amendments").append("<li><a onclick=\"addBillsFilter('amendments','"+d+"')\">"+d+'</a></li>');
-			}
-                    });
+		    allAmendments.forEach(function(d,i){construct_menu_filter('amendments', '#amendments', d, i);});
                 }
 
                 function drawAxis() {
