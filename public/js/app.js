@@ -3,9 +3,11 @@
 // Declare app level module which depends on filters, and services
 
 angular.module('theLawFactory', [
+  'theLawFactory.config',
   'theLawFactory.controllers',
   'theLawFactory.services',
-  'theLawFactory.directives'
+  'theLawFactory.directives',
+  'theLawFactory.analytics'
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider

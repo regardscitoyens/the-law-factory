@@ -1,11 +1,8 @@
 'use strict';
 
 /* Services */
-var APIRootUrl = 'http://www.lafabriquedelaloi.fr/api/';
 
-
-
-angular.module('theLawFactory.services', [])
+angular.module('theLawFactory.services', ['theLawFactory.config'])
 	.config(['$httpProvider', function($httpProvider) {
 	        delete $httpProvider.defaults.headers.common["X-Requested-With"]
 	    }])
@@ -26,33 +23,33 @@ angular.module('theLawFactory.services', [])
             }
           }
         })
-    .factory('api', function($http, $q, apiService) {
-            if (APIRootUrl.substr(-1) != "/") APIRootUrl += "/";
+    .factory('api', function($http, $q, apiService, API_ROOT_URL) {
+            if (API_ROOT_URL.substr(-1) != "/") API_ROOT_URL += "/";
             var api = {
                 getLawlist: function() {
-                    return apiService.getDataSample(APIRootUrl + 'dossiers_promulgues.csv');
+                    return apiService.getDataSample(API_ROOT_URL+ 'dossiers_promulgues.csv');
                 },
                 getProcedure: function(id) {
-                    return apiService.getDataSample(APIRootUrl + id + '/viz/procedure.json');
+                    return apiService.getDataSample(API_ROOT_URL + id + '/viz/procedure.json');
                 },
                 getArticle: function(id) {
-                    return apiService.getDataSample(APIRootUrl + id + '/viz/articles_etapes.json');
+                    return apiService.getDataSample(API_ROOT_URL + id + '/viz/articles_etapes.json');
                 },
                 getAmendement: function(id, step) {
-                    return apiService.getDataSample(APIRootUrl + id + '/viz/amendements_' + step + '.json');
+                    return apiService.getDataSample(API_ROOT_URL + id + '/viz/amendements_' + step + '.json');
                 },
                 getIntervention: function(id) {
-                    return apiService.getDataSample(APIRootUrl + id + '/viz/interventions.json');
+                    return apiService.getDataSample(API_ROOT_URL + id + '/viz/interventions.json');
                 },
                 getDossiers: function() {
-                    return apiService.getDataSample(APIRootUrl + 'dossiers_0_49.json');
+                    return apiService.getDataSample(API_ROOT_URL + 'dossiers_0_49.json');
                 },
                 getTutorials: function() {
                     return apiService.getDataSample('tutorial.json');
                 }
             };
             return api;
-	})
+	});
 
                   
 

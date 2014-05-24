@@ -129,7 +129,7 @@ var textArticles;
                     .forEach(function(d) {
                         delay += 50;
                         setTimeout(function() {
-                            d3.json(encodeURI(APIRootUrl + utils.loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
+                            d3.json(encodeURI(utils.APIRootUrl + utils.loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
                                 json.articles.forEach(function (a) {
                                     if (!textArticles[a.titre]) textArticles[a.titre] = {};
                                     textArticles[a.titre][d] = []

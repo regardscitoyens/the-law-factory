@@ -351,7 +351,7 @@ var drawGantt, utils,
 
             // function used for multiple data files - progressive loading
                 function dynamicLoad() {
-                    d3.json(APIRootUrl + currFile, function (error, json) {
+                    d3.json(utils.APIRootUrl + currFile, function (error, json) {
                         data = json;
                         prepareData();
                         currFile = json.next_page;

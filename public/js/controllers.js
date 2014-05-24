@@ -4,7 +4,7 @@
 
 
 
-angular.module('theLawFactory.controllers', []).
+angular.module('theLawFactory.controllers', ['theLawFactory.config']).
     /*
       Specific controller for the naigation Part.
     */
@@ -14,9 +14,12 @@ angular.module('theLawFactory.controllers', []).
         $rootScope.$broadcast('MAIN_CTRL_START_TUTORIAL');
       };
     }).
-    controller('mainCtrl', function ($scope, $http, apiService, api, $rootScope, $location) {
+    controller('mainCtrl', function ($scope, $http, apiService, api, $rootScope, $location, API_ROOT_URL) {
 
         $rootScope.tuto_btn = false;
+
+        $scope.APIRootUrl = API_ROOT_URL;
+        if ($scope.APIRootUrl.substr(-1) != "/") $scope.APIRootUrl += "/";
 
         $scope.mod = null;
         $scope.loi = $location.search()['loi'];
@@ -314,5 +317,4 @@ angular.module('theLawFactory.controllers', []).
 
         }
 
-
-    })
+    });
