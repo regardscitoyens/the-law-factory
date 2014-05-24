@@ -14,6 +14,7 @@ var drawGantt, utils,
   shortMonths: ["Janv.", "Fév.", "Mars", "Avril", "Mai", "Juin", "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc."]
 }),
     active_filters = {
+        year: 2013,
         theme: "",
         length: '',
         amendments: 'plus de 50'
@@ -197,6 +198,8 @@ var drawGantt, utils,
             selection.each(function (data) {
 
                 drawGantt = function(action) {
+                    setTimeout(computeFilters, 50);
+                    if (!action) action = 'time';
                     utils.startSpinner();
                     $("#gantt svg").animate({opacity: 0}, 200, function() {
                         updateGantt(action);
@@ -355,7 +358,7 @@ var drawGantt, utils,
                         data = json;
                         prepareData();
                         currFile = json.next_page;
-                        setTimeout((currFile ? dynamicLoad : computeFilters), 50);
+                        setTimeout((currFile ? dynamicLoad : drawGantt), 50);
                     })
                 }
 
@@ -698,10 +701,9 @@ var drawGantt, utils,
                 }
 
                 //Start drawing first sample
-                currFile = data.next_page;
                 prepareData();
-                drawGantt('time');
-                setTimeout((currFile ? dynamicLoad : computeFilters), 500);
+                currFile = data.next_page;
+                setTimeout((currFile ? dynamicLoad : drawGantt), 0);
                 $("a.badge").tooltip();
 
 
