@@ -664,7 +664,9 @@ var textArticles;
                         if(d.n_diff && d.id_step.substr(-5) !=="depot" && d.status != "new") $("#revsMode").show();
                         else $("#revsMode").hide();
                         $("#text-title").html(titre_article(d, 2));
-                        var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " ("+format_section(d, 1)+')' : format_section(d, 2)) + "</b></p>" : "") +
+                        var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " ("+format_section(d, 1)+')' : format_section(d, 2)) + "</b>" +
+                            (test_section_details(d.section, d.id_step, 'title') ? " : " +get_section_details(d.section, d.id_step, 'title') : "")
+                            + "</p>" : "") +
                         "<p><b>" + titre_etape(d) + "</b></p>" +
                         (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ? 
                             '<div class="gotomod"><a class="btn btn-info" href="amendements.html?loi='+utils.loi+'&etape='+ d.directory+'&article='+d.article+'">Explorer les amendements</a></div>' : '') +
