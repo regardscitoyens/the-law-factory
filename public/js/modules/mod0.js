@@ -213,7 +213,7 @@ var drawGantt, utils,
                     $("#gantt svg").empty();
                     $("#legend svg").empty();
                     $("#bars").empty();
-                    $("#text-title").text("Sélectionner une loi");
+                    $("#text-title").text("Sélectionner un texte");
                     $(".text-container").empty();
                     refreshBillsFilter();
                     var zoo = $("#mod0-slider").attr('value'),
@@ -683,7 +683,7 @@ var drawGantt, utils,
                     $("#text-title").text(d.short_title);
                     var themes=$('<p>');
                     d.themes.join(",").replace(/ et /g, ',').split(',').forEach(function(e,j){
-                        themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les lois correspondant à ce thème' data-toggle='tooltip' data-placement='left'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
+                        themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les textes correspondant à ce thème' data-toggle='tooltip' data-placement='left'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
                     }),
                         mots=(Math.round(d.total_mots / 1000. ) + "" ).replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;").replace(/^0/, '');
                     $(".text-container").empty()
@@ -708,7 +708,7 @@ var drawGantt, utils,
 		function onunclick(d) {
                     if ($(".text-container").html()) {
 			$(".text-container").empty();
-			$("#text-title").text("Sélectionner une loi");
+			$("#text-title").text("Sélectionner un texte");
 			d3.selectAll(".curr")
                             .classed("curr", false)
                             .style("fill", "#f3efed")
