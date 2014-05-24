@@ -13,7 +13,7 @@ var drawGantt, utils,
   months: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
   shortMonths: ["Janv.", "Fév.", "Mars", "Avril", "Mai", "Juin", "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc."]
 }),
-  allAmendments = ["Quelque soit le nombre d'amendement", 'Aucun amendement', 'Moins de 50 amendements', 'Plus de 50 amendements'],
+  allAmendments = ["Quelque soit le nb d'amendements", 'Aucun amendement', 'Moins de 50 amendements', 'Plus de 50 amendements'],
   active_filters = {
         year: 2013,
         theme: "",
