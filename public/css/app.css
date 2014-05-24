@@ -1207,12 +1207,6 @@ noscript h2 {
     top:0.2em;
 }
 
-#readMode{
-    display: none;
-}
-#revsMode{
-    display: none;
-}
 
 .wide-read{
     display: none;
