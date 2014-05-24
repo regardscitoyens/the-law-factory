@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-                    
+
 
 angular.module('theLawFactory.controllers', []).
     /*
@@ -16,7 +16,8 @@ angular.module('theLawFactory.controllers', []).
     }).
     controller('mainCtrl', function ($scope, $http, apiService, api, $rootScope, $location) {
 
-        $scope.error = {}
+        $rootScope.tuto_btn = false;
+        $scope.error = {};
 
         $scope.spinner = null;
         $scope.spinner_opts = {
@@ -200,7 +201,7 @@ angular.module('theLawFactory.controllers', []).
 
         /////////////////////////////////////////////////////////////
         $scope.toggleTutorial = function(show) {
-            
+
             if(!$scope.tutorial && show) {
                 $scope.tutorial = true;
 
@@ -209,8 +210,8 @@ angular.module('theLawFactory.controllers', []).
                     var step = 1;
                     console.log("tuto in "+$scope.mod)
                     console.log(tuto)
-                    for(var id in tuto) 
-                    {    
+                    for(var id in tuto)
+                    {
 
                             var infos = tuto[id].split(" = ");
                             //$('#'+k).attr('data-position',infos[0]);
@@ -224,7 +225,7 @@ angular.module('theLawFactory.controllers', []).
                             $(id).attr('data-intro',infos[1]);
                             $(id).attr('data-step',step++);
                     }
-                    
+
                     var introjs = introJs().setOptions({
                         showBullets: false,
                         showStepNumbers: false,
@@ -278,5 +279,5 @@ angular.module('theLawFactory.controllers', []).
             }
         };
 
-        
+
     })

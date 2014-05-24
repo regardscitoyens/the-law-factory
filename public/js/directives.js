@@ -80,6 +80,7 @@ function(api, $rootScope, $location, $compile) {
             $rootScope.s=null;
             var l = "pjl12-719"
             scope.mod="mod1";
+            $rootScope.tuto_btn = true;
             scope.s=null;
             if ($location.search()['l'] != null)
                 l = $location.search()['l'];
@@ -103,7 +104,7 @@ function(api, $rootScope, $location, $compile) {
                 })
             }
             update();
-            
+
         }
     };
 }]).directive('mod2', ['api', '$rootScope', '$location', '$compile',
@@ -119,6 +120,7 @@ function(api, $rootScope, $location, $compile) {
             $scope.s = $rootScope.s = $location.search()['s'];
             $scope.a = $location.search()['a'];
             $scope.mod="mod2";
+            $rootScope.tuto_btn = true;
 
         },
         link : function postLink(scope, element, attrs) {
@@ -157,6 +159,7 @@ function(api, $rootScope, $location, $compile) {
             $scope.l = "pjl09-602"
             $scope.step = 0;
             $scope.mod="mod2b";
+            $rootScope.tuto_btn = true;
             $scope.s = $rootScope.s = $location.search()['s'];
         },
         link : function postLink(scope, element, attrs) {
@@ -199,6 +202,7 @@ function(api, $rootScope, $location, $compile) {
 
             $rootScope.pageTitle = "";
             scope.mod="mod0";
+            $rootScope.tuto_btn = true;
 
             $("#mod0-slider").slider({
                 min:1,
@@ -212,7 +216,7 @@ function(api, $rootScope, $location, $compile) {
             var mod0 = thelawfactory.mod0(),
                 synced = false;
 
-            
+
             scope.$on('MAIN_CTRL_START_TUTORIAL', function(event, mass) {
               if(!synced)
                 return;
@@ -222,7 +226,7 @@ function(api, $rootScope, $location, $compile) {
 
             function update() {
                 scope.startSpinner();
-                
+
 
                 api.getDossiers().then(function(data) {
                   d3.select(element[0]).datum(data).call(mod0);
@@ -234,8 +238,8 @@ function(api, $rootScope, $location, $compile) {
                     console.log(error)
                 })
             }
-            update();    
-            
+            update();
+
         }
     };
 }])
