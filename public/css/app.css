@@ -385,7 +385,7 @@ ins {
     margin-top: 1px;
     float: right;
 	width:88.64%;
-    position: relative;
+    /*position: relative; */
     padding-bottom: 0.9%;
     padding-top: 0.8%;
     margin-bottom: 30px;
@@ -1536,9 +1536,9 @@ footer{
     height:70px;
     background-color:white;
     border-top: 2px solid #e7e7e7;
-    position:absolute;
+   /* position:static;
     bottom:0;
-    left:0;
+    left:0;*/
     width:100%;
 }
 
@@ -1570,6 +1570,6 @@ footer{
 }
 #wrapper{
     position: relative;
-    min-height: 100%;
-    padding: 0 0 70px;
+    padding-bottom:90px;
+
 }
