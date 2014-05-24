@@ -156,6 +156,13 @@ var drawGantt, utils,
             zooming = function(lvl) {
 
                 var perc=($("#gantt").scrollLeft()+$("#gantt").width()/2)/(width*z);
+		if ($("#gantt").scrollLeft() == 0 && $("#gantt").scrollTop() == 0) {
+		    if (layout == 't') {
+			perc = 1;
+		    }else if (layout == 'a') {
+			perc = 0;
+		    }
+		}
                 if(layout==="q") return;
                 if(d3.event && d3.event.scale) z = d3.event.scale;
                 else if(lvl) z=lvl;
@@ -188,7 +195,6 @@ var drawGantt, utils,
                 ganttcontainer.attr("width", width * z);
 
                 $("#gantt").scrollLeft(perc * width * z - $("#gantt").width() / 2 );
-
             };
 
             selection.each(function (data) {
