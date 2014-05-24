@@ -358,6 +358,7 @@ sven.viz.streamkey = function(){
                 .entries(stepsY[j]);
             stepsY[j] = [];
             sorted.forEach(function(d){d.values.forEach(function(d){stepsY[j].push(d)})});
+
         }
         return stepsY;
     };
@@ -367,7 +368,7 @@ sven.viz.streamkey = function(){
     }
 
     sortByTop = function(data){
-        return sort(data, "y", function(a,b){return parseFloat(a) - parseFloat(b); });
+        return sort(data, "y", function(a,b){if(a==="null") a=0; if(b==="null") b=0; return parseFloat(a) - parseFloat(b); });
     };
 
   function layout(data,minHeightScale){
