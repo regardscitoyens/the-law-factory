@@ -125,11 +125,12 @@ angular.module('theLawFactory.controllers', []).
         }
 
         $scope.slugArticle = function(a) {
-            return "art_" + a.replace("è", "e")
+            return "art_" + a.toLowerCase()
+                .replace("è", "e")
                 .replace(/article/, '')
-                .replace(/[I1]er?/i, '1')
+                .replace(/[i1]er?/, '1')
+                .trim()
                 .replace(/\W/g, '-')
-                .toLowerCase();
         }
 
         $scope.string_to_slug = function (str) {

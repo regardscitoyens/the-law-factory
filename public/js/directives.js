@@ -123,8 +123,6 @@ function(api, $rootScope, $location, $compile) {
                     scope.data = data;
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Amendements | ";
                     d3.select(element[0]).datum(data).call(mod2);
-                    if (scope.article!=null)
-                        selectRow(scope.article, true);
                 }, function(error) {
                     scope.error = error
                 });

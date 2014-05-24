@@ -33,16 +33,19 @@ var utils, highlight;
 
         selectRow = function(art,pos) {
             if(d3.event) d3.event.stopPropagation();
-            var sel = d3.select("."+art);
+            var sel = d3.select("."+utils.slugArticle(art));
             if(!sel.empty()) {
+                utils.resetHighlight('amds');
                 d3.selectAll("g").style("opacity", 0.2);
-                sel.style("opacity", 0.9);
+                sel.style("opacity", 1);
                 if(pos) $("#viz").animate({ scrollTop: sel.attr("data-offset") })
             }
         };
 
         deselectRow = function() {
+            if(d3.event) d3.event.stopPropagation();
             utils.resetHighlight('amds');
+            d3.selectAll("g").style("opacity", 1);
         };
 
 	artArray=d3.values(articles).sort(function(a,b){return a.order-b.order})
@@ -119,6 +122,8 @@ var utils, highlight;
                 var a = d3.select("svg").select("g:last-child").attr("data-offset"),
                    ah = d3.select("svg").select("g:last-child").node().getBBox().height;
                 svg.attr("height",z+parseInt(a)+ah);
+                if (utils.article!=null)
+                    selectRow(utils.article, true);
                 utils.stopSpinner(function() {
                     $("svg").animate({opacity: 1}, 500);
                 });
@@ -185,19 +190,7 @@ var utils, highlight;
                         jumpLines = jumpLines + offset;
                     }
                       else jumpLines+=lines-1;
-                  })
-
-              curRow.append("text")
-                  .attr("x", 20)
-                  .classed("row-txt", true)
-                  .attr("y", 15)
-                  .style("fill", "#333")
-                  .attr("font-size", "0.85em")
-                  .text(d.titre)
-                  .on("click", function () {
-                      selectRow(utils.slugArticle(d.titre), false);
                   });
-
 
               var bg = curRow
                   .selectAll(".bg")
@@ -224,7 +217,7 @@ var utils, highlight;
                   .attr("font-size", "0.85em")
                   .text(d.titre)
                   .on("click", function () {
-                      selectRow(utils.slugArticle(d.titre), false)
+                      selectRow(d.titre, false);
                   });
 
               var popover = function (e) {
@@ -261,7 +254,7 @@ var utils, highlight;
                   .attr("id", function (e) {
                       return "a_" + e.numero.replace(/[^a-z\d]/ig, '')
                   })
-                  .attr("class", function(e) { return "amd " + utils.slugGroup(e.groupe) + " " + utils.slugGroup(e.sort) + " " + utils.slugArticle(d.titre); })
+                  .attr("class", function(e) { return "amd " + utils.slugGroup(e.groupe) + " " + utils.slugGroup(e.sort); })
                   .style("fill", color_amd)
                   .style("opacity", 0.9)
                   .popover(popover)
