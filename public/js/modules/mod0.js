@@ -230,24 +230,24 @@ var drawGantt, utils,
                         scroll['scrollLeft'] = "100000px";
                         $("#display_menu .chosen").removeClass('chosen');
                         $("#display_menu #dm-time").addClass('chosen');
-                        $(".ctrl-sort").hide(400);
-                        $(".ctrl-zoom").show(400);
+                        $("#menu-sort").hide();
+                        $(".ctrl-zoom").show();
                     } else if (action == 'absolute') {
                         layout = "a";
                         zoo = 1;
                         action = 'sortl';
                         $("#display_menu .chosen").removeClass('chosen');
                         $("#display_menu #dm-absolute").addClass('chosen');
-                        $(".ctrl-sort").show(400);
-                        $(".ctrl-zoom").show(400);
+                        $("#menu-sort").show();
+                        $(".ctrl-zoom").show();
                     } else if (action == 'quanti') {
                         layout = "q";
                         zoo = 1;
                         action = 'sorta';
                         $("#display_menu .chosen").removeClass('chosen');
                         $("#display_menu #dm-quanti").addClass('chosen');
-                        $(".ctrl-sort").show(400);
-                        $(".ctrl-zoom").hide(400);
+                        $("#menu-sort").show();
+                        $(".ctrl-zoom").hide();
                     }
                     if (action == 'filter') {
                         zoo = 1;
@@ -259,23 +259,33 @@ var drawGantt, utils,
                         if (layout == "t") scroll['scrollLeft'] = "100000px";
                     } else $(".text-container").empty();
                     if (action == 'sortl') {
+			$("#menu-sort .selectedchoice").text("durée");
                         $("#display_order .chosen").removeClass('chosen');
                         $("#display_order #do-length").addClass('chosen');
                         sort_function = sortByLeng;
                     } else if (action == 'sorta') {
+			$("#menu-sort .selectedchoice").text("amendements");
                         $("#display_order .chosen").removeClass('chosen');
                         $("#display_order #do-amds").addClass('chosen');
                         sort_function = sortByAmds;
                     } else if (action == 'sortd') {
+			$("#menu-sort .selectedchoice").text("date");
                         $("#display_order .chosen").removeClass('chosen');
                         $("#display_order #do-date").addClass('chosen');
                         sort_function = sortByDate;
                     } else scroll = null;
                     drawLaws();
                     drawAxis();
-                    if (layout == "t") timePosition();
-                    if (layout == "a") absolutePosition();
+                    if (layout == "t") {
+			$("#menu-display .selectedchoice").text('chronologique');
+			timePosition();
+		    }
+                    if (layout == "a") {
+			$("#menu-display .selectedchoice").text('comparatif');
+			absolutePosition();
+		    }
                     if (layout == "q") {
+			$("#menu-display .selectedchoice").text('quantitatif');
                         quantiPosition();
                         drawLabels();
                     } else d3.select("#gantt").on("scroll", function (e) {

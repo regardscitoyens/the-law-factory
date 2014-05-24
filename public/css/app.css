@@ -420,88 +420,20 @@ ins {
 	font-size: 0.9em;
 }
 
-.menu-hide{
-	background-color:#DAD1CB;
-	padding:15px;
+#filter-nav { 
+    background-color: white; 
+    border: 0px; 
+    border-radius: 0px;
+}
+.nav .caret { 
+    border-bottom-color: #777777;
+    border-top-color: #777777;
 }
 
-.dd-btn {
-	float:right;
-    margin: 0;
-    height: 35px
-}
-
-
-.btn-group{
-    margin-bottom:35px;
-    width: 90%;
-}
-.btn-group.filter_menu {
-    margin-bottom: 15px;
-}
-.btn-group .btn{
-	margin:0 !important;
-	padding:0 !important;
-    width: 90%;
-}
-.dd-btn button {
-    padding: 3px;
-    height: 32px;
-}
-.dd-btn .dropdown-toggle.arrow {
-	background: #716259;
-	border-radius: 0;
-    margin: 0;
-    width: 10%;
-    padding: 3px;
-}
-.dd-btn .caret{
-    border-top: 5px solid transparent;
-	border-left: 5px solid #FFF;
-    border-right: 0px dotted;
-    border-bottom: 5px solid transparent;
-    margin-bottom: 2px;
-}
-.btn-title, .btn-title:hover{
-    float:right;
-    display:inline-block;
-    cursor:pointer;
-    text-decoration: none;
-    background-color:#716259;
-    color:white;
-    line-height:75px;
-}
-.btn-group.open .dropdown-toggle {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-.dd-btn>.btn:first-child:not(:last-child) {
-	color: #716259;
-    background: #FFFFFB;
-    border-radius: 0;
-}
-.dropdown-menu {
-    top: 0px;
-    left: 100%;
-    border-radius: 0;
-}
-#themes.dropdown-menu {
-    top: -100px;
-    overflow: auto;
-    height: 100%;
-    min-height: 400px;
-}.dropdown-menu li {
-    background-color: white;
-    cursor: pointer;
-}.dropdown-menu li a {
-    padding-left: 34px;
-}.dropdown-menu li.dropdown-submenu a {
-    padding-left: 15px;
-}.dropdown-menu li a.chosen {
+.dropdown-menu li a.chosen {
     padding-left: 10px;
-}.dropdown-menu li a:hover {
-    background-color: #716259;
-}.dropdown-menu li .chosen:before {
+}
+.dropdown-menu li .chosen:before {
   content:"\e013";
   font-family:"Glyphicons Halflings";
   line-height:1;
@@ -932,10 +864,6 @@ text {
 .ui-state-focus{
     border:none !important;
 }
-.ctrl-zoom {
-    margin-top: 25px;
-    margin-right: 5px;
-}
 .ctrl-label{
     clear:both;
     width:90%;
@@ -960,11 +888,16 @@ text {
     position: relative;
     display: block;
     cursor: pointer;
+}
+
+#header-nav .navbar-nav>li>span {
     color:#808285;
 }
 
 .nav>li>span:hover, .nav>li>span:focus {
     text-decoration: none;
+}
+#home-nav .nav>li>span:hover, #home-nav .nav>li>span:focus {
     background-color: #eee;
 }
 .navbar-right span:hover {
@@ -1418,13 +1351,16 @@ footer a:hover {
     margin-left: 8px;
     margin-bottom: 4px;
 }
-.nav>li>a, #search-btn>span{
+.nav>li>span, .nav>li>a, #search-btn>span{
     padding: 0;
     line-height: 26px;
     margin: 12px 8px;
-    font-size: 13px;
     padding: 0px 8px;
 }
+#header-nav { 
+    font-size: 13px;
+}
+
 #search-btn>span{
     background-color: #eee;
 }

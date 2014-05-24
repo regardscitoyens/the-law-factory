@@ -1,11 +1,57 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1 burntsiena" id="ToolsPanel">
-	<div class="title">
+    <div class="title">
       <h4 class="law-title">Explorer les textes promulgués depuis 2010</h4>
-      <span class="subtitle">cliquer sur un texte pour explorer ses articles, ses amendements et ses débats parlementaires</span>
     </div>
   </div>
 </div>
+
+<div class="row" style="margin-bottom: 10px">
+  <div class="col-md-10 col-md-offset-1" style="background-color: white;">
+    <nav id="filter-nav" class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+	<li id="backtoall" class="active"><a href="/lois.html">&lt; Tous les textes</a></li>
+	<li id="menu-display" class="dropdown">
+          <span class="dropdown-toggle" data-toggle="dropdown">Affichage <span class="selectedchoice">chronologique</span> <b class="caret"></b></span>
+            <ul class="dropdown-menu" id="display_menu">
+              <li><a id="dm-time" class="chosen" onclick="drawGantt('time')">chronologique</a></li>
+              <li><a id="dm-absolute" onclick="drawGantt('absolute')">comparatif</a></li>
+              <li><a id="dm-quanti" onclick="drawGantt('quanti')">quantitatif</a></li>
+          </ul>
+        </li>        
+	<li class="dropdown" id="menu-sort">
+          <span class="dropdown-toggle" data-toggle="dropdown">Trié par <span class="selectedchoice">date</span> <b class="caret"></b></span>
+            <ul class="dropdown-menu" role="menu" id="display_order">
+              <li><a id="do-length" class="chosen" onclick="drawGantt('sortl')">durée d'adoption</a></li>
+              <li class="divider"></li>
+              <li><a id="do-date" onclick="drawGantt('sortd')">date de promulgation</a></li>
+              <li class="divider"></li>
+              <li><a id="do-amds" onclick="drawGantt('sorta')">amendements déposés</a></li>
+            </ul>
+        </li>        
+	<li class="dropdown" id="menu-amdt">
+          <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Au moins 50 amendements</span> <b class="caret"></b></span>
+	  <ul class="dropdown-menu" id="amendments"></ul>
+        </li>        
+	<li class="dropdown" id="menu-year">
+          <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Étudié en 2013</span> <b class="caret"></b></span>
+	  <ul class="dropdown-menu" id="years"></ul>
+        </li>        
+	<li class="dropdown" id="menu-themes">
+          <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Tous les thèmes</span> <b class="caret"></b></span>
+          <ul class="dropdown-menu" id="themes"></ul>
+        </li>        
+        <li class="ctrl-zoom">
+        <div class="ctrl-label"><span>zoom</span></div>
+        <div id="mod0-slider"></div>
+      </div>
+      </ul>
+  </div>
+  </nav>
+</div>
+</div>
+
 
 <div class="row">
   <div class="col-md-12 viz-container">
@@ -14,76 +60,6 @@
 
       <div class="main-sc">
         <div id="commands">
-
-          <div class="btn-group dd-btn">
-            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">Affichage</button>
-            <button type="button" class="btn dropdown-toggle arrow" data-toggle="dropdown">
-              <span class="caret"></span>
-              <span class="sr-only">Déplier le menu</span>
-            </button>
-
-            <ul class="dropdown-menu" role="menu" id="display_menu">
-              <li><a id="dm-time" class="chosen" onclick="drawGantt('time')">chronologique</a></li>
-              <li class="divider"></li>
-              <li><a id="dm-absolute" onclick="drawGantt('absolute')">comparatif</a></li>
-              <li class="divider"></li>
-              <li><a id="dm-quanti" onclick="drawGantt('quanti')">quantitatif</a></li>
-            </ul>
-          </div>
-
-          <div class="btn-group dd-btn ctrl-sort">
-            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">Ordonner</button>
-            <button type="button" class="btn dropdown-toggle arrow" data-toggle="dropdown">
-              <span class="caret"></span>
-              <span class="sr-only">Déplier le menu</span>
-            </button>
-
-            <ul class="dropdown-menu" role="menu" id="display_order">
-              <li><a id="do-length" class="chosen" onclick="drawGantt('sortl')">durée d'adoption</a></li>
-              <li class="divider"></li>
-              <li><a id="do-date" onclick="drawGantt('sortd')">date de promulgation</a></li>
-              <li class="divider"></li>
-              <li><a id="do-amds" onclick="drawGantt('sorta')">amendements déposés</a></li>
-            </ul>
-          </div>
-
-          <div class="btn-group dd-btn filter_menu">
-            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">Filtrer par</button>
-            <button type="button" class="btn dropdown-toggle arrow" data-toggle="dropdown">
-              <span class="caret"></span>
-              <span class="sr-only">Déplier le menu</span>
-            </button>
-
-            <ul class="dropdown-menu" role="menu">
-              <li class="dropdown-submenu">
-                <a>thème</a>
-                <ul class="dropdown-menu" id="themes"></ul>
-              </li>
-              <li class="divider"></li>
-              <li class="dropdown-submenu">
-                <a>année</a>
-                <ul class="dropdown-menu" id="years"></ul>
-              </li>
-              <li class="divider"></li>
-              <li class="dropdown-submenu">
-                <a>amendements</a>
-                <ul class="dropdown-menu" id="amendments"></ul>
-              </li>
-            </ul>
-          </div>
-
-          <ul class="filters">
-            <li class="theme"></li>
-            <li class="year"></li>
-            <li class="length"></li>
-            <li class="amendments"></li>
-          </ul>
-
-          <div class="ctrl-zoom">
-            <div class="ctrl-label"><span>zoom</span></div>
-            <div id="mod0-slider"></div>
-          </div>
-
         </div>
 
         <div id="margin"></div>
