@@ -702,7 +702,20 @@ var drawGantt, utils,
                             '</small></p>');
                     $(".text-container").append(extrainfo);
                     $("a.badge").tooltip();
+		    d3.selectAll(".laws .row").on('click', onunclick);
                 }
+
+		function onunclick(d) {
+                    if ($(".text-container").html()) {
+			$(".text-container").empty();
+			$("#text-title").text("Sélectionner une loi");
+			d3.selectAll(".curr")
+                            .classed("curr", false)
+                            .style("fill", "#f3efed")
+                            .style("opacity", 0.3);
+			d3.selectAll(".g-law").style("opacity", 1);
+                    }
+		}
 
                 //Start drawing first sample
                 prepareData();
