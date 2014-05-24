@@ -258,7 +258,7 @@ function(api, $rootScope, $location) {
                         source : function(request, response) {
 
                             var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(request.term)), "i");
-                            response($.map($.grep(laws, function(value) {
+                            response($.map($.grep(laws.sort(function(a,b){ return b["Date de promulgation"] > a["Date de promulgation"];}), function(value) {
                                                             value = clean_accents(value.Titre +" "+ value.id +" "+ value["Thèmes"] + " " + value.short_title);
                                 return matcher.test(clean_accents(value));
                             }), function(n, i) {
@@ -290,42 +290,42 @@ function(api, $rootScope, $location) {
                                 $("body").css("overflow", "auto");
                                 $location.path((scope.mod==='mod0' ? '/loi' : '/article') + "s.html");
                                 $location.search("loi=" + ui.item.value);
-                        });
-                    }
-                })
-
+                            });
+                        },
+                        messages: {
+                            noResults: 'Aucune loi trouvée',
+                            results: function(d) { return d + " loi" + (d > 1 ? "s trouvées" : " trouvée"); }
+                        }
+                    })
                     .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-
                     var themesdiv=$("<div>")
                     item.themes.replace(/ et /g, ', ').split(', ').forEach(function(e,j){
                         themesdiv.append("<span class='glyphicon glyphicon-tag'></span> "+e.toLowerCase()+" ");
                     })
 
-
                     var icodiv=$("<div class='src-ico'>")
                         .append('<div><span class="glyphicon glyphicon-calendar"></span> '+item.dates+"</div>")
-                        .append('<div title="'+item.amendements+' amendements déposés sur ce texte" class="search"><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(item.amendements)+'"></span> '+item.amendements+"</div>")
-                        .append('<div title="'+item.words+' mots prononcés lors des débats sur ce texte" class="search"><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(item.words)+'"></span> '+1000*(Math.round(item.words / 1000.))+"</div>")
+                        .append('<div title="'+item.amendements+' amendements déposés sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(item.amendements)+'"></span> '+item.amendements+"</div>")
+                        .append('<div title="'+item.words+' mots prononcés lors des débats sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(item.words)+'"></span> '+1000*(Math.round(item.words / 1000.))+"</div>")
                         .append(themesdiv);
+                        $(".search").tooltip();
 
                     var txtdiv=$("<div class='src-txt'>")
                         .append( "<a>" +item.label + "</a>" )
-                        .append(icodiv)
+                        .append(icodiv);
 
                     return $( "<li class="+item.value+">" )
                         .append(txtdiv)
                         .appendTo( ul );
-                };
-
-            }, function(error) {
-                scope.error = error
-            })
+                    };
+                }, function(error) {
+                    scope.error = error
+                })
+            }
+            update();
         }
-        update();
     }
-};
 }])
-
 .directive('movescroll', [ '$rootScope',function($rootScope) {
 return {
     restrict : 'A',
@@ -396,7 +396,7 @@ return {
                   '<span class="links">' +
                     '<a href="'+data.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a><br/>' +
                     '<a href="'+data.url_dossier_assemblee+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Assemblée</a>' +
-                    (data.url_jo ? '<br/><a href="'+data.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur LégiFrance</a>' : '') +
+                    (data.url_jo ? '<br/><a href="'+data.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur Légifrance</a>' : '') +
                   '<span>'
                 );
                 if (leg) $(".law-title").tooltip();

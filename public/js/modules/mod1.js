@@ -129,7 +129,7 @@ var textArticles;
                     .forEach(function(d) {
                         delay += 50;
                         setTimeout(function() {
-                            d3.json(encodeURI(APIRootUrl + utils.loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
+                            d3.json(encodeURI(utils.APIRootUrl + utils.loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
                                 json.articles.forEach(function (a) {
                                     if (!textArticles[a.titre]) textArticles[a.titre] = {};
                                     textArticles[a.titre][d] = []
@@ -627,6 +627,7 @@ var textArticles;
 
 				//on click behaviour
 				function onclick(d) {
+
                     var spin = !d.textDiff && d.prev_dir && (d.status == "sup" || d.n_diff) && d.id_step.substr(-5) != "depot";
                     if (spin) utils.startSpinner('load_art');
                     d3.selectAll("line").style("stroke", "#d0d0e0")
@@ -653,14 +654,14 @@ var textArticles;
 
                     d3.rgb(d3.select(this).style("fill")).darker(2)
 
-                    $(".art-txt").animate({opacity: 0}, 100, function() { 
+                    $(".art-txt").animate({opacity: 0}, 100, function() {
                         $("#readMode").show();
 
                         $("#text-title").empty();
                         $(".art-meta").empty();
                         $(".art-txt").empty();
-                        $(".wide-read").show();
-                        if (d.n_diff) $("#revsMode").show();
+                        //if (d.n_diff) $("#revsMode").show();
+                        if(d.n_diff && d.status!=="depot") $("#revsMode").show();
                         else $("#revsMode").hide();
                         $("#text-title").html(titre_article(d, 2));
                         var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " ("+format_section(d, 1)+')' : format_section(d, 2)) + "</b></p>" : "") +
@@ -699,8 +700,8 @@ var textArticles;
                     if (aligned) valign();
                     else stacked();
                     load_texte_articles();
-                    $('.readMode').tooltip({ animated: 'fade', placement: 'bottom'});
-                    $('.revsMode').tooltip({ animated: 'fade', placement: 'bottom'});
+                    $('#readMode').tooltip({ animated: 'fade', placement: 'bottom'});
+                    $('#revsMode').tooltip({ animated: 'fade', placement: 'bottom'});
                 });
 
             });

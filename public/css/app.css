@@ -527,6 +527,13 @@ ul.ui-autocomplete {
 	overflow:auto;
 }
 
+#lawlist>span.ui-helper-hidden-accessible {
+    float: right;
+    margin-top: 118px;
+    width: 14%;
+    position: relative;
+    overflow: visible;
+}
 .lawlist{
     float:right;
 	width:75%;
@@ -1198,21 +1205,6 @@ noscript h2 {
 }
 .mod0 .badge .glyphicon {
     top:0.2em;
-}
-
-.wide-read{
-    display: none;
-    position: relative;
-    color: #716259;
-    background-color: #eee;
-    float: left;
-    width: 100%;
-    overflow: hidden;
-
-}
-.wide-read .glyphicon {
-    padding-left:3px;
-    cursor:pointer;
 }
 
 .tooltip-inner {background-color: #716259;border-radius:0;border: solid 1px #716259;}
