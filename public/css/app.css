@@ -61,7 +61,7 @@ h1,h2,h3,h4 {
 
 .navbar-header{
 	width:95%;
-} 
+}
 
 .navbar-right{
 	margin-top:7px !important;
@@ -81,7 +81,7 @@ h1,h2,h3,h4 {
 .subheader {
 	display:block;
 	max-width:40%;
-	margin:0 auto;	
+	margin:0 auto;
 }
 
 .article {
@@ -176,20 +176,20 @@ body{
 	display:-ms-flexbox;
 	-ms-flex-pack:center;
 	-ms-flex-align:center;
-	
+
 	/* Firefox */
 	display:flex;
 	display: -moz-box;
 	-moz-box-pack:center;
 	-moz-box-align:center;
-	
+
 	/* Safari, Opera, and Chrome */
 	display:-webkit-box;
 	-webkit-box-pack:center;
 	-webkit-box-align:center;
 }
 
-@-moz-document url-prefix() { 
+@-moz-document url-prefix() {
   .stage {
      padding:20px 10px 0 10px;
   }
@@ -295,7 +295,7 @@ body{
 }
 .labels p{
 	margin:0;
-	 
+
 	padding: 0 5px;
 	font-style: italic;
 	background-color: #F9F7F8;
@@ -393,7 +393,7 @@ ins {
 .mod0 .labels-sc div{
 	clear: none !important;
 	text-align:	center;
-} 
+}
 .legend {
     background-color: white;
     padding: 15px;
@@ -533,14 +533,14 @@ ins {
 	background:#DAD1CB;
 	height:100%;
 }
-ul.ui-autocomplete { 
-	list-style-type: none; 
+ul.ui-autocomplete {
+	list-style-type: none;
 	color:#fff;
 	z-index:2001;
 	position:fixed;
 	width:73% !important;
 	overflow:auto;
-} 
+}
 
 .lawlist{
     float:right;
@@ -767,7 +767,7 @@ h4 a{
 }
 .stage a{
 	color: rgb(175, 161, 154);
-	font-size:0.8em;	
+	font-size:0.8em;
 }
 .text-container img{
 	display:block;
@@ -808,7 +808,7 @@ h4 a{
 .orat-info b{
 	margin-bottom:3px;
 }
-.text-container a{	
+.text-container a{
 	line-height: 0.9em;
 }
 .orat-disc{
@@ -1041,7 +1041,7 @@ text {
 
 #stepsbar .stb-stages .stb-stage:first-child,
 #stepsbar .stb-insts .stb-inst:first-child,
-#stepsbar .stb-steps .stb-step:first-child { 
+#stepsbar .stb-steps .stb-step:first-child {
     border-left: 0px;
 }
 .stb-stages, .stb-insts, .stb-steps{
@@ -1221,7 +1221,7 @@ noscript h2 {
     float: left;
     width: 100%;
     overflow: hidden;
-    
+
 }
 .wide-read .glyphicon {
     padding-left:3px;
@@ -1283,7 +1283,7 @@ noscript h2 {
 }
 
 *[mod1="mod1"] .title h4{
-	line-height: 1em;   
+	line-height: 1em;
 }
 
 *[mod1="mod1"]{font-family: "Oxygen";}
@@ -1296,7 +1296,7 @@ noscript h2 {
 
 #ToolsPanel{
 	margin-bottom: 10px;
-	
+
 }
 #ToolsPanel ul li ul {
   display: none;
@@ -1357,17 +1357,32 @@ margin: 9px 0 10px 10px;
   color: #FFFFFF;
   font-size: 26px;
   right: 0;
-margin: 10px 10px 10px 0px;
+  margin: 10px 10px 10px 0px;
   position: absolute;
 
 }
-#Articles.h4 {
-  width: 80%;
+.title {
+  min-height: 35px;
 }
-
-.links a{
-	
+.title h4, #Articles.h4 {
+  width: 80%;
+  float:left;
+}
+.title .links {
+    width: 14%;
+    float: right;
+}
+.title .links a {
 	color: #FFF;
+    font-size: 12px;
+}
+.title .links a span {
+    margin-right: 5px;
+}
+.title .links a:hover {
+	color: #FFF;
+    opacity: 0.7;
+    text-decoration: none;
 }
 
 
