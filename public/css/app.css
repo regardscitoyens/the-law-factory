@@ -1207,6 +1207,13 @@ noscript h2 {
     top:0.2em;
 }
 
+#readMode{
+    display: none;
+}
+#revsMode{
+    display: none;
+}
+
 .wide-read{
     display: none;
     position: relative;
@@ -1215,7 +1222,6 @@ noscript h2 {
     float: left;
     width: 100%;
     overflow: hidden;
-
 }
 .wide-read .glyphicon {
     padding-left:3px;
