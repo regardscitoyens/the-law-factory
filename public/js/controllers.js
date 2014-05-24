@@ -28,6 +28,27 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.loi = $location.search()['loi'];
         $scope.error = {};
 
+        $scope.read=false;
+        $scope.revs=true;
+        $scope.readmode = function() {
+            $(".text").css({"width":"83.4%","left":"8.3%"});
+            $scope.read=true;
+        }
+        $scope.viewmode = function() {
+            $(".text").css({"width":"18.33%","left":"73.3%"});
+            $scope.read=false;
+        }
+        $scope.hiderevs = function() {
+            $("ins").css({"background-color":"transparent", "text-decoration":"none"})
+            $("del").hide();
+            $scope.revs=false;
+        }
+        $scope.showrevs = function() {
+            $("ins").css({"background-color":"#E6FFE6", "text-decoration":"underline"})
+            $("del").show();
+            $scope.revs=true;
+        }
+
         $scope.spinner = null;
         $scope.spinner_opts = {
             lines: 13, // The number of lines to draw
@@ -186,9 +207,11 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         }
 
         $scope.highlightGroup = function(group) {
-   if (!e) var e = window.event;
-    e.cancelBubble = true;
-    if (e.stopPropagation) e.stopPropagation();
+            if (!e) var e = window.event;
+            if (e) {
+                e.cancelBubble = true;
+                if (e.stopPropagation) e.stopPropagation();
+            }
             if (!$('.focused')) {
                 $(".text-container").empty();
                 if ($scope.groups[group]) $("#text-title").html($scope.groups[group].nom);
@@ -206,9 +229,11 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         }
 
         $scope.resetHighlight = function(type) {
-   if (!e) var e = window.event;
-    e.cancelBubble = true;
-    if (e.stopPropagation) e.stopPropagation();
+            if (!e) var e = window.event;
+            if (e) {
+                e.cancelBubble = true;
+                if (e.stopPropagation) e.stopPropagation();
+            }
             if ($('.focused').length) {
                 d3.selectAll("rect.focused").transition(50).style("opacity",0.55);
                 d3.selectAll("path.focused").transition(50).style("fill-opacity",0.45);

@@ -53,32 +53,11 @@ function(api, $rootScope, $location, $compile) {
         replace : false,
         templateUrl : 'templates/mod1.html',
         controller: function($scope,$element,$attrs) {
-            $scope.read=false;
-            $scope.revs=true;
-            $scope.readmode = function() {
-                $(".text").css({"width":"83.4%","left":"8.3%"});
-                $scope.read=true;
-            }
-            $scope.viewmode = function() {
-                $(".text").css({"width":"18.33%","left":"73.3%"});
-                $scope.read=false;
-            }
-            $scope.hiderevs = function() {
-                $("ins").css({"background-color":"transparent", "text-decoration":"none"})
-                $("del").hide();
-                $scope.revs=false;
-            }
-            $scope.showrevs = function() {
-                $("ins").css({"background-color":"#E6FFE6", "text-decoration":"underline"})
-                $("del").show();
-                $scope.revs=true;
-            }
-
+            $scope.mod="mod1";
+            $rootScope.tuto_btn = true;
         },
         link : function postLink(scope, element, attrs) {
 
-            scope.mod="mod1";
-            $rootScope.tuto_btn = true;
 
             var mod1 = thelawfactory.mod1();
 

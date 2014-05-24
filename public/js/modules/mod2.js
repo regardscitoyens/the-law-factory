@@ -45,6 +45,7 @@ var utils, highlight;
         deselectRow = function() {
             if(d3.event) d3.event.stopPropagation();
             utils.resetHighlight('amds');
+            $("#readMode").hide();
             d3.selectAll("g").style("opacity", 1);
         };
 
@@ -282,6 +283,7 @@ var utils, highlight;
 
 		function select(d) {
             d3.event.stopPropagation();
+            $("#readMode").show();
             utils.resetHighlight('amds');
             utils.startSpinner('load_amd');
             setTimeout(function(){ d3.json(api_root+d.id_api+'/json',function(error, json){
@@ -321,6 +323,7 @@ var utils, highlight;
 
         $(document).ready(function() {
             utils.drawGroupsLegend();
+            $('.readMode').tooltip({ animated: 'fade', placement: 'bottom'});
             if ($(".others div").length) $(".others").append('<div class="leg-item"></div>');
             [
                 {nom: 'Adopté', id: 'adopt', img: 'ok'},
