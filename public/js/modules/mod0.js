@@ -120,7 +120,7 @@ var drawGantt, utils,
                     ydisp -= 20;
                 } else if (d.step) {
                     if (d.step == "depot" && d.debats_order != null)
-                        title = "Pro" + (d.auteur_depot == "Gouvernement" ? "jet" : "position") + " de loi";
+                        title = "Pro" + (d.auteur_depot == "Gouvernement" ? "jet" : "position") + " de loi" + " — " + d.auteur_depot;
                     div.append("p").html(format_title(d.stage));
                     ydisp -= 20;
                 }
@@ -156,6 +156,13 @@ var drawGantt, utils,
             zooming = function(lvl) {
 
                 var perc=($("#gantt").scrollLeft()+$("#gantt").width()/2)/(width*z);
+		if ($("#gantt").scrollLeft() == 0 && $("#gantt").scrollTop() == 0) {
+		    if (layout == 't') {
+			perc = 1;
+		    }else if (layout == 'a') {
+			perc = 0;
+		    }
+		}
                 if(layout==="q") return;
                 if(d3.event && d3.event.scale) z = d3.event.scale;
                 else if(lvl) z=lvl;
@@ -188,7 +195,6 @@ var drawGantt, utils,
                 ganttcontainer.attr("width", width * z);
 
                 $("#gantt").scrollLeft(perc * width * z - $("#gantt").width() / 2 );
-
             };
 
             selection.each(function (data) {
@@ -209,7 +215,7 @@ var drawGantt, utils,
                     $("#gantt svg").empty();
                     $("#legend svg").empty();
                     $("#bars").empty();
-                    $("#text-title").text("Sélectionner une loi");
+                    $("#text-title").text("Sélectionner un texte");
                     $(".text-container").empty();
                     refreshBillsFilter();
                     var zoo = $("#mod0-slider").attr('value'),
@@ -280,35 +286,34 @@ var drawGantt, utils,
                 }
 
                 function prepareSteps(steps, id) {
-                    steps.forEach(function (e, j) {
-                        if(e.stage==="constitutionnalité" || e.institution==="conseil constitutionnel")
-                            e.stepname="CC";
-                        else if (e.stage==="promulgation")
-                            e.stepname="JO";
-                        else if(e.step!=="depot" && (e.institution==="assemblee" || e.institution==="senat"))
-                            e.stepname = e.step.substr(0, 3).toUpperCase();
-                        else if(e.step==="depot")
-                            e.stepname= id.substr(0,3).toUpperCase();
-                        else if(e.institution==="CMP")
-                            e.stepname = "CMP";
+                        steps.forEach(function (e, j) {
+                            if(e.stage==="constitutionnalité" || e.institution==="conseil constitutionnel")
+                                e.stepname="CC";
+                            else if (e.stage==="promulgation")
+                                e.stepname="JO";
+                            else if(e.step!=="depot" && (e.institution==="assemblee" || e.institution==="senat"))
+                                e.stepname = e.step.substr(0, 3).toUpperCase();
+                            else if(e.step==="depot")
+                                e.stepname= id.substr(0,3).toUpperCase();
+                            else if(e.institution==="CMP")
+                                e.stepname = "CMP";
 
-                        if (e.date && e.date != "" && e.enddate < e.date) e.enddate = e.date
-                        if (!e.date || e.date === "") e.date = e.enddate;
+                            if (e.date && e.date != "" && e.enddate < e.date) e.enddate = e.date
+                            if (!e.date || e.date === "") e.date = e.enddate;
 
-                        if (j>0 && steps[j-1].enddate == e.date) {
-                            if (steps[j-1].overlap) e.overlap=steps[j-1].overlap+1;
-                            else e.overlap=1
-                        } else if (j>0 && steps[j-1].overlap) {
+                            if (j>0 && steps[j-1].enddate == e.date) {
+                                if (steps[j-1].overlap) e.overlap=steps[j-1].overlap+1;
+                                else e.overlap=1
+                            } else if (j>0 && steps[j-1].overlap) {
+                                var pastdate=format.parse(steps[j-1].enddate),
+                                    dd = pastdate.getDate()+steps[j-1].overlap,
+                                    mm = pastdate.getMonth()+1,
+                                    y = pastdate.getFullYear();
+                                if (mm<10) mm="0"+mm;
+                                if (dd<10) dd="0"+dd;
 
-                            var pastdate=format.parse(steps[j-1].enddate),
-                                dd = pastdate.getDate()+steps[j-1].overlap,
-                                mm = pastdate.getMonth()+1,
-                                y = pastdate.getFullYear();
-                            if (mm<10) mm="0"+mm;
-                            if (dd<10) dd="0"+dd;
-
-                            // Monitor Overlaps
-                            if (y+"-"+mm+"-"+dd>=e.date) {
+                                // Monitor Overlaps
+                                if (y+"-"+mm+"-"+dd>=e.date) {
 //                                    console.log("OVERLAP:",e.date,y+"-"+mm+"-"+dd)
                                 e.overlap = steps[j - 1].overlap + 1;
                             }
@@ -329,7 +334,7 @@ var drawGantt, utils,
 			    
 			    var remove = [];
                             d.timesteps.forEach(function(s, j) {
-				if (s.step === 'hemicycle' || (s.step === 'depot' && j)) {
+				if ((s.step === 'hemicycle' && d.timesteps[j-1].stage != 'l. définitive') || (s.step === 'depot' && j)) {
                                     remove.unshift(j);
 				    if (s.step === 'hemicycle') {
 					d.timesteps[j-1].enddate = s.enddate;
@@ -337,6 +342,7 @@ var drawGantt, utils,
 					d.timesteps[j-1].step = s.institution;
 				    }
 				}
+
                             });
                             remove.forEach(function(id, j) {
 				d.timesteps.splice(id, 1);
@@ -678,7 +684,7 @@ var drawGantt, utils,
                     $("#text-title").text(d.short_title);
                     var themes=$('<p>');
                     d.themes.join(",").replace(/ et /g, ',').split(',').forEach(function(e,j){
-                        themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les lois correspondant à ce thème' data-toggle='tooltip' data-placement='left'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
+                        themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les textes correspondant à ce thème' data-toggle='tooltip' data-placement='left'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
                     }),
                         mots=(Math.round(d.total_mots / 1000. ) + "" ).replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;").replace(/^0/, '');
                     $(".text-container").empty()
