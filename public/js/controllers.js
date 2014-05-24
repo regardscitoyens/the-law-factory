@@ -186,9 +186,11 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         }
 
         $scope.highlightGroup = function(group) {
-   if (!e) var e = window.event;
-    e.cancelBubble = true;
-    if (e.stopPropagation) e.stopPropagation();
+            if (!e) var e = window.event;
+            if (e) {
+                e.cancelBubble = true;
+                if (e.stopPropagation) e.stopPropagation();
+            }
             if (!$('.focused')) {
                 $(".text-container").empty();
                 if ($scope.groups[group]) $("#text-title").html($scope.groups[group].nom);
@@ -206,9 +208,11 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         }
 
         $scope.resetHighlight = function(type) {
-   if (!e) var e = window.event;
-    e.cancelBubble = true;
-    if (e.stopPropagation) e.stopPropagation();
+            if (!e) var e = window.event;
+            if (e) {
+                e.cancelBubble = true;
+                if (e.stopPropagation) e.stopPropagation();
+            }
             if ($('.focused').length) {
                 d3.selectAll("rect.focused").transition(50).style("opacity",0.55);
                 d3.selectAll("path.focused").transition(50).style("fill-opacity",0.45);
