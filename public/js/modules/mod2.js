@@ -281,7 +281,7 @@ var utils, highlight;
         }
 
 		function select(d) {
-            d3.event.stopPropagation()
+            d3.event.stopPropagation();
             utils.resetHighlight('amds');
             utils.startSpinner('load_amd');
             setTimeout(function(){ d3.json(api_root+d.id_api+'/json',function(error, json){
