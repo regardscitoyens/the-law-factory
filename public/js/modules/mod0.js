@@ -13,11 +13,12 @@ var drawGantt, utils,
   months: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
   shortMonths: ["Janv.", "Fév.", "Mars", "Avril", "Mai", "Juin", "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc."]
 }),
-    active_filters = {
+  allAmendments = ["Quelque soit le nombre d'amendement", 'Aucun amendement', 'Moins de 50 amendements', 'Plus de 50 amendements'],
+  active_filters = {
         year: 2013,
         theme: "",
         length: '',
-        amendments: 'plus de 50'
+        amendments: allAmendments[3]
     },
     refreshBillsFilter = function(){
         var label;
@@ -274,6 +275,17 @@ var drawGantt, utils,
                         $("#display_order #do-date").addClass('chosen');
                         sort_function = sortByDate;
                     } else scroll = null;
+		    $("#menu-amendments .selectedchoice").text(active_filters['amendments']);
+		    if (active_filters['year'] == allYears[0]) {
+			$("#menu-years .selectedchoice").text(allYears[0]);
+		    }else{
+			$("#menu-years .selectedchoice").text("Étudié en "+active_filters['year']);
+		    }
+		    if (active_filters['theme']) {
+			$("#menu-themes .selectedchoice").text("Theme : "+active_filters['theme']);
+		    }else{
+			$("#menu-themes .selectedchoice").text("Tous les thèmes");
+		    }
                     drawLaws();
                     drawAxis();
                     if (layout == "t") {
@@ -378,36 +390,54 @@ var drawGantt, utils,
 
                 // Populate themes, years and amendments in filter menu
                 function computeFilters() {
-                    var y1;
-                    dossiers.forEach(function(l,i){
-                        allThemes = allThemes.concat(l.themes.join(',').replace(/ et /g, ',').split(','));
-                        y1 = l.beginning.substr(0,4)-2000;
-                        if (!allYears[y1])
-                            allYears[y1] = true;
-                        y1 = l.end.substr(0,4)-2000;
-                        if (!allYears[y1])
-                            allYears[y1] = true;
-                        allAmendments = ['aucun', 'moins de 50', 'plus de 50'];
-                    });
-                    $("#years").empty();
-                    allYears.forEach(function(d,i){
-                        if (d) $("#years").append("<li><a onclick=\"addBillsFilter('year',"+(i+2000)+")\">"+(i+2000)+'</a></li>');
-                    });
-                    allThemes = allThemes.filter(function(itm,i,a){
-                        return i==a.indexOf(itm);   // unify
-                    });
-                    allThemes.sort(function(a,b){
-                        var ac = clean_accents(a),
+                    var y1, hashYears = {};
+		    if (!allYears.length) {
+			dossiers.forEach(function(l,i){
+                            allThemes = allThemes.concat(l.themes.join(',').replace(/ et /g, ',').split(','));
+                            y1 = l.beginning.substr(0,4);
+                            hashYears[y1] = true;
+                            y1 = l.end.substr(0,4);
+                            hashYears[y1] = true;
+			});
+			allYears[0] = "N'importe quelle année";
+			for(var k in hashYears) {
+			    allYears.push(k);
+			}
+			allYears.sort();
+			allYears.reverse();
+			allThemes = allThemes.filter(function(itm,i,a){
+                            return i==a.indexOf(itm);   // unify
+			});
+			allThemes.sort(function(a,b){
+                            var ac = clean_accents(a),
                             bc = clean_accents(b);
-                        return (ac === bc ? 0 : (ac < bc ? -1 : 1))
+                            return (ac === bc ? 0 : (ac < bc ? -1 : 1))
+			});
+			allThemes.unshift('Tous les thèmes');
+		    }
+		    $("#years").empty();
+                    allYears.forEach(function(d,i){
+			if (active_filters['year'] == d) {
+			    $("#years").append("<li><a class='chosen' onclick=\"rmBillsFilter('year',"+d+")\">"+d+'</a></li>');
+			}else{
+			    $("#years").append("<li><a onclick=\"addBillsFilter('year',"+d+")\">"+d+'</a></li>');
+			}
                     });
                     $("#themes").empty();
                     allThemes.forEach(function(d){
-                        $("#themes").append("<li><a onclick=\"addBillsFilter('theme','"+d+"')\">"+d+'</a></li>');
+			if (active_filters['theme'] == d) {
+                            $("#themes").append("<li><a class='chosen' onclick=\"rmBillsFilter('theme','"+d+"')\">"+d+'</a></li>');
+			}else{
+                            $("#themes").append("<li><a onclick=\"addBillsFilter('theme','"+d+"')\">"+d+'</a></li>');
+			}
                     });
                     $("#amendments").empty();
                     allAmendments.forEach(function(d){
-                        $("#amendments").append("<li><a onclick=\"addBillsFilter('amendments','"+d+"')\">"+d+'</a></li>');
+			if (active_filters['amendments'] == d) {
+                            $("#amendments").append("<li><a class='chosen' onclick=\"rmBillsFilter('amendments','"+d+"')\">"+d+'</a></li>');
+			}else{
+                            $("#amendments").append("<li><a onclick=\"addBillsFilter('amendments','"+d+"')\">"+d+'</a></li>');
+			}
                     });
                 }
 
@@ -476,11 +506,11 @@ var drawGantt, utils,
                         .filter(function(d){
                             if (!active_filters['amendments']) return true;
                             switch(active_filters['amendments']) {
-                                case 'aucun':
+                                case allAmendments[1]:
                                     return !d.total_amendements; break;
-                                case 'moins de 50':
+                                case allAmendments[2]:
                                     return d.total_amendements && d.total_amendements < 51; break;
-                                case 'plus de 50':
+                                case allAmendments[3]:
                                     return d.total_amendements > 50; break;
                             };
                         })
