@@ -82,6 +82,10 @@ function drawFlows(top_ordered) {
     $("#display_menu .chosen").removeClass('chosen');
     $("#display_menu #dm-"+(top_ordered ? 'quanti' : 'classic')).addClass('chosen');
     utils.startSpinner();
+    console.log("lol",$("#viz").height())
+    var height;
+    if(num*60>=$("#viz").height()) height=num*60;
+    else height=$("#viz").height()-50;
     $("#viz-int").animate({opacity: 0}, 200, function() {
         $("#viz-int").empty();
         $(".text-container").empty();
@@ -89,7 +93,7 @@ function drawFlows(top_ordered) {
         var stream = sven.viz.streamkey()
             .data(mydata)
             .target("#viz-int")
-            .height(num*60)
+            .height(height)
             .width(width)
             .minHeight(8)
             .sorting(top_ordered)
@@ -238,10 +242,10 @@ sven.viz.streamkey = function(){
 
         svg = d3.select(target).append("svg")
             .attr("width", height)
-            .attr("height", width+50)
+            .attr("height", width+40)
             .append("g")
             .attr("class","main-g")
-            .attr("transform","translate(0,20)")
+            .attr("transform","translate(0,30)")
 
         var layer = svg.selectAll("g")
             .data(dataF)
