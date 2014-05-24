@@ -671,7 +671,7 @@ var drawGantt, utils,
                 }
 
                 function unclick() {
-                    $("#text-title").text("Sélectionner une loi");
+                    $("#text-title").text("Sélectionner un texte");
                     $(".text-container").empty();
                     d3.selectAll(".g-law").style("opacity",1);
                 }
