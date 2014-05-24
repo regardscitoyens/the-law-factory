@@ -425,31 +425,35 @@ ins {
     border: 0px; 
     border-radius: 0px;
 }
-.nav .caret { 
+.nav .caret {
     border-bottom-color: #777777;
     border-top-color: #777777;
 }
-
-.dropdown-menu li a.chosen {
-    padding-left: 10px;
+.dropdown-menu {
+  padding: 0px;
+  border-radius: 0px;
+  border: 0px;
+}
+.dropdown-menu>li>a:hover {
+   background-color: #716259;
+}
+.dropdown-menu li:hover .chosen:before {
+   color: white;
 }
 .dropdown-menu li .chosen:before {
+   color: #716259;
+}
+.dropdown-menu li:hover :before {
+   color: #716259;
+}
+.dropdown-menu li :before {
   content:"\e013";
   font-family:"Glyphicons Halflings";
-  line-height:1;
   margin-right:10px;
   display:inline-block;
+  color: white;
 }
 
-
-
-.menu-btn {
-	float:right;
-	padding:2px;
-	margin-top:25px;
-	background:#DAD1CB;
-	height:100%;
-}
 ul.ui-autocomplete {
 	list-style-type: none;
 	color:#fff;
