@@ -223,6 +223,11 @@ angular.module('theLawFactory.controllers', []).
 			    .classed("actv-amd",false);
         }
 
+        $scope.formatDate = function(d) {
+            var d2 = d.split('-');
+            return d2[2]+"/"+d2[1]+"/"+d2[0];
+        }
+
         /////////////////////////////////////////////////////////////
         $scope.toggleTutorial = function(show) {
 
