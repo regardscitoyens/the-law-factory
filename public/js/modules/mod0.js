@@ -456,9 +456,12 @@ var drawGantt, utils,
                     // filter and sort laws
                     if (utils.loi) {
                         cleanBillsFilter();
+			$('#backtoall').show();
                         smallset = dossiers.filter(function(d) { return d.id==utils.loi; });
-                    } else smallset = dossiers
-                        .filter(function(d){
+                    } else {
+			$('#backtoall').hide();
+			smallset = dossiers
+                          .filter(function(d){
                             if (!active_filters['theme']) return true;
                             return (d.themes.join(',').indexOf(active_filters['theme'])) != -1;
                         })
@@ -482,6 +485,7 @@ var drawGantt, utils,
                             };
                         })
                         .sort(sort_function);
+		    }
 
                     // find date range
                     for (i = 1; i <= maxstat; i++) stats[binstat*i] = 0;
