@@ -454,6 +454,16 @@ ins {
   color: white;
 }
 
+.btn-title, .btn-title:hover{
+    float:right;
+    display:inline-block;
+    cursor:pointer;
+    text-decoration: none;
+    background-color:#716259;
+    color:white;
+    line-height:75px;                              
+}
+
 ul.ui-autocomplete {
 	list-style-type: none;
 	color:#fff;
