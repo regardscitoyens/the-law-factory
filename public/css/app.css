@@ -116,15 +116,15 @@ body{
 	background-color:#716259;
 	overflow:hidden;
     margin-bottom:20px;
+	padding-left: 25px !important;
+	padding-right: 25px !important;
 }
 
 .title .subtitle {
 	color:#dde;
-	line-height:75px;
 	font-size:12px;
-	margin-top: 15px;
-	margin-left: 50px;
-	font-weight:600;
+	margin: 15px 0px 1px 50px;
+	font-weight:bold;
 	float: left;
 }
 .title h4 {
@@ -135,17 +135,8 @@ body{
 	font-weight:600;
 	float: left;
 }
-
-.title{
-	padding-left: 25px !important;
-	padding-right: 25px !important;
-}
 .nav-tabs.nav-justified>li>a {
 	border:none !important;
-}
-.separator{
-	height:60px;
-	background-color:#fff;
 }
 .labels{
 	background-color:transparent;
@@ -331,7 +322,7 @@ ins {
 	background:#E6FFE6;
 }
 .padded{
-	padding: 20px 0;
+	padding: 15px 0;
 }
 
 .law-title{
@@ -341,14 +332,6 @@ ins {
 	padding-left: 15px;
     float: left;
     width: 80%;
-}
-.separator .links{
-    float: right;
-	margin-top: 10px;
-    margin-right: 8px;
-    font-size: 12px;
-    text-align: center;
-    width: 15%
 }
 .scrolling{
 	width: 73.33%;
@@ -1072,7 +1055,9 @@ text {
 }
 .stb-link{
     display:block;
-    width:33.3%;
+    width:30%;
+    margin-left:10%;
+    margin-right:10%;
     float:left;
     opacity:0.7;
 }
@@ -1255,48 +1240,47 @@ noscript h2 {
 
 /*------- Nelson's mess --------*/
 
-*[mod1="mod1"] .law-title{
+.row .law-title{
 	font-size: 26px;
 	color: #FFF;
 	line-height: 32px;
 }
 
-*[mod1="mod1"] .separator{
-	background-color: #716259;
+.row .btn-title{
+	line-height: 0.8em;
 	height: auto;
+    margin-right: 2%;
+    font-size: 14px;
+    padding-bottom: 3px;
+}
+.row .btn-title:hover {
+    opacity: 0.7;
 }
 
-*[mod="mod1"] .title{
-	height: auto;
-	background: #FFF;
-}
-
-*[mod1="mod1"] .btn-title{
-	line-height: 1em;
-	height: auto;
-}
-
-*[mod1="mod1"] .title{
+.row .title{
 	height: auto;
 	margin: 10px 0;
 	padding-bottom: 2px;
 }
 
-*[mod1="mod1"] .title h4{
+.row .title h4{
 	line-height: 1em;
 }
 
-*[mod1="mod1"]{font-family: "Oxygen";}
+.row {font-family: "Oxygen";}
 
-*[mod1="mod1"] .list-inline > li {
+.row .list-inline{
+    font-family: "Helvetica Neue","Oxygen",sans-serif !important;
+}
+
+.row .list-inline > li {
 	padding: 5px 20px;
 	position: relative;
 	cursor: pointer;
 }
 
 #ToolsPanel{
-	margin-bottom: 10px;
-
+	margin-bottom: 15px;
 }
 #ToolsPanel ul li ul {
   display: none;
@@ -1325,10 +1309,6 @@ noscript h2 {
 }
 #ToolsPanel ul > li > ul > li:hover {
 	background: #8e7b6f;
-}
-
-*[mod1="mod1"] .list-inline{
-font-family: "Helvetica Neue","Oxygen",sans-serif !important;
 }
 
 .interactive{
@@ -1369,7 +1349,7 @@ margin: 9px 0 10px 10px;
   float:left;
 }
 .title .links {
-    width: 14%;
+    width: 16%;
     float: right;
 }
 .title .links a {

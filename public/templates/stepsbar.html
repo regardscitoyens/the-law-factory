@@ -27,11 +27,6 @@
             </div>
 
             <div class="stb-links">
-                <a class="stb-link stb-txt" ng-show="mod!='mod1'" title="Explorer les articles" data-toggle="tooltip" data-placement="bottom" href="articles.html?loi={{loi}}">
-                    <span class="glyphicon glyphicon-list"></span>
-                </a>
-                <span ng-hide="mod!='mod1'" class="stb-link glyphicon glyphicon-list low-vis"></span>
-
                 <a class="stb-link stb-amds" ng-show="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='mod2b'))" data-toggle="tooltip" data-placement="bottom" title="Explorer les amendements" href="amendements.html?loi={{loi}}&etape={{i.directory}}">
                     <span class="glyphicon glyphicon-folder-open"></span>
                 </a>
