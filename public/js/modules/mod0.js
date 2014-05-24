@@ -48,7 +48,11 @@ var drawGantt, utils,
         active_filters[filtype]=filval;
         drawGantt('filter');
     },
-    rmBillsFilter = function(filtype){ addBillsFilter(filtype,""); };
+    rmBillsFilter = function(filtype){ addBillsFilter(filtype,""); },
+    cleanBillsFilter = function(){
+        active_filters = {year: "", theme: "", length: "", amendments: ""}
+        refreshBillsFilter();
+    };
 
 (function () {
 
@@ -433,7 +437,10 @@ var drawGantt, utils,
 
                 function drawLaws() {
                     // filter and sort laws
-                    smallset = dossiers
+                    if (utils.loi) {
+                        cleanBillsFilter();
+                        smallset = dossiers.filter(function(d) { return d.id==utils.loi; });
+                    } else smallset = dossiers
                         .filter(function(d){
                             if (!active_filters['theme']) return true;
                             return (d.themes.join(',').indexOf(active_filters['theme'])) != -1;
@@ -577,6 +584,10 @@ var drawGantt, utils,
                         .attr("stroke", "#ddd")
                         .attr("stroke-width", 1)
                         .attr("opacity", 0.6);
+                    if (utils.loi) {
+                        onclick(smallset[0]);
+                        utils.loi = null;
+                    }
                 }
 
 		

@@ -286,8 +286,8 @@ function(api, $rootScope, $location) {
                         select : function(event, ui) {
                             $rootScope.$apply(function() {
                                 $("body").css("overflow", "auto");
-                                $location.path("/loi");
-                                $location.search("l=" + ui.item.value);
+                                $location.path(scope.mod==='mod0' ? '/lois' : '/articles');
+                                $location.search("loi=" + ui.item.value);
                         });
                     }
                 })
