@@ -262,7 +262,7 @@ function(api, $rootScope, $location) {
                                 return matcher.test(clean_accents(value));
                             }), function(n, i) {
                                 return {
-                                    "label" : n.Titre + " (" + n.short_title.replace(/ \([^)]*\)/g, '') + ")",
+                                    "label" : n.short_title.replace(/ \([^)]*\)/g, '') + " (" + n.Titre + ")",
                                     "value" : n.id,
                                     "themes": n["Thèmes"],
                                     "amendements": n.total_amendements,
@@ -380,18 +380,24 @@ return {
 
         link : function preLink(scope, element, attrs, stepsbarCtrl) {
 
-
             scope.total=0;
             api.getProcedure(scope.loi).then(function(data) {
 
+                var tit = upperFirst(data.long_title),
+                    leg = "";
+                if (tit.length > 150) {
+                    leg = ' data-toggle="tooltip" data-placement="bottom" title="'+tit+'"';
+                    tit = scope.loi.substr(0,3).toUpperCase() + " " + upperFirst(data.short_title);
+                }
                 $(".title").html(
-                  '<h4 class="law-title">'+upperFirst(data.long_title)+'</h4>' +
+                  '<h4 class="law-title"'+leg+'>'+tit+'</h4>' +
                   '<span class="links">' +
                     '<a href="'+data.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a><br/>' +
                     '<a href="'+data.url_dossier_assemblee+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Assemblée</a>' +
                     (data.url_jo ? '<br/><a href="'+data.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur LégiFrance</a>' : '') +
                   '<span>'
                 );
+                if (leg) $(".law-title").tooltip();
 
                 scope.stages=[],
                 scope.steps=[],
