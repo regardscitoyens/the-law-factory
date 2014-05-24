@@ -10,9 +10,10 @@
 body{
     font-family:"Oxygen", sans-serif !important;
     width:100%;
+    height:100%;
+    /*overflow-y:hidden; to add when height 100% handled */
     overflow-x:hidden;
 }
-
 
 h1,h2,h3,h4 {
     font-family:"Oxygen", sans-serif !important;
@@ -219,8 +220,8 @@ body{
 	overflow:auto;
 	padding-top:10px;
     height:540px;
+    overflow-x:hidden;
     overflow-y:auto;
-	
 }
 .txt-center {
     text-align: center;
@@ -1011,9 +1012,7 @@ text {
     color:#555;
 }
 
-
-
- .src-fcs .src-ico, .src-fcs .src-ico .glyphicon, .src-fcs a{
+.src-fcs .src-ico, .src-fcs .src-ico .glyphicon, .src-fcs a{
     color:white !important;
 }
 
@@ -1159,9 +1158,10 @@ ul.filters li a.badge b {
 .dropdown-submenu{position:relative;}
 .dropdown-submenu>.dropdown-menu{top:-60px;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}
 .dropdown-submenu:hover>.dropdown-menu{display:block;}
-.dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
+.dropdown-submenu>a:after {display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
 .dropdown-submenu:hover>a:after{border-left-color:#ffffff;}
-.dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}
+.dropdown-submenu.pull-left{float:none;}
+.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}
 
 #preload, #load_art {
     position:relative;
@@ -1235,29 +1235,6 @@ noscript h2 {
 .tooltip.left .tooltip-arrow{border-left-color:#716259}
 .tooltip.right .tooltip-arrow{border-right-color:#716259}
 
-
-
-.help-ico{
-    position:absolute;
-    right:0;
-    top:173px;
-    width:30px;
-    height:30px;
-    line-height:30px;
-    font-size:16px;
-    background-color:#716259;
-    color:white;
-    text-align:center;
-    z-index:3;
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
-    }
-.tooltip-inner {background-color: #716259;border-radius:0;border: solid 1px #716259;}
-
-.tooltip.bottom .tooltip-arrow{border-bottom-color:#716259;}
-
 .badge{
     -webkit-border-radius: 0 !important;
     -moz-border-radius: 0 !important;
@@ -1269,30 +1246,6 @@ noscript h2 {
     background-color: #716259;
     border-radius: 0;
 
-}
-.help-ico h4{
-    margin:0;
-    padding:15px 0;
-}
-
-.help-ico b, .help-ico .glyphicon{
-    cursor:pointer;
-}
-
-.h-close{
-    position: absolute;
-    right:6px;
-    top:6px;
-}
-.help-content{
-    background-color:white;
-    color:#333;
-    text-align: left;
-    font-size:14px;
-    line-height:1em;
-    padding:0 15px 15px 15px;
-    height:570px;
-    border: 1px solid #716259;
 }
 
 .badge{
@@ -1306,7 +1259,6 @@ noscript h2 {
 	font-size: 26px;
 	color: #FFF;
 	line-height: 32px;
-	
 }
 
 *[mod1="mod1"] .separator{
@@ -1322,7 +1274,6 @@ noscript h2 {
 *[mod1="mod1"] .btn-title{
 	line-height: 1em;
 	height: auto;
-	
 }
 
 *[mod1="mod1"] .title{
@@ -1333,11 +1284,9 @@ noscript h2 {
 
 *[mod1="mod1"] .title h4{
 	line-height: 1em;   
-	
 }
 
 *[mod1="mod1"]{font-family: "Oxygen";}
-
 
 *[mod1="mod1"] .list-inline > li {
 	padding: 5px 20px;
@@ -1345,13 +1294,11 @@ noscript h2 {
 	cursor: pointer;
 }
 
-
 #ToolsPanel{
 	margin-bottom: 10px;
 	
 }
 #ToolsPanel ul li ul {
-
   display: none;
   margin-top: 5px;
   position: absolute;
@@ -1375,24 +1322,13 @@ noscript h2 {
 
 #ToolsPanel ul li:hover > ul{
 	display: block;
-	
 }
-#ToolsPanel ul > li > ul > li:hover{
-	
+#ToolsPanel ul > li > ul > li:hover {
 	background: #8e7b6f;
-	
 }
 
 *[mod1="mod1"] .list-inline{
 font-family: "Helvetica Neue","Oxygen",sans-serif !important;
-}
-
-
-body{
-overflow-x: hidden;
-	width: 100%;
-	height: 100%;
-
 }
 
 .interactive{
@@ -1515,7 +1451,7 @@ a.button{
     transition: background-color .2s ease-in-out;
     cursor: pointer;
 }
-a.button:hover{
+a.button:hover {
     background: #581e19;
     text-decoration: none;
 }

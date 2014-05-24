@@ -390,39 +390,6 @@ return {
     }
 };
 }])
-    .directive('helppanel', ['api', '$rootScope', '$location', '$compile',
-        function(api, $rootScope, $location, $compile) {
-            return {
-                restrict : 'E',
-                replace : false,
-                templateUrl : 'templates/helppanel.html',
-                controller: function($scope, $element, $attrs) {
-
-                    $scope.expanded=false;
-
-                    $scope.expand = function(mod) {
-
-                        $scope.expanded=true;
-                        $(".help-ico").css("width","26.6%");
-
-                    }
-
-                    $scope.close = function(mod) {
-
-                        $scope.expanded=false;
-                        $(".help-ico").css("width","30px");
-
-                    }
-
-                },
-                link : function postLink(scope, element, attrs) {
-
-
-
-
-                }
-            };
-        }])
 .directive('stepsbar', ['$timeout','api', '$rootScope', "$location",
     function(timer,api, $rootScope, $location) { return {
         restrict : 'A',

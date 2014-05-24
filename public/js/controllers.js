@@ -38,8 +38,6 @@ angular.module('theLawFactory.controllers', []).
             left: '50%' // Left position relative to parent
         };
 
-        
-        
         $scope.startSpinner = function(divid) {
             if ($scope.spinner != null) return;
             if (!divid) divid = 'preload';
