@@ -941,7 +941,6 @@ text {
 #header-nav .navbar-nav>li>span {
     color:#808285;
 }
-
 .nav>li>span:hover, .nav>li>span:focus {
     text-decoration: none;
 }
@@ -951,19 +950,11 @@ text {
 footer span:hover {
     color: #716259;
 }
-
-.cmd-btn{
-    float:right;
-    background-color:#716259 !important;
-    color:white;
-    margin-bottom:10px;
-}
 .glass{
     font-size: 0.9em;
     padding-left:6px;
     font-weight: bold;
 }
-
 .ui-menu-item{
     display: block;
     border-bottom:1px solid #ccc;
@@ -1312,7 +1303,7 @@ footer .navbar-nav{
     table-layout: fixed;
     float:none;
 }
-.nav>li>span, .nav>li>a, #search-btn>span{
+.nav>li>span, .nav>li>a {
     padding: 0;
     line-height: 26px;
     margin: 12px 4px;
@@ -1325,9 +1316,6 @@ footer .nav>li>a {
     font-size: 13px;
 }
 
-#search-btn>span{
-    background-color: #eee;
-}
 #home a.button{
     background: #50a477;
     color: white;

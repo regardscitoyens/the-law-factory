@@ -33,17 +33,6 @@ var accentMap = {
     return (!s ? "" : s.charAt(0).toUpperCase() + s.substring(1));
 };
 
-$("#search-btn").on("click", function() {
-    $("#search").val($("#search").text())
-    $("body").css("overflow", "hidden");
-    $(".lawlist").effect("slide", {
-        direction : "right",
-        mode : "show"
-    }, 600)
-    $(".close-search").show();
-    $("#search").focus();
-});
-
 /* Directives */
 
 angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootScope', '$location', '$compile',
