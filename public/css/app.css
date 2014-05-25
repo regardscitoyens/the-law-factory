@@ -510,13 +510,6 @@ ul.ui-autocomplete {
     border-color: #716259;
     padding: 0px;
 }
-#lawlist>span.ui-helper-hidden-accessible {
-    float: right;
-    margin-top: 118px;
-    width: 14%;
-    position: relative;
-    overflow: visible;
-}
 .lawlist{
     float:right;
 	width:75%;
@@ -537,16 +530,18 @@ ul.ui-autocomplete {
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength = 4, Direction = 0, Color = '#cccccc');
 }
 
-.navbar-form input, .navbar button {
+.navbar-form input, .navbar button, .navbar span {
     border-radius: 0;
     border-color: #716259;
     color: #716259;
 }
-.navbar-form input {
+.navbar-form input, .navbar-form span {
     opacity: 0.5;
+    border-right: 0px;
+    box-shadow: none;
 }
-.navbar-form input:focus {
-    opacity: 1;
+.navbar-form span {
+    border-left: 0px;
 }
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
     background-color: #716259;
@@ -560,33 +555,6 @@ ul.ui-autocomplete {
 .form-control:focus {
     border-color: #716259;
     box-shadow:none !important;
-}
-.close-search{
-    float:left;
-    width:25%;
-    height:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:1000;
-    background:transparent;
-    display:none;
-}
-
-.lawlist input {
-	border:none;
-	background:transparent;
-	width:80%;
-	margin-top:4%;
-	margin-left:2%;
-	font-size:4em;
-
-	color:#716259;
-	border-bottom: 1px solid #716259 !important;
-	outline:none;
-}
-#search-btn{
-	border-radius: 0 !important;
 }
 .ui-menu .ui-menu-item {
 	padding:8px 0px;

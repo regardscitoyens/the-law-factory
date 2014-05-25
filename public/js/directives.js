@@ -267,6 +267,7 @@ function(api, $rootScope, $location) {
                             $(".ui-autocomplete").height($(window).height() - h);
 
                         },
+                        close: function() { $('#header-search .message').text('');},
                         appendTo : ".lawlist",
                         select : function(event, ui) {
                             $rootScope.$apply(function() {
@@ -276,8 +277,8 @@ function(api, $rootScope, $location) {
                             });
                         },
                         messages: {
-                            noResults: 'Aucune loi trouvée',
-                            results: function(d) { return d + " loi" + (d > 1 ? "s trouvées" : " trouvée"); }
+                            noResults: function(d) { var msg = 'Aucune loi trouvée'; $('#header-search .message').text(msg); return msg; },
+                            results: function(d) { var msg = d + " loi" + (d > 1 ? "s trouvées" : " trouvée"); $('#header-search .message').text(msg); return msg;}
                         }
                     })
                     .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
