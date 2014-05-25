@@ -131,15 +131,14 @@ body{
 .title h4 {
 	margin: 8px 0px 0px 0px;
 	font-weight:bold;
-    width: 80%;
     float:left;
 	font-size: 18px;
 	color: #FFF;
 	line-height: 32px;
 }
 .title .links {
-    width: 10%;
-    float: left;
+    width: 144px;
+    float: right;
     padding-top: 4px;
 }
 .title .links a {

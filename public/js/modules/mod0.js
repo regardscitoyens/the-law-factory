@@ -622,7 +622,6 @@ var drawGantt, utils,
                         utils.loi = null;
                     }
                 }
-
 		
                 function drawLabels() {
                     d3.selectAll(".g-law").append("g").attr("class", "lbls")
