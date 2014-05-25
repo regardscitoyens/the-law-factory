@@ -1,4 +1,4 @@
-angular.module('theLawFactory.analytics', ['theLawFactory.config']).run(function($http, GOOGLE_ANALYTICS_ID, HOST) {
+angular.module('theLawFactory.analytics', ['theLawFactory.config']).run(function($http, GOOGLE_ANALYTICS_ID, HOST_FOR_GOOGLE) {
   if (GOOGLE_ANALYTICS_ID) {
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
