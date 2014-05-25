@@ -1394,6 +1394,7 @@ footer ul{
 footer ul li{
     display: inline-block;
     list-style-type: none;
+    text-transform: uppercase;
 }
 footer a {
     color: black;
