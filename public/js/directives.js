@@ -54,7 +54,6 @@ function(api, $rootScope, $location, $compile) {
         templateUrl : 'templates/mod1.html',
         controller: function($scope,$element,$attrs) {
             $scope.mod="mod1";
-            $rootScope.tuto_btn = true;
         },
         link : function postLink(scope, element, attrs) {
 
@@ -96,7 +95,6 @@ function(api, $rootScope, $location, $compile) {
         controller : function($scope, $element, $attrs) {
             $scope.step = 0;
             $scope.mod="mod2";
-            $rootScope.tuto_btn = true;
         },
         link : function postLink(scope, element, attrs) {
 
@@ -136,7 +134,6 @@ function(api, $rootScope, $location, $compile) {
         controller : function($scope, $element, $attrs) {
             $scope.step = 0;
             $scope.mod="mod2b";
-            $rootScope.tuto_btn = true;
         },
         link : function postLink(scope, element, attrs) {
 
@@ -179,7 +176,6 @@ function(api, $rootScope, $location, $compile) {
 
             $rootScope.pageTitle = "";
             scope.mod="mod0";
-            $rootScope.tuto_btn = true;
 
             $("#mod0-slider").slider({
                 min:1,

@@ -1050,6 +1050,7 @@ footer span:hover {
 
 #stepsbar{
     width:100%;
+    height: 118px;
     background-color: rgb(243,238,229);
     overflow:hidden;
 }

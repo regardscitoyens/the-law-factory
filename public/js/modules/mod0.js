@@ -196,8 +196,8 @@ var drawGantt, utils,
                     $("#gantt svg").empty();
                     $("#legend svg").empty();
                     $("#bars").empty();
-                    $("#text-title").text("Sélectionner un texte");
-                    $(".text-container").empty();
+                    unclick();
+
                     refreshLengthFilter();
                     var zoo = $("#mod0-slider").attr('value'),
                         scroll = {scrollTop: "0px", scrollLeft: "0px"};
@@ -697,6 +697,7 @@ var drawGantt, utils,
 
                 function unclick() {
                     $("#text-title").text("Sélectionner un texte");
+                    $("#text-title").attr('data-original-title', "").tooltip('fixTitle');
                     $(".text-container").empty();
                     d3.selectAll(".g-law").style("opacity",1);
                 }
@@ -707,13 +708,14 @@ var drawGantt, utils,
                     d3.select(".g-law."+ d.id).style("opacity",1);
 
                     $("#text-title").text(d.short_title);
+                    $("#text-title").attr('data-original-title', d.long_title).tooltip('fixTitle');
+data('tooltip').options.title = d.long_title;
                     var themes=$('<p>');
                     d.themes.join(",").replace(/ et /g, ',').split(',').forEach(function(e,j){
                         themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les textes correspondant à ce thème' data-toggle='tooltip' data-placement='left'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
                     }),
                         mots=(Math.round(d.total_mots / 1000. ) + "" ).replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;").replace(/^0/, '');
                     $(".text-container").empty()
-                        .append('<p><b>'+upperFirst(d.long_title)+"</b></p>")
                         .append('<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + "</p>");
                     if (d.procedure != "Normale") $(".text-container").append('<p>(' + d.procedure.toLowerCase() + ")</p>");
                     $(".text-container").append('<div class="gotomod"><a class="btn btn-info" href="articles.html?loi=' + d.id + '">Explorer les articles</a></div>');
@@ -774,6 +776,11 @@ var drawGantt, utils,
                                     mousemove: true};
                             });
 
+                        if (e.key < 10)
+                            label = "&nbsp;&nbsp;&nbsp;"+label;
+                        if (e.key == 1 || e.key == 7 || e.key == 11)
+                            label = "&nbsp;&nbsp;&nbsp;"+label;
+
                         step.append("div")
                             .attr("class", "bar-key")
                             .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(parseInt(barcontainer.style("width")) / maxstat), 8]) + "px")
@@ -788,6 +795,7 @@ var drawGantt, utils,
                     currFile = data.next_page;
                     $("a.badge").tooltip();
                     setTimeout((currFile ? dynamicLoad : drawGantt), 0);
+                    $("#text-title").tooltip();
                 });
 
 
