@@ -20,8 +20,8 @@ h1,h2,h3,h4 {
     font-family:"Oxygen", sans-serif !important;
 }
 
-#header-search { margin-right: 350px; margin-left: 210px;padding: 10px 50px 10px 0px;}
-#header-logos { float: right; width: 350px;}
+#header-search { margin-right: 350px; margin-left: 210px;padding: 5px 50px 0px 0px;}
+#header-logos { float: right; width: 366px;}
 #header-mainlogo { float: left; width: 210px;}
 
 .menu {
@@ -1593,7 +1593,6 @@ footer{
 }
 .head-logo{
     margin-right:1%;
-    height:45px;
     float: left;
 }
 #wrapper{
