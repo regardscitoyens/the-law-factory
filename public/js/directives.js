@@ -225,25 +225,14 @@ function(api, $rootScope, $location) {
     return {
         restrict : 'A',
         replace : false,
-        template : '<input auto-complete id="search" placeholder="Chercher une loi" ng-model="selected"><img ng-click="closeSearch()" class ="cls" src="img/cross.png"/> ',
-        controller : function($scope, $element, $attrs) {
-
-            $scope.closeSearch = function() {
-                $(".lawlist").fadeOut(200);
-                $(".close-search").hide();
-                $("body").css("overflow", "auto");
-            }
-        },
         link : function postLink(scope, element, attrs, lawlistCtrl) {
-
-                function update() {
-
+           function update() {
                 api.getLawlist().then(function(data) {
                     scope.ll = data;
                     // Process data to a list of law object
                     // with properties' names set by headers
                     var headers, laws, rows = scope.ll.split(/\r\n|\n/);
-                headers = rows.splice(0,1)[0].split(";").map(function(x){return x.replace(/(^"|"$)/g, '')});
+                    headers = rows.splice(0,1)[0].split(";").map(function(x){return x.replace(/(^"|"$)/g, '')});
                     laws = $.map(rows, function(row) {
                         var law = {}, lawdata = row.split(';').map(function(x){return x.replace(/(^"|"$)/g, '')});
                         $.each(headers, function(i, header) {
@@ -256,7 +245,6 @@ function(api, $rootScope, $location) {
 
                     $("#search").autocomplete({
                         source : function(request, response) {
-
                             var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(request.term)), "i");
                             response($.map($.grep(laws.sort(function(a,b){ return b["Date de promulgation"] > a["Date de promulgation"];}), function(value) {
                                                             value = clean_accents(value.Titre +" "+ value.id +" "+ value["Thèmes"] + " " + value.short_title);
