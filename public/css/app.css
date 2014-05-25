@@ -72,15 +72,15 @@ h1,h2,h3,h4 {
 	width:100%;
 }
 
-.navbar-right{
+footer{
 	margin-top:7px !important;
 }
 
-.navbar-right a{
+footer a{
 	color:#808285;
 }
 
-.navbar-right a:hover{
+footer a:hover{
 	color:#716259;
 }
 
@@ -542,9 +542,15 @@ ul.ui-autocomplete {
     border-color: #716259;
     color: #716259;
 }
+.navbar-form input {
+    opacity: 0.5;
+}
+.navbar-form input:focus {
+    opacity: 1;
+}
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
-    background-color: white;
-    color: #716259;
+    background-color: #716259;
+    color: white;
     border-color: #716259;
 }
 .navbar button {
@@ -984,7 +990,7 @@ text {
 #home-nav .nav>li>span:hover, #home-nav .nav>li>span:focus {
     background-color: #eee;
 }
-.navbar-right span:hover {
+footer span:hover {
     color: #716259;
 }
 
@@ -1433,10 +1439,10 @@ footer ul li{
     text-transform: uppercase;
 }
 footer a {
-    color: black;
+    color: #808285;
 }
 footer a:hover {
-    color: #888;
+    color: #716259;
     text-decoration: none;
 }
 .navbar-brand{
@@ -1444,13 +1450,22 @@ footer a:hover {
     margin-left: 8px;
     margin-bottom: 4px;
 }
+footer .navbar-nav{
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+    float:none;
+}
 .nav>li>span, .nav>li>a, #search-btn>span{
     padding: 0;
     line-height: 26px;
     margin: 12px 4px;
     padding: 0px 8px;
 }
-#header-nav {
+footer .nav>li>a {
+    margin: 0px 10px;
+}
+#header-nav, footer {
     font-size: 13px;
 }
 
