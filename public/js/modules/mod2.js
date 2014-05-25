@@ -221,7 +221,7 @@ var utils, highlight;
                   .attr("x", 20)
                   .classed("row-txt", true)
                   .attr("y", 15)
-                  .style("fill", "#333")
+                  .style("fill", "#716259")
                   .attr("font-size", "0.85em")
                   .text(d.titre)
                   .on("click", function () {

@@ -446,7 +446,7 @@ var drawGantt, utils,
                         .append("text")
                         .attr("x", parseInt(d3.select("#gantt").style("width")) * 0.5)
                         .attr("y", 120)
-                        .style("fill", "#333")
+                        .style("fill", "#716259")
                         .attr("font-size", "1.5em")
                         .attr("text-anchor", "middle")
                         .text("Aucun résultat trouvé avec ces filtres, veuillez en supprimer un.");
@@ -611,7 +611,7 @@ var drawGantt, utils,
                         .attr("x", parseInt(d3.select("#gantt").style("width")) * 0.5)
                         .attr("y", function (d, i) { return i * (20 + lawh) + 17; })
                         .attr("class", "law-name").text(function (e) { return e.short_title; })
-                        .style("fill", "#333")
+                        .style("fill", "#716259")
                         .attr("font-size", "0.9em")
                         .attr("text-anchor", "middle")
                         .on("click", function (d) {
