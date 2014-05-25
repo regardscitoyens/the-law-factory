@@ -319,6 +319,7 @@ body{
 }
 .popover{
     min-width:200px;
+    border-radius: 0;
 }
 .popover-title{
     text-align:center;
@@ -1196,7 +1197,10 @@ noscript h2 {
 .tooltip.top .tooltip-arrow{border-top-color:#716259}
 .tooltip.left .tooltip-arrow{border-left-color:#716259}
 .tooltip.right .tooltip-arrow{border-right-color:#716259}
-
+.mod0 .text .tooltip {
+    border: 1px solid #dad1cb;
+    opacity: 1;
+}
 .badge{
     -webkit-border-radius: 0 !important;
     -moz-border-radius: 0 !important;

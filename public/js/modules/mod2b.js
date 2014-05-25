@@ -82,9 +82,9 @@ function drawFlows(top_ordered) {
     $("#display_menu .chosen").removeClass('chosen');
     $("#display_menu #dm-"+(top_ordered ? 'quanti' : 'classic')).addClass('chosen');
     if (top_ordered) {
-	$('#menu-order .selectedchoice').text("quantitatif");
+	$('#menu-order .selectedchoice').text("quantitative");
     }else{
-	$('#menu-order .selectedchoice').text("de l'échiquier politique");
+	$('#menu-order .selectedchoice').text("« échiquier politique »");
     }
     utils.startSpinner();
     var height;
