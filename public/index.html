@@ -22,14 +22,16 @@
 
     <nav id="header-nav" role="navigation" class="navbar navbar-custom" ng-controller="navigationCtrl">
       <div class="navbar-header">
-        <a href="index.html" class="navbar-brand"><img src="./img/the-law-factory-logo.svg"></a>
-        <ul class="nav navbar-nav navbar-right">
-
-          <li><a href="lois.html">EXPLORER LES LOIS</a></li>
-          <li><a ng-show="tuto_btn" href="#" id="tutorial-btn" ng-click="startTutorial()">TUTORIEL</a></li>
-
+        <a href="index.html" class="col-md-2 navbar-brand"><img src="./img/the-law-factory-logo.svg"></a>
+        <ul class="nav navbar-nav navbar-middle">
           <li id="search-btn"><span>CHERCHER UNE LOI<span class="glyphicon glyphicon-search glass"></span></span></li>
         </ul>
+        <div class="logos navbar-right">
+          <div class="head-logo"><span class="helper"></span><a href="http://www.medialab.sciences-po.fr/"><img src="img/medialab.png"/></a></div>
+          <div class="head-logo"><span class="helper"></span><a href="http://cee.sciencespo.fr/"><img src="img/sciencespo.png"/></a></div>
+          <div class="head-logo"><span class="helper"></span><a href="http://www.regardscitoyens.org/"><img src="img/regardscitoyens.png"/></a></div>
+          <div class="head-logo"><span class="helper"></span><a href="http://www.densitydesign.org/"><img src="img/densitydesign.png"/></a></div>
+        </div>
       </div>
     </nav>
 
@@ -42,32 +44,26 @@
 
     <div ng-click="closeSearch()" class="close-search"></div>
     <div class="lawlist" id="lawlist" lawlist></div>
-
+  <a ng-show="tuto_btn" href="#" id="tutorial-btn" ng-click="startTutorial()">TUTORIEL</a>
   <!-- Page template space -->
     <div ng-view></div>
 
   <!-- Footer space -->
   <footer>
-      <div class="col-md-6 logos">
-          <div class="foot-logo"><span class="helper"></span><a href="http://www.medialab.sciences-po.fr/"><img src="img/medialab.png"/></a></div>
-          <div class="foot-logo"><span class="helper"></span><a href="http://www.sciencespo.fr/"><img src="img/sciencespo.png"/></a></div>
-          <div class="foot-logo"><span class="helper"></span><a href="http://www.regardscitoyens.org/"><img src="img/regardscitoyens.png"/></a></div>
-          <div class="foot-logo"><span class="helper"></span><a href="http://www.densitydesign.org/"><img src="img/densitydesign.png"/></a></div>
-      </div>
-      <div class="col-md-6 foot-links">
-    <ul>
-      <li>à propos</li>
-      <li>|</li>
-      <li><a href="http://blog.lafabriquedelaloi.fr/">blog</a></li>
-      <li>|</li>
-      <li>opendata</li>
-      <li>|</li>
-      <li><a href="http://github.com/regardscitoyens/the-law-factory/issues">signaler un bug</a></li>
-      <li>|</li>
-      <li><a href="http://www.regardscitoyens.org/mentions-legales/">mentions légales</a></li>
-      <li>|</li>
-      <li><a href="mailto:contact@lafabriquedelaloi.fr">contact</a></li>
-    </ul>
+      <div class="col-md-12 foot-links">
+        <ul>
+          <li>à propos</li>
+          <li>|</li>
+          <li><a href="http://blog.lafabriquedelaloi.fr/">blog</a></li>
+          <li>|</li>
+          <li>opendata</li>
+          <li>|</li>
+          <li><a href="http://github.com/regardscitoyens/the-law-factory/issues">signaler un bug</a></li>
+          <li>|</li>
+          <li><a href="http://www.regardscitoyens.org/mentions-legales/">mentions légales</a></li>
+          <li>|</li>
+          <li><a href="mailto:contact@lafabriquedelaloi.fr">contact</a></li>
+        </ul>
       </div>
   </footer>
   </div>
