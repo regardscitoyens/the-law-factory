@@ -429,6 +429,17 @@ ins {
     border-bottom-color: #777777;
     border-top-color: #777777;
 }
+span.dropdown-toggle { 
+  padding: 0px !important;
+}
+#filter-nav ul.nav { width: 100% }
+#menu-display {  width: 16%; }
+#menu-sort { width: 13%; }
+#menu-amendments { width: 22%; }
+#menu-years { width: 13%; }
+#menu-themes { width: 23%; }
+#menu-zoom { min-width: 120px; width: 10%}
+.nav li.active { margin-right: 40px; }
 li.dropdown .disabled{ 
   opacity: 0.3;
 }
@@ -1385,7 +1396,7 @@ footer a:hover {
 .nav>li>span, .nav>li>a, #search-btn>span{
     padding: 0;
     line-height: 26px;
-    margin: 12px 8px;
+    margin: 12px 4px;
     padding: 0px 8px;
 }
 #header-nav { 

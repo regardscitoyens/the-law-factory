@@ -13,7 +13,7 @@ var drawGantt, utils,
   months: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
   shortMonths: ["Janv.", "Fév.", "Mars", "Avril", "Mai", "Juin", "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc."]
 }),
-  allAmendments = ["Quelque soit le nb d'amendements", 'Aucun amendement', 'Moins de 50 amendements', 'Plus de 50 amendements'],
+  allAmendments = ["Tout nb d'amendements", 'Aucun amendement', 'Moins de 50 amendements', 'Plus de 50 amendements'],
   active_filters = {
         year: 2013,
         theme: "",
@@ -265,7 +265,7 @@ var drawGantt, utils,
                         $("#display_order #do-length").addClass('chosen');
                         sort_function = sortByLeng;
                     } else if (action == 'sorta') {
-			$("#menu-sort .selectedchoice").text("amendements");
+			$("#menu-sort .selectedchoice").text("amdts");
                         $("#display_order .chosen").removeClass('chosen');
                         $("#display_order #do-amds").addClass('chosen');
                         sort_function = sortByAmds;
@@ -297,11 +297,11 @@ var drawGantt, utils,
 			timePosition();
 		    }
                     if (layout == "a") {
-			$("#menu-display .selectedchoice").text('comparatif');
+			$("#menu-display .selectedchoice").text('comparative');
 			absolutePosition();
 		    }
                     if (layout == "q") {
-			$("#menu-display .selectedchoice").text('quantitatif');
+			$("#menu-display .selectedchoice").text('quantitative');
                         quantiPosition();
                         drawLabels();
                     } else d3.select("#gantt").on("scroll", function (e) {
@@ -403,7 +403,7 @@ var drawGantt, utils,
                             y1 = l.end.substr(0,4);
                             hashYears[y1] = true;
 			});
-			allYears[0] = "N'importe quelle année";
+			allYears[0] = "Toutes années";
 			for(var k in hashYears) {
 			    allYears.push(k);
 			}
