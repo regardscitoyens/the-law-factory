@@ -11,7 +11,7 @@
     <nav id="filter-nav" class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <ul class="nav navbar-nav">
-	<li id="backtoall" class="active" style="display: none;"><a href="lois.html">&lt; Tous les textes</a></li>
+	<li id="backtoall" class="active viewonelaw" style="display: none;"><a href="lois.html">&lt; Tous les textes</a></li>
 	<li id="menu-display" class="dropdown">
           <span class="dropdown-toggle" data-toggle="dropdown">Vue <span class="selectedchoice">chronologique</span> <b class="caret"></b></span>
             <ul class="dropdown-menu" id="display_menu">
@@ -20,7 +20,8 @@
               <li><a id="dm-quanti" onclick="drawGantt('quanti')">quantitative</a></li>
           </ul>
         </li>        
-	<li class="dropdown" id="menu-sort">
+	<li id="menu-empty" class="viewonelaw" style="display: none;">&nbsp;</li>
+	<li class="dropdown noviewonelaw" id="menu-sort">
           <span class="dropdown-toggle disabled" data-toggle="dropdown">Trié par <span class="selectedchoice">date</span> <b class="caret"></b></span>
             <ul class="dropdown-menu" role="menu" id="display_order">
               <li><a id="do-length" class="chosen" onclick="drawGantt('sortl')">durée d'adoption</a></li>
@@ -28,15 +29,15 @@
               <li><a id="do-amds" onclick="drawGantt('sorta')">amendements déposés</a></li>
             </ul>
         </li>        
-	<li class="dropdown" id="menu-amendments">
+	<li class="dropdown noviewonelaw" id="menu-amendments">
           <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Plus de 50 amendements</span> <b class="caret"></b></span>
 	  <ul class="dropdown-menu" id="amendments"></ul>
         </li>        
-	<li class="dropdown" id="menu-years">
+	<li class="dropdown noviewonelaw" id="menu-years">
           <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Étudié en 2013</span> <b class="caret"></b></span>
 	  <ul class="dropdown-menu" id="years"></ul>
         </li>        
-	<li class="dropdown" id="menu-themes">
+	<li class="dropdown noviewonelaw" id="menu-themes">
           <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Tous les thèmes</span> <b class="caret"></b></span>
           <ul class="dropdown-menu" id="themes"></ul>
         </li>        

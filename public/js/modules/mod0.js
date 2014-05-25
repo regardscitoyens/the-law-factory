@@ -485,10 +485,12 @@ var drawGantt, utils,
                     // filter and sort laws
                     if (utils.loi) {
                         cleanBillsFilter();
-			$('#backtoall').show();
+			$('.viewonelaw').show();
+			$('.noviewonelaw').hide();
                         smallset = dossiers.filter(function(d) { return d.id==utils.loi; });
                     } else {
-			$('#backtoall').hide();
+			$('.viewonelaw').hide();
+			$('.noviewonelaw').show();
 			smallset = dossiers
                           .filter(function(d){
                             if (!active_filters['theme']) return true;

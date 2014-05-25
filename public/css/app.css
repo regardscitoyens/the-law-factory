@@ -438,6 +438,7 @@ span.dropdown-toggle {
 #menu-amendments { width: 22%; }
 #menu-years { width: 13%; }
 #menu-themes { width: 23%; }
+#menu-empty { width: 51% }
 #menu-zoom { min-width: 120px; width: 10%}
 .nav li.active { margin-right: 40px; }
 li.dropdown .disabled{ 
