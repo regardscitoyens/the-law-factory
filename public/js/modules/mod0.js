@@ -461,6 +461,7 @@ var drawGantt, utils,
                 }
 
                 function drawLaws() {
+		    console.log('loi '+utils.loi);
                     // filter and sort laws
                     if (utils.loi) {
 			$('.viewonelaw').show();
@@ -619,7 +620,6 @@ var drawGantt, utils,
                         .attr("opacity", 0.6);
                     if (utils.loi) {
                         onclick(smallset[0]);
-                        utils.loi = null;
                     }
                 }
 		
