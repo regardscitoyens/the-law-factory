@@ -269,7 +269,6 @@ function(api, $rootScope, $location) {
                         },
                         appendTo : ".lawlist",
                         select : function(event, ui) {
-                            setTimeout(function() { scope.closeSearch(); },0);
                             $rootScope.$apply(function() {
                                 $("body").css("overflow", "auto");
                                 $location.path(($location.path()==='/lois.html' ? 'loi' : 'article') + "s.html");
