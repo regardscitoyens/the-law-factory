@@ -20,30 +20,9 @@ var drawGantt, utils,
         length: '',
         amendments: allAmendments[3]
     },
-    refreshBillsFilter = function(){
-        var label;
-        for (var k in active_filters) {
-            if (active_filters[k]) {
-                label = active_filters[k];
-                switch(k) {
-                    case 'length' :
-                        $(".bar-step #mois_"+active_filters[k]).addClass('filtered_month');
-                        label = (label/30 + " mois").replace("24 mois", "2 ans et +");
-                        type = 'durée';
-                        break;
-                    case 'theme' :
-                        type = 'thème';
-                        break;
-                    case 'year' :
-                        type = 'année';
-                        break;
-                    case 'amendments' :
-                        type = 'amendements';
-                        break;
-                }
-                $("ul.filters li."+k).html("<a onclick=\"rmBillsFilter('"+k+"')\" class='badge' title='Supprimer ce filtre' data-toggle='tooltip' data-placement='right'><span class='glyphicon glyphicon-remove-sign'></span> <b>"+type+":</b> "+label+'</a>');
-            } else $("ul.filters li."+k).empty();
-        }
+    refreshLengthFilter = function(){
+        if (active_filters['length'])
+            $(".bar-step #mois_"+active_filters['length']).addClass('filtered_month');
     },
     addBillsFilter = function(filtype, filval){
         if (filtype == "length") $(".bar-value.filtered_month").removeClass('filtered_month');
@@ -53,7 +32,7 @@ var drawGantt, utils,
     rmBillsFilter = function(filtype){ addBillsFilter(filtype,""); },
     cleanBillsFilter = function(){
         active_filters = {year: "", theme: "", length: "", amendments: ""}
-        refreshBillsFilter();
+    refreshLengthFilter();
     };
 
 (function () {
@@ -219,7 +198,7 @@ var drawGantt, utils,
                     $("#bars").empty();
                     $("#text-title").text("Sélectionner un texte");
                     $(".text-container").empty();
-                    refreshBillsFilter();
+                    refreshLengthFilter();
                     var zoo = $("#mod0-slider").attr('value'),
                         scroll = {scrollTop: "0px", scrollLeft: "0px"};
                     lawscont = ganttcontainer.append("g").attr("class", "laws");
@@ -759,8 +738,14 @@ var drawGantt, utils,
                         bscale = d3.scale.linear().range([0, height]);
                     bscale.domain([0, m]);
 
+                    $(".labels-sc h5").html(
+                        active_filters['length'] ?
+                            "Supprimer le filtre sur les textes de "+(active_filters['length']/30 + " mois").replace("24 mois", "2 ans et +") :
+                            "Filtrer par durée d'adoption des textes"
+                    );
+
                     d3.entries(stats).forEach(function (e, i) {
-                        var label=(e.key == maxstat * binstat ? '2 ans et +' : e.key/binstat + " mois"),
+                        var label=(e.key == maxstat * binstat ? '2&nbsp;ans et&nbsp;+' : e.key/binstat + " mois"),
                         step = barcontainer
                             .append("div")
                             .attr("class", "bar-step")
@@ -781,7 +766,7 @@ var drawGantt, utils,
                                     plural = (e.value > 1 ? 's' : '');
                                 popover_content.append('p').html(active_filters['length'] == e.key ? 'Supprimer le filtre' : 'Cliquer pour filtrer sur ces textes');
                                 return {
-                                    title: e.value+' texte'+plural+' adopté'+plural+' en '+label,
+                                    title: e.value+' texte'+plural+' adopté'+plural+' en '+label.replace('&nbsp;', ' '),
                                     content: popover_content,
                                     placement: "mouse",
                                     displacement: [-113, -90],
@@ -792,7 +777,7 @@ var drawGantt, utils,
                         step.append("div")
                             .attr("class", "bar-key")
                             .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(parseInt(barcontainer.style("width")) / maxstat), 8]) + "px")
-                            .text(label);
+                            .html(label);
                     });
                 }
 
