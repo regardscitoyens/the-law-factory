@@ -435,7 +435,7 @@ ins {
 span.dropdown-toggle { 
   padding: 0px !important;
 }
-#filter-nav #menu-left { width: 80% }
+#menu-left { width: 80% }
 #menu-display {  width: 20%; }
 #menu-sort { width: 14%; }
 #menu-amendments { width: 25%; }
