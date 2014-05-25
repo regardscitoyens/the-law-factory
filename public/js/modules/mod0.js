@@ -461,13 +461,19 @@ var drawGantt, utils,
                 }
 
                 function drawLaws() {
-		    console.log('loi '+utils.loi);
                     // filter and sort laws
                     if (utils.loi) {
 			$('.viewonelaw').show();
 			$('.noviewonelaw').hide();
                         cleanBillsFilter();
                         smallset = dossiers.filter(function(d) { return d.id==utils.loi; });
+			if (!smallset.length) {
+                            var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(utils.loi)), "i");
+			    smallset = dossiers.filter(function(value) {
+                                value = clean_accents(value.Titre +" "+ value.id +" "+ value["Thèmes"] + " " + value.short_title);
+                                return matcher.test(clean_accents(value));
+			    });
+			}
                     } else {
 			$('.viewonelaw').hide();
 			$('.noviewonelaw').show();
