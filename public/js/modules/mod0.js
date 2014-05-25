@@ -422,14 +422,14 @@ var drawGantt, utils,
 		    var construct_menu_filter = function(filter, cssid, d, i) {
 			if (!i) {
 			    if (active_filters[filter] == d || !active_filters[filter]) {
-				$(cssid).append("<li><a class='chosen' onclick=\"rmBillsFilter('"+filter+"','')\">"+d+'</a></li>');
+				$(cssid).append("<li><a class='chosen' onclick=\"rmBillsFilter('"+filter+"','')\">"+d.toLowerCase()+'</a></li>');
 			    }else{
-				$(cssid).append("<li><a onclick=\"rmBillsFilter('"+filter+"','"+active_filters[filter]+"')\">"+d+'</a></li>');
+				$(cssid).append("<li><a onclick=\"rmBillsFilter('"+filter+"','"+active_filters[filter]+"')\">"+d.toLowerCase()+'</a></li>');
 			    }
 			} else if (active_filters[filter] == d) {
-			    $(cssid).append("<li><a class='chosen' onclick=\"rmBillsFilter('"+filter+"','"+d+"')\">"+d+'</a></li>');
+			    $(cssid).append("<li><a class='chosen' onclick=\"rmBillsFilter('"+filter+"','"+d+"')\">"+d.toLowerCase()+'</a></li>');
 			}else{
-			    $(cssid).append("<li><a onclick=\"addBillsFilter('"+filter+"','"+d+"')\">"+d+'</a></li>');
+			    $(cssid).append("<li><a onclick=\"addBillsFilter('"+filter+"','"+d+"')\">"+d.toLowerCase()+'</a></li>');
 			}
 		    };
 		    $("#years").empty();
