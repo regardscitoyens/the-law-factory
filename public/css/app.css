@@ -327,7 +327,7 @@ ins {
 	background:#E6FFE6;
 }
 .padded{
-	padding: 15px 0;
+	padding: 10px 0;
 }
 
 .law-title{
@@ -1269,7 +1269,7 @@ noscript h2 {
 }
 
 #ToolsPanel{
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 }
 #ToolsPanel ul li ul {
   display: none;
@@ -1547,7 +1547,7 @@ footer{
 
 .logos{
     text-align:left;
-    width: 560px;
+    width: 340px;
 }
 .logos img {
     max-width:100%;
