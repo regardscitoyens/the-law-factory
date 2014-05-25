@@ -250,7 +250,7 @@ body{
 }
 
 .mod1 #viz {
-    height:500px;
+    height:100%;
     overflow-y:auto;
 }
 
@@ -388,7 +388,7 @@ ins {
     /*position: relative; */
     padding-bottom: 0.9%;
     padding-top: 0.8%;
-    margin-bottom: 30px;
+
 }
 .leg-item{
 	float:left;
@@ -1492,7 +1492,7 @@ footer a:hover {
 }
 
 footer{
-    height:70px;
+    height:50px;
     background-color:white;
     border-top: 2px solid #e7e7e7;
    /* position:static;
@@ -1507,7 +1507,6 @@ footer{
 }
 
 .logos{
-    margin-top:6px;
     text-align:left;
 }
 .logos img {
@@ -1518,7 +1517,7 @@ footer{
 .foot-logo{
     margin-right:1%;
     max-width:25%;
-    height:60px;
+    height:50px;
     width:auto;
     float:left;
 }
@@ -1530,5 +1529,15 @@ footer{
 #wrapper{
     position: relative;
     padding-bottom:90px;
+    height:100%;
+}
 
+.clear{
+    clear:both;
+}
+div[ng-view] {
+    height:100%;
+}
+.mod2 {
+    height:100%;
 }

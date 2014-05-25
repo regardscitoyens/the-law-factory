@@ -68,7 +68,14 @@ function(api, $rootScope, $location, $compile) {
                 api.getArticle(scope.loi).then(function(data) {
                     $rootScope.lawTitle = data.short_title
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Articles | ";
+                    var myheight=$( window ).height() - $("nav").height()-$(".burntsiena").height()-$("#filter-nav").height()-$("footer").height()-parseInt($("#ToolsPanel").css("margin-bottom"))-100;
+                    $(".viz-container").height(myheight);
+                    $("#viz").height(myheight-100);
                     d3.select(element[0]).datum(data).call(mod1);
+
+                    var pad = parseInt($(".text-container").css("padding-top")) + parseInt($(".text-container").css("padding-bottom"))
+                    $(".text-container").height(118+$("#viz").outerHeight()-$(".text h4").outerHeight()-pad)
+
                     scope.stopSpinner();
                     scope.showFirstTimeTutorial();
                 }, function(error) {
@@ -93,6 +100,8 @@ function(api, $rootScope, $location, $compile) {
         },
         link : function postLink(scope, element, attrs) {
 
+            $(".scrolling").height("80%");
+
             var mod2 = thelawfactory.mod2();
 
             function update() {
@@ -102,7 +111,13 @@ function(api, $rootScope, $location, $compile) {
                 if (scope.etape != null) api.getAmendement(scope.loi, scope.etape).then(function(data) {
                     scope.data = data;
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Amendements | ";
+
+                    var myheight=$( window ).height() - $("nav").height()-$(".burntsiena").height()-$("#filter-nav").height()-$("footer").height()-parseInt($("#ToolsPanel").css("margin-bottom"))-150;
+                    $(".scrolling").height(myheight);
+                    $(".main-sc").height(myheight-120);
+
                     d3.select(element[0]).datum(data).call(mod2);
+                    $(".text-container").height(118+$(".main-sc").height()+103-$(".text h4").outerHeight())
                 }, function(error) {
                     scope.error = error
                 });
@@ -134,11 +149,15 @@ function(api, $rootScope, $location, $compile) {
                     api.getIntervention(scope.loi).then(function(data) {
                         scope.data = data;
                         $rootScope.pageTitle =  $rootScope.lawTitle + " - Débats | ";
+                        var myheight=$( window ).height() - $("nav").height()-$(".burntsiena").height()-$("#filter-nav").height()-$("footer").height()-parseInt($("#ToolsPanel").css("margin-bottom"))-150;
+                        $(".scrolling").height(myheight);
+                        $(".main-sc").height(myheight-120);
                         init(data, scope.etape);
-                        if($("svg").height()<$("#viz").height()) {
+                        $(".text-container").height(118+$(".main-sc").height()+73-$(".text h4").outerHeight())
+                        /*if($("svg").height()<$("#viz").height()) {
                            var offs=($("#viz").height() - $("svg").height())/2;
                            $("svg").css({"margin-top":offs,"padding-top":"5px"});
-                        }0
+                        }*/
 
                     }, function(error) {
                         scope.error = error
@@ -185,9 +204,11 @@ function(api, $rootScope, $location, $compile) {
             function update() {
                 scope.startSpinner();
 
-
+                var myheight=$( window ).height() - $("nav").height()-$(".burntsiena").height()-$("#filter-nav").height()-$("footer").height()-parseInt($("#ToolsPanel").css("margin-bottom"))-100;
+                $(".scrolling").height(myheight);
                 api.getDossiers().then(function(data) {
                   d3.select(element[0]).datum(data).call(mod0);
+                    $(".text-container").height($("#legend").outerHeight()+$("#gantt").outerHeight()+$("#bars").outerHeight()+$(".labels-sc h5").outerHeight()-$(".text h4").outerHeight());
                     synced = true;
                     scope.showFirstTimeTutorial();
                 }, function(error) {
