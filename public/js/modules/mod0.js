@@ -152,7 +152,7 @@ var drawGantt, utils,
 
                 d3.selectAll(".steps").attr("transform", "scale(" + z + ",1)");
                 d3.selectAll(".law-bg").attr("transform", "scale(" + z + ",1)");
-                d3.selectAll(".row").attr("transform", "scale(" + z + ",1)");
+                d3.selectAll(".lawline").attr("transform", "scale(" + z + ",1)");
                 d3.selectAll(".tl-bg").attr("transform", "scale(" + z + ",1)");
 
                 d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z});
@@ -536,10 +536,10 @@ var drawGantt, utils,
                     tscale.domain([mindate, maxdate]);
 
                     //add containing rows
-                    gridrects = lawscont.selectAll(".row")
+                    gridrects = lawscont.selectAll(".lawline")
                         .data(smallset).enter()
                         .append("rect")
-                        .attr("class", function (d) { return "row " + d.id; })
+                        .attr("class", function (d) { return "lawline " + d.id; })
                         .attr("x", 0)
                         .attr("y", function (d, i) { return i * (20 + lawh); })
                         .attr("opacity", 0.3)

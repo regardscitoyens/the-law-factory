@@ -121,28 +121,39 @@ body{
 	color:#dad1cb !important;
 }
 .title{
-	height:75px;
+	height: 50px;
+	margin: 0px;
 	background-color:#716259;
 	overflow:hidden;
-    margin-bottom:20px;
-	padding-left: 25px !important;
-	padding-right: 25px !important;
-}
-
-.title .subtitle {
-	color:#dde;
-	font-size:12px;
-	margin: 15px 0px 1px 50px;
-	font-weight:bold;
-	float: left;
+	padding-left: 15px !important;
+	padding-right: 5px;
 }
 .title h4 {
-	color:#fff;
-	line-height:75px;
-	font-size:14px;
-	margin: 0;
-	font-weight:600;
-	float: left;
+	margin: 8px 0px 0px 0px;
+	font-weight:bold;
+    width: 80%;
+    float:left;
+	font-size: 18px;
+	color: #FFF;
+	line-height: 32px;
+}
+.title .links {
+    width: 10%;
+    float: left;
+    padding-top: 4px;
+}
+.title .links a {
+	color: #FFF;
+    font-size: 12px;
+    padding-left: 5px;
+}
+.title .links a span {
+    margin-right: 5px;
+}
+.title .links a:hover {
+	color: #FFF;
+    opacity: 0.7;
+    text-decoration: none;
 }
 .nav-tabs.nav-justified>li>a {
 	border:none !important;
@@ -330,18 +341,6 @@ del {
 }
 ins {
 	background:#E6FFE6;
-}
-.padded{
-	padding: 10px 0;
-}
-
-.law-title{
-	color: #716259;
-	font-size: 16px;
-	margin-top: 20px;
-	padding-left: 15px;
-    float: left;
-    width: 80%;
 }
 .scrolling{
 	width: 73.33%;
@@ -614,7 +613,6 @@ ul.ui-autocomplete {
     -o-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
 }
-
 
 .mod2 .labels-sc {
 	height:auto !important;
@@ -1205,20 +1203,15 @@ noscript h2 {
 .row {
     width: 100%;
     margin: 0;
+    margin-bottom: 10px;
+}
+.row:nth-of-type(1) {
+    margin-top: 10px;
 }
 .row-txt{
     cursor:pointer;
 }
 
-.grad-white{
-    position:absolute;
-    bottom:0px;
-    left:0px;
-    width:100%;
-    height:10px;
-    z-index:0;
-    background-color:white;
-}
 .mod0 .badge .glyphicon {
     top:0.2em;
 }
@@ -1243,86 +1236,12 @@ noscript h2 {
     font-size: 15px;
     background-color: #716259;
     border-radius: 0;
-
 }
-
 .badge{
     border-radius:0;
 }
 
-
 /*------- Nelson's mess --------*/
-
-.row .law-title{
-	font-size: 26px;
-	color: #FFF;
-	line-height: 32px;
-}
-
-.row .btn-title{
-	line-height: 0.8em;
-	height: auto;
-    margin-right: 2%;
-    font-size: 14px;
-    padding-bottom: 3px;
-}
-.row .btn-title:hover {
-    opacity: 0.7;
-}
-
-.row .title{
-	height: auto;
-	margin: 10px 0;
-	padding-bottom: 2px;
-}
-
-.row .title h4{
-	line-height: 1em;
-}
-
-.row {font-family: "Oxygen";}
-
-.row .list-inline{
-    font-family: "Helvetica Neue","Oxygen",sans-serif !important;
-}
-
-.row .list-inline > li {
-	padding: 5px 20px;
-	position: relative;
-	cursor: pointer;
-}
-
-#ToolsPanel{
-	margin-bottom: 10px;
-}
-#ToolsPanel ul li ul {
-  display: none;
-  margin-top: 5px;
-  position: absolute;
-  z-index: 100;
-  padding: 0;
-}
-#ToolsPanel ul li ul li ul{
-	display: none;
-	position: absolute;
-	left: 100%;
-	top: 0;
-	margin: 0;
-}
-
-#ToolsPanel ul li ul li{
-	padding: 8px 20px;
-	list-style-type: none;
-	border-bottom: solid 1px #FFF;
-	min-width: 240px;
-}
-
-#ToolsPanel ul li:hover > ul{
-	display: block;
-}
-#ToolsPanel ul > li > ul > li:hover {
-	background: #8e7b6f;
-}
 
 .interactive{
 	cursor: pointer;
@@ -1359,32 +1278,7 @@ noscript h2 {
   right: 0;
   margin: 10px 10px 10px 0px;
   position: absolute;
-
 }
-.title {
-  min-height: 35px;
-}
-.title h4, #guide.h4 {
-  width: 80%;
-  float:left;
-}
-.title .links {
-    width: 16%;
-    float: right;
-}
-.title .links a {
-	color: #FFF;
-    font-size: 12px;
-}
-.title .links a span {
-    margin-right: 5px;
-}
-.title .links a:hover {
-	color: #FFF;
-    opacity: 0.7;
-    text-decoration: none;
-}
-
 
 /* ----- HERE COMES THE FUCKING COLORS - Create here the classes for color styling. And Don't, DON'T style elements inline ! ------- */
 
