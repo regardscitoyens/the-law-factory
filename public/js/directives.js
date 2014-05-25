@@ -272,7 +272,7 @@ function(api, $rootScope, $location) {
                             setTimeout(function() { scope.closeSearch(); },0);
                             $rootScope.$apply(function() {
                                 $("body").css("overflow", "auto");
-                                $location.path((scope.mod==='mod0' ? '/loi' : '/article') + "s.html");
+                                $location.path(($location.path()==='/lois.html' ? 'loi' : 'article') + "s.html");
                                 $location.search("loi=" + ui.item.value);
                             });
                         },
