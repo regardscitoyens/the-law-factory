@@ -11,7 +11,7 @@
     <nav id="filter-nav" class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <ul class="nav navbar-nav">
-	<li id="backtoall" class="active" style="display: none;"><a href="/lois.html">&lt; Tous les textes</a></li>
+	<li id="backtoall" class="active" style="display: none;"><a href="lois.html">&lt; Tous les textes</a></li>
 	<li id="menu-display" class="dropdown">
           <span class="dropdown-toggle" data-toggle="dropdown">Affichage <span class="selectedchoice">chronologique</span> <b class="caret"></b></span>
             <ul class="dropdown-menu" id="display_menu">
@@ -20,8 +20,8 @@
               <li><a id="dm-quanti" onclick="drawGantt('quanti')">quantitatif</a></li>
           </ul>
         </li>        
-	<li class="dropdown" id="menu-sort" style="display: none;">
-          <span class="dropdown-toggle" data-toggle="dropdown">Trié par <span class="selectedchoice">date</span> <b class="caret"></b></span>
+	<li class="dropdown" id="menu-sort">
+          <span class="dropdown-toggle disabled" data-toggle="dropdown">Trié par <span class="selectedchoice">date</span> <b class="caret"></b></span>
             <ul class="dropdown-menu" role="menu" id="display_order">
               <li><a id="do-length" class="chosen" onclick="drawGantt('sortl')">durée d'adoption</a></li>
               <li><a id="do-date" onclick="drawGantt('sortd')">date de promulgation</a></li>

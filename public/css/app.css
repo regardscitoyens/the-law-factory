@@ -429,6 +429,9 @@ ins {
     border-bottom-color: #777777;
     border-top-color: #777777;
 }
+li.dropdown .disabled{ 
+  opacity: 0.3;
+}
 .dropdown-menu {
   padding: 0px;
   border-radius: 0px;
