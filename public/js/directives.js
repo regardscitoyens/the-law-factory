@@ -370,7 +370,7 @@ return {
                 var tit = upperFirst(data.long_title),
                     leg = "";
                 if (tit.length > 60) {
-                    leg = ' data-toggle="tooltip" data-placement="bottom" title="'+tit+'"';
+                    leg = ' data-toggle="tooltip" data-placement="right" title="'+tit+'"';
                     tit = scope.loi.substr(0,3).toUpperCase() + " " + upperFirst(data.short_title);
                 }
                 $(".title").html(
