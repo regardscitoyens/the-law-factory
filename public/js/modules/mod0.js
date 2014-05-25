@@ -196,8 +196,8 @@ var drawGantt, utils,
                     $("#gantt svg").empty();
                     $("#legend svg").empty();
                     $("#bars").empty();
-                    $("#text-title").text("Sélectionner un texte");
-                    $(".text-container").empty();
+                    unclick();
+
                     refreshLengthFilter();
                     var zoo = $("#mod0-slider").attr('value'),
                         scroll = {scrollTop: "0px", scrollLeft: "0px"};
@@ -697,6 +697,7 @@ var drawGantt, utils,
 
                 function unclick() {
                     $("#text-title").text("Sélectionner un texte");
+                    $("#text-title").attr('data-original-title', "").tooltip('fixTitle');
                     $(".text-container").empty();
                     d3.selectAll(".g-law").style("opacity",1);
                 }
@@ -707,8 +708,8 @@ var drawGantt, utils,
                     d3.select(".g-law."+ d.id).style("opacity",1);
 
                     $("#text-title").text(d.short_title);
-                    $("#text-title").attr('title', d.long_title)
-                    $("#text-title").tooltip();
+                    $("#text-title").attr('data-original-title', d.long_title).tooltip('fixTitle');
+data('tooltip').options.title = d.long_title;
                     var themes=$('<p>');
                     d.themes.join(",").replace(/ et /g, ',').split(',').forEach(function(e,j){
                         themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les textes correspondant à ce thème' data-toggle='tooltip' data-placement='left'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
@@ -794,6 +795,7 @@ var drawGantt, utils,
                     currFile = data.next_page;
                     $("a.badge").tooltip();
                     setTimeout((currFile ? dynamicLoad : drawGantt), 0);
+                    $("#text-title").tooltip();
                 });
 
 
