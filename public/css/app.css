@@ -1557,6 +1557,7 @@ footer{
 .head-logo{
     margin-right:1%;
     float: left;
+    padding: 0px 3px;
 }
 #wrapper{
     position: relative;
