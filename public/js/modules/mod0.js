@@ -707,13 +707,14 @@ var drawGantt, utils,
                     d3.select(".g-law."+ d.id).style("opacity",1);
 
                     $("#text-title").text(d.short_title);
+                    $("#text-title").attr('title', d.long_title)
+                    $("#text-title").tooltip();
                     var themes=$('<p>');
                     d.themes.join(",").replace(/ et /g, ',').split(',').forEach(function(e,j){
                         themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les textes correspondant à ce thème' data-toggle='tooltip' data-placement='left'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
                     }),
                         mots=(Math.round(d.total_mots / 1000. ) + "" ).replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;").replace(/^0/, '');
                     $(".text-container").empty()
-                        .append('<p><b>'+upperFirst(d.long_title)+"</b></p>")
                         .append('<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + "</p>");
                     if (d.procedure != "Normale") $(".text-container").append('<p>(' + d.procedure.toLowerCase() + ")</p>");
                     $(".text-container").append('<div class="gotomod"><a class="btn btn-info" href="articles.html?loi=' + d.id + '">Explorer les articles</a></div>');
@@ -773,6 +774,11 @@ var drawGantt, utils,
                                     gravity: "top",
                                     mousemove: true};
                             });
+
+                        if (e.key < 10)
+                            label = "&nbsp;&nbsp;&nbsp;"+label;
+                        if (e.key == 1 || e.key == 7 || e.key == 11)
+                            label = "&nbsp;&nbsp;&nbsp;"+label;
 
                         step.append("div")
                             .attr("class", "bar-key")
