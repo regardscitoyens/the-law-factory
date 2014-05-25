@@ -536,7 +536,7 @@ ul.ui-autocomplete {
     color: #716259;
 }
 .navbar-form input, .navbar-form span {
-    opacity: 0.5;
+    opacity: 0.3;
     border-right: 0px;
     box-shadow: none;
 }

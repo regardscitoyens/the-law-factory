@@ -240,7 +240,11 @@ function(api, $rootScope, $location) {
 
                     document.lawlist = laws;
 
-                    $("#search").autocomplete({
+                    $("#search").mouseenter(function() {
+                        $(".form-law").css('opacity', 1);
+                    }).mouseleave(function() {
+                        $(".form-law").css('opacity', 0.3);
+                    }).autocomplete({
                         source : function(request, response) {
                             var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(request.term)), "i");
                             response($.map($.grep(laws.sort(function(a,b){ return b["Date de promulgation"] > a["Date de promulgation"];}), function(value) {
@@ -258,23 +262,27 @@ function(api, $rootScope, $location) {
                             }));
                         },
                         focus : function(event, ui) {
+                            $(".form-law").css('opacity', 1);
                             event.preventDefault();
                             $(".src-fcs").removeClass("src-fcs");
                             $("."+ui.item.value).addClass("src-fcs");
                         },
                         open : function() {
-
+                            $(".form-law").css('opacity', 1);
                             var h = $(".ui-autocomplete").position().top;
                             $(".ui-autocomplete").height($(window).height() - h);
-
                         },
-                        close: function() { $('#header-search .message').text('');},
+                        close: function() {
+                            $(".form-law").css('opacity', 0.3);
+                            $('#header-search .message').text('');
+                        },
                         appendTo : ".lawlist",
                         select : function(event, ui) {
                             $rootScope.$apply(function() {
                                 $("body").css("overflow", "auto");
                                 $location.path(($location.path()==='/lois.html' ? 'loi' : 'article') + "s.html");
                                 $location.search("loi=" + ui.item.value);
+                                $(".form-law").css('opacity', 0.3);
                             });
                         },
                         messages: {
