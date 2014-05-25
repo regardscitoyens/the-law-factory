@@ -177,6 +177,7 @@ function(api, $rootScope, $location, $compile) {
             $rootScope.pageTitle = "";
             scope.mod="mod0";
 
+            $(".title").html('<h4 class="law-title">Explorer les textes promulgués depuis 2010</h4>');
             $("#mod0-slider").slider({
                 min:1,
                 max:10,
@@ -239,7 +240,11 @@ function(api, $rootScope, $location) {
 
                     document.lawlist = laws;
 
-                    $("#search").autocomplete({
+                    $("#search").mouseenter(function() {
+                        $(".form-law").css('opacity', 1);
+                    }).mouseleave(function() {
+                        $(".form-law").css('opacity', 0.3);
+                    }).autocomplete({
                         source : function(request, response) {
                             var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(request.term)), "i");
                             response($.map($.grep(laws.sort(function(a,b){ return b["Date de promulgation"] > a["Date de promulgation"];}), function(value) {
@@ -257,23 +262,27 @@ function(api, $rootScope, $location) {
                             }));
                         },
                         focus : function(event, ui) {
+                            $(".form-law").css('opacity', 1);
                             event.preventDefault();
                             $(".src-fcs").removeClass("src-fcs");
                             $("."+ui.item.value).addClass("src-fcs");
                         },
                         open : function() {
-
+                            $(".form-law").css('opacity', 1);
                             var h = $(".ui-autocomplete").position().top;
                             $(".ui-autocomplete").height($(window).height() - h);
-
                         },
-                        close: function() { $('#header-search .message').text('');},
+                        close: function() {
+                            $(".form-law").css('opacity', 0.3);
+                            $('#header-search .message').text('');
+                        },
                         appendTo : ".lawlist",
                         select : function(event, ui) {
                             $rootScope.$apply(function() {
                                 $("body").css("overflow", "auto");
                                 $location.path(($location.path()==='/lois.html' ? 'loi' : 'article') + "s.html");
                                 $location.search("loi=" + ui.item.value);
+                                $(".form-law").css('opacity', 0.3);
                             });
                         },
                         messages: {
@@ -371,17 +380,19 @@ return {
 
                 var tit = upperFirst(data.long_title),
                     leg = "";
-                if (tit.length > 150) {
+                if (tit.length > 120) {
                     leg = ' data-toggle="tooltip" data-placement="bottom" title="'+tit+'"';
                     tit = scope.loi.substr(0,3).toUpperCase() + " " + upperFirst(data.short_title);
                 }
                 $(".title").html(
                   '<h4 class="law-title"'+leg+'>'+tit+'</h4>' +
                   '<span class="links">' +
-                    '<a href="'+data.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a><br/>' +
-                    '<a href="'+data.url_dossier_assemblee+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Assemblée</a>' +
-                    (data.url_jo ? '<br/><a href="'+data.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur Légifrance</a>' : '') +
-                  '<span>'
+                    '<a href="'+data.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a><br/>' +
+                    '<a href="'+data.url_dossier_assemblee+'" target="_blank"><span class="glyphicon glyphicon-link"></span> Dossier Assemblée</a>' +
+                  '</span><span class="links">' +
+                    (data.url_jo ? '<a href="'+data.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> Loi sur Légifrance</a>' : '') +
+                    (data.url_jo ? '<br/><a href="'+scope.APIRootUrl+scope.loi+'/" target="_blank"><span class="glyphicon glyphicon-link"></span> Open Data</a>' : '') +
+                  '</span>'
                 );
                 if (leg) $(".law-title").tooltip();
 
