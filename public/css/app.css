@@ -502,14 +502,14 @@ li.dropdown .disabled{
 }
 
 ul.ui-autocomplete {
-	list-style-type: none;
-	color:#fff;
-	z-index:2001;
-	position:fixed;
-	width:73% !important;
-	overflow:auto;
+    z-index:2001;
+    width:73% !important;
+    overflow:auto;
+    background-color: white;
+    border-radius: 0;
+    border-color: #716259;
+    padding: 0px;
 }
-
 #lawlist>span.ui-helper-hidden-accessible {
     float: right;
     margin-top: 118px;
@@ -592,14 +592,6 @@ ul.ui-autocomplete {
 	padding:8px 0px;
 	color: #716259;
 }
-/*.ui-autocomplete li a:hover,.ui-autocomplete li a:focus,a.ui-corner-all:hover, .ui-menu .ui-menu-item a.ui-corner-all:focus, .ui-menu .ui-menu-item a.ui-corner-all:active
-{
-    color:white;
-    background:#D80053;
-    border:none;
-    outline:none;
-}*/
-
 .img-cont{
 	width:50px;
 	height:50px;
@@ -1008,7 +1000,6 @@ footer span:hover {
 
 .ui-menu-item{
     display: block;
-    margin-bottom:10px !important;
     border-bottom:1px solid #ccc;
     overflow:hidden;
     font-size:1em;
