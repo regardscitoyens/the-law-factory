@@ -1,21 +1,27 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1 burntsiena" id="ToolsPanel">
 	<div class="title"></div>
-    <div class="col-md-7">
-	    <ul class="list-inline">
-	    	<li><span class="glyphicon glyphicon-filter"></span>Affichage
-		    	<ul class="burntsiena">
-		    		<li><span>Ad lorem Ipsum 1</span></li>
-		    		<li><span>Ad lorem Ipsum 2</span></li>
-		    		<li>Ad lorem Ipsum 3</li>
-		    	</ul>
-	    	</li>
-        </ul>
-    </div>
-    <a class="btn-title" ng-href="lois.html?loi={{loi}}"><span class="glyphicon glyphicon-align-left"></span>&nbsp;&nbsp;Retour à la chronologie de ce texte</a>
-    <a class="btn-title" ng-href="articles.html?loi={{loi}}"><span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Retour aux articles de ce texte</a>
   </div>
 </div>
+<div class="row" style="margin-bottom: 10px">
+  <div class="col-md-10 col-md-offset-1" style="background-color: white;">
+    <nav id="filter-nav" class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+	<li class="active"><a ng-href="articles.html?loi={{loi}}">&lt; Voir les articles du texte</a></li>
+	<li id="menu-order" class="dropdown">
+          <span class="dropdown-toggle" data-toggle="dropdown">Ordre <span class="selectedchoice">de l'échiquier politique</span> <b class="caret"></b></span>
+            <ul class="dropdown-menu" role="menu" id="display_menu">
+              <li><a id="dm-classic" class="chosen" onclick="drawFlows(false)">échiquier politique</a></li>
+              <li><a id="dm-quanti" onclick="drawFlows(true)">quantitatif</a></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+    </nav>
+  </div>
+</div>
+
 
 <div class="row">
   <div class="col-md-12 viz-container">
@@ -30,19 +36,6 @@
       <div class="main-sc">
 
         <div id="commands">
-          <div class="btn-group dd-btn">
-            <button type="button" class="btn dropdown-tggle" data-toggle="dropdown">Affichage</button>
-            <button type="button" class="btn dropdown-toggle arrow" data-toggle="dropdown">
-              <span class="caret"></span>
-              <span class="sr-only">Déplier le menu</span>
-            </button>
-
-            <ul class="dropdown-menu" role="menu" id="display_menu">
-              <li><a id="dm-classic" class="chosen" onclick="drawFlows(false)">échiquier politique</a></li>
-              <li class="divider"></li>
-              <li><a id="dm-quanti" onclick="drawFlows(true)">quantitatif</a></li>
-            </ul>
-          </div>
         </div>
 
         <div id="viz">
