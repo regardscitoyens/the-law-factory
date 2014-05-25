@@ -118,7 +118,7 @@ var utils, highlight;
         redraw = function(merged) {
             if (merged == undefined) merged = grouped;
 	    if (merged) {
-		$('#menu-display .selectedchoice').text('groupé');
+		$('#menu-display .selectedchoice').text('groupée');
 	    }else{
 		$('#menu-display .selectedchoice').text('par articles');
 	    }
