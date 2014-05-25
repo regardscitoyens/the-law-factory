@@ -756,6 +756,10 @@ h4 a{
     margin:1px;
     font-size: 0.9em;
 }
+.text-container .orat-info img {
+    width: 70px;
+    height: 90px;
+}
 .text-container .orat-count{
     width: 15%;
 	float: left;
@@ -771,9 +775,6 @@ h4 a{
 	margin-top:15px;
 	padding-left:6px;
 }
-
-
-
 
 .orat-info b{
 	margin-bottom:3px;
