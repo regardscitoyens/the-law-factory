@@ -709,7 +709,6 @@ var drawGantt, utils,
 
                     $("#text-title").text(d.short_title);
                     $("#text-title").attr('data-original-title', d.long_title).tooltip('fixTitle');
-data('tooltip').options.title = d.long_title;
                     var themes=$('<p>');
                     d.themes.join(",").replace(/ et /g, ',').split(',').forEach(function(e,j){
                         themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les textes correspondant à ce thème' data-toggle='tooltip' data-placement='left'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
