@@ -55,7 +55,7 @@ var utils, highlight;
 		    rw = $("#viz").width(),
 		    lineh = 30,
 		    h = lineh*artArray.length+40,
-            minheight = $("#viz").height();
+            minheight = $("#viz").height() - 5;
 		    z = 20,
             x= 0,
 		    nsq = Math.round((w-40) / z),
