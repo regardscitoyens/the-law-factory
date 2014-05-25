@@ -231,7 +231,7 @@ var drawGantt, utils,
                         scroll['scrollLeft'] = "100000px";
                         $("#display_menu .chosen").removeClass('chosen');
                         $("#display_menu #dm-time").addClass('chosen');
-                        $("#menu-sort").addClass('disabled');
+                        $("#menu-sort .dropdown-toggle").addClass('disabled');
                         $(".ctrl-zoom").show();
                     } else if (action == 'absolute') {
                         layout = "a";
@@ -239,7 +239,7 @@ var drawGantt, utils,
                         action = 'sortl';
                         $("#display_menu .chosen").removeClass('chosen');
                         $("#display_menu #dm-absolute").addClass('chosen');
-                        $("#menu-sort").removeClass('disabled');
+                        $("#menu-sort .dropdown-toggle").removeClass('disabled');
                         $(".ctrl-zoom").show();
                     } else if (action == 'quanti') {
                         layout = "q";
@@ -247,7 +247,7 @@ var drawGantt, utils,
                         action = 'sorta';
                         $("#display_menu .chosen").removeClass('chosen');
                         $("#display_menu #dm-quanti").addClass('chosen');
-                        $("#menu-sort").removeClass('disabled');
+                        $("#menu-sort .dropdown-toggle").removeClass('disabled');
                         $(".ctrl-zoom").hide();
                     }
                     if (action == 'filter') {
