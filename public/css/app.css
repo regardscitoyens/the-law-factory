@@ -20,6 +20,10 @@ h1,h2,h3,h4 {
     font-family:"Oxygen", sans-serif !important;
 }
 
+#header-search { margin-right: 350px; margin-left: 210px;padding: 10px 50px 10px 0px;}
+#header-logos { float: right; width: 350px;}
+#header-mainlogo { float: left; width: 210px;}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -48,7 +52,7 @@ h1,h2,h3,h4 {
   content: "";
   padding: 0;
 }
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus { 
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
   color: white;
   background-color: #716259;
 }
@@ -533,6 +537,24 @@ ul.ui-autocomplete {
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength = 4, Direction = 0, Color = '#cccccc');
 }
 
+.navbar-form input, .navbar button {
+    border-radius: 0;
+    border-color: #716259;
+    color: #716259;
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+    background-color: white;
+    color: #716259;
+    border-color: #716259;
+}
+.navbar button {
+    background-color: #716259;
+    color: white;
+}
+.form-control:focus {
+    border-color: #716259;
+    box-shadow:none !important;
+}
 .close-search{
     float:left;
     width:25%;
@@ -1428,7 +1450,7 @@ footer a:hover {
     margin: 12px 4px;
     padding: 0px 8px;
 }
-#header-nav { 
+#header-nav {
     font-size: 13px;
 }
 
@@ -1548,7 +1570,6 @@ footer{
 
 .logos{
     text-align:left;
-    width: 340px;
 }
 .logos img {
     max-width:100%;
