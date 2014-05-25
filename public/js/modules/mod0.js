@@ -484,9 +484,9 @@ var drawGantt, utils,
                 function drawLaws() {
                     // filter and sort laws
                     if (utils.loi) {
-                        cleanBillsFilter();
 			$('.viewonelaw').show();
 			$('.noviewonelaw').hide();
+                        cleanBillsFilter();
                         smallset = dossiers.filter(function(d) { return d.id==utils.loi; });
                     } else {
 			$('.viewonelaw').hide();

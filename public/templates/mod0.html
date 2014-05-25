@@ -10,7 +10,7 @@
   <div class="col-md-10 col-md-offset-1" style="background-color: white;">
     <nav id="filter-nav" class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
-      <ul class="nav navbar-nav">
+      <ul id="menu-left" class="nav navbar-nav">
 	<li id="backtoall" class="active viewonelaw" style="display: none;"><a href="lois.html">&lt; Tous les textes</a></li>
 	<li id="menu-display" class="dropdown">
           <span class="dropdown-toggle" data-toggle="dropdown">Vue <span class="selectedchoice">chronologique</span> <b class="caret"></b></span>
@@ -41,9 +41,12 @@
           <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Tous les thèmes</span> <b class="caret"></b></span>
           <ul class="dropdown-menu" id="themes"></ul>
         </li>        
-        <li id="menu-zoom"><div id="mod0-slider"></div><span id="mod0-slider-label">Zoom</span></li>
-      </div>
       </ul>
+      <ul class="nav navbar-nav" id="menu-right">
+      <li id="menu-zoom"><span><div id="mod0-slider"></div><span id="mod0-slider-label">Zoom</span></span></li>
+      <li id="menu-tutorial"  ng-click="startTutorial()"><span><a>?</a></span></li>
+      </ul>
+      </div>
   </div>
   </nav>
 </div>
