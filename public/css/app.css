@@ -542,9 +542,15 @@ ul.ui-autocomplete {
     border-color: #716259;
     color: #716259;
 }
+.navbar-form input {
+    opacity: 0.5;
+}
+.navbar-form input:focus {
+    opacity: 1;
+}
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
-    background-color: white;
-    color: #716259;
+    background-color: #716259;
+    color: white;
     border-color: #716259;
 }
 .navbar button {
