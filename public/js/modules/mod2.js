@@ -118,7 +118,7 @@ var utils, highlight;
         redraw = function(merged) {
             if (merged == undefined) merged = grouped;
 	    if (merged) {
-		$('#menu-display .selectedchoice').text('groupé');
+		$('#menu-display .selectedchoice').text('groupée');
 	    }else{
 		$('#menu-display .selectedchoice').text('par articles');
 	    }
@@ -222,7 +222,7 @@ var utils, highlight;
                   .attr("x", 20)
                   .classed("row-txt", true)
                   .attr("y", 15)
-                  .style("fill", "#333")
+                  .style("fill", "#716259")
                   .attr("font-size", "0.85em")
                   .text(d.titre)
                   .on("click", function () {

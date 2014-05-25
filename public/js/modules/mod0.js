@@ -401,14 +401,14 @@ var drawGantt, utils,
 		    var construct_menu_filter = function(filter, cssid, d, i) {
 			if (!i) {
 			    if (active_filters[filter] == d || !active_filters[filter]) {
-				$(cssid).append("<li><a class='chosen' onclick=\"rmBillsFilter('"+filter+"','')\">"+d+'</a></li>');
+				$(cssid).append("<li><a class='chosen' onclick=\"rmBillsFilter('"+filter+"','')\">"+d.toLowerCase()+'</a></li>');
 			    }else{
-				$(cssid).append("<li><a onclick=\"rmBillsFilter('"+filter+"','"+active_filters[filter]+"')\">"+d+'</a></li>');
+				$(cssid).append("<li><a onclick=\"rmBillsFilter('"+filter+"','"+active_filters[filter]+"')\">"+d.toLowerCase()+'</a></li>');
 			    }
 			} else if (active_filters[filter] == d) {
-			    $(cssid).append("<li><a class='chosen' onclick=\"rmBillsFilter('"+filter+"','"+d+"')\">"+d+'</a></li>');
+			    $(cssid).append("<li><a class='chosen' onclick=\"rmBillsFilter('"+filter+"','"+d+"')\">"+d.toLowerCase()+'</a></li>');
 			}else{
-			    $(cssid).append("<li><a onclick=\"addBillsFilter('"+filter+"','"+d+"')\">"+d+'</a></li>');
+			    $(cssid).append("<li><a onclick=\"addBillsFilter('"+filter+"','"+d+"')\">"+d.toLowerCase()+'</a></li>');
 			}
 		    };
 		    $("#years").empty();
@@ -425,7 +425,7 @@ var drawGantt, utils,
                         .append("text")
                         .attr("x", parseInt(d3.select("#gantt").style("width")) * 0.5)
                         .attr("y", 120)
-                        .style("fill", "#333")
+                        .style("fill", "#716259")
                         .attr("font-size", "1.5em")
                         .attr("text-anchor", "middle")
                         .text("Aucun résultat trouvé avec ces filtres, veuillez en supprimer un.");
@@ -463,9 +463,9 @@ var drawGantt, utils,
                 function drawLaws() {
                     // filter and sort laws
                     if (utils.loi) {
-                        cleanBillsFilter();
 			$('.viewonelaw').show();
 			$('.noviewonelaw').hide();
+                        cleanBillsFilter();
                         smallset = dossiers.filter(function(d) { return d.id==utils.loi; });
                     } else {
 			$('.viewonelaw').hide();
@@ -590,7 +590,7 @@ var drawGantt, utils,
                         .attr("x", parseInt(d3.select("#gantt").style("width")) * 0.5)
                         .attr("y", function (d, i) { return i * (20 + lawh) + 17; })
                         .attr("class", "law-name").text(function (e) { return e.short_title; })
-                        .style("fill", "#333")
+                        .style("fill", "#716259")
                         .attr("font-size", "0.9em")
                         .attr("text-anchor", "middle")
                         .on("click", function (d) {

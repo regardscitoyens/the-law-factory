@@ -348,7 +348,7 @@ sven.viz.streamkey = function(){
             .attr("font-family","sans-serif")
             .attr("font-size","0.9em")
             .attr("class", "filter-title")
-            .attr("fill", "#333")
+            .attr("fill", "#716259")
             .text(function(d){return utils.shortenString(d, 110); });
 
         return streamkey;
