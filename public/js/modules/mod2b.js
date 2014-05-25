@@ -87,7 +87,6 @@ function drawFlows(top_ordered) {
 	$('#menu-order .selectedchoice').text("de l'échiquier politique");
     }
     utils.startSpinner();
-    console.log("lol",$("#viz").height())
     var height;
     if(num*60>=$("#viz").height()) height=num*60;
     else height=$("#viz").height()-50;
