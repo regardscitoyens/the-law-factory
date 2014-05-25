@@ -63,9 +63,7 @@ h1,h2,h3,h4 {
 }
 
 .navbar-header{
-	width:99%;
-	margin-left: 0.5%;
-	margin-right: 0.5%;
+	width:100%;
 }
 
 .navbar-right{
@@ -1534,7 +1532,7 @@ footer{
 
 .logos{
     text-align:left;
-    width: 490px;
+    width: 550px;
 }
 .logos img {
     max-width:100%;
@@ -1545,11 +1543,6 @@ footer{
     margin-right:1%;
     height:45px;
     float: left;
-}
-.helper{
-    vertical-align: middle;
-    display: inline-block;
-    height: 100%;
 }
 #wrapper{
     position: relative;
