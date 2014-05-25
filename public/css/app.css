@@ -853,13 +853,19 @@ text {
     opacity: 0.55;
 }
 
+#mod0-slider-label {
+    margin-right: 60px;
+}
 #mod0-slider {
+    float: right;
     border-color: #333;
     background-color: #F6F6F6;
     margin: 0px;
+    margin-top: 16px;
     padding: 0px;
     padding-right: 10px;
     border-radius: 0px;
+    width: 60px;
 }
 
 .ui-slider-handle{
