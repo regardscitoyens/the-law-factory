@@ -55,6 +55,7 @@ var utils, highlight;
 		    rw = $("#viz").width(),
 		    lineh = 30,
 		    h = lineh*artArray.length+40,
+            minheight = $("#viz").height();
 		    z = 20,
             x= 0,
 		    nsq = Math.round((w-40) / z),
@@ -63,7 +64,7 @@ var utils, highlight;
 		var offset = 0
 		var svg = d3.select("#viz").append("svg")
 		    .attr("width", rw)
-		    .attr("height", h)
+		    .attr("height", Math.max(minheight, h))
             .on("click",deselectRow);
 
         var compare_partys = function(a,b){
@@ -129,7 +130,7 @@ var utils, highlight;
                 (merged ? drawMerged() : draw());
                 var a = d3.select("svg").select("g:last-child").attr("data-offset"),
                    ah = d3.select("svg").select("g:last-child").node().getBBox().height;
-                svg.attr("height",z+parseInt(a)+ah);
+                svg.attr("height",Math.max(minheight, z+parseInt(a)+ah));
                 if (utils.article!=null)
                     selectRow(utils.article, true);
                 utils.stopSpinner(function() {
