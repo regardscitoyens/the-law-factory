@@ -509,7 +509,8 @@ ul.ui-autocomplete {
     top: 0;
     right: 0;
 	background:#f1f1f1;
-	overflow:auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 	z-index:2000;
     display:none;
     /* crossplatform shadow */
