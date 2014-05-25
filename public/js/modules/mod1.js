@@ -561,6 +561,7 @@ var textArticles;
 				valign = function() {
                     $("#display_menu .chosen").removeClass('chosen');
                     $("#display_menu #dm-aligned").addClass('chosen');
+                    $("#menu-display .selectedchoice").text('alignée');
                     var y0 = 0;
 					for(var se=0; se<sections.length; se++) {
                         if (has_echec && se == 0) continue;
@@ -615,6 +616,7 @@ var textArticles;
 				stacked = function() {
                     $("#display_menu .chosen").removeClass('chosen');
                     $("#display_menu #dm-stacked").addClass('chosen');
+                    $("#menu-display .selectedchoice").text('compacte');
 					d3.selectAll(".group").transition().duration(500)
                         .attr("transform","translate(0,0)");
 

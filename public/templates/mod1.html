@@ -1,50 +1,32 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1 burntsiena" id="ToolsPanel">
 	<div class="title"></div>
-    <div class="col-md-9">
-	    <ul class="list-inline">
-	    	<li><span class="glyphicon glyphicon-filter"></span>filtres
-		    	<ul class="burntsiena">
-		    		<li><span>Ad lorem Ipsum 1</span></li>
-		    		<li><span>Ad lorem Ipsum 2</span></li>
-		    		<li>Ad lorem Ipsum 3</li>
-		    	</ul>
-	    	</li>
-	    	<li>
-	    		<span class="glyphicon"></span>
-				Layout
-				<ul class="burntsiena">
-					<li>Ad lorem Ipsum 1
-						<ul class="burntsiena">
-							<li>Dolores sit amen</li>
-							<li>I love gingers </li>
-						</ul>
-					</li>
-					<li>Ad lorem Ipsum 2</li>
-				</ul>
-	    	</li>
-	    </ul>
-    </div>
-    <a class="btn-title" ng-href="lois.html?loi={{loi}}"><span class="glyphicon glyphicon-align-left"></span>&nbsp;&nbsp;Retour à la chronologie de ce texte</a>
   </div>
 </div>
+
+<div class="row" style="margin-bottom: 10px">
+  <div class="col-md-10 col-md-offset-1" style="background-color: white;">
+    <nav id="filter-nav" class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+	<li class="active"><a ng-href="lois.html?loi={{loi}}">&lt; Chronologie du texte</a></li>
+	<li id="menu-display" class="dropdown">
+          <span class="dropdown-toggle" data-toggle="dropdown">Vue <span class="selectedchoice">alignée</span> <b class="caret"></b></span>
+            <ul class="dropdown-menu" id="display_menu">
+	      <li><a id="dm-aligned" class="chosen" onclick="valign()">Vue alignée</a></li>
+	      <li><a id="dm-stacked" onclick="stacked()">Vue compacte</a></li>
+          </ul>
+        </li>
+      </ul>
+  </div>
+  </nav>
+</div>
+</div>
+
 
 <div class="row">
 	<div class="col-md-12 viz-container">
 		<div class="labels">
-            <div class="btn-group dd-btn">
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">Affichage</button>
-                <button type="button" class="btn dropdown-toggle arrow" data-toggle="dropdown">
-                    <span class="caret"></span>
-                    <span class="sr-only">Déplier le menu</span>
-                </button>
-
-                <ul class="dropdown-menu" role="menu" id="display_menu">
-                    <li><a id="dm-aligned" class="chosen" onclick="valign()">aligné</a></li>
-                    <li class="divider"></li>
-                    <li><a id="dm-stacked" onclick="stacked()">compact</a></li>
-                </ul>
-            </div>
 		</div>
 		<div class="main">
 			<div class="stages">
