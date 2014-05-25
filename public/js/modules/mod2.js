@@ -102,6 +102,7 @@ var utils, highlight;
         sortByStat = function() {
             $("#display_order .chosen").removeClass('chosen');
             $("#display_order #do-stat").addClass('chosen');
+            $("#menu-order .selectedchoice").text('sort final');
             orderedByStatus = true;
             redraw();
         };
@@ -109,11 +110,17 @@ var utils, highlight;
         sortByParty = function() {
             $("#display_order .chosen").removeClass('chosen');
             $("#display_order #do-party").addClass('chosen');
+            $("#menu-order .selectedchoice").text('groupe politique');
             orderedByStatus = false;
             redraw();
         };
         redraw = function(merged) {
             if (merged == undefined) merged = grouped;
+	    if (merged) {
+		$('#menu-display .selectedchoice').text('groupé');
+	    }else{
+		$('#menu-display .selectedchoice').text('par articles');
+	    }
             utils.startSpinner();
             $("svg").animate({opacity: 0}, 200, function() {
                 $("svg").empty();
