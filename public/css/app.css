@@ -1218,6 +1218,34 @@ noscript h2 {
 	background: #716259;
 	color: #FFF;
 }
+.popover.gantt h3 {
+    background-color: #FFF !important;
+    color: #716259 !important;
+}
+.popover.CMP h3{
+	border-bottom: 7px solid rgb(231,221,158);
+}
+.popover.PJL h3{
+	border-bottom: 7px solid rgb(204,203,179);
+}
+.popover.AN h3{
+	border-bottom: 7px solid rgb(206,214,221);
+}
+.popover.SE h3{
+	border-bottom: 7px solid rgb(249,155,144);
+}
+.popover.CC h3{
+	border-bottom: 7px solid rgb(174,234,170);
+}
+.popover.PR h3{
+	border-bottom: 7px solid #716259;
+}
+.popover.IP h3{
+	border-bottom: 7px solid rgb(216, 209, 201);
+}
+.popover.Color_Default h3{
+	border-bottom: 7px solid #aea198;
+}
 .CMP{
 	fill: rgb(231,221,158);
 }

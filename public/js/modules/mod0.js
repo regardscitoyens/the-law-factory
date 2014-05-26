@@ -593,6 +593,7 @@ var drawGantt, utils,
                                 mousemove: true
                             };
                         });
+                        $(".law-bg").hover(function(d) {$('.popover').addClass("gantt IP")}, function() {$('.popover').removeClass("IP")});
 
                     //addsingle law steps
                     steps = laws.append("g")
@@ -603,6 +604,7 @@ var drawGantt, utils,
                         .append("g")
                         .attr("class", "g-step")
                         .popover(popover);
+                        $(".steps").hover(function(d) {$('.popover').addClass("gantt "+color_step(d.target.__data__))}, function(d) {$('.popover').removeClass(color_step(d.target.__data__))});
 
                     steps.append("rect")
                         .attr("class", color_step)
@@ -668,6 +670,7 @@ var drawGantt, utils,
                                     .popover(popover);
                             }
                         });
+                    $(".lbls").hover(function(d) {$('.popover').addClass("gantt "+color_step(d.target.__data__))}, function(d) {$('.popover').removeClass(color_step(d.target.__data__))});
                 }
 
 
