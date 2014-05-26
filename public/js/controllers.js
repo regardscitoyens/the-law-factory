@@ -26,6 +26,13 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.article = $location.search()['article'];
         $scope.error = {};
 
+        $scope.setTextContainerHeight = function() {
+            $(".text-container").height($(".text").height() - $("#text-title").outerHeight());
+        }
+        $scope.getVizHeight = function() {
+            return $(window).height() - $("#header-nav").height()-$(".title").height()-$("#menu-left").height()-$("footer").height()-parseInt($(".row").css("margin-bottom"))-36;
+        }
+
         $scope.read=false;
         $scope.revs=true;
         $scope.readmode = function() {

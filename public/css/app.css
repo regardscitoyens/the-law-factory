@@ -72,10 +72,6 @@ h1,h2,h3,h4 {
 	width:100%;
 }
 
-footer{
-	margin-top:7px !important;
-}
-
 footer a{
 	color:#808285;
 }
@@ -220,30 +216,18 @@ body{
 	width:18.33%;
 	float:left;
 	position:relative;
-	/*height:100%;*/
+	height:100%;
 }
 
 .text-container{
 	background-color:#fff;
 	clear:both;
-	height:90%;
-	overflow:auto;
-	padding-top:10px;
-    height:540px;
     overflow-x:hidden;
     overflow-y:auto;
 }
 .txt-center {
     text-align: center;
 }
-.mod1 .text-container{
-   height:530px;
-}
-
-.mod2 .text-container{
-    height:535px;
-}
-
 .art-txt{
     padding-right: 30px;
 }
@@ -344,10 +328,6 @@ ins {
 .scrolling{
 	width: 73.33%;
 	float: left;
-	height:590px;
-}
-.mod0 .scrolling{
-    height:750px;
 }
 .step-lbl{
     font-family:"arial",sans-serif;
@@ -355,13 +335,11 @@ ins {
 
 .main-sc{
 	width:100%;
-	max-height:80%;
 	float:left;
 }
 .labels-sc{
 	padding:0 !important;
     width: 100%;
-	height:100%;
 	float:left;
 }
 .labels-sc h5 {
@@ -369,6 +347,7 @@ ins {
     background-color: white;
     margin: 0px;
     padding: 8px;
+    height: 20px;
 }
 .labels-sc p{
 	margin:0;
@@ -378,7 +357,7 @@ ins {
 }
 .mod0 .labels-sc {
 	width: 88.66%;
-    height: 94px;
+    height: 150px;
     float: right;
 }
 .mod0 .labels-sc div{
@@ -391,6 +370,7 @@ ins {
     margin-top: 1px;
     float: right;
 	width:88.64%;
+    height: 100px;
     /*position: relative; */
     padding-bottom: 0.9%;
     padding-top: 0.8%;
@@ -439,7 +419,7 @@ span.dropdown-toggle {
   padding: 0px !important;
 }
 #menu-left { width: 80% }
-#menu-display {  width: 20%; }
+#menu-display {  width: 20%; min-height: 50px;}
 #menu-sort { width: 14%; }
 #menu-amendments { width: 25%; }
 #menu-years { width: 14%; }
@@ -570,7 +550,6 @@ ul.ui-autocomplete {
 }
 .mod0 .text  {
 	width:18.33%;
-    height: 100%;
 }
 .mod1 .text, .mod2 .text  {
     position:absolute;
@@ -581,17 +560,9 @@ ul.ui-autocomplete {
     transition: all 0.4s ease-in-out;
 }
 
-.mod2 .labels-sc {
-	height:auto !important;
-}
-.mod2 .main-sc, .mod0 .main-sc{
-	width: 100%;
-	height:85%;
-}
 .mod2 #viz {
     overflow-y:auto;
     overflow-x:hidden;
-    height:100%;
 	width:88.64%;
 	float:right;
     background-color: white;
@@ -638,10 +609,10 @@ ul.ui-autocomplete {
 }
 
 .mod0 #bars{
-	height:110%;
 	background-color:white;
 	padding-bottom:10px;
     width: 100%;
+    height: 130px;
 }
 
 .mod0 .bar-step:first-child {
@@ -657,7 +628,7 @@ ul.ui-autocomplete {
     width: 10.34%;
 }
 .mod0 #legend {
-	width:88.34%;
+	width:88.36%;
     height: 6%;
     float: left;
     background-color:white;
@@ -666,7 +637,7 @@ ul.ui-autocomplete {
 }
 .mod0 #gantt {
 	height:94%;
-	width:88.34%;
+	width:88.36%;
 	float:left;
     background-color:white;
     overflow-x:auto;
@@ -772,9 +743,6 @@ h4 a{
 	font-size:0.9em;
 }
 
-.text-container{
-	padding-bottom:20px;
-}
 .orat-fonction{
 	font-size: 0.8em;
 	line-height: 0.9em;
@@ -801,13 +769,6 @@ h4 a{
 }
 .text-container:empty {
 	padding:0;
-
-}
-
-
-.text:empty {
-    padding:0;
-    height:0 !important;
 }
 
 .g-law, .law-name{
@@ -822,7 +783,6 @@ h4 a{
    margin:30px 0;
 }
 .gotomod a.btn-info {
-	display:inline;
 	float:none;
     font-weight: bold;
     font-size: 1.1em;
@@ -837,7 +797,7 @@ h4 a{
     width: 100%;
 }
 .mod0 .text-container p {
-    margin-top: 3%;
+    margin-top: 10px;
 }
 text {
     font-family: "Oxygen", sans-serif;
@@ -861,7 +821,6 @@ text {
     color: #716259;
     background-color: #eeeeee;
     opacity: 0.85;
-
 }
 .text-container a.badge {
     padding: 2px 8px 5px 8px;
@@ -992,7 +951,6 @@ footer span:hover {
     display:block;
     clear:both;
 }
-
 
 /*STEPSBAR */
 
@@ -1421,10 +1379,6 @@ footer .nav>li>a {
     margin-left: 20%;
     margin-right: 20%;
 }
-#credits {
-
-}
-
 footer{
     height:32px;
     background-color:white;
@@ -1436,7 +1390,6 @@ footer{
 }
 
 .foot-links{
-    margin-top:6px;
     text-align:center;
 }
 
@@ -1456,16 +1409,9 @@ footer{
 }
 #wrapper{
     position: relative;
-    padding-bottom:90px;
     height:100%;
 }
 
 .clear{
     clear:both;
-}
-div[ng-view] {
-    height:100%;
-}
-.mod2 {
-    height:100%;
 }

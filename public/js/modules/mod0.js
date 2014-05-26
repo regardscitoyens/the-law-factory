@@ -740,26 +740,28 @@ var drawGantt, utils,
 
                 function drawStats() {
 
-                    var height = 60,
-                        barcontainer = d3.select("#bars"),
-                        m = d3.max(d3.values(stats)),
-                        bscale = d3.scale.linear().range([0, height]);
-                    bscale.domain([0, m]);
-
                     $(".labels-sc h5").html(
                         active_filters['length'] ?
                             "Supprimer le filtre sur les textes de "+(active_filters['length']/30 + " mois").replace("24 mois", "2 ans et +") :
                             "Filtrer par durée d'adoption des textes"
                     );
 
+                    var margin_top = 10,
+                        text_height = 35,
+                        height = $(".labels-sc").height() - parseInt($(".labels-sc h5").css("height")) - margin_top,
+                        barcontainer = d3.select("#bars"),
+                        m = d3.max(d3.values(stats)),
+                        bscale = d3.scale.linear().range([0, height - text_height]);
+                    bscale.domain([0, m]);
+
                     d3.entries(stats).forEach(function (e, i) {
                         var label=(e.key == maxstat * binstat ? '2&nbsp;ans et&nbsp;+' : e.key/binstat + " mois"),
                         step = barcontainer
                             .append("div")
                             .attr("class", "bar-step")
-                            .attr("style", "width: " + 95/(maxstat+1) + "%; margin-right: " + 5/(maxstat+1) + "%");
+                            .attr("style", "width: " + 95/(maxstat+1) + "%; margin-right: " + 5/(maxstat+1) + "%; margin-top:"+ margin_top+"px;");
                         if (active_filters['length'] && active_filters['length'] != e.key)
-                            step.style("height", "100%")
+                            step.style("height", (height-text_height) + "px")
                             .on('click', function() { rmBillsFilter('length'); });
 
                         step.append("div")
@@ -789,7 +791,7 @@ var drawGantt, utils,
 
                         step.append("div")
                             .attr("class", "bar-key")
-                            .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(parseInt(barcontainer.style("width")) / maxstat), 8]) + "px")
+                            .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(parseInt(barcontainer.style("width")) / maxstat), 8]) + "px; height:"+text_height+"px;")
                             .html(label);
                     });
                 }

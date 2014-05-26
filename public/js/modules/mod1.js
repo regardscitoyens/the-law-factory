@@ -213,7 +213,7 @@ var textArticles;
 				setCoordinates();
 
 				//create SVG
-				var maxy = Math.max(d3.max(bigList,function(d){return d.y+lerp(d.length)}) + 50, $(".text-container").height())
+				var maxy = Math.max(d3.max(bigList,function(d){return d.y+lerp(d.length)}) + 50, $("#viz").height())
 				var svg = d3.select("#viz").append("svg").attr("width", "100%").attr("height", maxy).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
                 function article_hover(d) {
@@ -663,10 +663,10 @@ var textArticles;
                         $("#text-title").empty();
                         $(".art-meta").empty();
                         $(".art-txt").empty();
-                        //if (d.n_diff) $("#revsMode").show();
                         if(d.n_diff && d.id_step.substr(-5) !=="depot" && d.status != "new") $("#revsMode").show();
                         else $("#revsMode").hide();
                         $("#text-title").html(titre_article(d, 2));
+                        utils.setTextContainerHeight();
                         var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " ("+format_section(d, 1)+')' : format_section(d, 2)) + "</b>" +
                             (test_section_details(d.section, d.id_step, 'title') ? " : " +get_section_details(d.section, d.id_step, 'title') : "")
                             + "</p>" : "") +

@@ -293,6 +293,8 @@ var utils, highlight;
             d3.event.stopPropagation();
             $("#readMode").show();
             utils.resetHighlight('amds');
+            $("#text-title").text("Amendement "+d.numero);
+            utils.setTextContainerHeight();
             utils.startSpinner('load_amd');
             setTimeout(function(){ d3.json(api_root+d.id_api+'/json',function(error, json){
                 var currAmd = json.amendement,
@@ -320,7 +322,6 @@ var utils, highlight;
                 .style("opacity", 1)
                 .style("stroke", "#333344")
                 .style("stroke-width", 2);
-            $("#text-title").text("Amendement "+d.numero);
 		}
 
 		function color_amd(d) {

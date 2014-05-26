@@ -283,6 +283,7 @@ sven.viz.streamkey = function(){
                 d3.event.stopPropagation();
                 $("#text-title").html(d.label);
                 $(".text-container").empty()
+                utils.setTextContainerHeight();
                 $(".text-container").append('<p class="orat-title">'+d.x+"</p>");
                 d3.selectAll("path").transition().style("fill-opacity",0.1);
                 d3.selectAll("rect").transition().style("opacity",0.1);
