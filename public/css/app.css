@@ -233,8 +233,10 @@ body{
     padding-right: 30px;
 }
 
-.art-txt ul {
+.art-txt ul.originaltext {
     list-style-type: decimal-leading-zero;
+}
+.art-txt ul {
     margin: 0px;
     padding-left: 30px;
     font-size: 0.7em;

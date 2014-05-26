@@ -666,7 +666,6 @@ var valign, stacked, utils, aligned = true;
 
                     $(".art-txt").animate({opacity: 0}, 100, function() {
                         $("#readMode").show();
-
                         $("#text-title").empty();
                         $(".art-meta").empty();
                         $(".art-txt").empty();
@@ -691,19 +690,18 @@ var valign, stacked, utils, aligned = true;
                                 dmp.Diff_EditCost = 25;
                                 var diff = dmp.diff_main(textArticles[d.article][d.prev_dir].join("\n"), textArticles[d.article][d.directory].join("\n"));
                                 dmp.diff_cleanupEfficiency(diff);
-                                d.textDiff = "<ul><li>";
+                                d.textDiff = '<ul class="textdiff"><li>';
                                 d.textDiff += diff_to_html(diff)
                                     .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
                                 d.textDiff += "</li></ul>";
-                                utils.stopSpinner(function() {
-                                    $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
-                                }, 'load_art');
-                            }, 0);
-                        } else {
-                            if (!d.textDiff) d.textDiff = "<ul><li><span>" + $.map(textArticles[d.article][d.directory], function(i) {
+				d.originalText = '<ul class="originaltext"><li><span>' + $.map(textArticles[d.article][d.directory], function(i) {
                                 return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
                             }).join("</span></li><li><span>") + "</span></li></ul>";
-                            $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
+                                utils.stopSpinner(utils.update_revs_view, 'load_art');
+                            }, 0);
+                        } else {
+                            if (!d.textDiff) d.textDiff = d.originalText;
+			    utils.update_revs_view();
                         }
                     });
                 }

@@ -59,15 +59,21 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
             $scope.read=false;
         }
         $scope.hiderevs = function() {
-            $("ins").css({"background-color":"transparent", "text-decoration":"none"})
-            $("del").hide();
             $scope.revs=false;
+	    return $scope.update_revs_view();
         }
         $scope.showrevs = function() {
-            $("ins").css({"background-color":"#E6FFE6", "text-decoration":"underline"})
-            $("del").show();
             $scope.revs=true;
+	    return $scope.update_revs_view();
         }
+	$scope.update_revs_view = function() {
+	    var d = d3.select('#viz .curr').data()[0];
+	    if (utils.revs) {
+		$(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
+	    }else{
+		$(".art-txt").html(d.originalText).animate({opacity: 1}, 350);
+	    }
+	}
 
         $scope.spinner = null;
         $scope.spinner_opts = {
