@@ -175,6 +175,8 @@ var drawGantt, utils,
                         return (i % Math.round(tickpresence(rat)(z))==0 && tscale(d) + 60/z < width ? 1 : 0);
                     });
                 }
+                if (z > 1) $(".mod0 #gantt").css('cursor', 'move');
+                else $(".mod0 #gantt").css('cursor', 'default');
 
                 legendcontainer.attr("width", width * z);
                 ganttcontainer.attr("width", width * z);
@@ -669,6 +671,7 @@ var drawGantt, utils,
                                     .text(d.stepname[j])
                                     .popover(popover);
                             }
+                    
                         });
                     $(".lbls").hover(function(d) {$('.popover').addClass("gantt "+color_step(d.target.__data__))}, function(d) {$('.popover').removeClass(color_step(d.target.__data__))});
                 }
