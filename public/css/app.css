@@ -477,6 +477,7 @@ li.dropdown .disabled{
 }
 .dropdown-menu>li>a {
   padding: 3px 15px 6px 15px;
+  color: #716259;
 }
 .dropdown-menu>li>a:hover {
    background-color: #716259;
