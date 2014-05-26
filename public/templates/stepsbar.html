@@ -15,32 +15,27 @@
     </div>
 
     <div class="stb-steps">
-        <div class="stb-step stb-{{i.directory.substr(0, i.directory.search('_'))}}" ng-class="{'current': s === i.directory}" style="width:{{(1/total)*100}}%" ng-repeat="i in steps">
+        <div class="stb-step stb-{{i.directory.substr(0, i.directory.search('_'))}}" ng-class="{'current': etape === i.directory}" style="width:{{(1/total)*100}}%" ng-repeat="i in steps">
 
             <div>
                 <span>
-                    <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" data-placement="bottom" title="{{i.long_name}}">{{i.short_name}}</span>
-                    <span ng-hide="i.display_short">{{i.long_name}}</span>
-                    <a ng-hide="i.source_url=='renvoi en commission'" class="stb-linkstep glyphicon glyphicon-link" data-toggle="tooltip" data-placement="bottom" data-placement="bottom" title="Voir la source" href="{{i.source_url}}" target="_blank"></a>
-                    <span ng-show="i.source_url=='renvoi en commission'" class="stb-link stb-renvoi glyphicon glyphicon-ban-circle" data-toggle="tooltip" data-placement="bottom" data-placement="bottom" title="Renvoi en commission"></span>
+                    <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name+'<br/>'+formatDate(i.enddate)}}">{{i.short_name}}</span>
+                    <span ng-hide="i.display_short"  data-toggle="tooltip" data-placement="bottom" title="{{formatDate(i.enddate)}}">{{i.long_name}}</span>
+                    <a ng-hide="i.source_url=='renvoi en commission'" class="stb-linkstep glyphicon glyphicon-link" data-toggle="tooltip" data-placement="bottom" title="Voir la source" href="{{i.source_url}}" target="_blank"></a>
+                    <span ng-show="i.source_url=='renvoi en commission'" class="stb-link stb-renvoi glyphicon glyphicon-ban-circle" data-toggle="tooltip" data-placement="bottom" title="Renvoi en commission"></span>
                 </span>
             </div>
 
             <div class="stb-links">
-                <a class="stb-link stb-txt" ng-show="mod!='mod1'" title="Explorer les articles" data-toggle="tooltip" data-placement="bottom" href="loi.html?l={{l}}">
-                    <span class="glyphicon glyphicon-list"></span>
-                </a>
-                <span ng-hide="mod!='mod1'" class="stb-link glyphicon glyphicon-list low-vis"></span>
-
-                <a class="stb-link stb-amds" ng-show="i.nb_amendements && (s!=i.directory ||(s==i.directory && mod=='mod2b'))" data-toggle="tooltip" data-placement="bottom" title="Explorer les amendements" href="amendements.html?l={{l}}&s={{i.directory}}">
+                <a class="stb-link stb-amds" ng-show="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='mod2b'))" data-toggle="tooltip" data-placement="bottom" title="Explorer les amendements" href="amendements.html?loi={{loi}}&etape={{i.directory}}">
                     <span class="glyphicon glyphicon-folder-open"></span>
                 </a>
-                <span ng-hide="i.nb_amendements && (s!=i.directory ||(s==i.directory && mod=='mod2b'))" class="stb-link glyphicon glyphicon-folder-open low-vis" data-toggle="tooltip" data-placement="bottom" title="Explorer les amendements" ng-class="{'stb-curr-st':s==i.directory && mod=='mod2'}"></span>
+                <span ng-hide="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='mod2b'))" class="stb-link glyphicon glyphicon-folder-open low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='mod2'}"></span>
 
-                <a class="stb-link stb-ints" ng-show="i.has_interventions && (s!=i.directory ||(s==i.directory && mod=='mod2'))" data-toggle="tooltip" data-placement="bottom" title="Explorer les débats" href="debats.html?l={{l}}&s={{i.directory}}">
+                <a class="stb-link stb-ints" ng-show="i.has_interventions && (etape!=i.directory ||(etape==i.directory && mod=='mod2'))" data-toggle="tooltip" data-placement="bottom" title="Explorer les débats" href="debats.html?loi={{loi}}&etape={{i.directory}}">
                     <span class="glyphicon glyphicon-comment"></span>
                 </a>
-                <span ng-hide="i.has_interventions && (s!=i.directory ||(s==i.directory && mod=='mod2'))" class="stb-link glyphicon glyphicon-comment low-vis" data-toggle="tooltip" data-placement="bottom" title="Explorer les débats" ng-class="{'stb-curr-st':s==i.directory && mod=='mod2b'}"></span>
+                <span ng-hide="i.has_interventions && (etape!=i.directory ||(etape==i.directory && mod=='mod2'))" class="stb-link glyphicon glyphicon-comment low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='mod2b'}"></span>
             </div>
 
         </div>

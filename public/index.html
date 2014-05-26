@@ -18,156 +18,30 @@
   </head>
 
   <body>
-    <style>
-      body{
-        
-      }
+  <div id="wrapper">
 
-      footer{
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-        background: #ccc;
-      }
-
-      footer ul{
-        padding: 0;
-        margin: 0;
-      }
-
-      footer ul li{
-        display: inline-block;
-        list-style-type: none;
-      }
-
-
-
-      .navbar-brand{
-        margin-top: 4px;
-        margin-left: 8px;
-        margin-bottom: 4px;
-      }
-
-
-
-      .nav>li>a, #search-btn>span{
-        padding: 0;
-        line-height: 26px;
-        margin: 12px 8px;
-        font-size: 13px;
-        padding: 0px 8px;
-      }
-
-
-
-      #search-btn>span{
-        background-color: #eee;
-      }
-
-
-
-      a.button{
-        background: #50a477;
-        color: white;
-        /* text-transform: uppercase; */
-        padding: 0px 18px;
-        line-height: 42px;
-        font-size: 18px;
-        display: inline-block;
-        border-radius: 2px;
-        transition: background-color .2s ease-in-out;
-        cursor: pointer;
-      }
-
-      a.button:hover{
-        background: #581e19;
-        text-decoration: none;
-      }
-
-
-
-      #headline, #laws{
-        text-align: center;
-      }
-
-      #headline h1{
-        display: inline-block;
-        text-align: center;
-        /* margin: 0 auto; */
-        padding-bottom: 12px;
-        padding-top: 24px;
-      }
-
-      #headline h4{
-        line-height:24px;
-        font-size:18px;
-        padding-bottom: 24px;
-      }
-
-
-
-      #laws{
-        width: 640px;
-        margin: 36px auto;
-      }
-
-
-      #laws ul{
-        padding: 0;
-      }
-
-      #laws ul li{
-        text-align:left;
-        padding: 0px;
-        list-style-type: none;
-        background: white;
-        margin-top: 18px;
-      }
-
-       #laws ul li:hover{
-      background:#EBEBEB;
-      }
-
-      #laws ul li h2{
-        padding:0;
-        margin: 0;
-        font-size: 16px;
-        line-height: 21px;
-      }
-
-      #laws ul li h3{
-        padding:0;
-        margin: 0;
-        font-size: 13px;
-        line-height: 21px;
-        color: #333;
-      }
-
-     #laws ul li a{
-        color: #996247;
-        padding: 8px;
-      }
-
-      #laws .stat{
-        text-align: center;
-      }
-
-      #laws .number{
-        font-size: 18px;
-      }
-    </style>
-    
-    <nav role="navigation" class="navbar navbar-custom" ng-controller="navigationCtrl">
+    <nav id="header-nav" role="navigation" class="navbar navbar-custom" ng-controller="navigationCtrl">
       <div class="navbar-header">
-        <a href="index.html" class="navbar-brand"><img src="./img/the-law-factory-logo.svg"></a>
-        <ul class="nav navbar-nav navbar-right">
-
-          <li><a href="lois.html">EXPLORER LES LOIS</a></li>
-          <li><a href="#" id="tutorial-btn" ng-click="startTutorial()">TUTORIEL</a></li>
-
-          <li id="search-btn"><span>CHERCHER UNE LOI<span class="glyphicon glyphicon-search glass"></span></span></li>
-        </ul>
+	<div id="header-mainlogo">
+        <a href="index.html"><img src="img/the-law-factory-logo.svg"></a>
+	</div>
+	<div id="header-logos" class="logos navbar-right">
+          <div class="head-logo"><a href="http://www.regardscitoyens.org/" title="Regards Citoyens"><img src="img/regards-citoyens.png"/></a></div>
+          <div class="head-logo"><a href="http://www.medialab.sciences-po.fr/" title="médialab Sciences Po"><img src="img/medialab.png"/></a></div>
+          <div class="head-logo"><a href="http://cee.sciencespo.fr/" title="Centre d'Études Européennes Sciences Po"><img src="img/cee.png"/></a></div>
+          <div class="head-logo"><a href="http://www.iledefrance.fr/competence/picri" title="Programme PICRI Île-de-France"><img src="img/ile-de-france.png"/></a></div>
+          <div class="head-logo"><a href="http://www.densitydesign.org/" title="Density Design"><img src="img/density-design.png"/></a></div>
+        </div>
+	<div id="header-search">
+        <form class="navbar-form" role="search" action="lois.html" lawlist>
+        <div class="input-group">
+            <input type="text" class="form-control form-law" placeholder="Chercher une loi promulguée depuis 2010" id="search" name="loi" autocomplete="off">
+            <div class="input-group-btn">
+	      <span class="helper-hidden-accessible form-control form-law message"></span><button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        </form>
+	</div>
       </div>
     </nav>
 
@@ -178,22 +52,29 @@
       </div>
     </noscript>
 
-
+    <div class="row">
+      <div ng-hide="ishome" class="col-md-10 col-md-offset-1 burntsiena">
+        <div class="title"></div>
+      </div>
+    </div>
 
   <!-- Page template space -->
-    <div ng-view>
-
-    </div>
+    <div ng-view></div>
 
   <!-- Footer space -->
   <footer>
-    <ul>
-      <li>credits</li>
-      <li>|</li>
-      <li>contacts</li>
-    </ul>
+      <div class="col-md-12 foot-links">
+        <ul class="nav navbar-nav navbar-middle">
+          <li><a> à propos</a></li>
+          <li><a href="http://blog.lafabriquedelaloi.fr/">blog</a></li>
+          <li><a href="{{APIRootUrl}}">opendata</a></li>
+          <li><a href="http://github.com/regardscitoyens/the-law-factory/issues">signaler un bug</a></li>
+          <li><a href="http://www.regardscitoyens.org/mentions-legales/">mentions légales</a></li>
+          <li><a href="mailto:contact@lafabriquedelaloi.fr">contact</a></li>
+        </ul>
+      </div>
   </footer>
-
+  </div>
   <!-- Library JS-->
     <script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="js/lib/jquery-ui-1.10.4.custom.min.js"></script>
@@ -206,10 +87,11 @@
 
   <!-- Global JS app controllers -->
     <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/services.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
     <script type="text/javascript" src="js/controllers.js"></script>
     <script type="text/javascript" src="js/directives.js"></script>
-    <script type="text/javascript" src="js/modules/mod0.js"></script>
+    <script type="text/javascript" src="js/services.js"></script>
+    <script type="text/javascript" src="js/analytics.js"></script>
 
   </body>
 </html>

@@ -2,9 +2,9 @@
 
 /* Controllers */
 
-                    
 
-angular.module('theLawFactory.controllers', []).
+
+angular.module('theLawFactory.controllers', ['theLawFactory.config']).
     /*
       Specific controller for the naigation Part.
     */
@@ -14,9 +14,60 @@ angular.module('theLawFactory.controllers', []).
         $rootScope.$broadcast('MAIN_CTRL_START_TUTORIAL');
       };
     }).
-    controller('mainCtrl', function ($scope, $http, apiService, api, $rootScope, $location) {
+    controller('mainCtrl', function ($scope, $http, apiService, api, $rootScope, $location, API_ROOT_URL) {
 
-        $scope.error = {}
+        $rootScope.APIRootUrl = API_ROOT_URL;
+        $scope.APIRootUrl = API_ROOT_URL;
+        if ($scope.APIRootUrl.substr(-1) != "/") $scope.APIRootUrl += "/";
+
+        $rootScope.ishome = ($location.path() == '/');
+        $scope.mod = null;
+        $scope.drawing = false;
+        $scope.loi = $location.search()['loi'];
+        $scope.etape = $location.search()['etape'];
+        $scope.article = $location.search()['article'];
+        $scope.error = {};
+
+        $scope.setTextContainerHeight = function() {
+            $(".text-container").height($(".text").height() - $("#text-title").outerHeight());
+        }
+        $scope.getVizHeight = function() {
+            return $(window).height() - $("#header-nav").height()-$(".title").height()-$("#menu-left").height()-$("footer").height()-parseInt($(".row").css("margin-bottom"))-36;
+        }
+        $scope.setModSize = function(elsel,pad) {
+            return function() {
+                var myheight = $scope.getVizHeight();
+                $(".text").height(myheight+pad);
+                if (elsel == ".main-sc")
+                    $(elsel).height(myheight - parseInt($(".labels-sc").css('height')));
+                else $(elsel).height(myheight - $(".stages").height() - (pad ? parseInt($(".legend").css('height')) : 0));
+            }
+        }
+        $scope.setMod0Size = $scope.setModSize(".main-sc", 0)
+        $scope.setMod1Size = $scope.setModSize("#viz", 0)
+        $scope.setMod2Size = $scope.setModSize("#viz", 1)
+        $scope.setMod2bSize = $scope.setModSize("#viz-int", 1)
+
+        $scope.read=false;
+        $scope.revs=true;
+        $scope.readmode = function() {
+            $(".text").css({"width":"83.4%","left":"8.3%"});
+            $scope.read=true;
+        }
+        $scope.viewmode = function() {
+            $(".text").css({"width":"18.33%","left":"73.3%"});
+            $scope.read=false;
+        }
+        $scope.hiderevs = function() {
+            $("ins").css({"background-color":"transparent", "text-decoration":"none"})
+            $("del").hide();
+            $scope.revs=false;
+        }
+        $scope.showrevs = function() {
+            $("ins").css({"background-color":"#E6FFE6", "text-decoration":"underline"})
+            $("del").show();
+            $scope.revs=true;
+        }
 
         $scope.spinner = null;
         $scope.spinner_opts = {
@@ -38,8 +89,6 @@ angular.module('theLawFactory.controllers', []).
             left: '50%' // Left position relative to parent
         };
 
-        
-        
         $scope.startSpinner = function(divid) {
             if ($scope.spinner != null) return;
             if (!divid) divid = 'preload';
@@ -76,7 +125,7 @@ angular.module('theLawFactory.controllers', []).
             "hemicycle": "Hém.",
             "depot": "Dépôt",
             "depots": "Dépôts",
-            "cmp": "C.M.P.",
+            "cmp": "CMP",
         }
 
         $scope.longNames = {
@@ -119,6 +168,15 @@ angular.module('theLawFactory.controllers', []).
             return $scope.getShortName(el.step);
         }
 
+        $scope.slugArticle = function(a) {
+            return "art_" + a.toLowerCase()
+                .replace("è", "e")
+                .replace(/article/, '')
+                .replace(/[i1]er?/, '1')
+                .trim()
+                .replace(/\W/g, '-')
+        }
+
         $scope.string_to_slug = function (str) {
             str = str.replace(/^\s+|\s+$/g, ''); // trim
             str = str.toLowerCase();
@@ -154,22 +212,31 @@ angular.module('theLawFactory.controllers', []).
         $scope.groups = {};
 
 	    $scope.drawGroupsLegend = function() {
-            var col, type;
+            var col, type, oncl;
             d3.entries($scope.groups)
             .sort(function(a,b) { return a.value.order - b.value.order; })
             .forEach(function(d) {
                 col = $scope.adjustColor(d.value.color);
                 type = (d.value.link !== "" ? 'colors' : 'others');
-               $("."+type).append('<div class="leg-item" onclick="highlight(\''+d.key+'\');" title="'+d.value.nom+'" data-toggle="tooltip" data-placement="left"><div class="leg-value" style="background-color:'+col+'"></div><div class="leg-key">'+d.key+'</div></div>');
+                oncl = ' onclick="highlight(\''+d.key+'\');" title="'+d.value.nom+'" data-toggle="tooltip" data-placement="left">';
+               $("."+type).append('<div class="leg-item"><div class="leg-value" style="background-color:'+col+'"' + oncl + '</div>' +
+                    '<div class="leg-key"' + oncl + d.key + '</div></div>');
 			});
-            $(".leg-item").tooltip();
+            $(".leg-value").tooltip();
+            $(".leg-key").tooltip();
         }
 
         $scope.highlightGroup = function(group) {
+            if (!e) var e = window.event;
+            if (e) {
+                e.cancelBubble = true;
+                if (e.stopPropagation) e.stopPropagation();
+            }
             if (!$('.focused')) {
                 $(".text-container").empty();
                 if ($scope.groups[group]) $("#text-title").html($scope.groups[group].nom);
             }
+            $(".legend").on("click", $scope.resetHighlight);
             group = "."+ $scope.slugGroup(group)
             d3.selectAll("path"+group).transition(50).style("fill-opacity",0.6);
             d3.selectAll("rect"+group).transition(50).style("opacity", 0.9);
@@ -182,6 +249,11 @@ angular.module('theLawFactory.controllers', []).
         }
 
         $scope.resetHighlight = function(type) {
+            if (!e) var e = window.event;
+            if (e) {
+                e.cancelBubble = true;
+                if (e.stopPropagation) e.stopPropagation();
+            }
             if ($('.focused').length) {
                 d3.selectAll("rect.focused").transition(50).style("opacity",0.55);
                 d3.selectAll("path.focused").transition(50).style("fill-opacity",0.45);
@@ -194,12 +266,11 @@ angular.module('theLawFactory.controllers', []).
                 d3.selectAll("rect").transition(50).style("opacity",0.9);
                 d3.selectAll("path").transition(50).style("fill-opacity",0.3);
             }
-            if (type == "amds")
             d3.selectAll(".actv-amd")
                 .style("stroke","none")
 			    .classed("actv-amd",false);
         }
-
+        
         /**
          * Draw a div over the jQuery node passed as argument
          *
@@ -213,9 +284,14 @@ angular.module('theLawFactory.controllers', []).
             $('body').append('<div id="div_over_svg" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"></div>');
         }
 
+        $scope.formatDate = function(d) {
+            var d2 = d.split('-');
+            return d2[2]+"/"+d2[1]+"/"+d2[0];
+        }
+
         /////////////////////////////////////////////////////////////
         $scope.toggleTutorial = function(show) {
-            
+
             if(!$scope.tutorial && show) {
                 $scope.tutorial = true;
 
@@ -224,8 +300,8 @@ angular.module('theLawFactory.controllers', []).
                     var step = 1;
                     console.log("tuto in "+$scope.mod)
                     console.log(tuto)
-                    for(var id in tuto) 
-                    {    
+                    for(var id in tuto)
+                    {
 
                             var infos = tuto[id].split(" = ");
                             //$('#'+k).attr('data-position',infos[0]);
@@ -239,7 +315,7 @@ angular.module('theLawFactory.controllers', []).
                             $(id).attr('data-intro',infos[1]);
                             $(id).attr('data-step',step++);
                     }
-                    
+
                     var introjs = introJs().setOptions({
                         showBullets: false,
                         showStepNumbers: false,
@@ -293,5 +369,11 @@ angular.module('theLawFactory.controllers', []).
             }
         };
 
-        
-    })
+        $scope.showFirstTimeTutorial = function() {
+            if(!localStorage.getItem("tuto-"+$scope.mod) || localStorage.getItem("tuto-"+$scope.mod)!="done")
+                $scope.toggleTutorial(true);
+
+        }
+
+    });
+

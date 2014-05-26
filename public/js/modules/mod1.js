@@ -1,6 +1,4 @@
-var aligned = true;
-var valign, stacked, utils;
-var textArticles;
+var valign, stacked, utils, aligned = true;
 
 (function() {
 
@@ -9,7 +7,7 @@ var textArticles;
 	thelawfactory.mod1 = function() {
 
         utils = $(".mod1").scope();
-        textArticles = {};
+        var textArticles = {};
 
         function titre_etape(article) {
             return article['id_step']
@@ -74,7 +72,7 @@ var textArticles;
             if (s.lastIndexOf("A", 0) === 0)
                 return 0.65;
             try {
-                return 0.95-0.07*(split_section(s).length-1);
+                return 0.95-0.12*(split_section(s).filter(function(d){return d != "";}).length-1);
             } catch(e) {
                 console.log("ERREUR section with bad id:", s, e);
                 return 0.95;
@@ -100,8 +98,6 @@ var textArticles;
 			selection.each(function(data) {
 
                 var re = /l\=(.*)/;
-                var id = location.search.match(re)[1];
-
 				var bigList=[]
 				var art = d3.values(data.articles);
 
@@ -127,67 +123,99 @@ var textArticles;
                 // Dynamic load of articles text at each step
                 function load_texte_articles() {
                     var delay = 500;
-                    d3.set(bigList.map(function(d){return d.directory;})).values().sort()
-                    .forEach(function(d) {
-                        delay += 50;
-                        setTimeout(function() {
-                            d3.json(encodeURI(APIRootUrl + id + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
-                                json.articles.forEach(function (a) {
-                                    if (!textArticles[a.titre]) textArticles[a.titre] = {};
-                                    textArticles[a.titre][d] = []
-                                    Object.keys(a.alineas).sort().forEach(function (k) {
-                                        textArticles[a.titre][d].push(a.alineas[k]);
+                        d3.set(bigList.map(function(d){return d.directory;})).values().sort()
+                        .forEach(function(d) {
+                            delay += 50;
+                            setTimeout(function() {
+                                d3.json(encodeURI(utils.APIRootUrl + utils.loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
+                                    json.articles.forEach(function (a) {
+                                        if (!textArticles[a.titre]) textArticles[a.titre] = {};
+                                        textArticles[a.titre][d] = []
+                                        Object.keys(a.alineas).sort().forEach(function (k) {
+                                            textArticles[a.titre][d].push(a.alineas[k]);
+                                        });
                                     });
                                 });
-                            });
-                        }, delay);
+                            }, delay);
+                        });
+                    }
+
+                    //Utility functions
+                    function findStage(s) {
+                        for (st in stages)
+                            if (encodeURI(s) == encodeURI(stages[st]).substring(3))
+                                return parseInt(st);
+                        return -1;
+                    }
+
+                    function computeStages() {
+                        stag = []
+                        art.forEach(function(e, i) {
+                            var st = d3.nest().key(function(d) { return d.id_step; }).map(e.steps, d3.map);
+                            d3.keys(st).forEach(function(f, i) { if (stag.indexOf(f) < 0) stag.push(f); });
+                        });
+                        stag.sort();
+                        for (s in stag)
+                            stag_name = stag[s].split("_", 4).splice(2, 3).join(" ");
+                        return stag;
+                    }
+
+                    function computeSections() {
+                        var se = d3.nest().key(function(d) {
+                            return d.section;
+                        })
+                        .map(art, d3.map);
+                        return se.keys();
+                    }
+
+                    function findSection(s) {
+                        res = sections.indexOf(s);
+                        return res
+                    }
+
+                    //compute stages and sections
+                    var stages = computeStages(),
+                        columns = stages.length,
+                        sections = computeSections(),
+                        sectHeight = 15,
+                        sectJump = 25,
+                        test_section_details = function(section, etape, field) {
+                            return (data.sections && data.sections[section] && data.sections[section][etape] && data.sections[section][etape][field] != undefined);
+                        },
+                        get_section_details = function(section, etape, field) {
+                            return (test_section_details(section, etape, field) ? data.sections[section][etape][field] : "");
+                        },
+                        format_section = function(obj, length) {
+                            var sec = (obj.section ? obj.section : obj);
+                            if (sec.lastIndexOf("A", 0) === 0)
+                                return titre_article(obj, length);
+                            if (length < 2 && sec)
+                                sec = sub_section(sec);
+                            return titre_section(sec, length);
+                        };
+
+// TODO SET display menu as greyed when needed
+                    if (sections.length < 2 && art.length == 1)
+                        $("#display_menu").parent().hide();
+
+                    art.forEach(function(d, i) {
+                        d.steps.forEach(function(f, j) {
+                            f.textDiff = "";
+                            f.article = d.titre;
+                            f.section = d.section;
+                            f.prev_step = null;
+                            f.prev_dir = null;
+                            f.sect_num=findSection(f.section)
+                            f.step_num=findStage(f.id_step)
+                            if (j != 0 && f.id_step.substr(-5) != "depot") {
+                                k = j-1;
+                                while (k > 0 && d.steps[k].status === "echec") k--;
+                                f.prev_step = d.steps[k].step_num;
+                                f.prev_dir = d.steps[k].directory;
+                            }
+                            bigList.push(f);
+                        });
                     });
-                }
-
-
-				//compute stages and sections
-                var stages = computeStages(),
-				    columns = stages.length,
-				    sections = computeSections(),
-				    sectHeight = 15,
-				    sectJump = 25,
-                    test_section_details = function(section, etape, field) {
-                        return (data.sections && data.sections[section] && data.sections[section][etape] && data.sections[section][etape][field] != undefined);
-                    },
-                    get_section_details = function(section, etape, field) {
-                        return (test_section_details(section, etape, field) ? data.sections[section][etape][field] : "");
-                    },
-                    format_section = function(obj, length) {
-                        var sec = (obj.section ? obj.section : obj);
-                        if (sec.lastIndexOf("A", 0) === 0)
-                            return titre_article(obj, length);
-                        if (length < 2 && sec)
-                            sec = sub_section(sec);
-                        return titre_section(sec, length);
-                    };
-
-
-                if (sections.length < 2 && art.length == 1)
-                    $("#display_menu").parent().hide();
-
-				art.forEach(function(d, i) {
-					d.steps.forEach(function(f, j) {
-						f.textDiff = "";
-						f.article = d.titre;
-						f.section = d.section;
-                        f.prev_step = null;
-                        f.prev_dir = null;
-						f.sect_num=findSection(f.section)
-					    f.step_num=findStage(f.id_step)
-                        if (j != 0 && f.id_step.substr(-5) != "depot") {
-                            k = j-1;
-                            while (k > 0 && d.steps[k].status === "echec") k--;
-                            f.prev_step = d.steps[k].step_num;
-                            f.prev_dir = d.steps[k].directory;
-                        }
-						bigList.push(f);
-					});
-				});
 
 				var maxlen = d3.max(art, function(d) {
 					return d3.max(d.steps, function(e) {
@@ -202,21 +230,19 @@ var textArticles;
 				var levmin = 145, levmax = levmin + 100;
 				var diffcolor = d3.scale.linear().range(["rgb(" + [levmax, levmax, levmax].join(',') + ")", "rgb(" + [levmin, levmin, levmin].join(',') + ")"]).domain([0, 1]).interpolate(d3.interpolateHcl);
 
-				//margins
-				var margin = {
-					top : 0,
-					right : 10,
-					bottom : 20,
-					left : 0
-				}, width = $("#viz").width(),
-				colwidth = width / columns - 30,
-                longlabel = (colwidth < 120 ? (colwidth < 80 ? 0 : 1) : 2);
-				//init coordinates
-				setCoordinates();
-
-				//create SVG
-				var maxy = Math.max(d3.max(bigList,function(d){return d.y+lerp(d.length)}) + 50, $(".text-container").height())
-				var svg = d3.select("#viz").append("svg").attr("width", "100%").attr("height", maxy).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                var margin, width, colwidth, longlabel, maxy, svg;
+                var prepareSizes = function() {
+                    //margins
+                    margin = {
+                        top : 0,
+                        right : 10,
+                        bottom : 20,
+                        left : 0
+                    };
+                    width = $("#viz").width();
+                    colwidth = width / columns - 30;
+                    longlabel = (colwidth < 120 ? (colwidth < 80 ? 0 : 1) : 2);
+                }
 
                 function article_hover(d) {
                     var div = d3.select(document.createElement("div")).style("width", "100%");
@@ -266,7 +292,17 @@ var textArticles;
                         mousemove : true
                     };
 				}
+            var drawArticles = function() {
+				//init coordinates
+                utils.setMod1Size();
+                utils.setTextContainerHeight();
+                prepareSizes();
+				setCoordinates();
 
+                maxy = Math.max($("#viz").height(), d3.max(bigList,function(d){ return d.y+lerp(d.length)}) + 50);
+				//create SVG
+				$("svg").remove();
+				svg = d3.select("#viz").append("svg").attr("width", "100%").attr("height", maxy).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 				//draw everything
 				for(st in stages) {
 					for (se in sections) {
@@ -322,7 +358,7 @@ var textArticles;
 						.attr("class","header")
 						.attr("width", colwidth)
 						.attr("height", function(d){return (d.section === 'echec' ? maxy-50 : sectHeight);})
-						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#445151")})
+						.style("fill", function(d){return (d.section === 'echec' ? "#FD5252" : "#716259")})
 						.style("stroke", "none")
 						.style("opacity", function(d){return section_opacity(d.section)})
 						.popover(function(d){return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))})
@@ -343,7 +379,7 @@ var textArticles;
                                     .attr("class","header")
                                     .attr("width", colwidth)
                                     .attr("height", sectHeight)
-                                    .style("fill", "#333c3c")
+                                    .style("fill", "#716259")
                                     .style("stroke", "none")
                                     .style("opacity", section_opacity(curS))
                                     .popover(function(){ return section_hover(d)});
@@ -392,7 +428,7 @@ var textArticles;
                                     .attr("font-weight", "bold")
                                     .style("fill", 'white')
                                     .popover(function(){ return section_hover(d)})
-                                    .text(clean_premier(titre_section(curS, longlabel)));
+                                    .text(clean_premier(titre_section(sub_section(curS), longlabel)));
                                 ct++;
                             };
                         });
@@ -420,8 +456,7 @@ var textArticles;
 
 				//======================
 				//Visualization flow ends here
-				//======================
-
+                //======================
 				//rect style function
 				function styleRect(d){
 					d.attr("class", function(d) {
@@ -433,54 +468,23 @@ var textArticles;
 					});
 				}
 
-				//Utility functions
-				function findStage(s) {
-					for (st in stages)
-						if (encodeURI(s) == encodeURI(stages[st]).substring(3))
-							return parseInt(st);
-					return -1;
-				}
-
-				function computeStages() {
-					stag = []
-					art.forEach(function(e, i) {
-						var st = d3.nest().key(function(d) { return d.id_step; }).map(e.steps, d3.map);
-						d3.keys(st).forEach(function(f, i) { if (stag.indexOf(f) < 0) stag.push(f); });
-					});
-					stag.sort();
-					for (s in stag)
-						stag_name = stag[s].split("_", 4).splice(2, 3).join(" ");
-					return stag;
-				}
-
-				function computeSections() {
-					var se = d3.nest().key(function(d) {
-                        return d.section;
-					})
-				    .map(art, d3.map);
-					return se.keys();
-				}
-
-				function findSection(s) {
-					res = sections.indexOf(s);
-					return res
-				}
 
 				function setCoordinates() {
 					for (t in stages) {
 						var currT = bigList.filter(function(d){return d.step_num==t}),
                             currY = sectJump + sectHeight,
-                            artS, piece,
+                            piece,
                             lastS = "";
                         
 						for (s in sections) {
 							currS=currT.filter(function(e){return e.sect_num==s})
-							if(currS.length) {
-								currS.sort(function(a,b){return a.order - b.order})
-							    .forEach(function(f,k){
+							    .sort(function(a,b){return a.order - b.order});
+                            if(currS.length) {
+                                var currIdx;
+								currS.forEach(function(f,k){
 									if (k==0) {
-                                        f.head=1;
-                                        artS = f;
+                                        currIdx = k;
+                                        currS[currIdx].head = 1;
                                     }
 									f.y = currY;
 									f.x = f.step_num * width / columns + 10;
@@ -488,19 +492,19 @@ var textArticles;
 								});
                             // Identify section jumps 
                                 lastsplit = split_section(lastS);
-                                cursplit = split_section(artS.section);
+                                cursplit = split_section(currS[currIdx].section);
 							    while(lastsplit.length) {
                                     piece = newpiece = "";
                                     while (lastsplit.length && !piece) piece = lastsplit.shift();
                                     while (cursplit.length && !newpiece) newpiece = cursplit.shift();
                                     if (newpiece != piece) break;
                                 }
-                                while (cursplit.length) if (cursplit.shift()) artS.head += 1;
-                                currY += artS.head * sectHeight + sectJump;
-                                if (artS.head > 1) currS.forEach(function(f){
-                                    f.y += artS.head * sectHeight;
+                                while (cursplit.length) if (cursplit.shift()) currS[currIdx].head += 1;
+                                currY += currS[currIdx].head * sectHeight + sectJump;
+                                if (currS[currIdx].head > 1) currS.forEach(function(f){
+                                    f.y += currS[currIdx].head * sectHeight;
                                 });
-                                lastS = artS.section;
+                                lastS = currS[currIdx].section;
 							}
 						}
 					}
@@ -560,8 +564,10 @@ var textArticles;
 				//functions for aligned layout
                 var has_echec = sections.indexOf('echec') >= 0;
 				valign = function() {
+                    aligned = true;
                     $("#display_menu .chosen").removeClass('chosen');
                     $("#display_menu #dm-aligned").addClass('chosen');
+                    $("#menu-display .selectedchoice").text('alignée');
                     var y0 = 0;
 					for(var se=0; se<sections.length; se++) {
                         if (has_echec && se == 0) continue;
@@ -614,8 +620,10 @@ var textArticles;
 
 				//function for stacked layout
 				stacked = function() {
+                    aligned = false;
                     $("#display_menu .chosen").removeClass('chosen');
                     $("#display_menu #dm-stacked").addClass('chosen');
+                    $("#menu-display .selectedchoice").text('compacte');
 					d3.selectAll(".group").transition().duration(500)
                         .attr("transform","translate(0,0)");
 
@@ -629,6 +637,7 @@ var textArticles;
 
 				//on click behaviour
 				function onclick(d) {
+
                     var spin = !d.textDiff && d.prev_dir && (d.status == "sup" || d.n_diff) && d.id_step.substr(-5) != "depot";
                     if (spin) utils.startSpinner('load_art');
                     d3.selectAll("line").style("stroke", "#d0d0e0")
@@ -655,16 +664,22 @@ var textArticles;
 
                     d3.rgb(d3.select(this).style("fill")).darker(2)
 
-                    $(".art-txt").animate({opacity: 0}, 100, function() { 
+                    $(".art-txt").animate({opacity: 0}, 100, function() {
+                        $("#readMode").show();
+
                         $("#text-title").empty();
                         $(".art-meta").empty();
                         $(".art-txt").empty();
-                        $(".wide-read").show();
+                        if(d.n_diff && d.id_step.substr(-5) !=="depot" && d.status != "new") $("#revsMode").show();
+                        else $("#revsMode").hide();
                         $("#text-title").html(titre_article(d, 2));
-                        var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " ("+format_section(d, 1)+')' : format_section(d, 2)) + "</b></p>" : "") +
+                        utils.setTextContainerHeight();
+                        var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " ("+format_section(d, 1)+')' : format_section(d, 2)) + "</b>" +
+                            (test_section_details(d.section, d.id_step, 'title') ? " : " +get_section_details(d.section, d.id_step, 'title') : "")
+                            + "</p>" : "") +
                         "<p><b>" + titre_etape(d) + "</b></p>" +
                         (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ? 
-                            '<div class="gotomod"><a class="btn btn-info" href="amendements.html?l='+id+'&s='+ d.directory+'&a=article_'+ d.article.toLowerCase().replace(/ |'/g, '_')+'">Explorer les amendements</a></div>' : '') +
+                            '<div class="gotomod"><a class="btn btn-info" href="amendements.html?loi='+utils.loi+'&etape='+ d.directory+'&article='+d.article+'">Explorer les amendements</a></div>' : '') +
                             (d.n_diff == 1 && d.id_step.substr(-5) != "depot" ? "<p><b>"+(d.prev_step ? "Réintroduit" : "Ajouté") + " à cette étape</b></p>" : "") +
                             (d.n_diff == 0 ? "<p><b>"+ (d.status == "sup" ? "Supprimé" : "Aucune modification") + " à cette étape</b></p>" : "");
                         $(".art-meta").html(descr);
@@ -692,12 +707,24 @@ var textArticles;
                         }
                     });
                 }
+                if (aligned) valign();
+                else stacked();
+                $('.readMode').tooltip({ animated: 'fade', placement: 'bottom'});
+                $('.revsMode').tooltip({ animated: 'fade', placement: 'bottom'});
+            }
 
                 $(document).ready(function() {
-                    if (aligned) valign();
-                    else stacked();
-                    load_texte_articles();
-                    utils.drawDivOverElement($("rect").first());
+                    drawArticles();
+                    setTimeout(load_texte_articles, 50);
+                    $(window).resize(function(){
+                        if (utils.drawing || utils.mod != "mod1") return;
+                        utils.drawing = true;
+                        setTimeout(function(){
+                            drawArticles();
+                            utils.drawing = false;
+                        }, 50);
+                        utils.drawDivOverElement($("rect").first());
+                    });
                 });
             });
 		}

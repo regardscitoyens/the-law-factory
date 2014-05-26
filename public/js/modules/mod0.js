@@ -13,42 +13,27 @@ var drawGantt, utils,
   months: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
   shortMonths: ["Janv.", "Fév.", "Mars", "Avril", "Mai", "Juin", "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc."]
 }),
-    active_filters = {
+  allAmendments = ["Tout nb d'amendements", 'Aucun amendement', 'Moins de 50 amendements', 'Plus de 50 amendements'],
+  active_filters = {
+        year: 2013,
         theme: "",
         length: '',
-        amendment: '1'
+        amendments: allAmendments[3]
     },
-    refreshBillsFilter = function(){
-        var label;
-        for (var k in active_filters) {
-            if (active_filters[k]) {
-                label = active_filters[k];
-                switch(k) {
-                    case 'length' :
-                        $(".bar-step #mois_"+active_filters[k]).addClass('filtered_month');
-                        label = (label/30 + " mois").replace("24 mois", "2 ans et +");
-                        type = 'durée';
-                        break;
-                    case 'theme' :
-                        type = 'thème';
-                        break;
-                    case 'year' :
-                        type = 'année';
-                        break;
-                    case 'amendment' :
-                        type = 'amendement';
-                        break;
-                }
-                $("ul.filters li."+k).html("<a onclick=\"rmBillsFilter('"+k+"')\" class='badge' title='Supprimer ce filtre' data-toggle='tooltip' data-placement='right'><span class='glyphicon glyphicon-remove-sign'></span> <b>"+type+":</b> "+label+'</a>');
-            } else $("ul.filters li."+k).empty();
-        }
+    refreshLengthFilter = function(){
+        if (active_filters['length'])
+            $(".bar-step #mois_"+active_filters['length']).addClass('filtered_month');
     },
     addBillsFilter = function(filtype, filval){
         if (filtype == "length") $(".bar-value.filtered_month").removeClass('filtered_month');
         active_filters[filtype]=filval;
         drawGantt('filter');
     },
-    rmBillsFilter = function(filtype){ addBillsFilter(filtype,""); };
+    rmBillsFilter = function(filtype){ addBillsFilter(filtype,""); },
+    cleanBillsFilter = function(){
+        active_filters = {year: "", theme: "", length: "", amendments: ""}
+    refreshLengthFilter();
+    };
 
 (function () {
 
@@ -71,7 +56,8 @@ var drawGantt, utils,
                 stats = {},
                 mindate, maxdate, maxduration,
                 tscale, ticks,
-                width = parseInt(d3.select("#gantt").style("width")) - 30,
+                minheight,
+                width,
                 width_ratio = 1,
                 lawh = 50,
             steph = lawh - 16,
@@ -85,7 +71,7 @@ var drawGantt, utils,
             sort_function = sortByDate,
             format = d3.time.format("%Y-%m-%d"),
             tickform = locale.timeFormat("%b %Y"),
-            tickpresence=d3.scale.linear().range([6,1]).domain([1,7]).clamp(true),
+            tickpresence=function(v) { return d3.scale.linear().range([v,1]).domain([1,7]).clamp(true); },
             format_title = function(d){
                 d = d.replace('depot', 'Dépôt')
                     .replace('1ère lecture', '1<sup>ère</sup> Lecture')
@@ -113,9 +99,10 @@ var drawGantt, utils,
                     title = format_title(d.stage);
                     ydisp -= 20;
                 } else if (d.step) {
-                    if (d.step == "depot" && d.debats_order != null)
-                        title = "Pro" + (d.auteur_depot == "Gouvernement" ? "jet" : "position") + " de loi";
-                    div.append("p").html(format_title(d.stage));
+                    if (d.step == "depot" && d.debats_order != null) {
+                        title = "Dépôt — " + d.auteur_depot;
+			div.append("p").html("Pro" + (d.auteur_depot == "Gouvernement" ? "jet" : "position") + " de loi");
+		    }
                     ydisp -= 20;
                 }
                 div.append("p").html('<span class="glyphicon glyphicon-calendar"></span><span> '+french_date(d.date) + (d.enddate && d.enddate != d.date ? " →  "+ french_date(d.enddate) : '')+'</span>');
@@ -150,6 +137,13 @@ var drawGantt, utils,
             zooming = function(lvl) {
 
                 var perc=($("#gantt").scrollLeft()+$("#gantt").width()/2)/(width*z);
+                if ($("#gantt").scrollLeft() == 0 && $("#gantt").scrollTop() == 0) {
+                    if (layout == 't') {
+                    perc = 1;
+                    }else if (layout == 'a') {
+                    perc = 0;
+                    }
+                }
                 if(layout==="q") return;
                 if(d3.event && d3.event.scale) z = d3.event.scale;
                 else if(lvl) z=lvl;
@@ -158,41 +152,44 @@ var drawGantt, utils,
 
                 d3.selectAll(".steps").attr("transform", "scale(" + z + ",1)");
                 d3.selectAll(".law-bg").attr("transform", "scale(" + z + ",1)");
-                d3.selectAll(".row").attr("transform", "scale(" + z + ",1)");
+                d3.selectAll(".lawline").attr("transform", "scale(" + z + ",1)");
                 d3.selectAll(".tl-bg").attr("transform", "scale(" + z + ",1)");
 
-                d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z});
                 if(layout==="a") {
                     d3.selectAll(".g-law").attr("transform", function(d,i){return "translate(" + -tscale(format.parse(d.beginning)) * z + 5 + "," + (i * (20 + lawh)) +")"; });
                     lscale = d3.time.scale().range([0, width * width_ratio]);;
                     lscale.domain([mindate, maxdate]);
+                    d3.selectAll(".tick").attr("x1",function(d){return lscale(d)*z}).attr("x2",function(d){return lscale(d)*z});
                     d3.selectAll(".tick-lbl").attr("x", function (d) { return lscale(d) * z; });
+                    rat = Math.ceil(3 * maxduration / width / width_ratio);
                     d3.selectAll(".tick-lbl").style("opacity",function(d,i){
-                        return (i % Math.round(tickpresence(z))==0 && lscale(d)*z< width*z - 50 ? 1 : 0);
+                        return (i % Math.round(tickpresence(rat)(z))==0 && lscale(d) + 60/z < width ? 1 : 0);
                     });
                     
                 } else {
+                    d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z});
                     d3.selectAll(".tick-lbl").attr("x", function (d) { return tscale(d) * z; });
+                    rat = Math.ceil(3 * maxduration / width / width_ratio);
                     d3.selectAll(".tick-lbl").style("opacity",function(d,i){
-                        return (i % Math.round(tickpresence(z))==0 && tscale(d)*z< width*z - 50 ? 1 : 0);
+                        return (i % Math.round(tickpresence(rat)(z))==0 && tscale(d) + 60/z < width ? 1 : 0);
                     });
                 }
 
-                legendcontainer.attr("width", width * z * width_ratio);
+                legendcontainer.attr("width", width * z);
                 ganttcontainer.attr("width", width * z);
 
                 $("#gantt").scrollLeft(perc * width * z - $("#gantt").width() / 2 );
-
             };
-
-            function initGanttSVG() {
-                lawscont = ganttcontainer.append("g").attr("class", "laws");
-                grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
-            }
 
             selection.each(function (data) {
 
                 drawGantt = function(action) {
+                    utils.setMod0Size();
+                    utils.setTextContainerHeight();
+                    width = parseInt(d3.select("#gantt").style("width")) - 30,
+                    minheight = $("#gantt").height() - 10;
+                    setTimeout(computeFilters, 50);
+                    if (!action) action = 'time';
                     utils.startSpinner();
                     $("#gantt svg").animate({opacity: 0}, 200, function() {
                         updateGantt(action);
@@ -206,12 +203,14 @@ var drawGantt, utils,
                     $("#gantt svg").empty();
                     $("#legend svg").empty();
                     $("#bars").empty();
-                    $("#text-title").text("Sélectionner une loi");
-                    $(".text-container").empty();
-                    refreshBillsFilter();
+                    unclick();
+
+                    refreshLengthFilter();
                     var zoo = $("#mod0-slider").attr('value'),
                         scroll = {scrollTop: "0px", scrollLeft: "0px"};
-                    initGanttSVG();
+                    lawscont = ganttcontainer.append("g").attr("class", "laws");
+                    grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
+                    $("#legend").height('35px');
                     if (action == 'time') {
                         layout = "t";
                         zoo = 1;
@@ -219,24 +218,25 @@ var drawGantt, utils,
                         scroll['scrollLeft'] = "100000px";
                         $("#display_menu .chosen").removeClass('chosen');
                         $("#display_menu #dm-time").addClass('chosen');
-                        $(".ctrl-sort").hide(400);
-                        $(".ctrl-zoom").show(400);
+                        $("#menu-sort .dropdown-toggle").addClass('disabled');
+                        $("#menu-zoom").css('opacity', 1);
                     } else if (action == 'absolute') {
                         layout = "a";
                         zoo = 1;
                         action = 'sortl';
                         $("#display_menu .chosen").removeClass('chosen');
                         $("#display_menu #dm-absolute").addClass('chosen');
-                        $(".ctrl-sort").show(400);
-                        $(".ctrl-zoom").show(400);
+                        $("#menu-sort .dropdown-toggle").removeClass('disabled');
+                        $("#menu-zoom").css('opacity', 1);
                     } else if (action == 'quanti') {
                         layout = "q";
                         zoo = 1;
                         action = 'sorta';
                         $("#display_menu .chosen").removeClass('chosen');
                         $("#display_menu #dm-quanti").addClass('chosen');
-                        $(".ctrl-sort").show(400);
-                        $(".ctrl-zoom").hide(400);
+                        $("#menu-sort .dropdown-toggle").removeClass('disabled');
+                        $("#menu-zoom").css('opacity', 0);
+                        $("#legend").height("0px");
                     }
                     if (action == 'filter') {
                         zoo = 1;
@@ -248,25 +248,51 @@ var drawGantt, utils,
                         if (layout == "t") scroll['scrollLeft'] = "100000px";
                     } else $(".text-container").empty();
                     if (action == 'sortl') {
+			$("#menu-sort .selectedchoice").text("durée");
                         $("#display_order .chosen").removeClass('chosen');
                         $("#display_order #do-length").addClass('chosen');
                         sort_function = sortByLeng;
                     } else if (action == 'sorta') {
+			$("#menu-sort .selectedchoice").text("amdts");
                         $("#display_order .chosen").removeClass('chosen');
                         $("#display_order #do-amds").addClass('chosen');
                         sort_function = sortByAmds;
                     } else if (action == 'sortd') {
+			$("#menu-sort .selectedchoice").text("date");
                         $("#display_order .chosen").removeClass('chosen');
                         $("#display_order #do-date").addClass('chosen');
                         sort_function = sortByDate;
                     } else scroll = null;
+		    if (!active_filters['amendments']) {
+			$("#menu-amendments .selectedchoice").text(allAmendments[0]);
+		    }else{
+			$("#menu-amendments .selectedchoice").text(active_filters['amendments']);
+		    }
+		    if (!active_filters['year']) {
+			$("#menu-years .selectedchoice").text(allYears[0]);
+		    }else{
+			$("#menu-years .selectedchoice").text("Étudié en "+active_filters['year']);
+		    }
+		    if (active_filters['theme']) {
+			$("#menu-themes .selectedchoice").text("Theme : "+active_filters['theme']);
+		    }else{
+			$("#menu-themes .selectedchoice").text("Tous les thèmes");
+		    }
                     drawLaws();
                     drawAxis();
-                    if (layout == "t") timePosition();
-                    if (layout == "a") absolutePosition();
+                    if (layout == "t") {
+			$("#menu-display .selectedchoice").text('chronologique');
+			timePosition();
+		    }
+                    if (layout == "a") {
+			$("#menu-display .selectedchoice").text('comparative');
+			absolutePosition();
+		    }
                     if (layout == "q") {
+			$("#menu-display .selectedchoice").text('quantitative');
                         quantiPosition();
                         drawLabels();
+                        $("#gantt").height(minheight+35);
                     } else d3.select("#gantt").on("scroll", function (e) {
                         d3.select(".timeline").attr("transform", "translate(-" + $(this).scrollLeft() + ", 0)");
                         d3.selectAll(".law-name").attr("transform", "translate(" + $(this).scrollLeft() + ", 0)");
@@ -295,7 +321,6 @@ var drawGantt, utils,
                                 if (steps[j-1].overlap) e.overlap=steps[j-1].overlap+1;
                                 else e.overlap=1
                             } else if (j>0 && steps[j-1].overlap) {
-
                                 var pastdate=format.parse(steps[j-1].enddate),
                                     dd = pastdate.getDate()+steps[j-1].overlap,
                                     mm = pastdate.getMonth()+1,
@@ -306,16 +331,16 @@ var drawGantt, utils,
                                 // Monitor Overlaps
                                 if (y+"-"+mm+"-"+dd>=e.date) {
 //                                    console.log("OVERLAP:",e.date,y+"-"+mm+"-"+dd)
-                                    e.overlap = steps[j - 1].overlap + 1;
-                                }
+                                e.overlap = steps[j - 1].overlap + 1;
                             }
+                        }
 
-                            if (j != 0 && e.step == "depot") e.qw = -3;
-                            else e.qw = getQwidth(e);
-                            if (j == 0) e.qx = 5;
-                            else e.qx = steps[j - 1].qx + steps[j - 1].qw + 3;
-                        })
-		}
+                        if (j != 0 && e.step == "depot") e.qw = -3;
+                        else e.qw = getQwidth(e);
+                        if (j == 0) e.qx = 5;
+                        else e.qx = steps[j - 1].qx + steps[j - 1].qw + 3;
+                    })
+                }
 		
                 function prepareData() {
                     data.dossiers.forEach(function (d, i) {
@@ -325,13 +350,15 @@ var drawGantt, utils,
 			    
 			    var remove = [];
                             d.timesteps.forEach(function(s, j) {
-				if (s.step === 'hemicycle' || (s.step === 'depot' && j)) {
+				if ((s.step === 'hemicycle' && d.timesteps[j-1].stage != 'l. définitive') || (s.step === 'depot' && j)) {
                                     remove.unshift(j);
 				    if (s.step === 'hemicycle') {
 					d.timesteps[j-1].enddate = s.enddate;
 					d.timesteps[j-1].nb_amendements += s.nb_amendements;
+					d.timesteps[j-1].step = s.institution;
 				    }
 				}
+
                             });
                             remove.forEach(function(id, j) {
 				d.timesteps.splice(id, 1);
@@ -346,47 +373,60 @@ var drawGantt, utils,
 
             // function used for multiple data files - progressive loading
                 function dynamicLoad() {
-                    d3.json(APIRootUrl + currFile, function (error, json) {
+                    d3.json(utils.APIRootUrl + currFile, function (error, json) {
                         data = json;
                         prepareData();
                         currFile = json.next_page;
-                        setTimeout((currFile ? dynamicLoad : computeFilters), 50);
+                        setTimeout((currFile ? dynamicLoad : drawGantt), 50);
                     })
                 }
 
                 // Populate themes, years and amendments in filter menu
                 function computeFilters() {
-                    var y1;
-                    dossiers.forEach(function(l,i){
-                        allThemes = allThemes.concat(l.themes.join(',').replace(/ et /g, ',').split(','));
-                        y1 = l.beginning.substr(0,4)-2000;
-                        if (!allYears[y1])
-                            allYears[y1] = true;
-                        y1 = l.end.substr(0,4)-2000;
-                        if (!allYears[y1])
-                            allYears[y1] = true;
-                        allAmendment = ['1', '50', '100', '200'];
-                    });
-                    $("#years").empty();
-                    allYears.forEach(function(d,i){
-                        if (d) $("#years").append("<li><a onclick=\"addBillsFilter('year',"+(i+2000)+")\">"+(i+2000)+'</a></li>');
-                    });
-                    allThemes = allThemes.filter(function(itm,i,a){
-                        return i==a.indexOf(itm);   // unify
-                    });
-                    allThemes.sort(function(a,b){
-                        var ac = clean_accents(a),
+                    var y1, hashYears = {};
+		    if (!allYears.length) {
+			dossiers.forEach(function(l,i){
+                            allThemes = allThemes.concat(l.themes.join(',').replace(/ et /g, ',').split(','));
+                            y1 = l.beginning.substr(0,4);
+                            hashYears[y1] = true;
+                            y1 = l.end.substr(0,4);
+                            hashYears[y1] = true;
+			});
+			allYears[0] = "Toutes années";
+			for(var k in hashYears) {
+			    allYears.push(k);
+			}
+			allYears.sort();
+			allYears.reverse();
+			allThemes = allThemes.filter(function(itm,i,a){
+                            return i==a.indexOf(itm);   // unify
+			});
+			allThemes.sort(function(a,b){
+                            var ac = clean_accents(a),
                             bc = clean_accents(b);
-                        return (ac === bc ? 0 : (ac < bc ? -1 : 1))
-                    });
+                            return (ac === bc ? 0 : (ac < bc ? -1 : 1))
+			});
+			allThemes.unshift('Tous les thèmes');
+		    }
+		    var construct_menu_filter = function(filter, cssid, d, i) {
+			if (!i) {
+			    if (active_filters[filter] == d || !active_filters[filter]) {
+				$(cssid).append("<li><a class='chosen' onclick=\"rmBillsFilter('"+filter+"','')\">"+d.toLowerCase()+'</a></li>');
+			    }else{
+				$(cssid).append("<li><a onclick=\"rmBillsFilter('"+filter+"','"+active_filters[filter]+"')\">"+d.toLowerCase()+'</a></li>');
+			    }
+			} else if (active_filters[filter] == d) {
+			    $(cssid).append("<li><a class='chosen' onclick=\"rmBillsFilter('"+filter+"','"+d+"')\">"+d.toLowerCase()+'</a></li>');
+			}else{
+			    $(cssid).append("<li><a onclick=\"addBillsFilter('"+filter+"','"+d+"')\">"+d.toLowerCase()+'</a></li>');
+			}
+		    };
+		    $("#years").empty();
+		    allYears.forEach(function(d,i){construct_menu_filter('year', '#years', d, i);});
                     $("#themes").empty();
-                    allThemes.forEach(function(d){
-                        $("#themes").append("<li><a onclick=\"addBillsFilter('theme','"+d+"')\">"+d+'</a></li>');
-                    });
-                    $("#amendment").empty();
-                    allAmendment.forEach(function(d){
-                        $("#amendment").append("<li><a onclick=\"addBillsFilter('amendment','"+d+"')\"> >= "+d+'</a></li>');
-                    });
+		    allThemes.forEach(function(d,i){construct_menu_filter('theme', '#themes', d, i);});
+                    $("#amendments").empty();
+		    allAmendments.forEach(function(d,i){construct_menu_filter('amendments', '#amendments', d, i);});
                 }
 
                 function drawAxis() {
@@ -395,7 +435,7 @@ var drawGantt, utils,
                         .append("text")
                         .attr("x", parseInt(d3.select("#gantt").style("width")) * 0.5)
                         .attr("y", 120)
-                        .style("fill", "#333")
+                        .style("fill", "#716259")
                         .attr("font-size", "1.5em")
                         .attr("text-anchor", "middle")
                         .text("Aucun résultat trouvé avec ces filtres, veuillez en supprimer un.");
@@ -418,7 +458,7 @@ var drawGantt, utils,
                         .attr("class", "tl-bg")
                         .attr("height", 2)
                         .style("fill", "grey")
-                        .style("fill-opacity", 0.3)
+                        .style("opacity", 0.3)
                         .style("stroke", "none");
 
                     var tk = tl.selectAll(".tick-lbl")
@@ -432,8 +472,23 @@ var drawGantt, utils,
 
                 function drawLaws() {
                     // filter and sort laws
-                    smallset = dossiers
-                        .filter(function(d){
+                    if (utils.loi) {
+			$('.viewonelaw').show();
+			$('.noviewonelaw').hide();
+                        cleanBillsFilter();
+                        smallset = dossiers.filter(function(d) { return d.id==utils.loi; });
+			if (!smallset.length) {
+                            var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(utils.loi)), "i");
+			    smallset = dossiers.filter(function(value) {
+                                value = clean_accents(value.Titre +" "+ value.id +" "+ value["Thèmes"] + " " + value.short_title);
+                                return matcher.test(clean_accents(value));
+			    });
+			}
+                    } else {
+			$('.viewonelaw').hide();
+			$('.noviewonelaw').show();
+			smallset = dossiers
+                          .filter(function(d){
                             if (!active_filters['theme']) return true;
                             return (d.themes.join(',').indexOf(active_filters['theme'])) != -1;
                         })
@@ -446,10 +501,18 @@ var drawGantt, utils,
                             return active_filters['length'] == get_stat_bin(d.total_days);
                         })
                         .filter(function(d){
-                            if (!active_filters['amendment']) return true;
-                            return d.total_amendements >= active_filters['amendment'];
+                            if (!active_filters['amendments']) return true;
+                            switch(active_filters['amendments']) {
+                                case allAmendments[1]:
+                                    return !d.total_amendements; break;
+                                case allAmendments[2]:
+                                    return d.total_amendements && d.total_amendements < 51; break;
+                                case allAmendments[3]:
+                                    return d.total_amendements > 50; break;
+                            };
                         })
                         .sort(sort_function);
+		    }
 
                     // find date range
                     for (i = 1; i <= maxstat; i++) stats[binstat*i] = 0;
@@ -462,7 +525,7 @@ var drawGantt, utils,
                     });
                     setTimeout(drawStats, 50);
                     if (smallset.length == 0) {
-                        ganttcontainer.attr("height", 3*(20 + lawh)).attr("width", width);
+                        ganttcontainer.attr(minheight).attr("width", width);
                         legendcontainer.attr("width", width);
                         return;
                     }
@@ -472,15 +535,16 @@ var drawGantt, utils,
                         maxdate.setDate(maxdate.getDate() + maxduration + 50);
                     } else maxdate = format.parse(maxdate > data.max_date ? data.max_date : maxdate);
                     mindate = format.parse(mindate < data.min_date ? data.min_date : mindate);
-                    mindate.setDate(mindate.getDate() - 10);
                     maxdate.setDate(maxdate.getDate() + 10);
 
                     //update svg size
                     if (layout == "a")
-                        width_ratio = 0.8*(maxdate - mindate)/(maxduration*86400000.);
+                        width_ratio = 0.95*(maxdate - mindate)/(maxduration*86400000.);
                     else width_ratio = 1;
 
-                    ganttcontainer.attr("height", Math.max(2, smallset.length) * (20 + lawh)).attr("width", width);
+                    ganttcontainer.attr("height", Math.max(minheight, smallset.length * (20 + lawh)))
+                        .attr("width", width)
+                        .on("click", unclick);
                     legendcontainer.attr("width", width);
 
                     ticks = d3.time.months(mindate, maxdate, 1);
@@ -488,16 +552,16 @@ var drawGantt, utils,
                     tscale.domain([mindate, maxdate]);
 
                     //add containing rows
-                    gridrects = lawscont.selectAll(".row")
+                    gridrects = lawscont.selectAll(".lawline")
                         .data(smallset).enter()
                         .append("rect")
-                        .attr("class", function (d) { return "row " + d.id; })
+                        .attr("class", function (d) { return "lawline " + d.id; })
                         .attr("x", 0)
                         .attr("y", function (d, i) { return i * (20 + lawh); })
                         .attr("opacity", 0.3)
                         .attr("width", width)
                         .attr("height", 20 + lawh - 4)
-                        .style("fill", "#f3efed")
+                        .style("fill", "transparent")
 
                     //add single law group
 
@@ -529,7 +593,7 @@ var drawGantt, utils,
 
                     steps.append("rect")
                         .attr("class", color_step)
-		        .classed('step', true)
+                        .classed('step', true)
                         .attr("x", function (e) { return tscale(scaled_date_val(e)); })
                         .attr("y", 28)
                         .attr("width", getQLwidth)
@@ -542,7 +606,7 @@ var drawGantt, utils,
                         .attr("x", parseInt(d3.select("#gantt").style("width")) * 0.5)
                         .attr("y", function (d, i) { return i * (20 + lawh) + 17; })
                         .attr("class", "law-name").text(function (e) { return e.short_title; })
-                        .style("fill", "#333")
+                        .style("fill", "#716259")
                         .attr("font-size", "0.9em")
                         .attr("text-anchor", "middle")
                         .on("click", function (d) {
@@ -569,8 +633,10 @@ var drawGantt, utils,
                         .attr("stroke", "#ddd")
                         .attr("stroke-width", 1)
                         .attr("opacity", 0.6);
+                    if (utils.loi) {
+                        onclick(smallset[0]);
+                    }
                 }
-
 		
                 function drawLabels() {
                     d3.selectAll(".g-law").append("g").attr("class", "lbls")
@@ -639,69 +705,71 @@ var drawGantt, utils,
                         .attr("x", function (d) {return d.qx; })
                         .attr("width", function (d) { return Math.max(0, d.qw); });
                     
-
+                    d3.selectAll(".tick").style('opacity', 0);
                     d3.selectAll(".law-bg").transition().duration(500).style("opacity", 0);
                 }
 
-                function onclick(d) {
+                function unclick() {
+                    $("#text-title").text("Sélectionner un texte");
+                    $("#text-title").attr('data-original-title', "").tooltip('fixTitle');
+                    $(".text-container").empty();
+                    d3.selectAll(".g-law").style("opacity",1);
+                }
 
+                function onclick(d) {
+                    if(d3.event) d3.event.stopPropagation();
                     d3.selectAll(".g-law").style("opacity",0.2);
                     d3.select(".g-law."+ d.id).style("opacity",1);
 
-                    d3.selectAll(".curr")
-                        .classed("curr", false)
-                        .style("fill", "#f3efed")
-                        .style("opacity", 0.3);
-
-                    d3.select("." + d.id)
-                        .classed("curr", true)
-                        .style("fill", "#fff")
-                        .style("opacity", 0.6);
-
                     $("#text-title").text(d.short_title);
+                    $("#text-title").attr('data-original-title', d.long_title).tooltip('fixTitle');
+                    utils.setTextContainerHeight();
                     var themes=$('<p>');
                     d.themes.join(",").replace(/ et /g, ',').split(',').forEach(function(e,j){
-                        themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les lois correspondant à ce thème' data-toggle='tooltip' data-placement='left'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
+                        themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les textes correspondant à ce thème' data-toggle='tooltip' data-placement='left'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
                     }),
                         mots=(Math.round(d.total_mots / 1000. ) + "" ).replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;").replace(/^0/, '');
                     $(".text-container").empty()
-                        .append('<p><b>'+upperFirst(d.long_title)+"</b></p>")
                         .append('<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + "</p>");
                     if (d.procedure != "Normale") $(".text-container").append('<p>(' + d.procedure.toLowerCase() + ")</p>");
-                    $(".text-container").append('<div class="gotomod"><a class="btn btn-info" href="loi.html?l=' + d.id + '">Explorer les articles</a></div>');
+                    $(".text-container").append('<div class="gotomod"><a class="btn btn-info" href="articles.html?loi=' + d.id + '">Explorer les articles</a></div>');
                     var extrainfo = $('<div class="extrainfos">');
                     extrainfo.append('<p><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(d.total_amendements)+'"></span>&nbsp;&nbsp;'+(d.total_amendements?d.total_amendements:'aucun')+" amendement"+(d.total_amendements>1?'s déposés':' déposé')+"</p>")
                         .append('<p><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(d.total_mots)+'"></span><span>&nbsp;&nbsp;plus de '+mots+" mille mots prononcés lors des débats parlementaires</span></p>")
                         .append(themes)
-                        .append('<p><small>(sources : <a href="' + d.url_dossier_assemblee + '" target="_blank">dossier Assemblée</a> &mdash; <a href="' + d.url_dossier_senat + '" target="_blank">dossier Sénat</a>)</small></p>');
+                        .append('<p><small>' +
+                            '<a href="'+d.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a> &mdash; ' +
+                            '<a href="'+d.url_dossier_assemblee+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Assemblée</a>' +
+                            (d.url_jo ? '<br/><a href="'+d.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur Légifrance</a>' : '') +
+                            '</small></p>');
                     $(".text-container").append(extrainfo);
                     $("a.badge").tooltip();
                 }
 
-                //Start drawing first sample
-                currFile = data.next_page;
-                prepareData();
-                drawGantt('quanti');
-                setTimeout((currFile ? dynamicLoad : computeFilters), 500);
-                $("a.badge").tooltip();
-
-
                 function drawStats() {
 
-                    var height = 60,
+                    $(".labels-sc h5").html(
+                        active_filters['length'] ?
+                            "Supprimer le filtre sur les textes de "+(active_filters['length']/30 + " mois").replace("24 mois", "2 ans et +") :
+                            "Filtrer par durée d'adoption des textes"
+                    );
+
+                    var margin_top = 10,
+                        text_height = 35,
+                        height = $(".labels-sc").height() - parseInt($(".labels-sc h5").css("height")) - margin_top,
                         barcontainer = d3.select("#bars"),
                         m = d3.max(d3.values(stats)),
-                        bscale = d3.scale.linear().range([0, height]);
+                        bscale = d3.scale.linear().range([0, height - text_height]);
                     bscale.domain([0, m]);
 
                     d3.entries(stats).forEach(function (e, i) {
-                        var label=(e.key == maxstat * binstat ? '2 ans et +' : e.key/binstat + " mois"),
+                        var label=(e.key == maxstat * binstat ? '2&nbsp;ans et&nbsp;+' : e.key/binstat + " mois"),
                         step = barcontainer
                             .append("div")
                             .attr("class", "bar-step")
-                            .attr("style", "width: " + 95/(maxstat+1) + "%; margin-right: " + 5/(maxstat+1) + "%");
+                            .attr("style", "width: " + 95/(maxstat+1) + "%; margin-right: " + 5/(maxstat+1) + "%; margin-top:"+ margin_top+"px;");
                         if (active_filters['length'] && active_filters['length'] != e.key)
-                            step.style("height", "100%")
+                            step.style("height", (height-text_height) + "px")
                             .on('click', function() { rmBillsFilter('length'); });
 
                         step.append("div")
@@ -716,7 +784,7 @@ var drawGantt, utils,
                                     plural = (e.value > 1 ? 's' : '');
                                 popover_content.append('p').html(active_filters['length'] == e.key ? 'Supprimer le filtre' : 'Cliquer pour filtrer sur ces textes');
                                 return {
-                                    title: e.value+' texte'+plural+' adopté'+plural+' en '+label,
+                                    title: e.value+' texte'+plural+' adopté'+plural+' en '+label.replace('&nbsp;', ' '),
                                     content: popover_content,
                                     placement: "mouse",
                                     displacement: [-113, -90],
@@ -724,12 +792,36 @@ var drawGantt, utils,
                                     mousemove: true};
                             });
 
+                        if (e.key < 10)
+                            label = "&nbsp;&nbsp;&nbsp;"+label;
+                        if (e.key == 1 || e.key == 7 || e.key == 11)
+                            label = "&nbsp;&nbsp;&nbsp;"+label;
+
                         step.append("div")
                             .attr("class", "bar-key")
-                            .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(parseInt(barcontainer.style("width")) / maxstat), 8]) + "px")
-                            .text(label);
+                            .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(parseInt(barcontainer.style("width")) / maxstat), 8]) + "px; height:"+text_height+"px;")
+                            .html(label);
                     });
                 }
+
+                //Start drawing first sample
+                $(document).ready(function() {
+                    prepareData();
+                    currFile = data.next_page;
+                    $("a.badge").tooltip();
+                    setTimeout((currFile ? dynamicLoad : drawGantt), 0);
+                    $("#text-title").tooltip();
+                    $(window).resize(function(){
+                        if (utils.drawing || utils.mod != "mod0") return;
+                        utils.drawing = true;
+                        setTimeout(function(){
+                            drawGantt();
+                            utils.drawing = false;
+                        }, 350);
+                    });
+                });
+
+
             });
         }
         return vis;

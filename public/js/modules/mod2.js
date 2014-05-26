@@ -33,34 +33,42 @@ var utils, highlight;
 
         selectRow = function(art,pos) {
             if(d3.event) d3.event.stopPropagation();
-            var sel = d3.select("."+art);
+            var sel = d3.select("."+utils.slugArticle(art));
             if(!sel.empty()) {
-                d3.selectAll("g").style("opacity", 0.1);
-                sel.style("opacity", 0.9);
+                utils.resetHighlight('amds');
+                d3.selectAll("g").style("opacity", 0.2);
+                sel.style("opacity", 1);
                 if(pos) $("#viz").animate({ scrollTop: sel.attr("data-offset") })
             }
         };
 
         deselectRow = function() {
+            if(d3.event) d3.event.stopPropagation();
             utils.resetHighlight('amds');
-            d3.selectAll("g").style("opacity",0.9);
+            $("#readMode").hide();
+            d3.selectAll("g").style("opacity", 1);
         };
 
-	artArray=d3.values(articles).sort(function(a,b){return a.order-b.order})
+        artArray=d3.values(articles).sort(function(a,b){return a.order-b.order});
 
-		var w = $("#viz").width()-30,
-		    rw = $("#viz").width(),
+        var w, rw, minheight, nsq, z,
 		    lineh = 30,
-		    h = lineh*artArray.length+40,
-		    z = 20,
-            x= 0,
-		    nsq = Math.round((w-40) / z),
+            x = 0, y, h,
+            jumpLines = 0,
+		    offset = 0;
+        var readSizes = function() {
+            rw = $("#viz").width();
+            w = rw - 30;
+            minheight = $("#viz").height() - 5;
+		    z = 20;
+		    nsq = Math.round((w-40) / z);
+		    h = lineh*artArray.length+40;
 		    y = h / z;
-	    var jumpLines = 0
-		var offset = 0
+        };
+        readSizes();
 		var svg = d3.select("#viz").append("svg")
 		    .attr("width", rw)
-		    .attr("height", h)
+		    .attr("height", Math.max(minheight, h))
             .on("click",deselectRow);
 
         var compare_partys = function(a,b){
@@ -99,6 +107,7 @@ var utils, highlight;
         sortByStat = function() {
             $("#display_order .chosen").removeClass('chosen');
             $("#display_order #do-stat").addClass('chosen');
+            $("#menu-order .selectedchoice").text('sort final');
             orderedByStatus = true;
             redraw();
         };
@@ -106,11 +115,16 @@ var utils, highlight;
         sortByParty = function() {
             $("#display_order .chosen").removeClass('chosen');
             $("#display_order #do-party").addClass('chosen');
+            $("#menu-order .selectedchoice").text('groupe politique');
             orderedByStatus = false;
             redraw();
         };
         redraw = function(merged) {
+            utils.setMod2Size();
+            utils.setTextContainerHeight();
+            readSizes();
             if (merged == undefined) merged = grouped;
+            $('#menu-display .selectedchoice').text(merged ? 'groupée' : 'par articles');
             utils.startSpinner();
             $("svg").animate({opacity: 0}, 200, function() {
                 $("svg").empty();
@@ -119,7 +133,9 @@ var utils, highlight;
                 (merged ? drawMerged() : draw());
                 var a = d3.select("svg").select("g:last-child").attr("data-offset"),
                    ah = d3.select("svg").select("g:last-child").node().getBBox().height;
-                svg.attr("height",z+parseInt(a)+ah);
+                svg.attr("height",Math.max(minheight, z+parseInt(a)+ah));
+                if (utils.article!=null)
+                    selectRow(utils.article, true);
                 utils.stopSpinner(function() {
                     $("svg").animate({opacity: 1}, 500);
                 });
@@ -168,7 +184,7 @@ var utils, highlight;
               d.offset = offset;
 
               var curRow = svg.append("g")
-                  .attr("class", d.titre.replace(/ |'/g, '_').toLowerCase())
+                  .classed(utils.slugArticle(d.titre), true)
                   .attr("transform", function () {
                       if (!half) return "translate(" + 10 + "," + (i * 20 + i * lineh + 10 + jumpLines * (lineh - 10)) + ")";
                       else {
@@ -186,19 +202,7 @@ var utils, highlight;
                         jumpLines = jumpLines + offset;
                     }
                       else jumpLines+=lines-1;
-                  })
-
-              curRow.append("text")
-                  .attr("x", 20)
-                  .attr("class", "row-txt")
-                  .attr("y", 15)
-                  .style("fill", "#333")
-                  .attr("font-size", "0.85em")
-                  .text(d.titre)
-                  .on("click", function () {
-                      selectRow(d.titre.toLowerCase().replace(/ |'/g, '_'), false)
                   });
-
 
               var bg = curRow
                   .selectAll(".bg")
@@ -214,30 +218,28 @@ var utils, highlight;
                   })
                   .attr("width", z - 2)
                   .attr("height", z - 2)
-                  //.attr("rx", 2)
-                  //.attr("ry", 2)
-                  .attr("class", "bg")
-                  .style("fill", "#E6E6E6")
+                  .classed("bg", true)
+                  .style("fill", "#F0F0F0")
 
               curRow.append("text")
                   .attr("x", 20)
-                  .attr("class", "row-txt")
+                  .classed("row-txt", true)
                   .attr("y", 15)
-                  .style("fill", "#333")
+                  .style("fill", "#716259")
                   .attr("font-size", "0.85em")
                   .text(d.titre)
                   .on("click", function () {
-                      selectRow(d.titre.toLowerCase().replace(/ |'/g, '_'), false)
+                      selectRow(d.titre, false);
                   });
 
-              var popover = function (d) {
-                  var date = d.date.split('-'),
+              var popover = function (e) {
+                  var date = e.date.split('-'),
                       div = d3.select(document.createElement("div")).style("width", "100%");
-                  div.append("p").html("<b>" + utils.groups[d.groupe].nom + "</b>");
-                  div.append("p").html("Sort : " + d.sort + "");
+                  div.append("p").html("<b>" + utils.groups[e.groupe].nom + "</b>");
+                  div.append("p").html("Sort : " + e.sort + "");
                   div.append("p").html("<small>" + [date[2], date[1], date[0]].join("/") + "</small>");
                   return {
-                      title: "Amendement " + d.numero,
+                      title: "Amendement " + e.numero,
                       content: div,
                       placement: "mouse",
                       gravity: "right",
@@ -261,13 +263,12 @@ var utils, highlight;
                   })
                   .attr("width", z - 2)
                   .attr("height", z - 2)
-                  //.attr("rx", 2)
-                  //.attr("ry", 2)
-                  .attr("id", function (d) {
-                      return "a_" + d.numero.replace(/[^a-z\d]/ig, '')
+                  .attr("id", function (e) {
+                      return "a_" + e.numero.replace(/[^a-z\d]/ig, '')
                   })
-                  .attr("class", function(d) { return "amd " + utils.slugGroup(d.groupe) + " " + utils.slugGroup(d.sort); })
+                  .attr("class", function(e) { return "amd " + utils.slugGroup(e.groupe) + " " + utils.slugGroup(e.sort); })
                   .style("fill", color_amd)
+                  .style("opacity", 0.9)
                   .popover(popover)
                   .on("click", select);
 
@@ -292,8 +293,11 @@ var utils, highlight;
         }
 
 		function select(d) {
-            d3.event.stopPropagation()
+            d3.event.stopPropagation();
+            $("#readMode").show();
             utils.resetHighlight('amds');
+            $("#text-title").text("Amendement "+d.numero);
+            utils.setTextContainerHeight();
             utils.startSpinner('load_amd');
             setTimeout(function(){ d3.json(api_root+d.id_api+'/json',function(error, json){
                 var currAmd = json.amendement,
@@ -306,7 +310,7 @@ var utils, highlight;
                     "<p><b>Date :</b> " + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</p>" +
                     "<p><b>Objet :</b> " + currAmd.sujet+"</p>" +
                     "<p><b>Signataires :</b> " + currAmd.signataires+"</p>" +
-                    "<p><b>Statut :</b> " + currAmd.sort + " <span class='amd-txt-status' style='background-color:"+col+"'><img style='margin:0; padding:4px;' src='"+statico+"'/></span> </p>" +
+                    "<p><b>Sort :</b> " + currAmd.sort + " <span class='amd-txt-status' style='background-color:"+col+"'><img style='margin:0; padding:4px;' src='"+statico+"'/></span> </p>" +
                     "<p><b>Exposé des motifs :</b> " + currAmd.expose+"</p>" +
                     "<p><b>Texte :</b> " + currAmd.texte +
                     '<p><small><b>Sources :</b> <a target="_blank" href="' + source_am + "</a></small></p>"
@@ -315,12 +319,12 @@ var utils, highlight;
                     $(".text-container").animate({opacity: 1}, 350);
                     $('.text-container').scrollTop(0);
                 }, 'load_amd');
-            });});
+            });}, 50);
             d3.selectAll("#a_"+d.numero.replace(/[^a-z\d]/ig, ''))
                 .classed("actv-amd", true)
+                .style("opacity", 1)
                 .style("stroke", "#333344")
                 .style("stroke-width", 2);
-            $("#text-title").text("Amendement "+d.numero);
 		}
 
 		function color_amd(d) {
@@ -331,16 +335,27 @@ var utils, highlight;
 
         $(document).ready(function() {
             utils.drawGroupsLegend();
+            $('.readMode').tooltip({ animated: 'fade', placement: 'bottom'});
             if ($(".others div").length) $(".others").append('<div class="leg-item"></div>');
             [
                 {nom: 'Adopté', id: 'adopt', img: 'ok'},
                 {nom: 'Rejeté', id: 'rejet', img: 'ko'},
                 {nom: 'Non voté', id: 'nonvot', img: 'nd'}
             ].forEach(function(d) {
-                $(".others").append('<div class="leg-item" onclick="highlight(\''+d.id+'\')" title="Amendements '+d.nom.toLowerCase()+'s" data-toggle="tooltip" data-placement="left"><div class="leg-value" style="background-color: rgb(180,180,180); background-image: url(img/'+d.img+'.png); background-repeat:no-repeat; background-position:50% 50%;"></div><div class="leg-key">'+d.nom+'</div></div>');
+                var oncl = 'onclick="highlight(\''+d.id+'\')" title="Amendements '+d.nom.toLowerCase()+'s" data-toggle="tooltip" data-placement="left">';
+                $(".others").append('<div class="leg-item"><div class="leg-value" style="background-color: rgb(180,180,180); background-image: url(img/'+d.img+'.png); background-repeat:no-repeat; background-position:50% 50%;"'+oncl+'</div><div class="leg-key"'+oncl+d.nom+'</div></div>');
             });
-            $(".leg-item").tooltip();
+            $(".leg-value").tooltip();
+            $(".leg-key").tooltip();
             redraw(false);
+            $(window).resize(function(){
+                if (utils.drawing || utils.mod != "mod2") return;
+                utils.drawing = true;
+                setTimeout(function(){
+                    redraw();
+                    utils.drawing = false;
+                }, 150);
+            });
         });
 
     }; //end function vis

@@ -33,15 +33,6 @@ var accentMap = {
     return (!s ? "" : s.charAt(0).toUpperCase() + s.substring(1));
 };
 
-$("#search-btn").on("click", function() {
-    $("body").css("overflow", "hidden");
-    $(".lawlist").effect("slide", {
-        direction : "right",
-        mode : "show"
-    }, 600)
-    $("#search").focus();
-});
-
 /* Directives */
 
 angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootScope', '$location', '$compile',
@@ -51,58 +42,29 @@ function(api, $rootScope, $location, $compile) {
         replace : false,
         templateUrl : 'templates/mod1.html',
         controller: function($scope,$element,$attrs) {
-        $scope.read=false;
-        $scope.revs=true;
-        $scope.readmode = function() {
-            $(".text").css({"width":"83.4%","left":"8.3%"});
-            $scope.read=true;
-        }
-        $scope.viewmode = function() {
-            $(".text").css({"width":"18.33%","left":"73.3%"});
-            $scope.read=false;
-        }
-            $scope.hiderevs = function() {
-                $("ins").css({"background-color":"transparent", "text-decoration":"none"})
-                $("del").hide();
-                $scope.revs=false;
-            }
-
-            $scope.showrevs = function() {
-                $("ins").css({"background-color":"#E6FFE6", "text-decoration":"underline"})
-                $("del").show();
-                $scope.revs=true;
-            }
-
-    },
+            $scope.mod="mod1";
+        },
         link : function postLink(scope, element, attrs) {
 
-            $rootScope.s=null;
-            var l = "pjl12-719"
-            scope.mod="mod1";
-            scope.s=null;
-            if ($location.search()['l'] != null)
-                l = $location.search()['l'];
-            else $location.search("l="+l);
+
             var mod1 = thelawfactory.mod1();
 
             function update() {
 
                 scope.startSpinner();
 
-                api.getArticle(l).then(function(data) {
+                api.getArticle(scope.loi).then(function(data) {
                     $rootScope.lawTitle = data.short_title
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Articles | ";
                     d3.select(element[0]).datum(data).call(mod1);
                     scope.stopSpinner();
-                    if(!localStorage.getItem("tuto-"+scope.mod) || localStorage.getItem("tuto-"+scope.mod)!="done")
-                        scope.toggleTutorial(true);
+                    scope.showFirstTimeTutorial();
                 }, function(error) {
                     console.log(error);
                     scope.error = error
                 })
             }
             update();
-            
         }
     };
 }]).directive('mod2', ['api', '$rootScope', '$location', '$compile',
@@ -112,37 +74,27 @@ function(api, $rootScope, $location, $compile) {
         replace : false,
         templateUrl : 'templates/mod2.html',
         controller : function($scope, $element, $attrs) {
-            $scope.l = "pjl09-602"
-            $rootScope.l = $scope.l;
             $scope.step = 0;
-            $scope.s = $rootScope.s = $location.search()['s'];
-            $scope.a = $location.search()['a'];
             $scope.mod="mod2";
-
         },
         link : function postLink(scope, element, attrs) {
 
-            if ($location.search()['l'] != null)
-                scope.l = $rootScope.l = $location.search()['l'];
             var mod2 = thelawfactory.mod2();
 
             function update() {
 
                 scope.startSpinner();
 
-                if ($location.search()['s'] != null) api.getAmendement(scope.l, $location.search()['s'] ).then(function(data) {
+                if (scope.etape != null) api.getAmendement(scope.loi, scope.etape).then(function(data) {
                     scope.data = data;
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Amendements | ";
                     d3.select(element[0]).datum(data).call(mod2);
-                    if ($location.search()['a']!=null)
-                        selectRow($location.search()['a'],true);
                 }, function(error) {
                     scope.error = error
                 });
             }
             update();
-            if(!localStorage.getItem("tuto-"+scope.mod) || localStorage.getItem("tuto-"+scope.mod)!="done")
-                scope.toggleTutorial(true);
+            scope.showFirstTimeTutorial();
         }
     }
 }])
@@ -153,38 +105,28 @@ function(api, $rootScope, $location, $compile) {
         replace : false,
         templateUrl : 'templates/mod2b.html',
         controller : function($scope, $element, $attrs) {
-            $scope.l = "pjl09-602"
             $scope.step = 0;
             $scope.mod="mod2b";
-            $scope.s = $rootScope.s = $location.search()['s'];
         },
         link : function postLink(scope, element, attrs) {
 
-            if ($location.search()['l'] != null)
-                scope.l = $location.search()['l'];
             function update() {
 
                 scope.startSpinner();
 
-                if ($location.search()['s'] != null) {
+                if (scope.etape != null) {
 
-                    api.getIntervention(scope.l).then(function(data) {
+                    api.getIntervention(scope.loi).then(function(data) {
                         scope.data = data;
                         $rootScope.pageTitle =  $rootScope.lawTitle + " - Débats | ";
-                        init(data, $location.search()['s']);
-                        if($("svg").height()<$("#viz").height()) {
-                           var offs=($("#viz").height() - $("svg").height())/2;
-                           $("svg").css({"margin-top":offs,"padding-top":"5px"});
-                        }0
-
+                        init(data, scope.etape);
                     }, function(error) {
                         scope.error = error
                     })
                 }
             }
             update();
-            if(!localStorage.getItem("tuto-"+scope.mod) || localStorage.getItem("tuto-"+scope.mod)!="done")
-                scope.toggleTutorial(true);
+            scope.showFirstTimeTutorial();
         }
     };
 }])
@@ -199,6 +141,7 @@ function(api, $rootScope, $location, $compile) {
             $rootScope.pageTitle = "";
             scope.mod="mod0";
 
+            $(".title").html('<h4 class="law-title">Explorer les textes promulgués depuis 2010</h4>');
             $("#mod0-slider").slider({
                 min:1,
                 max:10,
@@ -211,7 +154,7 @@ function(api, $rootScope, $location, $compile) {
             var mod0 = thelawfactory.mod0(),
                 synced = false;
 
-            
+
             scope.$on('MAIN_CTRL_START_TUTORIAL', function(event, mass) {
               if(!synced)
                 return;
@@ -221,20 +164,16 @@ function(api, $rootScope, $location, $compile) {
 
             function update() {
                 scope.startSpinner();
-                
-
                 api.getDossiers().then(function(data) {
                   d3.select(element[0]).datum(data).call(mod0);
                     synced = true;
-                    if(!localStorage.getItem("tuto-"+scope.mod) || localStorage.getItem("tuto-"+scope.mod)!="done")
-                        scope.toggleTutorial(true);
-
+                    scope.showFirstTimeTutorial();
                 }, function(error) {
                     console.log(error)
                 })
             }
-            update();    
-            
+            update();
+
         }
     };
 }])
@@ -243,24 +182,14 @@ function(api, $rootScope, $location) {
     return {
         restrict : 'A',
         replace : false,
-        template : '<input auto-complete id="search" placeholder="Chercher une loi" ng-model="selected"><img ng-click="closeSearch()" class ="cls" src="img/cross.png"/> ',
-        controller : function($scope, $element, $attrs) {
-
-            $scope.closeSearch = function() {
-                $(".lawlist").fadeOut(200);
-                $("body").css("overflow", "auto");
-            }
-        },
         link : function postLink(scope, element, attrs, lawlistCtrl) {
-
-                function update() {
-
+           function update() {
                 api.getLawlist().then(function(data) {
                     scope.ll = data;
                     // Process data to a list of law object
                     // with properties' names set by headers
                     var headers, laws, rows = scope.ll.split(/\r\n|\n/);
-                headers = rows.splice(0,1)[0].split(";").map(function(x){return x.replace(/(^"|"$)/g, '')});
+                    headers = rows.splice(0,1)[0].split(";").map(function(x){return x.replace(/(^"|"$)/g, '')});
                     laws = $.map(rows, function(row) {
                         var law = {}, lawdata = row.split(';').map(function(x){return x.replace(/(^"|"$)/g, '')});
                         $.each(headers, function(i, header) {
@@ -271,16 +200,19 @@ function(api, $rootScope, $location) {
 
                     document.lawlist = laws;
 
-                    $("#search").autocomplete({
+                    $("#search").mouseenter(function() {
+                        $(".form-law").css('opacity', 1);
+                    }).mouseleave(function() {
+                        $(".form-law").css('opacity', 0.3);
+                    }).autocomplete({
                         source : function(request, response) {
-
                             var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(request.term)), "i");
-                            response($.map($.grep(laws, function(value) {
+                            response($.map($.grep(laws.sort(function(a,b){ return b["Date de promulgation"] > a["Date de promulgation"];}), function(value) {
                                                             value = clean_accents(value.Titre +" "+ value.id +" "+ value["Thèmes"] + " " + value.short_title);
                                 return matcher.test(clean_accents(value));
                             }), function(n, i) {
                                 return {
-                                    "label" : n.Titre + " (" + n.short_title.replace(/ \([^)]*\)/g, '') + ")",
+                                    "label" : n.short_title.replace(/ \([^)]*\)/g, '') + " (" + n.Titre + ")",
                                     "value" : n.id,
                                     "themes": n["Thèmes"],
                                     "amendements": n.total_amendements,
@@ -290,58 +222,63 @@ function(api, $rootScope, $location) {
                             }));
                         },
                         focus : function(event, ui) {
+                            $(".form-law").css('opacity', 1);
                             event.preventDefault();
                             $(".src-fcs").removeClass("src-fcs");
                             $("."+ui.item.value).addClass("src-fcs");
                         },
                         open : function() {
-
+                            $(".form-law").css('opacity', 1);
                             var h = $(".ui-autocomplete").position().top;
                             $(".ui-autocomplete").height($(window).height() - h);
-
+                        },
+                        close: function() {
+                            $(".form-law").css('opacity', 0.3);
+                            $('#header-search .message').text('');
                         },
                         appendTo : ".lawlist",
                         select : function(event, ui) {
                             $rootScope.$apply(function() {
                                 $("body").css("overflow", "auto");
-                                $location.path("/loi");
-                                $location.search("l=" + ui.item.value);
-                        });
-                    }
-                })
-
+                                $location.path(($location.path()==='/lois.html' ? 'loi' : 'article') + "s.html");
+                                $location.search("loi=" + ui.item.value);
+                                $(".form-law").css('opacity', 0.3);
+                            });
+                        },
+                        messages: {
+                            noResults: function(d) { var msg = 'Aucune loi trouvée'; $('#header-search .message').text(msg); return msg; },
+                            results: function(d) { var msg = d + " loi" + (d > 1 ? "s trouvées" : " trouvée"); $('#header-search .message').text(msg); return msg;}
+                        }
+                    })
                     .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-
                     var themesdiv=$("<div>")
                     item.themes.replace(/ et /g, ', ').split(', ').forEach(function(e,j){
-                        themesdiv.append("<span class='glyphicon glyphicon-tag'></span> "+e+" ");
+                        themesdiv.append("<span class='glyphicon glyphicon-tag'></span> "+e.toLowerCase()+" ");
                     })
-
 
                     var icodiv=$("<div class='src-ico'>")
                         .append('<div><span class="glyphicon glyphicon-calendar"></span> '+item.dates+"</div>")
-                        .append('<div title="'+item.amendements+' amendements déposés sur ce texte" class="search"><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(item.amendements)+'"></span> '+item.amendements+"</div>")
-                        .append('<div title="'+item.words+' mots prononcés lors des débats sur ce texte" class="search"><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(item.words)+'"></span> '+1000*(Math.round(item.words / 1000.))+"</div>")
+                        .append('<div title="'+item.amendements+' amendements déposés sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(item.amendements)+'"></span> '+item.amendements+"</div>")
+                        .append('<div title="'+item.words+' mots prononcés lors des débats sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(item.words)+'"></span> '+1000*(Math.round(item.words / 1000.))+"</div>")
                         .append(themesdiv);
+                        $(".search").tooltip();
 
                     var txtdiv=$("<div class='src-txt'>")
                         .append( "<a>" +item.label + "</a>" )
-                        .append(icodiv)
+                        .append(icodiv);
 
                     return $( "<li class="+item.value+">" )
                         .append(txtdiv)
                         .appendTo( ul );
-                };
-
-            }, function(error) {
-                scope.error = error
-            })
+                    };
+                }, function(error) {
+                    scope.error = error
+                })
+            }
+            update();
         }
-        update();
     }
-};
 }])
-
 .directive('movescroll', [ '$rootScope',function($rootScope) {
 return {
     restrict : 'A',
@@ -388,56 +325,36 @@ return {
     }
 };
 }])
-    .directive('helppanel', ['api', '$rootScope', '$location', '$compile',
-        function(api, $rootScope, $location, $compile) {
-            return {
-                restrict : 'E',
-                replace : false,
-                templateUrl : 'templates/helppanel.html',
-                controller: function($scope, $element, $attrs) {
-
-                    $scope.expanded=false;
-
-                    $scope.expand = function(mod) {
-
-                        $scope.expanded=true;
-                        $(".help-ico").css("width","26.6%");
-
-                    }
-
-                    $scope.close = function(mod) {
-
-                        $scope.expanded=false;
-                        $(".help-ico").css("width","30px");
-
-                    }
-
-                },
-                link : function postLink(scope, element, attrs) {
-
-
-
-
-                }
-            };
-        }])
 .directive('stepsbar', ['$timeout','api', '$rootScope', "$location",
     function(timer,api, $rootScope, $location) { return {
         restrict : 'A',
         replace : false,
         templateUrl : 'templates/stepsbar.html',
         controller : function($scope, $element, $attrs) {
-            $scope.s = $rootScope.s;
-            $scope.l=$location.search()['l'];
         },
 
         link : function preLink(scope, element, attrs, stepsbarCtrl) {
 
-
             scope.total=0;
-            api.getProcedure(scope.l).then(function(data) {
+            api.getProcedure(scope.loi).then(function(data) {
 
-                $(".separator").html('<h4 class="law-title">' + upperFirst(data.long_title) + '</h4><span class="links"><a href="' + data.url_dossier_senat + '" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a><br/><a href="' + data.url_dossier_assemblee + '" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier AN</a></span>')
+                var tit = upperFirst(data.long_title),
+                    leg = "";
+                if (tit.length > 60) {
+                    leg = ' data-toggle="tooltip" data-placement="right" title="'+tit+'"';
+                    tit = scope.loi.substr(0,3).toUpperCase() + " " + upperFirst(data.short_title);
+                }
+                $(".title").html(
+                  '<h4 class="law-title"'+leg+'>'+tit+'</h4>' +
+                  '<span class="links">' +
+                    (data.url_jo ? '<a href="'+data.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> Loi sur Légifrance</a><br/>' : '') +
+                    '<a href="'+scope.APIRootUrl + scope.loi+'/" target="_blank"><span class="glyphicon glyphicon-link"></span> Open Data</a>' +
+                  '</span><span class="links">' +
+                    '<a href="'+data.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a><br/>' +
+                    '<a href="'+data.url_dossier_assemblee+'" target="_blank"><span class="glyphicon glyphicon-link"></span> Dossier Assemblée</a>' +
+                  '</span>'
+                );
+                if (leg) $(".law-title").tooltip();
 
                 scope.stages=[],
                 scope.steps=[],
@@ -455,9 +372,8 @@ return {
                 scope.barwidth = $("#stepsbar").width();
 
                 data.steps.filter(function(e) { return e.debats_order != null; })
+                .sort(function(a,b) { return a.debats_order - b.debats_order; })
                 .forEach(function(e) {
-                    if (e.debats_order==null) return;
-
                     scope.steps.push(e);
                     e.short_name = scope.stepLabel(e);
                     e.long_name = scope.stepLegend(e);
@@ -489,9 +405,8 @@ return {
                 scope.stages.push(scope.addStageInst(currStage));
                 scope.inst.push(scope.addStageInst(currInst));
                 timer(function(){
-                    $(".stb-step div span").tooltip()
-                    $(".stb-step div span a").tooltip()
-                    $(".stb-step div a").tooltip()
+                    $(".stb-step span").tooltip({html: true})
+                    $(".stb-step a").tooltip({html: true})
                     $(".stb-inst span").tooltip()
                     $(".stb-stage span").tooltip({html: true})
                 },0);

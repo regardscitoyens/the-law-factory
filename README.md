@@ -12,6 +12,13 @@ Web frontend developed for The Law Factory project
     cd the-law-factory
   ```
 
+* Configure the aplication by copying ```js/config.json.example``` as ```public/js/config.js``` and set the API Url to the path on which you serve the data directory of RegardsCitoyens:the-law-factory-parser.git. Optionnally set also ihere your google analytics id and host.
+
+  ```bash
+    cp public/js/config.json{.example,}
+    vi public/js/config.json
+  ```
+
 * Serve the ```public``` directory on a webserver
  - for instance, to run locally on http://localhost:8001
 

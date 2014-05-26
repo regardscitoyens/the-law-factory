@@ -37,7 +37,6 @@ function wrap(width) {
 function init(data,step) {
 
     utils = $('.mod2').scope();
-    width = $("#viz").width();
     highlight = utils.highlightGroup;
     utils.groups = data[step].groupes
     participants=data[step].orateurs;
@@ -78,10 +77,30 @@ function init(data,step) {
     drawFlows(false);
 }
 
+$(window).resize(function(){
+    if (utils.drawing || utils.mod != "mod2b") return;
+    utils.drawing = true;
+    setTimeout(function(){
+        $("#display_menu .chosen").click();
+        utils.drawing = false;
+    }, 250);
+});
+
 function drawFlows(top_ordered) {
+    utils.setMod2bSize();
+    utils.setTextContainerHeight();
+    width = $("#viz").width();
     $("#display_menu .chosen").removeClass('chosen');
     $("#display_menu #dm-"+(top_ordered ? 'quanti' : 'classic')).addClass('chosen');
+    if (top_ordered) {
+	$('#menu-order .selectedchoice').text("quantitative");
+    }else{
+	$('#menu-order .selectedchoice').text("« échiquier politique »");
+    }
     utils.startSpinner();
+    var height;
+    if(num*60>=$("#viz").height()) height=num*60;
+    else height=$("#viz").height()-50;
     $("#viz-int").animate({opacity: 0}, 200, function() {
         $("#viz-int").empty();
         $(".text-container").empty();
@@ -89,7 +108,7 @@ function drawFlows(top_ordered) {
         var stream = sven.viz.streamkey()
             .data(mydata)
             .target("#viz-int")
-            .height(num*60)
+            .height(height)
             .width(width)
             .minHeight(8)
             .sorting(top_ordered)
@@ -238,10 +257,10 @@ sven.viz.streamkey = function(){
 
         svg = d3.select(target).append("svg")
             .attr("width", height)
-            .attr("height", width+50)
+            .attr("height", width+40)
             .append("g")
             .attr("class","main-g")
-            .attr("transform","translate(0,20)")
+            .attr("transform","translate(0,30)")
 
         var layer = svg.selectAll("g")
             .data(dataF)
@@ -275,6 +294,7 @@ sven.viz.streamkey = function(){
                 d3.event.stopPropagation();
                 $("#text-title").html(d.label);
                 $(".text-container").empty()
+                utils.setTextContainerHeight();
                 $(".text-container").append('<p class="orat-title">'+d.x+"</p>");
                 d3.selectAll("path").transition().style("fill-opacity",0.1);
                 d3.selectAll("rect").transition().style("opacity",0.1);
@@ -290,7 +310,7 @@ sven.viz.streamkey = function(){
                     var div = document.createElement('div');
                     div.className="orat-info";
                     var siz = $(".text-container").width()*0.25;
-                    if(participants[g.key].photo) $(div).append('<a href="'+participants[g.key].link+'" target="_blank"><img src="'+participants[g.key].photo+"/"+parseInt(siz)+'"/></a>');
+                    if(participants[g.key].photo) $(div).append('<a href="'+participants[g.key].link+'" target="_blank"><img src="'+participants[g.key].photo+"/"+parseInt(siz)+'?color=1"/></a>');
                     $(div).append("<p class='orat-name'><b>"+(participants[g.key].photo ? '<a href="'+participants[g.key].link+'" target="_blank">'+participants[g.key].nom+"</a>" : participants[g.key].nom)+"</b></p>");
                     if(participants[g.key].fonction.length) $(div).append("<p class='orat-fonction'>"+participants[g.key].fonction+"</p>");
                     $(div).append('<p><a class="orat-disc" href="'+g.value.link+'" target="_blank">Lire les interventions</a></p>');
@@ -340,7 +360,7 @@ sven.viz.streamkey = function(){
             .attr("font-family","sans-serif")
             .attr("font-size","0.9em")
             .attr("class", "filter-title")
-            .attr("fill", "#333")
+            .attr("fill", "#716259")
             .text(function(d){return utils.shortenString(d, 110); });
 
         return streamkey;
@@ -358,6 +378,7 @@ sven.viz.streamkey = function(){
                 .entries(stepsY[j]);
             stepsY[j] = [];
             sorted.forEach(function(d){d.values.forEach(function(d){stepsY[j].push(d)})});
+
         }
         return stepsY;
     };
@@ -367,7 +388,7 @@ sven.viz.streamkey = function(){
     }
 
     sortByTop = function(data){
-        return sort(data, "y", function(a,b){return parseFloat(a) - parseFloat(b); });
+        return sort(data, "y", function(a,b){if(a==="null") a=0; if(b==="null") b=0; return parseFloat(a) - parseFloat(b); });
     };
 
   function layout(data,minHeightScale){
