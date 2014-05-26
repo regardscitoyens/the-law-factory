@@ -304,18 +304,17 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                     console.log(tuto)
                     for(var id in tuto)
                     {
+                        var infos = tuto[id].split(" = ");
+                        //$('#'+k).attr('data-position',infos[0]);
+                        //$('#'+k).attr('data-intro',infos[1]);
 
-                            var infos = tuto[id].split(" = ");
-                            //$('#'+k).attr('data-position',infos[0]);
-                            //$('#'+k).attr('data-intro',infos[1]);
-
-                            //$('#'+k).addClass('hint-bounce hint--always hint--rounded hint-'+infos[0]);
-                            //$('#'+k).attr('data-hint',infos[1]);
-                            console.log(id)
-                            $(id).attr('data-position',infos[0]);
-                            $(id).attr('data-tooltipClass','tooltip-'+id.replace(/^[#\.]/,"")); // remove selector (first # or .)
-                            $(id).attr('data-intro',infos[1]);
-                            $(id).attr('data-step',step++);
+                        //$('#'+k).addClass('hint-bounce hint--always hint--rounded hint-'+infos[0]);
+                        //$('#'+k).attr('data-hint',infos[1]);
+                        console.log(id)
+                        $(id).attr('data-position',infos[0]);
+                        $(id).attr('data-tooltipClass','tooltip-'+id.replace(/^[#\.]/,"")); // remove selector (first # or .)
+                        $(id).attr('data-intro',infos[1]);
+                        $(id).attr('data-step',step++);
                     }
 
                     var introjs = introJs().setOptions({
@@ -365,7 +364,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                     introjs.start();
                 },
                 function(error){
-                    console.log("could'nt retrieve json tutorial")
+                    console.log("could'nt retrieve json tutorial");
                 }
                 );
             }
