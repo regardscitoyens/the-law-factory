@@ -688,7 +688,7 @@ var valign, stacked, utils, aligned = true;
 			    }
 			    d.textDiff += (d.n_diff == 0 ? "<p><b>"+ (d.status == "sup" ? "Supprimé" : "Aucune modification") + " à cette étape</b></p>" : "");
 			    if (d.textDiff) {
-				d.textDiff += '<p><i>Pour visualiser le texte à cette étape, cliquez que l\'icone <span class="glyphicon glyphicon glyphicon-check"></span> au-dessus à droite.';
+				d.textDiff += '<p><i>Pour visualiser le texte à cette étape, cliquez sur l\'icone <span class="glyphicon glyphicon glyphicon-check"></span> située au-dessus de cet espace à droite.</i></p>';
 			    }
 			}
 
