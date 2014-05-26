@@ -57,7 +57,7 @@ var drawGantt, utils,
                 mindate, maxdate, maxduration,
                 tscale, ticks,
                 minheight,
-                width = parseInt(d3.select("#gantt").style("width")) - 30,
+                width,
                 width_ratio = 1,
                 lawh = 50,
             steph = lawh - 16,
@@ -184,6 +184,10 @@ var drawGantt, utils,
             selection.each(function (data) {
 
                 drawGantt = function(action) {
+                    utils.setMod0Size();
+                    utils.setTextContainerHeight();
+                    width = parseInt(d3.select("#gantt").style("width")) - 30,
+                    minheight = $("#gantt").height() - 10;
                     setTimeout(computeFilters, 50);
                     if (!action) action = 'time';
                     utils.startSpinner();
@@ -206,6 +210,7 @@ var drawGantt, utils,
                         scroll = {scrollTop: "0px", scrollLeft: "0px"};
                     lawscont = ganttcontainer.append("g").attr("class", "laws");
                     grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
+                    $("#legend").height('35px');
                     if (action == 'time') {
                         layout = "t";
                         zoo = 1;
@@ -231,6 +236,7 @@ var drawGantt, utils,
                         $("#display_menu #dm-quanti").addClass('chosen');
                         $("#menu-sort .dropdown-toggle").removeClass('disabled');
                         $("#menu-zoom").css('opacity', 0);
+                        $("#legend").height("0px");
                     }
                     if (action == 'filter') {
                         zoo = 1;
@@ -286,6 +292,7 @@ var drawGantt, utils,
 			$("#menu-display .selectedchoice").text('quantitative');
                         quantiPosition();
                         drawLabels();
+                        $("#gantt").height(minheight+35);
                     } else d3.select("#gantt").on("scroll", function (e) {
                         d3.select(".timeline").attr("transform", "translate(-" + $(this).scrollLeft() + ", 0)");
                         d3.selectAll(".law-name").attr("transform", "translate(" + $(this).scrollLeft() + ", 0)");
@@ -716,6 +723,7 @@ var drawGantt, utils,
 
                     $("#text-title").text(d.short_title);
                     $("#text-title").attr('data-original-title', d.long_title).tooltip('fixTitle');
+                    utils.setTextContainerHeight();
                     var themes=$('<p>');
                     d.themes.join(",").replace(/ et /g, ',').split(',').forEach(function(e,j){
                         themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les textes correspondant à ce thème' data-toggle='tooltip' data-placement='left'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
@@ -799,11 +807,18 @@ var drawGantt, utils,
                 //Start drawing first sample
                 $(document).ready(function() {
                     prepareData();
-                    minheight = $("#gantt").height() - 10;
                     currFile = data.next_page;
                     $("a.badge").tooltip();
                     setTimeout((currFile ? dynamicLoad : drawGantt), 0);
                     $("#text-title").tooltip();
+                    $(window).resize(function(){
+                        if (utils.drawing || utils.mod != "mod0") return;
+                        utils.drawing = true;
+                        setTimeout(function(){
+                            drawGantt();
+                            utils.drawing = false;
+                        }, 350);
+                    });
                 });
 
 

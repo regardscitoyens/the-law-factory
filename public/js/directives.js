@@ -56,9 +56,7 @@ function(api, $rootScope, $location, $compile) {
                 api.getArticle(scope.loi).then(function(data) {
                     $rootScope.lawTitle = data.short_title
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Articles | ";
-                    scope.setMod1Size();
                     d3.select(element[0]).datum(data).call(mod1);
-                    scope.setTextContainerHeight()
                     scope.stopSpinner();
                     scope.showFirstTimeTutorial();
                 }, function(error) {
@@ -90,9 +88,7 @@ function(api, $rootScope, $location, $compile) {
                 if (scope.etape != null) api.getAmendement(scope.loi, scope.etape).then(function(data) {
                     scope.data = data;
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Amendements | ";
-                    scope.setMod2Size();
                     d3.select(element[0]).datum(data).call(mod2);
-                    scope.setTextContainerHeight();
                 }, function(error) {
                     scope.error = error
                 });
@@ -123,10 +119,7 @@ function(api, $rootScope, $location, $compile) {
                     api.getIntervention(scope.loi).then(function(data) {
                         scope.data = data;
                         $rootScope.pageTitle =  $rootScope.lawTitle + " - Débats | ";
-                        scope.setMod2bSize();
                         init(data, scope.etape);
-                        scope.setTextContainerHeight();
-
                     }, function(error) {
                         scope.error = error
                     })
@@ -170,11 +163,9 @@ function(api, $rootScope, $location, $compile) {
             });
 
             function update() {
-                scope.setMod0Size();
                 scope.startSpinner();
                 api.getDossiers().then(function(data) {
                   d3.select(element[0]).datum(data).call(mod0);
-                    scope.setTextContainerHeight();
                     synced = true;
                     scope.showFirstTimeTutorial();
                 }, function(error) {

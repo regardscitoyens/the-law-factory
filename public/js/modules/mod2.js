@@ -120,6 +120,8 @@ var utils, highlight;
             redraw();
         };
         redraw = function(merged) {
+            utils.setMod2Size();
+            utils.setTextContainerHeight();
             readSizes();
             if (merged == undefined) merged = grouped;
             $('#menu-display .selectedchoice').text(merged ? 'groupée' : 'par articles');
@@ -347,14 +349,12 @@ var utils, highlight;
             $(".leg-key").tooltip();
             redraw(false);
             $(window).resize(function(){
-                if (utils.drawing) return;
+                if (utils.drawing || utils.mod != "mod2") return;
                 utils.drawing = true;
                 setTimeout(function(){
-                    utils.setMod2Size();
-                    redraw(false);
-                    utils.setTextContainerHeight();
+                    redraw();
                     utils.drawing = false;
-                }, 500);
+                }, 150);
             });
         });
 

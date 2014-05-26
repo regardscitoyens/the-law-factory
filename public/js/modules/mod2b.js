@@ -37,7 +37,6 @@ function wrap(width) {
 function init(data,step) {
 
     utils = $('.mod2').scope();
-    width = $("#viz").width();
     highlight = utils.highlightGroup;
     utils.groups = data[step].groupes
     participants=data[step].orateurs;
@@ -78,7 +77,19 @@ function init(data,step) {
     drawFlows(false);
 }
 
+$(window).resize(function(){
+    if (utils.drawing || utils.mod != "mod2b") return;
+    utils.drawing = true;
+    setTimeout(function(){
+        $("#display_menu .chosen").click();
+        utils.drawing = false;
+    }, 250);
+});
+
 function drawFlows(top_ordered) {
+    utils.setMod2bSize();
+    utils.setTextContainerHeight();
+    width = $("#viz").width();
     $("#display_menu .chosen").removeClass('chosen');
     $("#display_menu #dm-"+(top_ordered ? 'quanti' : 'classic')).addClass('chosen');
     if (top_ordered) {
