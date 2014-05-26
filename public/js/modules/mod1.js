@@ -669,8 +669,7 @@ var valign, stacked, utils, aligned = true;
                         $("#text-title").empty();
                         $(".art-meta").empty();
                         $(".art-txt").empty();
-                        if(d.n_diff && d.id_step.substr(-5) !=="depot" && d.status != "new") $("#revsMode").show();
-                        else $("#revsMode").hide();
+                        $("#revsMode").show();
                         $("#text-title").html(titre_article(d, 2));
                         utils.setTextContainerHeight();
                         var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " ("+format_section(d, 1)+')' : format_section(d, 2)) + "</b>" +
@@ -678,10 +677,26 @@ var valign, stacked, utils, aligned = true;
                             + "</p>" : "") +
                         "<p><b>" + titre_etape(d) + "</b></p>" +
                         (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ? 
-                            '<div class="gotomod"><a class="btn btn-info" href="amendements.html?loi='+utils.loi+'&etape='+ d.directory+'&article='+d.article+'">Explorer les amendements</a></div>' : '') +
-                            (d.n_diff == 1 && d.id_step.substr(-5) != "depot" ? "<p><b>"+(d.prev_step ? "Réintroduit" : "Ajouté") + " à cette étape</b></p>" : "") +
-                            (d.n_diff == 0 ? "<p><b>"+ (d.status == "sup" ? "Supprimé" : "Aucune modification") + " à cette étape</b></p>" : "");
+                         '<div class="gotomod"><a class="btn btn-info" href="amendements.html?loi='+utils.loi+'&etape='+ d.directory+'&article='+d.article+'">Explorer les amendements</a></div>' : '');
+			if (!d.textDiff) {
+			    if (d.n_diff) {
+				if (d.id_step.substr(-5) == "depot") {
+				    d.textDiff = "<p><b>Texte déposé à cette étape</b></p>";
+				}else{
+				    d.textDiff = "<p><b>"+(d.prev_step ? "Réintroduit" : "Ajouté") + " à cette étape</b></p>";
+				}
+			    }
+			    d.textDiff += (d.n_diff == 0 ? "<p><b>"+ (d.status == "sup" ? "Supprimé" : "Aucune modification") + " à cette étape</b></p>" : "");
+			    if (d.textDiff) {
+				d.textDiff += '<p><i>Pour visualiser le texte à cette étape, cliquez que l\'icone <span class="glyphicon glyphicon glyphicon-check"></span> au-dessus à droite.';
+			    }
+			}
+
                         $(".art-meta").html(descr);
+
+			d.originalText = '<ul class="originaltext"><li><span>' + $.map(textArticles[d.article][d.directory], function(i) {
+                            return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
+                        }).join("</span></li><li><span>") + "</span></li></ul>";
 
                         if (spin) {
                             setTimeout(function() {
@@ -694,13 +709,9 @@ var valign, stacked, utils, aligned = true;
                                 d.textDiff += diff_to_html(diff)
                                     .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
                                 d.textDiff += "</li></ul>";
-				d.originalText = '<ul class="originaltext"><li><span>' + $.map(textArticles[d.article][d.directory], function(i) {
-                                return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
-                            }).join("</span></li><li><span>") + "</span></li></ul>";
                                 utils.stopSpinner(utils.update_revs_view, 'load_art');
                             }, 0);
                         } else {
-                            if (!d.textDiff) d.textDiff = d.originalText;
 			    utils.update_revs_view();
                         }
                     });
