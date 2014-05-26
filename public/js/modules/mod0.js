@@ -71,7 +71,7 @@ var drawGantt, utils,
             sort_function = sortByDate,
             format = d3.time.format("%Y-%m-%d"),
             tickform = locale.timeFormat("%b %Y"),
-            tickpresence=d3.scale.linear().range([6,1]).domain([1,7]).clamp(true),
+            tickpresence=function(v) { return d3.scale.linear().range([v,1]).domain([1,7]).clamp(true); },
             format_title = function(d){
                 d = d.replace('depot', 'Dépôt')
                     .replace('1ère lecture', '1<sup>ère</sup> Lecture')
@@ -137,13 +137,13 @@ var drawGantt, utils,
             zooming = function(lvl) {
 
                 var perc=($("#gantt").scrollLeft()+$("#gantt").width()/2)/(width*z);
-		if ($("#gantt").scrollLeft() == 0 && $("#gantt").scrollTop() == 0) {
-		    if (layout == 't') {
-			perc = 1;
-		    }else if (layout == 'a') {
-			perc = 0;
-		    }
-		}
+                if ($("#gantt").scrollLeft() == 0 && $("#gantt").scrollTop() == 0) {
+                    if (layout == 't') {
+                    perc = 1;
+                    }else if (layout == 'a') {
+                    perc = 0;
+                    }
+                }
                 if(layout==="q") return;
                 if(d3.event && d3.event.scale) z = d3.event.scale;
                 else if(lvl) z=lvl;
@@ -155,24 +155,27 @@ var drawGantt, utils,
                 d3.selectAll(".lawline").attr("transform", "scale(" + z + ",1)");
                 d3.selectAll(".tl-bg").attr("transform", "scale(" + z + ",1)");
 
-                d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z});
                 if(layout==="a") {
                     d3.selectAll(".g-law").attr("transform", function(d,i){return "translate(" + -tscale(format.parse(d.beginning)) * z + 5 + "," + (i * (20 + lawh)) +")"; });
                     lscale = d3.time.scale().range([0, width * width_ratio]);;
                     lscale.domain([mindate, maxdate]);
+                    d3.selectAll(".tick").attr("x1",function(d){return lscale(d)*z}).attr("x2",function(d){return lscale(d)*z});
                     d3.selectAll(".tick-lbl").attr("x", function (d) { return lscale(d) * z; });
+                    rat = Math.ceil(3 * maxduration / width / width_ratio);
                     d3.selectAll(".tick-lbl").style("opacity",function(d,i){
-                        return (i % Math.round(tickpresence(z))==0 && lscale(d)*z< width*z - 50 ? 1 : 0);
+                        return (i % Math.round(tickpresence(rat)(z))==0 && lscale(d) + 60/z < width ? 1 : 0);
                     });
                     
                 } else {
+                    d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z});
                     d3.selectAll(".tick-lbl").attr("x", function (d) { return tscale(d) * z; });
+                    rat = Math.ceil(3 * maxduration / width / width_ratio);
                     d3.selectAll(".tick-lbl").style("opacity",function(d,i){
-                        return (i % Math.round(tickpresence(z))==0 && tscale(d)*z< width*z - 50 ? 1 : 0);
+                        return (i % Math.round(tickpresence(rat)(z))==0 && tscale(d) + 60/z < width ? 1 : 0);
                     });
                 }
 
-                legendcontainer.attr("width", width * z * width_ratio);
+                legendcontainer.attr("width", width * z);
                 ganttcontainer.attr("width", width * z);
 
                 $("#gantt").scrollLeft(perc * width * z - $("#gantt").width() / 2 );
@@ -525,12 +528,11 @@ var drawGantt, utils,
                         maxdate.setDate(maxdate.getDate() + maxduration + 50);
                     } else maxdate = format.parse(maxdate > data.max_date ? data.max_date : maxdate);
                     mindate = format.parse(mindate < data.min_date ? data.min_date : mindate);
-                    mindate.setDate(mindate.getDate() - 10);
                     maxdate.setDate(maxdate.getDate() + 10);
 
                     //update svg size
                     if (layout == "a")
-                        width_ratio = 0.8*(maxdate - mindate)/(maxduration*86400000.);
+                        width_ratio = 0.95*(maxdate - mindate)/(maxduration*86400000.);
                     else width_ratio = 1;
 
                     ganttcontainer.attr("height", Math.max(minheight, smallset.length * (20 + lawh)))
@@ -696,7 +698,7 @@ var drawGantt, utils,
                         .attr("x", function (d) {return d.qx; })
                         .attr("width", function (d) { return Math.max(0, d.qw); });
                     
-
+                    d3.selectAll(".tick").style('opacity', 0);
                     d3.selectAll(".law-bg").transition().duration(500).style("opacity", 0);
                 }
 
