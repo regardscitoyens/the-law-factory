@@ -257,8 +257,8 @@ var valign, stacked, utils, aligned = true;
                         title : clean_premier(titre_article(d, 2)),
                         content : div,
                         placement : "mouse",
-                        gravity : "right",
-                        displacement : [10, -85],
+                        gravity : "bottom",
+                        displacement : [-120, 20],
                         mousemove : true
                     };
 				}
@@ -287,8 +287,8 @@ var valign, stacked, utils, aligned = true;
                         title : clean_premier(title),
                         content : div,
                         placement : "mouse",
-                        gravity : "right",
-                        displacement : [10, -85],
+                        gravity : "bottom",
+                        displacement : [-140, 15],
                         mousemove : true
                     };
 				}
