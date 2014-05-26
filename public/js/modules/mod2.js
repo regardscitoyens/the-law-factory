@@ -243,7 +243,7 @@ var utils, highlight;
                       content: div,
                       placement: "mouse",
                       gravity: "right",
-                      displacement: [10, -90],
+                      displacement: [10, -80],
                       mousemove: true
                   };
               }

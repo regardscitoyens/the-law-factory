@@ -478,6 +478,7 @@ li.dropdown .disabled{
 }
 .dropdown-menu>li>a:hover {
    background-color: #716259;
+    cursor; pointer;
 }
 .dropdown-menu li:hover .chosen:before {
    color: white;
@@ -1106,15 +1107,6 @@ ul.filters li a.badge b {
     color: #716259;
 }
 
-/* bootstrap dropdown submenu add */
-.dropdown-submenu{position:relative;}
-.dropdown-submenu>.dropdown-menu{top:-60px;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}
-.dropdown-submenu:hover>.dropdown-menu{display:block;}
-.dropdown-submenu>a:after {display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
-.dropdown-submenu:hover>a:after{border-left-color:#ffffff;}
-.dropdown-submenu.pull-left{float:none;}
-.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}
-
 #preload, #load_art {
     position:relative;
     width:100%;
@@ -1242,6 +1234,34 @@ noscript h2 {
 .burntsiena{
 	background: #716259;
 	color: #FFF;
+}
+.popover.gantt h3 {
+    background-color: #FFF !important;
+    color: #716259 !important;
+}
+.popover.CMP h3{
+	border-bottom: 7px solid rgb(231,221,158);
+}
+.popover.PJL h3{
+	border-bottom: 7px solid rgb(204,203,179);
+}
+.popover.AN h3{
+	border-bottom: 7px solid rgb(206,214,221);
+}
+.popover.SE h3{
+	border-bottom: 7px solid rgb(249,155,144);
+}
+.popover.CC h3{
+	border-bottom: 7px solid rgb(174,234,170);
+}
+.popover.PR h3{
+	border-bottom: 7px solid #716259;
+}
+.popover.IP h3{
+	border-bottom: 7px solid rgb(216, 209, 201);
+}
+.popover.Color_Default h3{
+	border-bottom: 7px solid #aea198;
 }
 .CMP{
 	fill: rgb(231,221,158);

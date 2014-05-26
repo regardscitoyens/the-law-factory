@@ -91,33 +91,34 @@ var drawGantt, utils,
                 return [d[2], d[1], d[0]].join('/');
             },
             popover = function(d) {
-                var ydisp = -45,
+                var ydisp = -100,
                 title = ((d.institution=="assemblee" || d.institution=="senat") && layout == 'q' ? format_title(d.institution) + " — " : "") + format_title(d.step ? d.step : d.stage),
                     div = d3.select(document.createElement("div")).style("width", "100%").attr('class', 'pop0');
                 if (d.stage=="CMP") {
                     div.append("p").html(title);
                     title = format_title(d.stage);
-                    ydisp -= 20;
+                    ydisp -= 25;
                 } else if (d.step) {
                     if (d.step == "depot" && d.debats_order != null) {
                         title = "Dépôt — " + d.auteur_depot;
-			div.append("p").html("Pro" + (d.auteur_depot == "Gouvernement" ? "jet" : "position") + " de loi");
-		    }
-                    ydisp -= 20;
+                        div.append("p").html("Pro" + (d.auteur_depot == "Gouvernement" ? "jet" : "position") + " de loi");
+                    }
+                    ydisp -= 25;
                 }
                 div.append("p").html('<span class="glyphicon glyphicon-calendar"></span><span> '+french_date(d.date) + (d.enddate && d.enddate != d.date ? " →  "+ french_date(d.enddate) : '')+'</span>');
-                if (d.echec) div.append("p").html(d.echec.toUpperCase());
-                if (d.decision) div.append("p").html(d.decision.toUpperCase());
+                if (d.echec || d.decision) {
+                     div.append("p").html((d.echec ? d.echec : d.decision).toUpperCase());
+                     ydisp -= 25;
+                }
                 if ((d.institution=="assemblee" || d.institution=="senat") && d.nb_amendements) {
                     div.append("p").style("vertical-align", "middle").html(d.nb_amendements+" amendement"+(d.nb_amendements > 1 ? 's' : ''));
-                    ydisp -= 22;
                 }
                 return {
                     title: title,
                     content: div,
                     placement: "mouse",
-                    gravity: "right",
-                    displacement: [10, ydisp],
+                    gravity: "top",
+                    displacement: [-110, ydisp],
                     mousemove: true
                 };
             };
@@ -174,6 +175,8 @@ var drawGantt, utils,
                         return (i % Math.round(tickpresence(rat)(z))==0 && tscale(d) + 60/z < width ? 1 : 0);
                     });
                 }
+                if (z > 1) $(".mod0 #gantt").css('cursor', 'move');
+                else $(".mod0 #gantt").css('cursor', 'default');
 
                 legendcontainer.attr("width", width * z);
                 ganttcontainer.attr("width", width * z);
@@ -579,7 +582,20 @@ var drawGantt, utils,
                         .attr("width", function (d) { return Math.max(0, tscale(format.parse(d.end)) - tscale(format.parse(d.beginning))); })
                         .attr("class", "law-bg")
                         .attr("height", steph)
-                        .attr("opacity", 0.3).style("fill", "#d8d1c9");
+                        .attr("opacity", 0.3).style("fill", "#d8d1c9")
+                        .popover(function(d){
+                            var popover_content = d3.select(document.createElement('div')).style("width", "100%").attr('class', 'pop0');
+                            popover_content.append('p');
+                            return {
+                                title: "Interruption parlementaire",
+                                content: popover_content,
+                                placement: "mouse",
+                                gravity: "top",
+                                displacement: [-110, -75],
+                                mousemove: true
+                            };
+                        });
+                        $(".law-bg").hover(function(d) {$('.popover').addClass("gantt IP")}, function() {$('.popover').removeClass("IP")});
 
                     //addsingle law steps
                     steps = laws.append("g")
@@ -590,6 +606,7 @@ var drawGantt, utils,
                         .append("g")
                         .attr("class", "g-step")
                         .popover(popover);
+                        $(".steps").hover(function(d) {$('.popover').addClass("gantt "+color_step(d.target.__data__))}, function(d) {$('.popover').removeClass(color_step(d.target.__data__))});
 
                     steps.append("rect")
                         .attr("class", color_step)
@@ -654,7 +671,9 @@ var drawGantt, utils,
                                     .text(d.stepname[j])
                                     .popover(popover);
                             }
+                    
                         });
+                    $(".lbls").hover(function(d) {$('.popover').addClass("gantt "+color_step(d.target.__data__))}, function(d) {$('.popover').removeClass(color_step(d.target.__data__))});
                 }
 
 
