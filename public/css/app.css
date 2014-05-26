@@ -650,6 +650,7 @@ ul.ui-autocomplete {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    cursor:move;
 }
 .mod0 #margin{
     float:left;
