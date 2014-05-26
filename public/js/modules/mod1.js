@@ -679,10 +679,13 @@ var valign, stacked, utils, aligned = true;
                         (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ? 
                          '<div class="gotomod"><a class="btn btn-info" href="amendements.html?loi='+utils.loi+'&etape='+ d.directory+'&article='+d.article+'">Explorer les amendements</a></div>' : '');
 
-			d.originalText = '<ul class="originaltext"><li><span>' + $.map(textArticles[d.article][d.directory], function(i) {
-                            return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
-                        }).join("</span></li><li><span>") + "</span></li></ul>";
-
+			if (textArticles[d.article][d.directory].length) {
+			    d.originalText = '<ul class="originaltext"><li><span>' + $.map(textArticles[d.article][d.directory], function(i) {
+				return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
+                            }).join("</span></li><li><span>") + "</span></li></ul>";
+			}else{
+			    d.originalText = "<p><b>Article supprimé à cette étapge</b></p><p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
+			}
 			if (!d.textDiff) {
 			    if (d.n_diff) {
 				if (d.id_step.substr(-5) == "depot") {
