@@ -36,6 +36,18 @@ h1,h2,h3,h4 {
 .introjs-tooltipbuttons {
     text-align: center;
 }
+.introjs-tooltip ul {
+    padding: 15px;
+}
+.introjs-tooltip .glyphicon {
+    margin-right: 7px;
+}
+.introjs-showElement.darkonintrojs,
+.introjs-showElement .darkonintrojs,
+.introjs-showElement .darkonintrojs span {
+    color: gray !important;
+}
+
 
 
 .menu {

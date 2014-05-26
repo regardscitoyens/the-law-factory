@@ -350,8 +350,8 @@ return {
                     (data.url_jo ? '<a href="'+data.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> Loi sur Légifrance</a><br/>' : '') +
                     '<a href="'+scope.APIRootUrl + scope.loi+'/" target="_blank"><span class="glyphicon glyphicon-link"></span> Open Data</a>' +
                   '</span><span class="links">' +
-                    '<a href="'+data.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a><br/>' +
-                    '<a href="'+data.url_dossier_assemblee+'" target="_blank"><span class="glyphicon glyphicon-link"></span> Dossier Assemblée</a>' +
+                    '<a href="'+data.url_dossier_senat+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a><br/>' +
+                    '<a href="'+data.url_dossier_assemblee+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Assemblée</a>' +
                   '</span>'
                 );
                 if (leg) $(".law-title").tooltip();

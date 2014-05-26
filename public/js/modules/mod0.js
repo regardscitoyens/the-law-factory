@@ -46,7 +46,7 @@ var drawGantt, utils,
             //Initialization
             utils = $('.mod0').scope();
             var legendcontainer = d3.select("#legend").append("svg"),
-                ganttcontainer = d3.select("#gantt").append("svg"),
+                ganttcontainer = d3.select("#gantt").append("svg").attr("id","modOsvg"),
                 lawscont, grid,
                 popover, currFile,
                 steps, laws,
