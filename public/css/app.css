@@ -638,7 +638,7 @@ ul.ui-autocomplete {
     overflow-y:hidden;
 }
 .mod0 #gantt {
-	height:550px;
+	/*height:550px;*/
 	width:95.46%;
     float: right;
     background-color:white;

@@ -37,9 +37,11 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.setModSize = function(elsel,pad) {
             return function() {
                 var myheight = $scope.getVizHeight();
-                $(".text").height(myheight+pad);
-                if (elsel == ".main-sc")
+                $(".text").height(myheight + pad);
+                if (elsel == ".main-sc") {
                     $(elsel).height(myheight - parseInt($(".labels-sc").css('height')));
+                    $("#gantt").height( $(elsel).height() - $("#legend").height() );
+                }
                 else $(elsel).height(myheight - $(".stages").height() - (pad ? parseInt($(".legend").css('height')) : 0));
             }
         }
