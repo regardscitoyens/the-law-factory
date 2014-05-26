@@ -56,11 +56,9 @@ function(api, $rootScope, $location, $compile) {
                 api.getArticle(scope.loi).then(function(data) {
                     $rootScope.lawTitle = data.short_title
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Articles | ";
-                    var myheight=scope.getVizHeight();
-                    $("#viz").height(myheight - $(".stages").height());
-                    $(".text").height(myheight);
+                    scope.setMod1Size();
                     d3.select(element[0]).datum(data).call(mod1);
-
+                    scope.setTextContainerHeight()
                     scope.stopSpinner();
                     scope.showFirstTimeTutorial();
                 }, function(error) {
@@ -69,7 +67,6 @@ function(api, $rootScope, $location, $compile) {
                 })
             }
             update();
-
         }
     };
 }]).directive('mod2', ['api', '$rootScope', '$location', '$compile',
@@ -93,10 +90,7 @@ function(api, $rootScope, $location, $compile) {
                 if (scope.etape != null) api.getAmendement(scope.loi, scope.etape).then(function(data) {
                     scope.data = data;
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Amendements | ";
-
-                    var myheight=scope.getVizHeight();
-                    $(".text").height(myheight);
-                    $("#viz").height(myheight - $(".stages").height() - parseInt($(".legend").css('height')));
+                    scope.setMod2Size();
                     d3.select(element[0]).datum(data).call(mod2);
                     scope.setTextContainerHeight();
                 }, function(error) {
@@ -129,10 +123,7 @@ function(api, $rootScope, $location, $compile) {
                     api.getIntervention(scope.loi).then(function(data) {
                         scope.data = data;
                         $rootScope.pageTitle =  $rootScope.lawTitle + " - Débats | ";
-                        var myheight=scope.getVizHeight();
-                        $(".text").height(myheight);
-console.log(myheight, $(".stages").height(), $(".legend").css('height'), $(".legend").height());
-                        $("#viz-int").height(myheight - $(".stages").height() - parseInt($(".legend").css('height')));
+                        scope.setMod2bSize();
                         init(data, scope.etape);
                         scope.setTextContainerHeight();
 
@@ -179,11 +170,8 @@ function(api, $rootScope, $location, $compile) {
             });
 
             function update() {
+                scope.setMod0Size();
                 scope.startSpinner();
-
-                var myheight=scope.getVizHeight();
-                $(".text").height(myheight);
-                $(".main-sc").height(myheight-parseInt($(".labels-sc").css('height')));
                 api.getDossiers().then(function(data) {
                   d3.select(element[0]).datum(data).call(mod0);
                     scope.setTextContainerHeight();
