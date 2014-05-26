@@ -20,8 +20,9 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.APIRootUrl = API_ROOT_URL;
         if ($scope.APIRootUrl.substr(-1) != "/") $scope.APIRootUrl += "/";
 
-	$rootScope.ishome = ($location.path() == '/');
+        $rootScope.ishome = ($location.path() == '/');
         $scope.mod = null;
+        $scope.drawing = false;
         $scope.loi = $location.search()['loi'];
         $scope.etape = $location.search()['etape'];
         $scope.article = $location.search()['article'];

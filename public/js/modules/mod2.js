@@ -49,19 +49,23 @@ var utils, highlight;
             d3.selectAll("g").style("opacity", 1);
         };
 
-	artArray=d3.values(articles).sort(function(a,b){return a.order-b.order})
+        artArray=d3.values(articles).sort(function(a,b){return a.order-b.order});
 
-		var w = $("#viz").width()-30,
-		    rw = $("#viz").width(),
+        var w, rw, minheight, nsq, z,
 		    lineh = 30,
-		    h = lineh*artArray.length+40,
+            x = 0, y, h,
+            jumpLines = 0,
+		    offset = 0;
+        var readSizes = function() {
+            rw = $("#viz").width();
+            w = rw - 30;
             minheight = $("#viz").height() - 5;
-		    z = 20,
-            x= 0,
-		    nsq = Math.round((w-40) / z),
+		    z = 20;
+		    nsq = Math.round((w-40) / z);
+		    h = lineh*artArray.length+40;
 		    y = h / z;
-	    var jumpLines = 0
-		var offset = 0
+        };
+        readSizes();
 		var svg = d3.select("#viz").append("svg")
 		    .attr("width", rw)
 		    .attr("height", Math.max(minheight, h))
@@ -116,12 +120,9 @@ var utils, highlight;
             redraw();
         };
         redraw = function(merged) {
+            readSizes();
             if (merged == undefined) merged = grouped;
-	    if (merged) {
-		$('#menu-display .selectedchoice').text('groupée');
-	    }else{
-		$('#menu-display .selectedchoice').text('par articles');
-	    }
+            $('#menu-display .selectedchoice').text(merged ? 'groupée' : 'par articles');
             utils.startSpinner();
             $("svg").animate({opacity: 0}, 200, function() {
                 $("svg").empty();
@@ -345,6 +346,16 @@ var utils, highlight;
             $(".leg-value").tooltip();
             $(".leg-key").tooltip();
             redraw(false);
+            $(window).resize(function(){
+                if (utils.drawing) return;
+                utils.drawing = true;
+                setTimeout(function(){
+                    utils.setMod2Size();
+                    redraw(false);
+                    utils.setTextContainerHeight();
+                    utils.drawing = false;
+                }, 500);
+            });
         });
 
     }; //end function vis
