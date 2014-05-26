@@ -1477,3 +1477,13 @@ footer{
     padding-left:15px;
     padding-right:15px;
 }
+
+#error a {
+    color: #FFF;
+    text-decoration: underline;
+}
+#error a:hover {
+    color: #FFF;
+    opacity: 0.7;
+    text-decoration: underline;
+}

@@ -2,8 +2,6 @@
 
 /* Controllers */
 
-
-
 angular.module('theLawFactory.controllers', ['theLawFactory.config']).
     /*
       Specific controller for the naigation Part.
@@ -21,6 +19,12 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         if ($scope.APIRootUrl.substr(-1) != "/") $scope.APIRootUrl += "/";
 
         $rootScope.ishome = ($location.path() == '/');
+        $rootScope.error = "";
+        $rootScope.back = function() {
+            var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+            $location.path(prevUrl);
+        };
+
         $scope.mod = null;
         $scope.drawing = false;
         $scope.loi = $location.search()['loi'];
