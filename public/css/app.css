@@ -1180,6 +1180,19 @@ noscript h2 {
 .tooltip.top .tooltip-arrow{border-top-color:#716259}
 .tooltip.left .tooltip-arrow{border-left-color:#716259}
 .tooltip.right .tooltip-arrow{border-right-color:#716259}
+.title .tooltip {
+    margin-left: 20px;
+}
+.title .tooltip-inner {
+    max-width: 500px;
+    border: 1px solid #dad1cb;
+    margin-top: 10px;
+    opacity: 1;
+}
+.title .tooltip.right .tooltip-arrow {
+    margin-top: 2px;
+    border-right-color: #FFF !important;
+}
 .mod0 .text .tooltip {
     border: 1px solid #dad1cb;
     opacity: 1;
