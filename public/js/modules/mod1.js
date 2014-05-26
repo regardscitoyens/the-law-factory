@@ -723,9 +723,9 @@ var valign, stacked, utils, aligned = true;
                             drawArticles();
                             utils.drawing = false;
                         }, 50);
+                        utils.drawDivOverElement($("rect").first());
                     });
                 });
-
             });
 		}
         return vis;
