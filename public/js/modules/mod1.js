@@ -697,8 +697,8 @@ var textArticles;
                     if (aligned) valign();
                     else stacked();
                     load_texte_articles();
+                    utils.drawDivOverElement($("rect").first());
                 });
-
             });
 		}
         return vis;

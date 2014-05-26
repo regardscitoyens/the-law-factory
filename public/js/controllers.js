@@ -200,6 +200,19 @@ angular.module('theLawFactory.controllers', []).
 			    .classed("actv-amd",false);
         }
 
+        /**
+         * Draw a div over the jQuery node passed as argument
+         *
+         * @param element jQuery node to draw over
+         */
+        $scope.drawDivOverElement = function(element) {
+            var width = element.attr('width');
+            var height = element.attr('height');
+            var top = $('#viz').offset().top + parseInt(element.attr('y'));
+            var left = $('#viz').offset().left + parseInt(element.attr('x'));
+            $('body').append('<div id="div_over_svg" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"></div>');
+        }
+
         /////////////////////////////////////////////////////////////
         $scope.toggleTutorial = function(show) {
             
