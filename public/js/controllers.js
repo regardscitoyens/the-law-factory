@@ -51,11 +51,11 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.read=false;
         $scope.revs=true;
         $scope.readmode = function() {
-            $(".text").css({"width":"83.4%","left":"8.3%"});
+            $(".text").css({"width":"93.43%","left":"3.3%"});
             $scope.read=true;
         }
         $scope.viewmode = function() {
-            $(".text").css({"width":"18.33%","left":"73.3%"});
+            $(".text").css({"width":"23.40%","left":"73.3%"});
             $scope.read=false;
         }
         $scope.hiderevs = function() {
