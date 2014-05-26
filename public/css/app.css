@@ -1027,7 +1027,7 @@ footer span:hover {
 }
 
 #stepsbar a {
-    color:#AFA19A;
+    color:#716259;
     text-decoration: none;
 }
 
@@ -1040,7 +1040,7 @@ footer span:hover {
     margin-left:10%;
     margin-right:10%;
     float:left;
-    opacity:0.7;
+    opacity: 0.4;
 }
 .stb-renvoi {
     color: red;
@@ -1076,7 +1076,7 @@ footer span:hover {
     border-bottom: 1px solid white;
 }
 .stb-curr-st {
-    opacity:0.7 !important;
+    opacity:1 !important;
     color:#716259;
 }
 
