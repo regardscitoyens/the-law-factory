@@ -12,6 +12,7 @@ body{
     width:100%;
     color: #716259;
     overflow-x:hidden;
+    overflow-y:hidden;
 }
 html,body{
     height:100%;
