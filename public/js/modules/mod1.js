@@ -678,6 +678,11 @@ var valign, stacked, utils, aligned = true;
                         "<p><b>" + titre_etape(d) + "</b></p>" +
                         (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ? 
                          '<div class="gotomod"><a class="btn btn-info" href="amendements.html?loi='+utils.loi+'&etape='+ d.directory+'&article='+d.article+'">Explorer les amendements</a></div>' : '');
+
+			d.originalText = '<ul class="originaltext"><li><span>' + $.map(textArticles[d.article][d.directory], function(i) {
+                            return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
+                        }).join("</span></li><li><span>") + "</span></li></ul>";
+
 			if (!d.textDiff) {
 			    if (d.n_diff) {
 				if (d.id_step.substr(-5) == "depot") {
@@ -688,15 +693,11 @@ var valign, stacked, utils, aligned = true;
 			    }
 			    d.textDiff += (d.n_diff == 0 ? "<p><b>"+ (d.status == "sup" ? "Supprimé" : "Aucune modification") + " à cette étape</b></p>" : "");
 			    if (d.textDiff) {
-				d.textDiff += '<p><i>Pour visualiser le texte à cette étape, cliquez sur l\'icone <span class="glyphicon glyphicon glyphicon-check"></span> située au-dessus de cet espace à droite.</i></p>';
+				d.textDiff += d.originalText;
 			    }
 			}
 
                         $(".art-meta").html(descr);
-
-			d.originalText = '<ul class="originaltext"><li><span>' + $.map(textArticles[d.article][d.directory], function(i) {
-                            return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
-                        }).join("</span></li><li><span>") + "</span></li></ul>";
 
                         if (spin) {
                             setTimeout(function() {
