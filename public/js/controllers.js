@@ -37,9 +37,11 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.setModSize = function(elsel,pad) {
             return function() {
                 var myheight = $scope.getVizHeight();
-                $(".text").height(myheight+pad);
-                if (elsel == ".main-sc")
+                $(".text").height(myheight + pad);
+                if (elsel == ".main-sc") {
                     $(elsel).height(myheight - parseInt($(".labels-sc").css('height')));
+                    $("#gantt").height( $(elsel).height() - $("#legend").height() );
+                }
                 else $(elsel).height(myheight - $(".stages").height() - (pad ? parseInt($(".legend").css('height')) : 0));
             }
         }
@@ -51,11 +53,11 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.read=false;
         $scope.revs=true;
         $scope.readmode = function() {
-            $(".text").css({"width":"83.4%","left":"8.3%"});
+            $(".text").css({"width":"93.43%","left":"3.3%"});
             $scope.read=true;
         }
         $scope.viewmode = function() {
-            $(".text").css({"width":"18.33%","left":"73.3%"});
+            $(".text").css({"width":"23.40%","left":"73.3%"});
             $scope.read=false;
         }
         $scope.hiderevs = function() {
@@ -276,6 +278,19 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                 .style("stroke","none")
 			    .classed("actv-amd",false);
         }
+        
+        /**
+         * Draw a div over the jQuery node passed as argument
+         *
+         * @param element jQuery node to draw over
+         */
+        $scope.drawDivOverElement = function(element) {
+            var width = element.attr('width');
+            var height = element.attr('height');
+            var top = $('#viz').offset().top + parseInt(element.attr('y'));
+            var left = $('#viz').offset().left + parseInt(element.attr('x'));
+            $('body').append('<div id="div_over_svg" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"></div>');
+        }
 
         $scope.formatDate = function(d) {
             var d2 = d.split('-');
@@ -295,18 +310,17 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                     console.log(tuto)
                     for(var id in tuto)
                     {
+                        var infos = tuto[id].split(" = ");
+                        //$('#'+k).attr('data-position',infos[0]);
+                        //$('#'+k).attr('data-intro',infos[1]);
 
-                            var infos = tuto[id].split(" = ");
-                            //$('#'+k).attr('data-position',infos[0]);
-                            //$('#'+k).attr('data-intro',infos[1]);
-
-                            //$('#'+k).addClass('hint-bounce hint--always hint--rounded hint-'+infos[0]);
-                            //$('#'+k).attr('data-hint',infos[1]);
-                            console.log(id)
-                            $(id).attr('data-position',infos[0]);
-                            $(id).attr('data-tooltipClass','tooltip-'+id.replace(/^[#\.]/,"")); // remove selector (first # or .)
-                            $(id).attr('data-intro',infos[1]);
-                            $(id).attr('data-step',step++);
+                        //$('#'+k).addClass('hint-bounce hint--always hint--rounded hint-'+infos[0]);
+                        //$('#'+k).attr('data-hint',infos[1]);
+                        console.log(id)
+                        $(id).attr('data-position',infos[0]);
+                        $(id).attr('data-tooltipClass','tooltip-'+id.replace(/^[#\.]/,"")); // remove selector (first # or .)
+                        $(id).attr('data-intro',infos[1]);
+                        $(id).attr('data-step',step++);
                     }
 
                     var introjs = introJs().setOptions({
@@ -356,7 +370,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                     introjs.start();
                 },
                 function(error){
-                    console.log("could'nt retrieve json tutorial")
+                    console.log("could'nt retrieve json tutorial");
                 }
                 );
             }

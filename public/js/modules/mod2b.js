@@ -332,7 +332,7 @@ sven.viz.streamkey = function(){
                     content: div,
                     placement: "mouse",
                     gravity: "right",
-                    displacement: [10, -80],
+                    displacement: [15, -65],
                     mousemove: true
                 };
             })

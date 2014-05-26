@@ -25,6 +25,19 @@ h1,h2,h3,h4 {
 #header-logos { float: right; width: 366px;}
 #header-mainlogo { float: left; width: 210px;}
 
+/* intro.js tutorial */
+.introjs-tooltip {
+    direction: ltr;
+}
+.introjs-tooltiptext {
+    text-align: left;
+    margin: 7px;
+}
+.introjs-tooltipbuttons {
+    text-align: center;
+}
+
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -158,14 +171,14 @@ body{
 	background-color:transparent;
 	padding:0 !important;
 	height:100%;
-	width:8.1%;
+	width:3.1%;
 	margin-right:0.23%;
 	float:left;
     margin-top: 147px;
 }
 .main{
 	height:100%;
-	width:65%;
+	width:70%;
 	float:left;
 }
 .stages{
@@ -214,7 +227,7 @@ body{
 	padding:0 !important;
 	border-bottom:1px solid #DAD1CB;
 	border-left: 1px solid #DAD1CB;
-	width:18.33%;
+	width:23.40%;
 	float:left;
 	position:relative;
 	height:100%;
@@ -359,7 +372,7 @@ ins {
 	background-color: #F9F7F8;
 }
 .mod0 .labels-sc {
-	width: 88.66%;
+	width: 95.46%;
     height: 150px;
     float: right;
 }
@@ -372,7 +385,7 @@ ins {
     padding: 15px;
     margin-top: 1px;
     float: right;
-	width:88.64%;
+    width: 95.44%;
     height: 100px;
     /*position: relative; */
     padding-bottom: 0.9%;
@@ -552,7 +565,7 @@ ul.ui-autocomplete {
 	height:auto;
 }
 .mod0 .text  {
-	width:18.33%;
+	width:23.39%;
 }
 .mod1 .text, .mod2 .text  {
     position:absolute;
@@ -566,7 +579,7 @@ ul.ui-autocomplete {
 .mod2 #viz {
     overflow-y:auto;
     overflow-x:hidden;
-	width:88.64%;
+    width:95.44%;
 	float:right;
     background-color: white;
 }
@@ -608,7 +621,7 @@ ul.ui-autocomplete {
     position:static;
 }
 .shift-steps{
-    padding-left:11.36% !important;
+    padding-left: 4.56% !important;
 }
 
 .mod0 #bars{
@@ -632,16 +645,16 @@ ul.ui-autocomplete {
     height: 100%;
 }
 .mod0 #legend {
-	width:88.36%;
+	width:95.46%;
     height: 35px;
-    float: left;
+    float: right;
     background-color:white;
     overflow-x:hidden;
     overflow-y:hidden;
 }
 .mod0 #gantt {
 	height:550px;
-	width:88.36%;
+	width:95.46%;
     float: right;
     background-color:white;
     overflow-x:auto;
@@ -652,6 +665,7 @@ ul.ui-autocomplete {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    cursor:move;
 }
 .mod0 #margin{
     float:left;
@@ -1219,6 +1233,34 @@ noscript h2 {
 	background: #716259;
 	color: #FFF;
 }
+.popover.gantt h3 {
+    background-color: #FFF !important;
+    color: #716259 !important;
+}
+.popover.CMP h3{
+	border-bottom: 7px solid rgb(231,221,158);
+}
+.popover.PJL h3{
+	border-bottom: 7px solid rgb(204,203,179);
+}
+.popover.AN h3{
+	border-bottom: 7px solid rgb(206,214,221);
+}
+.popover.SE h3{
+	border-bottom: 7px solid rgb(249,155,144);
+}
+.popover.CC h3{
+	border-bottom: 7px solid rgb(174,234,170);
+}
+.popover.PR h3{
+	border-bottom: 7px solid #716259;
+}
+.popover.IP h3{
+	border-bottom: 7px solid rgb(216, 209, 201);
+}
+.popover.Color_Default h3{
+	border-bottom: 7px solid #aea198;
+}
 .CMP{
 	fill: rgb(231,221,158);
 }
@@ -1418,4 +1460,15 @@ footer{
 
 .clear{
     clear:both;
+}
+
+/* large width*/
+
+.offset-width {
+    margin-left: 3.333344333344332%;
+}
+.cont-width {
+    width: 93.33334433334434%;
+    padding-left:15px;
+    padding-right:15px;
 }

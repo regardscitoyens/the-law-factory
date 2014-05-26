@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-10 col-md-offset-1" style="background-color: white;">
+  <div class="cont-width offset-width" style="background-color: white;">
     <nav id="filter-nav" class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <ul id="menu-left" class="nav navbar-nav">
@@ -36,7 +36,7 @@
       </ul>
       <ul class="nav navbar-nav" id="menu-right">
       <li id="menu-zoom"><span><div id="mod0-slider"></div><span id="mod0-slider-label">Zoom</span></span></li>
-      <li id="menu-tutorial"  ng-click="startTutorial()"><span><a>?</a></span></li>
+      <li id="menu-tutorial"  ng-click="toggleTutorial(true);"><span><a>?</a></span></li>
       </ul>
       </div>
   </div>
@@ -50,10 +50,7 @@
     <div class="scrolling">
 
       <div class="main-sc">
-        <div id="commands">
-        </div>
 
-        <div id="margin"></div>
         <div id="legend"></div>
         <div id="gantt" movescroll>
           <div id="preload"></div>
