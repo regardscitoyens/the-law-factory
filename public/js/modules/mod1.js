@@ -689,28 +689,20 @@ var valign, stacked, utils, aligned = true;
                         "<p><b>" + titre_etape(d) + "</b></p>" +
                         (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ? 
                          '<div class="gotomod'+(utils.read ? ' readmode': '')+'"><a class="btn btn-info" href="amendements.html?loi='+utils.loi+'&etape='+ d.directory+'&article='+d.article+'">Explorer les amendements</a></div>' : '');
+                        if (d.n_diff) {
+                            if (d.id_step.substr(-5) == "depot")
+                                descr += "<p><b>Article déposé à cette étape</b></p>";
+                            else if (d.status == "new") descr += "<p><b>Article "+(d.prev_step ? "réintroduit" : "ajouté") + " à cette étape</b></p>";
+                        } else descr += "<p><b>Article "+ (d.status == "sup" ? "supprimé" : "sans modification") + " à cette étape</b></p>";
 
-			if (textArticles[d.article][d.directory].length) {
-			    d.originalText = '<ul class="originaltext"><li><span>' + $.map(textArticles[d.article][d.directory], function(i) {
-				return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
-                            }).join("</span></li><li><span>") + "</span></li></ul>";
-			}else{
-			    d.originalText = "<p><b>Article supprimé à cette étapge</b></p><p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
-			}
-			if (!d.textDiff) {
-			    if (d.n_diff) {
-				if (d.id_step.substr(-5) == "depot") {
-				    d.textDiff = "<p><b>Texte déposé à cette étape</b></p>";
-				}else{
-				    d.textDiff = "<p><b>"+(d.prev_step ? "Réintroduit" : "Ajouté") + " à cette étape</b></p>";
-				}
-			    }
-			    d.textDiff += (d.n_diff == 0 ? "<p><b>"+ (d.status == "sup" ? "Supprimé" : "Aucune modification") + " à cette étape</b></p>" : "");
-			    if (d.textDiff) {
-				d.textDiff += d.originalText;
-			    }
-			}
-
+                        if (textArticles[d.article][d.directory].length) {
+                            d.originalText = '<ul class="originaltext"><li><span>' + $.map(textArticles[d.article][d.directory], function(i) {
+                            return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
+                                        }).join("</span></li><li><span>") + "</span></li></ul>";
+                        }else{
+                            d.originalText = "<p><b>Article supprimé à cette étapge</b></p><p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
+                        }
+                        if (!d.textDiff) d.textDiff += d.originalText;
                         $(".art-meta").html(descr);
 
                         if (spin) {
