@@ -254,6 +254,13 @@ body{
 .txt-center {
     text-align: center;
 }
+.art-meta {
+    text-align: center;
+}
+.art-meta .comment {
+    font-style: italic;
+}
+
 .art-txt{
     padding: 0pxa
     padding-right: 20px;

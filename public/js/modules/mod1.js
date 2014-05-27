@@ -249,7 +249,7 @@ var valign, stacked, utils, aligned = true;
                     if (d.section.lastIndexOf("A", 0) !== 0)
                         div.append("p").html("<small>"+(test_section_details(d.section, d.id_step, 'newnum') ? titre_section(data.sections[d.section][d.id_step]['newnum'], 2) + " ("+format_section(d, 1)+')' : format_section(d, 2))+"</small>");
                     div.append("p").html("<small>"+titre_etape(d)+"</small>");
-                    if (d.n_diff == 0) div.append("p").text(d.status == "sup" ? "Supprimé à cette étape" : "Aucune modification");
+                    if (d.n_diff == 0) div.append('p').text(d.status == "sup" ? "Supprimé à cette étape" : "Aucune modification");
                     else if (d.n_diff == 1 && d.id_step.substr(-5) !== "depot") div.append("p").text((d.prev_step ? "Réintroduit" : "Ajouté") + " à cette étape");
                     else if (d.id_step.substr(-5) != "depot") div.append("p").html("Modifications : " + d3.round(d['n_diff'] * 100, 2) + "&nbsp;%");
                     div.append("p").html("<small>Longueur du texte : " + d['length'] + " caractères</small>");
@@ -691,9 +691,9 @@ var valign, stacked, utils, aligned = true;
                          '<div class="gotomod'+(utils.read ? ' readmode': '')+'"><a class="btn btn-info" href="amendements.html?loi='+utils.loi+'&etape='+ d.directory+'&article='+d.article+'">Explorer les amendements</a></div>' : '');
                         if (d.n_diff) {
                             if (d.id_step.substr(-5) == "depot")
-                                descr += "<p><b>Article déposé à cette étape</b></p>";
+                                descr += '<p class="comment"><b>Article déposé à cette étape</b></p>';
                             else if (d.status == "new") descr += "<p><b>Article "+(d.prev_step ? "réintroduit" : "ajouté") + " à cette étape</b></p>";
-                        } else descr += "<p><b>Article "+ (d.status == "sup" ? "supprimé" : "sans modification") + " à cette étape</b></p>";
+                        } else descr += '<p class="comment"><b>Article '+ (d.status == "sup" ? "supprimé" : "sans modification") + " à cette étape</b></p>";
 
                         if (textArticles[d.article][d.directory].length) {
                             d.originalText = '<ul class="originaltext"><li><span>' + $.map(textArticles[d.article][d.directory], function(i) {
