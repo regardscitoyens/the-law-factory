@@ -352,7 +352,7 @@ return {
                   '<h4 class="law-title"'+leg+'>'+tit+'</h4>' +
                   '<span class="links">' +
                     (data.url_jo ? '<a href="'+data.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> Loi sur Légifrance</a><br/>' : '') +
-                    '<a href="'+scope.APIRootUrl + scope.loi+'/" target="_blank"><span class="glyphicon glyphicon-link"></span> Open Data</a>' +
+                    '<a href="http://git.lafabriquedelaloi.fr/parlement/' + scope.loi+'/" target="_blank"><span class="glyphicon glyphicon-link"></span> Cloner le Git</a>' +
                   '</span><span class="links">' +
                     '<a href="'+data.url_dossier_senat+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a><br/>' +
                     '<a href="'+data.url_dossier_assemblee+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Assemblée</a>' +
