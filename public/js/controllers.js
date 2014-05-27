@@ -292,15 +292,19 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
          * @param element jQuery node to draw over
          * @return class of the newly created element
          */
-        $scope.drawDivOverElement = function(oElement, sElementClass) {
+        $scope.drawDivOverElement = function(oElement,sElementClass) {
             var oNewElement = oElement.parent().clone();
             oNewElement.find('rect').each(function() { $(this).attr('y', 0); var t = $(this).attr('x'); $(this).attr('x', t - 481); });
             var width = oElement.attr('width');
             var height = oElement.attr('height');
-            var top = $('#gantt').offset().top + parseInt(oElement.attr('y'));
-            var left = $('#gantt').offset().left + parseInt(oElement.attr('x'));
+
+            var selk = $scope.mod=="mod0" ? '#gantt' : '#viz';
+            var top = $(selk).offset().top + parseInt(oElement.attr('y'));
+            var left = $(selk).offset().left + parseInt(oElement.attr('x'));
+
             var sElementClass = sElementClass.replace('.', '') + '-div';
-            $('body').append('<div class="' + sElementClass + '" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"><svg>' + oNewElement[0].outerHTML + '</svg></div>');
+            var outte = oNewElement[0] ? oNewElement[0].outerHTML : '';
+            $('body').append('<div class="' + sElementClass + '" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"><svg>' + outte + '</svg></div>');
             return '.' + sElementClass;
         }
 

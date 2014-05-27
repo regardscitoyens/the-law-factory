@@ -182,9 +182,9 @@ var utils, highlight;
           }
               var k = Math.floor(i / 2);
               d.offset = offset;
-
               var curRow = svg.append("g")
                   .classed(utils.slugArticle(d.titre), true)
+                  .classed("first-art",i==0)
                   .attr("transform", function () {
                       if (!half) return "translate(" + 10 + "," + (i * 20 + i * lineh + 10 + jumpLines * (lineh - 10)) + ")";
                       else {
