@@ -29,6 +29,11 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
 
         $rootScope.ishome = ($location.path() == '/');
         $rootScope.error = "";
+        $rootScope.display_error = function(e) {
+            console.log(e);
+            $rootScope.error = e;
+            setTimeout(function(){$("#error").css("display", "inline")}, 500);
+        }
         $rootScope.back = function() {
             var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
             $location.path(prevUrl);
