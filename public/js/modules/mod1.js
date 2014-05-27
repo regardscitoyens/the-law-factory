@@ -121,8 +121,8 @@ var valign, stacked, utils, aligned = true;
 				});
 
                 // Dynamic load of articles text at each step
-                function load_texte_articles() {
-                    var delay = 500;
+                    function load_texte_articles() {
+                        var delay = 50;
                         d3.set(bigList.map(function(d){return d.directory;})).values().sort()
                         .forEach(function(d) {
                             delay += 50;
@@ -135,6 +135,7 @@ var valign, stacked, utils, aligned = true;
                                             textArticles[a.titre][d].push(a.alineas[k]);
                                         });
                                     });
+                                    utils.to_load -= 1;
                                 });
                             }, delay);
                         });
@@ -216,6 +217,9 @@ var valign, stacked, utils, aligned = true;
                             bigList.push(f);
                         });
                     });
+
+                utils.to_load = d3.set(bigList.map(function(d){return d.directory;})).values().length;
+
 
 				var maxlen = d3.max(art, function(d) {
 					return d3.max(d.steps, function(e) {
@@ -650,7 +654,7 @@ var valign, stacked, utils, aligned = true;
 				//on click behaviour
 				function onclick(d) {
 
-                    var spin = !d.textDiff && d.prev_dir && (d.status == "sup" || d.n_diff) && d.id_step.substr(-5) != "depot";
+                    var spin = !d.originalText || (!d.textDiff && d.prev_dir && (d.status == "sup" || d.n_diff) && d.id_step.substr(-5) != "depot");
                     if (spin) utils.startSpinner('load_art');
                     d3.selectAll("line").style("stroke", "#d0d0e0")
                         .style("stroke-dasharray", "none");
@@ -698,29 +702,37 @@ var valign, stacked, utils, aligned = true;
                         else ("#revsMode").hide();
 
                         var balise = (d.id_step.substr(-5) != "depot" && d.status == "new" ? 'ins' : 'span');
-                        if (textArticles[d.article][d.directory].length) {
-                            d.originalText = '<ul class="originaltext"><li><'+balise+'>' + $.map(textArticles[d.article][d.directory], function(i) {
-                            return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
-                                        }).join("</"+balise+"></li><li><"+balise+">") + "</"+balise+"></li></ul>";
-                        }else d.originalText = "<p><b>Article supprimé à cette étapge</b></p><p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
-                        if (!d.textDiff) d.textDiff += d.originalText;
                         $(".art-meta").html(descr);
 
                         if (spin) {
-                            setTimeout(function() {
-                                var dmp = new diff_match_patch();
-                                dmp.Diff_Timeout = 1;
-                                dmp.Diff_EditCost = 25;
-                                var diff = dmp.diff_main(textArticles[d.article][d.prev_dir].join("\n"), textArticles[d.article][d.directory].join("\n"));
-                                dmp.diff_cleanupEfficiency(diff);
-                                d.textDiff = '<ul class="textdiff"><li>';
-                                d.textDiff += diff_to_html(diff)
-                                    .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
-                                d.textDiff += "</li></ul>";
+                            var waitload = setInterval(function() {
+                              if (!utils.to_load) {
+
+                                if (textArticles[d.article][d.directory]) {
+                                    d.originalText = '<ul class="originaltext"><li><'+balise+'>' + $.map(textArticles[d.article][d.directory], function(i) {
+                                    return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
+                                                }).join("</"+balise+"></li><li><"+balise+">") + "</"+balise+"></li></ul>";
+                                }else d.originalText = "<p><b>Article supprimé à cette étapge</b></p><p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
+
+                                if (textArticles[d.article][d.prev_dir]) {
+                                    var dmp = new diff_match_patch();
+                                    dmp.Diff_Timeout = 1;
+                                    dmp.Diff_EditCost = 25;
+                                    var diff = dmp.diff_main(textArticles[d.article][d.prev_dir].join("\n"), textArticles[d.article][d.directory].join("\n"));
+                                    dmp.diff_cleanupEfficiency(diff);
+                                    d.textDiff = '<ul class="textdiff"><li>';
+                                    d.textDiff += diff_to_html(diff)
+                                        .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
+                                    d.textDiff += "</li></ul>";
+                                } else d.textDiff += d.originalText;
+
                                 utils.stopSpinner(utils.update_revs_view, 'load_art');
-                            }, 0);
+                                clearInterval(waitload);
+                              }
+                            }, 100);
                         } else {
-			    utils.update_revs_view();
+                            if (!d.textDiff) d.textDiff += d.originalText;
+                            utils.update_revs_view();
                         }
                     });
                 }
