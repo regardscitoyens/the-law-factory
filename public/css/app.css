@@ -1647,18 +1647,18 @@ background: url('img/echarpe_parl_icon.png') no-repeat scroll center top transpa
 						
 					}
 					.badge-icon{
-						background: url('img/badge_angle.png') no-repeat scroll right top #716259;
+						background: url('../img/badge_angle.png') no-repeat scroll right top #716259;
 						min-height: 32px;
 						width: 70px;
 					}
-					.badge-prefix{
+					.badge-prefix,.badge-suffix{
 					padding: 6px 10px;
 					font-size: 20px;
-					border-right: solid 3px #FFF;
+					margin-right: 5px;
 						
 					}
 					.badge-suffix{
-						
+					margin-left: 5px;
 					}
 
 
