@@ -694,7 +694,7 @@ var valign, stacked, utils, aligned = true;
                             else if (d.status == "new") descr += "<p><b>Article "+(d.prev_step ? "réintroduit" : "ajouté") + " à cette étape</b></p>";
                         } else descr += "<p><b>Article "+ (d.status == "sup" ? "supprimé" : "sans modification") + " à cette étape</b></p>";
                         if (d.n_diff || d.status == "sup") $("#revsMode").show();
-                        else ("#revsMode").hide();
+                        else $("#revsMode").hide();
 
                         if (textArticles[d.article][d.directory].length) {
                             d.originalText = '<ul class="originaltext"><li><span>' + $.map(textArticles[d.article][d.directory], function(i) {
