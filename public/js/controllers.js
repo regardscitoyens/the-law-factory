@@ -2,8 +2,6 @@
 
 /* Controllers */
 
-
-
 angular.module('theLawFactory.controllers', ['theLawFactory.config']).
     /*
       Specific controller for the naigation Part.
@@ -21,11 +19,18 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         if ($scope.APIRootUrl.substr(-1) != "/") $scope.APIRootUrl += "/";
 
         $rootScope.ishome = ($location.path() == '/');
+        $rootScope.error = "";
+        $rootScope.back = function() {
+            var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+            $location.path(prevUrl);
+        };
+
         $scope.mod = null;
         $scope.drawing = false;
         $scope.loi = $location.search()['loi'];
         $scope.etape = $location.search()['etape'];
         $scope.article = $location.search()['article'];
+        $scope.action = $location.search()['action'];
         $scope.error = {};
 
         $scope.setTextContainerHeight = function() {
@@ -54,10 +59,12 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.revs=true;
         $scope.readmode = function() {
             $(".text").css({"width":"93.43%","left":"3.3%"});
+            $(".gotomod").addClass('readmode');
             $scope.read=true;
         }
         $scope.viewmode = function() {
             $(".text").css({"width":"23.40%","left":"73.3%"});
+            $(".gotomod").removeClass('readmode');
             $scope.read=false;
         }
         $scope.hiderevs = function() {

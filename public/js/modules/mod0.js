@@ -192,6 +192,7 @@ var drawGantt, utils,
                     width = parseInt(d3.select("#gantt").style("width")) - 30,
                     minheight = $("#gantt").height() - 10;
                     setTimeout(computeFilters, 50);
+                    if (!action) action = utils.action;
                     if (!action) action = 'time';
                     utils.startSpinner();
                     $("#gantt svg").animate({opacity: 0}, 200, function() {
@@ -277,7 +278,7 @@ var drawGantt, utils,
 			$("#menu-years .selectedchoice").text("Étudié en "+active_filters['year']);
 		    }
 		    if (active_filters['theme']) {
-			$("#menu-themes .selectedchoice").text("Theme : "+active_filters['theme']);
+			$("#menu-themes .selectedchoice").text("Thème : "+active_filters['theme']);
 		    }else{
 			$("#menu-themes .selectedchoice").text("Tous les thèmes");
 		    }
@@ -468,6 +469,8 @@ var drawGantt, utils,
                         .data(ticks).enter();
                     tk.append("text")
                         .attr("class", "tick-lbl")
+                        .style("font-size", "13px")
+                        .style("fill", "#716259")
                         .attr("y", 20)
                         .attr("x", function (d) { return tscale(d); })
                         .text(function (d) { return tickform(d); })

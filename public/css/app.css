@@ -255,7 +255,8 @@ body{
     text-align: center;
 }
 .art-txt{
-    padding-right: 30px;
+    padding: 0pxa
+    padding-right: 20px;
 }
 
 .art-txt ul.originaltext {
@@ -263,7 +264,7 @@ body{
 }
 .art-txt ul {
     margin: 0px;
-    padding-left: 30px;
+    padding: 15px 20px 20px 30px;
     font-size: 0.7em;
 }
 .art-txt ul li {
@@ -317,7 +318,6 @@ body{
 }
 .labels p{
 	margin:0;
-
 	padding: 0 5px;
 	font-style: italic;
 	background-color: #F9F7F8;
@@ -325,13 +325,8 @@ body{
 .text p{
 	display:block;
 	width:95%;
-	margin:0 auto;
 	color: #716259;
-	margin-bottom:15px;
-}
-
-.mod1 .text p{
-    margin-left:30px;
+	margin:5px;
 }
 
 .stick{
@@ -477,6 +472,7 @@ li.dropdown .disabled{
 }
 .dropdown-menu>li>a {
   padding: 3px 15px 6px 15px;
+  color: #716259;
 }
 .dropdown-menu>li>a:hover {
    background-color: #716259;
@@ -805,13 +801,20 @@ h4 a{
 .g-law, .law-name{
 	cursor:pointer;
 }
-.gotomod{
-	width:100%;
-	text-align: center;
-    margin-top: 10%;
-}
 .mod1 .gotomod {
-   margin:30px 0;
+    margin: 15px 0px 5px 0px;
+    text-align: center;
+    position: relative;
+    top: 0;
+    right: 0;
+}
+.mod1 .gotomod.readmode {
+    margin: 0;
+    text-align: right;
+    position: absolute;
+    top: 72px;
+    right: 30px;
+    float: right;
 }
 .gotomod a.btn-info {
 	float:none;
@@ -1214,7 +1217,7 @@ noscript h2 {
   color: #FFFFFF;
   font-size: 30px;
   left: 0;
-  margin: 9px 0 10px 10px;
+  margin: 6px 0 10px 6px;
   position: absolute;
 }
 
@@ -1227,7 +1230,7 @@ noscript h2 {
   color: #FFFFFF;
   font-size: 26px;
   right: 0;
-  margin: 10px 10px 10px 0px;
+  margin: 8px 12px 10px 0px;
   position: absolute;
 }
 
@@ -1475,4 +1478,14 @@ footer{
     width: 93.33334433334434%;
     padding-left:15px;
     padding-right:15px;
+}
+
+#error a {
+    color: #FFF;
+    text-decoration: underline;
+}
+#error a:hover {
+    color: #FFF;
+    opacity: 0.7;
+    text-decoration: underline;
 }

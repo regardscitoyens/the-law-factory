@@ -61,7 +61,7 @@ function(api, $rootScope, $location, $compile) {
                     scope.showFirstTimeTutorial();
                 }, function(error) {
                     console.log(error);
-                    scope.error = error
+                    $rootScope.error = "impossible de trouver les articles de ce texte";
                 })
             }
             update();
@@ -90,7 +90,8 @@ function(api, $rootScope, $location, $compile) {
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Amendements | ";
                     d3.select(element[0]).datum(data).call(mod2);
                 }, function(error) {
-                    scope.error = error
+                    console.log(error);
+                    $rootScope.error = "impossible de trouver les amendements pour ce texte à cette étape";
                 });
             }
             update();
@@ -121,7 +122,8 @@ function(api, $rootScope, $location, $compile) {
                         $rootScope.pageTitle =  $rootScope.lawTitle + " - Débats | ";
                         init(data, scope.etape);
                     }, function(error) {
-                        scope.error = error
+                        console.log(error);
+                        $rootScope.error = "impossible de trouver les interventions pour ce texte à cette étape";
                     })
                 }
             }
@@ -169,7 +171,8 @@ function(api, $rootScope, $location, $compile) {
                     synced = true;
                     scope.showFirstTimeTutorial();
                 }, function(error) {
-                    console.log(error)
+                    console.log(error);
+                    $rootScope.error = "impossible de trouver les données relatives aux textes";
                 })
             }
             update();
@@ -272,7 +275,8 @@ function(api, $rootScope, $location) {
                         .appendTo( ul );
                     };
                 }, function(error) {
-                    scope.error = error
+                    console.log(error);
+                    $rootScope.error = "impossible de trouver les données de recherche sur les textes";
                 })
             }
             update();
@@ -348,7 +352,7 @@ return {
                   '<h4 class="law-title"'+leg+'>'+tit+'</h4>' +
                   '<span class="links">' +
                     (data.url_jo ? '<a href="'+data.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> Loi sur Légifrance</a><br/>' : '') +
-                    '<a href="'+scope.APIRootUrl + scope.loi+'/" target="_blank"><span class="glyphicon glyphicon-link"></span> Open Data</a>' +
+                    '<a href="http://git.lafabriquedelaloi.fr/parlement/' + scope.loi+'/" target="_blank"><span class="glyphicon glyphicon-link"></span> Cloner le Git</a>' +
                   '</span><span class="links">' +
                     '<a href="'+data.url_dossier_senat+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a><br/>' +
                     '<a href="'+data.url_dossier_assemblee+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Assemblée</a>' +
@@ -412,7 +416,8 @@ return {
                 },0);
 
             }, function(error) {
-                scope.error = error
+                    console.log(error);
+                    $rootScope.error = "impossible de trouver la procédure de ce texte";
             })
 
         }
