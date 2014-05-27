@@ -801,9 +801,11 @@ h4 a{
 .g-law, .law-name{
 	cursor:pointer;
 }
-.mod1 .gotomod {
+.gotomod {
     margin: 15px 0px 5px 0px;
     text-align: center;
+}
+.mod1 .gotomod {
     position: relative;
     top: 0;
     right: 0;
