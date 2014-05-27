@@ -307,7 +307,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
          */
         $scope.drawDivOverElement = function(oElement, sElementClass) {
             var selk = $scope.mod=="mod0" ? '#gantt' : '#viz';
-
             if(oElement.prop('tagName') == 'rect') {
                 var oNewElement = oElement.parent().clone();
                 oNewElement.find('rect').each(function() { $(this).attr('y', 0); var t = $(this).attr('x'); $(this).attr('x', t - 481); });
@@ -317,13 +316,19 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                 var left = $(selk).offset().left + parseInt(oElement.attr('x'));
             } else if(oElement.prop('tagName') == 'g') {
                 var oNewElement = oElement.clone();
-                oNewElement.find('*').each(function() { $(this).attr('y', 0); var t = $(this).attr('x'); $(this).attr('x', t - 481); });
                 var width = d3.select(sElementClass)[0][0].getBBox().width;
                 var height = d3.select(sElementClass)[0][0].getBBox().height;
                 var top = $(selk).offset().top + d3.select(sElementClass)[0][0].getBBox().y + parseInt(oElement.attr('data-offset'));
                 var left = $(selk).offset().left + d3.select(sElementClass)[0][0].getBBox().x;
+                oNewElement.find('*').each(function() {
+                    var x = $(this).attr('x');
+                    $(this).attr('x', x - d3.select(sElementClass)[0][0].getBBox().x);
+                    var y = $(this).attr('y');
+                    $(this).attr('y', y - parseInt(height));
+                });
             } else {
-                console.log("Weird tag given on element: ",oElement);
+                console.log("Weird tag given on element: ", oElement.prop('tagName'));
+                console.log("Weird tag given on element: ", oElement.prop('tagName'));
             }
 
             //console.log("oNewElement",oNewElement);
@@ -383,7 +388,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                                     $(action[1]).scrollTop(0);
                                     break;
                                 case 'click' :
-                                    console.log(action[1]);
                                     $(action[1]).d3Click();
                                     $(action[1]).click();
                                     $(action[1]).css('opacity', 1);
