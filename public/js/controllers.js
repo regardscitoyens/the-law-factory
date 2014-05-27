@@ -283,13 +283,18 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
          * Draw a div over the jQuery node passed as argument
          *
          * @param element jQuery node to draw over
+         * @return class of the newly created element
          */
-        $scope.drawDivOverElement = function(element) {
-            var width = element.attr('width');
-            var height = element.attr('height');
-            var top = $('#viz').offset().top + parseInt(element.attr('y'));
-            var left = $('#viz').offset().left + parseInt(element.attr('x'));
-            $('body').append('<div id="div_over_svg" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"></div>');
+        $scope.drawDivOverElement = function(oElement, sElementClass) {
+            var oNewElement = oElement.parent().clone();
+            oNewElement.find('rect').each(function() { $(this).attr('y', 0); var t = $(this).attr('x'); $(this).attr('x', t - 481); });
+            var width = oElement.attr('width');
+            var height = oElement.attr('height');
+            var top = $('#gantt').offset().top + parseInt(oElement.attr('y'));
+            var left = $('#gantt').offset().left + parseInt(oElement.attr('x'));
+            var sElementClass = sElementClass.replace('.', '') + '-div';
+            $('body').append('<div class="' + sElementClass + '" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"><svg>' + oNewElement[0].outerHTML + '</svg></div>');
+            return '.' + sElementClass;
         }
 
         $scope.formatDate = function(d) {
@@ -302,25 +307,38 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
 
             if(!$scope.tutorial && show) {
                 $scope.tutorial = true;
-
                 api.getTutorials().then(function(data){
-                    var tuto=data[$scope.mod];
+                    var tuto = data[$scope.mod];
                     var step = 1;
-                    console.log("tuto in "+$scope.mod)
-                    console.log(tuto)
                     for(var id in tuto)
                     {
+                        if(tuto[id].indexOf('@') != -1) {
+                            var message = tuto[id].split(' @ ');
+                            tuto[id] = message[0];
+                            var actions = message[1].split(' , ');
+                            $.each(actions, function(index, value) {
+                                var action = value.split(' = ');
+                                switch(action[0]) {
+                                    case 'scroll' :
+                                        $(action[1]).scrollTop(0);
+                                        break;
+                                    case 'click' :
+                                        $(action[1]).click();
+                                        break;
+                                }
+                            });
+                        }
                         var infos = tuto[id].split(" = ");
-                        //$('#'+k).attr('data-position',infos[0]);
-                        //$('#'+k).attr('data-intro',infos[1]);
+                        
+                        if(id.substring(0, 4) == '.svg') {
+                            id = id.substring(4);
+                            id = $scope.drawDivOverElement($(id), id);
+                        }
 
-                        //$('#'+k).addClass('hint-bounce hint--always hint--rounded hint-'+infos[0]);
-                        //$('#'+k).attr('data-hint',infos[1]);
-                        console.log(id)
-                        $(id).attr('data-position',infos[0]);
-                        $(id).attr('data-tooltipClass','tooltip-'+id.replace(/^[#\.]/,"")); // remove selector (first # or .)
-                        $(id).attr('data-intro',infos[1]);
-                        $(id).attr('data-step',step++);
+                        $(id).attr('data-position', infos[0]);
+                        $(id).attr('data-tooltipClass', 'tooltip-' + id.replace(/^[#\.]/,"")); // remove selector (first # or .)
+                        $(id).attr('data-intro', infos[1]);
+                        $(id).attr('data-step', step++);
                     }
 
                     var introjs = introJs().setOptions({

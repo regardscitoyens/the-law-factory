@@ -575,12 +575,15 @@ var drawGantt, utils,
                         .attr("transform", function (d, i) { return "translate(0," + (i * (20 + lawh)) + ")"; })
                         .on("click", onclick);
 
+
+                    var bool = true;
                     //single law background rectangle
                     if (layout != "q") laws.append("rect")
                         .attr("x", function (d) { return tscale(format.parse(d.beginning)); })
                         .attr("y", 28)
                         .attr("width", function (d) { return Math.max(0, tscale(format.parse(d.end)) - tscale(format.parse(d.beginning))); })
                         .attr("class", "law-bg")
+                        .classed("first-law", function() {if(bool) {bool = false; return true;} else {return false;}})
                         .attr("height", steph)
                         .attr("opacity", 0.3).style("fill", "#d8d1c9")
                         .popover(function(d){
