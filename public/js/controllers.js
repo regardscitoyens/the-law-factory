@@ -322,10 +322,13 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                 var height = d3.select(sElementClass)[0][0].getBBox().height;
                 var top = $(selk).offset().top + d3.select(sElementClass)[0][0].getBBox().y + parseInt(oElement.attr('data-offset'));
                 var left = $(selk).offset().left + d3.select(sElementClass)[0][0].getBBox().x;
+            } else {
+                console.log("Weird tag given on element: ",oElement);
             }
 
+            //console.log("oNewElement",oNewElement);
             var sElementClass = sElementClass.replace('.', '') + '-div';
-            var outte = oNewElement[0] ? oNewElement[0].outerHTML : '';
+            var outte = oNewElement && oNewElement[0] ? oNewElement[0].outerHTML : '';
             $('body').append('<div class="' + sElementClass + ' div-over-svg" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"><svg>' + outte + '</svg></div>');
             return '.' + sElementClass;
         }
