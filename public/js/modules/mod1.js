@@ -597,9 +597,10 @@ var valign, stacked, utils, aligned = true;
 						.attr("data-offset", function(d){
 							var b=d3.select(this).node().getBBox();
 							return y0-b.y;
-                        })
+                        });
                         y0 += h;
 					}
+                    $("svg").height(Math.max(y0, maxy));
 
 					d3.selectAll(".group").transition().duration(500)
 					.attr("transform",function(d){
@@ -649,6 +650,7 @@ var valign, stacked, utils, aligned = true;
 							var a=bigList.filter(function(e){return e.article===d.article && e.prev_step==d.step_num})[0]
 							return a.y + (lerp(a.length)) / 2;
 						});
+                    $("svg").height(maxy);
                 }
 
 				//on click behaviour
