@@ -844,7 +844,7 @@ h4 a{
 }
 .mod0 .extrainfos {
     vertical-align: bottom;
-    position: absolute;
+    /* position: absolute; */
     bottom: 3%;
     width: 100%;
 }
