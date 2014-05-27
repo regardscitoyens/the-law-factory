@@ -693,13 +693,14 @@ var valign, stacked, utils, aligned = true;
                                 descr += "<p><b>Article déposé à cette étape</b></p>";
                             else if (d.status == "new") descr += "<p><b>Article "+(d.prev_step ? "réintroduit" : "ajouté") + " à cette étape</b></p>";
                         } else descr += "<p><b>Article "+ (d.status == "sup" ? "supprimé" : "sans modification") + " à cette étape</b></p>";
-                        if (d.n_diff || d.status == "sup") $("#revsMode").show();
+                        if ((d.n_diff || d.status == "sup") && d.status != "new") $("#revsMode").show();
                         else $("#revsMode").hide();
 
+                        var balise = (d.id_step.substr(-5) != "depot" && d.status == "new" ? 'ins' : 'span');
                         if (textArticles[d.article][d.directory].length) {
-                            d.originalText = '<ul class="originaltext"><li><span>' + $.map(textArticles[d.article][d.directory], function(i) {
+                            d.originalText = '<ul class="originaltext"><li><'+balise+'>' + $.map(textArticles[d.article][d.directory], function(i) {
                             return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
-                                        }).join("</span></li><li><span>") + "</span></li></ul>";
+                                        }).join("</"+balise+"></li><li><"+balise+">") + "</"+balise+"></li></ul>";
                         }else d.originalText = "<p><b>Article supprimé à cette étapge</b></p><p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
                         if (!d.textDiff) d.textDiff += d.originalText;
                         $(".art-meta").html(descr);
