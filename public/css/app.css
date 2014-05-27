@@ -1,3 +1,12 @@
+/* Font-face */
+
+				@font-face {
+    font-family: "tlf-icons";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/tlf-icons.eot?7440597#iefix") format("embedded-opentype"), url("../fonts/tlf-icons.woff?7440597") format("woff"), url("../fonts/tlf-icons.ttf?7440597") format("truetype"), url("../fonts/tlf-icons.svg?7440597#tlf-icons") format("svg");
+}
+
 /* app css stylesheet */
 
 ::selection { /* Safari */
@@ -1551,3 +1560,63 @@ footer{
 .art-meta p {
     margin: 8px;
 }
+
+			
+
+
+.icon-AmPA{position: relative;}
+.icon-AmPA:before { font-family: 'tlf-icons'; content: '\e802'; font-size: 14px; } /* '' */
+.icon-AmPA:after{ 
+background: url('../img/echarpe_parl_icon.png') no-repeat scroll center top transparent; width: 10px; height: 30px; position: absolute; }
+.icon-calendar:before { font-family: 'tlf-icons'; content: '\e801'; } /* '' */
+.icon-AmD:before { font-family: 'tlf-icons'; content: '\e803'; } /* '' */
+.icon-QO:before { font-family: 'tlf-icons'; content: '\e804'; } /* '' */
+
+
+				.badge-echarpe {
+					height: 32px;
+					left: 12px;
+					position: absolute;
+					top: 0;
+				}
+			.badges-list{
+				width: 100%;
+				padding: 0;
+			}
+			.badges-list li{
+				text-align: center;
+				list-style-type: none;
+				  margin-bottom: 25px;
+			}
+			.badges-list h7 {
+				display: block;
+			}
+			.badges-list .badge-icon{
+				line-height: 30px;
+			}
+				.badge-tlf .badge-icon,.badge-tlf .badge-prefix,.badge-tlf .badge-suffix{
+					background-color: #716259;
+					color: #FFF;
+					float: left;
+				}
+					.badge.badge-tlf{
+					
+						opacity: 1;
+						background: none;
+						background: #FFF;
+						
+					}
+					.badge-icon{
+						background: url('./img/badge_angle.png') no-repeat scroll right top #716259;
+						min-height: 32px;
+						width: 70px;
+					}
+					.badge-prefix{
+					padding: 6px 10px;
+					font-size: 20px;
+					border-right: solid 3px #FFF;
+						
+					}
+					.badge-suffix{
+						
+					}
