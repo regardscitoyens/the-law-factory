@@ -1567,7 +1567,7 @@ footer{
 .icon-AmPA{position: relative;}
 .icon-AmPA:before { font-family: 'tlf-icons'; content: '\e802'; font-size: 14px; } /* '' */
 .icon-AmPA:after{ 
-background: url('/public/img/echarpe_parl_icon.png') no-repeat scroll center top transparent; width: 10px; height: 30px; position: absolute; }
+background: url('img/echarpe_parl_icon.png') no-repeat scroll center top transparent; width: 10px; height: 30px; position: absolute; }
 .icon-calendar:before { font-family: 'tlf-icons'; content: '\e801'; } /* '' */
 .icon-AmD:before { font-family: 'tlf-icons'; content: '\e803'; } /* '' */
 .icon-QO:before { font-family: 'tlf-icons'; content: '\e804'; } /* '' */
@@ -1607,7 +1607,7 @@ background: url('/public/img/echarpe_parl_icon.png') no-repeat scroll center top
 						
 					}
 					.badge-icon{
-						background: url('/public/img/badge_angle.png') no-repeat scroll right top #716259;
+						background: url('img/badge_angle.png') no-repeat scroll right top #716259;
 						min-height: 32px;
 						width: 70px;
 					}
