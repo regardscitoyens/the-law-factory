@@ -693,7 +693,7 @@ var valign, stacked, utils, aligned = true;
                                 descr += '<p class="comment"><b>Article déposé à cette étape</b></p>';
                             else if (d.status == "new") descr += "<p><b>Article "+(d.prev_step ? "réintroduit" : "ajouté") + " à cette étape</b></p>";
                         } else descr += '<p class="comment"><b>Article '+ (d.status == "sup" ? "supprimé" : "sans modification") + " à cette étape</b></p>";
-                        if (d.n_diff || d.status == "sup") $("#revsMode").show();
+                        if  ((d.n_diff || d.status == "sup") && d.status != "new") $("#revsMode").show();
                         else ("#revsMode").hide();
 
                         var balise = (d.id_step.substr(-5) != "depot" && d.status == "new" ? 'ins' : 'span');
