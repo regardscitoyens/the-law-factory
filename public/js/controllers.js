@@ -308,14 +308,14 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.drawDivOverElement = function(oElement, sElementClass) {
             var selk = $scope.mod=="mod0" ? '#gantt' : '#viz';
             if(oElement.prop('tagName') == 'rect') {
-                var oNewElement = oElement.parent().clone();
+                var oNewElement = oElement.parent().clone(true);
                 oNewElement.find('rect').each(function() { $(this).attr('y', 0); var t = $(this).attr('x'); $(this).attr('x', t - 481); });
                 var width = oElement.attr('width');
                 var height = oElement.attr('height');
                 var top = $(selk).offset().top + parseInt(oElement.attr('y'));
                 var left = $(selk).offset().left + parseInt(oElement.attr('x'));
             } else if(oElement.prop('tagName') == 'g') {
-                var oNewElement = oElement.clone();
+                var oNewElement = oElement.clone(true);
                 var width = d3.select(sElementClass)[0][0].getBBox().width;
                 var height = d3.select(sElementClass)[0][0].getBBox().height;
                 var top = $(selk).offset().top + d3.select(sElementClass)[0][0].getBBox().y + parseInt(oElement.attr('data-offset'));
@@ -330,11 +330,11 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                 console.log("Weird tag given on element: ", oElement.prop('tagName'));
                 console.log("Weird tag given on element: ", oElement.prop('tagName'));
             }
-
-            //console.log("oNewElement",oNewElement);
             var sElementClass = sElementClass.replace('.', '') + '-div';
             var outte = oNewElement && oNewElement[0] ? oNewElement[0].outerHTML : '';
-            $('body').append('<div class="' + sElementClass + ' div-over-svg" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"><svg>' + outte + '</svg></div>');
+            var node = '<div class="' + sElementClass + ' div-over-svg" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"><svg>' + outte + '</svg></div>';
+            // console.log(node);
+            $('body').append(node);
             return '.' + sElementClass;
         }
 
@@ -385,7 +385,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                             var action = value.split(' = ');
                             switch(action[0]) {
                                 case 'scrolltop' :
-                                    $(action[1]).scrollTop(0);
+                                    // $(action[1]).scrollTop(0);
                                     break;
                                 case 'click' :
                                     $(action[1]).d3Click();

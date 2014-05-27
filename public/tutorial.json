@@ -31,7 +31,6 @@
         ".svg.first-art":"bottom = nothing",
         ".legend":"top = La légende présente les différents groupes parlementaires ayant proposé les amendements, ainsi que leur sort final (adoptés, rejetés ou non votés (redondants, abandonnés, irrecevables…)). Il est possible de cliquer sur un groupe ou un statut pour filtrer dynamiquement l'affichage.",
         "#vizou":"top = En cliquant sur un carré, toutes les informations relatives à cet amendement s’affichent à droite : date, article visé, signataire(s), statut, exposé et texte.",
-        "#menu-display":"bottom = Les amendements peuvent être affichés séparement par article ou tous regroupés.",
         "#menu-order":"bottom = Le tri s'effectue selon leur sort final (adoptés, rejetés ou non votés) ou par groupe politique.",
         "#menu-back":"bottom = Cliquez ici pour revenir au texte",
         "#menu-tutorial a":"left = Vous pouvez afficher le tutorial de nouveau en cliquant ici"
