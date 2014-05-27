@@ -746,7 +746,7 @@ var drawGantt, utils,
                     if(d3.event) d3.event.stopPropagation();
                     d3.selectAll(".g-law").style("opacity",0.2);
                     d3.select(".g-law."+ d.id).style("opacity",1);
-
+					
                     $("#text-title").text(d.short_title);
                     $("#text-title").attr('data-original-title', d.long_title).tooltip('fixTitle');
                     utils.setTextContainerHeight();
@@ -755,20 +755,85 @@ var drawGantt, utils,
                         themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les textes correspondant à ce thème' data-toggle='tooltip' data-placement='left'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
                     }),
                         mots=(Math.round(d.total_mots / 1000. ) + "" ).replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;").replace(/^0/, '');
-                    $(".text-container").empty()
-                        .append('<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + "</p>");
-                    if (d.procedure != "Normale") $(".text-container").append('<p>(' + d.procedure.toLowerCase() + ")</p>");
-                    $(".text-container").append('<div class="gotomod"><a class="btn btn-info" href="articles.html?loi=' + d.id + '">Explorer les articles</a></div>');
-                    var extrainfo = $('<div class="extrainfos">');
-                    extrainfo.append('<p><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(d.total_amendements)+'"></span>&nbsp;&nbsp;'+(d.total_amendements?d.total_amendements:'aucun')+" amendement"+(d.total_amendements>1?'s déposés':' déposé')+"</p>")
-                        .append('<p><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(d.total_mots)+'"></span><span>&nbsp;&nbsp;plus de '+mots+" mille mots prononcés lors des débats parlementaires</span></p>")
-                        .append(themes)
-                        .append('<p class="sources"><small>' +
-                            '<a href="'+d.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a> &nbsp; &nbsp; ' +
-                            '<a href="'+d.url_dossier_assemblee+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Assemblée</a>' +
-                            (d.url_jo ? '<br/><a href="'+d.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur Légifrance</a>' : '') +
-                            '</small></p>');
-                    $(".text-container").append(extrainfo);
+                     
+                     var textContent = '';   
+                   textContent += '<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + '</p>';
+                   textContent += '<div class="gotomod"><a class="btn btn-info" href="articles.html?loi=' + d.id + '">Explorer les articles</a></div>'
+                   if (d.procedure != "Normale") textContent += '<p>(' + d.procedure.toLowerCase() + ')</p>';
+				   
+				   		var extrainfo = '<div class="extrainfos">';
+                    	extrainfo += '<ul class="badges-list">';
+						extrainfo += '<li>';
+							extrainfo += '<div class="badge badge-tlf">'
+								extrainfo += '<div class="badge-prefix">'+(d.total_amendements?d.total_amendements:'0')+'</div>';
+								extrainfo += '<div class="badge-icon icon-AmD"></div>';
+							extrainfo += '</div>';
+						extrainfo += '<h7>Amendements Déposés</h7>'
+						extrainfo += '</li>';
+						
+						/* Badge for Parlamentaries Amendments adopted */ 
+				
+						/*
+						extrainfo += '<li>';
+							extrainfo += '<div class="badge badge-tlf">'
+								extrainfo += '<div class="badge-prefix">30</div>';
+								extrainfo += '<div class="badge-icon icon-AmPA">';
+									extrainfo += '<img src="./img/echarpe_parl_icon.png" class="badge-echarpe" />';
+								extrainfo += '</div>';
+							extrainfo += '</div>';
+						extrainfo += '<h7>Amendements Parlementaires adoptés</h7>'
+						extrainfo += '</li>';
+						*/
+						
+									/* Badge for evolution of law volume */ 
+				
+						/*
+						extrainfo += '<li>';
+							extrainfo += '<div class="badge badge-tlf">'
+								extrainfo += '<div class="badge-prefix">30</div>';
+								extrainfo += '<div class="badge-icon icon-balance"></div>';
+							extrainfo += '</div>';
+						extrainfo += '<h7>Amendements Parlementaires adoptés</h7>'
+						extrainfo += '</li>';
+						*/
+							
+							/* Badge for duration of legislative process */ 
+				
+						/*
+						extrainfo += '<li>';
+							extrainfo += '<div class="badge badge-tlf">'
+								extrainfo += '<div class="badge-prefix">30</div>';
+								extrainfo += '<div class="badge-icon icon-balance"></div>';
+							extrainfo += '</div>';
+						extrainfo += '<h7>Amendements Parlementaires adoptés</h7>'
+						extrainfo += '</li>';
+						*/
+
+												
+						extrainfo += '<li>';
+							extrainfo += '<div class="badge badge-tlf">'
+								extrainfo += '<div class="badge-prefix">'+mots+' 000</div>';
+								extrainfo += '<div class="badge-icon icon-QO"></div>';
+							extrainfo += '</div>';
+						extrainfo += '<h7>mots</h7>'
+						extrainfo += '</li>';
+						extrainfo += '</ul>';
+						
+						extrainfo += '<p id="LawHashtags"></p>';
+						// $(extrainfo).append(themes);
+					
+						extrainfo += '<p class="sources">'
+							extrainfo += '<small>';
+								extrainfo += '<a href="'+d.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a> &nbsp; &nbsp; ';
+								extrainfo += '<a href="'+d.url_dossier_assemblee+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Assemblée</a>';
+								extrainfo += d.url_jo ? '<br/><a href="'+d.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur Légifrance</a>' : '';
+                            extrainfo += '</small>';
+                        extrainfo += '</p>';
+                
+						textContent += extrainfo;
+              
+                    $(".text-container").empty().append(textContent);
+                    $("#LawHashtags").append(themes);
                     $("a.badge").tooltip();
                 }
 
