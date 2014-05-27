@@ -396,11 +396,13 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                     });
                     introjs.onexit(function() {
                         $('.div-over-svg').remove();
+                        $(window).scrollTop(0);
                         $scope.tutorial = false;
                         localStorage.setItem("tuto-"+$scope.mod, "done");
                     });
                     introjs.oncomplete(function() {
                         $('.div-over-svg').remove();
+                        $(window).scrollTop(0);
                         $scope.tutorial = false;
                         localStorage.setItem("tuto-"+$scope.mod, "done");
                     });
