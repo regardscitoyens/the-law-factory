@@ -1344,17 +1344,21 @@ footer .nav>li>a {
     background: #50a477;
     color: white;
     /* text-transform: uppercase; */
-    padding: 0px 18px;
-    line-height: 42px;
+    padding: 9px 18px;
+    line-height: 24px;
     font-size: 18px;
     display: inline-block;
     border-radius: 2px;
-    transition: background-color .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
     cursor: pointer;
-    margin-bottom: 25px;
+    margin-bottom: 24px;
+
 }
 #home a.button:hover {
-    background: #581e19;
+    background: #716259;
     text-decoration: none;
 }
 #headline, #homelinks{
@@ -1377,54 +1381,74 @@ footer .nav>li>a {
     padding-left: 20%;
     padding-right: 20%;
 }
+
 #homelinks h5 {
     font-size: 16px;
-    line-height: 1.8em;
-    background-color: #716259;
-    color: white;
-    text-transform: uppercase;
+    line-height: 1em;
+    color: #716259;
+    text-transform: none;
+    font-weight: normal;
+    border-bottom: 2px solid #716259;
+    padding: 0 0 20px 0;
 }
+
 #homelinks .laws{
     float: left;
     width: 44%;
     margin: 3%;
+    padding: 12px 18px 0 18px;
 }
+
 #homelinks .laws ul{
     padding: 0;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
 }
+
 #homelinks .laws ul li{
     text-align:left;
-    padding: 0px;
+    padding: 0;
+    margin: 12px;
     list-style-type: none;
     background: white;
-    margin-top: 18px;
+    border-radius: 2px;
 }
+
 #homelinks .laws ul li:hover {
     background:#EBEBEB;
 }
+
 #homelinks .laws ul li a{
     color: #996247;
-    padding: 4px;
     margin: 0;
+    padding: 12px;
+    display: block;
+  
 }
+
 #homelinks .laws ul li h2{
     padding:0;
     margin: 0;
-    font-size: 16px;
+    margin-bottom: 6px;
+    font-size: 18px;
     line-height: 1.8em;
+    color: #716256;
 }
 #homelinks .laws .stat{
     text-align: center;
     padding: 0px;
     line-height: 2em;
 }
-#homelinks .laws .number{
-    font-size: 18px;
+
+#homelinks .laws a {
+    background: none;
+    color: #716256;
 }
-#homelinks .laws a.button {
-    width: 100%;
-    margin-top: 12px;
+
+#homelinks .laws a:hover{
+    text-decoration: underline;
 }
+
 #disclaimer {
     clear: both;
     text-align: left; 
@@ -1432,6 +1456,7 @@ footer .nav>li>a {
     margin-left: 20%;
     margin-right: 20%;
 }
+
 footer{
     height:32px;
     background-color:white;

@@ -233,7 +233,10 @@ function(api, $rootScope, $location) {
                         open : function() {
                             $(".form-law").css('opacity', 1);
                             var h = $(".ui-autocomplete").position().top;
-                            $(".ui-autocomplete").height($(window).height() - h);
+                            $(".ui-autocomplete").css({
+                              'max-height': $(window).height() - h - 100,
+                              'overflow-y': 'scroll'
+                            });
                         },
                         close: function() {
                             $(".form-law").css('opacity', 0.3);
@@ -422,4 +425,22 @@ return {
 
         }
     }}
-]);
+])
+/*
+  Happily ever after. 
+  Handle columns resize
+  ---
+*/
+.directive('resizable', ['$window', function($window) {
+  return function($scope) {
+    $scope.initializeWindowSize = function() {
+      $scope.availableHeight = $window.innerHeight;
+    };
+    $scope.initializeWindowSize();
+    return angular.element($window).bind('resize', function() {
+      
+      $scope.initializeWindowSize();
+      return $scope.$apply();
+    });
+  };  
+}]);
