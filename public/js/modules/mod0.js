@@ -750,16 +750,11 @@ var drawGantt, utils,
                     $("#text-title").text(d.short_title);
                     $("#text-title").attr('data-original-title', d.long_title).tooltip('fixTitle');
                     utils.setTextContainerHeight();
-                    var themes=$('<p>');
-                    d.themes.join(",").replace(/ et /g, ',').split(',').forEach(function(e,j){
-                        themes.append("<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les textes correspondant à ce thème' data-toggle='tooltip' data-placement='left'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;");
-                    }),
-                        mots=(Math.round(d.total_mots / 1000. ) + "" ).replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;").replace(/^0/, '');
                      
-                     var textContent = '';   
-                   textContent += '<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + '</p>';
-                   textContent += '<div class="gotomod"><a class="btn btn-info" href="articles.html?loi=' + d.id + '">Explorer les articles</a></div>'
-                   if (d.procedure != "Normale") textContent += '<p>(' + d.procedure.toLowerCase() + ')</p>';
+                    var textContent = '';   
+                    textContent += '<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + '</p>';
+                    textContent += '<div class="gotomod"><a class="btn btn-info" href="articles.html?loi=' + d.id + '">Explorer les articles</a></div>'
+                    if (d.procedure != "Normale") textContent += '<p>(' + d.procedure.toLowerCase() + ')</p>';
 				   
 				   		var extrainfo = '<div class="extrainfos">';
                     	extrainfo += '<ul class="badges-list">';
@@ -777,7 +772,7 @@ var drawGantt, utils,
 						extrainfo += '<li>';
 							extrainfo += '<div class="badge badge-tlf">'
 								extrainfo += '<div class="badge-prefix">30</div>';
-								extrainfo += '<div class="badge-icon icon-AmPA">';
+								extrainfo += '<div class="badge-icon icon-AmPA"></div>';
 									extrainfo += '<img src="./img/echarpe_parl_icon.png" class="badge-echarpe" />';
 								extrainfo += '</div>';
 							extrainfo += '</div>';
@@ -808,7 +803,8 @@ var drawGantt, utils,
 						extrainfo += '<h7>Amendements Parlementaires adoptés</h7>'
 						extrainfo += '</li>';
 						*/
-
+ 
+                        var mots=(Math.round(d.total_mots / 1000. ) + "" ).replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;").replace(/^0/, '');
 												
 						extrainfo += '<li>';
 							extrainfo += '<div class="badge badge-tlf">'
@@ -819,8 +815,11 @@ var drawGantt, utils,
 						extrainfo += '</li>';
 						extrainfo += '</ul>';
 						
-						extrainfo += '<p id="LawHashtags"></p>';
-						// $(extrainfo).append(themes);
+                        var themes = "<p>";
+                        d.themes.join(",").replace(/ et /g, ',').split(',').forEach(function(e,j){
+                            themes += "<a onclick=\"addBillsFilter('theme','"+e+"')\" class='badge' title='Filtrer les textes correspondant à ce thème' data-toggle='tooltip' data-placement='left'><span class='glyphicon glyphicon-tag'></span> "+e+"</a>&nbsp;&nbsp;";
+                        });
+						extrainfo += themes+ "</p>";
 					
 						extrainfo += '<p class="sources">'
 							extrainfo += '<small>';
@@ -829,11 +828,11 @@ var drawGantt, utils,
 								extrainfo += d.url_jo ? '<br/><a href="'+d.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur Légifrance</a>' : '';
                             extrainfo += '</small>';
                         extrainfo += '</p>';
+                        extrainfo += '</div>';
                 
 						textContent += extrainfo;
               
-                    $(".text-container").empty().append(textContent);
-                    $("#LawHashtags").append(themes);
+                    $(".text-container").empty().html(textContent);
                     $("a.badge").tooltip();
                 }
 
