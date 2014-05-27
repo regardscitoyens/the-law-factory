@@ -576,14 +576,18 @@ var drawGantt, utils,
                         .append("g")
                         .attr("class", function (d) { return "g-law " + d.id; })
                         .attr("transform", function (d, i) { return "translate(0," + (i * (20 + lawh)) + ")"; })
+                        .classed("g-law-first", function(d, i) {return (i == 0);})
                         .on("click", onclick);
 
+
+                    var bool = true;
                     //single law background rectangle
                     if (layout != "q") laws.append("rect")
                         .attr("x", function (d) { return tscale(format.parse(d.beginning)); })
                         .attr("y", 28)
                         .attr("width", function (d) { return Math.max(0, tscale(format.parse(d.end)) - tscale(format.parse(d.beginning))); })
                         .attr("class", "law-bg")
+                        .classed("law-bg-first", function() {if(bool) {bool = false; return true;} else {return false;}})
                         .attr("height", steph)
                         .attr("opacity", 0.3).style("fill", "#d8d1c9")
                         .popover(function(d){

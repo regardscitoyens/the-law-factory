@@ -293,6 +293,9 @@ var valign, stacked, utils, aligned = true;
                     };
 				}
             var drawArticles = function() {
+
+                var firstmade = false; // to class the first article which has a rect (for tuto)
+
 				//init coordinates
                 utils.setMod1Size();
                 utils.setTextContainerHeight();
@@ -306,11 +309,19 @@ var valign, stacked, utils, aligned = true;
 				//draw everything
 				for(st in stages) {
 					for (se in sections) {
-						var group = svg.append("g").attr("class","group se"+se+" st"+st)
+						
+                        var datarts = bigList.filter(function(d){return (d.length > 0 && d.step_num==st && d.sect_num==se)});
+                        var group = svg.append("g")
+                            .attr("class","group se"+se+" st"+st);
+                            
+                        if(datarts.length && !firstmade) {
+                            firstmade = true;
+                            group.classed("first-article",true)
+                        }
 
 						//Add articles
 						group.selectAll(".article")
-						.data(bigList.filter(function(d){return (d.length > 0 && d.step_num==st && d.sect_num==se)}))
+						.data(datarts)
 						.enter().append("rect")
 						.attr("x", function(d){return d.x})
 						.attr("y", function(d){return d.y})
@@ -736,7 +747,6 @@ var valign, stacked, utils, aligned = true;
                             drawArticles();
                             utils.drawing = false;
                         }, 50);
-                        utils.drawDivOverElement($("rect").first());
                     });
                 });
             });
