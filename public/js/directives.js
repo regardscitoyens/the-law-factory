@@ -58,7 +58,7 @@ function(api, $rootScope, $location, $compile) {
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Articles | ";
                     d3.select(element[0]).datum(data).call(mod1);
                     scope.stopSpinner();
-                    scope.showFirstTimeTutorial();
+                    // scope.showFirstTimeTutorial();
                 }, function(error) {
                     scope.display_error("impossible de trouver les articles de ce texte");
                 })
@@ -93,7 +93,7 @@ function(api, $rootScope, $location, $compile) {
                 });
             }
             update();
-            scope.showFirstTimeTutorial();
+            // scope.showFirstTimeTutorial();
         }
     }
 }])
@@ -125,7 +125,7 @@ function(api, $rootScope, $location, $compile) {
                 }
             }
             update();
-            scope.showFirstTimeTutorial();
+            // scope.showFirstTimeTutorial();
         }
     };
 }])
@@ -166,7 +166,7 @@ function(api, $rootScope, $location, $compile) {
                 api.getDossiers().then(function(data) {
                   d3.select(element[0]).datum(data).call(mod0);
                     synced = true;
-                    scope.showFirstTimeTutorial();
+                    // scope.showFirstTimeTutorial();
                 }, function(error) {
                     scope.display_error("impossible de trouver les données relatives aux textes");
                 })
