@@ -680,7 +680,6 @@ var valign, stacked, utils, aligned = true;
                         $("#text-title").empty();
                         $(".art-meta").empty();
                         $(".art-txt").empty();
-                        $("#revsMode").show();
                         $("#text-title").html(titre_article(d, 2));
                         utils.setTextContainerHeight();
                         var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " ("+format_section(d, 1)+')' : format_section(d, 2)) + "</b>" +
@@ -694,14 +693,14 @@ var valign, stacked, utils, aligned = true;
                                 descr += "<p><b>Article déposé à cette étape</b></p>";
                             else if (d.status == "new") descr += "<p><b>Article "+(d.prev_step ? "réintroduit" : "ajouté") + " à cette étape</b></p>";
                         } else descr += "<p><b>Article "+ (d.status == "sup" ? "supprimé" : "sans modification") + " à cette étape</b></p>";
+                        if (d.n_diff || d.status == "sup") $("#revsMode").show();
+                        else ("#revsMode").hide();
 
                         if (textArticles[d.article][d.directory].length) {
                             d.originalText = '<ul class="originaltext"><li><span>' + $.map(textArticles[d.article][d.directory], function(i) {
                             return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
                                         }).join("</span></li><li><span>") + "</span></li></ul>";
-                        }else{
-                            d.originalText = "<p><b>Article supprimé à cette étapge</b></p><p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
-                        }
+                        }else d.originalText = "<p><b>Article supprimé à cette étapge</b></p><p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
                         if (!d.textDiff) d.textDiff += d.originalText;
                         $(".art-meta").html(descr);
 
