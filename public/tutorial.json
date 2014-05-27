@@ -37,12 +37,11 @@
         "#menu-tutorial a":"left = Vous pouvez afficher le tutorial de nouveau en cliquant ici"
     },
     "mod2b":{
-        ".scrolling":"top = Cette page porte sur les débats parlementaires à chaque étape de la procédure législative.",
-        "#menu-order":"bottom = On peut classer les différents rectangles par échiquier politique (présidence ; gauche à droite ; rapporteur ; ministres) ou, en mode quantitatif, du groupe dont les membres sont le plus intervenus à celui dont les membres ont le moins parlé.",
-        ".svg.singlerect":"bottom = Ce rectangle symbolise la participation des parlementaires et des ministres au débat. Les parlementaires sont rassemblées par groupes parlementaires ou par fonction : présidence de débat (président de l’Assemblée, de commission, vice-présidents) ou rapporteur. Plus les membres de chacun de ces groupes ont parlé, plus le rectangle est long.",
-        ".svg.wholeline":"bottom = A l’intérieur d’une étape de la procédure législative (par exemple 1ère lecture en commission à l’Assemblée), chaque ligne correspond aux phases successives de l’examen de la loi : articles après articles, motions après motions, réunions après réunions… Donc, plus on descend dans la page, plus on progresse dans le temps.",
-        ".svg.wholecolumn":"right = En cliquant sur un rectangle, on voit apparaître toutes les interventions des orateurs de ce groupe durant l’ensemble des débats lors de cette étape.",
-        ".text":"left = En cliquant sur un rectangle, on voit apparaître à droite touts les membres de ce groupe (parlementaires ou ministres) qui sont intervenus lors de cette phase. Ils sont classés par ordre décroissant de mots prononcés. On peut cliquer pour avoir accès au contenu de leur(s) intervention(s) sur le site Nos Députés ainsi qu’à leur fiche personnelle.",
+        "#viz":"top = Cette page porte sur les débats parlementaires à chaque étape de la procédure législative. Plus on descend dans la page, plus on progresse dans les phases successives de l’examen de la loi.",
+        ".svg.rect-first":"right = Les rectangles représentent, pour chaque étape, la participation des parlementaires et des ministres au débat. Plus les membres de chacun de ces groupes ont parlé, plus le rectangle correspondant est long.",
+        ".legend":"top = La légende présente les différents groupes parlementaires ou la fonction : présidence de débat (président de l’Assemblée, de commission, vice-présidents) ou rapporteur. Cliquez sur un groupe pour n'afficher que ses interventions. Cliquez sur le fond pour annuler le filtre.",        
+        "#menu-order":"bottom = Les interventions peuvent être ordonnées en:<ul><li><i>échiquier politique:</i> successivement présidence, puis groupes, rapporteur et ministres</li><li><i>mode quantitatif:</i> par ordre décroissant du nombre de mots prononcés</li></ul>",
+        ".text":"left = Le clic sur un rectangle fait apparaître les membres de ce groupe (parlementaires ou ministres) qui sont intervenus lors de cette phase. Ils sont classés par ordre décroissant de mots prononcés. On peut cliquer pour avoir accès à leur fiche personnelle. ainsi qu'au contenu de leur(s) intervention(s) sur le site Nos Députés. @ click = .rect-first",
         "#menu-back":"bottom = Cliquez ici pour revenir au texte",
         "#menu-tutorial a":"left = Vous pouvez afficher le tutorial de nouveau en cliquant ici"
     }

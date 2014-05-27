@@ -269,10 +269,14 @@ sven.viz.streamkey = function(){
             .style("fill", function(d, i) {return utils.adjustColor(d[0].color).toString(); })
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             .on("mousemove",function(d){d3.select(".desc").attr("style","top: " + (d3.event.pageY - $(".desc").height() - 15) + "px; left:"+ (d3.event.pageX - $(".desc").width()/2) + "px");});
+
         d3.select("svg").on("click", function(){ 
             d3.selectAll(".focused").classed('focused', false);
             utils.resetHighlight('ints');
         });
+
+        // we'll add a special css class for the first rect with a width > 50 to show on tuto !
+        var firstmade = false;
 
         var rect = layer.selectAll("rect")
             .data(function(d) { return d; })
@@ -287,6 +291,13 @@ sven.viz.streamkey = function(){
             .style("stroke-width",1)
             .style("stroke",function(d){return d.color.darker().toString()})
             .attr("width", function(d) { return y(d.y0) - y(d.y0 + d.y); })
+            .classed("rect-first", function(d) {
+                if(!firstmade && (y(d.y0) - y(d.y0 + d.y) > 50)) {
+                    firstmade = true;
+                    return true;
+                } else
+                    return false;
+            })
             .attr("height", barWidth)
             .attr("cursor", "pointer")
             .attr("display", "inline")

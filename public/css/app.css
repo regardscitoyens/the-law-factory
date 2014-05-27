@@ -1358,6 +1358,20 @@ footer .nav>li>a {
     font-size: 13px;
 }
 
+.view{
+  height: 100%;
+}
+
+#home{
+  height: 100%;
+  overflow: scroll;
+}
+
+#home #footer-placeholder{
+  height: 200px; /* :D misterious bug for #home.laws columns*/
+
+}
+
 #home a.button{
     background: #50a477;
     color: white;
@@ -1380,8 +1394,8 @@ footer .nav>li>a {
     text-decoration: none;
 }
 #headline, #homelinks{
-    width: 100%;
     text-align: center;
+  
 }
 #headline h1{
     display: inline-block;
@@ -1389,6 +1403,7 @@ footer .nav>li>a {
     /* margin: 0 auto; */
     padding-bottom: 12px;
     padding-top: 24px;
+    font-size: 42px;
 }
 #headline h4{
     line-height:24px;
@@ -1396,8 +1411,9 @@ footer .nav>li>a {
     padding-bottom: 24px;
 }
 #homelinks {
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 10%;
+    padding-right: 10%;
+  background-color: #f0e5dd
 }
 
 #homelinks h5 {
@@ -1414,6 +1430,7 @@ footer .nav>li>a {
     float: left;
     width: 44%;
     margin: 3%;
+    margin-top: 0;
     padding: 12px 18px 0 18px;
 }
 
@@ -1467,12 +1484,36 @@ footer .nav>li>a {
     text-decoration: underline;
 }
 
-#disclaimer {
-    clear: both;
-    text-align: left; 
-    width: 60;
-    margin-left: 20%;
-    margin-right: 20%;
+#home .disclaimer {
+  text-align: center; 
+  padding: 12px 0;
+}
+
+#home .disclaimer .cover{
+    background: transparent;
+    width: 320px;
+    margin: 12px auto;
+    text-align: center;
+    overflow: hidden;
+    height:320px;
+}
+
+#home .disclaimer .content, #home .disclaimer h2, #home .disclaimer h3{
+    padding-left: 10%;
+    padding-right: 10%;
+    margin: 0;
+}
+
+#home .disclaimer h3{
+    padding-top: 12px;
+}
+
+#home .disclaimer .content{
+  text-align: left;
+}
+
+#home .disclaimer.section-b{
+  background: #e1dad5;
 }
 
 footer{
@@ -1561,7 +1602,6 @@ footer{
     margin: 8px;
 }
 
-			
 
 
 .icon-AmPA{position: relative;}
@@ -1620,3 +1660,51 @@ background: url('img/echarpe_parl_icon.png') no-repeat scroll center top transpa
 					.badge-suffix{
 						
 					}
+
+
+/*
+
+  Media queries ...
+  @todo cfr bootstrap rules (e.g. @media(min-width:768px)
+*/
+@media(max-width:768px){
+  #home h4, h1{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #homelinks .laws{
+    float: none;
+    width: auto;
+    margin: 0;
+  }
+}
+
+@media(max-width:960px){
+  #home{
+    
+  }
+  
+  #homelinks, #home .disclaimer{
+    padding-left: 5%;
+  padding-right: 5%;
+  }
+
+  
+  #home .disclaimer .content, #home .disclaimer h2, #home .disclaimer h3{
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+@media(min-width:960px){
+  #home .disclaimer .content, #home .disclaimer h2, #home .disclaimer h3{
+      padding-left: 10%;
+      padding-right: 10%;
+  }
+}
+@media(min-width:1280px){
+  #homelinks, #home .disclaimer{
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+}
+
