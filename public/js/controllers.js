@@ -30,6 +30,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.loi = $location.search()['loi'];
         $scope.etape = $location.search()['etape'];
         $scope.article = $location.search()['article'];
+        $scope.action = $location.search()['action'];
         $scope.error = {};
 
         $scope.setTextContainerHeight = function() {

@@ -192,6 +192,7 @@ var drawGantt, utils,
                     width = parseInt(d3.select("#gantt").style("width")) - 30,
                     minheight = $("#gantt").height() - 10;
                     setTimeout(computeFilters, 50);
+                    if (!action) action = utils.action;
                     if (!action) action = 'time';
                     utils.startSpinner();
                     $("#gantt svg").animate({opacity: 0}, 200, function() {
