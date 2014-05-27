@@ -181,7 +181,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
             obj.short_name = $scope.getShortName(obj.name);
             obj.display_short = (obj.long_name != obj.short_name && $scope.barwidth * obj.num / $scope.total < (obj.name === "CMP" ? 190 : 130));
             return obj;
-
         }
         $scope.stepLegend = function (el){
             if (el.step==="depot") return (el.auteur_depot == "Gouvernement" ? "Projet de Loi" : "Proposition de Loi");
@@ -190,6 +189,11 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.stepLabel = function (el){
             if(el.step==="depot") return (el.auteur_depot == "Gouvernement" ? "PJL" : "PPL");
             return $scope.getShortName(el.step);
+        }
+
+        $scope.clean_amd_subject = function(s) {
+            return s.replace(/ART[\.\s]+/i, "Article ")
+                .replace(/A(vant|près) A/i, "A$1 l'A");
         }
 
         $scope.slugArticle = function(a) {
