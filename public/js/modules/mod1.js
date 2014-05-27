@@ -316,7 +316,7 @@ var valign, stacked, utils, aligned = true;
                             
                         if(datarts.length && !firstmade) {
                             firstmade = true;
-                            group.classed("first-article",true)
+                            group.classed('group-first', true);
                         }
 
 						//Add articles
@@ -328,6 +328,7 @@ var valign, stacked, utils, aligned = true;
 						.attr("class","article")
 						.attr("width", colwidth)
 						.attr("height", function(d){return lerp(d.length)})
+                        .classed('article-first', true)
 						.call(styleRect)
 						.on("click",onclick)
 						.popover(article_hover);

@@ -305,15 +305,24 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
          * @param element jQuery node to draw over
          * @return class of the newly created element
          */
-        $scope.drawDivOverElement = function(oElement,sElementClass) {
-            var oNewElement = oElement.parent().clone();
-            oNewElement.find('rect').each(function() { $(this).attr('y', 0); var t = $(this).attr('x'); $(this).attr('x', t - 481); });
-            var width = oElement.attr('width');
-            var height = oElement.attr('height');
-
+        $scope.drawDivOverElement = function(oElement, sElementClass) {
             var selk = $scope.mod=="mod0" ? '#gantt' : '#viz';
-            var top = $(selk).offset().top + parseInt(oElement.attr('y'));
-            var left = $(selk).offset().left + parseInt(oElement.attr('x'));
+
+            if(oElement.prop('tagName') == 'rect') {
+                var oNewElement = oElement.parent().clone();
+                oNewElement.find('rect').each(function() { $(this).attr('y', 0); var t = $(this).attr('x'); $(this).attr('x', t - 481); });
+                var width = oElement.attr('width');
+                var height = oElement.attr('height');
+                var top = $(selk).offset().top + parseInt(oElement.attr('y'));
+                var left = $(selk).offset().left + parseInt(oElement.attr('x'));
+            } else if(oElement.prop('tagName') == 'g') {
+                var oNewElement = oElement.clone();
+                oNewElement.find('*').each(function() { $(this).attr('y', 0); var t = $(this).attr('x'); $(this).attr('x', t - 481); });
+                var width = d3.select(sElementClass)[0][0].getBBox().width;
+                var height = d3.select(sElementClass)[0][0].getBBox().height;
+                var top = $(selk).offset().top + d3.select(sElementClass)[0][0].getBBox().y + parseInt(oElement.attr('data-offset'));
+                var left = $(selk).offset().left + d3.select(sElementClass)[0][0].getBBox().x;
+            }
 
             var sElementClass = sElementClass.replace('.', '') + '-div';
             var outte = oNewElement[0] ? oNewElement[0].outerHTML : '';
@@ -328,7 +337,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
 
         /////////////////////////////////////////////////////////////
         $scope.toggleTutorial = function(show) {
-
             if(!$scope.tutorial && show) {
                 $scope.tutorial = true;
                 api.getTutorials().then(function(data){
@@ -345,18 +353,15 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                             actions[step] = '';
                         }
                         var infos = tuto[id].split(" = ");
-                        
                         if(id.substring(0, 4) == '.svg') {
                             id = id.substring(4);
                             id = $scope.drawDivOverElement($(id), id);
                         }
-
                         $(id).attr('data-position', infos[0]);
                         $(id).attr('data-tooltipClass', 'tooltip-' + id.replace(/^[#\.]/,"")); // remove selector (first # or .)
                         $(id).attr('data-intro', infos[1]);
                         $(id).attr('data-step', step++);
                     }
-
                     var introjs = introJs().setOptions({
                         showBullets: false,
                         showStepNumbers: false,
@@ -365,20 +370,19 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                         prevLabel:  "Précédent",
                         doneLabel:  "Terminer",
                     });
-
                     introjs.onbeforechange(function(e) {
                         var data_step = $(e).attr('data-step');
                         var acts = actions[data_step].split(' , ');
                         $.each(acts, function(index, value) {
                             var action = value.split(' = ');
                             switch(action[0]) {
-                                case 'scroll' :
+                                case 'scrolltop' :
                                     $(action[1]).scrollTop(0);
                                     break;
                                 case 'click' :
+                                    console.log(action[1]);
                                     $(action[1]).d3Click();
                                     $(action[1]).click();
-                                    console.log($(action[1]));
                                     $(action[1]).css('opacity', 1);
                                     break;
                                 case 'zoom' :
@@ -387,19 +391,16 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                             }
                         });
                     });
-
                     introjs.onexit(function() {
                         $('.div-over-svg').remove();
                         $scope.tutorial = false;
                         localStorage.setItem("tuto-"+$scope.mod, "done");
                     });
-
                     introjs.oncomplete(function() {
                         $('.div-over-svg').remove();
                         $scope.tutorial = false;
                         localStorage.setItem("tuto-"+$scope.mod, "done");
                     });
-
                     introjs.start();
                 },
                 function(error){
@@ -412,8 +413,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.showFirstTimeTutorial = function() {
             if(!localStorage.getItem("tuto-"+$scope.mod) || localStorage.getItem("tuto-"+$scope.mod)!="done")
                 $scope.toggleTutorial(true);
-
         }
-
-    });
-
+    }
+);

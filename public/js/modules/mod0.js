@@ -810,7 +810,7 @@ var drawGantt, utils,
                                     plural = (e.value > 1 ? 's' : '');
                                 popover_content.append('p').html(active_filters['length'] == e.key ? 'Supprimer le filtre' : 'Cliquer pour filtrer sur ces textes');
                                 return {
-                                    title: e.value+' texte'+plural+' adopté'+plural+' en '+label.replace(/&nbsp;/g, ' '),
+                                    title: e.value+' texte'+plural+' adopté'+plural+' en '+label.replace('&nbsp;', ' '),
                                     content: popover_content,
                                     placement: "mouse",
                                     displacement: [-113, -90],
