@@ -254,6 +254,13 @@ body{
 .txt-center {
     text-align: center;
 }
+.art-meta {
+    text-align: center;
+}
+.art-meta .comment {
+    font-style: italic;
+}
+
 .art-txt{
     padding: 0pxa
     padding-right: 20px;
@@ -801,9 +808,11 @@ h4 a{
 .g-law, .law-name{
 	cursor:pointer;
 }
-.mod1 .gotomod {
+.gotomod {
     margin: 15px 0px 5px 0px;
     text-align: center;
+}
+.mod1 .gotomod {
     position: relative;
     top: 0;
     right: 0;
@@ -1513,4 +1522,32 @@ footer{
     color: #FFF;
     opacity: 0.7;
     text-decoration: underline;
+}
+.sources {
+    text-align: center;
+    margin: 8px;
+    margin-top: 35px;
+}
+.amd-date {
+    float: left;
+    padding: 8px;
+    width: 50%;
+}
+.amd-sort {
+    float: left;
+    text-align: right;
+    padding-right: 8px;
+    width: 50%;
+}
+.amd-subject {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    margin-left: 8px;
+    clear: both;
+}
+.amd-text {
+    margin: 8px;
+}
+.art-meta p {
+    margin: 8px;
 }

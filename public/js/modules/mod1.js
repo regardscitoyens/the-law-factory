@@ -249,7 +249,7 @@ var valign, stacked, utils, aligned = true;
                     if (d.section.lastIndexOf("A", 0) !== 0)
                         div.append("p").html("<small>"+(test_section_details(d.section, d.id_step, 'newnum') ? titre_section(data.sections[d.section][d.id_step]['newnum'], 2) + " ("+format_section(d, 1)+')' : format_section(d, 2))+"</small>");
                     div.append("p").html("<small>"+titre_etape(d)+"</small>");
-                    if (d.n_diff == 0) div.append("p").text(d.status == "sup" ? "Supprimé à cette étape" : "Aucune modification");
+                    if (d.n_diff == 0) div.append('p').text(d.status == "sup" ? "Supprimé à cette étape" : "Aucune modification");
                     else if (d.n_diff == 1 && d.id_step.substr(-5) !== "depot") div.append("p").text((d.prev_step ? "Réintroduit" : "Ajouté") + " à cette étape");
                     else if (d.id_step.substr(-5) != "depot") div.append("p").html("Modifications : " + d3.round(d['n_diff'] * 100, 2) + "&nbsp;%");
                     div.append("p").html("<small>Longueur du texte : " + d['length'] + " caractères</small>");
@@ -293,6 +293,9 @@ var valign, stacked, utils, aligned = true;
                     };
 				}
             var drawArticles = function() {
+
+                var firstmade = false; // to class the first article which has a rect (for tuto)
+
 				//init coordinates
                 utils.setMod1Size();
                 utils.setTextContainerHeight();
@@ -306,11 +309,19 @@ var valign, stacked, utils, aligned = true;
 				//draw everything
 				for(st in stages) {
 					for (se in sections) {
-						var group = svg.append("g").attr("class","group se"+se+" st"+st)
+						
+                        var datarts = bigList.filter(function(d){return (d.length > 0 && d.step_num==st && d.sect_num==se)});
+                        var group = svg.append("g")
+                            .attr("class","group se"+se+" st"+st);
+                            
+                        if(datarts.length && !firstmade) {
+                            firstmade = true;
+                            group.classed("first-article",true)
+                        }
 
 						//Add articles
 						group.selectAll(".article")
-						.data(bigList.filter(function(d){return (d.length > 0 && d.step_num==st && d.sect_num==se)}))
+						.data(datarts)
 						.enter().append("rect")
 						.attr("x", function(d){return d.x})
 						.attr("y", function(d){return d.y})
@@ -669,7 +680,6 @@ var valign, stacked, utils, aligned = true;
                         $("#text-title").empty();
                         $(".art-meta").empty();
                         $(".art-txt").empty();
-                        $("#revsMode").show();
                         $("#text-title").html(titre_article(d, 2));
                         utils.setTextContainerHeight();
                         var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " ("+format_section(d, 1)+')' : format_section(d, 2)) + "</b>" +
@@ -678,28 +688,21 @@ var valign, stacked, utils, aligned = true;
                         "<p><b>" + titre_etape(d) + "</b></p>" +
                         (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-"+d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ? 
                          '<div class="gotomod'+(utils.read ? ' readmode': '')+'"><a class="btn btn-info" href="amendements.html?loi='+utils.loi+'&etape='+ d.directory+'&article='+d.article+'">Explorer les amendements</a></div>' : '');
+                        if (d.n_diff) {
+                            if (d.id_step.substr(-5) == "depot")
+                                descr += '<p class="comment"><b>Article déposé à cette étape</b></p>';
+                            else if (d.status == "new") descr += "<p><b>Article "+(d.prev_step ? "réintroduit" : "ajouté") + " à cette étape</b></p>";
+                        } else descr += '<p class="comment"><b>Article '+ (d.status == "sup" ? "supprimé" : "sans modification") + " à cette étape</b></p>";
+                        if  ((d.n_diff || d.status == "sup") && d.status != "new") $("#revsMode").show();
+                        else ("#revsMode").hide();
 
-			if (textArticles[d.article][d.directory].length) {
-			    d.originalText = '<ul class="originaltext"><li><span>' + $.map(textArticles[d.article][d.directory], function(i) {
-				return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
-                            }).join("</span></li><li><span>") + "</span></li></ul>";
-			}else{
-			    d.originalText = "<p><b>Article supprimé à cette étapge</b></p><p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
-			}
-			if (!d.textDiff) {
-			    if (d.n_diff) {
-				if (d.id_step.substr(-5) == "depot") {
-				    d.textDiff = "<p><b>Texte déposé à cette étape</b></p>";
-				}else{
-				    d.textDiff = "<p><b>"+(d.prev_step ? "Réintroduit" : "Ajouté") + " à cette étape</b></p>";
-				}
-			    }
-			    d.textDiff += (d.n_diff == 0 ? "<p><b>"+ (d.status == "sup" ? "Supprimé" : "Aucune modification") + " à cette étape</b></p>" : "");
-			    if (d.textDiff) {
-				d.textDiff += d.originalText;
-			    }
-			}
-
+                        var balise = (d.id_step.substr(-5) != "depot" && d.status == "new" ? 'ins' : 'span');
+                        if (textArticles[d.article][d.directory].length) {
+                            d.originalText = '<ul class="originaltext"><li><'+balise+'>' + $.map(textArticles[d.article][d.directory], function(i) {
+                            return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
+                                        }).join("</"+balise+"></li><li><"+balise+">") + "</"+balise+"></li></ul>";
+                        }else d.originalText = "<p><b>Article supprimé à cette étapge</b></p><p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
+                        if (!d.textDiff) d.textDiff += d.originalText;
                         $(".art-meta").html(descr);
 
                         if (spin) {

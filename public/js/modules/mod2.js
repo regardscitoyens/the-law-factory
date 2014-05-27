@@ -182,9 +182,9 @@ var utils, highlight;
           }
               var k = Math.floor(i / 2);
               d.offset = offset;
-
               var curRow = svg.append("g")
                   .classed(utils.slugArticle(d.titre), true)
+                  .classed("first-art",i==0)
                   .attr("transform", function () {
                       if (!half) return "translate(" + 10 + "," + (i * 20 + i * lineh + 10 + jumpLines * (lineh - 10)) + ")";
                       else {
@@ -301,19 +301,19 @@ var utils, highlight;
             utils.startSpinner('load_amd');
             setTimeout(function(){ d3.json(api_root+d.id_api+'/json',function(error, json){
                 var currAmd = json.amendement,
-                    source_am = '.fr</a> &mdash; <a href="'+currAmd.source+'" target="_blank">',
+                    source_am = '.fr</a> &nbsp; &nbsp; <a href="'+currAmd.source+'" target="_blank"><span class="glyphicon glyphicon-link"></span>',
                     statico = get_status_img(d),
                     col = color_amd(d);
-                if (currAmd.url_nosdeputes) source_am = currAmd.url_nosdeputes+'">NosDéputés'+source_am+'Assemblée nationale';
-                else if(currAmd.url_nossenateurs) source_am = currAmd.url_nossenateurs+'">NosSénateurs'+source_am+'Sénat';
+                if (currAmd.url_nosdeputes) source_am = currAmd.url_nosdeputes+'"><span class="glyphicon glyphicon-link"></span> NosDéputés'+source_am+'Assemblée nationale';
+                else if(currAmd.url_nossenateurs) source_am = currAmd.url_nossenateurs+'"><span class="glyphicon glyphicon-link"></span> NosSénateurs'+source_am+'Sénat';
                 $(".text-container").html(
-                    "<p><b>Date :</b> " + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</p>" +
-                    "<p><b>Objet :</b> " + currAmd.sujet+"</p>" +
-                    "<p><b>Signataires :</b> " + currAmd.signataires+"</p>" +
-                    "<p><b>Sort :</b> " + currAmd.sort + " <span class='amd-txt-status' style='background-color:"+col+"'><img style='margin:0; padding:4px;' src='"+statico+"'/></span> </p>" +
-                    "<p><b>Exposé des motifs :</b> " + currAmd.expose+"</p>" +
-                    "<p><b>Texte :</b> " + currAmd.texte +
-                    '<p><small><b>Sources :</b> <a target="_blank" href="' + source_am + "</a></small></p>"
+                    '<span class="amd-date">' + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</span>" +
+                    '<span class="amd-sort">' + currAmd.sort + " <span class='amd-txt-status' style='background-color:"+col+"'><img style='margin:0; padding:4px;' src='"+statico+"'/></span> </span>" +
+                    '<div class="amd-subject"><b>Sujet :</b><span> ' + utils.clean_amd_subject(currAmd.sujet)+"</span></div>" +
+                    '<div class="amd-text"><b>Signataires :</b> <span>' + currAmd.signataires+"</span></div>" +
+                    '<div class="amd-text"><b>Exposé des motifs :</b> ' + currAmd.expose + "</div>" +
+                    '<div class="amd-text"><b>Texte :</b> ' + currAmd.texte + '</div>' +
+                    '<p class="sources"><small><a target="_blank" href="' + source_am + '</a></small></p>'
                 );
                 utils.stopSpinner(function() {
                     $(".text-container").animate({opacity: 1}, 350);

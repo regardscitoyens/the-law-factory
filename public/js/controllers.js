@@ -1,5 +1,14 @@
 'use strict';
 
+/* Workaround to trigger click on d3 element */
+jQuery.fn.d3Click = function () {
+  this.each(function (i, e) {
+    var evt = document.createEvent("MouseEvents");
+    evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+    e.dispatchEvent(evt);
+  });
+};
+
 /* Controllers */
 
 angular.module('theLawFactory.controllers', ['theLawFactory.config']).
@@ -172,7 +181,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
             obj.short_name = $scope.getShortName(obj.name);
             obj.display_short = (obj.long_name != obj.short_name && $scope.barwidth * obj.num / $scope.total < (obj.name === "CMP" ? 190 : 130));
             return obj;
-
         }
         $scope.stepLegend = function (el){
             if (el.step==="depot") return (el.auteur_depot == "Gouvernement" ? "Projet de Loi" : "Proposition de Loi");
@@ -181,6 +189,11 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.stepLabel = function (el){
             if(el.step==="depot") return (el.auteur_depot == "Gouvernement" ? "PJL" : "PPL");
             return $scope.getShortName(el.step);
+        }
+
+        $scope.clean_amd_subject = function(s) {
+            return s.replace(/ART[\.\s]+/i, "Article ")
+                .replace(/A(vant|près) A/i, "A$1 l'A");
         }
 
         $scope.slugArticle = function(a) {
@@ -292,15 +305,19 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
          * @param element jQuery node to draw over
          * @return class of the newly created element
          */
-        $scope.drawDivOverElement = function(oElement, sElementClass) {
+        $scope.drawDivOverElement = function(oElement,sElementClass) {
             var oNewElement = oElement.parent().clone();
             oNewElement.find('rect').each(function() { $(this).attr('y', 0); var t = $(this).attr('x'); $(this).attr('x', t - 481); });
             var width = oElement.attr('width');
             var height = oElement.attr('height');
-            var top = $('#gantt').offset().top + parseInt(oElement.attr('y'));
-            var left = $('#gantt').offset().left + parseInt(oElement.attr('x'));
+
+            var selk = $scope.mod=="mod0" ? '#gantt' : '#viz';
+            var top = $(selk).offset().top + parseInt(oElement.attr('y'));
+            var left = $(selk).offset().left + parseInt(oElement.attr('x'));
+
             var sElementClass = sElementClass.replace('.', '') + '-div';
-            $('body').append('<div class="' + sElementClass + '" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"><svg>' + oNewElement[0].outerHTML + '</svg></div>');
+            var outte = oNewElement[0] ? oNewElement[0].outerHTML : '';
+            $('body').append('<div class="' + sElementClass + ' div-over-svg" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"><svg>' + outte + '</svg></div>');
             return '.' + sElementClass;
         }
 
@@ -317,23 +334,15 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                 api.getTutorials().then(function(data){
                     var tuto = data[$scope.mod];
                     var step = 1;
+                    var actions = [];
                     for(var id in tuto)
                     {
                         if(tuto[id].indexOf('@') != -1) {
                             var message = tuto[id].split(' @ ');
                             tuto[id] = message[0];
-                            var actions = message[1].split(' , ');
-                            $.each(actions, function(index, value) {
-                                var action = value.split(' = ');
-                                switch(action[0]) {
-                                    case 'scroll' :
-                                        $(action[1]).scrollTop(0);
-                                        break;
-                                    case 'click' :
-                                        $(action[1]).click();
-                                        break;
-                                }
-                            });
+                            actions[step] = message[1];
+                        } else {
+                            actions[step] = '';
                         }
                         var infos = tuto[id].split(" = ");
                         
@@ -356,42 +365,41 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                         prevLabel:  "Précédent",
                         doneLabel:  "Terminer",
                     });
+
                     introjs.onbeforechange(function(e) {
-                        var id = $(e).attr('id');
-                        //var dat = $(e).data('fortuto');
-                        console.log("intro.js, before change: "+id);
-                        // here we need to trigger clicks 'cause don't have access to $scope var
-
-                        //if(id=='switch') $('#modecross').click();
-                        //else $('.matrixwrapper').click();
-                        // if(id=='about') $('.matrixwrapper').click();
-
-                        //var menuCollapsed = $("#tutoheaderwrapper").hasClass('collapsed');
-                        //var ontriangle = $("#tutoswitcher").hasClass('ontriangle');
-
-                        //if(id=='tutoheaderwrapper' && menuCollapsed) $("#menutoggle").click();
-                        //if(id=='tutoabout' && !menuCollapsed) $("#menutoggle").click();
-
-                        //if(id=='tutosidebar' && !ontriangle) $("#tutoswitcher").click();
-                        //if(id=='description' && ontriangle) $("#tutoswitcher").click();
-
-                        // if(id=='tutoscenar_exploration') $('#tutoscenar_exploration div.name').click();
-                        // if(id=='tutoscenar_0') $('#tutoscenar_0 div.name').click();
-
-                        //if(id=='theatrenext') $(".mosaic_1").click();
-                        //if(id=='theatreclose') $("#theatrenext").click();
-
+                        var data_step = $(e).attr('data-step');
+                        var acts = actions[data_step].split(' , ');
+                        $.each(acts, function(index, value) {
+                            var action = value.split(' = ');
+                            switch(action[0]) {
+                                case 'scroll' :
+                                    $(action[1]).scrollTop(0);
+                                    break;
+                                case 'click' :
+                                    $(action[1]).d3Click();
+                                    $(action[1]).click();
+                                    console.log($(action[1]));
+                                    $(action[1]).css('opacity', 1);
+                                    break;
+                                case 'zoom' :
+                                    zooming(parseInt(action[1]));
+                                    break;
+                            }
+                        });
                     });
+
                     introjs.onexit(function() {
-                        console.log("intro.js: exited.");
+                        $('.div-over-svg').remove();
                         $scope.tutorial = false;
                         localStorage.setItem("tuto-"+$scope.mod, "done");
                     });
+
                     introjs.oncomplete(function() {
-                        console.log("intro.js: completed.");
+                        $('.div-over-svg').remove();
                         $scope.tutorial = false;
                         localStorage.setItem("tuto-"+$scope.mod, "done");
                     });
+
                     introjs.start();
                 },
                 function(error){

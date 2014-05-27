@@ -1,44 +1,48 @@
 {
     "mod0":{
-        "#gantt":"top = cette vue panoptique porte sur les débats parlementaires à chaque étape de la procédure législative. @ scroll = #gantt",
-        "#menu-display":"bottom = vous pouvez ordonner les lois par taille",
-        "#menu-sort":"bottom = par date",
-        "#menu-amendments":"bottom = ou par nombre d'amendements",
-        "#menu-years":"bottom = et les filtrer par date",
-        "#menu-themes":"bottom = ou par thème",
-        "#menu-zoom":"bottom = le zoom vous permet d'ajuster l'échelle horizontale de la frise chronologique",
-        ".svg.first-law":"bottom = pour chaque loi s'affiche les différentes étapes du processus législatif @ scroll = #gantt , click = .first-lawline",
-        ".text":"left = lorsque vous cliquez sur une loi, vous trouverez ici des informations relatives à la loi",
-        ".gotomod .btn":"left = cliquez sur «Explorez les articles» pour obtenir le détail de la procédure législative de la loi sélectionnée",
-        "#menu-tutorial a":"left = vous pouvez afficher le tutorial de nouveau en cliquant ici"
+        "#gantt":"top = Cette vue panoptique porte sur les débats parlementaires à chaque étape de la procédure législative. @ scroll = #gantt , zoom = 0",
+        ".svg.law-bg-first":"bottom = Pour chaque loi s'affiche les différentes étapes du processus législatif @ click = .g-law-first",
+        "#menu-display":"bottom = Vous pouvez ordonner les lois par taille ou par date",
+        "#menu-sort":"bottom = Trier par nombre d'amendement, date de promulgation, ou durée",
+        "#menu-amendments":"bottom = Filtrer par nombre d'amendement",
+        "#menu-years":"bottom = ... par date ...",
+        "#menu-themes":"bottom = ou par thème associé",
+        ".labels-sc":"top = Il est possible de filtrer par durée d'adoption des textes",
+        "#menu-zoom":"bottom = Le zoom vous permet d'ajuster l'échelle horizontale de la frise chronologique",
+        ".text":"left = Lorsque vous cliquez sur une loi, vous trouverez ici des informations relatives à la loi",
+        ".gotomod .btn":"left = Cliquez sur «Explorez les articles» pour obtenir le détail de la procédure législative de la loi sélectionnée",
+
+        "#menu-tutorial a":"left = Vous pouvez afficher le tutorial de nouveau en cliquant ici"
     },
     "mod1":{
         ".main":"right = Cette vue présente l’évolution des articles au fil des étapes législatives.",
 
-        "#stage_0":"bottom = La première colonne présente l'état du texte au moment du dépôt par le gouvernement",
-        "#stage_1":"bottom = l'examen à l'Assemblée Nationale puis lecture du Sénat",
-        "#stage_2":"bottom = ... et enfin celle de la Commission Mixte Paritaire.",
+        "#stepsbar":"bottom = Les colonnes présentent les étapes successives de lecture et modification du texte: dépôt par le gouvernement et examens à l'Assemblée Nationale et au Sénat, avec l'éventuel examen de la Commission Mixte Paritaire.",
         ".stb-steps":"top = L’examen d’un projet de loi (PJL: origine governamentale) ou d'une proposition de loi (PPL: origine parlementaire) par une assemblée comporte toujours deux étapes : commission (Com) puis hémicycle (Hém).",
         
         ".stb-step.stb-01":"bottom = À chaque étape, vous pouvez accéder à: <ul><li><span class='glyphicon glyphicon-folder-open'></span> l’ensemble des amendements déposés à cette étape (s'il y en a)</li><li><span class='glyphicon glyphicon-comment'></span>l’ensemble des débats</li><li><span class='glyphicon glyphicon-link'></span>le texte de loi issu de cette étape</li></ul>",
 
-        ".svg.fist-article":"right = Chaque boite correspond à une fraction du texte : chapitre (C), section (S) ou article (A). Plus le texte de l’article est long, plus la boite est grande. Plus la section du texte a été modifiée pendant cette étape, plus la boite est foncée. Les liens en pointillés symbolisent l’évolution du texte au cours de la procédure. Les couleurs dans les boites indiquent que la section du texte vient d’être intégralement créée (vert) ou intégralement supprimé (rouge).",
+        ".svg.first-article":"right = Chaque boite correspond à une fraction du texte : chapitre (C), section (S) ou article (A). Plus le texte de l’article est long, plus la boite est grande. Plus la section du texte a été modifiée pendant cette étape, plus la boite est foncée. Les liens en pointillés symbolisent l’évolution du texte au cours de la procédure. Les couleurs dans les boites indiquent que la section du texte vient d’être intégralement créée (vert) ou intégralement supprimé (rouge).",
         ".text" : "left = En cliquant sur la boite, son contenu et les modifications apportées au texte lors de cette étape s’affichent à droite. Les mots supprimés sont en rouge, les mots ajoutés en vert.",
         "#text-title":"bottom = Cliquez sur les icones du titre pour voir agrandir la fenêtre, ou pour afficher le texte de l’article à l’issue des modifications",
 
         ".menu-display" : "bottom = La <i>vue alignée</i> présente l’évolution d’une section de la loi sur une même ligne. En supprimant les espaces, <i>la vue compacte</i> permet de comparer le taille totale du texte à chaque étape.", 
         
         ".links": "bottom = Vous pouvez voir l’ensemble des dossiers législatifs sur les sites de l’Assemblée et du Sénat.",
-        "#menu-tutorial a":"left = vous pouvez afficher le tutorial de nouveau en cliquant ici"
+
+        "#menu-back":"bottom = Cliquez ici pour revenir à la chronologie du texte",
+        "#menu-tutorial a":"left = Vous pouvez afficher le tutorial de nouveau en cliquant ici"
     },
     "mod2":{
-        "#viz":"left = chaque carré en couleur désigne un amendement déposé par le gouvernement ou des parlementaires lors d’une étape de la procédure législative",
-        ".svg.art_1":"bottom = nothing",
-        ".legend .colors":"top = La couleur des carrés indique le groupe parlementaire des élus ayant proposés l’amendement. En cliquant sur un boite, tous les amendements d’un groupe s’affichent.",
-        ".legend .others":"top = Les symboles indiquent quel est le sort final des amendements déposés : adoptés, rejetés ou non votés (redondants, abandonnés, irrecevables…). En cliquant sur un boite, les amendements s’ordonnent selon leur devenir.",
-        "#viz":"En cliquant sur un carré, toutes les informations relatives à cet amendement s’affichent à droite : date, article visé, signataire(s), statut, exposé et texte.",
-        "#menu-left":"On peut afficher les amendements correspondant à l’étape en cours par articles ou groupés. ... ou correspondant à l’étape en cours selon leur sort final (adoptés, rejetés ou non votés) ou le groupe parlementaire.",
-        "#menu-tutorial a":"left = vous pouvez afficher le tutorial de nouveau en cliquant ici"
+        "#viz":"right = Cette vue présente les amendements déposés par le gouvernement ou des parlementaires lors d’une étape de la procédure législative",
+        ".svg.first-art":"bottom = nothing",
+        ".legend":"top = La légende présente les différents groupes parlementaires ayant proposé les amendements, ainsi que leur sort final (adoptés, rejetés ou non votés (redondants, abandonnés, irrecevables…)). Il est possible de cliquer sur un groupe ou un statut pour filtrer dynamiquement l'affichage.",
+        "#vizou":"top = En cliquant sur un carré, toutes les informations relatives à cet amendement s’affichent à droite : date, article visé, signataire(s), statut, exposé et texte.",
+        "#menu-display":"bottom = Les amendements peuvent être affichés séparement par article ou tous regroupés.",
+        "#menu-order":"bottom = Le tri s'effectue selon leur sort final (adoptés, rejetés ou non votés) ou par groupe politique.",
+
+        "#menu-back":"bottom = Cliquez ici pour revenir au texte",
+        "#menu-tutorial a":"left = Vous pouvez afficher le tutorial de nouveau en cliquant ici"
     },
     "mod2b":{
         ".scrolling":"top = Cette page porte sur les débats parlementaires à chaque étape de la procédure législative.",
@@ -47,6 +51,8 @@
         "svg.wholeline":"bottom = A l’intérieur d’une étape de la procédure législative (par exemple 1ère lecture en commission à l’Assemblée), chaque ligne correspond aux phases successives de l’examen de la loi : articles après articles, motions après motions, réunions après réunions… Donc, plus on descend dans la page, plus on progresse dans le temps.",
         "svg.wholecolumn":"right = En cliquant sur un rectangle, on voit apparaître toutes les interventions des orateurs de ce groupe durant l’ensemble des débats lors de cette étape.",
         ".text":"left = En cliquant sur un rectangle, on voit apparaître à droite touts les membres de ce groupe (parlementaires ou ministres) qui sont intervenus lors de cette phase. Ils sont classés par ordre décroissant de mots prononcés. On peut cliquer pour avoir accès au contenu de leur(s) intervention(s) sur le site Nos Députés ainsi qu’à leur fiche personnelle.",
-        "#menu-tutorial a":"left = vous pouvez afficher le tutorial de nouveau en cliquant ici"
+
+        "#menu-back":"bottom = Cliquez ici pour revenir au texte",
+        "#menu-tutorial a":"left = Vous pouvez afficher le tutorial de nouveau en cliquant ici"
     }
 }

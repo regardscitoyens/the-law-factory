@@ -576,6 +576,7 @@ var drawGantt, utils,
                         .append("g")
                         .attr("class", function (d) { return "g-law " + d.id; })
                         .attr("transform", function (d, i) { return "translate(0," + (i * (20 + lawh)) + ")"; })
+                        .classed("g-law-first", function(d, i) {return (i == 0);})
                         .on("click", onclick);
 
 
@@ -586,7 +587,7 @@ var drawGantt, utils,
                         .attr("y", 28)
                         .attr("width", function (d) { return Math.max(0, tscale(format.parse(d.end)) - tscale(format.parse(d.beginning))); })
                         .attr("class", "law-bg")
-                        .classed("first-law", function() {if(bool) {bool = false; return true;} else {return false;}})
+                        .classed("law-bg-first", function() {if(bool) {bool = false; return true;} else {return false;}})
                         .attr("height", steph)
                         .attr("opacity", 0.3).style("fill", "#d8d1c9")
                         .popover(function(d){
@@ -762,8 +763,8 @@ var drawGantt, utils,
                     extrainfo.append('<p><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(d.total_amendements)+'"></span>&nbsp;&nbsp;'+(d.total_amendements?d.total_amendements:'aucun')+" amendement"+(d.total_amendements>1?'s déposés':' déposé')+"</p>")
                         .append('<p><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(d.total_mots)+'"></span><span>&nbsp;&nbsp;plus de '+mots+" mille mots prononcés lors des débats parlementaires</span></p>")
                         .append(themes)
-                        .append('<p><small>' +
-                            '<a href="'+d.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a> &mdash; ' +
+                        .append('<p class="sources"><small>' +
+                            '<a href="'+d.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a> &nbsp; &nbsp; ' +
                             '<a href="'+d.url_dossier_assemblee+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Assemblée</a>' +
                             (d.url_jo ? '<br/><a href="'+d.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur Légifrance</a>' : '') +
                             '</small></p>');
@@ -809,7 +810,7 @@ var drawGantt, utils,
                                     plural = (e.value > 1 ? 's' : '');
                                 popover_content.append('p').html(active_filters['length'] == e.key ? 'Supprimer le filtre' : 'Cliquer pour filtrer sur ces textes');
                                 return {
-                                    title: e.value+' texte'+plural+' adopté'+plural+' en '+label.replace('&nbsp;', ' '),
+                                    title: e.value+' texte'+plural+' adopté'+plural+' en '+label.replace(/&nbsp;/g, ' '),
                                     content: popover_content,
                                     placement: "mouse",
                                     displacement: [-113, -90],
