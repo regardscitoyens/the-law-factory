@@ -1,17 +1,17 @@
 {
     "mod0":{
-        "#gantt":"top = <b>Vous êtes sur la visualisation des navettes</b><br/>Cette vue panoptique porte sur les débats parlementaires à chaque étape de la procédure législative.<br/>Pour chaque texte s'affiche les différentes étapes du processus législatif dont vous pouvez obtenir des détail au survol de la souris. @ click = .law-bg-first, scrolltop = #gantt , zoom = 0",
-        "#sidebar":"left = Cet encart présente des éléments quantitatifs sur le texte sur lequel vous avez cliqué.<br/>Cliquez sur «&nbsp;<span style='background-color: #716259;color: white;'>Explorez les articles</span>&nbsp;» pour vous rendre sur la visualisation « Articles », qui vous permettra de voir les modifications effectuées sur le texte sélectionné.",
+        "#gantt":"top = <b>Vous êtes sur la visualisation «&nbsp;Navettes&nbsp;»</b><br/>Cette vue panoptique porte sur les débats parlementaires à chaque étape de la procédure législative.<br/>Pour chaque texte s'affichent les différentes étapes du processus législatif dont vous pouvez obtenir des détail au survol de la souris. @ click = .law-bg-first, scrolltop = #gantt , zoom = 0",
+        "#sidebar":"left = Cet encart présente des éléments quantitatifs sur le texte sur lequel vous avez cliqué.<br/>Cliquez sur «&nbsp;<span style='background-color: #716259;color: white;'>Explorez les articles</span>&nbsp;» pour vous rendre sur la visualisation «&nbsp;Articles&nbsp;», qui vous permettra de voir les modifications effectuées sur le texte sélectionné.",
 	"#explore": "left = ",
-        "#menu-display":"bottom = Via ce bouton vous pouvez changer de mode de représentation des textes :<ul><li>la <b>vue chronologique</b> affiche le texte le plus récent en haut et le plus vieux en bas ;</li><li>la <b>vue comparative</b> permet de représenter les textes selon leur durée d'étude ;</li><li>la <b>vue quantitative</b> décrit le détail des étapes parlementaires en les représentants sans les périodes d'interruption parlementaire @ click = #dm-quanti",
-        "#menu-sort":"bottom = Ce menu vous permet de choisir l'ordre des textes présentés",
-        "#menu-left":"bottom = Des filtres par quantité d'amendements, années d'études et thèmes sont proposés",
-        ".labels-sc":"top = Il est également possible de filtrer par durée d'adoption des textes @ click = #dm-time",
-        "#menu-zoom":"bottom = Le zoom vous permet d'ajuster l'échelle horizontale de la frise chronologique",
-        "#menu-tutorial a":"left = Vous pouvez afficher le tutorial de nouveau en cliquant ici"
+        "#menu-display":"bottom = Cliquez sur ce bouton vous pouvez changer de mode de représentation des textes&nbsp;:<ul><li>la <b>vue chronologique</b> affiche le texte le plus récent en haut et le plus vieux en bas&nbsp;;</li><li>la <b>vue comparative</b> permet de représenter les textes selon leur durée d'étude&nbsp;;</li><li>la <b>vue quantitative</b> décrit le détail des étapes parlementaires en les représentant sans les périodes d'interruptions parlementaires.</li></ul> @ click = #dm-quanti",
+        "#menu-sort":"bottom = Cliquez sur ce menu pour choisir l'ordre dans lequel les textes sont présentés.",
+        "#menu-left":"bottom = Des filtres par nombre d'amendements, année d'étude et thème sont proposés.",
+        ".labels-sc":"top = Il est également possible de filtrer par la durée d'adoption des textes. @ click = #dm-time",
+        "#menu-zoom":"bottom = Le zoom vous permet d'ajuster l'échelle horizontale de la frise chronologique.",
+        "#menu-tutorial a":"left = Vous pouvez afficher le tutorial de nouveau en cliquant ici."
     },
     "mod1":{
-        ".main":"right = <b>Vous êtes sur la visualisation « ARTICLES »</b><br/>Cette vue présente l’évolution des articles d'un texte au fil des étapes de la procédure parlementairee. @ scrolltop = #viz",
+        ".main":"right = <b>Vous êtes sur la visualisation «&nbsp;Articles&nbsp; »</b><br/>Cette vue présente l’évolution des articles d'un texte au fil des étapes de la procédure parlementairee. @ scrolltop = #viz",
         "#stepsbar":"bottom = Chaque colonne représente les étapes successives de discussion et modification du texte : dépôt par le gouvernement ou des parlementaires, examens à l'Assemblée nationale et au Sénat lors des différentes lectures ou « navettes », ainsi que l'éventuel examen en Commission Mixte Paritaire.",
         ".stb-step.stb-01":"right = À chaque étape, lorsque des données sont disponibles, vous pouvez accéder à : <ul><li><span class='glyphicon glyphicon-folder-open'></span>l’ensemble des amendements déposés à cette étape</li><li><span class='glyphicon glyphicon-comment'></span>les débats parlementaires correspondants</li><li><span class='glyphicon glyphicon-link'></span>le texte de loi intermédiaire publié à cette étape</li></ul>",
         ".svg.group-first":"right = Chaque boîte représente un article du texte à une étape donnée, éventuellement groupé au sein d'un chapitre (C), section (S), etc.<br/>Plus le texte de l’article est long, plus la boîte est grande. Plus cet article a été modifiée pendant cette étape, plus la boîte est foncée. Les liens en pointillés permettent de retrouver l’évolution du texte au fil de la procédure.<br/>Lorsqu'un article a été introduit ou supprimé lors d'une étape, les couleurs vert ou rouge sur le côté de la boîte l'indique. @ click = .group-first .article-first",
@@ -19,23 +19,23 @@
         "#text-title-div":"left = Cliquez sur les icones du titre pour afficher le texte à l'issue des modifications sans les couleurs ou pour agrandir la fenêtre de texte et naviguer au travers des articles avec les fléches du clavier.",
         ".menu-display" : "bottom = Avec le menu d'affichage, vous pouvez basculer entre la <i>vue alignée</i>, qui présente l’évolution de chaque section de la loi sur une même ligne, et la <i>vue compacte</i> permettant de comparer le volume total du texte à chaque étape.", 
         ".allinks": "bottom = Vous pouvez retrouver toutes les sources de nos données sur les sites du Sénat et de l'Assemblée, ainsi que le texte promulgué sur LégiFrance et les données en OpenData ou sur un répertoire Git.",
-        "#menu-tutorial a":"left = Cliquez ici pour afficher  de nouveau ce tutorial."
+        "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutorial."
     },
     "mod2":{
-        "#viz":"top = <b>Vous êtes sur le visualisation « AMENDEMENTS »</b><br/>Cette vue présente les amendements déposés par le gouvernement et les parlementaires lors d’une étape donnée de la procédure législative.",
-        ".svg.first-art":"bottom = Chaque carré coloré représente un amendement. Sa couleur indique le groupe politique de ses auteurs et un pictogramme indique si l'amendement a été adopté, rejeté, ou non-voté (redondant, abandonné, irrecevable…).,
+        "#viz":"top = <b>Vous êtes sur le visualisation «&nbsp;Amendements&nbsp;»</b><br/>Cette vue présente les amendements déposés par le gouvernement et les parlementaires lors d’une étape donnée de la procédure législative.",
+        ".svg.first-art":"bottom = Chaque carré coloré représente un amendement. Sa couleur indique le groupe politique de ses auteurs et un pictogramme indique si l'amendement a été adopté, rejeté, ou non-voté (redondant, abandonné, irrecevable…).",
         ".legend":"top = La légende présente les différents groupes parlementaires ayant proposé les amendements, ainsi que les différents sorts finaux. Il est possible de cliquer sur un groupe ou un statut pour filtrer dynamiquement l'affichage.",
-        "#vizou":"top = En cliquant sur un carré, toutes les informations relatives à cet amendement s’affichent à droite : date, signataire(s), sort, exposé et détails des propositions de modification du texte.",
-        "#menu-display":"bottom = Cliquez ici pour basculer la vue d'un mode trié par sujet des amendements à un mode groupé affichant l'ensemble des amendements. @ click #menu-display",
-        "#menu-order":"bottom = Le menu de tri permet d'aleterner entre un tri regroupant les amendements d'abord par groupe politique ou par sort finale. @ click #menu-order",
-        "#menu-tutorial a":"left = Cliquez ici pour afficher  de nouveau ce tutorial."
+        "#viz":"top = En cliquant sur un carré, toutes les informations relatives à cet amendement s’affichent à droite : date, signataire(s), sort, exposé et détails des propositions de modification du texte. @click #vizou",
+        "#menu-display":"bottom = Cliquez ici pour basculer la vue d'un mode trié par sujet des amendements à un mode groupé affichant l'ensemble des amendements. @ click #dm-merged",
+        "#menu-order":"bottom = Le menu de tri permet d'alterner entre un tri regroupant les amendements d'abord par groupe politique ou par sort finale. @ click #do-stat",
+        "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutorial."
     },
     "mod2b":{
-        "#viz":"top = <b>Vous êtes sur la visualisation « DÉBATS »</b><br/>Cette vue présente les discussions parlementaires à une étape donnée de la procédure législative. Plus on descend dans la page, plus on progresse dans la discussion des réunions de commissions et des séances en hémicycle consacrées à l'examen du texte.",
+        "#viz":"top = <b>Vous êtes sur la visualisation «&nbsp;Débats&nbsp;»</b><br/>Cette vue présente les discussions parlementaires à une étape donnée de la procédure législative. Plus on descend dans la page, plus on progresse dans la discussion des réunions de commissions et des séances en hémicycle consacrées à l'examen du texte.",
         ".svg.rect-first":"right = Les rectangles représentent, pour chaque étape, la participation des parlementaires, des ministres et d'éventuels auditionnés lors des discussions. Plus les membres de chacun de ces groupes ont parlé, plus le rectangle correspondant est long.",
-        ".legend":"top = La légende présente les différents groupes parlementaires ou fonctions identifiées : présidence des débat (président de séance ou de commission), rapporteurs, membres du gouvernement, auditionnés. Cliquez sur un groupe pour n'afficher que ses interventions.",        
-        "#menu-order":"bottom = Cliquez sur ce menu pour basculer l'affichage entre deux modes&nbsp;: <ul><li><i>«&nbsp;échiquier politique&nbsp;»</i>, qui présente toujours dans le même ordre la présidence, puis les groupes, les rapporteurs, le gouvernement et les auditionnés</li><li><i>«&nbsp;quantitatif&nbsp;»</i>, qui trie les groupes à chaque étape par ordre décroissant du nombre de mots prononcés</li></ul> @ click #menu-order",
+        ".legend":"top = La légende présente les différents groupes parlementaires ou fonctions identifiées : présidence des débat (président de séance ou de commission), rapporteurs, membres du gouvernement, auditionnés. Cliquez sur un groupe pour n'afficher que ses interventions.",
+        "#menu-order":"bottom = Cliquez sur ce menu pour basculer l'affichage entre deux modes&nbsp;: <ul><li><i>«&nbsp;échiquier politique&nbsp;»</i>, qui présente toujours dans le même ordre la présidence, puis les groupes, les rapporteurs, le gouvernement et les auditionnés</li><li><i>«&nbsp;quantitatif&nbsp;»</i>, qui trie les groupes à chaque étape par ordre décroissant du nombre de mots prononcés</li></ul> @ click #dm-quanti",
         ".text":"left = Cliquez sur un rectangle pour faire apparaître les orateurs de ce groupe (parlementaires ou ministres) intervenus lors de cette phase et classés par ordre décroissant de mots prononcés. On peut cliquer sur les photos des parlementaires pour retrouver leurs pages personnelles sur NosDéputés.fr ou NosSénateurs.fr, ainsi qu'au texte complet des interventions de chacun à cet instant des débats @ click = .rect-first",
-        "#menu-tutorial a":"left = Cliquez ici pour afficher  de nouveau ce tutorial."
+        "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutorial."
     }
 }
