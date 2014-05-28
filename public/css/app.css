@@ -1395,7 +1395,9 @@ footer .nav>li>a {
 }
 #headline, #homelinks{
     text-align: center;
-  
+}
+#headline {
+    margin-bottom: 70px;
 }
 #headline h1{
     display: inline-block;
@@ -1466,7 +1468,9 @@ footer .nav>li>a {
     margin: 0;
     margin-bottom: 6px;
     font-size: 18px;
-    line-height: 1.8em;
+    line-height: 22px;
+    height: 44px;
+    vertical-align: middle;
     color: #716256;
 }
 #homelinks .laws .stat{
@@ -1509,7 +1513,7 @@ footer .nav>li>a {
 }
 
 #home .disclaimer .content{
-  text-align: left;
+  text-align: justify;
 }
 
 #home .disclaimer.section-b{
