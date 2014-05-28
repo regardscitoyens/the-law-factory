@@ -1407,7 +1407,9 @@ footer .nav>li>a {
 }
 #headline, #homelinks{
     text-align: center;
-  
+}
+#headline {
+    margin-bottom: 70px;
 }
 #headline h1{
     display: inline-block;
@@ -1478,7 +1480,9 @@ footer .nav>li>a {
     margin: 0;
     margin-bottom: 6px;
     font-size: 18px;
-    line-height: 1.8em;
+    line-height: 22px;
+    height: 44px;
+    vertical-align: middle;
     color: #716256;
 }
 #homelinks .laws .stat{
@@ -1521,7 +1525,7 @@ footer .nav>li>a {
 }
 
 #home .disclaimer .content{
-  text-align: left;
+  text-align: justify;
 }
 
 #home .disclaimer.section-b{
@@ -1637,18 +1641,25 @@ background: url('img/echarpe_parl_icon.png') no-repeat scroll center top transpa
 					top: 0;
 				}
 			.badges-list{
-			margin-top: 20px;
+                margin-top: 30px;
+                margin-bottom: 30px;
 				width: 100%;
 				padding: 0;
 			}
 			.badges-list li{
 			display: inline-block;
+                width: 50%;
+                text-align: center;
 			
 				list-style-type: none;
-				  margin-bottom: 25px;
+				  margin-bottom: 10px;
 			}
+            .badges-list .last{
+                width: 100%;
+            }
 			.badges-list h7 {
 				display: block;
+                font-size: 12px;
 			}
 			.badges-list .badge-icon{
 				line-height: 26px;
@@ -1660,7 +1671,7 @@ background: url('img/echarpe_parl_icon.png') no-repeat scroll center top transpa
 				}
 					.badge.badge-tlf{
 					
-						opacity: 1;
+						opacity: 0.6;
 						background: none;
 						background: #FFF;
 						
@@ -1737,9 +1748,9 @@ h4.about {
     padding: 10px;
 }
 .about {
-    margin-left: 25%;
-    margin-right: 25%;
-    width: 50%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
 }
 .about p {
     margin: 20px;
