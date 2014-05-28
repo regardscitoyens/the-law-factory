@@ -773,7 +773,7 @@ var drawGantt, utils,
 						extrainfo += '<li>';
 							extrainfo += '<div class="badge badge-tlf">'
 								extrainfo += '<div class="badge-prefix">30</div>';
-								extrainfo += '<div class="badge-icon icon-AmPA"></div>';
+								extrainfo += '<div class="badge-icon icon-AmPA">';
 									extrainfo += '<img src="./img/echarpe_parl_icon.png" class="badge-echarpe" />';
 								extrainfo += '</div>';
 							extrainfo += '</div>';
@@ -835,11 +835,16 @@ var drawGantt, utils,
  
                         var mots=(Math.round(d.total_mots / 1000. ) + "" ).replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;").replace(/^0/, '');
 												
-						extrainfo += '<li>';
+						extrainfo += '<li >';
 							extrainfo += '<div class="badge badge-tlf">'
 								extrainfo += '<div class="badge-prefix">'+mots+' 000</div>';
+<<<<<<< Updated upstream
 								extrainfo += '<div class="badge-icon icon-QO"' 
 								extrainfo += 'data-toggle="tooltip" title="Mots comptabilisés" data-placement="bottom" data-original-title="mots comptabilisés"'
+=======
+								extrainfo += '<div class="badge-icon icon-QO" ';
+								extrainfo += ' data-toggle="tooltip" title="Afficher les modifications" data-placement="bottom" data-original-title="Afficher les modifications"';
+>>>>>>> Stashed changes
 								extrainfo += '></div>';
 							extrainfo += '</div>';
 					
@@ -930,7 +935,9 @@ var drawGantt, utils,
                 $(document).ready(function() {
                     prepareData();
                     currFile = data.next_page;
+                      
                     $("a.badge").tooltip();
+                    $('.badges-list .badge-icon').tooltip();
                     setTimeout((currFile ? dynamicLoad : drawGantt), 0);
                     $("#text-title").tooltip();
                     $(window).resize(function(){
