@@ -801,7 +801,21 @@ var drawGantt, utils,
 						extrainfo += '<h7>Modification du texte</h7>'
 						extrainfo += '</li>';
 						
-							
+						*/
+						
+							/* Badge for incidents in process */ 
+				
+						
+						extrainfo += '<li>';
+							extrainfo += '<div class="badge badge-tlf">'
+								extrainfo += '<div class="badge-prefix">30</div>';
+								extrainfo += '<div class="badge-icon icon-warning"></div>';
+							extrainfo += '</div>';
+						extrainfo += '<h7>Amendements Parlementaires adoptés</h7>'
+						extrainfo += '</li>';
+						
+
+            
 							/* Badge for duration of legislative process */ 
 				
 						/*
