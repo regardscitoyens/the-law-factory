@@ -1623,11 +1623,13 @@ background: url('img/echarpe_parl_icon.png') no-repeat scroll center top transpa
 					top: 0;
 				}
 			.badges-list{
+			margin-top: 20px;
 				width: 100%;
 				padding: 0;
 			}
 			.badges-list li{
-				text-align: center;
+			display: inline-block;
+			
 				list-style-type: none;
 				  margin-bottom: 25px;
 			}
@@ -1635,7 +1637,7 @@ background: url('img/echarpe_parl_icon.png') no-repeat scroll center top transpa
 				display: block;
 			}
 			.badges-list .badge-icon{
-				line-height: 30px;
+				line-height: 26px;
 			}
 				.badge-tlf .badge-icon,.badge-tlf .badge-prefix,.badge-tlf .badge-suffix{
 					background-color: #716259;
@@ -1651,12 +1653,13 @@ background: url('img/echarpe_parl_icon.png') no-repeat scroll center top transpa
 					}
 					.badge-icon{
 						background: url('../img/badge_angle.png') no-repeat scroll right top #716259;
-						min-height: 32px;
-						width: 70px;
+						background-size : 10px;
+						font-size: 10px;
+						width: 50px;
 					}
 					.badge-prefix,.badge-suffix{
 					padding: 6px 10px;
-					font-size: 20px;
+					 font-size: 15px;
 					margin-right: 5px;
 						
 					}
