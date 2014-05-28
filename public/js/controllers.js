@@ -27,7 +27,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.APIRootUrl = API_ROOT_URL;
         if ($scope.APIRootUrl.substr(-1) != "/") $scope.APIRootUrl += "/";
 
-        $rootScope.ishome = ($location.path() == '/');
+        $rootScope.static = ($location.path() == '/' || $location.path() == '/a-propos.html');
         $rootScope.error = "";
         $rootScope.display_error = function(e) {
             console.log(e);

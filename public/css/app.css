@@ -1711,3 +1711,28 @@ background: url('img/echarpe_parl_icon.png') no-repeat scroll center top transpa
   }
 }
 
+h4.about {
+    text-align: center;
+	font-weight:bold;
+	font-size: 18px;
+	color: #FFF;
+	line-height: 32px;
+    padding: 10px;
+}
+.about {
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+}
+.about p {
+    margin: 20px;
+}
+.about a {
+    color: #716259;
+    text-decoration: underline;
+}
+.about a:hover {
+    color: #716259;
+    text-decoration: underline;
+    opacity: 0.7;
+}

@@ -52,8 +52,8 @@
       </div>
     </noscript>
 
-    <div ng-hide="ishome" class="row">
-      <div  class="cont-width offset-width burntsiena">
+    <div ng-hide="static" class="row">
+      <div class="cont-width offset-width burntsiena">
         <div ng-show="error" id="error">
           <h4>Oups ! Il semble que vous soyez tombé sur un bug</h4>
           <p>Erreur : {{error}}. N'hésitez pas à <a href="http://github.com/regardscitoyens/the-law-factory/issues" target="_blank">nous le signaler</a>&nbsp;! Ou <a href="#" ng-click="back()">cliquez ici</a> pour revenir à la page précédente.</p>
@@ -69,7 +69,7 @@
   <footer>
       <div class="col-md-12 foot-links">
         <ul class="nav navbar-nav navbar-middle">
-          <li><a> à propos</a></li>
+          <li><a href="a-propos.html">à propos</a></li>
           <li><a href="http://blog.lafabriquedelaloi.fr/" target="_blank">blog</a></li>
           <li><a href="{{APIRootUrl}}" target="_blank">opendata</a></li>
           <li><a href="http://github.com/regardscitoyens/the-law-factory/issues" target="_blank">signaler un bug</a></li>

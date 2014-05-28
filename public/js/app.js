@@ -16,6 +16,7 @@ config(function ($routeProvider, $locationProvider) {
   $routeProvider
 
     .when('/',           {templateUrl: 'templates/home.html', controller: 'mainCtrl'})
+    .when('/a-propos.html',           {templateUrl: 'templates/about.html', controller: 'mainCtrl'})
     .when('/lois.html',       {template: '<div mod0 class="mod0"></div>', controller: 'mainCtrl'})
     .when('/articles.html',           {template: '<div mod1 class="mod1"></div>', controller: 'mainCtrl'})
     .when('/amendements.html',   {template: '<div mod2 class="mod2"></div>', controller: 'mainCtrl'})
