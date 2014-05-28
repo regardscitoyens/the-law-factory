@@ -761,9 +761,10 @@ var drawGantt, utils,
 						extrainfo += '<li>';
 							extrainfo += '<div class="badge badge-tlf">'
 								extrainfo += '<div class="badge-prefix">'+(d.total_amendements?d.total_amendements:'0')+'</div>';
-								extrainfo += '<div class="badge-icon icon-AmD"></div>';
+								extrainfo += '<div class="badge-icon icon-AmD" ';
+								extrainfo += 'data-toggle="tooltip" title="Amendements déposés" data-placement="bottom" data-original-title="Amendements déposés"';
+								extrainfo += '></div>';
 							extrainfo += '</div>';
-						extrainfo += '<h7>Amendements Déposés</h7>'
 						extrainfo += '</li>';
 						
 						/* Badge for Parlamentaries Amendments adopted */ 
@@ -772,7 +773,7 @@ var drawGantt, utils,
 						extrainfo += '<li>';
 							extrainfo += '<div class="badge badge-tlf">'
 								extrainfo += '<div class="badge-prefix">30</div>';
-								extrainfo += '<div class="badge-icon icon-AmPA"></div>';
+								extrainfo += '<div class="badge-icon icon-AmPA">';
 									extrainfo += '<img src="./img/echarpe_parl_icon.png" class="badge-echarpe" />';
 								extrainfo += '</div>';
 							extrainfo += '</div>';
@@ -791,6 +792,34 @@ var drawGantt, utils,
 						extrainfo += '<h7>Amendements Parlementaires adoptés</h7>'
 						extrainfo += '</li>';
 						*/
+						
+						
+							/* Badge for volume */
+							
+						extrainfo += '<li>';
+							extrainfo += '<div class="badge badge-tlf">'
+								extrainfo += '<div class="badge-prefix">30</div>';
+								extrainfo += '<div class="badge-icon icon-volume-1"'
+								extrainfo += 'data-toggle="tooltip" title="Evolution volumétrique du projet de loi" data-placement="bottom" data-original-title="Evolution volumétrique du projet de loi"';
+
+								extrainfo += '></div>';
+							extrainfo += '</div>';
+						extrainfo += '</li>';
+						
+							/* Badge for incidents in process */ 
+				
+						
+						extrainfo += '<li>';
+							extrainfo += '<div class="badge badge-tlf">'
+								extrainfo += '<div class="badge-prefix">30</div>';
+								extrainfo += '<div class="badge-icon icon-warning"'
+								extrainfo += 'data-toggle="tooltip" title="Incidents" data-placement="bottom" data-original-title="Incidents"'
+								extrainfo += '></div>';
+							extrainfo += '</div>';
+
+						extrainfo += '</li>';
+						
+
 							
 							/* Badge for duration of legislative process */ 
 				
@@ -806,12 +835,19 @@ var drawGantt, utils,
  
                         var mots=(Math.round(d.total_mots / 1000. ) + "" ).replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;").replace(/^0/, '');
 												
-						extrainfo += '<li>';
+						extrainfo += '<li >';
 							extrainfo += '<div class="badge badge-tlf">'
 								extrainfo += '<div class="badge-prefix">'+mots+' 000</div>';
-								extrainfo += '<div class="badge-icon icon-QO"></div>';
+<<<<<<< Updated upstream
+								extrainfo += '<div class="badge-icon icon-QO"' 
+								extrainfo += 'data-toggle="tooltip" title="Mots comptabilisés" data-placement="bottom" data-original-title="mots comptabilisés"'
+=======
+								extrainfo += '<div class="badge-icon icon-QO" ';
+								extrainfo += ' data-toggle="tooltip" title="Afficher les modifications" data-placement="bottom" data-original-title="Afficher les modifications"';
+>>>>>>> Stashed changes
+								extrainfo += '></div>';
 							extrainfo += '</div>';
-						extrainfo += '<h7>mots</h7>'
+					
 						extrainfo += '</li>';
 						extrainfo += '</ul>';
 						
@@ -833,6 +869,7 @@ var drawGantt, utils,
 						textContent += extrainfo;
               
                     $(".text-container").empty().html(textContent);
+                    $('.badge-icon').tooltip();
                     $("a.badge").tooltip();
                 }
 
@@ -898,7 +935,9 @@ var drawGantt, utils,
                 $(document).ready(function() {
                     prepareData();
                     currFile = data.next_page;
+                      
                     $("a.badge").tooltip();
+                    $('.badges-list .badge-icon').tooltip();
                     setTimeout((currFile ? dynamicLoad : drawGantt), 0);
                     $("#text-title").tooltip();
                     $(window).resize(function(){
