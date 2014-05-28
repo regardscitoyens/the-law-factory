@@ -753,7 +753,7 @@ var drawGantt, utils,
                      
                     var textContent = '';   
                     textContent += '<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + '</p>';
-                    textContent += '<div class="gotomod"><a class="btn btn-info" href="articles.html?loi=' + d.id + '">Explorer les articles</a></div>'
+                    textContent += '<div class="gotomod"><a id="explore" class="btn btn-info" href="articles.html?loi=' + d.id + '">Explorer les articles</a></div>'
                     if (d.procedure != "Normale") textContent += '<p>(' + d.procedure.toLowerCase() + ')</p>';
 				   
 				   		var extrainfo = '<div class="extrainfos">';
