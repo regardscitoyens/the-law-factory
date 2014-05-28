@@ -50,8 +50,10 @@ h1,h2,h3,h4 {
 .introjs-tooltip ul {
     padding: 15px;
 }
-+.introjs-nextbutton, .introjs-nextbutton:hover, .introjs-nextbutton:focus {
+.introjs-nextbutton, .introjs-nextbutton:hover, .introjs-nextbutton:focus, .introjs-prevbutton, .introjs-nextbutton:hover, .introjs-nextbutton:focus {
     color: #716259;
+    border-left: 1px solid #d4d4d4;
+    border-radius: .2em .2em .2em .2em;
 }
 .introjs-tooltip .glyphicon {
     margin-right: 7px;
@@ -62,7 +64,7 @@ h1,h2,h3,h4 {
     color: gray !important;
 }
 
-.introjs-skipbutton, .introjs-disabled {
+.introjs-disabled {
     display: none;
 }
 
@@ -1763,11 +1765,4 @@ h4.about {
     color: #716259;
     text-decoration: underline;
     opacity: 0.7;
-}
-.introjs-prevbutton {
-    border-left: 1px solid #d4d4d4;
-}
-.introjs-nextbutton,
-.introjs-prevbutton {
-    border-radius: .2em .2em .2em .2em;
 }
