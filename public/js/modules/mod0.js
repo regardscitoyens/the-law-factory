@@ -784,8 +784,8 @@ var drawGantt, utils,
 						
 						
 									/* Badge for evolution of law volume */ 
-				
-						var volumeEvo = d.input_text_length2 ? 0: Math.round(100*((d.output_text_length2-d.input_text_length2)/(d.input_text_length2+0.0)))
+			
+						var volumeEvo = d.input_text_length2 ? Math.round(100*((d.output_text_length2-d.input_text_length2)/(d.input_text_length2+0.0))) : 0;
 						extrainfo += '<li>';
 							extrainfo += '<div class="badge badge-tlf">'
 								extrainfo += '<div class="badge-prefix">'+volumeEvo+'%</div>';
@@ -817,7 +817,7 @@ var drawGantt, utils,
 									/* Badge for modification of law */ 
 						extrainfo += '<li>';
 							extrainfo += '<div class="badge badge-tlf">'
-								extrainfo += '<div class="badge-prefix">'+Math.round(d.ratio_texte_modif)+'%</div>';
+								extrainfo += '<div class="badge-prefix">'+Math.round(100*d.ratio_texte_modif)+'%</div>';
 								extrainfo += '<div class="badge-icon icon-balance"'
 								extrainfo += 'data-toggle="tooltip" title="Taux de modification du texte originel" data-placement="bottom" data-original-title="Taux de modification du texte original"';
                                 extrainfo += '></div>';
