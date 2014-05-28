@@ -380,6 +380,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                         showStepNumbers: false,
                         nextLabel:  "suite...",
                         prevLabel:  "...retour",
+                        skipLabel:  "quitter ce tutoriel",
                         doneLabel:  "quitter ce tutoriel",
                     });
                     introjs.onbeforechange(function(e) {
