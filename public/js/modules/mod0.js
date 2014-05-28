@@ -763,32 +763,31 @@ var drawGantt, utils,
 								extrainfo += '<div class="badge-prefix">'+(d.total_amendements?d.total_amendements:'0')+'</div>';
 								extrainfo += '<div class="badge-icon icon-AmD"></div>';
 							extrainfo += '</div>';
-						extrainfo += '<h7>Amendements Déposés</h7>'
+						extrainfo += '<h7>Amdts Déposés </h7>'
 						extrainfo += '</li>';
 						
 						/* Badge for Parlamentaries Amendments adopted */ 
 				
-						var tauxSuccesAmdt = Math.round(100 * (d.total_amendements_adoptes/(d.total_amendements+0.0)))
+                        
+						var tauxSuccesAmdt = d.total_amendements == 0 ? 0 : Math.round(100 * (d.total_amendements_adoptes/(d.total_amendements+0.0))) ;
 						extrainfo += '<li>';
 							extrainfo += '<div class="badge badge-tlf">'
 								extrainfo += '<div class="badge-prefix">'+tauxSuccesAmdt+'%</div>';
 								extrainfo += '<div class="badge-icon icon-AmPA"></div>';
-									//extrainfo += '<img src="./img/echarpe_parl_icon.png" class="badge-echarpe" />';
-								extrainfo += '</div>';
 							extrainfo += '</div>';
-						extrainfo += '<h7>Taux d\'adoption des Amendements</h7>'
+						extrainfo += '<h7>  Adoption Amdts </h7>'
 						extrainfo += '</li>';
 						
 						
 									/* Badge for evolution of law volume */ 
 				
-						var volumeEvo = Math.round(100*((d.output_text_length-d.input_text_length)/(d.input_text_length+0.0)))
+						var volumeEvo = d.input_text_length2 ? 0: Math.round(100*((d.output_text_length2-d.input_text_length2)/(d.input_text_length2+0.0)))
 						extrainfo += '<li>';
 							extrainfo += '<div class="badge badge-tlf">'
 								extrainfo += '<div class="badge-prefix">'+volumeEvo+'%</div>';
 								extrainfo += '<div class="badge-icon icon-balance"></div>';
 							extrainfo += '</div>';
-						extrainfo += '<h7>Evolution du volume de texte</h7>'
+						extrainfo += '<h7>Evol. volume</h7>'
 						extrainfo += '</li>';
 						
 									/* Badge for modification of law */ 
@@ -798,14 +797,14 @@ var drawGantt, utils,
 								extrainfo += '<div class="badge-prefix">'+Math.round(d.ratio_texte_modif)+'%</div>';
 								extrainfo += '<div class="badge-icon ">%</div>';
 							extrainfo += '</div>';
-						extrainfo += '<h7>Modification du texte</h7>'
+						extrainfo += '<h7>Modif. du texte</h7>'
 						extrainfo += '</li>';
 						
-						*/
+						
 						
 							/* Badge for incidents in process */ 
 				
-						
+					/*	
 						extrainfo += '<li>';
 							extrainfo += '<div class="badge badge-tlf">'
 								extrainfo += '<div class="badge-prefix">30</div>';
@@ -813,7 +812,7 @@ var drawGantt, utils,
 							extrainfo += '</div>';
 						extrainfo += '<h7>Amendements Parlementaires adoptés</h7>'
 						extrainfo += '</li>';
-						
+					*/	
 
             
 							/* Badge for duration of legislative process */ 
@@ -830,7 +829,7 @@ var drawGantt, utils,
  
                         var mots=(Math.round(d.total_mots / 1000. ) + "" ).replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;").replace(/^0/, '');
 												
-						extrainfo += '<li>';
+						extrainfo += '<li class="last">';
 							extrainfo += '<div class="badge badge-tlf">'
 								extrainfo += '<div class="badge-prefix">'+mots+' 000</div>';
 								extrainfo += '<div class="badge-icon icon-QO"></div>';

@@ -1623,18 +1623,25 @@ background: url('img/echarpe_parl_icon.png') no-repeat scroll center top transpa
 					top: 0;
 				}
 			.badges-list{
-			margin-top: 20px;
+                margin-top: 30px;
+                margin-bottom: 30px;
 				width: 100%;
 				padding: 0;
 			}
 			.badges-list li{
 			display: inline-block;
+                width: 50%;
+                text-align: center;
 			
 				list-style-type: none;
-				  margin-bottom: 25px;
+				  margin-bottom: 10px;
 			}
+            .badges-list .last{
+                width: 100%;
+            }
 			.badges-list h7 {
 				display: block;
+                font-size: 12px;
 			}
 			.badges-list .badge-icon{
 				line-height: 26px;
