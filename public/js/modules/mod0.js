@@ -792,6 +792,17 @@ var drawGantt, utils,
 						extrainfo += '</li>';
 						*/
 						
+						
+							/* Badge for volume */
+							
+						extrainfo += '<li>';
+							extrainfo += '<div class="badge badge-tlf">'
+								extrainfo += '<div class="badge-prefix">30</div>';
+								extrainfo += '<div class="badge-icon icon-volume-1"></div>';
+							extrainfo += '</div>';
+						extrainfo += '<h7>Evolution du volume</h7>'
+						extrainfo += '</li>';
+						
 							/* Badge for incidents in process */ 
 				
 						
