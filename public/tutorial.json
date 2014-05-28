@@ -1,7 +1,7 @@
 {
     "mod0":{
-        "#gantt":"top = Cette vue panoptique porte sur les débats parlementaires à chaque étape de la procédure législative. @ scrolltop = #gantt , zoom = 0",
-        ".svg.law-bg-first":"bottom = Pour chaque loi s'affiche les différentes étapes du processus législatif @ click = .g-law-first",
+        "#gantt":"top = <b>Vous êtes sur la visualisation Lois</b><br/>Cette vue panoptique porte sur les débats parlementaires à chaque étape de la procédure législative. @ scrolltop = #gantt , zoom = 0",
+        ".svg.g-law-first":"bottom = Pour chaque loi s'affiche les différentes étapes du processus législatif @ click = .law-bg-first",
         ".gotomod .btn":"left = Cliquez sur «Explorez les articles» pour obtenir le détail de la procédure législative de la loi sélectionnée",
         ".text":"left = Lorsque vous cliquez sur une loi, vous trouverez ici des informations relatives à la loi",
         "#menu-display":"bottom = Vous pouvez ordonner les lois par taille ou par date",
@@ -14,17 +14,15 @@
         "#menu-tutorial a":"left = Vous pouvez afficher le tutorial de nouveau en cliquant ici"
     },
     "mod1":{
-        ".main":"right = Cette vue présente l’évolution des articles au fil des étapes législatives. @ scrolltop = #viz",
-        "#stepsbar":"bottom = Les colonnes présentent les étapes successives de lecture et modification du texte: dépôt par le gouvernement et examens à l'Assemblée Nationale et au Sénat, avec l'éventuel examen de la Commission Mixte Paritaire.",
-        ".stb-steps":"top = L’examen d’un projet de loi (PJL: origine gouvernamentale) ou d'une proposition de loi (PPL: origine parlementaire) par une assemblée comporte toujours deux étapes : commission (Com) puis hémicycle (Hém).",
-        ".stb-step.stb-01":"right = À chaque étape, vous pouvez accéder à: <ul><li><span class='glyphicon glyphicon-folder-open'></span> l’ensemble des amendements déposés à cette étape (s'il y en a)</li><li><span class='glyphicon glyphicon-comment'></span>l’ensemble des débats</li><li><span class='glyphicon glyphicon-link'></span>le texte de loi issu de cette étape</li></ul>",
-        ".svg.group-first":"top = Chaque boite correspond à une fraction du texte : chapitre (C), section (S) ou article (A). Plus le texte de l’article est long, plus la boite est grande. Plus la section du texte a été modifiée pendant cette étape, plus la boite est foncée. Les liens en pointillés symbolisent l’évolution du texte au cours de la procédure. Les couleurs dans les boites indiquent que la section du texte vient d’être intégralement créée (vert) ou intégralement supprimé (rouge). @ click = .group-first .article-first",
-        ".text" : "left = En cliquant sur la boite, son contenu et les modifications apportées au texte lors de cette étape s’affichent à droite. Les mots supprimés sont en rouge, les mots ajoutés en vert.",
-        "#text-title":"bottom = Cliquez sur les icones du titre pour voir agrandir la fenêtre, ou pour afficher le texte de l’article à l’issue des modifications",
-        ".menu-display" : "bottom = La <i>vue alignée</i> présente l’évolution d’une section de la loi sur une même ligne. En supprimant les espaces, <i>la vue compacte</i> permet de comparer le taille totale du texte à chaque étape.", 
-        ".links": "bottom = Vous pouvez voir l’ensemble des dossiers législatifs sur les sites de l’Assemblée et du Sénat.",
-        "#menu-back":"bottom = Cliquez ici pour revenir à la chronologie du texte",
-        "#menu-tutorial a":"left = Vous pouvez afficher le tutorial de nouveau en cliquant ici"
+        ".main":"right = <b>Visualisation ARTICLES</b><br/>Cette vue présente l’évolution des articles d'un texte au fil des étapes de la procédure parlementairee. @ scrolltop = #viz",
+        "#stepsbar":"bottom = Chaque colonne représente les étapes successives de discussion et modification du texte : dépôt par le gouvernement ou des parlementaires, examens à l'Assemblée nationale et au Sénat lors des différentes lectures ou « navettes », ainsi que l'éventuel examen en Commission Mixte Paritaire.",
+        ".stb-step.stb-01":"right = À chaque étape, lorsque des données sont disponibles, vous pouvez accéder à : <ul><li><span class='glyphicon glyphicon-folder-open'></span>l’ensemble des amendements déposés à cette étape</li><li><span class='glyphicon glyphicon-comment'></span>les débats parlementaires correspondants</li><li><span class='glyphicon glyphicon-link'></span>le texte de loi intermédiaire publié à cette étape</li></ul>",
+        ".svg.group-first":"right = Chaque boîte représente un article du texte à une étape donnée, éventuellement groupé au sein d'un chapitre (C), section (S), etc.<br/>Plus le texte de l’article est long, plus la boîte est grande. Plus cet article a été modifiée pendant cette étape, plus la boîte est foncée. Les liens en pointillés permettent de retrouver l’évolution du texte au fil de la procédure.<br/>Lorsqu'un article a été introduit ou supprimé lors d'une étape, les couleurs vert ou rouge sur le côté de la boîte l'indique. @ click = .group-first .article-first",
+        ".text" : "left = En cliquant sur la boîte, son contenu et les modifications apportées au texte lors de cette étape s’affichent à droite. Les iajouts au texte sont surlignés en verts et les suppressions en rouge.",
+        "#text-title-div":"left = Cliquez sur les icones du titre pour afficher le texte à l'issue des modifications sans les couleurs ou pour agrandir la fenêtre de texte et naviguer au travers des articles avec les fléches du clavier.",
+        ".menu-display" : "bottom = Avec le menu d'affichage, vous pouvez basculer entre la <i>vue alignée</i>, qui présente l’évolution de chaque section de la loi sur une même ligne, et la <i>vue compacte</i> permettant de comparer le volume total du texte à chaque étape.", 
+        ".alllinks": "bottom = Vous pouvez retrouver toutes les sources de nos données sur les sites du Sénat et de l'Assemblée, ainsi que le texte promulgué sur LégiFrance et les données en OpenData ou sur un répertoire Git.",
+        "#menu-tutorial a":"left = Cliquez ici pour afficher  de nouveau ce tutorial."
     },
     "mod2":{
         "#viz":"right = Cette vue présente les amendements déposés par le gouvernement ou des parlementaires lors d’une étape de la procédure législative",

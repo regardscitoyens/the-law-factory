@@ -37,16 +37,21 @@ h1,h2,h3,h4 {
 /* intro.js tutorial */
 .introjs-tooltip {
     direction: ltr;
+    min-width: 350px;
 }
 .introjs-tooltiptext {
     text-align: left;
     margin: 7px;
+    min-width: 320px;
 }
 .introjs-tooltipbuttons {
     text-align: center;
 }
 .introjs-tooltip ul {
     padding: 15px;
+}
+.introjs-nextbutton {
+    color: #716259;
 }
 .introjs-tooltip .glyphicon {
     margin-right: 7px;
@@ -57,7 +62,9 @@ h1,h2,h3,h4 {
     color: gray !important;
 }
 
-
+.introjs-skipbutton, .introjs-disabled {
+    display: none;
+}
 
 .menu {
   list-style: none;
@@ -167,10 +174,15 @@ body{
 	color: #FFF;
 	line-height: 32px;
 }
+.allinks {
+    min-height: 57px;
+    width: 288px;
+    float:right;
+    padding-top: 4px;
+}
 .title .links {
     width: 144px;
     float: right;
-    padding-top: 4px;
 }
 .title .links a {
 	color: #FFF;

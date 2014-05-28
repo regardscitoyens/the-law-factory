@@ -378,10 +378,9 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                     var introjs = introJs().setOptions({
                         showBullets: false,
                         showStepNumbers: false,
-                        skipLabel: "Sortir",
-                        nextLabel:  "Suivant",
-                        prevLabel:  "Précédent",
-                        doneLabel:  "Terminer",
+                        nextLabel:  "suite...",
+                        prevLabel:  "...retour",
+                        doneLabel:  "quitter ce tutoriel",
                     });
                     introjs.onbeforechange(function(e) {
                         var data_step = $(e).attr('data-step');
@@ -418,7 +417,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                     introjs.start();
                 },
                 function(error){
-                    console.log("could'nt retrieve json tutorial");
+                    console.log("couldn't retrieve json tutorial");
                 }
                 );
             }
