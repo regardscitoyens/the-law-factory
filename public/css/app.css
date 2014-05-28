@@ -50,7 +50,7 @@ h1,h2,h3,h4 {
 .introjs-tooltip ul {
     padding: 15px;
 }
-.introjs-nextbutton {
++.introjs-nextbutton, .introjs-nextbutton:hover, .introjs-nextbutton:focus {
     color: #716259;
 }
 .introjs-tooltip .glyphicon {

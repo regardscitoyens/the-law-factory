@@ -348,7 +348,7 @@ return {
                 }
                 $(".title").html(
                   '<h4 class="law-title"'+leg+'>'+tit+'</h4>' +
-                  '<div class="alllinks"><span class="links">' +
+                  '<div class="allinks"><span class="links">' +
                     (data.url_jo ? '<a href="'+data.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> Loi sur Légifrance</a><br/>' : '') +
                     '<a href="'+scope.APIRootUrl + scope.loi+'/" target="_blank"><span class="glyphicon glyphicon-link"></span> Open Data</a>'+
 	            ' /<a href="http://git.lafabriquedelaloi.fr/parlement/' + scope.loi+'/" target="_blank">Git</a>' +
