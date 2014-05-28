@@ -1,16 +1,13 @@
 {
     "mod0":{
-        "#gantt":"top = <b>Vous êtes sur la visualisation Lois</b><br/>Cette vue panoptique porte sur les débats parlementaires à chaque étape de la procédure législative. @ scrolltop = #gantt , zoom = 0",
-        ".svg.g-law-first":"bottom = Pour chaque loi s'affiche les différentes étapes du processus législatif @ click = .law-bg-first",
-        ".gotomod .btn":"left = Cliquez sur «Explorez les articles» pour obtenir le détail de la procédure législative de la loi sélectionnée",
-        ".text":"left = Lorsque vous cliquez sur une loi, vous trouverez ici des informations relatives à la loi",
-        "#menu-display":"bottom = Vous pouvez ordonner les lois par taille ou par date",
-        "#menu-sort":"bottom = Trier par nombre d'amendement, date de promulgation, ou durée",
-        "#menu-amendments":"bottom = Filtrer par nombre d'amendement",
-        "#menu-years":"bottom = ... par date ...",
-        "#menu-themes":"bottom = ou par thème associé",
+        "#gantt":"top = <b>Vous êtes sur la visualisation des navettes</b><br/>Cette vue panoptique porte sur les débats parlementaires à chaque étape de la procédure législative.<br/>Pour chaque texte s'affiche les différentes étapes du processus législatif dont vous pouvez obtenir des détail au survol de la souris. @ click = .law-bg-first, scrolltop = #gantt , zoom = 0",
+        "#sidebar":"left = Cet encart présente des éléments quantitatifs sur le texte sur lequel vous avez cliqué.<br/>Cliquez sur «&nbsp;<span style='background-color: #716259;color: white;'>Explorez les articles</span>&nbsp;» pour vous rendre sur la visualisation « Articles », qui vous permettra de voir les modifications effectuées sur le texte sélectionné.",
+	"#explore": "left = ",
+        "#menu-display":"bottom = Via ce bouton vous pouvez changer de mode de représentation des textes :<ul><li>la <b>vue chronologique</b> affiche le texte le plus récent en haut et le plus vieux en bas ;</li><li>la <b>vue comparative</b> permet de représenter les textes selon leur durée d'étude ;</li><li>la <b>vue quantitative</b> décrit le détail des étapes parlementaires en les représentants sans les périodes d'interruption parlementaire @ click = #dm-quanti",
+        "#menu-sort":"bottom = Ce menu vous permet de choisir l'ordre des textes présentés",
+        "#menu-left":"bottom = Des filtres par quantité d'amendements, années d'études et thèmes sont proposés",
+        ".labels-sc":"top = Il est également possible de filtrer par durée d'adoption des textes @ click = #dm-time",
         "#menu-zoom":"bottom = Le zoom vous permet d'ajuster l'échelle horizontale de la frise chronologique",
-        ".labels-sc":"top = Il est possible de filtrer par durée d'adoption des textes",
         "#menu-tutorial a":"left = Vous pouvez afficher le tutorial de nouveau en cliquant ici"
     },
     "mod1":{
