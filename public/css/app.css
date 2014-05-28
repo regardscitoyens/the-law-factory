@@ -1616,6 +1616,7 @@ background: url('img/echarpe_parl_icon.png') no-repeat scroll center top transpa
 .icon-QO:before { font-family: 'tlf-icons'; content: '\e804'; } /* '' */
 .icon-balance:before { font-family: 'tlf-icons'; content: '\e806'; } /* '' */
 .icon-warning:before { font-family: 'tlf-icons'; content: '\e807'; } /* '' */
+.icon-volume-1:before { content: '\e809'; font-family } /* '' */
 				.badge-echarpe {
 					height: 32px;
 					left: 12px;
