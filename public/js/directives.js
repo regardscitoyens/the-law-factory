@@ -421,6 +421,18 @@ return {
         }
     }}
 ])
+.directive('about', ['$rootScope', '$location', '$compile',
+function($rootScope, $location, $compile) {
+    return {
+        restrict : 'A',
+        replace : false,
+        templateUrl : 'templates/about.html',
+        controller : function($scope, $element, $attrs) {
+            $rootScope.pageTitle = " À propos | ";
+            $scope.mod="about";
+        }
+    }
+}])
 /*
   Happily ever after. 
   Handle columns resize
