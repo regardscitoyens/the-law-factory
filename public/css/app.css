@@ -1532,6 +1532,9 @@ footer .nav>li>a {
 #home .disclaimer.section-b{
   background: #e1dad5;
 }
+#home .disclaimer.section-b:last-of-type {
+  margin-bottom: 70px;
+}
 
 footer{
     height:32px;
@@ -1766,5 +1769,18 @@ h4.about {
     opacity: 0.7;
 }
 #credits {
-    margin-bottom: 70px;
+  height: 100%;
+  overflow: scroll;
 }
+
+#credits #footer-placeholder{
+  height: 200px; /* :D misterious bug for #home.laws columns*/
+
+}
+#credits ul {
+    margin-top: -15px;
+}
+#credits p:last-of-type {
+    margin-bottom: 100px;
+}
+
