@@ -91,24 +91,20 @@ var drawGantt, utils,
                 return [d[2], d[1], d[0]].join('/');
             },
             popover = function(d) {
-                var ydisp = -100,
                 title = ((d.institution=="assemblee" || d.institution=="senat") && layout == 'q' ? format_title(d.institution) + " — " : "") + format_title(d.step ? d.step : d.stage),
                     div = d3.select(document.createElement("div")).style("width", "100%").attr('class', 'pop0');
                 if (d.stage=="CMP") {
                     div.append("p").html(title);
                     title = format_title(d.stage);
-                    ydisp -= 25;
                 } else if (d.step) {
                     if (d.step == "depot" && d.debats_order != null) {
                         title = "Dépôt — " + d.auteur_depot;
                         div.append("p").html("Pro" + (d.auteur_depot == "Gouvernement" ? "jet" : "position") + " de loi");
                     }
-                    ydisp -= 25;
                 }
                 div.append("p").html('<span class="glyphicon glyphicon-calendar"></span><span> '+french_date(d.date) + (d.enddate && d.enddate != d.date ? " →  "+ french_date(d.enddate) : '')+'</span>');
                 if (d.echec || d.decision) {
                      div.append("p").html((d.echec ? d.echec : d.decision).toUpperCase());
-                     ydisp -= 25;
                 }
                 if ((d.institution=="assemblee" || d.institution=="senat") && d.nb_amendements) {
                     div.append("p").style("vertical-align", "middle").html(d.nb_amendements+" amendement"+(d.nb_amendements > 1 ? 's' : ''));
@@ -117,8 +113,8 @@ var drawGantt, utils,
                     title: title,
                     content: div,
                     placement: "mouse",
-                    gravity: "top",
-                    displacement: [-110, ydisp],
+                    gravity: "bottom",
+                    displacement: [-105, 8],
                     mousemove: true
                 };
             };
@@ -597,8 +593,8 @@ var drawGantt, utils,
                                 title: "Interruption parlementaire",
                                 content: popover_content,
                                 placement: "mouse",
-                                gravity: "top",
-                                displacement: [-110, -75],
+                                gravity: "bottom",
+                                displacement: [-105, 8],
                                 mousemove: true
                             };
                         });
@@ -758,11 +754,10 @@ var drawGantt, utils,
 				   
 				   		var extrainfo = '<div class="extrainfos">';
                     	extrainfo += '<ul class="badges-list">';
-						extrainfo += '<li>';
+                        extrainfo += '<li data-toggle="tooltip" title="Total d\'amendements déposés" data-placement="bottom">';
 							extrainfo += '<div class="badge badge-tlf">';
 								extrainfo += '<div class="badge-prefix">'+(d.total_amendements?d.total_amendements:'0')+'</div>';
 								extrainfo += '<div class="badge-icon icon-AmD" ';
-								extrainfo += 'data-toggle="tooltip" title="Amendements déposés" data-placement="bottom" data-original-title="Amendements déposés"';
 								extrainfo += '></div>';
 							extrainfo += '</div>';
 						extrainfo += '<h7>Amdts Déposés </h7>'
@@ -772,38 +767,35 @@ var drawGantt, utils,
 				
                         
 						var tauxSuccesAmdt = d.total_amendements == 0 ? 0 : Math.round(100 * (d.total_amendements_adoptes/(d.total_amendements+0.0))) ;
-						extrainfo += '<li>';
+                        extrainfo += '<li data-toggle="tooltip" title="Taux d\'adoption des amendements" data-placement="bottom">';
 							extrainfo += '<div class="badge badge-tlf">';
 								extrainfo += '<div class="badge-prefix">'+tauxSuccesAmdt+'%</div>';
 								extrainfo += '<div class="badge-icon icon-AmPA"';
-								extrainfo += 'data-toggle="tooltip" title="Taux d\'adoption des amendements" data-placement="bottom" data-original-title="Taux d\'adoption de amendements"';
                                 extrainfo += '></div>';
 							extrainfo += '</div>';
-						extrainfo += '<h7>  Adoption Amdts </h7>';
+						extrainfo += '<h7>Amdts Adoptés</h7>';
 						extrainfo += '</li>';
 						
 						
 									/* Badge for evolution of law volume */ 
 			
 						var volumeEvo = d.input_text_length2 ? Math.round(100*((d.output_text_length2-d.input_text_length2)/(d.input_text_length2+0.0))) : 0;
-						extrainfo += '<li>';
+                        extrainfo += '<li data-toggle="tooltip" title="Taux d\'évolution de la taille globale du texte de loi en nombre de caractères" data-placement="bottom">';
 							extrainfo += '<div class="badge badge-tlf">'
-								extrainfo += '<div class="badge-prefix">'+volumeEvo+'%</div>';
+								extrainfo += '<div class="badge-prefix">'+(volumeEvo > 0 ? "+" : "")+volumeEvo+'%</div>';
 								extrainfo += '<div class="badge-icon icon-volume-1"'
-								extrainfo += 'data-toggle="tooltip" title="Evolution volumétrique du projet de loi" data-placement="bottom" data-original-title="Evolution volumétrique du projet de loi"';
                                 extrainfo += '></div>';
 							extrainfo += '</div>';
-						extrainfo += '<h7>Evol. volume</h7>'
+						extrainfo += '<h7>Taille du texte</h7>'
 						extrainfo += '</li>';
 						
 			/*Badge Nelson*/			
 							/* Badge for volume */
 				/*			
-						extrainfo += '<li>';
+                        extrainfo += '<li data-toggle="tooltip" title="Evolution volumétrique du projet de loi" data-placement="bottom">';
 							extrainfo += '<div class="badge badge-tlf">'
 								extrainfo += '<div class="badge-prefix">30</div>';
 								extrainfo += '<div class="badge-icon icon-volume-1"'
-								extrainfo += 'data-toggle="tooltip" title="Evolution volumétrique du projet de loi" data-placement="bottom" data-original-title="Evolution volumétrique du projet de loi"';
 
 								extrainfo += '></div>';
 							extrainfo += '</div>';
@@ -815,11 +807,10 @@ var drawGantt, utils,
 							/* Badge for incidents in process */ 
 				
 									/* Badge for modification of law */ 
-						extrainfo += '<li>';
+                        extrainfo += '<li data-toggle="tooltip" title="Taux de modification du texte originel" data-placement="bottom">';
 							extrainfo += '<div class="badge badge-tlf">'
 								extrainfo += '<div class="badge-prefix">'+Math.round(100*d.ratio_texte_modif)+'%</div>';
 								extrainfo += '<div class="badge-icon icon-balance"'
-								extrainfo += 'data-toggle="tooltip" title="Taux de modification du texte originel" data-placement="bottom" data-original-title="Taux de modification du texte original"';
                                 extrainfo += '></div>';
 							extrainfo += '</div>';
 						extrainfo += '<h7>Modif. du texte</h7>'
@@ -829,11 +820,10 @@ var drawGantt, utils,
 						
 							/* Badge for incidents in process */ 
 				
-						/*extrainfo += '<li>';
+                        /*extrainfo += '<li data-toggle="tooltip" title="Incidents" data-placement="bottom">'
 							extrainfo += '<div class="badge badge-tlf">'
 								extrainfo += '<div class="badge-prefix">30</div>';
 								extrainfo += '<div class="badge-icon icon-warning"'
-								extrainfo += 'data-toggle="tooltip" title="Incidents" data-placement="bottom" data-original-title="Incidents"'
 								extrainfo += '></div>';
 							extrainfo += '</div>';
 			
@@ -852,11 +842,10 @@ var drawGantt, utils,
  
                         var mots=(Math.round(d.total_mots / 1000. ) + "" ).replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;").replace(/^0/, '');
 												
-						extrainfo += '<li class="last">';
+                        extrainfo += '<li class="last" data-toggle="tooltip" title="Total de mots prononcés durant les débats parlementaires" data-placement="bottom">'
 							extrainfo += '<div class="badge badge-tlf">'
 								extrainfo += '<div class="badge-prefix">'+mots+' 000</div>';
 								extrainfo += '<div class="badge-icon icon-QO"' 
-								extrainfo += 'data-toggle="tooltip" title="Mots prononcés durant les débats" data-placement="bottom" data-original-title="Mots prononcés durant les débats"'
 								extrainfo += '></div>';
 							extrainfo += '</div>';
 						extrainfo += '<h7>Mots en Débats</h7>'
@@ -875,6 +864,8 @@ var drawGantt, utils,
 								extrainfo += '<a href="'+d.url_dossier_senat+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a> &nbsp; &nbsp; ';
 								extrainfo += '<a href="'+d.url_dossier_assemblee+'" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Assemblée</a>';
 								extrainfo += d.url_jo ? '<br/><a href="'+d.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur Légifrance</a>' : '';
+								extrainfo += ' &nbsp; &nbsp; <a href="'+utils.APIRootUrl + d.id+'/" target="_blank"><span class="glyphicon glyphicon-link"></span> OpenData</a>';
+	                            extrainfo += ' / <a href="http://git.lafabriquedelaloi.fr/parlement/' + d.id +'/" target="_blank">Git</a>';
                             extrainfo += '</small>';
                         extrainfo += '</p>';
                         extrainfo += '</div>';
@@ -882,7 +873,7 @@ var drawGantt, utils,
 						textContent += extrainfo;
               
                     $(".text-container").empty().html(textContent);
-                    $('.badge-icon').tooltip();
+                    $('.badges-list li').tooltip();
                     $("a.badge").tooltip();
                 }
 
@@ -924,10 +915,10 @@ var drawGantt, utils,
                                     plural = (e.value > 1 ? 's' : '');
                                 popover_content.append('p').html(active_filters['length'] == e.key ? 'Supprimer le filtre' : 'Cliquer pour filtrer sur ces textes');
                                 return {
-                                    title: e.value+' texte'+plural+' adopté'+plural+' en '+label.replace(/&nbsp;/, ' '),
+                                    title: e.value+' texte'+plural+' adopté'+plural+' en '+label.replace(/&nbsp;/g, ' '),
                                     content: popover_content,
                                     placement: "mouse",
-                                    displacement: [-113, -90],
+                                    displacement: [-120, -95],
                                     gravity: "top",
                                     mousemove: true};
                             });

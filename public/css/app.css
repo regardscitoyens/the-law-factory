@@ -1209,7 +1209,6 @@ noscript h2 {
     border-right-color: #FFF !important;
 }
 .mod0 .text .tooltip {
-    border: 1px solid #dad1cb;
     opacity: 1;
 }
 .badge{
@@ -1670,10 +1669,10 @@ background: url('img/echarpe_parl_icon.png') no-repeat scroll center top transpa
 					background-color: #716259;
 					color: #FFF;
 					float: left;
+                    opacity: 0.6;
 				}
 					.badge.badge-tlf{
 					
-						opacity: 0.6;
 						background: none;
 						background: #FFF;
 						
