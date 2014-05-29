@@ -1766,3 +1766,6 @@ h4.about {
     text-decoration: underline;
     opacity: 0.7;
 }
+#credits {
+    margin-bottom: 70px;
+}
