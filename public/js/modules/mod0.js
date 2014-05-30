@@ -158,7 +158,7 @@ var drawGantt, utils,
                     lscale.domain([mindate, maxdate]);
                     d3.selectAll(".tick").attr("x1",function(d){return lscale(d)*z}).attr("x2",function(d){return lscale(d)*z});
                     d3.selectAll(".tick-lbl").attr("x", function (d) { return lscale(d) * z; });
-                    rat = Math.ceil(3 * maxduration / width / width_ratio);
+                    rat = Math.ceil(4 * maxduration / width / width_ratio);
                     d3.selectAll(".tick-lbl").style("opacity",function(d,i){
                         return (i % Math.round(tickpresence(rat)(z))==0 && lscale(d) + 60/z < width ? 1 : 0);
                     });
@@ -166,7 +166,7 @@ var drawGantt, utils,
                 } else {
                     d3.selectAll(".tick").attr("x1",function(d){return tscale(d)*z}).attr("x2",function(d){return tscale(d)*z});
                     d3.selectAll(".tick-lbl").attr("x", function (d) { return tscale(d) * z; });
-                    rat = Math.ceil(3 * maxduration / width / width_ratio);
+                    rat = Math.ceil(4 * maxduration / width / width_ratio);
                     d3.selectAll(".tick-lbl").style("opacity",function(d,i){
                         return (i % Math.round(tickpresence(rat)(z))==0 && tscale(d) + 60/z < width ? 1 : 0);
                     });
