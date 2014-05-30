@@ -150,23 +150,13 @@ function(api, $rootScope, $location, $compile) {
                     zooming(ui.value);
                 }
             })
-            var mod0 = thelawfactory.mod0(),
-                synced = false;
-
-
-            scope.$on('MAIN_CTRL_START_TUTORIAL', function(event, mass) {
-              if(!synced)
-                return;
-
-              scope.toggleTutorial(true);
-            });
+            var mod0 = thelawfactory.mod0();
 
             function update() {
                 scope.startSpinner();
                 api.getDossiers().then(function(data) {
                   d3.select(element[0]).datum(data).call(mod0);
-                    synced = true;
-                    // scope.showFirstTimeTutorial();
+                  scope.showFirstTimeTutorial();
                 }, function(error) {
                     scope.display_error("impossible de trouver les données relatives aux textes");
                 })

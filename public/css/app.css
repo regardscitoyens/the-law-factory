@@ -1360,6 +1360,9 @@ footer .navbar-nav{
     margin: 12px 4px;
     padding: 0px 8px;
 }
+#backtoall {
+    cursor: pointer;
+}
 footer .nav>li>a {
     margin: 0px 10px;
     padding: 3px;

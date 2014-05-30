@@ -14,12 +14,15 @@ var drawGantt, utils,
   shortMonths: ["Janv.", "Fév.", "Mars", "Avril", "Mai", "Juin", "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc."]
 }),
   allAmendments = ["Tout nb d'amendements", 'Aucun amendement', 'Moins de 50 amendements', 'Plus de 50 amendements'],
-  active_filters = {
+  active_filters,
+  reset_filters = function() {
+    active_filters = {
         year: 2013,
         theme: "",
         length: '',
         amendments: allAmendments[3]
-    },
+    };
+  },
     refreshLengthFilter = function(){
         if (active_filters['length'])
             $(".bar-step #mois_"+active_filters['length']).addClass('filtered_month');
@@ -34,6 +37,7 @@ var drawGantt, utils,
         active_filters = {year: "", theme: "", length: "", amendments: ""}
     refreshLengthFilter();
     };
+reset_filters();
 
 (function () {
 
@@ -190,6 +194,11 @@ var drawGantt, utils,
                     setTimeout(computeFilters, 50);
                     if (!action) action = utils.action;
                     if (!action) action = 'time';
+                    if (action == 'reset') {
+                        utils.loi = null;
+                        reset_filters();
+                        action = 'filter';
+                    }
                     utils.startSpinner();
                     $("#gantt svg").animate({opacity: 0}, 200, function() {
                         updateGantt(action);

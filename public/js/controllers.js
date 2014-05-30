@@ -408,18 +408,14 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                             }
                         });
                     });
-                    introjs.onexit(function() {
+                    var exit_introjs = function() {
                         $('.div-over-svg').remove();
                         $(window).scrollTop(0);
                         $scope.tutorial = false;
                         localStorage.setItem("tuto-"+$scope.mod, "done");
-                    });
-                    introjs.oncomplete(function() {
-                        $('.div-over-svg').remove();
-                        $(window).scrollTop(0);
-                        $scope.tutorial = false;
-                        localStorage.setItem("tuto-"+$scope.mod, "done");
-                    });
+                    };
+                    introjs.onexit(exit_introjs);
+                    introjs.oncomplete(exit_introjs);
                     introjs.start();
                 },
                 function(error){
