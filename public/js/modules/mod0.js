@@ -779,7 +779,7 @@ var drawGantt, utils,
 						
 									/* Badge for evolution of law volume */ 
 			
-						var volumeEvo = d.input_text_length2 ? Math.round(100*((d.output_text_length2-d.input_text_length2)/(d.input_text_length2+0.0))) : 0;
+						var volumeEvo = d.input_text_length2 ? utils.goodRound(100*((d.output_text_length2-d.input_text_length2)/(d.input_text_length2+0.0))) : 0;
                         extrainfo += '<li data-toggle="tooltip" title="Taux d\'évolution de la taille globale du texte de loi en nombre de caractères" data-placement="bottom">';
 							extrainfo += '<div class="badge badge-tlf">'
 								extrainfo += '<div class="badge-prefix">'+(volumeEvo > 0 ? "+" : "")+volumeEvo+'&nbsp;%</div>';
@@ -809,7 +809,7 @@ var drawGantt, utils,
 									/* Badge for modification of law */ 
                         extrainfo += '<li data-toggle="tooltip" title="Taux de modification du texte originel" data-placement="bottom">';
 							extrainfo += '<div class="badge badge-tlf">'
-								extrainfo += '<div class="badge-prefix">'+Math.round(100*d.ratio_texte_modif)+'&nbsp;%</div>';
+								extrainfo += '<div class="badge-prefix">'+utils.goodRound(100*d.ratio_texte_modif)+'&nbsp;%</div>';
 								extrainfo += '<div class="badge-icon icon-balance"'
                                 extrainfo += '></div>';
 							extrainfo += '</div>';
