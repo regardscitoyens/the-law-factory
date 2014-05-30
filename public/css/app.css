@@ -1362,6 +1362,7 @@ footer .navbar-nav{
 }
 footer .nav>li>a {
     margin: 0px 10px;
+    padding: 3px;
 }
 #header-nav, footer {
     font-size: 13px;
