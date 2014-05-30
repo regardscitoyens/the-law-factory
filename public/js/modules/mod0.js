@@ -769,7 +769,7 @@ var drawGantt, utils,
 						var tauxSuccesAmdt = d.total_amendements == 0 ? 0 : utils.goodRound(100 * (d.total_amendements_adoptes/(d.total_amendements+0.0))) ;
                         extrainfo += '<li data-toggle="tooltip" title="Taux d\'adoption des amendements" data-placement="bottom">';
 							extrainfo += '<div class="badge badge-tlf">';
-								extrainfo += '<div class="badge-prefix">'+tauxSuccesAmdt+' %</div>';
+								extrainfo += '<div class="badge-prefix">'+tauxSuccesAmdt+'&nbsp;%</div>';
 								extrainfo += '<div class="badge-icon icon-AmPA"';
                                 extrainfo += '></div>';
 							extrainfo += '</div>';
@@ -782,7 +782,7 @@ var drawGantt, utils,
 						var volumeEvo = d.input_text_length2 ? Math.round(100*((d.output_text_length2-d.input_text_length2)/(d.input_text_length2+0.0))) : 0;
                         extrainfo += '<li data-toggle="tooltip" title="Taux d\'évolution de la taille globale du texte de loi en nombre de caractères" data-placement="bottom">';
 							extrainfo += '<div class="badge badge-tlf">'
-								extrainfo += '<div class="badge-prefix">'+(volumeEvo > 0 ? "+" : "")+volumeEvo+' %</div>';
+								extrainfo += '<div class="badge-prefix">'+(volumeEvo > 0 ? "+" : "")+volumeEvo+'&nbsp;%</div>';
 								extrainfo += '<div class="badge-icon icon-volume-1"'
                                 extrainfo += '></div>';
 							extrainfo += '</div>';
@@ -809,7 +809,7 @@ var drawGantt, utils,
 									/* Badge for modification of law */ 
                         extrainfo += '<li data-toggle="tooltip" title="Taux de modification du texte originel" data-placement="bottom">';
 							extrainfo += '<div class="badge badge-tlf">'
-								extrainfo += '<div class="badge-prefix">'+Math.round(100*d.ratio_texte_modif)+' %</div>';
+								extrainfo += '<div class="badge-prefix">'+Math.round(100*d.ratio_texte_modif)+'&nbsp;%</div>';
 								extrainfo += '<div class="badge-icon icon-balance"'
                                 extrainfo += '></div>';
 							extrainfo += '</div>';
