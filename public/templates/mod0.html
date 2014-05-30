@@ -4,14 +4,15 @@
     <div class="container-fluid">
       <ul id="menu-left" class="nav navbar-nav">
 	<li id="backtoall" class="active viewonelaw" style="display: none;"><a href="lois.html">&lt; Tous les textes</a></li>
-	<li id="menu-display" class="dropdown">
-          <span class="dropdown-toggle" data-toggle="dropdown">Vue <span class="selectedchoice">chronologique</span> <b class="caret"></b></span>
-            <ul class="dropdown-menu" id="display_menu">
-              <li><a id="dm-time" class="chosen" onclick="drawGantt('time')">chronologique</a></li>
-              <li><a id="dm-absolute" onclick="drawGantt('absolute')">comparative</a></li>
-              <li><a id="dm-quanti" onclick="drawGantt('quanti')">quantitative</a></li>
-          </ul>
-        </li>        
+    <li id="menu-display" class="dropdown">
+      <span id="display_content">
+      <span id="display_value" class="dropdown-toggle" data-toggle="dropdown">Vue <span class="selectedchoice">chronologique</span> <b class="caret"></b></span></span>
+      <ul class="dropdown-menu" id="display_menu">
+        <li><a id="dm-time" class="chosen" onclick="drawGantt('time')">chronologique</a></li>
+        <li><a id="dm-absolute" onclick="drawGantt('absolute')">comparative</a></li>
+        <li><a id="dm-quanti" onclick="drawGantt('quanti')">quantitative</a></li>
+      </ul>
+    </li>
 	<li id="menu-empty" class="viewonelaw" style="display: none;">&nbsp;</li>
 	<li class="dropdown noviewonelaw" id="menu-sort">
           <span class="dropdown-toggle disabled" data-toggle="dropdown">Trié par <span class="selectedchoice">date</span> <b class="caret"></b></span>

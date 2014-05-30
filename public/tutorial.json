@@ -1,14 +1,15 @@
 {
     "mod0":{
-        "#gantt":"top = <b>Vous êtes sur la visualisation «&nbsp;Navettes&nbsp;»</b><br/>Cette vue panoptique porte sur les débats parlementaires à chaque étape de la procédure législative.<br/>Pour chaque texte s'affichent les différentes étapes du processus législatif dont vous pouvez obtenir des détail au survol de la souris. @ click = .law-bg-first, scrolltop = #gantt , zoom = 0",
-        "#sidebar":"left = Cet encart présente des éléments quantitatifs sur le texte sur lequel vous avez cliqué.<br/>Cliquez sur «&nbsp;<span style='background-color: #716259;color: white;'>Explorez les articles</span>&nbsp;» pour vous rendre sur la visualisation «&nbsp;Articles&nbsp;», qui vous permettra de voir les modifications effectuées sur le texte sélectionné.",
-	"#explore": "left = ",
-        "#menu-display":"bottom = Cliquez sur ce bouton vous pouvez changer de mode de représentation des textes&nbsp;:<ul><li>la <b>vue chronologique</b> affiche le texte le plus récent en haut et le plus vieux en bas&nbsp;;</li><li>la <b>vue comparative</b> permet de représenter les textes selon leur durée d'étude&nbsp;;</li><li>la <b>vue quantitative</b> décrit le détail des étapes parlementaires en les représentant sans les périodes d'interruptions parlementaires.</li></ul> @ click = #dm-quanti",
-        "#menu-sort":"bottom = Cliquez sur ce menu pour choisir l'ordre dans lequel les textes sont présentés.",
-        "#menu-left":"bottom = Des filtres par nombre d'amendements, année d'étude et thème sont proposés.",
-        ".labels-sc":"top = Il est également possible de filtrer par la durée d'adoption des textes. @ click = #dm-time",
+        "#gantt":"right = <b>Vous êtes sur la visualisation «&nbsp;Navettes&nbsp;»</b><br/>Cette vue panoptique porte sur les débats parlementaires à chaque étape de la procédure législative.<br/>Pour chaque texte s'affichent les différentes étapes du processus législatif pour lesquelles vous pouvez obtenir des détails au survol de la souris. @ scrolltop = #gantt , zoom = 0",
+        "#sidebar":"left = En cliquant sur un texte, vous pouvez consulter dans cet encart différentes informations et éléments quantitatifs sur celui-ci.<br/>Cliquez sur le bouton «&nbsp;<span style='background-color: #716259;color: white; padding: 3px;'>Explorez les articles</span>&nbsp;» pour vous rendre sur la visualisation «&nbsp;Articles&nbsp;», qui vous permettra d'explorer les modifications effectuées sur ce texte. @ click = .g-law-first",
+        "#menu-display":"right = Cliquez sur ce bouton pour changer de mode de représentation des textes&nbsp;:<ul><li>la <u><b>vue chronologique</b></u> affiche le texte le plus récent en haut et le plus vieux en bas&nbsp;;</li><li>...</li></ul> @ click #menu-display",
+        "#display_content":"right = Cliquez sur ce bouton pour changer de mode de représentation des textes&nbsp;:<ul><li>la <b>vue chronologique</b> affiche le texte le plus récent en haut et le plus vieux en bas&nbsp;;</li><li>la <u><b>vue comparative</b></u> permet de représenter les textes selon leur durée d'étude&nbsp;;</li><li>...</li></ul> @ click = #dm-absolute",
+        "#display_value":"right = Cliquez sur ce bouton pour changer de mode de représentation des textes&nbsp;:<ul><li>la <b>vue chronologique</b> affiche le texte le plus récent en haut et le plus vieux en bas&nbsp;;</li><li>la <b>vue comparative</b> permet de représenter les textes selon leur durée d'étude&nbsp;;</li><li>la <u><b>vue quantitative</b></u> décrit le détail des étapes parlementaires en les représentant sans les périodes d'interruptions parlementaires.</li></ul> @ click = #dm-quanti",
+        "#menu-sort":"bottom = Cliquez sur ce menu pour choisir l'ordre dans lequel les textes sont présentés. @ click = #dm-date",
+        "#menu-left":"bottom = Recherchez des textes spécifiques en utilisant les filtres par nombre d'amendements, par année d'étude ou par thème.",
+        ".labels-sc":"top = Il est également possible de filtrer par la durée d'adoption des textes en cliquant sur l'histogramme du bas. @ click = #dm-time",
         "#menu-zoom":"bottom = Le zoom vous permet d'ajuster l'échelle horizontale de la frise chronologique.",
-        "#menu-tutorial a":"left = Vous pouvez afficher le tutorial de nouveau en cliquant ici."
+        "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutorial."
     },
     "mod1":{
         ".main":"right = <b>Vous êtes sur la visualisation «&nbsp;Articles&nbsp; »</b><br/>Cette vue présente l’évolution des articles d'un texte au fil des étapes de la procédure parlementaire. @ scrolltop = #viz",

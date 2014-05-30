@@ -525,7 +525,7 @@ var drawGantt, utils,
                         maxduration = Math.max(maxduration, d.total_days);
                         stats[get_stat_bin(d.total_days)]++;
                     });
-                    setTimeout(drawStats, 50);
+                    drawStats();
                     if (smallset.length == 0) {
                         ganttcontainer.attr(minheight).attr("width", width);
                         legendcontainer.attr("width", width);
@@ -576,14 +576,12 @@ var drawGantt, utils,
                         .on("click", onclick);
 
 
-                    var bool = true;
                     //single law background rectangle
                     if (layout != "q") laws.append("rect")
                         .attr("x", function (d) { return tscale(format.parse(d.beginning)); })
                         .attr("y", 28)
                         .attr("width", function (d) { return Math.max(0, tscale(format.parse(d.end)) - tscale(format.parse(d.beginning))); })
                         .attr("class", "law-bg")
-                        .classed("law-bg-first", function() {if(bool) {bool = false; return true;} else {return false;}})
                         .attr("height", steph)
                         .attr("opacity", 0.3).style("fill", "#d8d1c9")
                         .popover(function(d){
