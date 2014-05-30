@@ -1271,10 +1271,6 @@ noscript h2 {
 	background: #716259;
 	color: #FFF;
 }
-.popover.gantt h3 {
-    background-color: #FFF !important;
-    color: #716259 !important;
-}
 .popover.CMP h3{
 	border-bottom: 7px solid rgb(231,221,158);
 }

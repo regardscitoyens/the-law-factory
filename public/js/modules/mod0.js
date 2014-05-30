@@ -598,26 +598,23 @@ var drawGantt, utils,
                                 mousemove: true
                             };
                         });
-                        $(".law-bg").hover(function(d) {$('.popover').addClass("gantt IP")}, function() {$('.popover').removeClass("IP")});
+                        $(".law-bg").hover(function(d) {$('.popover').addClass("IP")});
 
                     //addsingle law steps
-                    steps = laws.append("g")
+                    laws.append("g")
                         .attr("class", "steps")
                         .selectAll("step")
                         .data(function (d) { d.steps = d[layout === 'q' ? 'quantisteps' : 'timesteps'] ; return d.steps.filter(function(d, i){ return i == 0 || layout != "q" || d.step != "depot";} ); })
                         .enter()
-                        .append("g")
-                        .attr("class", "g-step")
-                        .popover(popover);
-                        $(".steps").hover(function(d) {$('.popover').addClass("gantt "+color_step(d.target.__data__))}, function(d) {$('.popover').removeClass(color_step(d.target.__data__))});
-
-                    steps.append("rect")
+                        .append("rect")
                         .attr("class", color_step)
                         .classed('step', true)
                         .attr("x", function (e) { return tscale(scaled_date_val(e)); })
                         .attr("y", 28)
                         .attr("width", getQLwidth)
-                        .attr("height", steph);
+                        .attr("height", steph)
+                        .popover(popover);
+                        $(".step").hover(function(d) {$('.popover').addClass(color_step(d.target.__data__))});
 
                     //add labels
                     ganttcontainer.selectAll(".law-name")
@@ -671,12 +668,18 @@ var drawGantt, utils,
                                     .attr("x", d.qx + 3)
                                     .attr("y", 38+j*9)
                                     .attr("dx", 5)
-                                    .text(d.stepname[j])
-                                    .popover(popover);
+                                    .text(d.stepname[j]);
                             }
-                    
+                            d3.select(this).append("rect")
+                                .attr("class", "step-lbl-r")
+                                .style("fill", "transparent")
+                                .attr("x", d.qx)
+                                .attr("y", 28)
+                                .attr("width", d.qw)
+                                .attr("height", steph)
+                                .popover(popover);
                         });
-                    $(".lbls").hover(function(d) {$('.popover').addClass("gantt "+color_step(d.target.__data__))}, function(d) {$('.popover').removeClass(color_step(d.target.__data__))});
+                    $(".step-lbl-r").hover(function(d) {$('.popover').addClass(color_step(d.target.__data__))});
                 }
 
 
