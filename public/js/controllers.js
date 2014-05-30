@@ -304,6 +304,14 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
 			    .classed("actv-amd",false);
         }
         
+        
+        $scope.goodRound = function(n){
+	       if(n < 1){
+		     return parseFloat(n).toFixed(2)
+	       }else{
+		       return parseInt(n);
+	       }
+        }
         /**
          * Draw a div over the jQuery node passed as argument
          *
