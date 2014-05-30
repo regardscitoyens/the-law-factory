@@ -751,6 +751,7 @@ var drawGantt, utils,
                     textContent += '<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + '</p>';
                     textContent += '<div class="gotomod"><a id="explore" class="btn btn-info" href="articles.html?loi=' + d.id + '">Explorer les articles</a></div>'
                     if (d.procedure != "Normale") textContent += '<p>(' + d.procedure.toLowerCase() + ')</p>';
+                    d.steps.forEach(function(e){if (e.decision==="partiellement conforme") textContent += '<p>(censure partielle par le Conseil Constitutionnel)</p>';});
 				   
 				   		var extrainfo = '<div class="extrainfos">';
                     	extrainfo += '<ul class="badges-list">';
