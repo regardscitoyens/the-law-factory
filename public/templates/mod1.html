@@ -5,7 +5,7 @@
       <ul id="menu-left" class="nav navbar-nav">
 	     <li class="active" id="menu-back"><a ng-href="lois.html?loi={{loi}}">&lt; Voir la chronologie du texte</a></li>
 	     <li id="menu-display" class="dropdown">
-          <span class="dropdown-toggle" data-toggle="dropdown">Vue <span class="selectedchoice">alignée</span> <b class="caret"></b></span>
+          <span id="menu-value" class="dropdown-toggle" data-toggle="dropdown">Vue <span class="selectedchoice">alignée</span> <b class="caret"></b></span>
             <ul class="dropdown-menu" id="display_menu">
 	      <li><a id="dm-aligned" class="chosen" onclick="valign()">alignée</a></li>
 	      <li><a id="dm-stacked" onclick="stacked()">compacte</a></li>
@@ -36,20 +36,18 @@
 		</div>
 
 		<div class="text" id="guide">
-         <div id="text-title-div">
           <div id="readMode">
-			<div ng-hide="read" class="interactive readMode" ng-click="readmode()" data-toggle="tooltip" title="Déployer le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-left"></span></div>
-			<div ng-show="read" class="interactive readMode" ng-click="viewmode()" data-toggle="tooltip" title="Replier le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-right"></div>
+			<div id="openread" ng-hide="read" class="interactive readMode" ng-click="readmode()" data-toggle="tooltip" title="Déployer le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-left"></span></div>
+			<div id="closeread" ng-show="read" class="interactive readMode" ng-click="viewmode()" data-toggle="tooltip" title="Replier le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-right"></div>
           </div>
 
           <div id="revsMode">
-			<div ng-show="revs" class="interactive revsMode" ng-click="hiderevs()"  data-toggle="tooltip" title="Cacher les modifications" data-placement="bottom" data-original-title="Cacher les modifications"><span  class="glyphicon glyphicon glyphicon-check"> </span></div>
+			<div ng-show="revs" class="interactive revsMode" ng-click="hiderevs()"  data-toggle="tooltip" title="Cacher les modifications" data-placement="bottom" data-original-title="Cacher les modifications"><span class="glyphicon glyphicon glyphicon-check"> </span></div>
 
             <div ng-hide="revs" class="interactive revsMode" ng-click="showrevs()" data-toggle="tooltip" title="Afficher les modifications" data-placement="bottom" data-original-title="Afficher les modifications"><span class="glyphicon glyphicon glyphicon-edit"></span></div>
           </div>
 
 			<h4 id="text-title">Sélectionner un article</h4>
-          </div>
 			<div class="text-container">
 				<div class="art-meta"></div>
                 <div id="load_art"></div>

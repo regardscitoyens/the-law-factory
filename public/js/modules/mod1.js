@@ -298,7 +298,7 @@ var valign, stacked, utils, aligned = true;
 				}
             var drawArticles = function() {
 
-                var firstmade = false; // to class the first article which has a rect (for tuto)
+                var firstmade = false, firstamade = false; // to class the first article which has a rect (for tuto)
 
 				//init coordinates
                 utils.setMod1Size();
@@ -329,12 +329,14 @@ var valign, stacked, utils, aligned = true;
 						.enter().append("rect")
 						.attr("x", function(d){return d.x})
 						.attr("y", function(d){return d.y})
-						.attr("class","article")
 						.attr("width", colwidth)
 						.attr("height", function(d){return lerp(d.length)})
+					    .attr("class", function(d) {
+						    return "article " + d.section.replace(/ |<|\/|>|/g,"") + " sect" + findStage(d.id_step)
+					})
+                        .classed('article-first', function(d,j){ if (!firstamade && st>2 && d.n_diff && d.status != "new") { firstamade = true; return true; }; return false;})
 						.call(styleRect)
 						.on("click",onclick)
-                        .classed("article-first", function(d, i) {return (i == 0);})
 						.popover(article_hover);
 
 						//Add green labels for new elements
@@ -451,6 +453,9 @@ var valign, stacked, utils, aligned = true;
 					}
 				}
 
+                if (!firstamade)
+                    d3.select('rect.article').classed("article-first", true);
+
 				//Add connections
 				var lines = svg.append("g").selectAll("line").data(bigList.filter(function(d) {
 					a = d3.selectAll(".article").filter(function(e){
@@ -475,12 +480,11 @@ var valign, stacked, utils, aligned = true;
                 //======================
 				//rect style function
 				function styleRect(d){
-					d.attr("class", function(d) {
-						return "article " + d.section.replace(/ |<|\/|>|/g,"") + " sect" + findStage(d.id_step)
-					})
-					.style("stroke","#d0d0e0")
-					.style("stroke-width", 1).style("stroke-dasharray", "none").style("fill", function(d) {
-						return (d.status == 'sup' || d.id_step.substr(-5) === "depot" || d.n_diff == 0 ? '#fff' : diffcolor(d.n_diff));
+					d.style("stroke","#d0d0e0")
+					.style("stroke-width", 1)
+                    .style("stroke-dasharray", "none")
+                    .style("fill", function(f) {
+						return (!f || f.status == 'sup' || f.id_step.substr(-5) === "depot" || f.n_diff == 0 ? '#fff' : diffcolor(f.n_diff));
 					});
 				}
 
@@ -530,6 +534,7 @@ var valign, stacked, utils, aligned = true;
 				d3.select("body").on("keydown", function() {
                     var c = (d3.select(".curr")),
                         sel, elm;
+                    if (utils.tutorial) return;
                     if (c.empty()) return;
                     cur = c.datum();
 
@@ -655,7 +660,6 @@ var valign, stacked, utils, aligned = true;
 
 				//on click behaviour
 				function onclick(d) {
-
                     var spin = !d.originalText || (!d.textDiff && d.prev_dir && (d.status == "sup" || d.n_diff) && d.id_step.substr(-5) != "depot");
                     if (spin) utils.startSpinner('load_art');
                     d3.selectAll("line").style("stroke", "#d0d0e0")
@@ -667,16 +671,15 @@ var valign, stacked, utils, aligned = true;
                     d3.select(this).classed("curr", true);
 
                     //Select the elements in same group
-                    d3.selectAll(".article").filter(function(e){return e.article==d.article})
-					.style("stroke", "#333344").style("stroke-width", 1).style("fill", function(d) {
+                    d3.selectAll(".article").filter(function(e){return e && d && e.article==d.article})
+					.style("stroke", "#333344").style("stroke-width", 1).style("fill", function() {
                         hsl = d3.rgb(d3.select(this).style("fill")).hsl()
                         hsl.s += 0.1;
                         return hsl.rgb()
                     }).style("stroke-dasharray", [3, 3]);
                     d3.select(this).style("stroke-dasharray", "none");
-
                     d3.selectAll("line")
-                    .filter(function(e){return e.article==d.article})
+                    .filter(function(e){return e && d && e.article==d.article})
 					.style("stroke", "#333344")
                     .style("stroke-dasharray", [3, 3]);
 

@@ -442,8 +442,8 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                                 case 'click' :
                                     $(action[1]).css('opacity', 1);
                                     try {
-                                        $(action[1]).click();
                                         $(action[1]).d3Click();
+                                        $(action[1]).click();
                                         $(action[1])[0].click();
                                     } catch(e) {}
                                     break;

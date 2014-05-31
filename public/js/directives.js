@@ -58,7 +58,7 @@ function(api, $rootScope, $location, $compile) {
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Articles | ";
                     d3.select(element[0]).datum(data).call(mod1);
                     scope.stopSpinner();
-                    // scope.showFirstTimeTutorial();
+                    scope.showFirstTimeTutorial();
                 }, function(error) {
                     scope.display_error("impossible de trouver les articles de ce texte");
                 })
@@ -338,10 +338,10 @@ return {
                 }
                 $(".title").html(
                   '<h4 class="law-title"'+leg+'>'+tit+'</h4>' +
-                  '<div class="allinks"><span class="links">' +
-                    (data.url_jo ? '<a href="'+data.url_jo+'" target="_blank"><span class="glyphicon glyphicon-link"></span> Loi sur Légifrance</a><br/>' : '') +
-                    '<a href="'+scope.APIRootUrl + scope.loi+'/" target="_blank"><span class="glyphicon glyphicon-link"></span> Open Data</a>'+
-	            ' / <a href="http://git.lafabriquedelaloi.fr/parlement/' + scope.loi+'/" target="_blank">Git</a>' +
+                  '<div class="allinks darkonintrojs"><span class="links">' +
+                    (data.url_jo ? '<a href="'+data.url_jo+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Loi sur Légifrance</a><br/>' : '') +
+                    '<a href="'+scope.APIRootUrl + scope.loi+'/" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Open Data</a>'+
+	            '&nbsp; /<a href="http://git.lafabriquedelaloi.fr/parlement/' + scope.loi+'/" target="_blank" class="darkonintrojs">Git</a>' +
                   '</span><span class="links">' +
                     '<a href="'+data.url_dossier_senat+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a><br/>' +
                     '<a href="'+data.url_dossier_assemblee+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Assemblée</a>' +

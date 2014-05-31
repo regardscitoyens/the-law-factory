@@ -61,7 +61,7 @@ h1,h2,h3,h4 {
 .introjs-showElement.darkonintrojs,
 .introjs-showElement .darkonintrojs,
 .introjs-showElement .darkonintrojs span {
-    color: gray !important;
+    color: #716259 !important;
 }
 
 .introjs-disabled {
@@ -1241,6 +1241,9 @@ noscript h2 {
   display: none;
   width: 10%;
   height: 100%:
+}
+#openread {
+  background-color: #716259;
 }
 .readMode {
   background-color: #716259;
