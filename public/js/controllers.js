@@ -332,9 +332,8 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                 firstXForm = xforms.getItem(i);
                 i++;
                 if (firstXForm.type == SVGTransform.SVG_TRANSFORM_TRANSLATE)
-                firstXForm = xforms.getItem(0);
-                return [firstXForm.matrix.e,
-                        firstXForm.matrix.f];
+                    return [firstXForm.matrix.e,
+                            firstXForm.matrix.f];
             }
             return [0, 0];
         }
