@@ -88,12 +88,12 @@ function(api, $rootScope, $location, $compile) {
                     scope.data = data;
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Amendements | ";
                     d3.select(element[0]).datum(data).call(mod2);
+                    scope.showFirstTimeTutorial();
                 }, function(error) {
                     scope.display_error("impossible de trouver les amendements pour ce texte à cette étape");
                 });
             }
             update();
-            scope.showFirstTimeTutorial();
         }
     }
 }])
@@ -119,13 +119,13 @@ function(api, $rootScope, $location, $compile) {
                         scope.data = data;
                         $rootScope.pageTitle =  $rootScope.lawTitle + " - Débats | ";
                         init(data, scope.etape);
+                        scope.showFirstTimeTutorial();
                     }, function(error) {
                         scope.display_error("impossible de trouver les interventions pour ce texte à cette étape");
                     })
                 }
             }
             update();
-            scope.showFirstTimeTutorial();
         }
     };
 }])

@@ -378,7 +378,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                     $(this).attr('y', y - bbox.y);
                 });
             } else {
-                console.log("Weird tag given on element: ", oElement.prop('tagName'));
+                console.log("Weird tag given on element: ", oElement, oElement.prop('tagName'));
             }
             var sElementClass = sElementClass.replace('.', '') + '-div';
             var node = '<div class="' + sElementClass + ' div-over-svg" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"><svg id="introsvg"></svg></div>';
@@ -393,8 +393,8 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         }
 
         /////////////////////////////////////////////////////////////
-        $scope.toggleTutorial = function(show) {
-            if(!$scope.tutorial && show) {
+        $scope.toggleTutorial = function() {
+            if(!$scope.tutorial) {
                 $scope.tutorial = true;
                 api.getTutorials().then(function(data){
                     var tuto = data[$scope.mod];
@@ -472,7 +472,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
 
         $scope.showFirstTimeTutorial = function() {
             if(!localStorage.getItem("tuto-"+$scope.mod) || localStorage.getItem("tuto-"+$scope.mod)!="done")
-                $scope.toggleTutorial(true);
+                $scope.toggleTutorial();
         }
     }
 );

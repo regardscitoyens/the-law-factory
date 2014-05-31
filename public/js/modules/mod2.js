@@ -126,19 +126,17 @@ var utils, highlight;
             if (merged == undefined) merged = grouped;
             $('#menu-display .selectedchoice').text(merged ? 'groupée' : 'par articles');
             utils.startSpinner();
-            $("svg").animate({opacity: 0}, 50, function() {
-                $("svg").empty();
-                $(".text-container").empty();
-                jumpLines=0;
-                (merged ? drawMerged() : draw());
-                var a = d3.select("svg").select("g:last-child").attr("data-offset"),
-                   ah = d3.select("svg").select("g:last-child").node().getBBox().height;
-                svg.attr("height",Math.max(minheight, z+parseInt(a)+ah));
-                if (utils.article!=null)
-                    selectRow(utils.article, true);
-                utils.stopSpinner(function() {
-                    $("svg").animate({opacity: 1}, 50);
-                });
+            $("svg").empty();
+            $(".text-container").empty();
+            jumpLines=0;
+            (merged ? drawMerged() : draw());
+            var a = d3.select("svg").select("g:last-child").attr("data-offset"),
+               ah = d3.select("svg").select("g:last-child").node().getBBox().height;
+            svg.attr("height",Math.max(minheight, z+parseInt(a)+ah));
+            if (utils.article!=null)
+                selectRow(utils.article, true);
+            utils.stopSpinner(function() {
+                $("svg").animate({opacity: 1}, 50);
             });
         }
 
