@@ -125,7 +125,7 @@ function(api, $rootScope, $location, $compile) {
                 }
             }
             update();
-            // scope.showFirstTimeTutorial();
+            scope.showFirstTimeTutorial();
         }
     };
 }])

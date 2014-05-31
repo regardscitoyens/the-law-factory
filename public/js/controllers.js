@@ -304,12 +304,41 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                 .style("stroke","none")
 			    .classed("actv-amd",false);
         }
-        
+
         $scope.goodRound = function(n){
 	       if(n && Math.abs(n) < 1)
 		     return parseFloat(n).toFixed(2).replace('.', ',');
            return parseInt(n);
         }
+
+        $scope.getSVGScale = function(t) {
+            t = t[0];
+            var xforms = t.transform.animVal,
+                firstXForm, i = 0;
+            while (i < xforms.numberOfItems) {
+                firstXForm = xforms.getItem(i);
+                i++;
+                if (firstXForm.type == SVGTransform.SVG_TRANSFORM_SCALE)
+                    return [firstXForm.matrix.a,
+                            firstXForm.matrix.d];
+            }
+            return [1, 1];
+        }
+        $scope.getSVGTranslate = function(t) {
+            t = t[0];
+            var xforms = t.transform.baseVal,
+                firstXForm, i = 0;
+            while (i < xforms.numberOfItems) {
+                firstXForm = xforms.getItem(i);
+                i++;
+                if (firstXForm.type == SVGTransform.SVG_TRANSFORM_TRANSLATE)
+                firstXForm = xforms.getItem(0);
+                return [firstXForm.matrix.e,
+                        firstXForm.matrix.f];
+            }
+            return [0, 0];
+        }
+ 
         /**
          * Draw a div over the jQuery node passed as argument
          *
@@ -319,12 +348,20 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.drawDivOverElement = function(oElement, sElementClass) {
             var selk = $scope.mod=="mod0" ? '#gantt' : '#viz';
             if(oElement.prop('tagName') == 'rect') {
-                var oNewElement = oElement.parent().clone(true);
-                oNewElement.find('rect').each(function() { $(this).attr('y', 0); var t = $(this).attr('x'); $(this).attr('x', t - 481); });
-                var width = oElement.attr('width');
-                var height = oElement.attr('height');
-                var top = $(selk).offset().top + parseInt(oElement.attr('y'));
-                var left = $(selk).offset().left + parseInt(oElement.attr('x'));
+                var oNewElement = oElement.clone(true);
+                oNewElement.attr('x', 0).attr('y', 0).attr('style', oElement.parent().attr('style'));
+                var scale0 = $scope.getSVGScale(oElement.parent());
+                var scale1 = $scope.getSVGScale(oElement.parent().parent());
+                var trans0 = $scope.getSVGTranslate(oElement.parent());
+                var trans1 = $scope.getSVGTranslate(oElement.parent().parent());
+                var width = oElement.attr('width') * scale0[0] * scale1[0];
+                var height = oElement.attr('height') * scale0[1] * scale1[1];
+                var left = $(selk).offset().left +
+                    parseInt(oElement.attr('x')) * scale0[0] * scale1[0] +
+                    trans0[0] + trans1[0];
+                var top = $(selk).offset().top +
+                    parseInt(oElement.attr('y')) * scale0[1] * scale1[1] +
+                    trans0[1] + trans1[1];
             } else if(oElement.prop('tagName') == 'g') {
                 var oNewElement = oElement.clone(true);
                 var width = d3.select(sElementClass)[0][0].getBBox().width;
@@ -338,7 +375,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                     $(this).attr('y', y - parseInt(height)/2);
                 });
             } else {
-                console.log("Weird tag given on element: ", oElement.prop('tagName'));
                 console.log("Weird tag given on element: ", oElement.prop('tagName'));
             }
             var sElementClass = sElementClass.replace('.', '') + '-div';
@@ -398,7 +434,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                             var action = value.split(' = ');
                             switch(action[0]) {
                                 case 'scrolltop' :
-                                    // $(action[1]).scrollTop(0);
+                                    $(action[1]).scrollTop(0);
                                     break;
                                 case 'click' :
                                     $(action[1]).d3Click();

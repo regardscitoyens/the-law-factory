@@ -285,18 +285,16 @@ sven.viz.streamkey = function(){
             .attr("class", function(d) { return utils.slugGroup(d.category)})
             .attr("y", function(d) { return x(d.x); })
             .attr("x", function(d) { return y(d.y0 + d.y); })
-            //.attr("rx", "3px")
-            //.attr("ry", "3px")
             .style("opacity",.9)
             .style("stroke-width",1)
             .style("stroke",function(d){return d.color.darker().toString()})
             .attr("width", function(d) { return y(d.y0) - y(d.y0 + d.y); })
-            .classed("rect-first", function(d) {
-                if(!firstmade && (y(d.y0) - y(d.y0 + d.y) > 50)) {
+            .classed("rect-first", function(d, j) {
+                if(!firstmade && j < 4 && (y(d.y0) - y(d.y0 + d.y) > 50)) {
                     firstmade = true;
                     return true;
-                } else
-                    return false;
+                }
+                return false;
             })
             .attr("height", barWidth)
             .attr("cursor", "pointer")

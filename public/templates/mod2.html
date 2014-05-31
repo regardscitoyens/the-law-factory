@@ -5,7 +5,7 @@
       <ul id="menu-left" class="nav navbar-nav">
 	<li class="active" id="menu-back"><a ng-href="articles.html?loi={{loi}}">&lt; Voir les articles du texte</a></li>
 	<li id="menu-display" class="dropdown">
-          <span class="dropdown-toggle" data-toggle="dropdown">Vue <span class="selectedchoice">par articles</span> <b class="caret"></b></span>
+          <span id="menu-value" class="dropdown-toggle" data-toggle="dropdown">Vue <span class="selectedchoice">par articles</span> <b class="caret"></b></span>
 	  <ul class="dropdown-menu" role="menu" id="display_menu">
 	    <li><a id="dm-draw" class="chosen" onclick="redraw(false)">par articles</a></li>
 	    <li><a id="dm-merged" onclick="redraw(true)">groupée</a></li>
