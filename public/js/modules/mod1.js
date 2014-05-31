@@ -713,11 +713,11 @@ var valign, stacked, utils, aligned = true;
                             var waitload = setInterval(function() {
                               if (!utils.to_load) {
 
-                                if (textArticles[d.article][d.directory]) {
+                                if (textArticles[d.article][d.directory] && d.status != "sup") {
                                     d.originalText = '<ul class="originaltext"><li><'+balise+'>' + $.map(textArticles[d.article][d.directory], function(i) {
                                     return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
                                                 }).join("</"+balise+"></li><li><"+balise+">") + "</"+balise+"></li></ul>";
-                                }else d.originalText = "<p><b>Article supprimé à cette étapge</b></p><p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
+                                }else d.originalText = "<p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
 
                                 if (textArticles[d.article][d.prev_dir]) {
                                     var dmp = new diff_match_patch();
