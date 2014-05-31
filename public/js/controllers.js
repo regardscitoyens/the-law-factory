@@ -245,15 +245,16 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.groups = {};
 
 	    $scope.drawGroupsLegend = function() {
-            var col, type, oncl;
+            var col, type, oncl, ct = 0;
             d3.entries($scope.groups)
             .sort(function(a,b) { return a.value.order - b.value.order; })
             .forEach(function(d) {
                 col = $scope.adjustColor(d.value.color);
                 type = (d.value.link !== "" ? 'colors' : 'others');
                 oncl = ' onclick="highlight(\''+d.key+'\');" title="'+d.value.nom+'" data-toggle="tooltip" data-placement="left">';
-               $("."+type).append('<div class="leg-item"><div class="leg-value" style="background-color:'+col+'"' + oncl + '</div>' +
+               $("."+type).append('<div class="leg-item"><div '+(ct == 3 ? ' id="tuto-legend"' : '')+'class="leg-value" style="background-color:'+col+'"' + oncl + '</div>' +
                     '<div class="leg-key"' + oncl + d.key + '</div></div>');
+                ct++;
 			});
             $(".leg-value").tooltip();
             $(".leg-key").tooltip();
@@ -334,17 +335,16 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                     var x = $(this).attr('x');
                     $(this).attr('x', x - d3.select(sElementClass)[0][0].getBBox().x);
                     var y = $(this).attr('y');
-                    $(this).attr('y', y - parseInt(height));
+                    $(this).attr('y', y - parseInt(height)/2);
                 });
             } else {
                 console.log("Weird tag given on element: ", oElement.prop('tagName'));
                 console.log("Weird tag given on element: ", oElement.prop('tagName'));
             }
             var sElementClass = sElementClass.replace('.', '') + '-div';
-            var outte = oNewElement && oNewElement[0] ? oNewElement[0].outerHTML : '';
-            var node = '<div class="' + sElementClass + ' div-over-svg" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"><svg>' + outte + '</svg></div>';
-            // console.log(node);
+            var node = '<div class="' + sElementClass + ' div-over-svg" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"><svg id="introsvg"></svg></div>';
             $('body').append(node);
+            $("#introsvg").append(oNewElement);
             return '.' + sElementClass;
         }
 
@@ -389,6 +389,9 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                         doneLabel:  "quitter ce tutoriel",
                     });
                     introjs.onbeforechange(function(e) {
+                        if ($(e).hasClass('div-over-svg')) 
+                            $('.div-over-svg').show();
+                        else $('.div-over-svg').hide();
                         var data_step = $(e).attr('data-step');
                         var acts = actions[data_step].split(' , ');
                         $.each(acts, function(index, value) {
@@ -400,6 +403,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                                 case 'click' :
                                     $(action[1]).d3Click();
                                     $(action[1]).click();
+                                    try { $(action[1])[0].click(); } catch(e) {}
                                     $(action[1]).css('opacity', 1);
                                     break;
                                 case 'zoom' :

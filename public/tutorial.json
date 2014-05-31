@@ -23,19 +23,19 @@
         "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutorial."
     },
     "mod2":{
-        "#viz":"top = <b>Vous êtes sur le visualisation «&nbsp;Amendements&nbsp;»</b><br/>Cette vue présente les amendements déposés par le gouvernement et les parlementaires lors d’une étape donnée de la procédure législative.",
-        ".svg.first-art":"bottom = Chaque carré coloré représente un amendement. Sa couleur indique le groupe politique de ses auteurs et un pictogramme indique si l'amendement a été adopté, rejeté, ou non-voté (redondant, abandonné, irrecevable…).",
-        ".legend":"top = La légende présente les différents groupes parlementaires ayant proposé les amendements, ainsi que les différents sorts finaux. Il est possible de cliquer sur un groupe ou un statut pour filtrer dynamiquement l'affichage.",
-        "#viz":"top = En cliquant sur un carré, toutes les informations relatives à cet amendement s’affichent à droite : date, signataire(s), sort, exposé et détails des propositions de modification du texte. @click #vizou",
-        "#menu-display":"bottom = Cliquez ici pour basculer la vue d'un mode trié par sujet des amendements à un mode groupé affichant l'ensemble des amendements. @ click #dm-merged",
-        "#menu-order":"bottom = Le menu de tri permet d'alterner entre un tri regroupant les amendements d'abord par groupe politique ou par sort finale. @ click #do-stat",
-        "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutorial."
+        "#viz":"right = <b>Vous êtes sur la visualisation «&nbsp;Amendements&nbsp;»</b><br/>Cette vue présente les amendements déposés par le gouvernement et les parlementaires lors d’une étape donnée de la procédure législative.",
+        ".svg.first-art-s":"bottom = Chaque carré coloré représente un amendement. Sa couleur indique le groupe politique de ses auteurs et un pictogramme indique si l'amendement a été adopté, rejeté, ou non-voté (redondant, abandonné, irrecevable…).",
+        ".text":"left = En cliquant sur un carré, toutes les informations relatives à cet amendement s’affichent à droite : date, signataire(s), sort, exposé et détails des propositions de modification du texte. @ click = .first-art",
+        ".legend":"top = La légende présente les différents groupes parlementaires ayant proposé les amendements, ainsi que les différents sorts finaux. Il est possible de cliquer sur un groupe ou un statut pour filtrer dynamiquement l'affichage. @ click = #tuto-legend",
+        "#menu-display":"bottom = Cliquez ici pour basculer la vue d'un mode trié par sujet des amendements à un mode groupé affichant l'ensemble des amendements. @ click = #dm-merged",
+        "#menu-order":"bottom = Le menu de tri permet d'alterner entre un tri regroupant les amendements d'abord par groupe politique ou par sort finale. @ click = #do-stat",
+        "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutorial. @ click = #dm-draw"
     },
     "mod2b":{
-        "#viz":"top = <b>Vous êtes sur la visualisation «&nbsp;Débats&nbsp;»</b><br/>Cette vue présente les discussions parlementaires à une étape donnée de la procédure législative. Plus on descend dans la page, plus on progresse dans la discussion des réunions de commissions et des séances en hémicycle consacrées à l'examen du texte.",
+        "#viz":"right = <b>Vous êtes sur la visualisation «&nbsp;Débats&nbsp;»</b><br/>Cette vue présente les discussions parlementaires à une étape donnée de la procédure législative. Plus on descend dans la page, plus on progresse dans la discussion des réunions de commissions et des séances en hémicycle consacrées à l'examen du texte.",
         ".svg.rect-first":"right = Les rectangles représentent, pour chaque étape, la participation des parlementaires, des ministres et d'éventuels auditionnés lors des discussions. Plus les membres de chacun de ces groupes ont parlé, plus le rectangle correspondant est long.",
         ".legend":"top = La légende présente les différents groupes parlementaires ou fonctions identifiées : présidence des débat (président de séance ou de commission), rapporteurs, membres du gouvernement, auditionnés. Cliquez sur un groupe pour n'afficher que ses interventions.",
-        "#menu-order":"bottom = Cliquez sur ce menu pour basculer l'affichage entre deux modes&nbsp;: <ul><li><i>«&nbsp;échiquier politique&nbsp;»</i>, qui présente toujours dans le même ordre la présidence, puis les groupes, les rapporteurs, le gouvernement et les auditionnés</li><li><i>«&nbsp;quantitatif&nbsp;»</i>, qui trie les groupes à chaque étape par ordre décroissant du nombre de mots prononcés</li></ul> @ click #dm-quanti",
+        "#menu-order":"bottom = Cliquez sur ce menu pour basculer l'affichage entre deux modes&nbsp;: <ul><li><i>«&nbsp;échiquier politique&nbsp;»</i>, qui présente toujours dans le même ordre la présidence, puis les groupes, les rapporteurs, le gouvernement et les auditionnés</li><li><i>«&nbsp;quantitatif&nbsp;»</i>, qui trie les groupes à chaque étape par ordre décroissant du nombre de mots prononcés</li></ul> @ click = #dm-quanti",
         ".text":"left = Cliquez sur un rectangle pour faire apparaître les orateurs de ce groupe (parlementaires ou ministres) intervenus lors de cette phase et classés par ordre décroissant de mots prononcés. On peut cliquer sur les photos des parlementaires pour retrouver leurs pages personnelles sur NosDéputés.fr ou NosSénateurs.fr, ainsi qu'au texte complet des interventions de chacun à cet instant des débats @ click = .rect-first",
         "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutorial."
     }

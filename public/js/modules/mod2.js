@@ -184,7 +184,7 @@ var utils, highlight;
               d.offset = offset;
               var curRow = svg.append("g")
                   .classed(utils.slugArticle(d.titre), true)
-                  .classed("first-art",i==0)
+                  .classed("first-art-s",i==0)
                   .attr("transform", function () {
                       if (!half) return "translate(" + 10 + "," + (i * 20 + i * lineh + 10 + jumpLines * (lineh - 10)) + ")";
                       else {
@@ -253,13 +253,13 @@ var utils, highlight;
                   .data(d.amendements)
                   .enter();
               amds.append("rect")
-                  .attr("x", function (f, i) {
-                      if(multi)  return Math.floor(i / lines) * z + 21;
-                      else return (i % x) * z + 21
+                  .attr("x", function (f, j) {
+                      if(multi)  return Math.floor(j / lines) * z + 21;
+                      else return (j % x) * z + 21
                   })
-                  .attr("y", function (f, i) {
-                      if(multi)  return Math.floor(Math.floor(i / lines) % 2 == 0 ? i % lines : lines - (i % lines) - 1) * z + 21;
-                      return Math.floor(i / x) * z + 21
+                  .attr("y", function (f, j) {
+                      if(multi)  return Math.floor(Math.floor(j / lines) % 2 == 0 ? j % lines : lines - (j % lines) - 1) * z + 21;
+                      return Math.floor(j / x) * z + 21
                   })
                   .attr("width", z - 2)
                   .attr("height", z - 2)
@@ -267,6 +267,7 @@ var utils, highlight;
                       return "a_" + e.numero.replace(/[^a-z\d]/ig, '')
                   })
                   .attr("class", function(e) { return "amd " + utils.slugGroup(e.groupe) + " " + utils.slugGroup(e.sort); })
+                  .classed("first-art",function(f,j){ return i==0 && j==0;})
                   .style("fill", color_amd)
                   .style("opacity", 0.9)
                   .popover(popover)
@@ -277,13 +278,13 @@ var utils, highlight;
                   .data(d.amendements)
                   .enter();
               imgs.append("svg:image")
-                  .attr("x", function (f, i) {
-                      if(multi)  return Math.floor(i / lines) * z + 25;
-                      else return (i % x) * z + 25
+                  .attr("x", function (f, j) {
+                      if(multi)  return Math.floor(j / lines) * z + 25;
+                      else return (j % x) * z + 25
                   })
-                  .attr("y", function (f, i) {
-                      if(multi)  return Math.floor(Math.floor(i / lines) % 2 == 0 ? i % lines : lines - (i % lines) - 1) * z + 25;
-                      return Math.floor(i / x) * z + 25
+                  .attr("y", function (f, j) {
+                      if(multi)  return Math.floor(Math.floor(j / lines) % 2 == 0 ? j % lines : lines - (j % lines) - 1) * z + 25;
+                      return Math.floor(j / x) * z + 25
                   })
                   .attr("width", z - 10)
                   .attr("height", z - 10)
