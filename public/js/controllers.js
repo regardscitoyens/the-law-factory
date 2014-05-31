@@ -364,15 +364,18 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                     trans0[1] + trans1[1];
             } else if(oElement.prop('tagName') == 'g') {
                 var oNewElement = oElement.clone(true);
-                var width = d3.select(sElementClass)[0][0].getBBox().width;
-                var height = d3.select(sElementClass)[0][0].getBBox().height;
+                var bbox = d3.select(sElementClass)[0][0].getBBox();
+                var width = bbox.width;
+                var height = bbox.height;
+                if ($scope.mod == "mod2")
+                    height += 20;
                 var top = $(selk).offset().top + d3.select(sElementClass)[0][0].getBBox().y + parseInt(oElement.attr('data-offset'));
-                var left = $(selk).offset().left + d3.select(sElementClass)[0][0].getBBox().x;
+                var left = $(selk).offset().left + bbox.x;
                 oNewElement.find('*').each(function() {
                     var x = $(this).attr('x');
-                    $(this).attr('x', x - d3.select(sElementClass)[0][0].getBBox().x);
+                    $(this).attr('x', x - bbox.x);
                     var y = $(this).attr('y');
-                    $(this).attr('y', y - parseInt(height)/2);
+                    $(this).attr('y', y - bbox.y);
                 });
             } else {
                 console.log("Weird tag given on element: ", oElement.prop('tagName'));
@@ -437,10 +440,12 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                                     $(action[1]).scrollTop(0);
                                     break;
                                 case 'click' :
-                                    $(action[1]).d3Click();
-                                    $(action[1]).click();
-                                    try { $(action[1])[0].click(); } catch(e) {}
                                     $(action[1]).css('opacity', 1);
+                                    try {
+                                        $(action[1]).click();
+                                        $(action[1]).d3Click();
+                                        $(action[1])[0].click();
+                                    } catch(e) {}
                                     break;
                                 case 'zoom' :
                                     zooming(parseInt(action[1]));

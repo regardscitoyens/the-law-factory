@@ -318,7 +318,7 @@ var valign, stacked, utils, aligned = true;
                         var group = svg.append("g")
                             .attr("class","group se"+se+" st"+st);
                             
-                        if(datarts.length && !firstmade) {
+                        if(datarts.length && !firstmade && st > 1) {
                             firstmade = true;
                             group.classed('group-first', true);
                         }
