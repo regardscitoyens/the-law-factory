@@ -23,6 +23,8 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
     }).
     controller('mainCtrl', function ($scope, $http, apiService, api, $rootScope, $location, API_ROOT_URL) {
 
+        $(".introjs-helperLayer").remove();
+        $(".introjs-overlay").remove();
         $rootScope.APIRootUrl = API_ROOT_URL;
         $scope.APIRootUrl = API_ROOT_URL;
         if ($scope.APIRootUrl.substr(-1) != "/") $scope.APIRootUrl += "/";
