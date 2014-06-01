@@ -53,6 +53,7 @@ h1,h2,h3,h4 {
     color: white;
     padding: 10px;
     font-weight: bold;
+    text-align: center;
 }
 .introjs-tooltip ul {
     padding: 15px;
