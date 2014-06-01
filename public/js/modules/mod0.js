@@ -190,7 +190,7 @@ reset_filters();
                     utils.setMod0Size();
                     utils.setTextContainerHeight();
                     width = parseInt(d3.select("#gantt").style("width")) - 30,
-                    minheight = $("#gantt").height() - 10;
+                    minheight = $("#gantt").height() - 50;
                     setTimeout(computeFilters, 50);
                     if (!action) action = utils.action;
                     if (!action) action = 'time';
@@ -530,7 +530,7 @@ reset_filters();
                     });
                     drawStats();
                     if (smallset.length == 0) {
-                        ganttcontainer.attr(minheight).attr("width", width);
+                        ganttcontainer.attr("height", minheight).attr("width", width);
                         legendcontainer.attr("width", width);
                         return;
                     }
