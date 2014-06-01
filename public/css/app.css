@@ -47,6 +47,13 @@ h1,h2,h3,h4 {
 .introjs-tooltipbuttons {
     text-align: center;
 }
+.introjs-tooltip h6 {
+    font-size: 15px;
+    background-color: #716259;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+}
 .introjs-tooltip ul {
     padding: 15px;
 }
@@ -1488,7 +1495,7 @@ footer .nav>li>a {
     line-height: 22px;
     height: 44px;
     vertical-align: middle;
-    color: #716256;
+    color: #716259;
 }
 #homelinks .laws .stat{
     text-align: center;
@@ -1498,7 +1505,7 @@ footer .nav>li>a {
 
 #homelinks .laws a {
     background: none;
-    color: #716256;
+    color: #716259;
 }
 
 #homelinks .laws a:hover{
