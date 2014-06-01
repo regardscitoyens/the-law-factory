@@ -702,7 +702,7 @@ ul.ui-autocomplete {
 }
 .mod0 #gantt {
 	height:550px;
-	width:95.46%;
+	width:94.86%;
     float: right;
     background-color:white;
     overflow-x:auto;
@@ -716,8 +716,8 @@ ul.ui-autocomplete {
     cursor:move;
 }
 .mod0 #margin{
-    float:left;
-    width:0.3%;
+    float:right;
+    width:0.6%;
     height:100%;
     z-index:0;
     background-color:white;

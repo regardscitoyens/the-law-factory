@@ -200,10 +200,10 @@ reset_filters();
                         action = 'filter';
                     }
                     utils.startSpinner();
-                    $("#gantt svg").animate({opacity: 0}, 200, function() {
+                    $("#gantt svg").animate({opacity: 0}, 100, function() {
                         updateGantt(action);
                         utils.stopSpinner(function() {
-                            $("#gantt svg").animate({opacity: 1}, 500);
+                            $("#gantt svg").animate({opacity: 1}, 100);
                         });
                     });
                 }
@@ -219,7 +219,8 @@ reset_filters();
                         scroll = {scrollTop: "0px", scrollLeft: "0px"};
                     lawscont = ganttcontainer.append("g").attr("class", "laws");
                     grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
-                    $("#legend").height('35px');
+                    $("#legend").height(35);
+                    utils.setMod0Size();
                     if (action == 'time') {
                         layout = "t";
                         zoo = 1;
@@ -245,7 +246,6 @@ reset_filters();
                         $("#display_menu #dm-quanti").addClass('chosen');
                         $("#menu-sort .dropdown-toggle").removeClass('disabled');
                         $("#menu-zoom").css('opacity', 0);
-                        $("#legend").height("0px");
                     }
                     if (action == 'filter') {
                         zoo = 1;
@@ -272,36 +272,30 @@ reset_filters();
                         $("#display_order #do-date").addClass('chosen');
                         sort_function = sortByDate;
                     } else scroll = null;
-		    if (!active_filters['amendments']) {
-			$("#menu-amendments .selectedchoice").text(allAmendments[0]);
-		    }else{
-			$("#menu-amendments .selectedchoice").text(active_filters['amendments']);
-		    }
-		    if (!active_filters['year']) {
-			$("#menu-years .selectedchoice").text(allYears[0]);
-		    }else{
-			$("#menu-years .selectedchoice").text("Étudié en "+active_filters['year']);
-		    }
-		    if (active_filters['theme']) {
-			$("#menu-themes .selectedchoice").text("Thème : "+active_filters['theme']);
-		    }else{
-			$("#menu-themes .selectedchoice").text("Tous les thèmes");
-		    }
+                    if (!active_filters['amendments'])
+                        $("#menu-amendments .selectedchoice").text(allAmendments[0]);
+                    else $("#menu-amendments .selectedchoice").text(active_filters['amendments']);
+                    if (!active_filters['year']) 
+                        $("#menu-years .selectedchoice").text(allYears[0]);
+                    else $("#menu-years .selectedchoice").text("Étudié en "+active_filters['year']);
+                    if (active_filters['theme'])
+                        $("#menu-themes .selectedchoice").text("Thème : "+active_filters['theme']);
+                    else $("#menu-themes .selectedchoice").text("Tous les thèmes");
                     drawLaws();
                     drawAxis();
                     if (layout == "t") {
-			$("#menu-display .selectedchoice").text('chronologique');
-			timePosition();
-		    }
-                    if (layout == "a") {
-			$("#menu-display .selectedchoice").text('comparative');
-			absolutePosition();
-		    }
+                        $("#menu-display .selectedchoice").text('chronologique');
+                        timePosition();
+                    } else if (layout == "a") {
+                        $("#menu-display .selectedchoice").text('comparative');
+                        absolutePosition();
+                    }
                     if (layout == "q") {
-			$("#menu-display .selectedchoice").text('quantitative');
+                        $("#legend").height(0);
+                        utils.setMod0Size();
+                        $("#menu-display .selectedchoice").text('quantitative');
                         quantiPosition();
                         drawLabels();
-                        $("#gantt").height(minheight+35);
                     } else d3.select("#gantt").on("scroll", function (e) {
                         d3.select(".timeline").attr("transform", "translate(-" + $(this).scrollLeft() + ", 0)");
                         d3.selectAll(".law-name").attr("transform", "translate(" + $(this).scrollLeft() + ", 0)");
@@ -929,7 +923,7 @@ reset_filters();
                                     title: e.value+' texte'+plural+' adopté'+plural+' en '+label.replace(/&nbsp;/g, ' '),
                                     content: popover_content,
                                     placement: "mouse",
-                                    displacement: [-120, -95],
+                                    displacement: [-105, -135],
                                     gravity: "top",
                                     mousemove: true};
                             });
