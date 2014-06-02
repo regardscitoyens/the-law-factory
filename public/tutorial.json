@@ -9,7 +9,7 @@
         "#menu-left":"bottom = Recherchez des textes spécifiques en utilisant les filtres par nombre d'amendements, par année d'étude ou par thème.",
         ".labels-sc":"top = Il est également possible de filtrer par la durée d'adoption des textes en cliquant sur l'histogramme du bas. @ click = #dm-time",
         "#menu-zoom":"bottom = Le zoom vous permet d'ajuster l'échelle horizontale de la frise chronologique.",
-        "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutorial."
+        "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutoriel."
     },
     "mod1":{
         ".main":"right = <h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Articles&nbsp;»</h6><i>Vous pouvez quitter ce tutoriel à tout moment en cliquant sur le bouton ci-dessous. Relancez-le en cliquant sur le point d'interrogation en haut à droite.</i><br/><br/>Cette vue présente l’évolution des articles d'un texte au fil des étapes de la procédure parlementaire. @ scrolltop = #viz , click = #closeread",
@@ -20,7 +20,7 @@
         "#menu-display" : "right = Avec le menu d'affichage, vous pouvez basculer entre&nbsp;:<br/><ul><li>la <u><b>vue alignée</b></u>, qui présente l’évolution de chaque section de la loi sur une même ligne</li><li>...</li> @ click = #dm-aligned", 
         "#menu-value" : "right = Avec le menu d'affichage, vous pouvez basculer entre&nbsp;:<br/><ul><li>la <b>vue alignée</b>, qui présente l’évolution de chaque section de la loi sur une même ligne</li><li>la <u><b>vue compacte</b></u>, qui permet de comparer le volume total du texte à chaque étape</li> @ click = #dm-stacked", 
         ".allinks": "left = Vous pouvez retrouver toutes les sources de nos données sur les sites du Sénat et de l'Assemblée, ainsi que le texte promulgué sur LégiFrance et les données en OpenData ou sur un répertoire Git. @ click = #dm-aligned",
-        "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutorial."
+        "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutoriel."
     },
     "mod2":{
         "#viz":"right = <h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Amendements&nbsp;»</h6><i>Vous pouvez quitter ce tutoriel à tout moment en cliquant sur le bouton ci-dessous. Relancez-le en cliquant sur le point d'interrogation en haut à droite.</i><br/><br/>Cette vue présente les amendements déposés par le gouvernement et les parlementaires lors d’une étape donnée de la procédure législative. @ scrolltop = #viz",
@@ -30,7 +30,7 @@
         "#menu-display":"right = Cliquez ici pour basculer entre deux vues&nbsp;:<br/><ul><li><u><b>par articles</b></u> affichant les amendements en fonction de leurs sujets</li><li>...</li></ul> @ click = #dm-draw",
         "#menu-value":"right = Cliquez ici pour basculer entre deux vues&nbsp;:<br/><ul><li><b>par articles</b> affichant les amendements en fonction de leurs sujets</li><li><u><b>groupée</b></u> rassemblant l'ensemble des amendements à cette étape indifféremment de leur sujet</li></ul> @ click = #dm-merged",
         "#menu-order":"right = Le menu de tri permet d'alterner entre un tri regroupant les amendements d'abord par groupe politique ou par sort final.",
-        "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutorial. @ click = #dm-draw"
+        "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutoriel. @ click = #dm-draw"
     },
     "mod2b":{
         "#viz":"right = <h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Débats&nbsp;»</h6><i>Vous pouvez quitter ce tutoriel à tout moment en cliquant sur le bouton ci-dessous. Relancez-le en cliquant sur le point d'interrogation en haut à droite.</i><br/><br/>Cette vue présente les discussions parlementaires à une étape donnée de la procédure législative.<br/>Plus on descend dans la page, plus on progresse dans la discussion des réunions de commissions et des séances en hémicycle consacrées à l'examen du texte. @ scrolltop = #viz",
@@ -39,6 +39,6 @@
         ".legend":"top = La légende présente les différents groupes parlementaires ou fonctions identifiées : présidence des débat (président de séance ou de commission), rapporteurs, membres du gouvernement, auditionnés.<br/>Cliquez sur un groupe pour n'afficher que ses interventions. @ click = #tuto-legend",
         "#menu-order":"right = Cliquez sur ce menu pour basculer l'affichage entre deux modes&nbsp;: <ul><li><u><b>«&nbsp;échiquier politique&nbsp;»</b></u>, qui présente toujours dans le même ordre la présidence, puis les groupes, les rapporteurs, le gouvernement et les auditionnés</li><li>...</li></ul> @ click = #dm-classic",
         "#menu-value":"right = Cliquez sur ce menu pour basculer l'affichage entre deux modes&nbsp;: <ul><li><b>«&nbsp;échiquier politique&nbsp;»</b>, qui présente toujours dans le même ordre la présidence, puis les groupes, les rapporteurs, le gouvernement et les auditionnés</li><li><u><b>«&nbsp;quantitatif&nbsp;»</b></u>, qui trie les groupes à chaque étape par ordre décroissant du nombre de mots prononcés</li></ul> @ click = #dm-quanti",
-        "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutorial. @ click = #dm-classic"
+        "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutoriel. @ click = #dm-classic"
     }
 }
