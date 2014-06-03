@@ -516,7 +516,7 @@ li.dropdown .disabled{
 }
 .dropdown-menu>li>a:hover {
    background-color: #716259;
-    cursor; pointer;
+   cursor: pointer;
 }
 .dropdown-menu li:hover .chosen:before {
    color: white;
