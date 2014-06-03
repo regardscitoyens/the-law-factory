@@ -302,7 +302,7 @@ var valign, stacked, utils, aligned = true;
 
 				//init coordinates
                 utils.setMod1Size();
-                utils.setTextContainerHeight();
+                $(".text-container").empty().html(utils.helpText);
                 prepareSizes();
 				setCoordinates();
 

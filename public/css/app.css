@@ -491,7 +491,8 @@ span.dropdown-toggle {
 #menu-zoom > span { width: 120px; }
 #menu-tutorial { min-width: 25px; width: 20%; text-align: right; list-style-position: inside; cursor: pointer;}
 #menu-tutorial span { margin-right: 0px; padding-right: 0px; }
-#menu-tutorial a {
+#menu-tutorial a,
+.question_mark {
     width: 9px;
     padding: 3px 8px;
     background-color: #716259;

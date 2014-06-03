@@ -121,13 +121,12 @@ var utils, highlight;
         };
         redraw = function(merged) {
             utils.setMod2Size();
-            utils.setTextContainerHeight();
+            $(".text-container").empty().html(utils.helpText);
             readSizes();
             if (merged == undefined) merged = grouped;
             $('#menu-display .selectedchoice').text(merged ? 'groupée' : 'par articles');
             utils.startSpinner();
             $("svg").empty();
-            $(".text-container").empty();
             jumpLines=0;
             (merged ? drawMerged() : draw());
             var a = d3.select("svg").select("g:last-child").attr("data-offset"),

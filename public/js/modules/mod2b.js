@@ -88,7 +88,7 @@ $(window).resize(function(){
 
 function drawFlows(top_ordered) {
     utils.setMod2bSize();
-    utils.setTextContainerHeight();
+    $(".text-container").empty().html(utils.helpText);
     width = $("#viz").width();
     $("#display_menu .chosen").removeClass('chosen');
     $("#display_menu #dm-"+(top_ordered ? 'quanti' : 'classic')).addClass('chosen');
@@ -102,7 +102,6 @@ function drawFlows(top_ordered) {
     if(num*60>=$("#viz").height()) height=num*60;
     else height=$("#viz").height()-50;
     $("#viz-int").empty();
-    $(".text-container").empty();
     var offset = Math.round(width/5);
     var stream = sven.viz.streamkey()
         .data(mydata)

@@ -176,6 +176,8 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
             "cmp": "Commission Mixte Paritaire"
         }
 
+        $scope.helpText = '<p>Pour voir une présentation interactive de cette page, cliquer sur le bouton <span class="question_mark">?</span> ci-dessus.<p>';
+
         $scope.getShortName = function (l) {
             return ($scope.shortNames[$scope.hashName(l)] ? $scope.shortNames[$scope.hashName(l)] : l);
         }
@@ -269,7 +271,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                 if (e.stopPropagation) e.stopPropagation();
             }
             if (!$('.focused')) {
-                $(".text-container").empty();
+                $(".text-container").empty().html($scope.helpText);
                 if ($scope.groups[group]) $("#text-title").html($scope.groups[group].nom);
             }
             $(".legend").on("click", $scope.resetHighlight);
@@ -297,7 +299,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                 d3.selectAll("rect:not(.focused)").transition(50).style("opacity",0.2);
                 d3.selectAll("path:not(.focused)").transition(50).style("fill-opacity",0.2);
             } else {
-                $(".text-container").empty();
+                $(".text-container").empty().html($scope.helpText);
                 $("#text-title").html("Sélectionner un "+(type == "amds" ? "amendement" : "groupe d'orateurs"));
                 d3.selectAll("rect").transition(50).style("opacity",0.9);
                 d3.selectAll("path").transition(50).style("fill-opacity",0.3);

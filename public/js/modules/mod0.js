@@ -255,7 +255,7 @@ reset_filters();
                         if ($("#display_order #do-amds").hasClass('chosen'))
                             action = 'sorta';
                         if (layout == "t") scroll['scrollLeft'] = "100000px";
-                    } else $(".text-container").empty();
+                    } else $(".text-container").empty().html(utils.helpText);
                     if (action == 'sortl') {
 			$("#menu-sort .selectedchoice").text("durée");
                         $("#display_order .chosen").removeClass('chosen');
@@ -738,7 +738,7 @@ reset_filters();
                 function unclick() {
                     $("#text-title").text("Sélectionner un texte");
                     $("#text-title").attr('data-original-title', "").tooltip('fixTitle');
-                    $(".text-container").empty();
+                    $(".text-container").empty().html(utils.helpText);
                     d3.selectAll(".g-law").style("opacity",1);
                 }
 
