@@ -756,7 +756,7 @@ var valign, stacked, utils, aligned = true;
                     setTimeout(load_texte_articles, 50);
                     $(window).resize(function(){
                         if (utils.drawing || utils.mod != "mod1") return;
-                        var selected_art = d3.selectAll(".curr").classed('curr', false);
+                        var selected_art = d3.selectAll(".curr");
                         if (selected_art[0].length) selected_art = selected_art[0][0].id;
                         else selected_art = "";
                         utils.drawing = true;

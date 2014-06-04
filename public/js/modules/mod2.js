@@ -120,8 +120,11 @@ var utils, highlight;
             redraw();
         };
         redraw = function(merged) {
+            var selected_amd = d3.selectAll(".actv-amd");
+            if (selected_amd[0].length) selected_amd = selected_amd[0][0].id;
+            else selected_amd = "";
             utils.setMod2Size();
-            $(".text-container").empty().html(utils.helpText);
+            utils.setTextContainerHeight();
             readSizes();
             if (merged == undefined) merged = grouped;
             $('#menu-display .selectedchoice').text(merged ? 'groupée' : 'par articles');
@@ -136,7 +139,12 @@ var utils, highlight;
                 if (utils.article!=null)
                     selectRow(utils.article, true);
                 utils.stopSpinner(function() {
+                    svg.attr("width",$("#viz").width());
                     $("svg").animate({opacity: 1}, 50);
+                    utils.drawing = true;
+                    setTimeout(utils.setTextContainerHeight, 250);
+                    if (selected_amd) $("#"+selected_amd).d3Click();
+                    utils.drawing = false;
                 });
             });
         }
@@ -294,9 +302,16 @@ var utils, highlight;
 
 		function select(d) {
             d3.event.stopPropagation();
+            if (!utils.drawing) utils.resetHighlight('amds');
+            d3.selectAll("#a_"+d.numero.replace(/[^a-z\d]/ig, ''))
+                .classed("actv-amd", true)
+                .style("opacity", 1)
+                .style("stroke", "#333344")
+                .style("stroke-width", 2);
+            if (utils.drawing) return;
             $("#readMode").show();
-            utils.resetHighlight('amds');
             $("#text-title").text("Amendement "+d.numero);
+            $(".text-container").empty();
             utils.setTextContainerHeight();
             utils.startSpinner('load_amd');
             setTimeout(function(){ d3.json(api_root+d.id_api+'/json',function(error, json){
@@ -320,11 +335,6 @@ var utils, highlight;
                     $('.text-container').scrollTop(0);
                 }, 'load_amd');
             });}, 50);
-            d3.selectAll("#a_"+d.numero.replace(/[^a-z\d]/ig, ''))
-                .classed("actv-amd", true)
-                .style("opacity", 1)
-                .style("stroke", "#333344")
-                .style("stroke-width", 2);
 		}
 
 		function color_amd(d) {
@@ -334,6 +344,7 @@ var utils, highlight;
         }
 
         $(document).ready(function() {
+            $(".text-container").empty().html(utils.helpText);
             utils.drawGroupsLegend();
             $('.readMode').tooltip({ animated: 'fade', placement: 'bottom'});
             if ($(".others div").length) $(".others").append('<div class="leg-item"></div>');
