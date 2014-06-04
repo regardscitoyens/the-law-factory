@@ -744,6 +744,7 @@ var valign, stacked, utils, aligned = true;
                 else stacked();
                 $('.readMode').tooltip({ animated: 'fade', placement: 'bottom'});
                 $('.revsMode').tooltip({ animated: 'fade', placement: 'bottom'});
+                setTimeout(utils.setTextContainerHeight, 500);
             }
 
                 $(document).ready(function() {
