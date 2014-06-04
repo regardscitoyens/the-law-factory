@@ -303,7 +303,7 @@ reset_filters();
                         d3.selectAll(".law-name").attr("transform", "translate(" + $(this).scrollLeft() + ", 0)");
                     });
                     zooming(zoo);
-                    if (scroll) $("#gantt").animate(scroll);
+                    if (scroll && !resize) $("#gantt").animate(scroll);
                 }
 
                 function prepareSteps(steps, id) {
