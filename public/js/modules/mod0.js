@@ -13,6 +13,7 @@ var drawGantt, utils,
   months: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
   shortMonths: ["Janv.", "Fév.", "Mars", "Avril", "Mai", "Juin", "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc."]
 }),
+  selected_bill = "",
   allAmendments = ["Tout nb d'amendements", 'Aucun amendement', 'Moins de 50 amendements', 'Plus de 50 amendements'],
   active_filters,
   reset_filters = function() {
@@ -192,8 +193,6 @@ reset_filters();
                     width = parseInt(d3.select("#gantt").style("width")) - 30,
                     minheight = $("#gantt").height() - 50;
                     setTimeout(computeFilters, 50);
-                    if (!action) action = utils.action;
-                    if (!action) action = 'time';
                     if (action == 'reset') {
                         utils.loi = null;
                         reset_filters();
@@ -212,7 +211,9 @@ reset_filters();
                     $("#gantt svg").empty();
                     $("#legend svg").empty();
                     $("#bars").empty();
-                    unclick();
+                    var resize = (action == "resize");
+                    if (resize) action = "";
+                    else unclick();
 
                     refreshLengthFilter();
                     var zoo = $("#mod0-slider").attr('value'),
@@ -221,6 +222,8 @@ reset_filters();
                     grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
                     $("#legend").height(35);
                     utils.setMod0Size();
+                    if (!action) action = utils.action;
+                    if (!action) action = 'time';
                     if (action == 'time') {
                         layout = "t";
                         zoo = 1;
@@ -255,7 +258,7 @@ reset_filters();
                         if ($("#display_order #do-amds").hasClass('chosen'))
                             action = 'sorta';
                         if (layout == "t") scroll['scrollLeft'] = "100000px";
-                    } else $(".text-container").empty().html(utils.helpText);
+                    }
                     if (action == 'sortl') {
 			$("#menu-sort .selectedchoice").text("durée");
                         $("#display_order .chosen").removeClass('chosen');
@@ -282,6 +285,7 @@ reset_filters();
                         $("#menu-themes .selectedchoice").text("Thème : "+active_filters['theme']);
                     else $("#menu-themes .selectedchoice").text("Tous les thèmes");
                     drawLaws();
+                    if (resize && selected_bill) onclick(selected_bill);
                     drawAxis();
                     if (layout == "t") {
                         $("#menu-display .selectedchoice").text('chronologique');
@@ -736,6 +740,7 @@ reset_filters();
                 }
 
                 function unclick() {
+                    selected_bill = "";
                     $("#text-title").text(utils.vizTitle);
                     $("#text-title").attr('data-original-title', "").tooltip('fixTitle');
                     $(".text-container").empty().html(utils.helpText);
@@ -744,6 +749,7 @@ reset_filters();
 
                 function onclick(d) {
                     if(d3.event) d3.event.stopPropagation();
+                    selected_bill = d;
                     d3.selectAll(".g-law").style("opacity",0.2);
                     d3.select(".g-law."+ d.id).style("opacity",1);
 					
@@ -951,7 +957,7 @@ reset_filters();
                         if (utils.drawing || utils.mod != "mod0") return;
                         utils.drawing = true;
                         setTimeout(function(){
-                            drawGantt();
+                            drawGantt("resize");
                             utils.drawing = false;
                         }, 350);
                     });
