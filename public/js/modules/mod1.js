@@ -575,8 +575,8 @@ var valign, stacked, utils, aligned = true;
 
                     if(sel && !sel.empty()) sel.each(onclick);
                     else if (elm) {
-                        $("#viz").animate({ scrollTop: elm.node().getBBox().y -20 });
-                        elm.each(onclick)
+                        $("#viz").animate({ scrollTop: elm.node().getBBox().y -20 },200);
+                        elm.each(onclick);
                     }
 				});
 
