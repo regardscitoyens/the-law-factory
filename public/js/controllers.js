@@ -177,7 +177,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
             "cmp": "Commission Mixte Paritaire"
         }
 
-        $scope.helpText = '<p>Pour voir une présentation interactive de cette page, cliquer sur le bouton <span class="question_mark">?</span> ci-dessus.<p>';
+        $scope.helpText = '<p id="help-msg">Cliquez sur le bouton <span class="question_mark">?</span> ci-dessus pour voir un tutoriel interactif de cette visualisation.<p>';
 
         $scope.getShortName = function (l) {
             return ($scope.shortNames[$scope.hashName(l)] ? $scope.shortNames[$scope.hashName(l)] : l);

@@ -498,6 +498,7 @@ span.dropdown-toggle {
     background-color: #716259;
     color: white;
     text-decoration: none;
+    font-style: normal;
 }
 .nav li.active { margin-right: 40px; }
 li.dropdown .disabled{ 
@@ -1796,4 +1797,10 @@ h4.about {
 #credits p:last-of-type {
     margin-bottom: 100px;
 }
-
+#help-msg {
+    margin-top: 25%;
+    text-align: center;
+    font-style: italic;
+    width: 76%;
+    margin-left: 12%;
+}
