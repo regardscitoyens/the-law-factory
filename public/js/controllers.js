@@ -50,7 +50,8 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.error = {};
 
         $scope.setTextContainerHeight = function() {
-            $(".text-container").height($(".text").height() - $("#text-title").outerHeight());
+            var h = $(".text").height() - $("#text-title").outerHeight();
+            if (h > 0) $(".text-container").height(h);
         }
         $scope.getVizHeight = function() {
             return $(window).height() - $("#header-nav").height()-$(".title").height()-$("#menu-left").height()-$("footer").height()-parseInt($(".row").css("margin-bottom"))-36;

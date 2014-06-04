@@ -301,7 +301,6 @@ var valign, stacked, utils, aligned = true;
 
 				//init coordinates
                 utils.setMod1Size();
-                $(".text-container").empty().html(utils.helpText);
                 prepareSizes();
 				setCoordinates();
 
@@ -744,10 +743,12 @@ var valign, stacked, utils, aligned = true;
                 else stacked();
                 $('.readMode').tooltip({ animated: 'fade', placement: 'bottom'});
                 $('.revsMode').tooltip({ animated: 'fade', placement: 'bottom'});
+                setTimeout(utils.setTextContainerHeight, 200);
             }
 
                 $(document).ready(function() {
                     drawArticles();
+                    $(".art-txt").empty().html(utils.helpText);
                     setTimeout(load_texte_articles, 50);
                     $(window).resize(function(){
                         if (utils.drawing || utils.mod != "mod1") return;
