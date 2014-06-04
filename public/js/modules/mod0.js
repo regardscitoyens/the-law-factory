@@ -200,10 +200,10 @@ reset_filters();
                         action = 'filter';
                     }
                     utils.startSpinner();
-                    $("#gantt svg").animate({opacity: 0}, 100, function() {
+                    $("#gantt svg").animate({opacity: 0}, 50, function() {
                         updateGantt(action);
                         utils.stopSpinner(function() {
-                            $("#gantt svg").animate({opacity: 1}, 100);
+                            $("#gantt svg").animate({opacity: 1}, 50);
                         });
                     });
                 }

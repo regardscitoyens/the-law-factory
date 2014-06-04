@@ -97,24 +97,26 @@ function drawFlows(top_ordered) {
     }else{
 	$('#menu-order .selectedchoice').text("« échiquier politique »");
     }
-    utils.startSpinner();
-    var height;
-    if(num*60>=$("#viz").height()) height=num*60;
-    else height=$("#viz").height()-50;
     $("#viz-int").empty();
-    var offset = Math.round(width/5);
-    var stream = sven.viz.streamkey()
-        .data(mydata)
-        .target("#viz-int")
-        .height(height)
-        .width(width)
-        .minHeight(8)
-        .sorting(top_ordered)
-        .init();
-    d3.selectAll("g:not(.main-g)").attr("transform","translate("+offset+",0) scale("+(width-offset)/width+",1)");
-    wrap(offset-25);
-    utils.stopSpinner(function() {
-        $("#viz-int").animate({opacity: 1}, 500);
+    utils.startSpinner();
+    $("#viz-int").animate({opacity: 0}, 50, function() {
+        var height;
+        if(num*60>=$("#viz").height()) height=num*60;
+        else height=$("#viz").height()-50;
+        var offset = Math.round(width/5);
+        var stream = sven.viz.streamkey()
+            .data(mydata)
+            .target("#viz-int")
+            .height(height)
+            .width(width)
+            .minHeight(8)
+            .sorting(top_ordered)
+            .init();
+        d3.selectAll("g:not(.main-g)").attr("transform","translate("+offset+",0) scale("+(width-offset)/width+",1)");
+        wrap(offset-25);
+        utils.stopSpinner(function() {
+            $("#viz-int").animate({opacity: 1}, 50);
+        });
     });
 }
 
