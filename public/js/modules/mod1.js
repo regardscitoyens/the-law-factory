@@ -325,6 +325,7 @@ var valign, stacked, utils, aligned = true;
 						group.selectAll(".article")
 						.data(datarts)
 						.enter().append("rect")
+						.attr("id", function(d){return ("art-"+d.step_num+"-"+d.article).replace(/\s/g, '')})
 						.attr("x", function(d){return d.x})
 						.attr("y", function(d){return d.y})
 						.attr("width", colwidth)
@@ -658,14 +659,13 @@ var valign, stacked, utils, aligned = true;
 
 				//on click behaviour
 				function onclick(d) {
-                    var spin = !d.originalText || (!d.textDiff && d.prev_dir && (d.status == "sup" || d.n_diff) && d.id_step.substr(-5) != "depot");
-                    if (spin) utils.startSpinner('load_art');
                     d3.selectAll("line").style("stroke", "#d0d0e0")
                         .style("stroke-dasharray", "none");
                     //STYLE OF CLICKED ELEMENT AND ROW
                     //Reset rectangles
                     d3.selectAll(".article").call(styleRect);
                     d3.selectAll(".curr").classed("curr", false);
+
                     d3.select(this).classed("curr", true);
 
                     //Select the elements in same group
@@ -683,6 +683,10 @@ var valign, stacked, utils, aligned = true;
 
                     d3.rgb(d3.select(this).style("fill")).darker(2)
 
+                    if (utils.drawing) return;
+
+                    var spin = !d.originalText || (!d.textDiff && d.prev_dir && (d.status == "sup" || d.n_diff) && d.id_step.substr(-5) != "depot");
+                    if (spin) utils.startSpinner('load_art');
                     $(".art-txt").animate({opacity: 0}, 100, function() {
                         $("#readMode").show();
                         $("#text-title").empty();
@@ -752,9 +756,13 @@ var valign, stacked, utils, aligned = true;
                     setTimeout(load_texte_articles, 50);
                     $(window).resize(function(){
                         if (utils.drawing || utils.mod != "mod1") return;
+                        var selected_art = d3.selectAll(".curr").classed('curr', false);
+                        if (selected_art[0].length) selected_art = selected_art[0][0].id;
+                        else selected_art = "";
                         utils.drawing = true;
                         setTimeout(function(){
                             drawArticles();
+                            if (selected_art) $("#"+selected_art).d3Click();
                             utils.drawing = false;
                         }, 50);
                     });
