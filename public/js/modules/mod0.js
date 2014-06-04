@@ -228,7 +228,6 @@ reset_filters();
                         layout = "t";
                         zoo = 1;
                         action = 'sortd';
-                        scroll['scrollLeft'] = "100000px";
                         $("#display_menu .chosen").removeClass('chosen');
                         $("#display_menu #dm-time").addClass('chosen');
                         $("#menu-sort .dropdown-toggle").addClass('disabled');
@@ -257,7 +256,6 @@ reset_filters();
                             action = 'sortl';
                         if ($("#display_order #do-amds").hasClass('chosen'))
                             action = 'sorta';
-                        if (layout == "t") scroll['scrollLeft'] = "100000px";
                     }
                     if (action == 'sortl') {
 			$("#menu-sort .selectedchoice").text("durée");
