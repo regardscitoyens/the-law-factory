@@ -60,7 +60,6 @@ function(api, $rootScope, $location, $compile) {
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Articles | ";
                     d3.select(element[0]).datum(data).call(mod1);
                     scope.stopSpinner();
-                    scope.showFirstTimeTutorial();
                 }, function(error) {
                     scope.display_error("impossible de trouver les articles de ce texte");
                 })
@@ -92,7 +91,6 @@ function(api, $rootScope, $location, $compile) {
                     scope.data = data;
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Amendements | ";
                     d3.select(element[0]).datum(data).call(mod2);
-                    scope.showFirstTimeTutorial();
                 }, function(error) {
                     scope.display_error("impossible de trouver les amendements pour ce texte à cette étape");
                 });
@@ -125,7 +123,6 @@ function(api, $rootScope, $location, $compile) {
                         scope.data = data;
                         $rootScope.pageTitle =  $rootScope.lawTitle + " - Débats | ";
                         init(data, scope.etape);
-                        scope.showFirstTimeTutorial();
                     }, function(error) {
                         scope.display_error("impossible de trouver les interventions pour ce texte à cette étape");
                     })
@@ -166,7 +163,6 @@ function(api, $rootScope, $location, $compile) {
                 scope.startSpinner();
                 api.getDossiers().then(function(data) {
                   d3.select(element[0]).datum(data).call(mod0);
-                  scope.showFirstTimeTutorial();
                 }, function(error) {
                     scope.display_error("impossible de trouver les données relatives aux textes");
                 })
