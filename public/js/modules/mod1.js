@@ -195,9 +195,8 @@ var valign, stacked, utils, aligned = true;
                             return titre_section(sec, length);
                         };
 
-// TODO SET display menu as greyed when needed
                     if (sections.length < 2 && art.length == 1)
-                        $("#display_menu").parent().hide();
+                        $("#menu-display .dropdown-toggle").addClass('disabled');
 
                     art.forEach(function(d, i) {
                         d.steps.forEach(function(f, j) {
