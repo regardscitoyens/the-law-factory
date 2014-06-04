@@ -74,6 +74,7 @@ function init(data,step) {
             }
         });
     });
+    $(".text-container").empty().html(utils.helpText);
     drawFlows(false);
 }
 
@@ -83,12 +84,15 @@ $(window).resize(function(){
     setTimeout(function(){
         $("#display_menu .chosen").click();
         utils.drawing = false;
-    }, 250);
+    }, 150);
 });
 
 function drawFlows(top_ordered) {
     utils.setMod2bSize();
-    $(".text-container").empty().html(utils.helpText);
+    utils.setTextContainerHeight();
+    var selected_itv = d3.selectAll(".main-focused");
+    if (selected_itv[0].length) selected_itv = selected_itv[0][0].id;
+    else selected_itv = "";
     width = $("#viz").width();
     $("#display_menu .chosen").removeClass('chosen');
     $("#display_menu #dm-"+(top_ordered ? 'quanti' : 'classic')).addClass('chosen');
@@ -116,6 +120,10 @@ function drawFlows(top_ordered) {
         wrap(offset-25);
         utils.stopSpinner(function() {
             $("#viz-int").animate({opacity: 1}, 50);
+            utils.drawing = true;
+            setTimeout(utils.setTextContainerHeight, 250);
+            if (selected_itv) $("#"+selected_itv).d3Click();
+            utils.drawing = false;
         });
     });
 }
@@ -277,10 +285,12 @@ sven.viz.streamkey = function(){
         // we'll add a special css class for the first rect with a width > 50 to show on tuto !
         var firstmade = false;
 
+        var ct = 0;
         var rect = layer.selectAll("rect")
             .data(function(d) { return d; })
             .enter().append("rect")
             .filter(filter_small)
+            .attr("id", function() { return "itv-"+ct++;})
             .attr("class", function(d) { return utils.slugGroup(d.category)})
             .attr("y", function(d) { return x(d.x); })
             .attr("x", function(d) { return y(d.y0 + d.y); })
@@ -300,16 +310,18 @@ sven.viz.streamkey = function(){
             .attr("display", "inline")
             .on("click",function(d){
                 d3.event.stopPropagation();
-                $("#text-title").html(d.label);
-                $(".text-container").empty()
-                utils.setTextContainerHeight();
-                $(".text-container").append('<p class="orat-title">'+d.x+"</p>");
                 d3.selectAll("path").transition().style("fill-opacity",0.1);
                 d3.selectAll("rect").transition().style("opacity",0.1);
                 d3.selectAll(".focused").classed('focused', false).classed('main-focused', false);
                 d3.select(d3.select(this).node().parentNode).selectAll("path").classed('focused', true).transition().style("fill-opacity",0.45);
                 d3.select(d3.select(this).node().parentNode).selectAll("rect").classed('focused', true).transition().style("opacity",0.55);
                 d3.select(this).classed('main-focused', true).transition().style("opacity",1);
+
+                if (utils.drawing) return;
+                $("#text-title").html(d.label);
+                utils.setTextContainerHeight();
+                $(".text-container").empty()
+                $(".text-container").append('<p class="orat-title">'+d.x+"</p>");
 
                 spArray= d3.entries(d.speakers).sort(function(a,b){return b.value.nb_mots - a.value.nb_mots});
                 spArray.forEach(function(g,j){
