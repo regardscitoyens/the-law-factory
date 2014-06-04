@@ -736,7 +736,7 @@ reset_filters();
                 }
 
                 function unclick() {
-                    $("#text-title").text("Sélectionner un texte");
+                    $("#text-title").text(utils.vizTitle);
                     $("#text-title").attr('data-original-title', "").tooltip('fixTitle');
                     $(".text-container").empty().html(utils.helpText);
                     d3.selectAll(".g-law").style("opacity",1);

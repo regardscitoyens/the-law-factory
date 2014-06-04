@@ -43,6 +43,8 @@ function(api, $rootScope, $location, $compile) {
         templateUrl : 'templates/mod1.html',
         controller: function($scope,$element,$attrs) {
             $scope.mod="mod1";
+            $scope.setHelpText("Chaque boîte représente un article dont la taille indique la longueur du texte et la couleur le degré de modifications à cette étape. Cliquez sur un article pour lire le texte et voir le détail des modifications.");
+            $scope.vizTitle = "ARTICLES";
         },
         link : function postLink(scope, element, attrs) {
 
@@ -75,6 +77,8 @@ function(api, $rootScope, $location, $compile) {
         controller : function($scope, $element, $attrs) {
             $scope.step = 0;
             $scope.mod="mod2";
+            $scope.setHelpText("Chaque boîte représente un amendement dont le pictogramme indique le sort et la couleur le groupe politique de ses auteurs. Cliquez sur un amendement pour en lire le contenu et les détails.");
+            $scope.vizTitle = "AMENDEMENTS";
         },
         link : function postLink(scope, element, attrs) {
 
@@ -106,6 +110,8 @@ function(api, $rootScope, $location, $compile) {
         controller : function($scope, $element, $attrs) {
             $scope.step = 0;
             $scope.mod="mod2b";
+            $scope.setHelpText("Chaque boîte représente un groupe d'orateurs intervenus dans les débats sur un sujet. La longueur indique le nombre de mots prononcés et la couleur le groupe politique. Cliquez sur une boîte pour voir la liste des orateurs et consulter le texte des débats.");
+            $scope.vizTitle = "DÉBATS";
         },
         link : function postLink(scope, element, attrs) {
 
@@ -135,10 +141,14 @@ function(api, $rootScope, $location, $compile) {
         restrict : 'A',
         replace : false,
         templateUrl : 'templates/mod0.html',
+        controller : function($scope, $element, $attrs) {
+            $scope.mod="mod0";
+            $scope.setHelpText("Chaque ligne représente la chronologie des débats sur un projet ou une proposition de loi. La couleur indique l'institution en charge du texte à un instant donné (Assemblée en bleu, Sénat en rouge...). Cliquez sur un texte pour en consulter le résumé et en explorer les articles.");
+            $scope.vizTitle = "NAVETTES";
+        },
         link : function postLink(scope, element, attrs) {
 
             $rootScope.pageTitle = "";
-            scope.mod="mod0";
 
             $(".title").html('<h4 class="law-title">Explorer les textes promulgués depuis 2010</h4>');
             $("#mod0-slider").slider({
