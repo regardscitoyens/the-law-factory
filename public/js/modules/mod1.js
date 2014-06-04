@@ -301,7 +301,6 @@ var valign, stacked, utils, aligned = true;
 
 				//init coordinates
                 utils.setMod1Size();
-                utils.setTextContainerHeight();
                 prepareSizes();
 				setCoordinates();
 
@@ -756,7 +755,6 @@ var valign, stacked, utils, aligned = true;
                         utils.drawing = true;
                         setTimeout(function(){
                             drawArticles();
-                            setTimeout(utils.setTextContainerHeight, 200);
                             utils.drawing = false;
                         }, 50);
                     });
