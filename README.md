@@ -1,7 +1,9 @@
-The Law Factory
-===============
+La Fabrique de la Loi / The Law Factory
+=======================================
 
-Web frontend developed for The Law Factory project
+Web frontend developed for The Law Factory project: http://www.LaFabriqueDeLaLoi.fr
+
+Data backend API code is available on repository https://github.com/RegardsCitoyens/the-law-factory-parser
 
 ## Installation
 
@@ -12,7 +14,7 @@ Web frontend developed for The Law Factory project
     cd the-law-factory
   ```
 
-* Configure the aplication by copying ```js/config.json.example``` as ```public/js/config.js``` and set the API Url to the path on which you serve the data directory of RegardsCitoyens:the-law-factory-parser.git. Optionnally set also ihere your google analytics id and host.
+* Configure the aplication by copying ```js/config.json.example``` as ```public/js/config.js``` and set the API Url to the path on which you serve the data directory of RegardsCitoyens:the-law-factory-parser.git. Optionnally set also there your google analytics id and host.
 
   ```bash
     cp public/js/config.json{.example,}
