@@ -6,7 +6,7 @@ angular.module('theLawFactory.analytics', ['theLawFactory.config']).run(function
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', GOOGLE_ANALYTICS_ID, HOST_FOR_GOOGLE);
     $rootScope.$on('$viewContentLoaded', function(){
-      ga('send', 'pageview', $location.path());
+      ga('send', 'pageview', $location.url());
     });
   }
 });
