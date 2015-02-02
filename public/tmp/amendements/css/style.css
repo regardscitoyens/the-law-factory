@@ -1,0 +1,26 @@
+/* sigma.js context : */
+.sigma-parent {
+  position: relative;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  background: #F2F2F2;
+  width: 640px;
+  height: 480px;
+  margin: auto;
+}
+.sigma-expand {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+.buttons-container{
+  padding-bottom: 8px;
+  padding-top: 12px;
+  margin: auto;
+  text-align: center;
+}
+#menu{
+  display: none;
+}
