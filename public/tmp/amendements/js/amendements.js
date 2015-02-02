@@ -102,24 +102,7 @@ function load_data(s, places) {
     var popUp;
     function showNodeInfo(event) {
       var node = event.data.node;
-      var toKeep = s.graph.neighbors(node.id);
-      toKeep[node.id] = node;
-      s.graph.nodes().forEach(function(n) {
-        if (n.id == node.id)
-          n.color = n.color0;
-        else if (toKeep[n.id])
-          n.color = shadeBlend(0.3, n.color0);
-        else n.hidden = true;
-      });
-      s.graph.edges().forEach(function(e) {
-        if (!e.internal &&
-            (e.source == node.id && toKeep[e.source]) ||
-            (e.target == node.id && toKeep[e.target])) {
-          e.color = shadeBlend(0.7, node.color0);
-        } else e.hidden = true;
-      });
-      s.refresh();
-  
+ 
       popUp && popUp.remove();
       popUp = $(
         '<img src="http://www.nosdeputes.fr/depute/photo/'+node.slug+'/45" style="float:right;"/>'
@@ -143,22 +126,74 @@ function load_data(s, places) {
       $('#sigma').append(popUp);
     }
     function hideNodeInfo(event) {
-      s.graph.nodes().forEach(function(n) {
-        n.color = n.color0;
-        n.hidden = false;
-      });
-      s.graph.edges().forEach(function(e) {
-        if (!e.internal) {
-          e.color = '#ccc';
-          e.hidden = false;
-        }
-      });
-      s.refresh();
-  
       popUp && popUp.remove();
       popUp = false;
     }
     s.bind('overNode', showNodeInfo).bind('outNode', hideNodeInfo);
+
+    var selected = null;
+    function clickNode(event) {
+      console.log('z');
+      var node = event.data.node;
+      var bol = (selected == node.id);
+      if (selected) unclickNode(event, !bol);
+      if (bol) return;
+      if (!selected) {
+        $("#menu").hide();
+        $("#loader").show();
+      }
+      setTimeout(function(){
+        selected = node.id;
+        var toKeep = s.graph.neighbors(node.id);
+        toKeep[node.id] = node;
+        s.graph.nodes().forEach(function(n) {
+          if (n.id == node.id)
+            n.color = n.color0;
+          else if (toKeep[n.id])
+            n.color = shadeBlend(0.3, n.color0);
+          else n.hidden = true;
+        });
+        s.graph.edges().forEach(function(e) {
+          if (!e.internal &&
+              (e.source == node.id && toKeep[e.source]) ||
+              (e.target == node.id && toKeep[e.target])) {
+            e.color = shadeBlend(0.7, node.color0);
+          } else e.hidden = true;
+        });
+        s.refresh();
+        setTimeout(function() {
+          $("#loader").hide();
+          $("#menu").show();
+        }, 0);
+      }, 0);
+    }
+    function unclickNode(event, keepLoadBar) {
+      if (!selected) return;
+      selected = null;
+      $("#menu").hide();
+      $("#loader").show();
+      setTimeout(function(){
+        s.graph.nodes().forEach(function(n) {
+          n.color = n.color0;
+          n.hidden = false;
+          n.selected = false;
+        });
+        s.graph.edges().forEach(function(e) {
+          if (!e.internal) {
+            e.color = '#ccc';
+            e.hidden = false;
+          }
+        });
+        s.refresh();
+        if (!keepLoadBar) {
+          setTimeout(function() {
+            $("#loader").hide();
+            $("#menu").show();
+          }, 0);
+        }
+      }, 0);
+    }
+    s.bind('clickNode', clickNode).bind('clickStage', unclickNode);
 
     s.refresh();
     $('#loader').hide();
@@ -172,7 +207,7 @@ function load_data(s, places) {
       });
       $('#menu').show();
       setTimeout(function(){s.killForceAtlas2();}, 5000);
-    }, 10);
+    }, 0);
   });
 };
  
