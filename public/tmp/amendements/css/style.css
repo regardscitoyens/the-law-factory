@@ -1,5 +1,9 @@
-/* sigma.js context : */
-.sigma-parent {
+.row h1{
+  font-size: 22px;
+  margin: auto;
+  text-align: center;
+}
+#sigma-parent {
   position: relative;
   border-radius: 4px;
   -moz-border-radius: 4px;
@@ -9,7 +13,7 @@
   height: 480px;
   margin: auto;
 }
-.sigma-expand {
+#sigma{
   position: absolute;
   width: 100%;
   height: 100%;
@@ -23,4 +27,8 @@
 }
 #menu{
   display: none;
+}
+.disclaimer{
+  margin: auto;
+  text-align: center;
 }

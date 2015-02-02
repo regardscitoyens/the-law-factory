@@ -16,18 +16,6 @@ function shadeBlend(p,c0,c1) {
   }
 }
 
-function light_color(color) {
-  switch (color) {
-    case "#FF0000": return "#FF2020";
-    case "#FF1473": return "#FF3493";
-    case "#00FF00": return "#20FF20";
-    case "#AA3377": return "#CA5397";
-    case "#7799FF": return "#97B9FF";
-    case "#0000FF": return "#2020FF";
-    case "#888888": return "#989898";
-    default: return "#888888";
-  }
-}
 function group_color(group) {
   switch (group) {
     case "GDR": return "#FF0000";
@@ -52,6 +40,7 @@ function load_data(s, places) {
   }
   s.graph.clear();
   s.refresh();
+  // TODO reset camera
   var g = {nodes: [], edges: []};
   var loi = $('#loi :selected').val();
   $.getJSON("data/"+loi+".json", function(data) {
@@ -209,6 +198,7 @@ function init() {
     $('#layout').click(function(){
       if ($('#layout').hasClass('running'))
         return;
+  // TODO reset camera
       $('#layout').addClass('running');
       $('#menu').hide();
       var prefix = ($('#layout').hasClass('hemicycle') ? 'fa2' : 'hem');
