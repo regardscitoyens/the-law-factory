@@ -119,8 +119,8 @@ function load_data(s, places) {
         'color': '#000',
         'box-shadow': '0 0 4px #666',
         'position': 'absolute',
-        'left': node['cam0:x']-25,
-        'top': node['cam0:y']+15
+        'left': (node['cam0:x'] || node['renderer1:x']) - 25,
+        'top':  (node['cam0:y'] || node['renderer1:y']) + 15
       });
       $('img',popUp).css('margin','0 0 0 20px');
       $('#sigma').append(popUp);
