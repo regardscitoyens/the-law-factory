@@ -40,7 +40,7 @@ function load_data(s, places) {
   }
   s.graph.clear();
   s.refresh();
-  // TODO reset camera
+  $('#recenter').click();
   var g = {nodes: [], edges: []};
   var loi = $('#loi :selected').val();
   $.getJSON("data/"+loi+".json", function(data) {
@@ -233,7 +233,7 @@ function init() {
     $('#layout').click(function(){
       if ($('#layout').hasClass('running'))
         return;
-  // TODO reset camera
+      $('#recenter').click();
       $('#layout').addClass('running');
       $('#menu').hide();
       var prefix = ($('#layout').hasClass('hemicycle') ? 'fa2' : 'hem');
