@@ -33,10 +33,13 @@
   padding: 2px 5px;
 }
 .buttons-container{
-  padding-bottom: 8px;
   padding-top: 12px;
   margin: auto;
   text-align: center;
+  height: 55px;
+}
+#loi{
+  margin-right: 25px;
 }
 #menu{
   display: none;
