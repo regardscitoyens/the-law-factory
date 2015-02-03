@@ -69,7 +69,7 @@ function load_data(s, places) {
               source: "d"+parl,
               target: "d"+dep,
               size: 0,
-              weight: 0.1,
+              weight: 0.1/gpes[gpe].length,
               hidden: true,
               internal: true
             });
@@ -133,7 +133,6 @@ function load_data(s, places) {
 
     var selected = null;
     function clickNode(event) {
-      console.log('z');
       var node = event.data.node;
       var bol = (selected == node.id);
       if (selected) unclickNode(event, !bol);
