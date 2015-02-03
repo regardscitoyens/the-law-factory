@@ -255,6 +255,27 @@ function init() {
         }
       });
     });
+    $('#zoom').click(function() {
+      sigma.misc.animation.camera(
+        s.camera,
+        {ratio: s.camera.ratio / 1.5 },
+        {duration: 150 }
+      );
+    });
+    $('#unzoom').click(function() {
+      sigma.misc.animation.camera(
+        s.camera,
+        {ratio: s.camera.ratio * 1.5 },
+        {duration: 150 }
+      );
+    });
+    $('#recenter').click(function() {
+      sigma.misc.animation.camera(
+        s.camera,
+        {x: 0, y:0, ratio: 1},
+        {duration: 500, easing: 'cubicInOut'}
+      );
+    });
   });
 }
 

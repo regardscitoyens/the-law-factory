@@ -1,13 +1,14 @@
-<html class="no-js" lang="en">
+<html>
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Proximité entre députés auteurs d'amendements identiques ou cosignés sur un texte donné</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/sigma.min.js"></script>
-  <script src="js/sigma.layout.forceAtlas2.min.js"></script>
-  <script src="js/sigma.plugins.animate.min.js"></script>
-  <script src="js/amendements.js"></script>
-  <script src="js/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/sigma.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/sigma.layout.forceAtlas2.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/sigma.plugins.animate.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/amendements.js"></script>
 </head>
 <body>
   <div class="container">
@@ -22,6 +23,13 @@
       </div>
       <div id="sigma-parent">
         <div id="sigma"></div>
+        <div class="sigma-tools">
+          <div class="btn-group-vertical">
+            <button type="button" id="recenter" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-record"></span></button>
+            <button type="button" id="zoom" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
+            <button type="button" id="unzoom" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-minus"></span></button>
+          </div>
+        </div>
       </div>
       <div class="disclaimer"><p>Cliquer sur un député pour voir ses liens avec les autres députés</p></div>
       <div class="disclaimer"><p><small>Réalisé à partir des données de <a href="http://www.nosdeputes.fr">NosDéputés.fr</a> grâce à <a href="http://www.sigmajs.org">sigma.js</a> &mdash; <a href="https://github.com/regardscitoyens/the-law-factory/tree/master/public/tmp/amendements">code-source</a></small></p></div>
