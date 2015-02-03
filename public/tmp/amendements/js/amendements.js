@@ -272,8 +272,8 @@ function init() {
     $('#recenter').click(function() {
       sigma.misc.animation.camera(
         s.camera,
-        {x: 0, y:0, ratio: 1},
-        {duration: 500, easing: 'cubicInOut'}
+        {x: 0, y: 0, ratio: 1},
+        {duration: 250, easing: 'cubicInOut'}
       );
     });
   });
