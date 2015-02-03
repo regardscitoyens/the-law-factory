@@ -18,13 +18,13 @@ function shadeBlend(p,c0,c1) {
 
 function group_color(group) {
   switch (group) {
-    case "GDR": return "#FF0000";
-    case "SRC": return "#FF1473";
-    case "ECOLO": return "#00FF00";
-    case "RRDP": return "#AA3377";
-    case "UDI": return "#7799FF";
-    case "UMP": return "#0000FF";
-    case "NI": return "#888888";
+    case "GDR": return "rgb(255,30,30)";
+    case "SRC": return "rgb(255,50,190)";
+    case "ECOLO": return "rgb(0,230,30)";
+    case "RRDP": return "rgb(250,195,132)";
+    case "UDI": return "rgb(30,180,255)";
+    case "UMP": return "rgb(30,30,200)";
+    case "NI": return "rgb(100,100,100)";
     default: return "#555555";
   }
 }
@@ -57,8 +57,8 @@ function load_data(s, places) {
         y: places[place]['y']+150,
         hemy: places[place]['y']+150,
         size: Math.sqrt(data['parlementaires'][parl]['a']),
-        color: group_color(gpe),
-        color0: group_color(gpe),
+        color:  shadeBlend(0.2, group_color(gpe)),
+        color0: shadeBlend(0.2, group_color(gpe)),
         slug: data['parlementaires'][parl]['s']
       });
       if (gpe) {
@@ -157,7 +157,7 @@ function load_data(s, places) {
           if (!e.internal &&
               (e.source == node.id && toKeep[e.source]) ||
               (e.target == node.id && toKeep[e.target])) {
-            e.color = shadeBlend(0.7, node.color0);
+            e.color = shadeBlend(0.5, node.color0);
           } else e.hidden = true;
         });
         s.refresh();
