@@ -222,7 +222,8 @@ function init() {
       zoomMin: 0.01,
       zoomMax: 4,
       singleHover: true,
-      defaultLabelColor: '#333',
+    //  drawEdges: false,
+      defaultLabelColor: '#333'
     }
   });
   $.getJSON("data/places.json", function(places) {
@@ -244,11 +245,13 @@ function init() {
         duration: 1500,
         onComplete: function(){
           if ($('#layout').hasClass('hemicycle')) {
+          //  s.settings({drawEdges: true}).refresh();
             $('#layout').removeClass('hemicycle');
             $('#layout').text('Hémicycle');
           } else {
             $('#layout').addClass('hemicycle');
             $('#layout').text('Cosignatures');
+          //  s.settings({drawEdges: false}).refresh();
           }
           $('#layout').removeClass('running');
           $('#menu').show();
