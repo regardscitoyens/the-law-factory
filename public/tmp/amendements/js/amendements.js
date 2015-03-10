@@ -212,7 +212,8 @@ function load_data(s, places) {
  
 function init() {
   var places = {};
-  var s = new sigma('sigma', {
+  var s = new sigma({
+    container: 'sigma',
     settings: {
       clone: false,
       immutable: false,
