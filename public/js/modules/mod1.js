@@ -723,7 +723,7 @@ var valign, stacked, utils, aligned = true;
 
                                 if (textArticles[d.article][d.prev_dir]) {
                                     var dmp = new diff_match_patch();
-                                    dmp.Diff_Timeout = 3;
+                                    dmp.Diff_Timeout = 5;
                                     dmp.Diff_EditCost = 25;
                                     var diff = dmp.diff_main(textArticles[d.article][d.prev_dir].join("\n"), textArticles[d.article][d.directory].join("\n"));
                                     dmp.diff_cleanupEfficiency(diff);
