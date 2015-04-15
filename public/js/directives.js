@@ -349,8 +349,8 @@ return {
                     '<a href="'+scope.APIRootUrl + scope.loi+'/" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Open Data</a>'+
 	            '&nbsp; /<a href="http://git.lafabriquedelaloi.fr/parlement/' + scope.loi+'/" target="_blank" class="darkonintrojs">Git</a>' +
                   '</span><span class="links">' +
-                    '<a href="'+data.url_dossier_senat+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a><br/>' +
-                    '<a href="'+data.url_dossier_assemblee+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Assemblée</a>' +
+                    (data.url_dossier_senat ? '<a href="'+data.url_dossier_senat+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a>' : '') + '<br/>' +
+                    (data.url_dossier_assemblee ? '<a href="'+data.url_dossier_assemblee+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Assemblée</a>' : '') +
                   '</span></div>'
                 );
                 if (leg) $(".law-title").tooltip();
