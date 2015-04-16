@@ -58,11 +58,19 @@ function(api, $rootScope, $location, $compile) {
                 api.getArticle(scope.loi).then(function(data) {
                     $rootScope.lawTitle = data.short_title
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Articles | ";
-                    d3.select(element[0]).datum(data).call(mod1);
-                    scope.stopSpinner();
+                    var timeout = 1500,
+                        loop = setInterval(function(){
+                            timeout -= 50;
+                            if (timeout > 0 && !scope.steps) return;
+                            clearInterval(loop);
+                            scope.currentstep = (scope.steps && !scope.steps[scope.steps.length-1].enddate ? scope.steps[scope.steps.length-1] : undefined);
+                            d3.select(element[0]).datum(data).call(mod1);
+                            scope.stopSpinner();
+                        }, 50);
                 }, function(error) {
                     scope.display_error("impossible de trouver les articles de ce texte");
-                })
+                });
+
             }
             update();
         }

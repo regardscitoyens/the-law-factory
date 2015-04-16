@@ -176,7 +176,7 @@ var valign, stacked, utils, aligned = true;
 
                     //compute stages and sections
                     var stages = computeStages(),
-                        columns = stages.length,
+                        columns = stages.length + (utils.currentstep ? 1 : 0),
                         sections = computeSections(),
                         sectHeight = 15,
                         sectJump = 25,
