@@ -42,7 +42,7 @@ function load_data(s, places) {
   s.refresh();
   $('#recenter').click();
   var g = {nodes: [], edges: []};
-  var loi = $('#loi :selected').val();
+  var loi = $('#loi :selected, #loi :checked').val();
   $.getJSON("data/"+loi+".json", function(data) {
     var gpes = {};
     // TODO lighten data => separate parl as json / links as csv

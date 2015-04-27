@@ -48,3 +48,13 @@
   margin: auto;
   text-align: center;
 }
+.menu-rens {
+  float: left;
+  text-align: left;
+  width: 45%;
+}
+.menu-rens.left {
+  margin-right: 35px;
+  margin-top: -8px;
+  text-align: right;
+}
