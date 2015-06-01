@@ -16,6 +16,7 @@ var utils, highlight;
         if (e.sort==="adopté") return "img/ok.png";
         if (e.sort==="rejeté") return "img/ko.png";
         if (e.sort==="non-voté") return "img/nd.png";
+        return "";
     }
 
   	function vis(selection){
@@ -323,7 +324,7 @@ var utils, highlight;
                 else if(currAmd.url_nossenateurs) source_am = currAmd.url_nossenateurs+'"><span class="glyphicon glyphicon-link"></span> NosSénateurs'+source_am+'Sénat';
                 $(".text-container").html(
                     '<span class="amd-date">' + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</span>" +
-                    '<span class="amd-sort">' + currAmd.sort + " <span class='amd-txt-status' style='background-color:"+col+"'><img style='margin:0; padding:4px;' src='"+statico+"'/></span> </span>" +
+                    '<span class="amd-sort">' + currAmd.sort + " <span class='amd-txt-status' style='background-color:"+col+"'><img style='margin:0; padding:4px; width:18px;' src='"+statico+"'/></span> </span>" +
                     '<div class="amd-subject"><b>Sujet :</b><span> ' + utils.clean_amd_subject(currAmd.sujet)+"</span></div>" +
                     '<div class="amd-text"><b>Signataires :</b> <span>' + currAmd.signataires+"</span></div>" +
                     '<div class="amd-text"><b>Exposé des motifs :</b> ' + currAmd.expose + "</div>" +
