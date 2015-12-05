@@ -144,29 +144,37 @@ var valign, stacked, utils, aligned = true;
                     //Utility functions
                     function findStage(s) {
                         for (st in stages)
-                            if (encodeURI(s) == encodeURI(stages[st]).substring(3))
+                            if (s == stages[st])
                                 return parseInt(st);
                         return -1;
                     }
 
                     function computeStages() {
-                        stag = []
+                        var stag = [];
+
                         art.forEach(function(e, i) {
-                            var st = d3.nest().key(function(d) { return d.id_step; }).map(e.steps, d3.map);
-                            d3.keys(st).forEach(function(f, i) { if (stag.indexOf(f) < 0) stag.push(f); });
+                            var st = d3.nest()
+                                .key(function(d) { return d.id_step; })
+                                .entries(e.steps);
+
+                            st.forEach(function(f, i) { if (stag.indexOf(f.key) < 0) stag.push(f.key); });
                         });
+
                         stag.sort();
+
                         for (s in stag)
                             stag_name = stag[s].split("_", 4).splice(2, 3).join(" ");
+
                         return stag;
                     }
 
                     function computeSections() {
-                        var se = d3.nest().key(function(d) {
-                            return d.section;
-                        })
-                        .map(art, d3.map);
-                        return se.keys();
+                        return d3.nest()
+                            .key(function(d) {
+                                return d.section;
+                            })
+                            .entries(art)
+                            .map(function(d) { return d.key; });
                     }
 
                     function findSection(s) {
@@ -205,8 +213,8 @@ var valign, stacked, utils, aligned = true;
                             f.section = d.section;
                             f.prev_step = null;
                             f.prev_dir = null;
-                            f.sect_num=findSection(f.section)
-                            f.step_num=findStage(f.id_step)
+                            f.sect_num = findSection(f.section);
+                            f.step_num = findStage(f.id_step);
                             if (j != 0 && f.id_step.substr(-5) != "depot") {
                                 k = j-1;
                                 while (k > 0 && d.steps[k].status === "echec") k--;
@@ -245,7 +253,7 @@ var valign, stacked, utils, aligned = true;
                     width = $("#viz").width();
                     colwidth = width / columns - 30;
                     longlabel = (colwidth < 120 ? (colwidth < 80 ? 0 : 1) : 2);
-                }
+                };
 
                 function article_hover(d) {
                     var div = d3.select(document.createElement("div")).style("width", "100%");
@@ -305,6 +313,7 @@ var valign, stacked, utils, aligned = true;
 				setCoordinates();
 
                 maxy = Math.max($("#viz").height(), d3.max(bigList,function(d){ return d.y+lerp(d.length)}) + 50);
+
 				//create SVG
 				$("svg").remove();
 				svg = d3.select("#viz").append("svg").attr("width", "100%").attr("height", maxy).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -329,7 +338,7 @@ var valign, stacked, utils, aligned = true;
 						.attr("x", function(d){return d.x})
 						.attr("y", function(d){return d.y})
 						.attr("width", colwidth)
-						.attr("height", function(d){return lerp(d.length)})
+						.attr("height", function(d) { return lerp(d.length)})
 					    .attr("class", function(d) {
 						    return "article " + d.section.replace(/ |<|\/|>|/g,"") + " sect" + findStage(d.id_step)
 					})
@@ -490,40 +499,49 @@ var valign, stacked, utils, aligned = true;
 
 				function setCoordinates() {
 					for (t in stages) {
-						var currT = bigList.filter(function(d){return d.step_num==t}),
+						var currT = bigList.filter(function(d) { return d.step_num==t; }),
                             currY = sectJump + sectHeight,
                             piece,
                             lastS = "";
-                        
+
 						for (s in sections) {
-							currS=currT.filter(function(e){return e.sect_num==s})
-							    .sort(function(a,b){return a.order - b.order});
-                            if(currS.length) {
+							var currentSection = currT.filter(function(e){ return e.sect_num == s; })
+							    .sort(function(a, b) { return a.order - b.order; });
+
+                            if (currentSection.length) {
                                 var currIdx;
-								currS.forEach(function(f,k){
+								currentSection.forEach(function(f, k) {
 									if (k==0) {
                                         currIdx = k;
-                                        currS[currIdx].head = 1;
+                                        currentSection[currIdx].head = 1;
                                     }
+
 									f.y = currY;
 									f.x = f.step_num * width / columns + 10;
-									currY+=lerp(f.length)+1
+									currY += lerp(f.length) + 1;
 								});
-                            // Identify section jumps 
-                                lastsplit = split_section(lastS);
-                                cursplit = split_section(currS[currIdx].section);
+
+                                // Identify section jumps
+                                var lastsplit = split_section(lastS),
+                                    cursplit = split_section(currentSection[currIdx].section),
+                                    newpiece = "";
+
 							    while(lastsplit.length) {
                                     piece = newpiece = "";
                                     while (lastsplit.length && !piece) piece = lastsplit.shift();
                                     while (cursplit.length && !newpiece) newpiece = cursplit.shift();
                                     if (newpiece != piece) break;
                                 }
-                                while (cursplit.length) if (cursplit.shift()) currS[currIdx].head += 1;
-                                currY += currS[currIdx].head * sectHeight + sectJump;
-                                if (currS[currIdx].head > 1) currS.forEach(function(f){
-                                    f.y += currS[currIdx].head * sectHeight;
+
+                                while (cursplit.length) if (cursplit.shift()) currentSection[currIdx].head += 1;
+
+                                currY += currentSection[currIdx].head * sectHeight + sectJump;
+
+                                if (currentSection[currIdx].head > 1) currentSection.forEach(function(f) {
+                                    f.y += currentSection[currIdx].head * sectHeight;
                                 });
-                                lastS = currS[currIdx].section;
+
+                                lastS = currentSection[currIdx].section;
 							}
 						}
 					}
@@ -604,6 +622,7 @@ var valign, stacked, utils, aligned = true;
                         });
                         y0 += h;
 					}
+
                     $("svg").height(Math.max(y0, maxy));
 
 					d3.selectAll(".group").transition().duration(500)

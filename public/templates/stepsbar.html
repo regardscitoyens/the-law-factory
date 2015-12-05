@@ -33,7 +33,7 @@
                     data-toggle="tooltip"
                     data-placement="bottom"
                     title="Explorer les amendements"
-                    href="amendements.html?loi={{loi}}&etape={{i.directory}}">
+                    ui-sref="amendements({loi: '{{loi}}', etape: '{{i.directory}}' })">
                     <span class="glyphicon glyphicon-folder-open"></span>
                 </a>
                 <span ng-hide="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='mod2b'))" class="stb-link glyphicon glyphicon-folder-open low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='mod2'}"></span>
@@ -44,7 +44,7 @@
                     data-toggle="tooltip"
                     data-placement="bottom"
                     title="Explorer les débats"
-                    href="debats.html?loi={{loi}}&etape={{i.directory}}">
+                    ui-sref="debates({loi: '{{loi}}', etape: '{{i.directory}}' })">
                     <span class="glyphicon glyphicon-comment"></span>
                 </a>
                 <span ng-hide="i.has_interventions && (etape!=i.directory ||(etape==i.directory && mod=='mod2'))" class="stb-link glyphicon glyphicon-comment low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='mod2b'}"></span>
