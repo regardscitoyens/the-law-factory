@@ -2,7 +2,7 @@
 
 // Default configuration - do not change here
 // Configuration id to be set in public/js/config.js
-angular.module('theLawFactory.config', []).constant('API_ROOT_URL', 'http://www.lafabriquedelaloi.fr/api/').constant('GOOGLE_ANALYTICS_ID','').constant('HOST_FOR_GOOGLE','');
+angular.module('theLawFactory.config', []).constant('API_ROOT_URL', 'https://www.lafabriquedelaloi.fr/api/').constant('GOOGLE_ANALYTICS_ID','').constant('HOST_FOR_GOOGLE','');
 
 // Declare app level module which depends on filters, and services
 angular.module('theLawFactory', [
