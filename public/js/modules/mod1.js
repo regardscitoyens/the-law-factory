@@ -52,17 +52,16 @@ var valign, stacked, utils, aligned = true;
                     .replace("C ", (length ? (length == 1 ? "Chap." : "Chapitre") : "C") + " ")
                     .replace("V ", (length ? (length == 1 ? "Vol." : "Volume") : "V") + " ")
                     .replace("L ", (length ? "Livre" : "L") + " ")
+                    .replace("TL", (length ? (length == 1 ? "Titre Lim." : "Titre Liminaire") : "TL") + " ")
                     .replace("T ", (length ? "Titre" : "T") + " ");
             }
             return res;
         }
 
         function titre_article(article, length) {
-            var num = (article.newnum != undefined ? article.newnum : article.article)
-                    .replace(/1er?/, '1'),
-                newnum = (article.newnum != undefined ? " (" + article.article + ")" : "")
-                    .replace(/1er?/, '1<sup>er</sup>'),
-                res = (length ? (length == 1 ? "Art." : "Article ") : "A ")
+            var num = (article.newnum != undefined ? article.newnum : article.article).replace(/1er?/, '1'),
+                newnum = (article.newnum != undefined ? " (" + article.article + ")" : "").replace(/1er?/, '1<sup>er</sup>'),
+                res = (length ? (length == 1 ? "Art." : "Article ") : "A ");
             return res + num + newnum;
         }
 
@@ -92,19 +91,17 @@ var valign, stacked, utils, aligned = true;
             html.push('<'+typ+'>'+text.replace(/\n/g, '</'+typ+'></li><li><'+typ+'>')+'</'+typ+'>');
           }
           return html.join('');
-        };
+        }
 
 		function vis(selection) {
 			selection.each(function(data) {
-
-                var re = /l\=(.*)/;
-				var bigList=[]
-				var art = d3.values(data.articles);
+				var bigList=[],
+                    art = d3.values(data.articles);
 
 				art.sort(function(a, b) {
                     if (a.section === "echec") return (b.section === "echec" ? 0 : -1);
                     else if (b.section === "echec") return 1;
-					var al = a.titre.split(" "), bl = b.titre.split(" ")
+					var al = a.titre.split(" "), bl = b.titre.split(" ");
 					ao = 0, bo = 0;
 					if (parseInt(al[0]) != parseInt(bl[0]))
 						return parseInt(al[0]) - parseInt(bl[0]);
@@ -121,109 +118,109 @@ var valign, stacked, utils, aligned = true;
 				});
 
                 // Dynamic load of articles text at each step
-                    function load_texte_articles() {
-                        var delay = 50;
-                        d3.set(bigList.map(function(d){return d.directory;})).values().sort()
-                        .forEach(function(d) {
-                            delay += 50;
-                            setTimeout(function() {
-                                d3.json(encodeURI(utils.APIRootUrl + utils.loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
-                                    json.articles.forEach(function (a) {
-                                        if (!textArticles[a.titre]) textArticles[a.titre] = {};
-                                        textArticles[a.titre][d] = []
-                                        Object.keys(a.alineas).sort().forEach(function (k) {
-                                            textArticles[a.titre][d].push(a.alineas[k]);
-                                        });
+                function load_texte_articles() {
+                    var delay = 50;
+                    d3.set(bigList.map(function(d){return d.directory;})).values().sort()
+                    .forEach(function(d) {
+                        delay += 50;
+                        setTimeout(function() {
+                            d3.json(encodeURI(utils.APIRootUrl + utils.loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
+                                json.articles.forEach(function (a) {
+                                    if (!textArticles[a.titre]) textArticles[a.titre] = {};
+                                    textArticles[a.titre][d] = []
+                                    Object.keys(a.alineas).sort().forEach(function (k) {
+                                        textArticles[a.titre][d].push(a.alineas[k]);
                                     });
-                                    utils.to_load -= 1;
                                 });
-                            }, delay);
-                        });
-                    }
-
-                    //Utility functions
-                    function findStage(s) {
-                        for (st in stages)
-                            if (s == stages[st])
-                                return parseInt(st);
-                        return -1;
-                    }
-
-                    function computeStages() {
-                        var stag = [];
-
-                        art.forEach(function(e, i) {
-                            var st = d3.nest()
-                                .key(function(d) { return d.id_step; })
-                                .entries(e.steps);
-
-                            st.forEach(function(f, i) { if (stag.indexOf(f.key) < 0) stag.push(f.key); });
-                        });
-
-                        stag.sort();
-
-                        for (s in stag)
-                            stag_name = stag[s].split("_", 4).splice(2, 3).join(" ");
-
-                        return stag;
-                    }
-
-                    function computeSections() {
-                        return d3.nest()
-                            .key(function(d) {
-                                return d.section;
-                            })
-                            .entries(art)
-                            .map(function(d) { return d.key; });
-                    }
-
-                    function findSection(s) {
-                        res = sections.indexOf(s);
-                        return res
-                    }
-
-                    //compute stages and sections
-                    var stages = computeStages(),
-                        columns = stages.length + (utils.currentstep ? 1 : 0),
-                        sections = computeSections(),
-                        sectHeight = 15,
-                        sectJump = 25,
-                        test_section_details = function(section, etape, field) {
-                            return (data.sections && data.sections[section] && data.sections[section][etape] && data.sections[section][etape][field] != undefined);
-                        },
-                        get_section_details = function(section, etape, field) {
-                            return (test_section_details(section, etape, field) ? data.sections[section][etape][field] : "");
-                        },
-                        format_section = function(obj, length) {
-                            var sec = (obj.section ? obj.section : obj);
-                            if (sec.lastIndexOf("A", 0) === 0)
-                                return titre_article(obj, length);
-                            if (length < 2 && sec)
-                                sec = sub_section(sec);
-                            return titre_section(sec, length);
-                        };
-
-                    if (sections.length < 2 && art.length == 1)
-                        $("#menu-display .dropdown-toggle").addClass('disabled');
-
-                    art.forEach(function(d, i) {
-                        d.steps.forEach(function(f, j) {
-                            f.textDiff = "";
-                            f.article = d.titre;
-                            f.section = d.section;
-                            f.prev_step = null;
-                            f.prev_dir = null;
-                            f.sect_num = findSection(f.section);
-                            f.step_num = findStage(f.id_step);
-                            if (j != 0 && f.id_step.substr(-5) != "depot") {
-                                k = j-1;
-                                while (k > 0 && d.steps[k].status === "echec") k--;
-                                f.prev_step = d.steps[k].step_num;
-                                f.prev_dir = d.steps[k].directory;
-                            }
-                            bigList.push(f);
-                        });
+                                utils.to_load -= 1;
+                            });
+                        }, delay);
                     });
+                }
+
+                //Utility functions
+                function findStage(s) {
+                    for (st in stages)
+                        if (s == stages[st])
+                            return parseInt(st);
+                    return -1;
+                }
+
+                function computeStages() {
+                    var stag = [];
+
+                    art.forEach(function(e, i) {
+                        var st = d3.nest()
+                            .key(function(d) { return d.id_step; })
+                            .entries(e.steps);
+
+                        st.forEach(function(f, i) { if (stag.indexOf(f.key) < 0) stag.push(f.key); });
+                    });
+
+                    stag.sort();
+
+                    for (s in stag)
+                        stag_name = stag[s].split("_", 4).splice(2, 3).join(" ");
+
+                    return stag;
+                }
+
+                function computeSections() {
+                    return d3.nest()
+                        .key(function(d) {
+                            return d.section;
+                        })
+                        .entries(art)
+                        .map(function(d) { return d.key; });
+                }
+
+                function findSection(s) {
+                    res = sections.indexOf(s);
+                    return res
+                }
+
+                //compute stages and sections
+                var stages = computeStages(),
+                    columns = stages.length + (utils.currentstep ? 1 : 0),
+                    sections = computeSections(),
+                    sectHeight = 15,
+                    sectJump = 25,
+                    test_section_details = function(section, etape, field) {
+                        return (data.sections && data.sections[section] && data.sections[section][etape] && data.sections[section][etape][field] != undefined);
+                    },
+                    get_section_details = function(section, etape, field) {
+                        return (test_section_details(section, etape, field) ? data.sections[section][etape][field] : "");
+                    },
+                    format_section = function(obj, length) {
+                        var sec = (obj.section ? obj.section : obj);
+                        if (sec.lastIndexOf("A", 0) === 0)
+                            return titre_article(obj, length);
+                        if (length < 2 && sec)
+                            sec = sub_section(sec);
+                        return titre_section(sec, length);
+                    };
+
+                if (sections.length < 2 && art.length == 1)
+                    $("#menu-display .dropdown-toggle").addClass('disabled');
+
+                art.forEach(function(d, i) {
+                    d.steps.forEach(function(f, j) {
+                        f.textDiff = "";
+                        f.article = d.titre;
+                        f.section = d.section;
+                        f.prev_step = null;
+                        f.prev_dir = null;
+                        f.sect_num = findSection(f.section);
+                        f.step_num = findStage(f.id_step);
+                        if (j != 0 && f.id_step.substr(-5) != "depot") {
+                            k = j-1;
+                            while (k > 0 && d.steps[k].status === "echec") k--;
+                            f.prev_step = d.steps[k].step_num;
+                            f.prev_dir = d.steps[k].directory;
+                        }
+                        bigList.push(f);
+                    });
+                });
 
                 utils.to_load = d3.set(bigList.map(function(d){return d.directory;})).values().length;
 

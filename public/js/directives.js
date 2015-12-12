@@ -162,7 +162,8 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                         slide: function( event, ui ) {
                             zooming(ui.value);
                         }
-                    })
+                    });
+
                     var mod0 = thelawfactory.mod0();
 
                     function update() {
@@ -178,7 +179,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                 }
             };
         }])
-    .directive('lawlist', ['api', '$rootScope', "$location",
+    .directive('lawlist', ['api', '$rootScope', "$log", "$location",
     function(api, $rootScope, $log, $location) {
         return {
             restrict : 'A',
@@ -198,8 +199,6 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                             });
                             return law;
                         });
-
-                        document.lawlist = laws;
 
                         $("#search").mouseenter(function() {
                             $(".form-law").css('opacity', 1);
