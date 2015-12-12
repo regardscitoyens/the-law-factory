@@ -1247,12 +1247,10 @@ noscript h2 {
 .mod2 .text h4 {
     width: 100%;
     float: right;
-    height: 100%;
 }
 #readMode {
   display: none;
   width: 10%;
-  height: 100%;
 }
 #openread {
   background-color: #716259;
