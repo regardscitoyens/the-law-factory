@@ -1,6 +1,6 @@
 /* Font-face */
 
-				@font-face {
+@font-face {
     font-family: "tlf-icons";
     font-style: normal;
     font-weight: normal;
@@ -294,7 +294,7 @@ body{
 }
 
 .art-txt{
-    padding: 0pxa
+    padding: 0;
     padding-right: 20px;
 }
 
@@ -603,7 +603,7 @@ ul.ui-autocomplete {
     box-shadow:none !important;
 }
 .ui-menu .ui-menu-item {
-	padding:8px 0px;
+	padding:8px 5px;
 	color: #716259;
 }
 .img-cont{
@@ -996,7 +996,7 @@ footer span:hover {
     display: block;
     border-bottom:1px solid #ccc;
     overflow:hidden;
-    font-size:1em;
+    font-size:0.9em;
 }
  .src-fcs{
     background-color:#716259 !important;
@@ -1247,12 +1247,12 @@ noscript h2 {
 .mod2 .text h4 {
     width: 100%;
     float: right;
-    height: 100%:
+    height: 100%;
 }
 #readMode {
   display: none;
   width: 10%;
-  height: 100%:
+  height: 100%;
 }
 #openread {
   background-color: #716259;
@@ -1676,7 +1676,7 @@ background: url('../img/echarpe_parl_icon.png') no-repeat scroll center top tran
             .badges-list .last{
                 width: 100%;
             }
-			.badges-list h7 {
+			.badges-list .h7 {
 				display: block;
                 font-size: 12px;
 			}

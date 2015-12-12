@@ -184,7 +184,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
         return {
             restrict : 'A',
             replace : false,
-            link : function postLink(scope, element, attrs, lawlistCtrl) {
+            link : function postLink(scope) {
                function update() {
                     api.getLawlist().then(function(data) {
                         scope.ll = data;
@@ -254,26 +254,28 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                             }
                         })
                         .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-                        var themesdiv=$("<div>")
-                        item.themes.replace(/ et /g, ', ').split(', ').forEach(function(e,j){
-                            themesdiv.append("<span class='glyphicon glyphicon-tag'></span> "+e.toLowerCase()+" ");
-                        })
+                            var themesdiv=$("<div>");
 
-                        var icodiv=$("<div class='src-ico'>")
-                            .append('<div><span class="glyphicon glyphicon-calendar"></span> '+item.dates+"</div>")
-                            .append('<div title="'+item.amendements+' amendements déposés sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(item.amendements)+'"></span> '+item.amendements+"</div>")
-                            .append('<div title="'+item.words+' mots prononcés lors des débats sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(item.words)+'"></span> '+1000*(Math.round(item.words / 1000.))+"</div>")
-                            .append(themesdiv);
-                            $(".search").tooltip();
+                            item.themes.replace(/ et /g, ', ').split(', ').forEach(function(e,j){
+                                themesdiv.append("<span class='glyphicon glyphicon-tag'></span> "+e.toLowerCase()+" ");
+                            });
 
-                        var txtdiv=$("<div class='src-txt'>")
-                            .append( "<a>" +item.label + "</a>" )
-                            .append(icodiv);
+                            var icodiv=$("<div class='src-ico'>")
+                                .append('<div><span class="glyphicon glyphicon-calendar"></span> '+item.dates+"</div>")
+                                .append('<div title="'+item.amendements+' amendements déposés sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-folder-open" style="opacity: '+opacity_amdts(item.amendements)+'"></span> '+item.amendements+"</div>")
+                                .append('<div title="'+item.words+' mots prononcés lors des débats sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-comment" style="opacity: '+opacity_mots(item.words)+'"></span> '+1000*(Math.round(item.words / 1000.))+"</div>")
+                                .append(themesdiv);
+                                $(".search").tooltip();
 
-                        return $( "<li class="+item.value+">" )
-                            .append(txtdiv)
-                            .appendTo( ul );
+                            var txtdiv=$("<div class='src-txt'>")
+                                .append( "<a>" +item.label + "</a>" )
+                                .append(icodiv);
+
+                            return $( "<li class="+item.value+">" )
+                                .append(txtdiv)
+                                .appendTo( ul );
                         };
+
                     }, function(error) {
                         $log.error(error);
                         scope.display_error("impossible de trouver les données de recherche sur les textes");
