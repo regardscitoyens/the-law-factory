@@ -1,3 +1,8 @@
+var d3 = require('d3');
+var $ = require('jquery');
+global.jQuery = require('jquery');
+require('bootstrap');
+
 var orderedByStatus = true;
 var sortByStat;
 var sortByParty;

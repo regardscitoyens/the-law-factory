@@ -1,3 +1,8 @@
+var d3 = require('d3');
+var $ = require('jquery');
+global.jQuery = require('jquery');
+require('bootstrap');
+
 var num=0;
 var svg, mydata;
 var participants, utils, highlight;
@@ -78,14 +83,14 @@ function init(data,step) {
     drawFlows(false);
 }
 
-$(window).resize(function(){
+/*$(window).resize(function(){
     if (utils.drawing || utils.mod != "mod2b") return;
     utils.drawing = true;
     setTimeout(function(){
         $("#display_menu .chosen").click();
         utils.drawing = false;
     }, 150);
-});
+});*/
 
 function drawFlows(top_ordered) {
     utils.setMod2bSize();

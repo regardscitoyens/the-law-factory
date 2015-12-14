@@ -1,31 +1,46 @@
 'use strict';
 
+var angular = require('angular');
+require('angular-ui-router');
+require('./templates');
+require('./modules/mod0');
+require('./modules/mod1');
+require('./modules/mod2');
+require('./modules/mod2b');
+require('./config');
+require('./analytics');
+require('./controllers');
+require('./directives');
+require('./services');
+
 // Default configuration - do not change here
 // Configuration id to be set in public/js/config.js
 angular.module('theLawFactory.config', [])
     .constant('API_ROOT_URL', 'http://www.lafabriquedelaloi.fr/api/')
-    .constant('GOOGLE_ANALYTICS_ID','')
-    .constant('HOST_FOR_GOOGLE','');
+    .constant('GOOGLE_ANALYTICS_ID', '')
+    .constant('HOST_FOR_GOOGLE', '');
+
 
 // Declare app level module which depends on filters, and services
 angular.module('theLawFactory', [
-        'ui.router',
-        'theLawFactory.config',
-        'theLawFactory.controllers',
-        'theLawFactory.services',
-        'theLawFactory.directives',
-        'theLawFactory.analytics'
+    'ui.router',
+    'templates',
+    'theLawFactory.config',
+    'theLawFactory.controllers',
+    'theLawFactory.services',
+    'theLawFactory.directives',
+    'theLawFactory.analytics'
     ])
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: 'templates/home.html',
+                templateUrl: 'home.html',
                 controller: 'mainCtrl'
             })
             .state('about', {
                 url: '/a-propos.html',
-                templateUrl: 'templates/about.html',
+                templateUrl: 'about.html',
                 controller: 'mainCtrl'
             })
             .state('laws', {
