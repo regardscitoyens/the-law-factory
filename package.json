@@ -1,19 +1,15 @@
 {
   "name": "the-law-factory",
   "version": "1.0.0",
-  "description": "La Fabrique de la Loi / The Law Factory =======================================",
+  "description": "La Fabrique de la Loi / The Law Factory",
   "main": "gulpfile.js",
   "devDependencies": {
     "del": "^2.2.0",
     "gulp": "^3.9.0",
-    "gulp-angular-templatecache": "^1.8.0",
-    "gulp-changed": "^1.3.0",
     "gulp-concat": "^2.6.0",
-    "gulp-gzip": "^1.2.0",
     "gulp-if": "^2.0.0",
     "run-sequence": "^1.1.5",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-buffer": "^1.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,8 +18,6 @@
     "type": "git",
     "url": "git+https://github.com/regardscitoyens/the-law-factory.git"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/regardscitoyens/the-law-factory/issues"
   },

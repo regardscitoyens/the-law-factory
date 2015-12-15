@@ -1,13 +1,9 @@
 
 var gulp = require('gulp');
-var source = require('vinyl-source-stream');
 var concat = require('gulp-concat');
 var runSequence = require('run-sequence');
-var changed = require('gulp-changed');
 var del = require('del');
-var url = require('url');
 var gulpif = require('gulp-if');
-var order = require('gulp-order');
 var sourcemaps = require('gulp-sourcemaps');
 
 var config = {
@@ -96,13 +92,11 @@ gulp.task('styles', function() {
 
 gulp.task('fonts', function() {
     return gulp.src(config.fonts.src)
-        .pipe(changed(config.fonts.dest))
         .pipe(gulp.dest(config.fonts.dest));
 });
 
 gulp.task('images', function() {
     return gulp.src(config.images.src)
-        .pipe(changed(config.images.dest))
         .pipe(gulp.dest(config.images.dest));
 });
 
