@@ -1,7 +1,4 @@
-var d3 = require('d3');
-var $ = require('jquery');
-global.jQuery = require('jquery');
-require('bootstrap');
+'use strict';
 
 var num=0;
 var svg, mydata;
@@ -63,7 +60,7 @@ function init(data,step) {
     divs.forEach(function(f,j){
         var gp = d3.entries(f.groupes);
         orderedGroupes.forEach(function(g,h){
-            var filtered = gp.filter(function(k,l){
+            var toAdd, filtered = gp.filter(function(k,l){
                     return k.key.toLowerCase()===g.toLowerCase()
                 }),
                 curr = mydata.filter(function(e,n){
@@ -133,7 +130,7 @@ function drawFlows(top_ordered) {
     });
 }
 
-sven = {},
+var sven = {};
 sven.viz = {};
 
 sven.viz.streamkey = function(){
@@ -328,7 +325,7 @@ sven.viz.streamkey = function(){
                 $(".text-container").empty()
                 $(".text-container").append('<p class="orat-title">'+d.x+"</p>");
 
-                spArray= d3.entries(d.speakers).sort(function(a,b){return b.value.nb_mots - a.value.nb_mots});
+                var spArray = d3.entries(d.speakers).sort(function(a,b){return b.value.nb_mots - a.value.nb_mots});
                 spArray.forEach(function(g,j){
                     var ordiv = document.createElement('div');
                     ordiv.className="orateur";
@@ -394,9 +391,9 @@ sven.viz.streamkey = function(){
     function sort(data, sorting_key, sorting_function){
         var stepsY = [];
         //from fluxs to steps and sorting
-        for (j = 0; j < m; ++j) {
+        for (var j = 0; j < m; ++j) {
             stepsY[j] = [];
-            for (i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)
                 stepsY[j].push({'y':data[i]['values'][j]['value'],'value': data[i]['values'][j]['value'], 'index':i, 'x':data[i]['values'][j]['step'],'color':data[i]['color'],'speakers':data[i]['values'][j]['speakers'] ,'category':data[i]['key'], 'label':data[i]['name']});
             var sorted = d3.nest().key(function(d){return d[sorting_key]})
                 .sortKeys(sorting_function)
@@ -406,13 +403,13 @@ sven.viz.streamkey = function(){
 
         }
         return stepsY;
-    };
-
-    sortByGroupe = function(data){
-        return sort(data, "category", function(a,b){return utils.groups[b].order - utils.groups[a].order; });
     }
 
-    sortByTop = function(data){
+    var sortByGroupe = function(data){
+        return sort(data, "category", function(a,b){return utils.groups[b].order - utils.groups[a].order; });
+    };
+
+    var sortByTop = function(data){
         return sort(data, "y", function(a,b){if(a==="null") a=0; if(b==="null") b=0; return parseFloat(a) - parseFloat(b); });
     };
 
@@ -427,8 +424,8 @@ sven.viz.streamkey = function(){
         scaledMinHeight;
 
     // compute baseline (now centered)...
-    for (j = 0; j < m; ++j) {
-      for (i = 0, o = 0; i < n; i++)
+    for (var j = 0; j < m; ++j) {
+      for (var i = 0, o = 0; i < n; i++)
           o += data[j][i]['y'];
       if (o > max) max = o;
       sums.push(o);

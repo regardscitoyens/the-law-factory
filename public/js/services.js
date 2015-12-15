@@ -1,9 +1,5 @@
 'use strict';
 
-var d3 = require('d3');
-var $ = require('jquery');
-var angular = require('angular');
-
 /* Services */
 angular.module('theLawFactory.services', ['theLawFactory.config'])
 	.config(['$httpProvider', function($httpProvider) {

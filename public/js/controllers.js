@@ -1,11 +1,7 @@
 'use strict';
 
-var d3 = require('d3');
-var $ = require('jquery');
-var angular = require('angular');
-
 /* Workaround to trigger click on d3 element */
-$.fn.d3Click = function () {
+jQuery.fn.d3Click = function () {
   this.each(function (i, e) {
     var evt = document.createEvent("MouseEvents");
     evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);

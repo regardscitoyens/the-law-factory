@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('theLawFactory.analytics', ['theLawFactory.config']).run(function($rootScope, $location, $http, GOOGLE_ANALYTICS_ID, HOST_FOR_GOOGLE) {
   if (GOOGLE_ANALYTICS_ID) {
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

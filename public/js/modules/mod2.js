@@ -1,7 +1,4 @@
-var d3 = require('d3');
-var $ = require('jquery');
-global.jQuery = require('jquery');
-require('bootstrap');
+'use strict';
 
 var orderedByStatus = true;
 var sortByStat;
@@ -25,7 +22,6 @@ var utils, highlight;
     }
 
   	function vis(selection){
-
 		var articles;
         utils = $('.mod2').scope();
         highlight = utils.highlightGroup;
@@ -37,7 +33,7 @@ var utils, highlight;
         if (Object.keys(articles).length < 2)
             $('#display_menu').parent().hide();
 
-        selectRow = function(art,pos) {
+        var selectRow = function(art,pos) {
             if(d3.event) d3.event.stopPropagation();
             var sel = d3.select("."+utils.slugArticle(art));
             if(!sel.empty()) {
@@ -48,14 +44,14 @@ var utils, highlight;
             }
         };
 
-        deselectRow = function() {
+        var deselectRow = function() {
             if(d3.event) d3.event.stopPropagation();
             utils.resetHighlight('amds');
             $("#readMode").hide();
             d3.selectAll("g").style("opacity", 1);
         };
 
-        artArray=d3.values(articles).sort(function(a,b){return a.order-b.order});
+        var artArray = d3.values(articles).sort(function(a,b){return a.order-b.order});
 
         var w, rw, minheight, nsq, z,
 		    lineh = 30,
@@ -187,8 +183,8 @@ var utils, highlight;
         function drawLines(d,i, half) {
 
           var multi=false;
-          len = d.amendements.length;
-		  lines = Math.ceil(len/x);
+          var len = d.amendements.length;
+		  var lines = Math.ceil(len/x);
           if(lines>1) {
               multi=true;
               lines += 1;
@@ -210,8 +206,8 @@ var utils, highlight;
                   })
                   .call(function () {
                     if(!multi) {
-                        n = d.amendements.length;
-                        offset = Math.floor(n / x)
+                        var n = d.amendements.length;
+                        var offset = Math.floor(n / x);
                         jumpLines = jumpLines + offset;
                     }
                       else jumpLines+=lines-1;
@@ -220,7 +216,7 @@ var utils, highlight;
               var bg = curRow
                   .selectAll(".bg")
                   .data(d3.range(x * lines))
-                  .enter()
+                  .enter();
 
               bg.append("rect")
                   .attr("x", function (f) {

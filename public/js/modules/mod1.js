@@ -1,7 +1,4 @@
-var d3 = require('d3');
-var $ = require('jquery');
-global.jQuery = require('jquery');
-require('bootstrap');
+'use strict';
 
 var valign, stacked, utils, aligned = true;
 
@@ -107,7 +104,7 @@ var valign, stacked, utils, aligned = true;
                     if (a.section === "echec") return (b.section === "echec" ? 0 : -1);
                     else if (b.section === "echec") return 1;
 					var al = a.titre.split(" "), bl = b.titre.split(" ");
-					ao = 0, bo = 0;
+					var ao = 0, bo = 0;
 					if (parseInt(al[0]) != parseInt(bl[0]))
 						return parseInt(al[0]) - parseInt(bl[0]);
 					for (var i_s = 0; i_s < a.steps.length; i_s++) {
@@ -145,7 +142,7 @@ var valign, stacked, utils, aligned = true;
 
                 //Utility functions
                 function findStage(s) {
-                    for (st in stages)
+                    for (var st in stages)
                         if (s == stages[st])
                             return parseInt(st);
                     return -1;
@@ -164,8 +161,8 @@ var valign, stacked, utils, aligned = true;
 
                     stag.sort();
 
-                    for (s in stag)
-                        stag_name = stag[s].split("_", 4).splice(2, 3).join(" ");
+                    for (var s in stag)
+                        var stag_name = stag[s].split("_", 4).splice(2, 3).join(" ");
 
                     return stag;
                 }
@@ -180,7 +177,7 @@ var valign, stacked, utils, aligned = true;
                 }
 
                 function findSection(s) {
-                    res = sections.indexOf(s);
+                    var res = sections.indexOf(s);
                     return res
                 }
 
@@ -218,7 +215,7 @@ var valign, stacked, utils, aligned = true;
                         f.sect_num = findSection(f.section);
                         f.step_num = findStage(f.id_step);
                         if (j != 0 && f.id_step.substr(-5) != "depot") {
-                            k = j-1;
+                            var k = j-1;
                             while (k > 0 && d.steps[k].status === "echec") k--;
                             f.prev_step = d.steps[k].step_num;
                             f.prev_dir = d.steps[k].directory;
@@ -320,6 +317,7 @@ var valign, stacked, utils, aligned = true;
 				$("svg").remove();
 				svg = d3.select("#viz").append("svg").attr("width", "100%").attr("height", maxy).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 				//draw everything
+                var st, se;
 				for(st in stages) {
 					for (se in sections) {
 						
@@ -468,9 +466,9 @@ var valign, stacked, utils, aligned = true;
 
 				//Add connections
 				var lines = svg.append("g").selectAll("line").data(bigList.filter(function(d) {
-					a = d3.selectAll(".article").filter(function(e){
+					var a = d3.selectAll(".article").filter(function(e){
                         return (d.article == e.article && d.step_num == e.prev_step)
-                    })
+                    });
 					return !a.empty() && d.status != "sup";
 				})).enter();
 
@@ -500,13 +498,13 @@ var valign, stacked, utils, aligned = true;
 
 
 				function setCoordinates() {
-					for (t in stages) {
+					for (var t in stages) {
 						var currT = bigList.filter(function(d) { return d.step_num==t; }),
                             currY = sectJump + sectHeight,
                             piece,
                             lastS = "";
 
-						for (s in sections) {
+						for (var s in sections) {
 							var currentSection = currT.filter(function(e){ return e.sect_num == s; })
 							    .sort(function(a, b) { return a.order - b.order; });
 
@@ -551,11 +549,10 @@ var valign, stacked, utils, aligned = true;
 
 				//USE THE ARROWS
 				d3.select("body").on("keydown", function() {
-                    var c = (d3.select(".curr")),
-                        sel, elm;
+                    var c = (d3.select(".curr")), sel, elm;
                     if (utils.tutorial) return;
                     if (c.empty()) return;
-                    cur = c.datum();
+                    var cur = c.datum();
 
                     //LEFT
                     if (d3.event.keyCode == 37) {
@@ -563,7 +560,7 @@ var valign, stacked, utils, aligned = true;
                     }
                     //RIGHT
                     else if (d3.event.keyCode == 39) {
-                        var sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && e.prev_step==cur.step_num})
+                        sel = d3.selectAll(".article").filter(function(e){return e.article == cur.article && e.prev_step==cur.step_num})
                     }
                     //UP AND DOWN
                     else if (d3.event.keyCode == 38 || d3.event.keyCode == 40) {
@@ -612,29 +609,29 @@ var valign, stacked, utils, aligned = true;
 					for(var se=0; se<sections.length; se++) {
                         if (has_echec && se == 0) continue;
                         var h = 0;
-                        for (st in stages) {
-                            a=d3.select(".se"+se+".st"+st).node().getBBox();
+                        for (var st in stages) {
+                            var a = d3.select(".se"+se+".st"+st).node().getBBox();
                             y0 = Math.max(y0, a.y);
                             h = Math.max(h, a.height+20);
 						}
 						d3.selectAll(".se"+(se))
-						.attr("data-offset", function(d){
-							var b=d3.select(this).node().getBBox();
-							return y0-b.y;
-                        });
+                            .attr("data-offset", function(d){
+                                var b=d3.select(this).node().getBBox();
+                                return y0-b.y;
+                            });
                         y0 += h;
 					}
 
                     $("svg").height(Math.max(y0, maxy));
 
 					d3.selectAll(".group").transition().duration(500)
-					.attr("transform",function(d){
-						if($(this).attr("data-offset")) return "translate(0,"+parseFloat($(this).attr('data-offset'))+")"
-						else return "translate(0,0)";
-					})
+                        .attr("transform",function(d){
+                            if($(this).attr("data-offset")) return "translate(0,"+parseFloat($(this).attr('data-offset'))+")"
+                            else return "translate(0,0)";
+                        });
 
 					valignLines();
-				}
+				};
 
 				function valignLines() {
 					d3.selectAll("line").transition().duration(500)
@@ -676,7 +673,7 @@ var valign, stacked, utils, aligned = true;
 							return a.y + (lerp(a.length)) / 2;
 						});
                     $("svg").height(maxy);
-                }
+                };
 
 				//on click behaviour
 				function onclick(d) {
@@ -690,19 +687,22 @@ var valign, stacked, utils, aligned = true;
                     d3.select(this).classed("curr", true);
 
                     //Select the elements in same group
-                    d3.selectAll(".article").filter(function(e){return e && d && e.article==d.article})
-					.style("stroke", "#333344").style("stroke-width", 1).style("fill", function() {
-                        hsl = d3.rgb(d3.select(this).style("fill")).hsl()
-                        hsl.s += 0.1;
-                        return hsl.rgb()
-                    }).style("stroke-dasharray", [3, 3]);
+                    d3.selectAll(".article")
+                        .filter(function(e){return e && d && e.article==d.article})
+					    .style("stroke", "#333344").style("stroke-width", 1).style("fill", function() {
+                            var hsl = d3.rgb(d3.select(this).style("fill")).hsl()
+                            hsl.s += 0.1;
+                            return hsl.rgb()
+                        })
+                        .style("stroke-dasharray", [3, 3]);
+
                     d3.select(this).style("stroke-dasharray", "none");
                     d3.selectAll("line")
-                    .filter(function(e){return e && d && e.article==d.article})
-					.style("stroke", "#333344")
-                    .style("stroke-dasharray", [3, 3]);
+                        .filter(function(e){return e && d && e.article==d.article})
+                        .style("stroke", "#333344")
+                        .style("stroke-dasharray", [3, 3]);
 
-                    d3.rgb(d3.select(this).style("fill")).darker(2)
+                    d3.rgb(d3.select(this).style("fill")).darker(2);
 
                     if (utils.drawing) return;
 

@@ -1,13 +1,5 @@
 'use strict';
 
-var d3 = require('d3');
-var $ = require('jquery');
-global.jQuery = $;
-require('jquery-ui/autocomplete');
-require('bootstrap');
-var angular = require('angular');
-
-
 // Useful functions
 var accentMap = {
     "á": "a",
@@ -48,7 +40,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
         return {
             restrict : 'A',
             replace : false,
-            templateUrl : 'mod1.html',
+            templateUrl : 'templates/mod1.html',
             controller: function($scope) {
                 $scope.mod = "mod1";
                 $scope.setHelpText("Chaque boîte représente un article dont la taille indique la longueur du texte et la couleur le degré de modifications à cette étape. Cliquez sur un article pour lire le texte et voir le détail des modifications.");
@@ -86,7 +78,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
             return {
                 restrict : 'A',
                 replace : false,
-                templateUrl : 'mod2.html',
+                templateUrl : 'templates/mod2.html',
                 controller : function($scope) {
                     $scope.step = 0;
                     $scope.mod = "mod2";
@@ -118,7 +110,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
             return {
                 restrict : 'A',
                 replace : false,
-                templateUrl : 'mod2b.html',
+                templateUrl : 'templates/mod2b.html',
                 controller : function($scope) {
                     $scope.step = 0;
                     $scope.mod = "mod2b";
@@ -151,7 +143,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
             return {
                 restrict : 'A',
                 replace : false,
-                templateUrl : 'mod0.html',
+                templateUrl : 'templates/mod0.html',
                 controller : function($scope) {
                     $scope.mod="mod0";
                     $scope.setHelpText("Chaque ligne représente la chronologie des débats sur un projet ou une proposition de loi. La couleur indique l'institution en charge du texte à un instant donné (Assemblée en bleu, Sénat en rouge...). Cliquez sur un texte pour en consulter le résumé et en explorer les articles.");
@@ -343,7 +335,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
         function(timer,api, $rootScope, $location) { return {
             restrict : 'A',
             replace : false,
-            templateUrl : 'stepsbar.html',
+            templateUrl : 'templates/stepsbar.html',
             controller : function($scope, $element, $attrs) {
             },
 
@@ -438,7 +430,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
         return {
             restrict : 'A',
             replace : false,
-            templateUrl : 'about.html',
+            templateUrl : 'templates/about.html',
             controller : function($scope) {
                 $rootScope.pageTitle = " À propos | ";
                 $scope.mod = "about";

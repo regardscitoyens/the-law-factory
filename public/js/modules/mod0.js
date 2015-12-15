@@ -1,7 +1,4 @@
-var d3 = require('d3');
-var $ = require('jquery');
-global.jQuery = require('jquery');
-require('bootstrap');
+'use strict';
 
 var drawGantt, utils,
     locale = d3.locale({
@@ -101,7 +98,7 @@ reset_filters();
                 return [d[2], d[1], d[0]].join('/');
             },
             popover = function(d) {
-                title = ((d.institution=="assemblee" || d.institution=="senat") && layout == 'q' ? format_title(d.institution) + " — " : "") + format_title(d.step ? d.step : d.stage),
+                var title = ((d.institution=="assemblee" || d.institution=="senat") && layout == 'q' ? format_title(d.institution) + " — " : "") + format_title(d.step ? d.step : d.stage),
                     div = d3.select(document.createElement("div")).style("width", "100%").attr('class', 'pop0');
                 if (d.stage=="CMP") {
                     div.append("p").html(title);
@@ -142,8 +139,7 @@ reset_filters();
             }
 
             zooming = function(lvl) {
-
-                var perc=($("#gantt").scrollLeft()+$("#gantt").width()/2)/(width*z);
+                var rat, perc=($("#gantt").scrollLeft()+$("#gantt").width()/2)/(width*z);
                 if ($("#gantt").scrollLeft() == 0 && $("#gantt").scrollTop() == 0) {
                     if (layout == 't') {
                     perc = 1;
@@ -164,7 +160,7 @@ reset_filters();
 
                 if(layout==="a") {
                     d3.selectAll(".g-law").attr("transform", function(d,i){return "translate(" + -tscale(format.parse(d.beginning)) * z + 5 + "," + (i * (20 + lawh)) +")"; });
-                    lscale = d3.time.scale().range([0, width * width_ratio]);;
+                    var lscale = d3.time.scale().range([0, width * width_ratio]);;
                     lscale.domain([mindate, maxdate]);
                     d3.selectAll(".tick").attr("x1",function(d){return lscale(d)*z}).attr("x2",function(d){return lscale(d)*z});
                     d3.selectAll(".tick-lbl").attr("x", function (d) { return lscale(d) * z; });
