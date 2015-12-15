@@ -8,9 +8,6 @@ var sourcemaps = require('gulp-sourcemaps');
 
 var config = {
     debug: true,
-    browserPort: 3000,
-    UIPort: 3001,
-    sourceDir: './public/',
     buildDir: './build/',
     styles: {
         src: [
