@@ -34,7 +34,8 @@ var config = {
             'public/js/lib/angular-1.4.8.min.js',
             'public/js/lib/angular-ui-router-0.2.15.min.js',
             'public/js/lib/spin-2.0.1.min.js',
-            'public/js/lib/intro-0.9.min.js'
+            'public/js/lib/intro-0.9.min.js',
+            'public/js/lib/google-diff-match-patch-r106.min.js'
             ],
         dest: 'build/js'
     },
