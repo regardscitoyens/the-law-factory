@@ -17,7 +17,13 @@ var config = {
     sourceDir: './public/',
     buildDir: './build/',
     styles: {
-        src: 'public/css/**/*.css',
+        src: [
+            'public/css/bootstrap.min.css',
+            'public/css/introjs.min.css',
+            'public/css/introjs-rtl.min.css',
+            'public/css/jquery-ui.min.css',
+            'public/css/app.css'
+        ],
         dest: 'build/css'
     },
     appScripts: {
