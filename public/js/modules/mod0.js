@@ -138,7 +138,7 @@ reset_filters();
                 return format.parse(val);
             }
 
-            zooming = function(lvl) {
+            var zooming = function(lvl) {
                 var rat, perc=($("#gantt").scrollLeft()+$("#gantt").width()/2)/(width*z);
                 if ($("#gantt").scrollLeft() == 0 && $("#gantt").scrollTop() == 0) {
                     if (layout == 't') {
@@ -186,6 +186,8 @@ reset_filters();
                 $("#gantt").scrollLeft(perc * width * z - $("#gantt").width() / 2 );
             };
 
+            thelawfactory.zooming = zooming;
+
             selection.each(function (data) {
 
                 drawGantt = function(action) {
@@ -206,9 +208,9 @@ reset_filters();
                             $("#gantt svg").animate({opacity: 1}, 50);
                         });
                     });
-                }
+                };
 
-                updateGantt = function(action) {
+                var updateGantt = function(action) {
                     $("#gantt svg").empty();
                     $("#legend svg").empty();
                     $("#bars").empty();
@@ -305,7 +307,7 @@ reset_filters();
                     });
                     zooming(zoo);
                     if (scroll && !resize) $("#gantt").animate(scroll);
-                }
+                };
 
                 function prepareSteps(steps, id) {
                         steps.forEach(function (e, j) {
@@ -517,13 +519,13 @@ reset_filters();
                                     return d.total_amendements && d.total_amendements < 51; break;
                                 case allAmendments[3]:
                                     return d.total_amendements > 50; break;
-                            };
+                            }
                         })
                         .sort(sort_function);
 		    }
 
                     // find date range
-                    for (i = 1; i <= maxstat; i++) stats[binstat*i] = 0;
+                    for (var i = 1; i <= maxstat; i++) stats[binstat*i] = 0;
                     mindate = ""; maxdate = ""; maxduration = 0;
                     smallset.forEach(function(d){
                         mindate = (mindate && mindate < d.beginning ? mindate : d.beginning);
@@ -708,35 +710,35 @@ reset_filters();
                     if (d.institution === "conseil constitutionnel") return "CC";
                     if (d.stage === "promulgation") return "PR";
                     return "Color_Default";
-                };
+                }
 				
-                classicPosition = function() {
+                var classicPosition = function() {
                     d3.selectAll(".step")
                         .attr("x", function (e) { return tscale(scaled_date_val(e)); })
                         .attr("width", getQLwidth);
-                }
+                };
 
-                absolutePosition = function () {
+                var absolutePosition = function () {
                     d3.selectAll(".g-law").transition().duration(500).attr("transform", function (d, i) {
                         return "translate(" + -tscale(format.parse(d.beginning)) * z * width_ratio + 5 + "," + (i * (20 + lawh)) + "), scale("+width_ratio+",1)";
                     })
                     classicPosition();
                     d3.selectAll(".tick-lbl").text(function (d, j) { return (j + 1) + " mois"; })
-                }
+                };
 
-                timePosition = function () {
+                var timePosition = function () {
                     classicPosition();
                     d3.selectAll(".tick-lbl").text(function (d, j) { return tickform(d); });
                 };
 
-                quantiPosition = function () {
+                var quantiPosition = function () {
                     d3.selectAll('.steps').selectAll(".step")
                         .attr("x", function (d) {return d.qx; })
                         .attr("width", function (d) { return Math.max(0, d.qw); });
                     
                     d3.selectAll(".tick").style('opacity', 0);
                     d3.selectAll(".law-bg").transition().duration(500).style("opacity", 0);
-                }
+                };
 
                 function unclick() {
                     selected_bill = "";
@@ -967,4 +969,4 @@ reset_filters();
         }
         return vis;
     }
-})()
+})();
