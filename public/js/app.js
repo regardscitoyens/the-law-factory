@@ -16,7 +16,7 @@ angular.module('theLawFactory', [
     'theLawFactory.services',
     'theLawFactory.directives',
     'theLawFactory.analytics'
-    ])
+])
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('home', {
