@@ -167,24 +167,24 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config'])
             "depot": "Dépôt",
             "depots": "Dépôts",
             "cmp": "CMP"
-        },
+        };
 
-            $scope.longNames = {
-                "1relecture": "1<sup>ère</sup> Lecture",
-                "2melecture": "2<sup>ère</sup> Lecture",
-                "nouvlect": "Nouvelle Lecture",
-                "ldfinitive": "Lecture Définitive",
-                "assemblee": "Assemblée",
-                "dputs": "Députés",
-                "snateurs": "Sénateurs",
-                "senat": "Sénat",
-                "gouvernement": "Gouvernement",
-                "commission": "Commission",
-                "hemicycle": "Hémicyle",
-                "depot": "Dépôt",
-                "depots": "Dépôts",
-                "cmp": "Commission Mixte Paritaire"
-            };
+        $scope.longNames = {
+            "1relecture": "1<sup>ère</sup> Lecture",
+            "2melecture": "2<sup>ère</sup> Lecture",
+            "nouvlect": "Nouvelle Lecture",
+            "ldfinitive": "Lecture Définitive",
+            "assemblee": "Assemblée",
+            "dputs": "Députés",
+            "snateurs": "Sénateurs",
+            "senat": "Sénat",
+            "gouvernement": "Gouvernement",
+            "commission": "Commission",
+            "hemicycle": "Hémicyle",
+            "depot": "Dépôt",
+            "depots": "Dépôts",
+            "cmp": "Commission Mixte Paritaire"
+        };
 
         $scope.vizTitle = "";
         $scope.helpText = '<div id="help-msg"><p>VIZTEXT</p><p>Cliquez sur le bouton <span class="question_mark">?</span> ci-dessus pour voir un tutoriel interactif de cette visualisation.<p></div>';
@@ -441,8 +441,9 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config'])
                             nextLabel: "suite...",
                             prevLabel: "...retour",
                             skipLabel: "quitter ce tutoriel",
-                            doneLabel: "quitter ce tutoriel",
+                            doneLabel: "quitter ce tutoriel"
                         });
+
                         introjs.onbeforechange(function (e) {
                             if ($(e).hasClass('div-over-svg'))
                                 $('.div-over-svg').show();
@@ -478,7 +479,10 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config'])
                         };
                         introjs.onexit(exit_introjs);
                         introjs.oncomplete(exit_introjs);
-                        introjs.start();
+
+                        $timeout(function() {
+                            introjs.start();
+                        }, 0);
                     },
                     function () {
                         $log.error("couldn't retrieve json tutorial");
