@@ -1,18 +1,18 @@
 'use strict';
 
-var orderedByStatus = true;
-var sortByStat;
-var sortByParty;
-var redraw;
-var grouped = null;
-var api_root;
-var utils, highlight;
-
 (function () {
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
     thelawfactory.mod2 = function () {
+        var orderedByStatus = true,
+            sortByStat,
+            sortByParty,
+            redraw,
+            grouped = null,
+            api_root,
+            highlight,
+            scope = $('.mod2').scope();
 
         function get_status_img(e) {
             if (e.sort === "adopté") return "img/ok.png";
@@ -23,10 +23,9 @@ var utils, highlight;
 
         function vis(selection) {
             var articles;
-            utils = $('.mod2').scope();
-            highlight = utils.highlightGroup;
+            highlight = scope.highlightGroup;
             selection.each(function (d, i) {
-                utils.groups = d.groupes;
+                scope.groups = d.groupes;
                 articles = d.sujets;
                 api_root = d.api_root_url;
             });
@@ -35,9 +34,9 @@ var utils, highlight;
 
             var selectRow = function (art, pos) {
                 if (d3.event) d3.event.stopPropagation();
-                var sel = d3.select("." + utils.slugArticle(art));
+                var sel = d3.select("." + scope.slugArticle(art));
                 if (!sel.empty()) {
-                    utils.resetHighlight('amds');
+                    scope.resetHighlight('amds');
                     d3.selectAll("g").style("opacity", 0.2);
                     sel.style("opacity", 1);
                     if (pos) $("#viz").animate({scrollTop: sel.attr("data-offset")})
@@ -46,7 +45,7 @@ var utils, highlight;
 
             var deselectRow = function () {
                 if (d3.event) d3.event.stopPropagation();
-                utils.resetHighlight('amds');
+                scope.resetHighlight('amds');
                 $("#readMode").hide();
                 d3.selectAll("g").style("opacity", 1);
             };
@@ -76,8 +75,8 @@ var utils, highlight;
                 .on("click", deselectRow);
 
             var compare_partys = function (a, b) {
-                    if (utils.groups[a].order < utils.groups[b].order) return -1;
-                    if (utils.groups[a].order > utils.groups[b].order) return 1;
+                    if (scope.groups[a].order < scope.groups[b].order) return -1;
+                    if (scope.groups[a].order > scope.groups[b].order) return 1;
                 },
                 statsorder = {"adopté": 0, "rejeté": 1, "non-voté": 2},
                 compare_stats = function (a, b) {
@@ -129,28 +128,28 @@ var utils, highlight;
                 var selected_amd = d3.selectAll(".actv-amd");
                 if (selected_amd[0].length) selected_amd = selected_amd[0][0].id;
                 else selected_amd = "";
-                utils.setMod2Size();
-                utils.setTextContainerHeight();
+                scope.setMod2Size();
+                scope.setTextContainerHeight();
                 readSizes();
                 if (merged == undefined) merged = grouped;
                 $('#menu-display .selectedchoice').text(merged ? 'groupée' : 'par articles');
                 $("svg").empty();
-                utils.startSpinner();
+                scope.startSpinner();
                 $("svg").animate({opacity: 0}, 50, function () {
                     jumpLines = 0;
                     (merged ? drawMerged() : draw());
                     var a = d3.select("svg").select("g:last-child").attr("data-offset"),
                         ah = d3.select("svg").select("g:last-child").node().getBBox().height;
                     svg.attr("height", Math.max(minheight, z + parseInt(a) + ah));
-                    if (utils.article != null)
-                        selectRow(utils.article, true);
-                    utils.stopSpinner(function () {
+                    if (scope.article != null)
+                        selectRow(scope.article, true);
+                    scope.stopSpinner(function () {
                         svg.attr("width", $("#viz").width());
                         $("svg").animate({opacity: 1}, 50);
-                        utils.drawing = true;
-                        setTimeout(utils.setTextContainerHeight, 250);
+                        scope.drawing = true;
+                        setTimeout(scope.setTextContainerHeight, 250);
                         if (selected_amd) $("#" + selected_amd).d3Click();
-                        utils.drawing = false;
+                        scope.drawing = false;
                     });
                 });
             }
@@ -196,7 +195,7 @@ var utils, highlight;
                 var k = Math.floor(i / 2);
                 d.offset = offset;
                 var curRow = svg.append("g")
-                    .classed(utils.slugArticle(d.titre), true)
+                    .classed(scope.slugArticle(d.titre), true)
                     .classed("first-art-s", i == 0)
                     .attr("transform", function () {
                         if (!half) return "translate(" + 10 + "," + (i * 20 + i * lineh + 10 + jumpLines * (lineh - 10)) + ")";
@@ -248,7 +247,7 @@ var utils, highlight;
                 var popover = function (e) {
                     var date = e.date.split('-'),
                         div = d3.select(document.createElement("div")).style("width", "100%");
-                    div.append("p").html("<b>" + utils.groups[e.groupe].nom + "</b>");
+                    div.append("p").html("<b>" + scope.groups[e.groupe].nom + "</b>");
                     div.append("p").html("Sort : " + e.sort + "");
                     div.append("p").html("<small>" + [date[2], date[1], date[0]].join("/") + "</small>");
                     return {
@@ -280,7 +279,7 @@ var utils, highlight;
                         return "a_" + e.numero.replace(/[^a-z\d]/ig, '')
                     })
                     .attr("class", function (e) {
-                        return "amd " + utils.slugGroup(e.groupe) + " " + utils.slugGroup(e.sort);
+                        return "amd " + scope.slugGroup(e.groupe) + " " + scope.slugGroup(e.sort);
                     })
                     .classed("first-art", function (f, j) {
                         return i == 0 && j == 0;
@@ -312,18 +311,18 @@ var utils, highlight;
 
             function select(d) {
                 d3.event.stopPropagation();
-                if (!utils.drawing) utils.resetHighlight('amds');
+                if (!scope.drawing) scope.resetHighlight('amds');
                 d3.selectAll("#a_" + d.numero.replace(/[^a-z\d]/ig, ''))
                     .classed("actv-amd", true)
                     .style("opacity", 1)
                     .style("stroke", "#333344")
                     .style("stroke-width", 2);
-                if (utils.drawing) return;
+                if (scope.drawing) return;
                 $("#readMode").show();
                 $("#text-title").text("Amendement " + d.numero);
                 $(".text-container").empty();
-                utils.setTextContainerHeight();
-                utils.startSpinner('load_amd');
+                scope.setTextContainerHeight();
+                scope.startSpinner('load_amd');
                 setTimeout(function () {
                     d3.json(api_root + d.id_api + '/json', function (error, json) {
                         var currAmd = json.amendement,
@@ -335,13 +334,13 @@ var utils, highlight;
                         $(".text-container").html(
                             '<span class="amd-date">' + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</span>" +
                             '<span class="amd-sort">' + currAmd.sort + " <span class='amd-txt-status' style='background-color:" + col + "'><img style='margin:0; padding:4px; width:18px;' src='" + statico + "'/></span> </span>" +
-                            '<div class="amd-subject"><b>Sujet :</b><span> ' + utils.clean_amd_subject(currAmd.sujet) + "</span></div>" +
+                            '<div class="amd-subject"><b>Sujet :</b><span> ' + scope.clean_amd_subject(currAmd.sujet) + "</span></div>" +
                             '<div class="amd-text"><b>Signataires :</b> <span>' + currAmd.signataires + "</span></div>" +
                             '<div class="amd-text"><b>Exposé des motifs :</b> ' + currAmd.expose + "</div>" +
                             '<div class="amd-text"><b>Texte :</b> ' + currAmd.texte + '</div>' +
                             '<p class="sources"><small><a target="_blank" href="' + source_am + '</a></small></p>'
                         );
-                        utils.stopSpinner(function () {
+                        scope.stopSpinner(function () {
                             $(".text-container").animate({opacity: 1}, 350);
                             $('.text-container').scrollTop(0);
                         }, 'load_amd');
@@ -350,14 +349,14 @@ var utils, highlight;
             }
 
             function color_amd(d) {
-                if (utils.groups[d.groupe]) {
-                    return utils.adjustColor(utils.groups[d.groupe].color).toString();
+                if (scope.groups[d.groupe]) {
+                    return scope.adjustColor(scope.groups[d.groupe].color).toString();
                 } else return "#E6E6E6";
             }
 
             $(document).ready(function () {
-                $(".text-container").empty().html(utils.helpText);
-                utils.drawGroupsLegend();
+                $(".text-container").empty().html(scope.helpText);
+                scope.drawGroupsLegend();
                 $('.readMode').tooltip({animated: 'fade', placement: 'bottom'});
                 if ($(".others div").length) $(".others").append('<div class="leg-item"></div>');
                 [
@@ -372,11 +371,11 @@ var utils, highlight;
                 $(".leg-key").tooltip();
                 redraw(false);
                 $(window).resize(function () {
-                    if (utils.drawing || utils.mod != "mod2") return;
-                    utils.drawing = true;
+                    if (scope.drawing || scope.mod != "mod2") return;
+                    scope.drawing = true;
                     setTimeout(function () {
                         redraw();
-                        utils.drawing = false;
+                        scope.drawing = false;
                     }, 150);
                 });
             });

@@ -2,7 +2,7 @@
 
 var num = 0;
 var svg, mydata;
-var participants, utils, highlight;
+var participants, scope, highlight;
 var width;
 
 function wrap(width) {
@@ -37,24 +37,23 @@ function wrap(width) {
 }
 
 function init(data, step) {
-
-    utils = $('.mod2').scope();
-    highlight = utils.highlightGroup;
-    utils.groups = data[step].groupes
+    var scope = $('.mod2').scope();
+    highlight = scope.highlightGroup;
+    scope.groups = data[step].groupes;
     participants = data[step].orateurs;
     mydata = [];
     var divs = d3.values(data[step].divisions).sort(function (a, b) {
             return a.order - b.order;
         }),
-        orderedGroupes = d3.keys(utils.groups).sort(function (a, b) {
-            return utils.groups[a].order - utils.groups[b].order
+        orderedGroupes = d3.keys(scope.groups).sort(function (a, b) {
+            return scope.groups[a].order - scope.groups[b].order
         });
-    utils.drawGroupsLegend();
-    d3.entries(utils.groups).forEach(function (d) {
+    scope.drawGroupsLegend();
+    d3.entries(scope.groups).forEach(function (d) {
         mydata.push({
             key: d.key,
             values: [],
-            color: utils.adjustColor(d.value.color),
+            color: scope.adjustColor(d.value.color),
             name: d.value.nom
         });
     });
@@ -82,22 +81,22 @@ function init(data, step) {
             }
         });
     });
-    $(".text-container").empty().html(utils.helpText);
-    drawFlows(false);
+    $(".text-container").empty().html(scope.helpText);
+    drawFlows(scope, false);
 }
 
 /*$(window).resize(function(){
- if (utils.drawing || utils.mod != "mod2b") return;
- utils.drawing = true;
+ if (scope.drawing || scope.mod != "mod2b") return;
+ scope.drawing = true;
  setTimeout(function(){
  $("#display_menu .chosen").click();
- utils.drawing = false;
+ scope.drawing = false;
  }, 150);
  });*/
 
-function drawFlows(top_ordered) {
-    utils.setMod2bSize();
-    utils.setTextContainerHeight();
+function drawFlows(scope, top_ordered) {
+    scope.setMod2bSize();
+    scope.setTextContainerHeight();
     var selected_itv = d3.selectAll(".main-focused");
     if (selected_itv[0].length) selected_itv = selected_itv[0][0].id;
     else selected_itv = "";
@@ -110,13 +109,13 @@ function drawFlows(top_ordered) {
         $('#menu-order .selectedchoice').text("« échiquier politique »");
     }
     $("#viz-int").empty();
-    utils.startSpinner();
+    scope.startSpinner();
     $("#viz-int").animate({opacity: 0}, 50, function () {
         var height;
         if (num * 60 >= $("#viz").height()) height = num * 60;
         else height = $("#viz").height() - 50;
         var offset = Math.round(width / 5);
-        var stream = sven.viz.streamkey()
+        var stream = sven.viz.streamkey(scope)
             .data(mydata)
             .target("#viz-int")
             .height(height)
@@ -126,12 +125,12 @@ function drawFlows(top_ordered) {
             .init();
         d3.selectAll("g:not(.main-g)").attr("transform", "translate(" + offset + ",0) scale(" + (width - offset) / width + ",1)");
         wrap(offset - 25);
-        utils.stopSpinner(function () {
+        scope.stopSpinner(function () {
             $("#viz-int").animate({opacity: 1}, 50);
-            utils.drawing = true;
-            setTimeout(utils.setTextContainerHeight, 250);
+            scope.drawing = true;
+            setTimeout(scope.setTextContainerHeight, 250);
             if (selected_itv) $("#" + selected_itv).d3Click();
-            utils.drawing = false;
+            scope.drawing = false;
         });
     });
 }
@@ -139,7 +138,7 @@ function drawFlows(top_ordered) {
 var sven = {};
 sven.viz = {};
 
-sven.viz.streamkey = function () {
+sven.viz.streamkey = function (scope) {
 
     var streamkey = {},
         data,
@@ -290,7 +289,7 @@ sven.viz.streamkey = function () {
                 return "layer_" + i;
             })
             .style("fill", function (d, i) {
-                return utils.adjustColor(d[0].color).toString();
+                return scope.adjustColor(d[0].color).toString();
             })
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             .on("mousemove", function (d) {
@@ -299,7 +298,7 @@ sven.viz.streamkey = function () {
 
         d3.select("svg").on("click", function () {
             d3.selectAll(".focused").classed('focused', false);
-            utils.resetHighlight('ints');
+            scope.resetHighlight('ints');
         });
 
         // we'll add a special css class for the first rect with a width > 50 to show on tuto !
@@ -316,7 +315,7 @@ sven.viz.streamkey = function () {
                 return "itv-" + ct++;
             })
             .attr("class", function (d) {
-                return utils.slugGroup(d.category)
+                return scope.slugGroup(d.category)
             })
             .attr("y", function (d) {
                 return x(d.x);
@@ -351,9 +350,9 @@ sven.viz.streamkey = function () {
                 d3.select(d3.select(this).node().parentNode).selectAll("rect").classed('focused', true).transition().style("opacity", 0.55);
                 d3.select(this).classed('main-focused', true).transition().style("opacity", 1);
 
-                if (utils.drawing) return;
+                if (scope.drawing) return;
                 $("#text-title").html(d.label);
-                utils.setTextContainerHeight();
+                scope.setTextContainerHeight();
                 $(".text-container").empty()
                 $(".text-container").append('<p class="orat-title">' + d.x + "</p>");
 
@@ -395,7 +394,7 @@ sven.viz.streamkey = function () {
             .on('mouseenter', function (d) {
                 highlight(d.category);
             })
-            .on('mouseleave', utils.resetHighlight);
+            .on('mouseleave', scope.resetHighlight);
 
         var stream = layer.selectAll("path")
             .data(function (d) {
@@ -410,7 +409,7 @@ sven.viz.streamkey = function () {
             })
             .style("fill-opacity", 0.3)
             .attr("class", function (d) {
-                return utils.slugGroup(d[5]);
+                return scope.slugGroup(d[5]);
             })
             .attr("stroke", "none")
             .attr("display", "inline");
@@ -432,7 +431,7 @@ sven.viz.streamkey = function () {
             .attr("class", "filter-title")
             .attr("fill", "#716259")
             .text(function (d) {
-                return utils.shortenString(d, 110);
+                return scope.shortenString(d, 110);
             });
 
         return streamkey;
@@ -472,7 +471,7 @@ sven.viz.streamkey = function () {
 
     var sortByGroupe = function (data) {
         return sort(data, "category", function (a, b) {
-            return utils.groups[b].order - utils.groups[a].order;
+            return scope.groups[b].order - scope.groups[a].order;
         });
     };
 
