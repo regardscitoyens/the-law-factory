@@ -41,7 +41,7 @@
 <body>
 <div id="wrapper">
 
-    <nav id="header-nav" role="navigation" class="navbar navbar-custom" ng-controller="navigationCtrl">
+    <nav id="header-nav" role="navigation" class="navbar navbar-custom">
         <div class="navbar-header">
             <div id="header-mainlogo">
                 <a href="#/"><img src="img/the-law-factory-logo.svg"></a>
@@ -85,9 +85,9 @@
         </div>
     </noscript>
 
-    <div ng-hide="static" class="row">
+    <div ng-hide="$state.includes('about')" class="row">
         <div class="cont-width offset-width burntsiena">
-            <div ng-show="error" id="error">
+            <div ng-cloak ng-show="error != ''" id="error">
                 <h4>Oups ! Il semble que vous soyez tombé sur un bug</h4>
 
                 <p>Erreur : {{error}}. N'hésitez pas à <a

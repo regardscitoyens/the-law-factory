@@ -10,34 +10,13 @@ jQuery.fn.d3Click = function () {
 };
 
 angular.module('theLawFactory.controllers', ['theLawFactory.config'])
-    .controller('navigationCtrl', ['$scope', '$rootScope', '$log', function ($scope, $rootScope, $log) {
-        $scope.startTutorial = function () {
-            $log.info('%c navigationCtrl', 'background-color:gold', 'broadcasting start tutorial');
-            $rootScope.$broadcast('MAIN_CTRL_START_TUTORIAL');
-        };
-    }])
-    .controller('mainCtrl', function ($scope, $log, $http, apiService, api, $rootScope, $location, API_ROOT_URL) {
-        $(".introjs-helperLayer").remove();
-        $(".introjs-overlay").remove();
-
+    .controller('mainCtrl', function ($scope, $log, $http, apiService, api, $rootScope, $location, $timeout, API_ROOT_URL) {
         $rootScope.APIRootUrl = API_ROOT_URL;
-        $scope.APIRootUrl = API_ROOT_URL;
 
-        if ($scope.APIRootUrl.substr(-1) != "/") $scope.APIRootUrl += "/";
-
-        $rootScope.static = ($location.path() == '/' || $location.path() == '/a-propos.html');
         $rootScope.error = '';
         $rootScope.display_error = function (e) {
             $log.error(e);
             $rootScope.error = e;
-            setTimeout(function () {
-                $("#error").css("display", "inline")
-            }, 500);
-        };
-
-        $rootScope.back = function () {
-            var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
-            $location.path(prevUrl);
         };
 
         $scope.mod = null;
@@ -101,7 +80,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config'])
 
         $scope.update_revs_view = function () {
             var d = d3.select('#viz .curr').data()[0];
-            if (utils.revs) {
+            if ($scope.revs) {
                 $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
             } else {
                 $(".art-txt").html(d.originalText).animate({opacity: 1}, 350);
