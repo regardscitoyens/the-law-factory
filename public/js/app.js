@@ -56,4 +56,12 @@ angular.module('theLawFactory', [
             .when('/amendements', '/amendements.html')
             .when('/debats', '/debats.html')
             .otherwise('/');
+    })
+    .run(function ($rootScope, API_ROOT_URL) {
+        $rootScope.APIRootUrl = API_ROOT_URL;
+        $rootScope.error = '';
+        $rootScope.display_error = function (e) {
+            $log.error(e);
+            $rootScope.error = e;
+        };
     });

@@ -10,25 +10,19 @@ jQuery.fn.d3Click = function () {
 };
 
 angular.module('theLawFactory.controllers', ['theLawFactory.config'])
-    .controller('mainCtrl', function ($scope, $log, $http, apiService, api, $rootScope, $location, $timeout, API_ROOT_URL) {
-        var utils = thelawfactory.utils;
-
-        $rootScope.APIRootUrl = API_ROOT_URL;
-
-        $rootScope.error = '';
-        $rootScope.display_error = function (e) {
-            $log.error(e);
-            $rootScope.error = e;
-        };
-
-        $scope.mod = null;
-        $scope.drawing = false;
+    .controller('mainCtrl', function ($scope, $log, $http, apiService, api, $rootScope, $location, $timeout) {
         $scope.loi = $location.search()['loi'];
         $scope.etape = $location.search()['etape'];
         $scope.article = $location.search()['article'];
         $scope.action = $location.search()['action'];
+
+        $scope.mod = null;
+        $scope.drawing = false;
         $scope.read = false;
         $scope.revs = true;
+        $scope.vizTitle = "";
+        $scope.helpText = "";
+        $scope.groups = {};
 
         $scope.readmode = function () {
             $(".text").css({"width": "93.43%", "left": "3.3%"});
@@ -61,15 +55,11 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config'])
             }
         };
 
-        $scope.vizTitle = "";
-        $scope.helpText = "";
-        $scope.groups = {};
-
         $scope.toggleTutorial = function () {
             if (!$scope.tutorial) {
                 $scope.tutorial = true;
                 api.getTutorials().then(function (data) {
-                        var introjs = utils.getIntroJs(data, $scope.mod);
+                        var introjs = thelawfactory.utils.getIntroJs(data, $scope.mod);
 
                         $timeout(function() {
                             introjs.start();
