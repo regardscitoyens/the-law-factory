@@ -355,7 +355,6 @@
             }
 
             $(document).ready(function () {
-                $(".text-container").empty().html(scope.helpText);
                 scope.drawGroupsLegend();
                 $('.readMode').tooltip({animated: 'fade', placement: 'bottom'});
                 if ($(".others div").length) $(".others").append('<div class="leg-item"></div>');

@@ -166,10 +166,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config'])
         };
 
         $scope.vizTitle = "";
-        $scope.helpText = '<div id="help-msg"><p>VIZTEXT</p><p>Cliquez sur le bouton <span class="question_mark">?</span> ci-dessus pour voir un tutoriel interactif de cette visualisation.<p></div>';
-        $scope.setHelpText = function (t) {
-            $scope.helpText = $scope.helpText.replace("VIZTEXT", t);
-        };
+        $scope.helpText = "";
 
         $scope.getShortName = function (l) {
             return ($scope.shortNames[$scope.hashName(l)] ? $scope.shortNames[$scope.hashName(l)] : l);
@@ -270,7 +267,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config'])
                 if (e.stopPropagation) e.stopPropagation();
             }
             if (!$('.focused')) {
-                $(".text-container").empty().html($scope.helpText);
                 if ($scope.groups[group]) $("#text-title").html($scope.groups[group].nom);
             }
             $(".legend").on("click", $scope.resetHighlight);
@@ -298,7 +294,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config'])
                 d3.selectAll("rect:not(.focused)").transition(50).style("opacity", 0.2);
                 d3.selectAll("path:not(.focused)").transition(50).style("fill-opacity", 0.2);
             } else {
-                $(".text-container").empty().html($scope.helpText);
                 $("#text-title").html($scope.vizTitle);
                 d3.selectAll("rect").transition(50).style("opacity", 0.9);
                 d3.selectAll("path").transition(50).style("fill-opacity", 0.3);

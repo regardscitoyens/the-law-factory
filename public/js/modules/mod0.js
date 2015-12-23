@@ -835,7 +835,6 @@
                     selected_bill = "";
                     $("#text-title").text(scope.vizTitle);
                     $("#text-title").attr('data-original-title', "").tooltip('fixTitle');
-                    $(".text-container").empty().html(scope.helpText);
                     d3.selectAll(".g-law").style("opacity", 1);
                 }
 

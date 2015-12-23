@@ -894,7 +894,6 @@
 
                 $(document).ready(function () {
                     drawArticles();
-                    $(".art-txt").empty().html(scope.helpText);
                     setTimeout(load_texte_articles, 50);
                     $(window).resize(function () {
                         if (scope.drawing || scope.mod != "mod1") return;
