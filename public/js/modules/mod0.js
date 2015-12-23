@@ -19,7 +19,7 @@
 
     thelawfactory.mod_0.refreshLengthFilter = function () {
         if (thelawfactory.mod_0.active_filters['length'])
-            $(".bar-step #mois_" + active_filters['length']).addClass('filtered_month');
+            $(".bar-step #mois_" + thelawfactory.mod_0.active_filters['length']).addClass('filtered_month');
     };
 
     thelawfactory.mod_0.addBillsFilter = function (filtype, filval) {
