@@ -3,16 +3,16 @@
         <nav id="filter-nav" class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
                 <ul id="menu-left" class="nav navbar-nav">
-                    <li id="backtoall" onclick="drawGantt('reset')" class="active viewonelaw" style="display: none;"><a>
+                    <li id="backtoall" onclick="thelawfactory.mod_0.drawGantt('reset')" class="active viewonelaw" style="display: none;"><a>
                         &lt; Tous les textes</a></li>
                     <li id="menu-display" class="dropdown">
                         <span id="display_value" class="dropdown-toggle" data-toggle="dropdown"><span
                                 id="display_content">Vue <span class="selectedchoice">chronologique</span> <b
                                 class="caret"></b></span></span>
                         <ul class="dropdown-menu" id="display_menu">
-                            <li><a id="dm-time" class="chosen" onclick="drawGantt('time')">chronologique</a></li>
-                            <li><a id="dm-absolute" onclick="drawGantt('absolute')">comparative</a></li>
-                            <li><a id="dm-quanti" onclick="drawGantt('quanti')">quantitative</a></li>
+                            <li><a id="dm-time" class="chosen" onclick="thelawfactory.mod_0.drawGantt('time')">chronologique</a></li>
+                            <li><a id="dm-absolute" onclick="thelawfactory.mod_0.drawGantt('absolute')">comparative</a></li>
+                            <li><a id="dm-quanti" onclick="thelawfactory.mod_0.drawGantt('quanti')">quantitative</a></li>
                         </ul>
                     </li>
                     <li id="menu-empty" class="viewonelaw" style="display: none;">&nbsp;</li>
@@ -20,9 +20,9 @@
                         <span class="dropdown-toggle disabled" data-toggle="dropdown">Trié par <span
                                 class="selectedchoice">date</span> <b class="caret"></b></span>
                         <ul class="dropdown-menu" role="menu" id="display_order">
-                            <li><a id="do-length" class="chosen" onclick="drawGantt('sortl')">durée d'adoption</a></li>
-                            <li><a id="do-date" onclick="drawGantt('sortd')">date de promulgation</a></li>
-                            <li><a id="do-amds" onclick="drawGantt('sorta')">amendements déposés</a></li>
+                            <li><a id="do-length" class="chosen" onclick="thelawfactory.mod_0.drawGantt('sortl')">durée d'adoption</a></li>
+                            <li><a id="do-date" onclick="thelawfactory.mod_0.drawGantt('sortd')">date de promulgation</a></li>
+                            <li><a id="do-amds" onclick="thelawfactory.mod_0.drawGantt('sorta')">amendements déposés</a></li>
                         </ul>
                     </li>
                     <li class="dropdown noviewonelaw" id="menu-amendments">
@@ -86,7 +86,7 @@
 
             <div class="text-container">
                 <div id="help-msg">
-                    <p ng-bind-html="helpText"></p>
+                    <p>{{ helpText }}</p>
                     <p>Cliquez sur le bouton <span class="question_mark">?</span> ci-dessus pour voir un tutoriel interactif de cette visualisation.
                     <p>
                 </div>

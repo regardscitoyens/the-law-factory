@@ -4,9 +4,40 @@
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
+    var utils = thelawfactory.utils;
+    thelawfactory.mod_0 = {};
+    thelawfactory.mod_0.active_filters = {};
+    thelawfactory.mod_0.allAmendments = ["Tout nb d'amendements", 'Aucun amendement', 'Moins de 50 amendements', 'Plus de 50 amendements'];
+    thelawfactory.mod_0.reset_filters = function () {
+        thelawfactory.mod_0.active_filters = {
+            year: 2013,
+            theme: "",
+            length: '',
+            amendments: thelawfactory.mod_0.allAmendments[3]
+        };
+    };
+
+    thelawfactory.mod_0.refreshLengthFilter = function () {
+        if (thelawfactory.mod_0.active_filters['length'])
+            $(".bar-step #mois_" + active_filters['length']).addClass('filtered_month');
+    };
+
+    thelawfactory.mod_0.addBillsFilter = function (filtype, filval) {
+        if (filtype == "length") $(".bar-value.filtered_month").removeClass('filtered_month');
+        thelawfactory.mod_0.active_filters[filtype] = filval;
+        thelawfactory.mod_0.drawGantt('filter');
+    };
+    thelawfactory.mod_0.rmBillsFilter = function (filtype) {
+        thelawfactory.mod_0.addBillsFilter(filtype, "");
+    };
+
+    thelawfactory.mod_0.cleanBillsFilter = function () {
+        thelawfactory.mod_0.active_filters = {year: "", theme: "", length: "", amendments: ""};
+        thelawfactory.mod_0.refreshLengthFilter();
+    };
+
     thelawfactory.mod0 = function () {
         var scope = $('.mod0').scope(),
-            drawGantt,
             locale = d3.locale({
                 decimal: ",",
                 thousands: ".",
@@ -21,35 +52,9 @@
                 months: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
                 shortMonths: ["Janv.", "Fév.", "Mars", "Avril", "Mai", "Juin", "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc."]
             }),
-            selected_bill = "",
-            allAmendments = ["Tout nb d'amendements", 'Aucun amendement', 'Moins de 50 amendements', 'Plus de 50 amendements'],
-            active_filters,
-            reset_filters = function () {
-                active_filters = {
-                    year: 2013,
-                    theme: "",
-                    length: '',
-                    amendments: allAmendments[3]
-                };
-            },
-            refreshLengthFilter = function () {
-                if (active_filters['length'])
-                    $(".bar-step #mois_" + active_filters['length']).addClass('filtered_month');
-            },
-            addBillsFilter = function (filtype, filval) {
-                if (filtype == "length") $(".bar-value.filtered_month").removeClass('filtered_month');
-                active_filters[filtype] = filval;
-                drawGantt('filter');
-            },
-            rmBillsFilter = function (filtype) {
-                addBillsFilter(filtype, "");
-            },
-            cleanBillsFilter = function () {
-                active_filters = {year: "", theme: "", length: "", amendments: ""};
-                refreshLengthFilter();
-            };
+            selected_bill = "";
 
-        reset_filters();
+        thelawfactory.mod_0.reset_filters();
 
         function vis(selection) {
             //Initialization
@@ -215,7 +220,7 @@
             thelawfactory.zooming = zooming;
 
             selection.each(function (data) {
-                drawGantt = function (action) {
+                thelawfactory.mod_0.drawGantt = function (action) {
                     utils.setMod0Size();
                     utils.setTextContainerHeight();
                     width = parseInt(d3.select("#gantt").style("width")) - 30;
@@ -223,7 +228,7 @@
                     setTimeout(computeFilters, 50);
                     if (action == 'reset') {
                         scope.loi = null;
-                        reset_filters();
+                        thelawfactory.mod_0.reset_filters();
                         action = 'filter';
                     }
                     utils.startSpinner();
@@ -243,7 +248,7 @@
                     if (resize) action = "";
                     else unclick();
 
-                    refreshLengthFilter();
+                    thelawfactory.mod_0.refreshLengthFilter();
                     var zoo = $("#mod0-slider").attr('value'),
                         scroll = {scrollTop: "0px", scrollLeft: "0px"};
                     lawscont = ganttcontainer.append("g").attr("class", "laws");
@@ -301,14 +306,14 @@
                         $("#display_order #do-date").addClass('chosen');
                         sort_function = sortByDate;
                     } else scroll = null;
-                    if (!active_filters['amendments'])
-                        $("#menu-amendments .selectedchoice").text(allAmendments[0]);
-                    else $("#menu-amendments .selectedchoice").text(active_filters['amendments']);
-                    if (!active_filters['year'])
+                    if (!thelawfactory.mod_0.active_filters['amendments'])
+                        $("#menu-amendments .selectedchoice").text(thelawfactory.mod_0.allAmendments[0]);
+                    else $("#menu-amendments .selectedchoice").text(thelawfactory.mod_0.active_filters['amendments']);
+                    if (!thelawfactory.mod_0.active_filters['year'])
                         $("#menu-years .selectedchoice").text(allYears[0]);
-                    else $("#menu-years .selectedchoice").text("Étudié en " + active_filters['year']);
-                    if (active_filters['theme'])
-                        $("#menu-themes .selectedchoice").text("Thème : " + active_filters['theme']);
+                    else $("#menu-years .selectedchoice").text("Étudié en " + thelawfactory.mod_0.active_filters['year']);
+                    if (thelawfactory.mod_0.active_filters['theme'])
+                        $("#menu-themes .selectedchoice").text("Thème : " + thelawfactory.mod_0.active_filters['theme']);
                     else $("#menu-themes .selectedchoice").text("Tous les thèmes");
                     drawLaws();
                     if (resize && selected_bill) onclick(selected_bill);
@@ -410,7 +415,7 @@
                         data = json;
                         prepareData();
                         currFile = json.next_page;
-                        setTimeout((currFile ? dynamicLoad : drawGantt), 50);
+                        setTimeout((currFile ? dynamicLoad : thelawfactory.mod_0.drawGantt), 50);
                     })
                 }
 
@@ -443,15 +448,15 @@
                     }
                     var construct_menu_filter = function (filter, cssid, d, i) {
                         if (!i) {
-                            if (active_filters[filter] == d || !active_filters[filter]) {
-                                $(cssid).append("<li><a class='chosen' onclick=\"rmBillsFilter('" + filter + "','')\">" + d.toLowerCase() + '</a></li>');
+                            if (thelawfactory.mod_0.active_filters[filter] == d || !thelawfactory.mod_0.active_filters[filter]) {
+                                $(cssid).append("<li><a class='chosen' onclick=\"thelawfactory.mod_0.rmBillsFilter('" + filter + "','')\">" + d.toLowerCase() + '</a></li>');
                             } else {
-                                $(cssid).append("<li><a onclick=\"rmBillsFilter('" + filter + "','" + active_filters[filter] + "')\">" + d.toLowerCase() + '</a></li>');
+                                $(cssid).append("<li><a onclick=\"thelawfactory.mod_0.rmBillsFilter('" + filter + "','" + thelawfactory.mod_0.active_filters[filter] + "')\">" + d.toLowerCase() + '</a></li>');
                             }
-                        } else if (active_filters[filter] == d) {
-                            $(cssid).append("<li><a class='chosen' onclick=\"rmBillsFilter('" + filter + "','" + d + "')\">" + d.toLowerCase() + '</a></li>');
+                        } else if (thelawfactory.mod_0.active_filters[filter] == d) {
+                            $(cssid).append("<li><a class='chosen' onclick=\"thelawfactory.mod_0.rmBillsFilter('" + filter + "','" + d + "')\">" + d.toLowerCase() + '</a></li>');
                         } else {
-                            $(cssid).append("<li><a onclick=\"addBillsFilter('" + filter + "','" + d + "')\">" + d.toLowerCase() + '</a></li>');
+                            $(cssid).append("<li><a onclick=\"thelawfactory.mod_0.addBillsFilter('" + filter + "','" + d + "')\">" + d.toLowerCase() + '</a></li>');
                         }
                     };
                     $("#years").empty();
@@ -463,7 +468,7 @@
                         construct_menu_filter('theme', '#themes', d, i);
                     });
                     $("#amendments").empty();
-                    allAmendments.forEach(function (d, i) {
+                    thelawfactory.mod_0.allAmendments.forEach(function (d, i) {
                         construct_menu_filter('amendments', '#amendments', d, i);
                     });
                 }
@@ -520,7 +525,7 @@
                     if (scope.loi) {
                         $('.viewonelaw').show();
                         $('.noviewonelaw').hide();
-                        cleanBillsFilter();
+                        thelawfactory.mod_0.cleanBillsFilter();
                         smallset = dossiers.filter(function (d) {
                             return d.id == scope.loi;
                         });
@@ -536,27 +541,27 @@
                         $('.noviewonelaw').show();
                         smallset = dossiers
                             .filter(function (d) {
-                                if (!active_filters['theme']) return true;
-                                return (d.themes.join(',').indexOf(active_filters['theme'])) != -1;
+                                if (!thelawfactory.mod_0.active_filters['theme']) return true;
+                                return (d.themes.join(',').indexOf(thelawfactory.mod_0.active_filters['theme'])) != -1;
                             })
                             .filter(function (d) {
-                                if (!active_filters['year']) return true;
-                                return d.beginning.substr(0, 4) <= active_filters['year'] && d.end.substr(0, 4) >= active_filters['year'];
+                                if (!thelawfactory.mod_0.active_filters['year']) return true;
+                                return d.beginning.substr(0, 4) <= thelawfactory.mod_0.active_filters['year'] && d.end.substr(0, 4) >= thelawfactory.mod_0.active_filters['year'];
                             })
                             .filter(function (d) {
-                                if (!active_filters['length']) return true;
-                                return active_filters['length'] == get_stat_bin(d.total_days);
+                                if (!thelawfactory.mod_0.active_filters['length']) return true;
+                                return thelawfactory.mod_0.active_filters['length'] == get_stat_bin(d.total_days);
                             })
                             .filter(function (d) {
-                                if (!active_filters['amendments']) return true;
-                                switch (active_filters['amendments']) {
-                                    case allAmendments[1]:
+                                if (!thelawfactory.mod_0.active_filters['amendments']) return true;
+                                switch (thelawfactory.mod_0.active_filters['amendments']) {
+                                    case thelawfactory.mod_0.allAmendments[1]:
                                         return !d.total_amendements;
                                         break;
-                                    case allAmendments[2]:
+                                    case thelawfactory.mod_0.allAmendments[2]:
                                         return d.total_amendements && d.total_amendements < 51;
                                         break;
-                                    case allAmendments[3]:
+                                    case thelawfactory.mod_0.allAmendments[3]:
                                         return d.total_amendements > 50;
                                         break;
                                 }
@@ -983,8 +988,8 @@
                 function drawStats() {
 
                     $(".labels-sc h5").html(
-                        active_filters['length'] ?
-                        "Supprimer le filtre sur les textes de " + (active_filters['length'] / 30 + " mois").replace("24 mois", "2 ans et +") :
+                        thelawfactory.mod_0.active_filters['length'] ?
+                        "Supprimer le filtre sur les textes de " + (thelawfactory.mod_0.active_filters['length'] / 30 + " mois").replace("24 mois", "2 ans et +") :
                             "Filtrer par durée d'adoption des textes"
                     );
 
@@ -1002,23 +1007,23 @@
                                 .append("div")
                                 .attr("class", "bar-step")
                                 .attr("style", "width: " + 95 / (maxstat + 1) + "%; margin-right: " + 5 / (maxstat + 1) + "%; margin-top:" + margin_top + "px;");
-                        if (active_filters['length'] && active_filters['length'] != e.key)
+                        if (thelawfactory.mod_0.active_filters['length'] && thelawfactory.mod_0.active_filters['length'] != e.key)
                             step.style("height", (height - text_height) + "px")
                                 .on('click', function () {
-                                    rmBillsFilter('length');
+                                    thelawfactory.mod_0.rmBillsFilter('length');
                                 });
 
                         step.append("div")
                             .attr("id", "mois_" + e.key)
-                            .attr("class", (active_filters['length'] == e.key ? "filtered_month " : "") + "bar-value")
+                            .attr("class", (thelawfactory.mod_0.active_filters['length'] == e.key ? "filtered_month " : "") + "bar-value")
                             .attr("style", "height:" + bscale(e.value) + "px; width:100%; top:" + bscale(m - e.value) + "px")
                             .on('click', function () {
-                                if (active_filters['length'] == e.key) rmBillsFilter('length');
-                                else addBillsFilter('length', e.key);
+                                if (thelawfactory.mod_0.active_filters['length'] == e.key) thelawfactory.mod_0.rmBillsFilter('length');
+                                else thelawfactory.mod_0.addBillsFilter('length', e.key);
                             }).popover(function () {
                                 var popover_content = d3.select(document.createElement('div')).style("width", "100%").attr('class', 'pop0'),
                                     plural = (e.value > 1 ? 's' : '');
-                                popover_content.append('p').html(active_filters['length'] == e.key ? 'Supprimer le filtre' : 'Cliquer pour filtrer sur ces textes');
+                                popover_content.append('p').html(thelawfactory.mod_0.active_filters['length'] == e.key ? 'Supprimer le filtre' : 'Cliquer pour filtrer sur ces textes');
                                 return {
                                     title: e.value + ' texte' + plural + ' adopté' + plural + ' en ' + label.replace(/&nbsp;/g, ' '),
                                     content: popover_content,
@@ -1046,13 +1051,13 @@
                     prepareData();
                     currFile = data.next_page;
                     $("a.badge").tooltip();
-                    setTimeout((currFile ? dynamicLoad : drawGantt), 0);
+                    setTimeout((currFile ? dynamicLoad : thelawfactory.mod_0.drawGantt), 0);
                     $("#text-title").tooltip();
                     $(window).resize(function () {
                         if (scope.drawing || scope.mod != "mod0") return;
                         scope.drawing = true;
                         setTimeout(function () {
-                            drawGantt("resize");
+                            thelawfactory.mod_0.drawGantt("resize");
                             scope.drawing = false;
                         }, 350);
                     });

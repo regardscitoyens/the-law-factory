@@ -4,11 +4,11 @@
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
+    thelawfactory.mod_1 = {};
+
     thelawfactory.mod1 = function () {
         var scope = $(".mod1").scope(),
             textArticles = {},
-            valign,
-            stacked,
             aligned = true;
 
         function titre_etape(article) {
@@ -710,7 +710,7 @@
 
                     //functions for aligned layout
                     var has_echec = sections.indexOf('echec') >= 0;
-                    valign = function () {
+                    thelawfactory.mod_1.valign = function () {
                         aligned = true;
                         $("#display_menu .chosen").removeClass('chosen');
                         $("#display_menu #dm-aligned").addClass('chosen');
@@ -770,7 +770,7 @@
 
 
                     //function for stacked layout
-                    stacked = function () {
+                    thelawfactory.mod_1.stacked = function () {
                         aligned = false;
                         $("#display_menu .chosen").removeClass('chosen');
                         $("#display_menu #dm-stacked").addClass('chosen');
@@ -885,8 +885,8 @@
                         });
                     }
 
-                    if (aligned) valign();
-                    else stacked();
+                    if (aligned) thelawfactory.mod_1.valign();
+                    else thelawfactory.mod_1.stacked();
                     $('.readMode').tooltip({animated: 'fade', placement: 'bottom'});
                     $('.revsMode').tooltip({animated: 'fade', placement: 'bottom'});
                     setTimeout(utils.setTextContainerHeight, 500);
