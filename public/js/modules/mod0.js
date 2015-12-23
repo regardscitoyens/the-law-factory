@@ -216,8 +216,8 @@
 
             selection.each(function (data) {
                 drawGantt = function (action) {
-                    scope.setMod0Size();
-                    scope.setTextContainerHeight();
+                    utils.setMod0Size();
+                    utils.setTextContainerHeight();
                     width = parseInt(d3.select("#gantt").style("width")) - 30;
                     minheight = $("#gantt").height() - 50;
                     setTimeout(computeFilters, 50);
@@ -226,10 +226,10 @@
                         reset_filters();
                         action = 'filter';
                     }
-                    scope.startSpinner();
+                    utils.startSpinner();
                     $("#gantt svg").animate({opacity: 0}, 50, function () {
                         updateGantt(action);
-                        scope.stopSpinner(function () {
+                        utils.stopSpinner(function () {
                             $("#gantt svg").animate({opacity: 1}, 50);
                         });
                     });
@@ -249,7 +249,7 @@
                     lawscont = ganttcontainer.append("g").attr("class", "laws");
                     grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
                     $("#legend").height(35);
-                    scope.setMod0Size();
+                    utils.setMod0Size();
                     if (!action) action = scope.action;
                     if (!action) action = 'time';
                     if (action == 'time') {
@@ -322,7 +322,7 @@
                     }
                     if (layout == "q") {
                         $("#legend").height(0);
-                        scope.setMod0Size();
+                        utils.setMod0Size();
                         $("#menu-display .selectedchoice").text('quantitative');
                         quantiPosition();
                         drawLabels();
@@ -846,7 +846,7 @@
 
                     $("#text-title").text(d.short_title);
                     $("#text-title").attr('data-original-title', d.long_title).tooltip('fixTitle');
-                    scope.setTextContainerHeight();
+                    utils.setTextContainerHeight();
 
                     var textContent = '';
                     textContent += '<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + '</p>';
@@ -870,7 +870,7 @@
                     /* Badge for Parlamentaries Amendments adopted */
 
 
-                    var tauxSuccesAmdt = d.total_amendements == 0 ? 0 : scope.goodRound(100 * (d.total_amendements_adoptes / (d.total_amendements + 0.0)));
+                    var tauxSuccesAmdt = d.total_amendements == 0 ? 0 : utils.goodRound(100 * (d.total_amendements_adoptes / (d.total_amendements + 0.0)));
                     extrainfo += '<li data-toggle="tooltip" title="Taux d\'adoption des amendements" data-placement="bottom">';
                     extrainfo += '<div class="badge badge-tlf">';
                     extrainfo += '<div class="badge-prefix">' + tauxSuccesAmdt + '&nbsp;%</div>';
@@ -883,7 +883,7 @@
 
                     /* Badge for evolution of law volume */
 
-                    var volumeEvo = d.input_text_length2 ? scope.goodRound(100 * ((d.output_text_length2 - d.input_text_length2) / (d.input_text_length2 + 0.0))) : 0;
+                    var volumeEvo = d.input_text_length2 ? utils.goodRound(100 * ((d.output_text_length2 - d.input_text_length2) / (d.input_text_length2 + 0.0))) : 0;
                     extrainfo += '<li data-toggle="tooltip" title="Taux d\'évolution de la taille globale du texte de loi en nombre de caractères" data-placement="bottom">';
                     extrainfo += '<div class="badge badge-tlf">'
                     extrainfo += '<div class="badge-prefix">' + (volumeEvo > 0 ? "+" : "") + volumeEvo + '&nbsp;%</div>';
@@ -913,8 +913,8 @@
                     /* Badge for modification of law */
                     extrainfo += '<li data-toggle="tooltip" title="Taux de modification du texte originel" data-placement="bottom">';
                     extrainfo += '<div class="badge badge-tlf">'
-                    extrainfo += '<div class="badge-prefix">' + scope.goodRound(100 * d.ratio_texte_modif) + '&nbsp;%</div>';
-                    extrainfo += '<div class="badge-icon icon-balance"'
+                    extrainfo += '<div class="badge-prefix">' + utils.goodRound(100 * d.ratio_texte_modif) + '&nbsp;%</div>';
+                    extrainfo += '<div class="badge-icon icon-balance"';
                     extrainfo += '></div>';
                     extrainfo += '</div>';
                     extrainfo += '<h7>Modif. du texte</h7>'

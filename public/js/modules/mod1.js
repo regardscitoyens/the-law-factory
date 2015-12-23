@@ -17,7 +17,7 @@
                 .split('_')
                 .slice(1, 4)
                 .map(function (d) {
-                    return scope.getLongName(d);
+                    return thelawfactory.utils.getLongName(d);
                 }
             ).join(' ⋅ ');
         }
@@ -42,7 +42,7 @@
 
         function titre_parent(s, length) {
             s = split_section(s);
-            if (s.length > 1) s = s.slice(0, s.length - 2)
+            if (s.length > 1) s = s.slice(0, s.length - 2);
             return titre_section(s.join(''), length);
         }
 
@@ -321,11 +321,11 @@
                 }
 
                 var drawArticles = function () {
-
+                    var utils = thelawfactory.utils;
                     var firstmade = false, firstamade = false; // to class the first article which has a rect (for tuto)
 
                     //init coordinates
-                    scope.setMod1Size();
+                    utils.setMod1Size();
                     prepareSizes();
                     setCoordinates();
 
@@ -827,14 +827,14 @@
                         if (scope.drawing) return;
 
                         var spin = !d.originalText || (!d.textDiff && d.prev_dir && (d.status == "sup" || d.n_diff) && d.id_step.substr(-5) != "depot");
-                        if (spin) scope.startSpinner('load_art');
+                        if (spin) utils.startSpinner('load_art');
                         $(".art-txt").animate({opacity: 0}, 100, function () {
                             $("#readMode").show();
                             $("#text-title").empty();
                             $(".art-meta").empty();
                             $(".art-txt").empty();
                             $("#text-title").html(titre_article(d, 2));
-                            scope.setTextContainerHeight();
+                            utils.setTextContainerHeight();
                             var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " (" + format_section(d, 1) + ')' : format_section(d, 2)) + "</b>" +
                                 (test_section_details(d.section, d.id_step, 'title') ? " : " + get_section_details(d.section, d.id_step, 'title') : "")
                                 + "</p>" : "") +
@@ -874,7 +874,7 @@
                                             d.textDiff += "</li></ul>";
                                         } else d.textDiff += d.originalText;
 
-                                        scope.stopSpinner(scope.update_revs_view, 'load_art');
+                                        utils.stopSpinner(scope.update_revs_view, 'load_art');
                                         clearInterval(waitload);
                                     }
                                 }, 100);
@@ -889,7 +889,7 @@
                     else stacked();
                     $('.readMode').tooltip({animated: 'fade', placement: 'bottom'});
                     $('.revsMode').tooltip({animated: 'fade', placement: 'bottom'});
-                    setTimeout(scope.setTextContainerHeight, 500);
+                    setTimeout(utils.setTextContainerHeight, 500);
                 };
 
                 $(document).ready(function () {

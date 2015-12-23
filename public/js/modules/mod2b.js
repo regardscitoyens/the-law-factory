@@ -2,7 +2,7 @@
 
 var num = 0;
 var svg, mydata;
-var participants, scope, highlight;
+var participants, scope;
 var width;
 
 function wrap(width) {
@@ -37,8 +37,7 @@ function wrap(width) {
 }
 
 function init(data, step) {
-    var scope = $('.mod2').scope();
-    highlight = scope.highlightGroup;
+    var scope = $('.mod2').scope(), utils = thelawfactory.utils;
     scope.groups = data[step].groupes;
     participants = data[step].orateurs;
     mydata = [];
@@ -48,12 +47,12 @@ function init(data, step) {
         orderedGroupes = d3.keys(scope.groups).sort(function (a, b) {
             return scope.groups[a].order - scope.groups[b].order
         });
-    scope.drawGroupsLegend();
+    utils.drawGroupsLegend();
     d3.entries(scope.groups).forEach(function (d) {
         mydata.push({
             key: d.key,
             values: [],
-            color: scope.adjustColor(d.value.color),
+            color: utils.adjustColor(d.value.color),
             name: d.value.nom
         });
     });
@@ -81,7 +80,6 @@ function init(data, step) {
             }
         });
     });
-    $(".text-container").empty().html(scope.helpText);
     drawFlows(scope, false);
 }
 
@@ -95,8 +93,9 @@ function init(data, step) {
  });*/
 
 function drawFlows(scope, top_ordered) {
-    scope.setMod2bSize();
-    scope.setTextContainerHeight();
+    var utils = thelawfactory.utils;
+    utils.setMod2bSize();
+    utils.setTextContainerHeight();
     var selected_itv = d3.selectAll(".main-focused");
     if (selected_itv[0].length) selected_itv = selected_itv[0][0].id;
     else selected_itv = "";
@@ -109,7 +108,7 @@ function drawFlows(scope, top_ordered) {
         $('#menu-order .selectedchoice').text("« échiquier politique »");
     }
     $("#viz-int").empty();
-    scope.startSpinner();
+    utils.startSpinner();
     $("#viz-int").animate({opacity: 0}, 50, function () {
         var height;
         if (num * 60 >= $("#viz").height()) height = num * 60;
@@ -125,10 +124,10 @@ function drawFlows(scope, top_ordered) {
             .init();
         d3.selectAll("g:not(.main-g)").attr("transform", "translate(" + offset + ",0) scale(" + (width - offset) / width + ",1)");
         wrap(offset - 25);
-        scope.stopSpinner(function () {
+        utils.stopSpinner(function () {
             $("#viz-int").animate({opacity: 1}, 50);
             scope.drawing = true;
-            setTimeout(scope.setTextContainerHeight, 250);
+            setTimeout(utils.setTextContainerHeight, 250);
             if (selected_itv) $("#" + selected_itv).d3Click();
             scope.drawing = false;
         });
@@ -139,7 +138,7 @@ var sven = {};
 sven.viz = {};
 
 sven.viz.streamkey = function (scope) {
-
+    var utils = thelawfactory.utils;
     var streamkey = {},
         data,
         sorting,
@@ -289,7 +288,7 @@ sven.viz.streamkey = function (scope) {
                 return "layer_" + i;
             })
             .style("fill", function (d, i) {
-                return scope.adjustColor(d[0].color).toString();
+                return utils.adjustColor(d[0].color).toString();
             })
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             .on("mousemove", function (d) {
@@ -298,7 +297,7 @@ sven.viz.streamkey = function (scope) {
 
         d3.select("svg").on("click", function () {
             d3.selectAll(".focused").classed('focused', false);
-            scope.resetHighlight('ints');
+            utils.resetHighlight('ints');
         });
 
         // we'll add a special css class for the first rect with a width > 50 to show on tuto !
@@ -315,7 +314,7 @@ sven.viz.streamkey = function (scope) {
                 return "itv-" + ct++;
             })
             .attr("class", function (d) {
-                return scope.slugGroup(d.category)
+                return utils.slugGroup(d.category)
             })
             .attr("y", function (d) {
                 return x(d.x);
@@ -352,8 +351,8 @@ sven.viz.streamkey = function (scope) {
 
                 if (scope.drawing) return;
                 $("#text-title").html(d.label);
-                scope.setTextContainerHeight();
-                $(".text-container").empty()
+                utils.setTextContainerHeight();
+                $(".text-container").empty();
                 $(".text-container").append('<p class="orat-title">' + d.x + "</p>");
 
                 var spArray = d3.entries(d.speakers).sort(function (a, b) {
@@ -392,9 +391,9 @@ sven.viz.streamkey = function (scope) {
                 };
             })
             .on('mouseenter', function (d) {
-                highlight(d.category);
+                utils.highlightGroup(d.category);
             })
-            .on('mouseleave', scope.resetHighlight);
+            .on('mouseleave', utils.resetHighlight);
 
         var stream = layer.selectAll("path")
             .data(function (d) {
@@ -409,7 +408,7 @@ sven.viz.streamkey = function (scope) {
             })
             .style("fill-opacity", 0.3)
             .attr("class", function (d) {
-                return scope.slugGroup(d[5]);
+                return utils.slugGroup(d[5]);
             })
             .attr("stroke", "none")
             .attr("display", "inline");
@@ -431,7 +430,7 @@ sven.viz.streamkey = function (scope) {
             .attr("class", "filter-title")
             .attr("fill", "#716259")
             .text(function (d) {
-                return scope.shortenString(d, 110);
+                return utils.shortenString(d, 110);
             });
 
         return streamkey;
@@ -550,26 +549,26 @@ sven.viz.streamkey = function (scope) {
                 points.push(p0, p1, p2, p3, vis, label);
                 steps.push(points)
             }
-        })
+        });
         return steps;
-    };
+    }
 
     function drawLink(p1, p2, p3, p4) {
         // clockwise
         // left upper corner
-        var p1x = p1[0]
-        var p1y = p1[1]
+        var p1x = p1[0];
+        var p1y = p1[1];
         // right upper corner
-        var p2x = p2[0]
-        var p2y = p2[1]
+        var p2x = p2[0];
+        var p2y = p2[1];
         // right lower corner
-        var p3x = p3[0]
-        var p3y = p3[1]
+        var p3x = p3[0];
+        var p3y = p3[1];
         // left lower corner
-        var p4x = p4[0]
-        var p4y = p4[1]
+        var p4x = p4[0];
+        var p4y = p4[1];
         // medium point
-        var m = (p1y + p2y) / 2
+        var m = (p1y + p2y) / 2;
         // control points
         return "M" + p4x + "," + p4y    // starting point, i.e. upper left point
             + "C" + p4x + "," + m        // control point

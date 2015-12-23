@@ -4,6 +4,8 @@
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
+    var utils = thelawfactory.utils;
+
     thelawfactory.mod2 = function () {
         var orderedByStatus = true,
             sortByStat,
@@ -11,7 +13,6 @@
             redraw,
             grouped = null,
             api_root,
-            highlight,
             scope = $('.mod2').scope();
 
         function get_status_img(e) {
@@ -23,7 +24,6 @@
 
         function vis(selection) {
             var articles;
-            highlight = scope.highlightGroup;
             selection.each(function (d, i) {
                 scope.groups = d.groupes;
                 articles = d.sujets;
@@ -34,9 +34,9 @@
 
             var selectRow = function (art, pos) {
                 if (d3.event) d3.event.stopPropagation();
-                var sel = d3.select("." + scope.slugArticle(art));
+                var sel = d3.select("." + utils.slugArticle(art));
                 if (!sel.empty()) {
-                    scope.resetHighlight('amds');
+                    utils.resetHighlight('amds');
                     d3.selectAll("g").style("opacity", 0.2);
                     sel.style("opacity", 1);
                     if (pos) $("#viz").animate({scrollTop: sel.attr("data-offset")})
@@ -45,7 +45,7 @@
 
             var deselectRow = function () {
                 if (d3.event) d3.event.stopPropagation();
-                scope.resetHighlight('amds');
+                utils.resetHighlight('amds');
                 $("#readMode").hide();
                 d3.selectAll("g").style("opacity", 1);
             };
@@ -128,13 +128,13 @@
                 var selected_amd = d3.selectAll(".actv-amd");
                 if (selected_amd[0].length) selected_amd = selected_amd[0][0].id;
                 else selected_amd = "";
-                scope.setMod2Size();
-                scope.setTextContainerHeight();
+                utils.setMod2Size();
+                utils.setTextContainerHeight();
                 readSizes();
                 if (merged == undefined) merged = grouped;
                 $('#menu-display .selectedchoice').text(merged ? 'groupée' : 'par articles');
                 $("svg").empty();
-                scope.startSpinner();
+                utils.startSpinner();
                 $("svg").animate({opacity: 0}, 50, function () {
                     jumpLines = 0;
                     (merged ? drawMerged() : draw());
@@ -143,11 +143,11 @@
                     svg.attr("height", Math.max(minheight, z + parseInt(a) + ah));
                     if (scope.article != null)
                         selectRow(scope.article, true);
-                    scope.stopSpinner(function () {
+                    utils.stopSpinner(function () {
                         svg.attr("width", $("#viz").width());
                         $("svg").animate({opacity: 1}, 50);
                         scope.drawing = true;
-                        setTimeout(scope.setTextContainerHeight, 250);
+                        setTimeout(utils.setTextContainerHeight, 250);
                         if (selected_amd) $("#" + selected_amd).d3Click();
                         scope.drawing = false;
                     });
@@ -195,7 +195,7 @@
                 var k = Math.floor(i / 2);
                 d.offset = offset;
                 var curRow = svg.append("g")
-                    .classed(scope.slugArticle(d.titre), true)
+                    .classed(utils.slugArticle(d.titre), true)
                     .classed("first-art-s", i == 0)
                     .attr("transform", function () {
                         if (!half) return "translate(" + 10 + "," + (i * 20 + i * lineh + 10 + jumpLines * (lineh - 10)) + ")";
@@ -279,7 +279,7 @@
                         return "a_" + e.numero.replace(/[^a-z\d]/ig, '')
                     })
                     .attr("class", function (e) {
-                        return "amd " + scope.slugGroup(e.groupe) + " " + scope.slugGroup(e.sort);
+                        return "amd " + utils.slugGroup(e.groupe) + " " + utils.slugGroup(e.sort);
                     })
                     .classed("first-art", function (f, j) {
                         return i == 0 && j == 0;
@@ -311,7 +311,7 @@
 
             function select(d) {
                 d3.event.stopPropagation();
-                if (!scope.drawing) scope.resetHighlight('amds');
+                if (!scope.drawing) utils.resetHighlight('amds');
                 d3.selectAll("#a_" + d.numero.replace(/[^a-z\d]/ig, ''))
                     .classed("actv-amd", true)
                     .style("opacity", 1)
@@ -321,8 +321,8 @@
                 $("#readMode").show();
                 $("#text-title").text("Amendement " + d.numero);
                 $(".text-container").empty();
-                scope.setTextContainerHeight();
-                scope.startSpinner('load_amd');
+                utils.setTextContainerHeight();
+                utils.startSpinner('load_amd');
                 setTimeout(function () {
                     d3.json(api_root + d.id_api + '/json', function (error, json) {
                         var currAmd = json.amendement,
@@ -334,13 +334,13 @@
                         $(".text-container").html(
                             '<span class="amd-date">' + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</span>" +
                             '<span class="amd-sort">' + currAmd.sort + " <span class='amd-txt-status' style='background-color:" + col + "'><img style='margin:0; padding:4px; width:18px;' src='" + statico + "'/></span> </span>" +
-                            '<div class="amd-subject"><b>Sujet :</b><span> ' + scope.clean_amd_subject(currAmd.sujet) + "</span></div>" +
+                            '<div class="amd-subject"><b>Sujet :</b><span> ' + utils.clean_amd_subject(currAmd.sujet) + "</span></div>" +
                             '<div class="amd-text"><b>Signataires :</b> <span>' + currAmd.signataires + "</span></div>" +
                             '<div class="amd-text"><b>Exposé des motifs :</b> ' + currAmd.expose + "</div>" +
                             '<div class="amd-text"><b>Texte :</b> ' + currAmd.texte + '</div>' +
                             '<p class="sources"><small><a target="_blank" href="' + source_am + '</a></small></p>'
                         );
-                        scope.stopSpinner(function () {
+                        utils.stopSpinner(function () {
                             $(".text-container").animate({opacity: 1}, 350);
                             $('.text-container').scrollTop(0);
                         }, 'load_amd');
@@ -350,12 +350,12 @@
 
             function color_amd(d) {
                 if (scope.groups[d.groupe]) {
-                    return scope.adjustColor(scope.groups[d.groupe].color).toString();
+                    return utils.adjustColor(scope.groups[d.groupe].color).toString();
                 } else return "#E6E6E6";
             }
 
             $(document).ready(function () {
-                scope.drawGroupsLegend();
+                utils.drawGroupsLegend();
                 $('.readMode').tooltip({animated: 'fade', placement: 'bottom'});
                 if ($(".others div").length) $(".others").append('<div class="leg-item"></div>');
                 [
@@ -363,7 +363,7 @@
                     {nom: 'Rejeté', id: 'rejet', img: 'ko'},
                     {nom: 'Non voté', id: 'nonvot', img: 'nd'}
                 ].forEach(function (d) {
-                        var oncl = 'onclick="highlight(\'' + d.id + '\')" title="Amendements ' + d.nom.toLowerCase() + 's" data-toggle="tooltip" data-placement="left">';
+                        var oncl = 'onclick="thelawfactory.utils.highlightGroup(\'' + d.id + '\')" title="Amendements ' + d.nom.toLowerCase() + 's" data-toggle="tooltip" data-placement="left">';
                         $(".others").append('<div class="leg-item"><div class="leg-value" style="background-color: rgb(180,180,180); background-image: url(img/' + d.img + '.png); background-repeat:no-repeat; background-position:50% 50%;"' + oncl + '</div><div class="leg-key"' + oncl + d.nom + '</div></div>');
                     });
                 $(".leg-value").tooltip();
@@ -379,7 +379,7 @@
                 });
             });
 
-        }; //end function vis
+        } //end function vis
 
         return vis;
     };

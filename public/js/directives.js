@@ -50,10 +50,10 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                 var mod1 = thelawfactory.mod1();
 
                 function update() {
-                    scope.startSpinner();
+                    thelawfactory.utils.startSpinner();
 
                     api.getArticle(scope.loi).then(function (data) {
-                        $rootScope.lawTitle = data.short_title
+                        $rootScope.lawTitle = data.short_title;
                         $rootScope.pageTitle = $rootScope.lawTitle + " - Articles | ";
                         var timeout = 1500,
                             loop = setInterval(function () {
@@ -62,7 +62,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                                 clearInterval(loop);
                                 scope.currentstep = (scope.steps && !scope.steps[scope.steps.length - 1].enddate ? scope.steps[scope.steps.length - 1] : undefined);
                                 d3.select(element[0]).datum(data).call(mod1);
-                                scope.stopSpinner();
+                                thelawfactory.utils.stopSpinner();
                             }, 50);
                     }, function () {
                         scope.display_error("impossible de trouver les articles de ce texte");
@@ -86,12 +86,10 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                     $scope.vizTitle = "AMENDEMENTS";
                 },
                 link: function postLink(scope, element, attrs) {
-
                     var mod2 = thelawfactory.mod2();
 
                     function update() {
-
-                        scope.startSpinner();
+                        thelawfactory.utils.startSpinner();
 
                         if (scope.etape != null) api.getAmendement(scope.loi, scope.etape).then(function (data) {
                             scope.data = data;
@@ -122,7 +120,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
 
                     function update() {
 
-                        scope.startSpinner();
+                        thelawfactory.utils.startSpinner();
 
                         if (scope.etape != null) {
 
@@ -169,12 +167,12 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                     var mod0 = thelawfactory.mod0();
 
                     function update() {
-                        scope.startSpinner();
+                        thelawfactory.utils.startSpinner();
                         api.getDossiers().then(function (data) {
                             d3.select(element[0]).datum(data).call(mod0);
                         }, function (error) {
                             scope.display_error("impossible de trouver les données relatives aux textes");
-                        })
+                        });
                     }
 
                     update();
@@ -313,8 +311,8 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
             },
             link: function postLink(scope, element, attrs, movescrollCtrl) {
 
-                scope.xmouselerp.domain([0, element.width() * 0.2, element.width() * 0.8, element.width()])
-                scope.ymouselerp.domain([0, element.height() * 0.2, element.height() * 0.8, element.height()])
+                scope.xmouselerp.domain([0, element.width() * 0.2, element.width() * 0.8, element.width()]);
+                scope.ymouselerp.domain([0, element.height() * 0.2, element.height() * 0.8, element.height()]);
 
                 var clicking = false;
                 var inpos = [-1, -1];
@@ -359,6 +357,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                 },
 
                 link: function preLink(scope, element, attrs, stepsbarCtrl) {
+                    var utils = thelawfactory.utils;
 
                     scope.total = 0;
                     api.getProcedure(scope.loi).then(function (data) {
@@ -405,8 +404,8 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                             })
                             .forEach(function (e) {
                                 scope.steps.push(e);
-                                e.short_name = scope.stepLabel(e);
-                                e.long_name = scope.stepLegend(e);
+                                e.short_name = utils.stepLabel(e);
+                                e.long_name = utils.stepLegend(e);
                                 e.display_short = (scope.barwidth / scope.total < (e.step == "depot" && e.auteur_depot != "Gouvernement" ? 150 : 120));
 
                                 if (e.step === "depot") {
@@ -417,7 +416,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                                     currStage.num++;
                                 } else {
                                     if (currStage.name)
-                                        scope.stages.push(scope.addStageInst(currStage));
+                                        scope.stages.push(utils.addStageInst(currStage));
                                     currStage.num = 1;
                                     currStage.name = e.stage;
                                 }
@@ -426,19 +425,19 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                                     currInst.num++;
                                 else {
                                     if (currInst.name)
-                                        scope.inst.push(scope.addStageInst(currInst));
+                                        scope.inst.push(utils.addStageInst(currInst));
                                     currInst.num = 1;
                                     currInst.name = (e.step === "depot" ? e.auteur_depot : e.institution);
                                 }
                             });
 
-                        scope.stages.push(scope.addStageInst(currStage));
-                        scope.inst.push(scope.addStageInst(currInst));
+                        scope.stages.push(utils.addStageInst(currStage));
+                        scope.inst.push(utils.addStageInst(currInst));
                         timer(function () {
-                            $(".stb-step span").tooltip({html: true})
-                            $(".stb-step a").tooltip({html: true})
-                            $(".stb-inst span").tooltip()
-                            $(".stb-stage span").tooltip({html: true})
+                            $(".stb-step span").tooltip({html: true});
+                            $(".stb-step a").tooltip({html: true});
+                            $(".stb-inst span").tooltip();
+                            $(".stb-stage span").tooltip({html: true});
                         }, 0);
 
                     }, function (error) {
