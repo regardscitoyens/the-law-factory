@@ -4,245 +4,40 @@
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
-    thelawfactory.mod_1 = {};
+    var utils = thelawfactory.utils;
 
-    thelawfactory.mod1 = function () {
-        var scope = $(".mod1").scope(),
-            textArticles = {},
-            aligned = true;
+    thelawfactory.mod1 = function (onClickCb) {
+        var self = {
+            aligned: true,
+            drawing: false,
+            stacked: false,
+            bigList: [],
+            valign: function() {},
+            stack: function() {}
+        };
 
-        function titre_etape(article) {
-            return article['id_step']
-                .replace('CMP_CMP', 'CMP')
-                .split('_')
-                .slice(1, 4)
-                .map(function (d) {
-                    return thelawfactory.utils.getLongName(d);
-                }
-            ).join(' ⋅ ');
-        }
-
-        function clean_premier(s) {
-            return (s ? s.replace(/1(<sup>)?er(<\/sup>)?/ig, '1') : '');
-        }
-
-        function split_section(s) {
-            s = s.replace(/<[^>]*>/g, '');
-            return s.split(/([ALTCVS]+\d+[\s<\/>a-z]*(?:[A-Z]+$)?)/);
-        }
-
-        function sub_section(s) {
-            s = split_section(s);
-            return s.length > 1 ? s[s.length - 2] : s[0];
-        }
-
-        function num_sub_section(s) {
-            return sub_section(s).replace(/^[LTCVS]+/, '');
-        }
-
-        function titre_parent(s, length) {
-            s = split_section(s);
-            if (s.length > 1) s = s.slice(0, s.length - 2);
-            return titre_section(s.join(''), length);
-        }
-
-        function titre_section(s, length) {
-            if (!s) return s;
-            var res = "",
-                s = split_section(s);
-            for (var i in s) if (s[i]) {
-                res += (res ? " ⋅ " : "");
-                res += s[i].replace(/([LTCVS]+)(\d+e?r?)\s*([\sa-z]*)/, '$1 $2 $3')
-                    .replace(/1er?/g, '1<sup>er</sup>')
-                    .replace(/^SS( \d)/, (length ? (length == 1 ? "S-Sec." : "Sous-section") : "SS") + '$1')
-                    .replace(/^S( \d)/, (length ? (length == 1 ? "Sect." : "Section") : "S") + '$1')
-                    .replace("C ", (length ? (length == 1 ? "Chap." : "Chapitre") : "C") + " ")
-                    .replace("V ", (length ? (length == 1 ? "Vol." : "Volume") : "V") + " ")
-                    .replace("L ", (length ? "Livre" : "L") + " ")
-                    .replace("TL", (length ? (length == 1 ? "Titre Lim." : "Titre Liminaire") : "TL") + " ")
-                    .replace("T ", (length ? "Titre" : "T") + " ");
-            }
-            return res;
-        }
-
-        function titre_article(article, length) {
-            var num = (article.newnum != undefined ? article.newnum : article.article).replace(/1er?/, '1'),
-                newnum = (article.newnum != undefined ? " (" + article.article + ")" : "").replace(/1er?/, '1<sup>er</sup>'),
-                res = (length ? (length == 1 ? "Art." : "Article ") : "A ");
-            return res + num + newnum;
-        }
-
-        function section_opacity(s) {
-            if (!s) return 0.95;
-            if (s === "echec") return 0.35;
-            if (s.lastIndexOf("A", 0) === 0)
-                return 0.65;
-            try {
-                return 0.95 - 0.12 * (split_section(s).filter(function (d) {
-                        return d != "";
-                    }).length - 1);
-            } catch (e) {
-                console.log("ERREUR section with bad id:", s, e);
-                return 0.95;
-            }
-        }
-
-        function diff_to_html(diffs) {
-            var html = [];
-            for (var x = 0; x < diffs.length; x++) {
-                var text = diffs[x][1].replace(/&/g, '&amp;')
-                        .replace(/</g, '&lt;').replace(/>/g, '&gt;'),
-                    typ = 'span';
-                if (diffs[x][0] != 0) {
-                    typ = 'del';
-                    if (diffs[x][0] == 1) typ = 'ins';
-                }
-                html.push('<' + typ + '>' + text.replace(/\n/g, '</' + typ + '></li><li><' + typ + '>') + '</' + typ + '>');
-            }
-            return html.join('');
-        }
-
-        function vis(selection) {
+        self.vis = function (selection) {
             selection.each(function (data) {
-                var bigList = [],
-                    art = d3.values(data.articles);
+                self.bigList = [];
+                var art = d3.values(data.articles);
 
-                art.sort(function (a, b) {
-                    if (a.section === "echec") return (b.section === "echec" ? 0 : -1);
-                    else if (b.section === "echec") return 1;
-                    var al = a.titre.split(" "), bl = b.titre.split(" ");
-                    var ao = 0, bo = 0;
-                    if (parseInt(al[0]) != parseInt(bl[0]))
-                        return parseInt(al[0]) - parseInt(bl[0]);
-                    for (var i_s = 0; i_s < a.steps.length; i_s++) {
-                        ao += a.steps[i_s]['order'];
-                        for (var j_s = 0; j_s < b.steps.length; j_s++) {
-                            if (i_s == 0)
-                                bo += b.steps[j_s]['order'];
-                            if (a.steps[i_s]['id_step'] == b.steps[j_s]['id_step'])
-                                return a.steps[i_s]['order'] - b.steps[j_s]['order'];
-                        }
-                    }
-                    return ao / a.steps.length - bo / b.steps.length;
-                });
-
-                // Dynamic load of articles text at each step
-                function load_texte_articles() {
-                    var delay = 50;
-                    d3.set(bigList.map(function (d) {
-                        return d.directory;
-                    })).values().sort()
-                        .forEach(function (d) {
-                            delay += 50;
-                            setTimeout(function () {
-                                d3.json(encodeURI(scope.APIRootUrl + scope.loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
-                                    json.articles.forEach(function (a) {
-                                        if (!textArticles[a.titre]) textArticles[a.titre] = {};
-                                        textArticles[a.titre][d] = []
-                                        Object.keys(a.alineas).sort().forEach(function (k) {
-                                            textArticles[a.titre][d].push(a.alineas[k]);
-                                        });
-                                    });
-                                    scope.to_load -= 1;
-                                });
-                            }, delay);
-                        });
-                }
-
-                //Utility functions
-                function findStage(s) {
-                    for (var st in stages)
-                        if (s == stages[st])
-                            return parseInt(st);
-                    return -1;
-                }
-
-                function computeStages() {
-                    var stag = [];
-
-                    art.forEach(function (e, i) {
-                        var st = d3.nest()
-                            .key(function (d) {
-                                return d.id_step;
-                            })
-                            .entries(e.steps);
-
-                        st.forEach(function (f, i) {
-                            if (stag.indexOf(f.key) < 0) stag.push(f.key);
-                        });
-                    });
-
-                    stag.sort();
-
-                    for (var s in stag)
-                        var stag_name = stag[s].split("_", 4).splice(2, 3).join(" ");
-
-                    return stag;
-                }
-
-                function computeSections() {
-                    return d3.nest()
-                        .key(function (d) {
-                            return d.section;
-                        })
-                        .entries(art)
-                        .map(function (d) {
-                            return d.key;
-                        });
-                }
-
-                function findSection(s) {
-                    var res = sections.indexOf(s);
-                    return res
-                }
+                art.sort(utils.articleSort);
 
                 //compute stages and sections
-                var stages = computeStages(),
-                    columns = stages.length + (scope.currentstep ? 1 : 0),
-                    sections = computeSections(),
+                var stages = utils.computeStages(art),
+                    columns = stages.length + (self.currentstep ? 1 : 0),
+                    sections = utils.computeSections(art),
                     sectHeight = 15,
-                    sectJump = 25,
-                    test_section_details = function (section, etape, field) {
-                        return (data.sections && data.sections[section] && data.sections[section][etape] && data.sections[section][etape][field] != undefined);
-                    },
-                    get_section_details = function (section, etape, field) {
-                        return (test_section_details(section, etape, field) ? data.sections[section][etape][field] : "");
-                    },
-                    format_section = function (obj, length) {
-                        var sec = (obj.section ? obj.section : obj);
-                        if (sec.lastIndexOf("A", 0) === 0)
-                            return titre_article(obj, length);
-                        if (length < 2 && sec)
-                            sec = sub_section(sec);
-                        return titre_section(sec, length);
-                    };
+                    sectJump = 25;
 
                 if (sections.length < 2 && art.length == 1)
                     $("#menu-display .dropdown-toggle").addClass('disabled');
 
                 art.forEach(function (d, i) {
                     d.steps.forEach(function (f, j) {
-                        f.textDiff = "";
-                        f.article = d.titre;
-                        f.section = d.section;
-                        f.prev_step = null;
-                        f.prev_dir = null;
-                        f.sect_num = findSection(f.section);
-                        f.step_num = findStage(f.id_step);
-                        if (j != 0 && f.id_step.substr(-5) != "depot") {
-                            var k = j - 1;
-                            while (k > 0 && d.steps[k].status === "echec") k--;
-                            f.prev_step = d.steps[k].step_num;
-                            f.prev_dir = d.steps[k].directory;
-                        }
-                        bigList.push(f);
+                        self.bigList.push(f);
                     });
                 });
-
-                scope.to_load = d3.set(bigList.map(function (d) {
-                    return d.directory;
-                })).values().length;
-
 
                 var maxlen = d3.max(art, function (d) {
                     return d3.max(d.steps, function (e) {
@@ -255,7 +50,7 @@
 
                 //set color scale for diff
                 var levmin = 145, levmax = levmin + 100;
-                var diffcolor = d3.scale.linear().range(["rgb(" + [levmax, levmax, levmax].join(',') + ")", "rgb(" + [levmin, levmin, levmin].join(',') + ")"]).domain([0, 1]).interpolate(d3.interpolateHcl);
+                self.diffcolor = d3.scale.linear().range(["rgb(" + [levmax, levmax, levmax].join(',') + ")", "rgb(" + [levmin, levmin, levmin].join(',') + ")"]).domain([0, 1]).interpolate(d3.interpolateHcl);
 
                 var margin, width, colwidth, longlabel, maxy, svg;
                 var prepareSizes = function () {
@@ -274,14 +69,14 @@
                 function article_hover(d) {
                     var div = d3.select(document.createElement("div")).style("width", "100%");
                     if (d.section.lastIndexOf("A", 0) !== 0)
-                        div.append("p").html("<small>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(data.sections[d.section][d.id_step]['newnum'], 2) + " (" + format_section(d, 1) + ')' : format_section(d, 2)) + "</small>");
-                    div.append("p").html("<small>" + titre_etape(d) + "</small>");
+                        div.append("p").html("<small>" + (utils.test_section_details(data.sections, d.section, d.id_step, 'newnum') ? utils.titre_section(data.sections[d.section][d.id_step]['newnum'], 2) + " (" + utils.format_section(d, 1) + ')' : utils.format_section(d, 2)) + "</small>");
+                    div.append("p").html("<small>" + utils.titre_etape(d) + "</small>");
                     if (d.n_diff == 0) div.append('p').text(d.status == "sup" ? "Supprimé à cette étape" : "Aucune modification");
                     else if (d.n_diff == 1 && d.id_step.substr(-5) !== "depot") div.append("p").text((d.prev_step ? "Réintroduit" : "Ajouté") + " à cette étape");
                     else if (d.id_step.substr(-5) != "depot") div.append("p").html("Modifications : " + d3.round(d['n_diff'] * 100, 2) + "&nbsp;%");
                     div.append("p").html("<small>Longueur du texte : " + d['length'] + " caractères</small>");
                     return {
-                        title: clean_premier(titre_article(d, 2)),
+                        title: utils.clean_premier(utils.titre_article(d, 2)),
                         content: div,
                         placement: "mouse",
                         gravity: "bottom",
@@ -294,24 +89,24 @@
                     var title,
                         title_details,
                         div = d3.select(document.createElement("div")).style("width", "100%");
-                    div.append("p").html("<small>" + titre_etape(d) + "</small>");
-                    if (test_section_details(d.section, d.id_step, 'title') && d.section == "echec") {
+                    div.append("p").html("<small>" + utils.titre_etape(d) + "</small>");
+                    if (utils.test_section_details(data.sections, d.section, d.id_step, 'title') && d.section == "echec") {
                         title = d.status;
-                        title_details = get_section_details(d.section, d.id_step, 'title');
+                        title_details = utils.get_section_details(data.sections, d.section, d.id_step, 'title');
                     } else {
-                        if (test_section_details(d.section, d.id_step, 'newnum')) {
-                            var newnum = get_section_details(d.section, d.id_step, 'newnum');
-                            title = titre_section(newnum, 2) + " (" + num_sub_section(d.section) + ")";
-                            title_details = titre_section(newnum.replace(sub_section(newnum), ''), 2) + " (" + format_section(d, 1) + ')';
+                        if (utils.test_section_details(data.sections, d.section, d.id_step, 'newnum')) {
+                            var newnum = utils.get_section_details(data.sections, d.section, d.id_step, 'newnum');
+                            title = utils.titre_section(newnum, 2) + " (" + utils.num_sub_section(d.section) + ")";
+                            title_details = utils.titre_section(newnum.replace(utils.sub_section(newnum), ''), 2) + " (" + utils.format_section(d, 1) + ')';
                         } else {
-                            title = titre_section(d.section, 2);
-                            title_details = titre_parent(d.section, 2);
+                            title = utils.titre_section(d.section, 2);
+                            title_details = utils.titre_parent(d.section, 2);
                         }
-                        title += (test_section_details(d.section, d.id_step, 'title') ? " : " + get_section_details(d.section, d.id_step, 'title') : "");
+                        title += (utils.test_section_details(data.sections, d.section, d.id_step, 'title') ? " : " + utils.get_section_details(data.sections, d.section, d.id_step, 'title') : "");
                     }
                     if (title_details) div.append("p").html("<small>" + title_details + "</small>");
                     return {
-                        title: clean_premier(title),
+                        title: utils.clean_premier(title),
                         content: div,
                         placement: "mouse",
                         gravity: "bottom",
@@ -321,7 +116,6 @@
                 }
 
                 var drawArticles = function () {
-                    var utils = thelawfactory.utils;
                     var firstmade = false, firstamade = false; // to class the first article which has a rect (for tuto)
 
                     //init coordinates
@@ -329,7 +123,7 @@
                     prepareSizes();
                     setCoordinates();
 
-                    maxy = Math.max($("#viz").height(), d3.max(bigList, function (d) {
+                    maxy = Math.max($("#viz").height(), d3.max(self.bigList, function (d) {
                             return d.y + lerp(d.length)
                         }) + 50);
 
@@ -340,8 +134,7 @@
                     var st, se;
                     for (st in stages) {
                         for (se in sections) {
-
-                            var datarts = bigList.filter(function (d) {
+                            var datarts = self.bigList.filter(function (d) {
                                 return (d.length > 0 && d.step_num == st && d.sect_num == se)
                             });
                             var group = svg.append("g")
@@ -370,23 +163,22 @@
                                     return lerp(d.length)
                                 })
                                 .attr("class", function (d) {
-                                    return "article " + d.section.replace(/ |<|\/|>|/g, "") + " sect" + findStage(d.id_step)
+                                    return "article " + d.section.replace(/ |<|\/|>|/g, "") + " sect" + utils.findStage(d.id_step);
                                 })
                                 .classed('article-first', function (d, j) {
                                     if (!firstamade && st > 2 && d.n_diff && d.status != "new") {
                                         firstamade = true;
                                         return true;
                                     }
-                                    ;
                                     return false;
                                 })
-                                .call(styleRect)
-                                .on("click", onclick)
+                                .call(self.styleRect)
+                                .on("click", self.onclick)
                                 .popover(article_hover);
 
                             //Add green labels for new elements
                             group.selectAll(".new")
-                                .data(bigList.filter(function (d) {
+                                .data(self.bigList.filter(function (d) {
                                     return (d.length > 0 && d.step_num == st && d.sect_num == se && (d.id_step.substr(-5) === "depot" || d.status === "new"))
                                 }))
                                 .enter().append("rect")
@@ -403,12 +195,12 @@
                                     return lerp(d.length) - 2
                                 })
                                 .attr("width", 6)
-                                .on("click", onclick)
+                                .on("click", self.onclick)
                                 .popover(article_hover);
 
                             //Add red labels for removed elements
                             group.selectAll(".sup")
-                                .data(bigList.filter(function (d) {
+                                .data(self.bigList.filter(function (d) {
                                     return (d.length > 0 && d.step_num == st && d.sect_num == se && d.status === "sup")
                                 }))
                                 .enter().append("rect")
@@ -425,12 +217,12 @@
                                     return lerp(d.length) - 2
                                 })
                                 .attr("width", 6)
-                                .on("click", onclick)
+                                .on("click", self.onclick)
                                 .popover(article_hover);
 
                             //Add headers
                             group.selectAll(".header")
-                                .data(bigList.filter(function (d) {
+                                .data(self.bigList.filter(function (d) {
                                     return (d.step_num == st && d.sect_num == se && d.head)
                                 }))
                                 .enter().append("rect")
@@ -450,14 +242,14 @@
                                 })
                                 .style("stroke", "none")
                                 .style("opacity", function (d) {
-                                    return section_opacity(d.section)
+                                    return utils.section_opacity(d.section)
                                 })
                                 .popover(function (d) {
                                     return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))
                                 })
                                 .filter(function (d) {
                                     return d.section.lastIndexOf("A", 0) === 0
-                                }).on("click", onclick);
+                                }).on("click", self.onclick);
 
                             group.selectAll(".header")
                                 .filter(function (d) {
@@ -468,7 +260,7 @@
                                         ct = 1;
                                     while (ct < d.head) {
                                         ct++;
-                                        lastS = sub_section(curS);
+                                        lastS = utils.sub_section(curS);
                                         curS = d.section.substr(0, curS.length - lastS.length);
                                         group.append("rect")
                                             .attr("x", d.x)
@@ -478,7 +270,7 @@
                                             .attr("height", sectHeight)
                                             .style("fill", "#716259")
                                             .style("stroke", "none")
-                                            .style("opacity", section_opacity(curS))
+                                            .style("opacity", utils.section_opacity(curS))
                                             .popover(function () {
                                                 return section_hover(d)
                                             });
@@ -487,7 +279,7 @@
 
                             //Add header labels
                             group.selectAll(".head-lbl")
-                                .data(bigList.filter(function (d) {
+                                .data(self.bigList.filter(function (d) {
                                     return (d.step_num == st && d.sect_num == se && d.head);
                                 }))
                                 .enter().append("text")
@@ -510,15 +302,15 @@
                                     if (data.sections && d.section === 'echec') return d.status;
                                     var sec;
                                     if (d.section.lastIndexOf("A", 0) === 0) sec = d;
-                                    else sec = sub_section(test_section_details(d.section, d.id_step, 'newnum') ? data.sections[d.section][d.id_step]['newnum'] : d.section)
-                                    return clean_premier(format_section(sec, longlabel));
+                                    else sec = utils.sub_section(utils.test_section_details(data.sections, d.section, d.id_step, 'newnum') ? data.sections[d.section][d.id_step]['newnum'] : d.section)
+                                    return utils.clean_premier(utils.format_section(sec, longlabel));
                                 })
                                 .popover(function (d) {
                                     return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))
                                 })
                                 .filter(function (d) {
                                     return d.section.lastIndexOf("A", 0) === 0
-                                }).on("click", onclick);
+                                }).on("click", self.onclick);
 
                             group.selectAll(".head-lbl")
                                 .filter(function (d) {
@@ -528,7 +320,7 @@
                                     var lastS, curS = d.section,
                                         ct = 1;
                                     while (ct < d.head) {
-                                        lastS = sub_section(curS);
+                                        lastS = utils.sub_section(curS);
                                         curS = d.section.substr(0, curS.length - lastS.length);
                                         group.append("text")
                                             .attr("x", d.x - 2 + colwidth / 2)
@@ -543,10 +335,9 @@
                                             .popover(function () {
                                                 return section_hover(d)
                                             })
-                                            .text(clean_premier(titre_section(sub_section(curS), longlabel)));
+                                            .text(utils.clean_premier(utils.titre_section(utils.sub_section(curS), longlabel)));
                                         ct++;
                                     }
-                                    ;
                                 });
                         }
                     }
@@ -555,7 +346,7 @@
                         d3.select('rect.article').classed("article-first", true);
 
                     //Add connections
-                    var lines = svg.append("g").selectAll("line").data(bigList.filter(function (d) {
+                    var lines = svg.append("g").selectAll("line").data(self.bigList.filter(function (d) {
                         var a = d3.selectAll(".article").filter(function (e) {
                             return (d.article == e.article && d.step_num == e.prev_step)
                         });
@@ -570,12 +361,12 @@
                             return d.y + (lerp(d.length)) / 2
                         })
                         .attr("x2", function (d) {
-                            return bigList.filter(function (e) {
+                            return self.bigList.filter(function (e) {
                                 return d.article == e.article && d.step_num == e.prev_step
                             })[0].x
                         })
                         .attr("y2", function (d) {
-                            var a = bigList.filter(function (e) {
+                            var a = self.bigList.filter(function (e) {
                                 return d.article == e.article && d.step_num == e.prev_step
                             })[0];
                             return a.y + (lerp(a.length)) / 2;
@@ -586,20 +377,10 @@
                     //======================
                     //Visualization flow ends here
                     //======================
-                    //rect style function
-                    function styleRect(d) {
-                        d.style("stroke", "#d0d0e0")
-                            .style("stroke-width", 1)
-                            .style("stroke-dasharray", "none")
-                            .style("fill", function (f) {
-                                return (!f || f.status == 'sup' || f.id_step.substr(-5) === "depot" || f.n_diff == 0 ? '#fff' : diffcolor(f.n_diff));
-                            });
-                    }
-
 
                     function setCoordinates() {
                         for (var t in stages) {
-                            var currT = bigList.filter(function (d) {
+                            var currT = self.bigList.filter(function (d) {
                                     return d.step_num == t;
                                 }),
                                 currY = sectJump + sectHeight,
@@ -628,8 +409,8 @@
                                     });
 
                                     // Identify section jumps
-                                    var lastsplit = split_section(lastS),
-                                        cursplit = split_section(currentSection[currIdx].section),
+                                    var lastsplit = utils.split_section(lastS),
+                                        cursplit = utils.split_section(currentSection[currIdx].section),
                                         newpiece = "";
 
                                     while (lastsplit.length) {
@@ -656,7 +437,7 @@
                     //USE THE ARROWS
                     d3.select("body").on("keydown", function () {
                         var c = (d3.select(".curr")), sel, elm;
-                        if (scope.tutorial) return;
+                        if (self.tutorial) return;
                         if (c.empty()) return;
                         var cur = c.datum();
 
@@ -683,7 +464,7 @@
                                 if (curn.prev().length)
                                     elm = d3.select(curn.prev().get([0]))
                                 else {
-                                    var a = $(".group.st" + cur.step_num + ":lt(" + cur.sect_num + "):parent:last")
+                                    var a = $(".group.st" + cur.step_num + ":lt(" + cur.sect_num + "):parent:last");
                                     if (a.length)
                                         elm = d3.select(a.children(".article").last().get([0]))
                                 }
@@ -691,30 +472,29 @@
                             //DOWN
                             else if (d3.event.keyCode == 40) {
                                 if (curn.next().length && d3.select(curn.next().get([0])).classed("article"))
-                                    elm = d3.select(curn.next().get([0]))
+                                    elm = d3.select(curn.next().get([0]));
                                 else {
-                                    var a = $(".group.st" + cur.step_num + ":gt(" + cur.sect_num + "):parent")
+                                    var a = $(".group.st" + cur.step_num + ":gt(" + cur.sect_num + "):parent");
                                     if (a.length)
                                         elm = d3.select(a.children().get([0]))
                                 }
                             }
                         }
 
-                        if (sel && !sel.empty()) sel.each(onclick);
+                        if (sel && !sel.empty()) sel.each(self.onclick);
                         else if (elm) {
                             $("#viz").animate({scrollTop: elm.node().getBBox().y - 20}, 200);
-                            elm.each(onclick);
+                            elm.each(self.onclick);
                         }
                     });
 
 
                     //functions for aligned layout
                     var has_echec = sections.indexOf('echec') >= 0;
-                    thelawfactory.mod_1.valign = function () {
-                        aligned = true;
-                        $("#display_menu .chosen").removeClass('chosen');
-                        $("#display_menu #dm-aligned").addClass('chosen');
-                        $("#menu-display .selectedchoice").text('alignée');
+
+                    self.valign = function () {
+                        self.aligned = true;
+                        self.stacked = false;
                         var y0 = 0;
                         for (var se = 0; se < sections.length; se++) {
                             if (has_echec && se == 0) continue;
@@ -748,7 +528,7 @@
                             //.style("opacity","1")
                             .attr("y1", function (d) {
                                 if (!d.hs) {
-                                    var hs = $("g.se" + d.sect_num + ".st" + d.step_num).attr("data-offset")
+                                    var hs = $("g.se" + d.sect_num + ".st" + d.step_num).attr("data-offset");
                                     if (!hs) hs = 0;
                                     d.hs = parseFloat(hs)
                                 }
@@ -756,11 +536,11 @@
                             })
                             .attr("y2", function (d) {
 
-                                var a = bigList.filter(function (e) {
+                                var a = self.bigList.filter(function (e) {
                                     return e.article === d.article && e.prev_step == d.step_num
-                                })[0]
+                                })[0];
                                 if (!a.he) {
-                                    var he = $("g.se" + a.sect_num + ".st" + a.step_num).attr("data-offset")
+                                    var he = $("g.se" + a.sect_num + ".st" + a.step_num).attr("data-offset");
                                     if (!he) he = 0;
                                     a.he = parseFloat(he)
                                 }
@@ -768,13 +548,10 @@
                             });
                     }
 
-
                     //function for stacked layout
-                    thelawfactory.mod_1.stacked = function () {
-                        aligned = false;
-                        $("#display_menu .chosen").removeClass('chosen');
-                        $("#display_menu #dm-stacked").addClass('chosen');
-                        $("#menu-display .selectedchoice").text('compacte');
+                    self.stack = function () {
+                        self.isStacked = true;
+                        self.isAligned = false;
                         d3.selectAll(".group").transition().duration(500)
                             .attr("transform", "translate(0,0)");
 
@@ -783,134 +560,72 @@
                                 return d.y + (lerp(d.length)) / 2
                             })
                             .attr("y2", function (d) {
-                                var a = bigList.filter(function (e) {
+                                var a = self.bigList.filter(function (e) {
                                     return e.article === d.article && e.prev_step == d.step_num
-                                })[0]
+                                })[0];
                                 return a.y + (lerp(a.length)) / 2;
                             });
                         $("svg").height(maxy);
                     };
 
-                    //on click behaviour
-                    function onclick(d) {
-                        d3.selectAll("line").style("stroke", "#d0d0e0")
-                            .style("stroke-dasharray", "none");
-                        //STYLE OF CLICKED ELEMENT AND ROW
-                        //Reset rectangles
-                        d3.selectAll(".article").call(styleRect);
-                        d3.selectAll(".curr").classed("curr", false);
-
-                        d3.select(this).classed("curr", true);
-
-                        //Select the elements in same group
-                        d3.selectAll(".article")
-                            .filter(function (e) {
-                                return e && d && e.article == d.article
-                            })
-                            .style("stroke", "#333344").style("stroke-width", 1).style("fill", function () {
-                                var hsl = d3.rgb(d3.select(this).style("fill")).hsl()
-                                hsl.s += 0.1;
-                                return hsl.rgb()
-                            })
-                            .style("stroke-dasharray", [3, 3]);
-
-                        d3.select(this).style("stroke-dasharray", "none");
-                        d3.selectAll("line")
-                            .filter(function (e) {
-                                return e && d && e.article == d.article
-                            })
-                            .style("stroke", "#333344")
-                            .style("stroke-dasharray", [3, 3]);
-
-                        d3.rgb(d3.select(this).style("fill")).darker(2);
-
-                        if (scope.drawing) return;
-
-                        var spin = !d.originalText || (!d.textDiff && d.prev_dir && (d.status == "sup" || d.n_diff) && d.id_step.substr(-5) != "depot");
-                        if (spin) utils.startSpinner('load_art');
-                        $(".art-txt").animate({opacity: 0}, 100, function () {
-                            $("#readMode").show();
-                            $("#text-title").empty();
-                            $(".art-meta").empty();
-                            $(".art-txt").empty();
-                            $("#text-title").html(titre_article(d, 2));
-                            utils.setTextContainerHeight();
-                            var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " (" + format_section(d, 1) + ')' : format_section(d, 2)) + "</b>" +
-                                (test_section_details(d.section, d.id_step, 'title') ? " : " + get_section_details(d.section, d.id_step, 'title') : "")
-                                + "</p>" : "") +
-                                "<p><b>" + titre_etape(d) + "</b></p>" +
-                                (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-" + d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ?
-                                '<div class="gotomod' + (scope.read ? ' readmode' : '') + '"><a class="btn btn-info" href="amendements.html?loi=' + scope.loi + '&etape=' + d.directory + '&article=' + d.article + '">Explorer les amendements</a></div>' : '');
-                            if (d.n_diff) {
-                                if (d.id_step.substr(-5) == "depot")
-                                    descr += '<p class="comment"><b>Article déposé à cette étape</b></p>';
-                                else if (d.status == "new") descr += "<p><b>Article " + (d.prev_step ? "réintroduit" : "ajouté") + " à cette étape</b></p>";
-                            } else descr += '<p class="comment"><b>Article ' + (d.status == "sup" ? "supprimé" : "sans modification") + " à cette étape</b></p>";
-                            if ((d.n_diff || d.status == "sup") && d.status != "new") $("#revsMode").show();
-                            else $("#revsMode").hide();
-
-                            var balise = (d.id_step.substr(-5) != "depot" && d.status == "new" ? 'ins' : 'span');
-                            $(".art-meta").html(descr);
-
-                            if (spin) {
-                                var waitload = setInterval(function () {
-                                    if (!scope.to_load) {
-
-                                        if (textArticles[d.article][d.directory] && d.status != "sup") {
-                                            d.originalText = '<ul class="originaltext"><li><' + balise + '>' + $.map(textArticles[d.article][d.directory], function (i) {
-                                                    return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
-                                                }).join("</" + balise + "></li><li><" + balise + ">") + "</" + balise + "></li></ul>";
-                                        } else d.originalText = "<p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
-
-                                        if (textArticles[d.article][d.prev_dir]) {
-                                            var dmp = new diff_match_patch();
-                                            dmp.Diff_Timeout = 5;
-                                            dmp.Diff_EditCost = 25;
-                                            var diff = dmp.diff_main(textArticles[d.article][d.prev_dir].join("\n"), textArticles[d.article][d.directory].join("\n"));
-                                            dmp.diff_cleanupEfficiency(diff);
-                                            d.textDiff = '<ul class="textdiff"><li>';
-                                            d.textDiff += diff_to_html(diff)
-                                                .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
-                                            d.textDiff += "</li></ul>";
-                                        } else d.textDiff += d.originalText;
-
-                                        utils.stopSpinner(scope.update_revs_view, 'load_art');
-                                        clearInterval(waitload);
-                                    }
-                                }, 100);
-                            } else {
-                                if (!d.textDiff) d.textDiff += d.originalText;
-                                scope.update_revs_view();
-                            }
-                        });
-                    }
-
-                    if (aligned) thelawfactory.mod_1.valign();
-                    else thelawfactory.mod_1.stacked();
+                    if (self.isAligned) self.valign();
+                    else self.stack();
                     $('.readMode').tooltip({animated: 'fade', placement: 'bottom'});
                     $('.revsMode').tooltip({animated: 'fade', placement: 'bottom'});
                     setTimeout(utils.setTextContainerHeight, 500);
                 };
 
-                $(document).ready(function () {
-                    drawArticles();
-                    setTimeout(load_texte_articles, 50);
-                    $(window).resize(function () {
-                        if (scope.drawing || scope.mod != "mod1") return;
-                        var selected_art = d3.selectAll(".curr");
-                        if (selected_art[0].length) selected_art = selected_art[0][0].id;
-                        else selected_art = "";
-                        scope.drawing = true;
-                        setTimeout(function () {
-                            drawArticles();
-                            if (selected_art) $("#" + selected_art).d3Click();
-                            scope.drawing = false;
-                        }, 50);
-                    });
-                });
+                drawArticles();
             });
-        }
+        };
 
-        return vis;
+        self.onclick = function (d) {
+            d3.selectAll("line").style("stroke", "#d0d0e0")
+                .style("stroke-dasharray", "none");
+            //STYLE OF CLICKED ELEMENT AND ROW
+            //Reset rectangles
+            d3.selectAll(".article").call(self.styleRect);
+            d3.selectAll(".curr").classed("curr", false);
+
+            d3.select(this).classed("curr", true);
+
+            //Select the elements in same group
+            d3.selectAll(".article")
+                .filter(function (e) {
+                    return e && d && e.article == d.article
+                })
+                .style("stroke", "#333344").style("stroke-width", 1).style("fill", function () {
+                    var hsl = d3.rgb(d3.select(this).style("fill")).hsl();
+                    hsl.s += 0.1;
+                    return hsl.rgb()
+                })
+                .style("stroke-dasharray", [3, 3]);
+
+            d3.select(this).style("stroke-dasharray", "none");
+            d3.selectAll("line")
+                .filter(function (e) {
+                    return e && d && e.article == d.article
+                })
+                .style("stroke", "#333344")
+                .style("stroke-dasharray", [3, 3]);
+
+            d3.rgb(d3.select(this).style("fill")).darker(2);
+
+            if (self.drawing) return;
+
+            if (onClickCb && onClickCb.call)
+                onClickCb(d);
+        };
+
+        self.styleRect = function(d) {
+            d.style("stroke", "#d0d0e0")
+                .style("stroke-width", 1)
+                .style("stroke-dasharray", "none")
+                .style("fill", function (f) {
+                    return (!f || f.status == 'sup' || f.id_step.substr(-5) === "depot" || f.n_diff == 0 ? '#fff' : self.diffcolor(f.n_diff));
+                });
+        };
+
+        return self;
     };
 })();

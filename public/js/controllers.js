@@ -10,6 +10,45 @@ jQuery.fn.d3Click = function () {
 };
 
 angular.module('theLawFactory.controllers', ['theLawFactory.config'])
+    .controller('mod1Ctrl', function($log, $http, $rootScope, $location, $scope, api) {
+        $rootScope.loi = $location.search()['loi'];
+        var articleId = $location.search()['article'],
+            stepNum = +$location.search()['numeroEtape'];
+
+        $scope.viz = {
+            view: 'stacked'
+        };
+
+        $scope.steps = [];
+        $scope.mod = "mod1";
+
+        api.getArticle($scope.loi).then(function (lawData) {
+            $log.debug("law loaded", lawData);
+
+            $scope.lawTitle = lawData.short_title;
+            $scope.pageTitle = $scope.lawTitle + " - Articles | ";
+            $scope.currentstep = undefined;
+            $scope.lawData = lawData;
+
+            if (articleId && stepNum) {
+                $scope.article = lawData.articles[articleId].steps[stepNum];
+            }
+
+            api.getTextArticles($scope.loi, lawData.directories).then(function(textArticles) {
+                $log.debug("text loaded", textArticles);
+                $scope.textArticles = textArticles;
+            });
+
+        }, function (error) {
+            $log.error(error);
+            $scope.display_error("impossible de trouver les articles de ce texte");
+        });
+
+        api.getProcedure($scope.loi).then(function (procedureData) {
+            $log.debug("procedure loaded", procedureData);
+            $rootScope.procedureData = procedureData;
+        });
+    })
     .controller('mainCtrl', function ($scope, $log, $http, apiService, api, $rootScope, $location, $timeout) {
         $scope.loi = $location.search()['loi'];
         $scope.etape = $location.search()['etape'];
@@ -23,37 +62,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config'])
         $scope.vizTitle = "";
         $scope.helpText = "";
         $scope.groups = {};
-
-        $scope.readmode = function () {
-            $(".text").css({"width": "93.43%", "left": "3.3%"});
-            $(".gotomod").addClass('readmode');
-            $scope.read = true;
-        };
-
-        $scope.viewmode = function () {
-            $(".text").css({"width": "23.40%", "left": "73.3%"});
-            $(".gotomod").removeClass('readmode');
-            $scope.read = false;
-        };
-
-        $scope.hiderevs = function () {
-            $scope.revs = false;
-            return $scope.update_revs_view();
-        };
-
-        $scope.showrevs = function () {
-            $scope.revs = true;
-            return $scope.update_revs_view();
-        };
-
-        $scope.update_revs_view = function () {
-            var d = d3.select('#viz .curr').data()[0];
-            if ($scope.revs) {
-                $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
-            } else {
-                $(".art-txt").html(d.originalText).animate({opacity: 1}, 350);
-            }
-        };
+        $scope.steps = [];
 
         $scope.toggleTutorial = function () {
             if (!$scope.tutorial) {

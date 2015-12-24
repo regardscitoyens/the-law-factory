@@ -1250,7 +1250,6 @@ noscript h2 {
     float: right;
 }
 #readMode {
-  display: none;
   width: 10%;
 }
 #openread {
@@ -1267,7 +1266,6 @@ noscript h2 {
 }
 
 #revsMode {
-  display: none;
   width: 10%;
 }
 .revsMode {

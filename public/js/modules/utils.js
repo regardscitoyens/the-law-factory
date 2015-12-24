@@ -394,4 +394,261 @@
         else setTimeout(utils.setTextContainerHeight, 100);
     };
 
+    // Useful functions
+    utils.accentMap = {
+        "á": "a",
+        "à": "a",
+        "â": "a",
+        "é": "e",
+        "è": "e",
+        "ê": "e",
+        "ë": "e",
+        "ç": "c",
+        "î": "i",
+        "ï": "i",
+        "ô": "o",
+        "ö": "o",
+        "ù": "u",
+        "Û": "u",
+        "ü": "u"
+    };
+
+    utils.clean_accents = function (term) {
+        var ret = "";
+        for (var i = 0; i < term.length; i++) {
+            ret += accentMap[term.charAt(i)] || term.charAt(i);
+        }
+        return ret;
+    };
+
+    utils.opacity_amdts = function (d) {
+        if (d > 1000) d = 1000;
+        return 0.05 + 0.75 * d / 1000;
+    };
+
+    utils.opacity_mots = function (d) {
+        if (d > 100000) d = 100000;
+        return 0.05 + 0.75 * d / 100000;
+    };
+
+    utils.upperFirst = function (s) {
+        return (!s ? "" : s.charAt(0).toUpperCase() + s.substring(1));
+    };
+
+    utils.titre_etape = function (article) {
+        return article['id_step']
+            .replace('CMP_CMP', 'CMP')
+            .split('_')
+            .slice(1, 4)
+            .map(function (d) {
+                return utils.getLongName(d);
+            }
+        ).join(' ⋅ ');
+    };
+
+    utils.clean_premier = function (s) {
+        return (s ? s.replace(/1(<sup>)?er(<\/sup>)?/ig, '1') : '');
+    };
+
+    utils.split_section = function (s) {
+        s = s.replace(/<[^>]*>/g, '');
+        return s.split(/([ALTCVS]+\d+[\s<\/>a-z]*(?:[A-Z]+$)?)/);
+    };
+
+    utils.sub_section = function (s) {
+        s = utils.split_section(s);
+        return s.length > 1 ? s[s.length - 2] : s[0];
+    };
+
+    utils.num_sub_section = function (s) {
+        return utils.sub_section(s).replace(/^[LTCVS]+/, '');
+    };
+
+    utils.titre_parent = function (s, length) {
+        s = utils.split_section(s);
+        if (s.length > 1) s = s.slice(0, s.length - 2);
+        return utils.titre_section(s.join(''), length);
+    };
+
+    utils.titre_section = function (s, length) {
+        if (!s) return s;
+        var res = "",
+            s = utils.split_section(s);
+        for (var i in s) if (s[i]) {
+            res += (res ? " ⋅ " : "");
+            res += s[i].replace(/([LTCVS]+)(\d+e?r?)\s*([\sa-z]*)/, '$1 $2 $3')
+                .replace(/1er?/g, '1<sup>er</sup>')
+                .replace(/^SS( \d)/, (length ? (length == 1 ? "S-Sec." : "Sous-section") : "SS") + '$1')
+                .replace(/^S( \d)/, (length ? (length == 1 ? "Sect." : "Section") : "S") + '$1')
+                .replace("C ", (length ? (length == 1 ? "Chap." : "Chapitre") : "C") + " ")
+                .replace("V ", (length ? (length == 1 ? "Vol." : "Volume") : "V") + " ")
+                .replace("L ", (length ? "Livre" : "L") + " ")
+                .replace("TL", (length ? (length == 1 ? "Titre Lim." : "Titre Liminaire") : "TL") + " ")
+                .replace("T ", (length ? "Titre" : "T") + " ");
+        }
+        return res;
+    };
+
+    utils.titre_article = function (article, length) {
+        var num = (article.newnum != undefined ? article.newnum : article.article).replace(/1er?/, '1'),
+            newnum = (article.newnum != undefined ? " (" + article.article + ")" : "").replace(/1er?/, '1<sup>er</sup>'),
+            res = (length ? (length == 1 ? "Art." : "Article ") : "A ");
+        return res + num + newnum;
+    };
+
+    utils.section_opacity = function (s) {
+        if (!s) return 0.95;
+        if (s === "echec") return 0.35;
+        if (s.lastIndexOf("A", 0) === 0)
+            return 0.65;
+        try {
+            return 0.95 - 0.12 * (utils.split_section(s).filter(function (d) {
+                    return d != "";
+                }).length - 1);
+        } catch (e) {
+            console.log("ERREUR section with bad id:", s, e);
+            return 0.95;
+        }
+    };
+
+    utils.computeSections = function(articles) {
+        return d3.nest()
+            .key(function (d) {
+                return d.section;
+            })
+            .entries(articles)
+            .map(function (d) {
+                return d.key;
+            });
+    };
+
+    utils.computeStages = function(articles) {
+        var stag = [];
+
+        articles.forEach(function (e, i) {
+            var st = d3.nest()
+                .key(function (d) {
+                    return d.id_step;
+                })
+                .entries(e.steps);
+
+            st.forEach(function (f, i) {
+                if (stag.indexOf(f.key) < 0) stag.push(f.key);
+            });
+        });
+
+        stag.sort();
+
+        for (var s in stag)
+            var stag_name = stag[s].split("_", 4).splice(2, 3).join(" ");
+
+        return stag;
+    };
+
+    utils.findStage = function(stages, s) {
+        for (var st in stages)
+            if (s == stages[st])
+                return parseInt(st);
+        return -1;
+    };
+
+    utils.diff_to_html = function (diffs) {
+        var html = [];
+        for (var x = 0; x < diffs.length; x++) {
+            var text = diffs[x][1].replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;').replace(/>/g, '&gt;'),
+                typ = 'span';
+            if (diffs[x][0] != 0) {
+                typ = 'del';
+                if (diffs[x][0] == 1) typ = 'ins';
+            }
+            html.push('<' + typ + '>' + text.replace(/\n/g, '</' + typ + '></li><li><' + typ + '>') + '</' + typ + '>');
+        }
+        return '<ul class="textdiff"><li>'
+            + html.join('').replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
+            + "</li></ul>";
+    };
+
+    utils.test_section_details = function(sections, section, etape, field) {
+        return (sections && sections[section] && sections[section][etape] && sections[section][etape][field] != undefined);
+    };
+
+    utils.get_section_details = function(sections, section, etape, field) {
+        return (utils.test_section_details(sections, section, etape, field) ? sections[section][etape][field] : "");
+    };
+
+    utils.format_section = function(obj, length) {
+        var sec = (obj.section ? obj.section : obj);
+        if (sec.lastIndexOf("A", 0) === 0)
+            return utils.titre_article(obj, length);
+        if (length < 2 && sec)
+            sec = utils.sub_section(sec);
+        return utils.titre_section(sec, length);
+
+    };
+
+    utils.getArticleDesc = function(sections, article, readMode) {
+        var descr = '';
+        if (article.section.lastIndexOf("A", 0) !== 0 ) {
+            descr = "<p><b>" + (utils.test_section_details(sections, article.section, article.id_step, 'newnum') ? utils.titre_section(utils.get_section_details(sections, article.section, article.id_step, 'newnum'), 2) + " (" + utils.format_section(article, 1) + ')' : utils.format_section(article, 2)) + "</b>" +
+                (utils.test_section_details(sections, article.section, article.id_step, 'title') ? " : " + utils.get_section_details(sections, article.section, article.id_step, 'title') : "")
+                + "</p>";
+        }
+
+        descr = descr
+            + "<p><b>"
+            + utils.titre_etape(article)
+            + "</b></p>"
+            + (article.n_diff > 0.05 && article.n_diff != 1 && $(".stb-" + article.directory.substr(0, article.directory.search('_'))).find("a.stb-amds:visible").length ?
+                '<div class="gotomod' + (readMode ? ' readmode' : '')
+                + '"><a class="btn btn-info" href="#/amendements.html?loi='
+                + article.loi
+                + '&etape='
+                + article.directory
+                + '&article='
+                + article.article
+                + '">Explorer les amendements</a></div>' : '');
+
+        if (article.n_diff) {
+            if (article.id_step.substr(-5) == "depot")
+                descr += '<p class="comment"><b>Article déposé à cette étape</b></p>';
+            else if (article.status == "new") {
+                descr += "<p><b>Article " + (article.prev_step ? "réintroduit" : "ajouté") + " à cette étape</b></p>";
+            }
+        } else {
+            descr += '<p class="comment"><b>Article ' + (article.status == "sup" ? "supprimé" : "sans modification") + " à cette étape</b></p>";
+        }
+
+        return descr;
+    };
+
+    utils.getOriginalText = function(article, currentVersion) {
+        if (currentVersion && article.status != "sup") {
+            var balise = (article.id_step.substr(-5) != "depot" && article.status == "new" ? 'ins' : 'span');
+            return '<ul class="originaltext"><li><' + balise + '>' + $.map(currentVersion, function (i) {
+                    return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
+                }).join("</" + balise + "></li><li><" + balise + ">") + "</" + balise + "></li></ul>";
+        } else {
+            return "<p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
+        }
+    };
+
+    utils.articleSort = function(a, b) {
+        if (a.section === "echec") return (b.section === "echec" ? 0 : -1);
+        else if (b.section === "echec") return 1;
+        var al = a.titre.split(" "), bl = b.titre.split(" ");
+        var ao = 0, bo = 0;
+        if (parseInt(al[0]) != parseInt(bl[0]))
+            return parseInt(al[0]) - parseInt(bl[0]);
+        for (var i_s = 0; i_s < a.steps.length; i_s++) {
+            ao += a.steps[i_s]['order'];
+            for (var j_s = 0; j_s < b.steps.length; j_s++) {
+                if (i_s == 0)
+                    bo += b.steps[j_s]['order'];
+                if (a.steps[i_s]['id_step'] == b.steps[j_s]['id_step'])
+                    return a.steps[i_s]['order'] - b.steps[j_s]['order'];
+            }
+        }
+        return ao / a.steps.length - bo / b.steps.length;
+    }
 })();

@@ -2,13 +2,16 @@
 
     <div class="stb-stages">
         <div class="stb-stage" id="stage_{{$index}}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in stages">
-            <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}" ng-bind-html-unsafe="i.short_name"></span>
-            <span ng-hide="i.display_short" ng-bind-html-unsafe="i.long_name"></span>
+            <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}" ng-bind-html="i.short_name"></span>
+            <span ng-hide="i.display_short" ng-bind-html="i.long_name"></span>
         </div>
     </div>
 
     <div class="stb-insts">
-        <div class="stb-inst {{string_to_slug(i.name)}}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in inst">
+        <div class="stb-inst {{string_to_slug(i.name)}}"
+             style="width:{{(i.num/total)*100}}%"
+            ng-class="{gouvernement: i.short_name == 'gouvernement', assemblee: i.short_name == 'AN', senat: i.short_name == 'Sénat', cmp: i.short_name == 'CMP'}"
+            ng-repeat="i in inst">
             <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}">{{i.short_name}}</span>
             <span ng-hide="i.display_short">{{i.long_name}}</span>
         </div>

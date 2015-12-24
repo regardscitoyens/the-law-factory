@@ -1,78 +1,8 @@
 'use strict';
 
-// Useful functions
-var accentMap = {
-    "á": "a",
-    "à": "a",
-    "â": "a",
-    "é": "e",
-    "è": "e",
-    "ê": "e",
-    "ë": "e",
-    "ç": "c",
-    "î": "i",
-    "ï": "i",
-    "ô": "o",
-    "ö": "o",
-    "ù": "u",
-    "Û": "u",
-    "ü": "u"
-}, clean_accents = function (term) {
-    var ret = "";
-    for (var i = 0; i < term.length; i++) {
-        ret += accentMap[term.charAt(i)] || term.charAt(i);
-    }
-    return ret;
-}, opacity_amdts = function (d) {
-    if (d > 1000) d = 1000;
-    return 0.05 + 0.75 * d / 1000;
-}, opacity_mots = function (d) {
-    if (d > 100000) d = 100000;
-    return 0.05 + 0.75 * d / 100000;
-}, upperFirst = function (s) {
-    return (!s ? "" : s.charAt(0).toUpperCase() + s.substring(1));
-};
-
 /* Directives */
 
-angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootScope', '$location', '$compile',
-    function (api, $rootScope) {
-        return {
-            restrict: 'A',
-            replace: false,
-            templateUrl: 'templates/mod1.html',
-            controller: function ($scope) {
-                $scope.mod = "mod1";
-                $scope.helpText = "Chaque boîte représente un article dont la taille indique la longueur du texte et la couleur le degré de modifications à cette étape. Cliquez sur un article pour lire le texte et voir le détail des modifications.";
-                $scope.vizTitle = "ARTICLES";
-            },
-            link: function postLink(scope, element) {
-                var mod1 = thelawfactory.mod1();
-
-                function update() {
-                    thelawfactory.utils.startSpinner();
-
-                    api.getArticle(scope.loi).then(function (data) {
-                        $rootScope.lawTitle = data.short_title;
-                        $rootScope.pageTitle = $rootScope.lawTitle + " - Articles | ";
-                        var timeout = 1500,
-                            loop = setInterval(function () {
-                                timeout -= 50;
-                                if (timeout > 0 && !scope.steps) return;
-                                clearInterval(loop);
-                                scope.currentstep = (scope.steps && !scope.steps[scope.steps.length - 1].enddate ? scope.steps[scope.steps.length - 1] : undefined);
-                                d3.select(element[0]).datum(data).call(mod1);
-                                thelawfactory.utils.stopSpinner();
-                            }, 50);
-                    }, function () {
-                        scope.display_error("impossible de trouver les articles de ce texte");
-                    });
-                }
-
-                update();
-            }
-        };
-    }])
+angular.module('theLawFactory.directives', ['theLawFactory.config'])
     .directive('mod2', ['api', '$rootScope', '$location', '$compile',
         function (api, $rootScope) {
             return {
@@ -211,12 +141,12 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                                 $(".form-law").css('opacity', 0.3);
                             }).autocomplete({
                                 source: function (request, response) {
-                                    var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(request.term)), "i");
+                                    var matcher = new RegExp($.ui.autocomplete.escapeRegex(thelawfactory.utils.clean_accents(request.term)), "i");
                                     response($.map($.grep(laws.sort(function (a, b) {
                                         return b["Date de promulgation"] > a["Date de promulgation"];
                                     }), function (value) {
-                                        value = clean_accents(value.Titre + " " + value.id + " " + value["Thèmes"] + " " + value.short_title);
-                                        return matcher.test(clean_accents(value));
+                                        value = thelawfactory.utils.clean_accents(value.Titre + " " + value.id + " " + value["Thèmes"] + " " + value.short_title);
+                                        return matcher.test(thelawfactory.utils.clean_accents(value));
                                     }), function (n, i) {
                                         return {
                                             "label": n.short_title.replace(/ \([^)]*\)/g, '') + " (" + n.Titre + ")",
@@ -277,8 +207,8 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
 
                                 var icodiv = $("<div class='src-ico'>")
                                     .append('<div><span class="glyphicon glyphicon-calendar"></span> ' + item.dates + "</div>")
-                                    .append('<div title="' + item.amendements + ' amendements déposés sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-folder-open" style="opacity: ' + opacity_amdts(item.amendements) + '"></span> ' + item.amendements + "</div>")
-                                    .append('<div title="' + item.words + ' mots prononcés lors des débats sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-comment" style="opacity: ' + opacity_mots(item.words) + '"></span> ' + 1000 * (Math.round(item.words / 1000.)) + "</div>")
+                                    .append('<div title="' + item.amendements + ' amendements déposés sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-folder-open" style="opacity: ' + thelawfactory.utils.opacity_amdts(item.amendements) + '"></span> ' + item.amendements + "</div>")
+                                    .append('<div title="' + item.words + ' mots prononcés lors des débats sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-comment" style="opacity: ' + thelawfactory.utils.opacity_mots(item.words) + '"></span> ' + 1000 * (Math.round(item.words / 1000.)) + "</div>")
                                     .append(themesdiv);
                                 $(".search").tooltip();
 
@@ -347,107 +277,6 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
             }
         };
     }])
-    .directive('stepsbar', ['$timeout', 'api', '$rootScope', "$location",
-        function (timer, api, $rootScope, $location) {
-            return {
-                restrict: 'A',
-                replace: false,
-                templateUrl: 'templates/stepsbar.html',
-                controller: function ($scope, $element, $attrs) {
-                },
-
-                link: function preLink(scope, element, attrs, stepsbarCtrl) {
-                    var utils = thelawfactory.utils;
-
-                    scope.total = 0;
-                    api.getProcedure(scope.loi).then(function (data) {
-
-                        var tit = upperFirst(data.long_title),
-                            leg = "";
-                        if (tit.length > 60) {
-                            leg = ' data-toggle="tooltip" data-placement="right" title="' + tit + '"';
-                            tit = scope.loi.substr(0, 3).toUpperCase() + " " + upperFirst(data.short_title);
-                        }
-                        $(".title").html(
-                            '<h4 class="law-title"' + leg + '>' + tit + '</h4>' +
-                            '<div class="allinks darkonintrojs"><span class="links">' +
-                            (data.url_jo ? '<a href="' + data.url_jo + '" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Loi sur Légifrance</a><br/>' : '') +
-                            '<a href="' + scope.APIRootUrl + scope.loi + '/" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Open Data</a>' +
-                            '&nbsp; /<a href="http://git.lafabriquedelaloi.fr/parlement/' + scope.loi + '/" target="_blank" class="darkonintrojs">Git</a>' +
-                            '</span><span class="links">' +
-                            (data.url_dossier_senat ? '<a href="' + data.url_dossier_senat + '" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a>' : '') + '<br/>' +
-                            (data.url_dossier_assemblee ? '<a href="' + data.url_dossier_assemblee + '" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Assemblée</a>' : '') +
-                            '</span></div>'
-                        );
-                        if (leg) $(".law-title").tooltip();
-
-                        scope.stages = [],
-                            scope.steps = [],
-                            scope.inst = [];
-                        var currStage = {name: "", num: 1},
-                            currInst = {name: "", num: 1};
-                        if (!$rootScope.lawTitle) {
-                            $rootScope.lawTitle = data.short_title;
-                            $rootScope.pageTitle = ($rootScope.pageTitle + "").replace('undefined', $rootScope.lawTitle);
-                        }
-
-                        data.steps.forEach(function (e, j) {
-                            if (e.debats_order !== null) scope.total++;
-                        });
-                        scope.barwidth = $("#stepsbar").width();
-
-                        data.steps.filter(function (e) {
-                            return e.debats_order != null;
-                        })
-                            .sort(function (a, b) {
-                                return a.debats_order - b.debats_order;
-                            })
-                            .forEach(function (e) {
-                                scope.steps.push(e);
-                                e.short_name = utils.stepLabel(e);
-                                e.long_name = utils.stepLegend(e);
-                                e.display_short = (scope.barwidth / scope.total < (e.step == "depot" && e.auteur_depot != "Gouvernement" ? 150 : 120));
-
-                                if (e.step === "depot") {
-                                    if (currStage.name) currStage.num++;
-                                    else currStage.name = "depot";
-                                    if (currStage.num == 2) currStage.name += "s";
-                                } else if (currStage.name === e.stage) {
-                                    currStage.num++;
-                                } else {
-                                    if (currStage.name)
-                                        scope.stages.push(utils.addStageInst(currStage));
-                                    currStage.num = 1;
-                                    currStage.name = e.stage;
-                                }
-
-                                if ((e.step === "depot" && currInst.name === e.auteur_depot) || (e.step !== "depot" && e.institution === currInst.name))
-                                    currInst.num++;
-                                else {
-                                    if (currInst.name)
-                                        scope.inst.push(utils.addStageInst(currInst));
-                                    currInst.num = 1;
-                                    currInst.name = (e.step === "depot" ? e.auteur_depot : e.institution);
-                                }
-                            });
-
-                        scope.stages.push(utils.addStageInst(currStage));
-                        scope.inst.push(utils.addStageInst(currInst));
-                        timer(function () {
-                            $(".stb-step span").tooltip({html: true});
-                            $(".stb-step a").tooltip({html: true});
-                            $(".stb-inst span").tooltip();
-                            $(".stb-stage span").tooltip({html: true});
-                        }, 0);
-
-                    }, function (error) {
-                        scope.display_error("impossible de trouver la procédure de ce texte");
-                    })
-
-                }
-            }
-        }
-    ])
     .directive('about', ['$rootScope', '$location', '$compile',
         function ($rootScope) {
             return {
