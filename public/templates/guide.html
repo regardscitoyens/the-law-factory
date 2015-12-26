@@ -9,10 +9,11 @@
         <div ng-hide="diffMode" class="interactive revsMode" ng-click="showrevs()" data-toggle="tooltip" title="Afficher les modifications" data-placement="bottom" data-original-title="Afficher les modifications"><span class="glyphicon glyphicon glyphicon-edit"></span></div>
     </div>
     <div class="text-container">
+        <span us-spinner spinner-key="guide"></span>
         <div class="art-meta" ng-bind-html="textDesc"></div>
-        <div ng-show="diffMode" class="art-txt" ng-bind-html="textDiff"></div>
-        <div ng-show="!diffMode" class="art-txt" ng-bind-html="originalText"></div>
-        <div ng-show="!textDiff" id="help-msg">
+        <div ng-show="diffMode && !spin" class="art-txt" ng-bind-html="textDiff"></div>
+        <div ng-show="!diffMode && !spin" class="art-txt" ng-bind-html="originalText"></div>
+        <div ng-show="!textDiff && !spin" id="help-msg">
             <p>Chaque boîte représente un article dont la taille indique la longueur du texte et la couleur le degré de modifications à cette étape. Cliquez sur un article pour lire le texte et voir le détail des modifications.</p>
             <p>Cliquez sur le bouton <span class="question_mark">?</span> ci-dessus pour voir un tutoriel interactif de cette visualisation.</p>
         </div>

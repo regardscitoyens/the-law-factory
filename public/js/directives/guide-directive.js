@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('theLawFactory.directives')
-    .directive('guide', ['$log', 'API_ROOT_URL',
-        function ($log) {
+    .directive('guide', ['$log', '$timeout', 'usSpinnerService',
+        function ($log, $timeout, usSpinnerService) {
             return {
                 restrict: 'E',
                 replace: false,
@@ -17,6 +17,7 @@ angular.module('theLawFactory.directives')
                     scope.helpText = "Chaque boîte représente un article dont la taille indique la longueur du texte et la couleur le degré de modifications à cette étape. Cliquez sur un article pour lire le texte et voir le détail des modifications.";
                     scope.diffMode = true;
                     scope.readMode = false;
+                    scope.spin = false;
 
                     var dmp = new diff_match_patch();
                     dmp.Diff_Timeout = 5;
@@ -28,7 +29,14 @@ angular.module('theLawFactory.directives')
                         if (!article || !textArticles)
                             return;
 
-                        showDiff(article);
+                        usSpinnerService.spin("guide");
+                        scope.spin = true;
+
+                        $timeout(function() {
+                            showDiff(article);
+                            usSpinnerService.stop("guide");
+                            scope.spin = false;
+                        }, 0);
                     });
 
                     function showDiff(article) {

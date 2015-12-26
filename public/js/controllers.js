@@ -9,9 +9,10 @@ jQuery.fn.d3Click = function () {
     });
 };
 
-angular.module('theLawFactory.controllers', ['theLawFactory.config'])
+angular.module('theLawFactory.controllers', ['angularSpinner', 'theLawFactory.config'])
     .controller('mod1Ctrl', function($log, $http, $rootScope, $location, $scope, api) {
         $rootScope.loi = $location.search()['loi'];
+
         var articleId = $location.search()['article'],
             stepNum = +$location.search()['numeroEtape'];
 
@@ -25,7 +26,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config'])
             $rootScope.lawTitle = procedureData.short_title;
             $rootScope.pageTitle = $rootScope.lawTitle + " - Articles | ";
             $scope.currentstep = (procedureData.steps && !procedureData.steps[procedureData.steps.length-1].enddate ? procedureData.steps[procedureData.steps.length-1] : undefined);
-            $log.debug("current step", $scope.currentText);
         });
 
         api.getArticle($scope.loi).then(function (lawData) {

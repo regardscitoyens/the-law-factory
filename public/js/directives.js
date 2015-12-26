@@ -2,7 +2,7 @@
 
 /* Directives */
 
-angular.module('theLawFactory.directives', ['theLawFactory.config'])
+angular.module('theLawFactory.directives', ['angularSpinner', 'theLawFactory.config'])
     .directive('mod2', ['api', '$rootScope', '$location', '$compile',
         function (api, $rootScope) {
             return {
