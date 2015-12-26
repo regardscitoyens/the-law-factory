@@ -52,8 +52,6 @@ angular.module('theLawFactory.directives')
                     }
                 },
                 controller: ['$scope', function ($scope) {
-                    $scope.revs = true;
-
                     $scope.readmode = function () {
                         $(".text").css({"width": "93.43%", "left": "3.3%"});
                         $scope.readMode = true;

@@ -7,19 +7,20 @@ angular.module('theLawFactory.directives')
                 restrict: 'E',
                 replace: false,
                 scope: {
+                    loi: '=',
                     lawData: '=',
                     article: '=',
-                    view: '=',
-                    loi: '='
+                    currentstep: '=',
+                    view: '='
                 },
                 template: '<div id="viz"><div id="preload"></div></div>',
                 link: function (scope, element) {
-                    var mod1;
-
-                    var onClick = function(article) {
-                        if (article)
+                    var mod1,
+                        onClick = function(article) {
+                        if (article) {
                             scope.article = article;
                             $state.go('articles', {loi: article.loi, article: article.article, numeroEtape: article.step_num}, {notify: false});
+                        }
                     };
 
                     scope.$watch('article', function(article) {
@@ -31,7 +32,7 @@ angular.module('theLawFactory.directives')
                         if (!value)
                             return;
 
-                        mod1 = thelawfactory.mod1(onClick);
+                        mod1 = thelawfactory.mod1(scope.currentstep, onClick);
                         d3.select(element[0]).datum(value).call(mod1.vis);
 
                         if (scope.article)

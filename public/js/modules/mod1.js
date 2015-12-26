@@ -6,7 +6,7 @@
 
     var utils = thelawfactory.utils;
 
-    thelawfactory.mod1 = function (onClickCb) {
+    thelawfactory.mod1 = function (currentstep, onClickCb) {
         var self = {
             aligned: true,
             drawing: false,
@@ -25,7 +25,7 @@
 
                 //compute stages and sections
                 var stages = utils.computeStages(art),
-                    columns = stages.length + (self.currentstep ? 1 : 0),
+                    columns = stages.length + (currentstep ? 1 : 0),
                     sections = utils.computeSections(art),
                     sectHeight = 15,
                     sectJump = 25;

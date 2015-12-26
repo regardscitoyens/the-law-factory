@@ -14,6 +14,8 @@ angular.module('theLawFactory.directives')
                 link: function(scope) {
                     var utils = thelawfactory.utils;
 
+                    scope.barwidth = $("#stepsbar").width();
+
                     scope.$watch("procedureData", function(data) {
                         if (!data)
                             return;
@@ -29,8 +31,6 @@ angular.module('theLawFactory.directives')
                         data.steps.forEach(function (e, j) {
                             if (e.debats_order !== null) scope.total++;
                         });
-
-                        scope.barwidth = $("#stepsbar").width();
 
                         data.steps.filter(function (e) {
                                 return e.debats_order != null;
@@ -70,6 +70,7 @@ angular.module('theLawFactory.directives')
 
                         scope.stages.push(utils.addStageInst(currStage));
                         scope.inst.push(utils.addStageInst(currInst));
+
                         $timeout(function () {
                             $(".stb-step span").tooltip({html: true});
                             $(".stb-step a").tooltip({html: true});

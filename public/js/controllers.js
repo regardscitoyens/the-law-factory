@@ -19,15 +19,18 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config'])
             view: 'stacked'
         };
 
-        $scope.steps = [];
-        $scope.mod = "mod1";
+        api.getProcedure($scope.loi).then(function (procedureData) {
+            $log.debug("procedure loaded", procedureData);
+            $rootScope.procedureData = procedureData;
+            $rootScope.lawTitle = procedureData.short_title;
+            $rootScope.pageTitle = $rootScope.lawTitle + " - Articles | ";
+            $scope.currentstep = (procedureData.steps && !procedureData.steps[procedureData.steps.length-1].enddate ? procedureData.steps[procedureData.steps.length-1] : undefined);
+            $log.debug("current step", $scope.currentText);
+        });
 
         api.getArticle($scope.loi).then(function (lawData) {
             $log.debug("law loaded", lawData);
 
-            $scope.lawTitle = lawData.short_title;
-            $scope.pageTitle = $scope.lawTitle + " - Articles | ";
-            $scope.currentstep = undefined;
             $scope.lawData = lawData;
 
             if (articleId && stepNum) {
@@ -42,11 +45,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config'])
         }, function (error) {
             $log.error(error);
             $scope.display_error("impossible de trouver les articles de ce texte");
-        });
-
-        api.getProcedure($scope.loi).then(function (procedureData) {
-            $log.debug("procedure loaded", procedureData);
-            $rootScope.procedureData = procedureData;
         });
     })
     .controller('mainCtrl', function ($scope, $log, $http, apiService, api, $rootScope, $location, $timeout) {
