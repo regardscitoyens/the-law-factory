@@ -1,0 +1,40 @@
+<div>
+    <div class="row">
+        <div class="cont-width offset-width burntsiena">
+            <div ng-cloak ng-show="error != ''" id="error">
+                <h4>Oups ! Il semble que vous soyez tombé sur un bug</h4>
+
+                <p>Erreur : {{error}}. N'hésitez pas à <a
+                        href="http://github.com/regardscitoyens/the-law-factory/issues" target="_blank">nous le
+                    signaler</a>&nbsp;! Ou <a href="#" ng-click="back()">cliquez ici</a> pour revenir à la page
+                    précédente.</p>
+            </div>
+            <div class="title ng-cloak" ng-if="procedureData">
+                <h4 ng-if="procedureData.long_title.length > 60" class="law-title" data-toggle="tooltip" data-placement="right" data-original-title="{{ procedureData.long_title }}">
+                    {{ procedureData.long_title | lawTitle:procedureData.short_title:loi }}
+                </h4>
+                <h4 ng-if="procedureData.long_title.length <= 60" class="law-title">
+                    {{ procedureData.long_title | lawTitle:procedureData.short_title:loi }}
+                </h4>
+                <div class="allinks darkonintrojs">
+                <span class="links">
+                    <a href="{{ APIRootUrl }}/{{ loi }}/" target="_blank" class="darkonintrojs">
+                        <span class="glyphicon glyphicon-link"></span> Open Data
+                    </a> &nbsp; /
+                    <a href="http://git.lafabriquedelaloi.fr/parlement/{{ loi }}/" target="_blank" class="darkonintrojs">Git</a>
+                </span>
+                <span class="links">
+                    <a ng-if="procedureData.url_dossier_senat" href="{{ procedureData.url_dossier_senat }}" target="_blank" class="darkonintrojs">
+                        <span class="glyphicon glyphicon-link"></span> Dossier Sénat
+                    </a>
+                    <br>
+                    <a ng-if="procedureData.url_dossier_assemblee" href="{{ procedureData.url_dossier_assemblee }}" target="_blank" class="darkonintrojs">
+                        <span class="glyphicon glyphicon-link"></span> Dossier Assemblée
+                    </a>
+                </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="view" ui-view ng-hide="error != ''"></div>
+</div>

@@ -10,9 +10,18 @@ jQuery.fn.d3Click = function () {
 };
 
 angular.module('theLawFactory.controllers', ['angularSpinner', 'theLawFactory.config'])
-    .controller('mod1Ctrl', function($log, $http, $rootScope, $location, $scope, api) {
-        $rootScope.loi = $location.search()['loi'];
+    .controller('lawCtrl', function($log, $location, $scope, api) {
+        $scope.loi = $location.search()['loi'];
 
+        api.getProcedure($scope.loi).then(function (procedureData) {
+            $log.debug("procedure loaded", procedureData);
+            $scope.procedureData = procedureData;
+            $scope.lawTitle = procedureData.short_title;
+            $scope.pageTitle = $scope.lawTitle + " - Articles | ";
+            $scope.currentstep = (procedureData.steps && !procedureData.steps[procedureData.steps.length-1].enddate ? procedureData.steps[procedureData.steps.length-1] : undefined);
+        });
+    })
+    .controller('mod1Ctrl', function($log, $location, $scope, api) {
         var articleId = $location.search()['article'],
             stepNum = +$location.search()['numeroEtape'];
 
@@ -20,17 +29,8 @@ angular.module('theLawFactory.controllers', ['angularSpinner', 'theLawFactory.co
             view: 'stacked'
         };
 
-        api.getProcedure($scope.loi).then(function (procedureData) {
-            $log.debug("procedure loaded", procedureData);
-            $rootScope.procedureData = procedureData;
-            $rootScope.lawTitle = procedureData.short_title;
-            $rootScope.pageTitle = $rootScope.lawTitle + " - Articles | ";
-            $scope.currentstep = (procedureData.steps && !procedureData.steps[procedureData.steps.length-1].enddate ? procedureData.steps[procedureData.steps.length-1] : undefined);
-        });
-
         api.getArticle($scope.loi).then(function (lawData) {
             $log.debug("law loaded", lawData);
-
             $scope.lawData = lawData;
 
             if (articleId && stepNum) {

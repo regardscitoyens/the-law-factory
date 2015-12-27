@@ -55,17 +55,22 @@ angular.module('theLawFactory', [
                 template: '<div mod0 class="mod0"></div>',
                 controller: 'mainCtrl'
             })
-            .state('articles', {
+            .state('law', {
+                abstract: true,
+                templateUrl: 'templates/law.html',
+                controller: 'lawCtrl'
+            })
+            .state('law.articles', {
                 url: '/articles.html?loi&article&numeroEtape',
                 templateUrl: 'templates/mod1.html',
                 controller: 'mod1Ctrl'
             })
-            .state('amendements', {
+            .state('law.amendements', {
                 url: '/amendements.html?loi&etape',
                 template: '<div mod2 class="mod2"></div>',
                 controller: 'mainCtrl'
             })
-            .state('debates', {
+            .state('law.debates', {
                 url: '/debats.html?loi&etape',
                 template: '<div mod2b class="mod2"></div>',
                 controller: 'mainCtrl'
