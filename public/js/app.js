@@ -78,7 +78,8 @@ angular.module('theLawFactory', [
             .when('/debats', '/debats.html')
             .otherwise('/');
     })
-    .run(function ($log, $rootScope, API_ROOT_URL) {
+    .run(function ($log, $rootScope, $state, API_ROOT_URL) {
+        $rootScope.$state = $state;
         $rootScope.APIRootUrl = API_ROOT_URL;
         $rootScope.error = '';
         $rootScope.display_error = function (e) {
