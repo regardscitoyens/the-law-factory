@@ -30,7 +30,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         if ($scope.APIRootUrl.substr(-1) != "/") $scope.APIRootUrl += "/";
 
         $rootScope.static = ($location.path() == '/' || $location.path() == '/a-propos.html');
-        $rootScope.error = "";
+        $rootScope.error = '';
         $rootScope.display_error = function (e) {
             console.log(e);
             $rootScope.error = e;
@@ -49,7 +49,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.etape = $location.search()['etape'];
         $scope.article = $location.search()['article'];
         $scope.action = $location.search()['action'];
-        $scope.error = {};
 
         $scope.setTextContainerHeight = function () {
             var h = $(".text").height() - $("#text-title").outerHeight();

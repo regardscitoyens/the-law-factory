@@ -1,6 +1,6 @@
 /* Font-face */
 
-				@font-face {
+@font-face {
     font-family: "tlf-icons";
     font-style: normal;
     font-weight: normal;
@@ -294,7 +294,7 @@ body{
 }
 
 .art-txt{
-    padding: 0pxa
+    padding: 0;
     padding-right: 20px;
 }
 
@@ -603,7 +603,7 @@ ul.ui-autocomplete {
     box-shadow:none !important;
 }
 .ui-menu .ui-menu-item {
-	padding:8px 0px;
+	padding:8px 5px;
 	color: #716259;
 }
 .img-cont{
@@ -911,26 +911,26 @@ text {
     opacity: 0.55;
 }
 
-#mod0-slider-label {
-    cursor: default;
-}
-#mod0-slider {
-    float: right;
-    border-color: #716259;
-    background-color: #F6F6F6;
-    margin: 0px;
-    margin-top: 4px;
-    padding: 0px;
-    padding-right: 10px;
-    border-radius: 0px;
-    width: 60px;
-    cursor: pointer;
+#menu-zoom-slider {
+	padding-left: 10px;
 }
 
-.ui-slider-handle{
+#mod0-slider {
+	width: 60px;
+	height: 16px;
+	margin-top: 17px;
+	padding-right: 0px;
+	border-color: #716259;
+	background-color: #F6F6F6;
+	border-radius: 0;
+	cursor: pointer;
+}
+
+#mod0-slider > .ui-slider-handle{
     width:10px;
-    height:15px;
-    background-color: #716259;
+	margin-top: 4px;
+    height:16px;
+    background: #716259;
     position: relative;
     display: block;
     outline: none !important;
@@ -939,6 +939,7 @@ text {
     user-select: none;
     border-radius:0 !important;
 }
+
 .ui-state-focus{
     border:none !important;
 }
@@ -996,7 +997,7 @@ footer span:hover {
     display: block;
     border-bottom:1px solid #ccc;
     overflow:hidden;
-    font-size:1em;
+    font-size:0.9em;
 }
  .src-fcs{
     background-color:#716259 !important;
@@ -1247,12 +1248,10 @@ noscript h2 {
 .mod2 .text h4 {
     width: 100%;
     float: right;
-    height: 100%:
 }
 #readMode {
   display: none;
   width: 10%;
-  height: 100%:
 }
 #openread {
   background-color: #716259;

@@ -3,6 +3,7 @@
 
   <head>
     <meta charset="utf8">
+    <base href="/">
 
     <title ng-bind="pageTitle + 'La Fabrique de la Loi'" ></title>
 
@@ -13,7 +14,7 @@
 
   <!-- CSS-->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.css">
+    <link rel="stylesheet" href="css/jquery-ui-1.11.4.custom.min.css">
     <link rel="stylesheet" href="css/introjs.min.css">
     <link rel="stylesheet" href="css/introjs-rtl.min.css">
     <link rel="stylesheet" href="css/app.css">
@@ -81,7 +82,7 @@
     </div>
 
   <!-- Page template space -->
-    <div class="view" ng-view ng-hide="error"></div>
+    <div class="view" ui-view ng-hide="error"></div>
 
   <!-- Footer space -->
   <footer>
@@ -98,16 +99,17 @@
   </footer>
   </div>
   <!-- Library JS-->
-    <script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="js/lib/jquery-ui-1.10.4.custom.min.js"></script>
-    <script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/lib/d3.v3.4.6.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery-ui-1.11.4.custom.min.js"></script>
+    <script type="text/javascript" src="js/lib/bootstrap-3.3.6.min.js"></script>
+    <script type="text/javascript" src="js/lib/d3-3.4.13.min.js"></script>
     <script type="text/javascript" src="js/lib/d3-bootstrap-plugins.js"></script>
-    <script type="text/javascript" src="js/lib/angular-1.1.5.min.js"></script>
-    <script type="text/javascript" src="js/lib/spin.min.js"></script>
+    <script type="text/javascript" src="js/lib/angular-1.4.8.min.js"></script>
+    <script type="text/javascript" src="js/lib/angular-ui-router-0.2.15.min.js"></script>
+    <script type="text/javascript" src="js/lib/spin-2.0.1.min.js"></script>
     <script type="text/javascript" src="js/lib/intro-0.9.min.js"></script>
 
-  <!-- Global JS app controllers -->
+    <!-- Global JS app controllers -->
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/config.js"></script>
     <script type="text/javascript" src="js/controllers.js"></script>

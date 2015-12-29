@@ -163,14 +163,14 @@ var valign, stacked, utils, aligned = true;
 
                 function computeStages() {
                     var stages = [];
-                    art.forEach(function (e) {
-                        var st = d3.nest().key(function (d) {
-                            return d.id_step;
-                        }).map(e.steps, d3.map);
-                        d3.keys(st).forEach(function (f) {
-                            if (stages.indexOf(f) < 0) stages.push(f);
-                        });
+
+                    art.forEach(function(e) {
+                        var st = d3.nest()
+                            .key(function(d) { return d.id_step; })
+                            .entries(e.steps);
+                        st.forEach(function(f) { if (stages.indexOf(f.key) < 0) stages.push(f.key); });
                     });
+
                     stages.sort();
                     var istage, stageLen = stages.length;
                     for (istage = 0; istage < stageLen; ++istage) {
@@ -181,11 +181,12 @@ var valign, stacked, utils, aligned = true;
                 }
 
                 function computeSections() {
-                    var se = d3.nest().key(function (d) {
-                        return d.section;
-                    })
-                        .map(art, d3.map);
-                    return se.keys();
+                    return d3.nest()
+                        .key(function(d) {
+                            return d.section;
+                        })
+                        .entries(art)
+                        .map(function(d) { return d.key; });
                 }
 
                 function findSection(s) {
