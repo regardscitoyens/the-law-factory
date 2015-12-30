@@ -155,7 +155,7 @@ var valign, stacked, utils, aligned = true;
                 function findStage(s) {
                     var istage, stageLen = stages.length;
                     for (istage = 0; istage < stageLen; ++istage) {
-                        if (encodeURI(s) == encodeURI(stages[istage]).substring(3))
+                        if (s == stages[istage])
                             return parseInt(istage);
                     }
                     return -1;
