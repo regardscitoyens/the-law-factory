@@ -915,6 +915,10 @@ text {
 	padding-left: 10px;
 }
 
+#menu-zoom-slider {
+	padding-left: 10px;
+}
+
 #mod0-slider {
 	width: 60px;
 	height: 16px;
@@ -927,17 +931,18 @@ text {
 }
 
 #mod0-slider > .ui-slider-handle{
-    width:10px;
+	width:10px;
 	margin-top: 4px;
-    height:16px;
-    background: #716259;
-    position: relative;
-    display: block;
-    outline: none !important;
-    border:none !important;
-    outline-color: transparent;
-    user-select: none;
-    border-radius:0 !important;
+	height:16px;
+	background: #716259;
+	position: relative;
+	display: block;
+	outline: none !important;
+	border:none !important;
+	outline-color: transparent;
+	user-select: none;
+	border-radius:0 !important;
+	cursor: pointer;
 }
 
 .ui-state-focus{
