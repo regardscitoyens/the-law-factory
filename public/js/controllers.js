@@ -12,25 +12,9 @@ jQuery.fn.d3Click = function () {
 /* Controllers */
 
 angular.module('theLawFactory.controllers', ['theLawFactory.config']).
-    controller('mainCtrl', function ($timeout, $scope, $http, apiService, api, $rootScope, $location, API_ROOT_URL) {
+    controller('mainCtrl', function ($timeout, $scope, $http, apiService, api, $rootScope, $location) {
         $(".introjs-helperLayer").remove();
         $(".introjs-overlay").remove();
-        $rootScope.APIRootUrl = API_ROOT_URL;
-        $scope.APIRootUrl = API_ROOT_URL;
-        if ($scope.APIRootUrl.substr(-1) != "/") $scope.APIRootUrl += "/";
-
-        $rootScope.error = '';
-        $rootScope.display_error = function (e) {
-            console.log(e);
-            $rootScope.error = e;
-            setTimeout(function () {
-                $("#error").css("display", "inline")
-            }, 500);
-        };
-        $rootScope.back = function () {
-            var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
-            $location.path(prevUrl);
-        };
 
         $scope.mod = null;
         $scope.drawing = false;

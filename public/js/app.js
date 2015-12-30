@@ -53,6 +53,13 @@ angular.module('theLawFactory', [
         .otherwise('/');
 
     $locationProvider.html5Mode(true);
-}).run(function ($rootScope, $state) {
+}).run(function ($rootScope, $state, $location, $log, API_ROOT_URL) {
     $rootScope.$state = $state;
+    $rootScope.APIRootUrl = API_ROOT_URL;
+    $rootScope.error = '';
+
+    $rootScope.display_error = function (e) {
+        $log.error(e);
+        $rootScope.error = e;
+    };
 });
