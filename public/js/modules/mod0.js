@@ -146,7 +146,7 @@ reset_filters();
                 return format.parse(val);
             }
 
-            var zooming = function (lvl) {
+            zooming = function (lvl) {
                 var perc = ($("#gantt").scrollLeft() + $("#gantt").width() / 2) / (width * z);
                 if ($("#gantt").scrollLeft() == 0 && $("#gantt").scrollTop() == 0) {
                     if (layout == 't') {
