@@ -12,17 +12,7 @@ jQuery.fn.d3Click = function () {
 /* Controllers */
 
 angular.module('theLawFactory.controllers', ['theLawFactory.config']).
-    /*
-     Specific controller for the naigation Part.
-     */
-    controller('navigationCtrl', function ($scope, $rootScope) {
-        $scope.startTutorial = function () {
-            console.log('%c navigationCtrl', 'background-color:gold', 'broadcasting start tutorial');
-            $rootScope.$broadcast('MAIN_CTRL_START_TUTORIAL');
-        };
-    }).
     controller('mainCtrl', function ($scope, $http, apiService, api, $rootScope, $location, API_ROOT_URL) {
-
         $(".introjs-helperLayer").remove();
         $(".introjs-overlay").remove();
         $rootScope.APIRootUrl = API_ROOT_URL;
