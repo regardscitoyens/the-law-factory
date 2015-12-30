@@ -12,7 +12,7 @@ jQuery.fn.d3Click = function () {
 /* Controllers */
 
 angular.module('theLawFactory.controllers', ['theLawFactory.config']).
-    controller('mainCtrl', function ($scope, $http, apiService, api, $rootScope, $location, API_ROOT_URL) {
+    controller('mainCtrl', function ($timeout, $scope, $http, apiService, api, $rootScope, $location, API_ROOT_URL) {
         $(".introjs-helperLayer").remove();
         $(".introjs-overlay").remove();
         $rootScope.APIRootUrl = API_ROOT_URL;
@@ -391,16 +391,20 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
             return d2[2] + "/" + d2[1] + "/" + d2[0];
         };
 
+        $scope.tutorial = false;
         /////////////////////////////////////////////////////////////
         $scope.toggleTutorial = function () {
             if (!$scope.tutorial) {
+                console.log("yo");
                 $scope.tutorial = true;
                 api.getTutorials().then(function (data) {
                         var tuto = data[$scope.mod];
                         var step = 1;
                         var actions = [];
-                        var id, tutoLen = tuto.length;
-                        for (id = 0 ; id < tutoLen ; ++id) {
+                        var tutoKeys = d3.keys(tuto);
+                        var i, tutoLen = tutoKeys.length;
+                        for (i = 0 ; i < tutoLen ; ++i) {
+                            var id = tutoKeys[i];
                             if (tuto[id].indexOf('@') != -1) {
                                 var message = tuto[id].split(' @ ');
                                 tuto[id] = message[0];
@@ -461,7 +465,9 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                         };
                         introjs.onexit(exit_introjs);
                         introjs.oncomplete(exit_introjs);
-                        introjs.start();
+                        $timeout(function() {
+                            introjs.start();
+                        }, 0);
                     },
                     function () {
                         console.log("couldn't retrieve json tutorial");
