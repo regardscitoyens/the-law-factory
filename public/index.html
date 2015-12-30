@@ -3,7 +3,9 @@
 
   <head>
     <meta charset="utf8">
-    <base href="/">
+    <script type="text/javascript">
+        document.write('<base href="' + document.location.href.replace(/\/[^\/]*$/, '/') + '" />');
+    </script>
 
     <title ng-bind="pageTitle + 'La Fabrique de la Loi'" ></title>
 
