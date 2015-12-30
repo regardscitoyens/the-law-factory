@@ -6,6 +6,7 @@ angular.module('theLawFactory.config', []).constant('API_ROOT_URL', 'https://www
 
 // Declare app level module which depends on filters, and services
 angular.module('theLawFactory', [
+    'ngSanitize',
     'ui.router',
     'theLawFactory.config',
     'theLawFactory.controllers',

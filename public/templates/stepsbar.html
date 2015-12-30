@@ -2,8 +2,8 @@
 
     <div class="stb-stages">
         <div class="stb-stage" id="stage_{{$index}}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in stages">
-            <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}" ng-bind-html-unsafe="i.short_name"></span>
-            <span ng-hide="i.display_short" ng-bind-html-unsafe="i.long_name"></span>
+            <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}" ng-bind-html="i.short_name"></span>
+            <span ng-hide="i.display_short" ng-bind-html="i.long_name"></span>
         </div>
     </div>
 
