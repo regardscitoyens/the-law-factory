@@ -917,6 +917,10 @@ text {
 	padding-left: 10px;
 }
 
+#mod0-slider-label {
+    cursor: default;
+}
+
 #menu-zoom-slider {
 	padding-left: 10px;
 }
