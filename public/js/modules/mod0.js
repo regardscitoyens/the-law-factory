@@ -213,7 +213,7 @@ reset_filters();
             selection.each(function (data) {
                 drawGantt = function (action) {
                     setMod0Size();
-                    mod0Scope.setTextContainerHeight();
+                    thelawfactory.utils.setTextContainerHeight();
                     width = parseInt(d3.select("#gantt").style("width")) - 30;
                     minheight = $("#gantt").height() - 50;
                     setTimeout(computeFilters, 50);
@@ -844,7 +844,7 @@ reset_filters();
 
                     $("#text-title").text(d.short_title);
                     $("#text-title").attr('data-original-title', d.long_title).tooltip('fixTitle');
-                    mod0Scope.setTextContainerHeight();
+                    thelawfactory.utils.setTextContainerHeight();
 
                     var textContent = '';
                     textContent += '<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + '</p>';

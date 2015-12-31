@@ -95,7 +95,7 @@ $(window).resize(function () {
 
 function drawFlows(top_ordered) {
     setMod2bSize();
-    mod2bScope.setTextContainerHeight();
+    thelawfactory.utils.setTextContainerHeight();
     var selected_itv = d3.selectAll(".main-focused");
     if (selected_itv[0].length) selected_itv = selected_itv[0][0].id;
     else selected_itv = "";
@@ -127,7 +127,7 @@ function drawFlows(top_ordered) {
         mod2bScope.stopSpinner(function () {
             $("#viz-int").animate({opacity: 1}, 50);
             mod2bScope.drawing = true;
-            setTimeout(mod2bScope.setTextContainerHeight, 250);
+            setTimeout(thelawfactory.utils.setTextContainerHeight, 250);
             if (selected_itv) $("#" + selected_itv).d3Click();
             mod2bScope.drawing = false;
         });
@@ -353,7 +353,7 @@ sven.viz.streamkey = function () {
 
                 if (mod2bScope.drawing) return;
                 $("#text-title").html(d.label);
-                mod2bScope.setTextContainerHeight();
+                thelawfactory.utils.setTextContainerHeight();
                 $(".text-container").empty();
                 $(".text-container").append('<p class="orat-title">' + d.x + "</p>");
 

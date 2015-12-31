@@ -814,7 +814,7 @@ var valign, stacked, mod1Scope, aligned = true;
                             $(".art-meta").empty();
                             $(".art-txt").empty();
                             $("#text-title").html(titre_article(d, 2));
-                            mod1Scope.setTextContainerHeight();
+                            thelawfactory.utils.setTextContainerHeight();
                             var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " (" + format_section(d, 1) + ')' : format_section(d, 2)) + "</b>" +
                                 (test_section_details(d.section, d.id_step, 'title') ? " : " + get_section_details(d.section, d.id_step, 'title') : "")
                                 + "</p>" : "") +
@@ -869,7 +869,7 @@ var valign, stacked, mod1Scope, aligned = true;
                     else stacked();
                     $('.readMode').tooltip({animated: 'fade', placement: 'bottom'});
                     $('.revsMode').tooltip({animated: 'fade', placement: 'bottom'});
-                    setTimeout(mod1Scope.setTextContainerHeight, 500);
+                    setTimeout(thelawfactory.utils.setTextContainerHeight, 500);
                 };
 
                 $(document).ready(function () {

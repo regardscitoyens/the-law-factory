@@ -131,7 +131,7 @@ var mod2Scope, highlight;
                 if (selected_amd[0].length) selected_amd = selected_amd[0][0].id;
                 else selected_amd = "";
                 setMod2Size();
-                mod2Scope.setTextContainerHeight();
+                thelawfactory.utils.setTextContainerHeight();
                 readSizes();
                 if (merged == undefined) merged = grouped;
                 $('#menu-display .selectedchoice').text(merged ? 'groupée' : 'par articles');
@@ -149,7 +149,7 @@ var mod2Scope, highlight;
                         svg.attr("width", $("#viz").width());
                         $("svg").animate({opacity: 1}, 50);
                         mod2Scope.drawing = true;
-                        setTimeout(mod2Scope.setTextContainerHeight, 250);
+                        setTimeout(thelawfactory.utils.setTextContainerHeight, 250);
                         if (selected_amd) $("#" + selected_amd).d3Click();
                         mod2Scope.drawing = false;
                     });
@@ -323,7 +323,7 @@ var mod2Scope, highlight;
                 $("#readMode").show();
                 $("#text-title").text("Amendement " + d.numero);
                 $(".text-container").empty();
-                mod2Scope.setTextContainerHeight();
+                thelawfactory.utils.setTextContainerHeight();
                 mod2Scope.startSpinner('load_amd');
                 setTimeout(function () {
                     d3.json(api_root + d.id_api + '/json', function (error, json) {

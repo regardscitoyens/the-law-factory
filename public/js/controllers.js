@@ -23,12 +23,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.article = $location.search()['article'];
         $scope.action = $location.search()['action'];
 
-        $scope.setTextContainerHeight = function () {
-            var h = $(".text").height() - $("#text-title").outerHeight();
-            if (h > 0) $(".text-container").height(h);
-            else setTimeout($scope.setTextContainerHeight, 100);
-        };
-
         $scope.read = false;
         $scope.revs = true;
         $scope.readmode = function () {

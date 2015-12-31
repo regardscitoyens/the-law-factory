@@ -67,4 +67,10 @@
             else $(elsel).height(myheight - $(".stages").height() - (pad ? parseInt($(".legend").css('height')) : 0));
         }
     };
+
+    utils.setTextContainerHeight = function () {
+        var h = $(".text").height() - $("#text-title").outerHeight();
+        if (h > 0) $(".text-container").height(h);
+        else setTimeout(utils.setTextContainerHeight, 100);
+    };
 })();
