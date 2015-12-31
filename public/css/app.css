@@ -944,9 +944,6 @@ text {
 	cursor: pointer;
 }
 
-.ui-state-focus{
-    border:none !important;
-}
 .ctrl-label{
     clear:both;
     width:90%;
@@ -1003,13 +1000,20 @@ footer span:hover {
     overflow:hidden;
     font-size:0.9em;
 }
- .src-fcs{
-    background-color:#716259 !important;
+.ui-state-focus, .ui-state-focus a:hover, .ui-state-focus a:link, .ui-state-focus a:visited{
+    margin: 0 !important;
+    border: none !important;
+    border-bottom:1px solid #ccc;
+    background: none !important;
+}
+.src-fcs{
     color:white !important;
+    background-color:#716259 !important;
+    border: none !important;
+    border-bottom:1px solid #ccc;
 }
 
 .src-ico{
-    float:left;
     padding-left:0.4em;
     padding-right:0.4em;
     margin-right:0.4em;
