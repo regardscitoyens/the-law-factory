@@ -115,69 +115,10 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
             });
         };
 
-        $scope.hashName = function (n) {
-            return n.replace(/\W/g, '').toLowerCase();
-        };
-        $scope.shortNames = {
-            "1relecture": "1<sup>ère</sup> Lect.",
-            "2melecture": "2<sup>ère</sup> Lect.",
-            "nouvlect": "Nouv. Lect.",
-            "ldfinitive": "Lect.&nbsp;Déf.",
-            "assemblee": "AN",
-            "dputs": "AN",
-            "snateurs": "Sénat",
-            "senat": "Sénat",
-            "gouvernement": "Gouv.",
-            "commission": "Com.",
-            "hemicycle": "Hém.",
-            "depot": "Dépôt",
-            "depots": "Dépôts",
-            "cmp": "CMP"
-        };
-
-        $scope.longNames = {
-            "1relecture": "1<sup>ère</sup> Lecture",
-            "2melecture": "2<sup>ère</sup> Lecture",
-            "nouvlect": "Nouvelle Lecture",
-            "ldfinitive": "Lecture Définitive",
-            "assemblee": "Assemblée",
-            "dputs": "Députés",
-            "snateurs": "Sénateurs",
-            "senat": "Sénat",
-            "gouvernement": "Gouvernement",
-            "commission": "Commission",
-            "hemicycle": "Hémicyle",
-            "depot": "Dépôt",
-            "depots": "Dépôts",
-            "cmp": "Commission Mixte Paritaire"
-        };
-
         $scope.vizTitle = "";
         $scope.helpText = '<div id="help-msg"><p>VIZTEXT</p><p>Cliquez sur le bouton <span class="question_mark">?</span> ci-dessus pour voir un tutoriel interactif de cette visualisation.<p></div>';
         $scope.setHelpText = function (t) {
             $scope.helpText = $scope.helpText.replace("VIZTEXT", t);
-        };
-
-        $scope.getShortName = function (l) {
-            return ($scope.shortNames[$scope.hashName(l)] ? $scope.shortNames[$scope.hashName(l)] : l);
-        };
-        $scope.getLongName = function (l) {
-            return ($scope.longNames[$scope.hashName(l)] ? $scope.longNames[$scope.hashName(l)] : l);
-        };
-        $scope.addStageInst = function (currObj) {
-            var obj = $.extend(true, {}, currObj);
-            obj.long_name = $scope.getLongName(obj.name);
-            obj.short_name = $scope.getShortName(obj.name);
-            obj.display_short = (obj.long_name != obj.short_name && $scope.barwidth * obj.num / $scope.total < (obj.name === "CMP" ? 190 : 130));
-            return obj;
-        };
-        $scope.stepLegend = function (el) {
-            if (el.step === "depot") return (el.auteur_depot == "Gouvernement" ? "Projet de Loi" : "Proposition de Loi");
-            else return $scope.getLongName(el.step);
-        };
-        $scope.stepLabel = function (el) {
-            if (el.step === "depot") return (el.auteur_depot == "Gouvernement" ? "PJL" : "PPL");
-            return $scope.getShortName(el.step);
         };
 
         $scope.clean_amd_subject = function (s) {

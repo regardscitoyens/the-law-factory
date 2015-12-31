@@ -406,8 +406,8 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                             })
                             .forEach(function (e) {
                                 scope.steps.push(e);
-                                e.short_name = scope.stepLabel(e);
-                                e.long_name = scope.stepLegend(e);
+                                e.short_name = stepLabel(e);
+                                e.long_name = stepLegend(e);
                                 e.display_short = (scope.barwidth / scope.total < (e.step == "depot" && e.auteur_depot != "Gouvernement" ? 150 : 120));
 
                                 if (e.step === "depot") {
@@ -418,7 +418,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                                     currStage.num++;
                                 } else {
                                     if (currStage.name)
-                                        scope.stages.push(scope.addStageInst(currStage));
+                                        scope.stages.push(addStageInst(currStage));
                                     currStage.num = 1;
                                     currStage.name = e.stage;
                                 }
@@ -427,14 +427,14 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                                     currInst.num++;
                                 else {
                                     if (currInst.name)
-                                        scope.inst.push(scope.addStageInst(currInst));
+                                        scope.inst.push(addStageInst(currInst));
                                     currInst.num = 1;
                                     currInst.name = (e.step === "depot" ? e.auteur_depot : e.institution);
                                 }
                             });
 
-                        scope.stages.push(scope.addStageInst(currStage));
-                        scope.inst.push(scope.addStageInst(currInst));
+                        scope.stages.push(addStageInst(currStage));
+                        scope.inst.push(addStageInst(currInst));
                         timer(function () {
                             $(".stb-step span").tooltip({html: true});
                             $(".stb-step a").tooltip({html: true});
@@ -444,8 +444,25 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
 
                     }, function () {
                         scope.display_error("impossible de trouver la procédure de ce texte");
-                    })
+                    });
 
+                    function addStageInst (currObj) {
+                        var obj = $.extend(true, {}, currObj);
+                        obj.long_name = thelawfactory.utils.getLongName(obj.name);
+                        obj.short_name = thelawfactory.utils.getShortName(obj.name);
+                        obj.display_short = (obj.long_name != obj.short_name && scope.barwidth * obj.num / scope.total < (obj.name === "CMP" ? 190 : 130));
+                        return obj;
+                    }
+
+                    function stepLegend (el) {
+                        if (el.step === "depot") return (el.auteur_depot == "Gouvernement" ? "Projet de Loi" : "Proposition de Loi");
+                        else return thelawfactory.utils.getLongName(el.step);
+                    }
+
+                    function stepLabel (el) {
+                        if (el.step === "depot") return (el.auteur_depot == "Gouvernement" ? "PJL" : "PPL");
+                        return thelawfactory.utils.getShortName(el.step);
+                    }
                 }
             }
         }

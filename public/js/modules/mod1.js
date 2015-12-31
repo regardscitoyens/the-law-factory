@@ -15,7 +15,7 @@ var valign, stacked, mod1Scope, aligned = true;
                 .split('_')
                 .slice(1, 4)
                 .map(function (d) {
-                    return mod1Scope.getLongName(d);
+                    return thelawfactory.utils.getLongName(d);
                 }
             ).join(' ⋅ ');
         }
