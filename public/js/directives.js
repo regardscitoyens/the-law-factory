@@ -474,22 +474,4 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                     $scope.mod = "about";
                 }
             }
-        }])
-    /*
-     Happily ever after.
-     Handle columns resize
-     ---
-     */
-    .directive('resizable', ['$window', function ($window) {
-        return function ($scope) {
-            $scope.initializeWindowSize = function () {
-                $scope.availableHeight = $window.innerHeight;
-            };
-            $scope.initializeWindowSize();
-            return angular.element($window).bind('resize', function () {
-
-                $scope.initializeWindowSize();
-                return $scope.$apply();
-            });
-        };
-    }]);
+        }]);
