@@ -28,24 +28,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
             if (h > 0) $(".text-container").height(h);
             else setTimeout($scope.setTextContainerHeight, 100);
         };
-        $scope.getVizHeight = function () {
-            return $(window).height() - $("#header-nav").height() - $(".title").height() - $("#menu-left").height() - $("footer").height() - parseInt($(".row").css("margin-bottom")) - 36;
-        };
-        $scope.setModSize = function (elsel, pad) {
-            return function () {
-                var myheight = $scope.getVizHeight();
-                $(".text").height(myheight + pad);
-                if (elsel == ".main-sc") {
-                    $(elsel).height(myheight - parseInt($(".labels-sc").css('height')));
-                    $("#gantt").height($(elsel).height() - $("#legend").height());
-                }
-                else $(elsel).height(myheight - $(".stages").height() - (pad ? parseInt($(".legend").css('height')) : 0));
-            }
-        };
-        $scope.setMod0Size = $scope.setModSize(".main-sc", 0);
-        $scope.setMod1Size = $scope.setModSize("#viz", 0);
-        $scope.setMod2Size = $scope.setModSize("#viz", 1);
-        $scope.setMod2bSize = $scope.setModSize("#viz-int", 1);
 
         $scope.read = false;
         $scope.revs = true;

@@ -2,6 +2,7 @@ var num = 0;
 var svg, mydata;
 var participants, mod2bScope, highlight;
 var width;
+var setMod2bSize = thelawfactory.utils.setModSize("#viz-int", 1);
 
 function wrap(width) {
     d3.selectAll('text').each(function () {
@@ -93,7 +94,7 @@ $(window).resize(function () {
 });
 
 function drawFlows(top_ordered) {
-    mod2bScope.setMod2bSize();
+    setMod2bSize();
     mod2bScope.setTextContainerHeight();
     var selected_itv = d3.selectAll(".main-focused");
     if (selected_itv[0].length) selected_itv = selected_itv[0][0].id;

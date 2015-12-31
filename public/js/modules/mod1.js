@@ -4,6 +4,8 @@ var valign, stacked, mod1Scope, aligned = true;
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
+    var setMod1Size = thelawfactory.utils.setModSize("#viz", 0);
+
     thelawfactory.mod1 = function () {
 
         mod1Scope = $(".mod1").scope();
@@ -316,7 +318,7 @@ var valign, stacked, mod1Scope, aligned = true;
                     var firstmade = false, firstamade = false; // to class the first article which has a rect (for tuto)
 
                     //init coordinates
-                    mod1Scope.setMod1Size();
+                    setMod1Size();
                     prepareSizes();
                     setCoordinates();
 

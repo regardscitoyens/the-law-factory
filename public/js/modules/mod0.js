@@ -46,6 +46,8 @@ reset_filters();
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
+    var setMod0Size = thelawfactory.utils.setModSize(".main-sc", 0);
+
     thelawfactory.mod0 = function () {
 
         function vis(selection) {
@@ -210,7 +212,7 @@ reset_filters();
 
             selection.each(function (data) {
                 drawGantt = function (action) {
-                    mod0Scope.setMod0Size();
+                    setMod0Size();
                     mod0Scope.setTextContainerHeight();
                     width = parseInt(d3.select("#gantt").style("width")) - 30;
                     minheight = $("#gantt").height() - 50;
@@ -243,7 +245,7 @@ reset_filters();
                     lawscont = ganttcontainer.append("g").attr("class", "laws");
                     grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
                     $("#legend").height(35);
-                    mod0Scope.setMod0Size();
+                    setMod0Size();
                     if (!action) action = mod0Scope.action;
                     if (!action) action = 'time';
                     if (action == 'time') {
@@ -316,7 +318,7 @@ reset_filters();
                     }
                     if (layout == "q") {
                         $("#legend").height(0);
-                        mod0Scope.setMod0Size();
+                        setMod0Size();
                         $("#menu-display .selectedchoice").text('quantitative');
                         quantiPosition();
                         drawLabels();

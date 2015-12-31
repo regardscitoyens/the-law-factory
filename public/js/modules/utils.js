@@ -52,4 +52,19 @@
         return (utils.longNames[utils.hashName(l)] ? utils.longNames[utils.hashName(l)] : l);
     };
 
+    utils.getVizHeight = function () {
+        return $(window).height() - $("#header-nav").height() - $(".title").height() - $("#menu-left").height() - $("footer").height() - parseInt($(".row").css("margin-bottom")) - 36;
+    };
+
+    utils.setModSize = function (elsel, pad) {
+        return function () {
+            var myheight = utils.getVizHeight();
+            $(".text").height(myheight + pad);
+            if (elsel == ".main-sc") {
+                $(elsel).height(myheight - parseInt($(".labels-sc").css('height')));
+                $("#gantt").height($(elsel).height() - $("#legend").height());
+            }
+            else $(elsel).height(myheight - $(".stages").height() - (pad ? parseInt($(".legend").css('height')) : 0));
+        }
+    };
 })();

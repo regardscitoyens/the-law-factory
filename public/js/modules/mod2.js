@@ -10,6 +10,8 @@ var mod2Scope, highlight;
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
+    var setMod2Size = thelawfactory.utils.setModSize("#viz", 1);
+
     thelawfactory.mod2 = function () {
 
         function get_status_img(e) {
@@ -128,7 +130,7 @@ var mod2Scope, highlight;
                 var selected_amd = d3.selectAll(".actv-amd");
                 if (selected_amd[0].length) selected_amd = selected_amd[0][0].id;
                 else selected_amd = "";
-                mod2Scope.setMod2Size();
+                setMod2Size();
                 mod2Scope.setTextContainerHeight();
                 readSizes();
                 if (merged == undefined) merged = grouped;
