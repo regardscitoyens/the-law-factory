@@ -155,8 +155,8 @@ var valign, stacked, utils, aligned = true;
                 function findStage(s) {
                     var istage, stageLen = stages.length;
                     for (istage = 0; istage < stageLen; ++istage) {
-                        if (s == stages[istage])
-                            return parseInt(istage);
+                        if (s === stages[istage])
+                            return istage;
                     }
                     return -1;
                 }
@@ -172,11 +172,6 @@ var valign, stacked, utils, aligned = true;
                     });
 
                     stages.sort();
-                    var istage, stageLen = stages.length;
-                    for (istage = 0; istage < stageLen; ++istage) {
-                        stages[istage].split("_", 4).splice(2, 3).join(" ");
-                    }
-
                     return stages;
                 }
 
