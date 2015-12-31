@@ -69,7 +69,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         };
         $scope.update_revs_view = function () {
             var d = d3.select('#viz .curr').data()[0];
-            if (utils.revs) {
+            if ($scope.revs) {
                 $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
             } else {
                 $(".art-txt").html(d.originalText).animate({opacity: 1}, 350);
