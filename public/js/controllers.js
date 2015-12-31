@@ -378,7 +378,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         /////////////////////////////////////////////////////////////
         $scope.toggleTutorial = function () {
             if (!$scope.tutorial) {
-                console.log("yo");
                 $scope.tutorial = true;
                 api.getTutorials().then(function (data) {
                         var tuto = data[$scope.mod];
