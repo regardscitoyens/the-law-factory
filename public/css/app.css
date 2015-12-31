@@ -31,6 +31,9 @@ h1,h2,h3,h4 {
 }
 
 #header-search { margin-right: 390px; margin-left: 210px;padding: 5px 50px 0px 0px;}
+#header-search .input-group {
+    width: 100%;
+}
 #header-logos { float: right; width: 366px;}
 #header-mainlogo { float: left; width: 210px;}
 
