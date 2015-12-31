@@ -1,4 +1,4 @@
-var drawGantt, utils,
+var drawGantt, mod0Scope,
     locale = d3.locale({
         decimal: ",",
         thousands: ".",
@@ -49,7 +49,7 @@ reset_filters();
     thelawfactory.mod0 = function () {
 
         function vis(selection) {
-            utils = $('.mod0').scope();
+            mod0Scope = $('.mod0').scope();
             var legendcontainer = d3.select("#legend").append("svg"),
                 ganttcontainer = d3.select("#gantt").append("svg").attr("id", "modOsvg"),
                 lawscont, grid,
@@ -210,20 +210,20 @@ reset_filters();
 
             selection.each(function (data) {
                 drawGantt = function (action) {
-                    utils.setMod0Size();
-                    utils.setTextContainerHeight();
+                    mod0Scope.setMod0Size();
+                    mod0Scope.setTextContainerHeight();
                     width = parseInt(d3.select("#gantt").style("width")) - 30;
                     minheight = $("#gantt").height() - 50;
                     setTimeout(computeFilters, 50);
                     if (action == 'reset') {
-                        utils.loi = null;
+                        mod0Scope.loi = null;
                         reset_filters();
                         action = 'filter';
                     }
-                    utils.startSpinner();
+                    mod0Scope.startSpinner();
                     $("#gantt svg").animate({opacity: 0}, 50, function () {
                         updateGantt(action);
-                        utils.stopSpinner(function () {
+                        mod0Scope.stopSpinner(function () {
                             $("#gantt svg").animate({opacity: 1}, 50);
                         });
                     });
@@ -243,8 +243,8 @@ reset_filters();
                     lawscont = ganttcontainer.append("g").attr("class", "laws");
                     grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
                     $("#legend").height(35);
-                    utils.setMod0Size();
-                    if (!action) action = utils.action;
+                    mod0Scope.setMod0Size();
+                    if (!action) action = mod0Scope.action;
                     if (!action) action = 'time';
                     if (action == 'time') {
                         layout = "t";
@@ -316,7 +316,7 @@ reset_filters();
                     }
                     if (layout == "q") {
                         $("#legend").height(0);
-                        utils.setMod0Size();
+                        mod0Scope.setMod0Size();
                         $("#menu-display .selectedchoice").text('quantitative');
                         quantiPosition();
                         drawLabels();
@@ -400,7 +400,7 @@ reset_filters();
 
                 // function used for multiple data files - progressive loading
                 function dynamicLoad() {
-                    d3.json(utils.APIRootUrl + currFile, function (error, json) {
+                    d3.json(mod0Scope.APIRootUrl + currFile, function (error, json) {
                         data = json;
                         prepareData();
                         currFile = json.next_page;
@@ -512,15 +512,15 @@ reset_filters();
 
                 function drawLaws() {
                     // filter and sort laws
-                    if (utils.loi) {
+                    if (mod0Scope.loi) {
                         $('.viewonelaw').show();
                         $('.noviewonelaw').hide();
                         cleanBillsFilter();
                         smallset = dossiers.filter(function (d) {
-                            return d.id == utils.loi;
+                            return d.id == mod0Scope.loi;
                         });
                         if (!smallset.length) {
-                            var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(utils.loi)), "i");
+                            var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(mod0Scope.loi)), "i");
                             smallset = dossiers.filter(function (value) {
                                 value = clean_accents(value.Titre + " " + value.id + " " + value["Thèmes"] + " " + value.short_title);
                                 return matcher.test(clean_accents(value));
@@ -726,7 +726,7 @@ reset_filters();
                         .attr("stroke", "#ddd")
                         .attr("stroke-width", 1)
                         .attr("opacity", 0.6);
-                    if (utils.loi) {
+                    if (mod0Scope.loi) {
                         onclick(smallset[0]);
                     }
                 }
@@ -828,9 +828,9 @@ reset_filters();
 
                 function unclick() {
                     selected_bill = "";
-                    $("#text-title").text(utils.vizTitle);
+                    $("#text-title").text(mod0Scope.vizTitle);
                     $("#text-title").attr('data-original-title', "").tooltip('fixTitle');
-                    $(".text-container").empty().html(utils.helpText);
+                    $(".text-container").empty().html(mod0Scope.helpText);
                     d3.selectAll(".g-law").style("opacity", 1);
                 }
 
@@ -842,7 +842,7 @@ reset_filters();
 
                     $("#text-title").text(d.short_title);
                     $("#text-title").attr('data-original-title', d.long_title).tooltip('fixTitle');
-                    utils.setTextContainerHeight();
+                    mod0Scope.setTextContainerHeight();
 
                     var textContent = '';
                     textContent += '<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + '</p>';
@@ -866,7 +866,7 @@ reset_filters();
                     /* Badge for Parlamentaries Amendments adopted */
 
 
-                    var tauxSuccesAmdt = d.total_amendements == 0 ? 0 : utils.goodRound(100 * (d.total_amendements_adoptes / (d.total_amendements + 0.0)));
+                    var tauxSuccesAmdt = d.total_amendements == 0 ? 0 : mod0Scope.goodRound(100 * (d.total_amendements_adoptes / (d.total_amendements + 0.0)));
                     extrainfo += '<li data-toggle="tooltip" title="Taux d\'adoption des amendements" data-placement="bottom">';
                     extrainfo += '<div class="badge badge-tlf">';
                     extrainfo += '<div class="badge-prefix">' + tauxSuccesAmdt + '&nbsp;%</div>';
@@ -879,7 +879,7 @@ reset_filters();
 
                     /* Badge for evolution of law volume */
 
-                    var volumeEvo = d.input_text_length2 ? utils.goodRound(100 * ((d.output_text_length2 - d.input_text_length2) / (d.input_text_length2 + 0.0))) : 0;
+                    var volumeEvo = d.input_text_length2 ? mod0Scope.goodRound(100 * ((d.output_text_length2 - d.input_text_length2) / (d.input_text_length2 + 0.0))) : 0;
                     extrainfo += '<li data-toggle="tooltip" title="Taux d\'évolution de la taille globale du texte de loi en nombre de caractères" data-placement="bottom">';
                     extrainfo += '<div class="badge badge-tlf">';
                     extrainfo += '<div class="badge-prefix">' + (volumeEvo > 0 ? "+" : "") + volumeEvo + '&nbsp;%</div>';
@@ -909,7 +909,7 @@ reset_filters();
                     /* Badge for modification of law */
                     extrainfo += '<li data-toggle="tooltip" title="Taux de modification du texte originel" data-placement="bottom">';
                     extrainfo += '<div class="badge badge-tlf">';
-                    extrainfo += '<div class="badge-prefix">' + utils.goodRound(100 * d.ratio_texte_modif) + '&nbsp;%</div>';
+                    extrainfo += '<div class="badge-prefix">' + mod0Scope.goodRound(100 * d.ratio_texte_modif) + '&nbsp;%</div>';
                     extrainfo += '<div class="badge-icon icon-balance"';
                     extrainfo += '></div>';
                     extrainfo += '</div>';
@@ -963,7 +963,7 @@ reset_filters();
                     extrainfo += '<a href="' + d.url_dossier_senat + '" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a> &nbsp; &nbsp; ';
                     extrainfo += '<a href="' + d.url_dossier_assemblee + '" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Assemblée</a>';
                     extrainfo += d.url_jo ? '<br/><a href="' + d.url_jo + '" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur Légifrance</a>' : '';
-                    extrainfo += ' &nbsp; &nbsp; <a href="' + utils.APIRootUrl + d.id + '/" target="_blank"><span class="glyphicon glyphicon-link"></span> OpenData</a>';
+                    extrainfo += ' &nbsp; &nbsp; <a href="' + mod0Scope.APIRootUrl + d.id + '/" target="_blank"><span class="glyphicon glyphicon-link"></span> OpenData</a>';
                     extrainfo += ' / <a href="http://git.lafabriquedelaloi.fr/parlement/' + d.id + '/" target="_blank">Git</a>';
                     extrainfo += '</small>';
                     extrainfo += '</p>';
@@ -1045,11 +1045,11 @@ reset_filters();
                     setTimeout((currFile ? dynamicLoad : drawGantt), 0);
                     $("#text-title").tooltip();
                     $(window).resize(function () {
-                        if (utils.drawing || utils.mod != "mod0") return;
-                        utils.drawing = true;
+                        if (mod0Scope.drawing || mod0Scope.mod != "mod0") return;
+                        mod0Scope.drawing = true;
                         setTimeout(function () {
                             drawGantt("resize");
-                            utils.drawing = false;
+                            mod0Scope.drawing = false;
                         }, 350);
                     });
                 });

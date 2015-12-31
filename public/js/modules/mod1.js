@@ -1,4 +1,4 @@
-var valign, stacked, utils, aligned = true;
+var valign, stacked, mod1Scope, aligned = true;
 
 (function () {
 
@@ -6,7 +6,7 @@ var valign, stacked, utils, aligned = true;
 
     thelawfactory.mod1 = function () {
 
-        utils = $(".mod1").scope();
+        mod1Scope = $(".mod1").scope();
         var textArticles = {};
 
         function titre_etape(article) {
@@ -15,7 +15,7 @@ var valign, stacked, utils, aligned = true;
                 .split('_')
                 .slice(1, 4)
                 .map(function (d) {
-                    return utils.getLongName(d);
+                    return mod1Scope.getLongName(d);
                 }
             ).join(' ⋅ ');
         }
@@ -137,7 +137,7 @@ var valign, stacked, utils, aligned = true;
                         .forEach(function (d) {
                             delay += 50;
                             setTimeout(function () {
-                                d3.json(encodeURI(utils.APIRootUrl + utils.loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
+                                d3.json(encodeURI(mod1Scope.APIRootUrl + mod1Scope.loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
                                     json.articles.forEach(function (a) {
                                         if (!textArticles[a.titre]) textArticles[a.titre] = {};
                                         textArticles[a.titre][d] = [];
@@ -145,7 +145,7 @@ var valign, stacked, utils, aligned = true;
                                             textArticles[a.titre][d].push(a.alineas[k]);
                                         });
                                     });
-                                    utils.to_load -= 1;
+                                    mod1Scope.to_load -= 1;
                                 });
                             }, delay);
                         });
@@ -190,7 +190,7 @@ var valign, stacked, utils, aligned = true;
 
                 //compute stages and sections
                 var stages = computeStages(),
-                    columns = stages.length + (utils.currentstep ? 1 : 0),
+                    columns = stages.length + (mod1Scope.currentstep ? 1 : 0),
                     sections = computeSections(),
                     sectHeight = 15,
                     sectJump = 25,
@@ -231,7 +231,7 @@ var valign, stacked, utils, aligned = true;
                     });
                 });
 
-                utils.to_load = d3.set(bigList.map(function (d) {
+                mod1Scope.to_load = d3.set(bigList.map(function (d) {
                     return d.directory;
                 })).values().length;
 
@@ -316,7 +316,7 @@ var valign, stacked, utils, aligned = true;
                     var firstmade = false, firstamade = false; // to class the first article which has a rect (for tuto)
 
                     //init coordinates
-                    utils.setMod1Size();
+                    mod1Scope.setMod1Size();
                     prepareSizes();
                     setCoordinates();
 
@@ -638,7 +638,7 @@ var valign, stacked, utils, aligned = true;
                     d3.select("body").on("keydown", function () {
                         var c = (d3.select(".curr")),
                             sel, elm;
-                        if (utils.tutorial) return;
+                        if (mod1Scope.tutorial) return;
                         if (c.empty()) return;
                         var cur = c.datum();
 
@@ -802,23 +802,23 @@ var valign, stacked, utils, aligned = true;
 
                         d3.rgb(d3.select(this).style("fill")).darker(2);
 
-                        if (utils.drawing) return;
+                        if (mod1Scope.drawing) return;
 
                         var spin = !d.originalText || (!d.textDiff && d.prev_dir && (d.status == "sup" || d.n_diff) && d.id_step.substr(-5) != "depot");
-                        if (spin) utils.startSpinner('load_art');
+                        if (spin) mod1Scope.startSpinner('load_art');
                         $(".art-txt").animate({opacity: 0}, 100, function () {
                             $("#readMode").show();
                             $("#text-title").empty();
                             $(".art-meta").empty();
                             $(".art-txt").empty();
                             $("#text-title").html(titre_article(d, 2));
-                            utils.setTextContainerHeight();
+                            mod1Scope.setTextContainerHeight();
                             var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " (" + format_section(d, 1) + ')' : format_section(d, 2)) + "</b>" +
                                 (test_section_details(d.section, d.id_step, 'title') ? " : " + get_section_details(d.section, d.id_step, 'title') : "")
                                 + "</p>" : "") +
                                 "<p><b>" + titre_etape(d) + "</b></p>" +
                                 (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-" + d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ?
-                                '<div class="gotomod' + (utils.read ? ' readmode' : '') + '"><a class="btn btn-info" href="amendements.html?loi=' + utils.loi + '&etape=' + d.directory + '&article=' + d.article + '">Explorer les amendements</a></div>' : '');
+                                '<div class="gotomod' + (mod1Scope.read ? ' readmode' : '') + '"><a class="btn btn-info" href="amendements.html?loi=' + mod1Scope.loi + '&etape=' + d.directory + '&article=' + d.article + '">Explorer les amendements</a></div>' : '');
                             if (d.n_diff) {
                                 if (d.id_step.substr(-5) == "depot")
                                     descr += '<p class="comment"><b>Article déposé à cette étape</b></p>';
@@ -832,7 +832,7 @@ var valign, stacked, utils, aligned = true;
 
                             if (spin) {
                                 var waitload = setInterval(function () {
-                                    if (!utils.to_load) {
+                                    if (!mod1Scope.to_load) {
 
                                         if (textArticles[d.article][d.directory] && d.status != "sup") {
                                             d.originalText = '<ul class="originaltext"><li><' + balise + '>' + $.map(textArticles[d.article][d.directory], function (i) {
@@ -852,13 +852,13 @@ var valign, stacked, utils, aligned = true;
                                             d.textDiff += "</li></ul>";
                                         } else d.textDiff += d.originalText;
 
-                                        utils.stopSpinner(utils.update_revs_view, 'load_art');
+                                        mod1Scope.stopSpinner(mod1Scope.update_revs_view, 'load_art');
                                         clearInterval(waitload);
                                     }
                                 }, 100);
                             } else {
                                 if (!d.textDiff) d.textDiff += d.originalText;
-                                utils.update_revs_view();
+                                mod1Scope.update_revs_view();
                             }
                         });
                     }
@@ -867,23 +867,23 @@ var valign, stacked, utils, aligned = true;
                     else stacked();
                     $('.readMode').tooltip({animated: 'fade', placement: 'bottom'});
                     $('.revsMode').tooltip({animated: 'fade', placement: 'bottom'});
-                    setTimeout(utils.setTextContainerHeight, 500);
+                    setTimeout(mod1Scope.setTextContainerHeight, 500);
                 };
 
                 $(document).ready(function () {
                     drawArticles();
-                    $(".art-txt").empty().html(utils.helpText);
+                    $(".art-txt").empty().html(mod1Scope.helpText);
                     setTimeout(load_texte_articles, 50);
                     $(window).resize(function () {
-                        if (utils.drawing || utils.mod != "mod1") return;
+                        if (mod1Scope.drawing || mod1Scope.mod != "mod1") return;
                         var selected_art = d3.selectAll(".curr");
                         if (selected_art[0].length) selected_art = selected_art[0][0].id;
                         else selected_art = "";
-                        utils.drawing = true;
+                        mod1Scope.drawing = true;
                         setTimeout(function () {
                             drawArticles();
                             if (selected_art) $("#" + selected_art).d3Click();
-                            utils.drawing = false;
+                            mod1Scope.drawing = false;
                         }, 50);
                     });
                 });

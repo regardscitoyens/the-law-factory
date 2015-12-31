@@ -1,6 +1,6 @@
 var num = 0;
 var svg, mydata;
-var participants, utils, highlight;
+var participants, mod2bScope, highlight;
 var width;
 
 function wrap(width) {
@@ -35,23 +35,23 @@ function wrap(width) {
 
 function init(data, step) {
 
-    utils = $('.mod2').scope();
-    highlight = utils.highlightGroup;
-    utils.groups = data[step].groupes;
+    mod2bScope = $('.mod2').scope();
+    highlight = mod2bScope.highlightGroup;
+    mod2bScope.groups = data[step].groupes;
     participants = data[step].orateurs;
     mydata = [];
     var divs = d3.values(data[step].divisions).sort(function (a, b) {
             return a.order - b.order;
         }),
-        orderedGroupes = d3.keys(utils.groups).sort(function (a, b) {
-            return utils.groups[a].order - utils.groups[b].order
+        orderedGroupes = d3.keys(mod2bScope.groups).sort(function (a, b) {
+            return mod2bScope.groups[a].order - mod2bScope.groups[b].order
         });
-    utils.drawGroupsLegend();
-    d3.entries(utils.groups).forEach(function (d) {
+    mod2bScope.drawGroupsLegend();
+    d3.entries(mod2bScope.groups).forEach(function (d) {
         mydata.push({
             key: d.key,
             values: [],
-            color: utils.adjustColor(d.value.color),
+            color: mod2bScope.adjustColor(d.value.color),
             name: d.value.nom
         });
     });
@@ -79,22 +79,22 @@ function init(data, step) {
             }
         });
     });
-    $(".text-container").empty().html(utils.helpText);
+    $(".text-container").empty().html(mod2bScope.helpText);
     drawFlows(false);
 }
 
 $(window).resize(function () {
-    if (utils.drawing || utils.mod != "mod2b") return;
-    utils.drawing = true;
+    if (mod2bScope.drawing || mod2bScope.mod != "mod2b") return;
+    mod2bScope.drawing = true;
     setTimeout(function () {
         $("#display_menu .chosen").click();
-        utils.drawing = false;
+        mod2bScope.drawing = false;
     }, 150);
 });
 
 function drawFlows(top_ordered) {
-    utils.setMod2bSize();
-    utils.setTextContainerHeight();
+    mod2bScope.setMod2bSize();
+    mod2bScope.setTextContainerHeight();
     var selected_itv = d3.selectAll(".main-focused");
     if (selected_itv[0].length) selected_itv = selected_itv[0][0].id;
     else selected_itv = "";
@@ -107,7 +107,7 @@ function drawFlows(top_ordered) {
         $('#menu-order .selectedchoice').text("« échiquier politique »");
     }
     $("#viz-int").empty();
-    utils.startSpinner();
+    mod2bScope.startSpinner();
     $("#viz-int").animate({opacity: 0}, 50, function () {
         var height;
         if (num * 60 >= $("#viz").height()) height = num * 60;
@@ -123,12 +123,12 @@ function drawFlows(top_ordered) {
             .init();
         d3.selectAll("g:not(.main-g)").attr("transform", "translate(" + offset + ",0) scale(" + (width - offset) / width + ",1)");
         wrap(offset - 25);
-        utils.stopSpinner(function () {
+        mod2bScope.stopSpinner(function () {
             $("#viz-int").animate({opacity: 1}, 50);
-            utils.drawing = true;
-            setTimeout(utils.setTextContainerHeight, 250);
+            mod2bScope.drawing = true;
+            setTimeout(mod2bScope.setTextContainerHeight, 250);
             if (selected_itv) $("#" + selected_itv).d3Click();
-            utils.drawing = false;
+            mod2bScope.drawing = false;
         });
     });
 }
@@ -289,7 +289,7 @@ sven.viz.streamkey = function () {
                 return "layer_" + i;
             })
             .style("fill", function (d) {
-                return utils.adjustColor(d[0].color).toString();
+                return mod2bScope.adjustColor(d[0].color).toString();
             })
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             .on("mousemove", function () {
@@ -298,7 +298,7 @@ sven.viz.streamkey = function () {
 
         d3.select("svg").on("click", function () {
             d3.selectAll(".focused").classed('focused', false);
-            utils.resetHighlight('ints');
+            mod2bScope.resetHighlight('ints');
         });
 
         // we'll add a special css class for the first rect with a width > 50 to show on tuto !
@@ -315,7 +315,7 @@ sven.viz.streamkey = function () {
                 return "itv-" + ct++;
             })
             .attr("class", function (d) {
-                return utils.slugGroup(d.category)
+                return mod2bScope.slugGroup(d.category)
             })
             .attr("y", function (d) {
                 return x(d.x);
@@ -350,9 +350,9 @@ sven.viz.streamkey = function () {
                 d3.select(d3.select(this).node().parentNode).selectAll("rect").classed('focused', true).transition().style("opacity", 0.55);
                 d3.select(this).classed('main-focused', true).transition().style("opacity", 1);
 
-                if (utils.drawing) return;
+                if (mod2bScope.drawing) return;
                 $("#text-title").html(d.label);
-                utils.setTextContainerHeight();
+                mod2bScope.setTextContainerHeight();
                 $(".text-container").empty();
                 $(".text-container").append('<p class="orat-title">' + d.x + "</p>");
 
@@ -394,7 +394,7 @@ sven.viz.streamkey = function () {
             .on('mouseenter', function (d) {
                 highlight(d.category);
             })
-            .on('mouseleave', utils.resetHighlight);
+            .on('mouseleave', mod2bScope.resetHighlight);
 
         layer.selectAll("path")
             .data(function (d) {
@@ -409,7 +409,7 @@ sven.viz.streamkey = function () {
             })
             .style("fill-opacity", 0.3)
             .attr("class", function (d) {
-                return utils.slugGroup(d[5]);
+                return mod2bScope.slugGroup(d[5]);
             })
             .attr("stroke", "none")
             .attr("display", "inline");
@@ -431,7 +431,7 @@ sven.viz.streamkey = function () {
             .attr("class", "filter-title")
             .attr("fill", "#716259")
             .text(function (d) {
-                return utils.shortenString(d, 110);
+                return mod2bScope.shortenString(d, 110);
             });
 
         return streamkey;
@@ -471,7 +471,7 @@ sven.viz.streamkey = function () {
 
     var sortByGroupe = function (data) {
         return sort(data, "category", function (a, b) {
-            return utils.groups[b].order - utils.groups[a].order;
+            return mod2bScope.groups[b].order - mod2bScope.groups[a].order;
         });
     };
 
