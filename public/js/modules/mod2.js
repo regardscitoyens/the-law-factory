@@ -371,7 +371,7 @@ var mod2Scope, highlight;
                 $(".leg-key").tooltip();
                 redraw(false);
                 $(window).resize(function () {
-                    if (mod2Scope.drawing || mod2Scope.mod != "mod2") return;
+                    if (mod2Scope.drawing || $(".view").scope().mod != "mod2") return;
                     mod2Scope.drawing = true;
                     setTimeout(function () {
                         redraw();

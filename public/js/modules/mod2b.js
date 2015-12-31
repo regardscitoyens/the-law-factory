@@ -84,7 +84,7 @@ function init(data, step) {
 }
 
 $(window).resize(function () {
-    if (mod2bScope.drawing || mod2bScope.mod != "mod2b") return;
+    if (mod2bScope.drawing || $(".view").scope().mod != "mod2b") return;
     mod2bScope.drawing = true;
     setTimeout(function () {
         $("#display_menu .chosen").click();

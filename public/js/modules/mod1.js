@@ -875,7 +875,7 @@ var valign, stacked, mod1Scope, aligned = true;
                     $(".art-txt").empty().html(mod1Scope.helpText);
                     setTimeout(load_texte_articles, 50);
                     $(window).resize(function () {
-                        if (mod1Scope.drawing || mod1Scope.mod != "mod1") return;
+                        if (mod1Scope.drawing || $(".view").scope().mod != "mod1") return;
                         var selected_art = d3.selectAll(".curr");
                         if (selected_art[0].length) selected_art = selected_art[0][0].id;
                         else selected_art = "";

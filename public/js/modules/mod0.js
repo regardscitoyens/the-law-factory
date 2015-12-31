@@ -1045,7 +1045,7 @@ reset_filters();
                     setTimeout((currFile ? dynamicLoad : drawGantt), 0);
                     $("#text-title").tooltip();
                     $(window).resize(function () {
-                        if (mod0Scope.drawing || mod0Scope.mod != "mod0") return;
+                        if (mod0Scope.drawing || $(".view").scope().mod != "mod0") return;
                         mod0Scope.drawing = true;
                         setTimeout(function () {
                             drawGantt("resize");
