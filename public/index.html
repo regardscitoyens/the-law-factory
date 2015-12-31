@@ -73,7 +73,7 @@
       </div>
     </noscript>
 
-    <div ng-hide="$state.includes('home', 'about')" class="row">
+    <div ng-hide="$state.includes('home') || $state.includes('about')" class="row">
       <div class="cont-width offset-width burntsiena">
         <div ng-show="error" id="error">
           <h4>Oups ! Il semble que vous soyez tombé sur un bug</h4>
