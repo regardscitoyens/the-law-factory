@@ -146,7 +146,7 @@ reset_filters();
                 return format.parse(val);
             }
 
-            zooming = function (lvl) {
+            thelawfactory.mod0.zooming = function (lvl) {
                 var perc = ($("#gantt").scrollLeft() + $("#gantt").width() / 2) / (width * z);
                 if ($("#gantt").scrollLeft() == 0 && $("#gantt").scrollTop() == 0) {
                     if (layout == 't') {
@@ -324,7 +324,7 @@ reset_filters();
                         d3.select(".timeline").attr("transform", "translate(-" + $(this).scrollLeft() + ", 0)");
                         d3.selectAll(".law-name").attr("transform", "translate(" + $(this).scrollLeft() + ", 0)");
                     });
-                    zooming(zoo);
+                    thelawfactory.mod0.zooming(zoo);
                     if (scroll && !resize) $("#gantt").animate(scroll);
                 };
 

@@ -165,7 +165,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                         animate: true,
                         value: 1,
                         slide: function (event, ui) {
-                            zooming(ui.value);
+                            thelawfactory.mod0.zooming(ui.value);
                         }
                     });
                     var mod0 = thelawfactory.mod0();

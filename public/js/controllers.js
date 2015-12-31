@@ -435,7 +435,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                                         }
                                         break;
                                     case 'zoom' :
-                                        zooming(parseInt(action[1]));
+                                        thelawfactory.mod0.zooming(parseInt(action[1]));
                                         break;
                                 }
                             });
