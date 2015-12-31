@@ -1609,6 +1609,9 @@ footer{
     padding-right:15px;
 }
 
+#error {
+    padding-top: 10px;
+}
 #error a {
     color: #FFF;
     text-decoration: underline;
