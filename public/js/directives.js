@@ -351,16 +351,12 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
         };
     }])
     .directive('stepsbar', ['$timeout', 'api', '$rootScope', "$location",
-        function (timer, api, $rootScope) {
+        function ($timeout, api, $rootScope) {
             return {
                 restrict: 'A',
                 replace: false,
                 templateUrl: 'templates/stepsbar.html',
-                controller: function ($scope, $element, $attrs) {
-                },
-
-                link: function preLink(scope) {
-
+                link: function (scope) {
                     scope.total = 0;
                     api.getProcedure(scope.loi).then(function (data) {
 
@@ -435,7 +431,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
 
                         scope.stages.push(addStageInst(currStage));
                         scope.inst.push(addStageInst(currInst));
-                        timer(function () {
+                        $timeout(function () {
                             $(".stb-step span").tooltip({html: true});
                             $(".stb-step a").tooltip({html: true});
                             $(".stb-inst span").tooltip();
