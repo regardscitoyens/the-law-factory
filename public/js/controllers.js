@@ -24,7 +24,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.action = $location.search()['action'];
 
         $scope.read = false;
-        $scope.revs = true;
         $scope.readmode = function () {
             $(".text").css({"width": "93.43%", "left": "3.3%"});
             $(".gotomod").addClass('readmode');
@@ -34,22 +33,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
             $(".text").css({"width": "23.40%", "left": "73.3%"});
             $(".gotomod").removeClass('readmode');
             $scope.read = false;
-        };
-        $scope.hiderevs = function () {
-            $scope.revs = false;
-            return $scope.update_revs_view();
-        };
-        $scope.showrevs = function () {
-            $scope.revs = true;
-            return $scope.update_revs_view();
-        };
-        $scope.update_revs_view = function () {
-            var d = d3.select('#viz .curr').data()[0];
-            if ($scope.revs) {
-                $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
-            } else {
-                $(".art-txt").html(d.originalText).animate({opacity: 1}, 350);
-            }
         };
 
         $scope.vizTitle = "";

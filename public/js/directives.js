@@ -41,39 +41,51 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
             restrict: 'A',
             replace: false,
             templateUrl: 'templates/mod1.html',
-            controller: function ($scope) {
+            controller: function ($log, $scope) {
                 $scope.mod = "mod1";
                 $scope.setHelpText("Chaque boîte représente un article dont la taille indique la longueur du texte et la couleur le degré de modifications à cette étape. Cliquez sur un article pour lire le texte et voir le détail des modifications.");
                 $scope.vizTitle = "ARTICLES";
-            },
-            link: function postLink(scope, element) {
 
-
-                var mod1 = thelawfactory.mod1();
+                $scope.$watch('steps', function(value) {
+                    if (!value) return;
+                    update();
+                });
 
                 function update() {
-
+                    var mod1 = thelawfactory.mod1();
                     thelawfactory.utils.spinner.start();
-
-                    api.getArticle(scope.loi).then(function (data) {
+                    api.getArticle($scope.loi).then(function (data) {
+                        $log.debug('articles loaded', data);
                         $rootScope.lawTitle = data.short_title;
                         $rootScope.pageTitle = $rootScope.lawTitle + " - Articles | ";
-                        var timeout = 1500,
-                            loop = setInterval(function () {
-                                timeout -= 50;
-                                if (timeout > 0 && !scope.steps) return;
-                                clearInterval(loop);
-                                scope.currentstep = (scope.steps && !scope.steps[scope.steps.length - 1].enddate ? scope.steps[scope.steps.length - 1] : undefined);
-                                d3.select(element[0]).datum(data).call(mod1);
-                                thelawfactory.utils.spinner.stop();
-                            }, 50);
+                        $scope.currentstep = ($scope.steps && !$scope.steps[$scope.steps.length - 1].enddate ? $scope.steps[$scope.steps.length - 1] : undefined);
+                        mod1(data, $scope.APIRootUrl, $scope.loi, $scope.currentstep, $scope.helpText);
+                        thelawfactory.utils.spinner.stop();
                     }, function () {
-                        scope.display_error("impossible de trouver les articles de ce texte");
+                        $scope.display_error("impossible de trouver les articles de ce texte");
                     });
-
                 }
 
-                update();
+                $scope.revs = true;
+
+                $scope.hiderevs = function () {
+                    $scope.revs = false;
+                    return $scope.update_revs_view();
+                };
+
+                $scope.showrevs = function () {
+                    $scope.revs = true;
+                    return $scope.update_revs_view();
+                };
+
+                $scope.update_revs_view = function () {
+                    var d = d3.select('#viz .curr').data()[0];
+                    if ($scope.revs) {
+                        $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
+                    } else {
+                        $(".art-txt").html(d.originalText).animate({opacity: 1}, 350);
+                    }
+                };
             }
         };
     }]).directive('mod2', ['api', '$rootScope', function (api, $rootScope) {
