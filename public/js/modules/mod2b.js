@@ -1,6 +1,6 @@
 var num = 0;
 var svg, mydata;
-var participants, mod2bScope, highlight, resetHighlight, groups;
+var participants, highlight, resetHighlight, groups, mod2bDrawing;
 var width;
 var setMod2bSize = thelawfactory.utils.setModSize("#viz-int", 1),
     shortenString = function (s, n) {
@@ -40,14 +40,12 @@ function wrap(width) {
     });
 }
 
-function init(data, step) {
-    mod2bScope = $('.mod2').scope();
-    mod2bScope.groups = groups;
+function init(data, step, vizTitle, helpText) {
     highlight = function(group) {
-        thelawfactory.utils.highlightGroup(mod2bScope.vizTitle, mod2bScope.helpText, groups,  group);
+        thelawfactory.utils.highlightGroup(vizTitle, helpText, groups,  group);
     };
     resetHighlight = function() {
-        thelawfactory.utils.resetHighlight(mod2bScope.vizTitle, mod2bScope.helpText);
+        thelawfactory.utils.resetHighlight(vizTitle, helpText);
     };
     groups = data[step].groupes;
     participants = data[step].orateurs;
@@ -91,16 +89,16 @@ function init(data, step) {
             }
         });
     });
-    $(".text-container").empty().html(mod2bScope.helpText);
+    $(".text-container").empty().html(helpText);
     drawFlows(false);
 }
 
 $(window).resize(function () {
-    if (mod2bScope.drawing || $(".view").scope().mod != "mod2b") return;
-    mod2bScope.drawing = true;
+    if (mod2bDrawing || $(".view").scope().mod != "mod2b") return;
+    mod2bDrawing = true;
     setTimeout(function () {
         $("#display_menu .chosen").click();
-        mod2bScope.drawing = false;
+        mod2bDrawing = false;
     }, 150);
 });
 
@@ -137,10 +135,10 @@ function drawFlows(top_ordered) {
         wrap(offset - 25);
         thelawfactory.utils.spinner.stop(function () {
             $("#viz-int").animate({opacity: 1}, 50);
-            mod2bScope.drawing = true;
+            mod2bDrawing = true;
             setTimeout(thelawfactory.utils.setTextContainerHeight, 250);
             if (selected_itv) $("#" + selected_itv).d3Click();
-            mod2bScope.drawing = false;
+            mod2bDrawing = false;
         });
     });
 }
@@ -362,7 +360,7 @@ sven.viz.streamkey = function () {
                 d3.select(d3.select(this).node().parentNode).selectAll("rect").classed('focused', true).transition().style("opacity", 0.55);
                 d3.select(this).classed('main-focused', true).transition().style("opacity", 1);
 
-                if (mod2bScope.drawing) return;
+                if (mod2bDrawing) return;
                 $("#text-title").html(d.label);
                 thelawfactory.utils.setTextContainerHeight();
                 $(".text-container").empty();
