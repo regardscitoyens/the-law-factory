@@ -63,4 +63,10 @@ angular.module('theLawFactory', [
         $log.error(e);
         $rootScope.error = e;
     };
+}).filter('formatDate', function() {
+    return function (d) {
+        if (!d) return 'EN COURS';
+        var d2 = d.split('-');
+        return d2[2] + "/" + d2[1] + "/" + d2[0];
+    }
 });

@@ -132,6 +132,7 @@ var valign, stacked, mod1Scope, aligned = true;
 
                 // Dynamic load of articles text at each step
                 function load_texte_articles() {
+                    console.log("yo");
                     var delay = 50;
                     d3.set(bigList.map(function (d) {
                         return d.directory;
