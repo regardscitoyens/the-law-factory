@@ -32,12 +32,12 @@ angular.module('theLawFactory', [
         })
         .state('articles', {
             url: '/articles.html?loi',
-            template: '<div mod1 class="mod1"></div>',
+            template: '<div mod1 read-mode class="mod1"></div>',
             controller: 'mainCtrl'
         })
         .state('amendements', {
             url: '/amendements.html?loi&etape',
-            template: '<div mod2 class="mod2"></div>',
+            template: '<div mod2 read-mode class="mod2"></div>',
             controller: 'mainCtrl'
         })
         .state('debates', {

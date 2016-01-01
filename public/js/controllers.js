@@ -22,19 +22,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $scope.etape = $location.search()['etape'];
         $scope.article = $location.search()['article'];
         $scope.action = $location.search()['action'];
-
-        $scope.read = false;
-        $scope.readmode = function () {
-            $(".text").css({"width": "93.43%", "left": "3.3%"});
-            $(".gotomod").addClass('readmode');
-            $scope.read = true;
-        };
-        $scope.viewmode = function () {
-            $(".text").css({"width": "23.40%", "left": "73.3%"});
-            $(".gotomod").removeClass('readmode');
-            $scope.read = false;
-        };
-
         $scope.vizTitle = "";
         $scope.helpText = '<div id="help-msg"><p>VIZTEXT</p><p>Cliquez sur le bouton <span class="question_mark">?</span> ci-dessus pour voir un tutoriel interactif de cette visualisation.<p></div>';
         $scope.setHelpText = function (t) {
