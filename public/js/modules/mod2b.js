@@ -2,7 +2,13 @@ var num = 0;
 var svg, mydata;
 var participants, mod2bScope, highlight;
 var width;
-var setMod2bSize = thelawfactory.utils.setModSize("#viz-int", 1);
+var setMod2bSize = thelawfactory.utils.setModSize("#viz-int", 1),
+    shortenString = function (s, n) {
+    if (s.length > n) {
+        s = s.substr(0, s.indexOf(' ', n - 20)) + "…";
+    }
+    return s;
+};
 
 function wrap(width) {
     d3.selectAll('text').each(function () {
@@ -52,7 +58,7 @@ function init(data, step) {
         mydata.push({
             key: d.key,
             values: [],
-            color: mod2bScope.adjustColor(d.value.color),
+            color: thelawfactory.utils.adjustColor(d.value.color),
             name: d.value.nom
         });
     });
@@ -290,7 +296,7 @@ sven.viz.streamkey = function () {
                 return "layer_" + i;
             })
             .style("fill", function (d) {
-                return mod2bScope.adjustColor(d[0].color).toString();
+                return thelawfactory.utils.adjustColor(d[0].color).toString();
             })
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             .on("mousemove", function () {
@@ -316,7 +322,7 @@ sven.viz.streamkey = function () {
                 return "itv-" + ct++;
             })
             .attr("class", function (d) {
-                return mod2bScope.slugGroup(d.category)
+                return thelawfactory.utils.slugGroup(d.category)
             })
             .attr("y", function (d) {
                 return x(d.x);
@@ -410,7 +416,7 @@ sven.viz.streamkey = function () {
             })
             .style("fill-opacity", 0.3)
             .attr("class", function (d) {
-                return mod2bScope.slugGroup(d[5]);
+                return thelawfactory.utils.slugGroup(d[5]);
             })
             .attr("stroke", "none")
             .attr("display", "inline");
@@ -432,7 +438,7 @@ sven.viz.streamkey = function () {
             .attr("class", "filter-title")
             .attr("fill", "#716259")
             .text(function (d) {
-                return mod2bScope.shortenString(d, 110);
+                return shortenString(d, 110);
             });
 
         return streamkey;

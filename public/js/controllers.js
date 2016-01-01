@@ -97,34 +97,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
             $scope.helpText = $scope.helpText.replace("VIZTEXT", t);
         };
 
-        $scope.clean_amd_subject = function (s) {
-            return s.replace(/ART[\.\s]+/i, "Article ")
-                .replace(/A(vant|près) A/i, "A$1 l'A");
-        };
-
-        $scope.slugArticle = function (a) {
-            return "art_" + a.toLowerCase()
-                    .replace("è", "e")
-                    .replace(/article/, '')
-                    .replace(/[i1]er?/, '1')
-                    .trim()
-                    .replace(/\W/g, '-')
-        };
-
-        $scope.shortenString = function (s, n) {
-            if (s.length > n) {
-                s = s.substr(0, s.indexOf(' ', n - 20)) + "…";
-            }
-            return s;
-        };
-
-        $scope.adjustColor = function (c) {
-            var col = d3.hsl(c);
-            if (col.s > 0.5) col.s = 0.5;
-            if (col.l < 0.7) col.l = 0.7;
-            return col;
-        };
-
         $scope.groups = {};
 
         $scope.drawGroupsLegend = function () {
@@ -134,7 +106,7 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                     return a.value.order - b.value.order;
                 })
                 .forEach(function (d) {
-                    col = $scope.adjustColor(d.value.color);
+                    col = thelawfactory.utils.adjustColor(d.value.color);
                     type = (d.value.link !== "" ? 'colors' : 'others');
                     oncl = ' onclick="highlight(\'' + d.key + '\');" title="' + d.value.nom + '" data-toggle="tooltip" data-placement="left">';
                     $("." + type).append('<div class="leg-item"><div ' + (ct == 3 ? ' id="tuto-legend"' : '') + 'class="leg-value" style="background-color:' + col + '"' + oncl + '</div>' +
@@ -156,15 +128,11 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                 if ($scope.groups[group]) $("#text-title").html($scope.groups[group].nom);
             }
             $(".legend").on("click", $scope.resetHighlight);
-            group = "." + $scope.slugGroup(group);
+            group = "." + thelawfactory.utils.slugGroup(group);
             d3.selectAll("path" + group).transition(50).style("fill-opacity", 0.6);
             d3.selectAll("rect" + group).transition(50).style("opacity", 0.9);
             d3.selectAll("path:not(" + group + ")").transition(50).style("fill-opacity", 0.2);
             d3.selectAll("rect:not(" + group + ")").transition(50).style("opacity", 0.2);
-        };
-
-        $scope.slugGroup = function (group) {
-            return "g_" + group.replace(/[^a-z]/ig, '');
         };
 
         $scope.resetHighlight = function () {
@@ -188,11 +156,5 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
             d3.selectAll(".actv-amd")
                 .style("stroke", "none")
                 .classed("actv-amd", false);
-        };
-
-        $scope.goodRound = function (n) {
-            if (n && Math.abs(n) < 1)
-                return parseFloat(n).toFixed(2).replace('.', ',');
-            return parseInt(n);
         };
     });

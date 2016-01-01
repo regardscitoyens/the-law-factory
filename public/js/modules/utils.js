@@ -73,4 +73,15 @@
         if (h > 0) $(".text-container").height(h);
         else setTimeout(utils.setTextContainerHeight, 100);
     };
+
+    utils.adjustColor = function (c) {
+        var col = d3.hsl(c);
+        if (col.s > 0.5) col.s = 0.5;
+        if (col.l < 0.7) col.l = 0.7;
+        return col;
+    };
+
+    utils.slugGroup = function (group) {
+        return "g_" + group.replace(/[^a-z]/ig, '');
+    };
 })();

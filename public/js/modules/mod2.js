@@ -10,7 +10,19 @@ var mod2Scope, highlight;
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
-    var setMod2Size = thelawfactory.utils.setModSize("#viz", 1);
+    var setMod2Size = thelawfactory.utils.setModSize("#viz", 1),
+        clean_amd_subject = function (s) {
+        return s.replace(/ART[\.\s]+/i, "Article ")
+            .replace(/A(vant|près) A/i, "A$1 l'A");
+        },
+        slugArticle = function (a) {
+            return "art_" + a.toLowerCase()
+                    .replace("è", "e")
+                    .replace(/article/, '')
+                    .replace(/[i1]er?/, '1')
+                    .trim()
+                    .replace(/\W/g, '-')
+        };
 
     thelawfactory.mod2 = function () {
 
@@ -36,7 +48,7 @@ var mod2Scope, highlight;
 
             selectRow = function (art, pos) {
                 if (d3.event) d3.event.stopPropagation();
-                var sel = d3.select("." + mod2Scope.slugArticle(art));
+                var sel = d3.select("." + slugArticle(art));
                 if (!sel.empty()) {
                     mod2Scope.resetHighlight('amds');
                     d3.selectAll("g").style("opacity", 0.2);
@@ -197,7 +209,7 @@ var mod2Scope, highlight;
                 var k = Math.floor(i / 2);
                 d.offset = offset;
                 var curRow = svg.append("g")
-                    .classed(mod2Scope.slugArticle(d.titre), true)
+                    .classed(slugArticle(d.titre), true)
                     .classed("first-art-s", i == 0)
                     .attr("transform", function () {
                         if (!half) return "translate(" + 10 + "," + (i * 20 + i * lineh + 10 + jumpLines * (lineh - 10)) + ")";
@@ -281,7 +293,7 @@ var mod2Scope, highlight;
                         return "a_" + e.numero.replace(/[^a-z\d]/ig, '')
                     })
                     .attr("class", function (e) {
-                        return "amd " + mod2Scope.slugGroup(e.groupe) + " " + mod2Scope.slugGroup(e.sort);
+                        return "amd " + thelawfactory.utils.slugGroup(e.groupe) + " " + thelawfactory.utils.slugGroup(e.sort);
                     })
                     .classed("first-art", function (f, j) {
                         return i == 0 && j == 0;
@@ -336,7 +348,7 @@ var mod2Scope, highlight;
                         $(".text-container").html(
                             '<span class="amd-date">' + d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(d.date)) + "</span>" +
                             '<span class="amd-sort">' + currAmd.sort + " <span class='amd-txt-status' style='background-color:" + col + "'><img style='margin:0; padding:4px; width:18px;' src='" + statico + "'/></span> </span>" +
-                            '<div class="amd-subject"><b>Sujet :</b><span> ' + mod2Scope.clean_amd_subject(currAmd.sujet) + "</span></div>" +
+                            '<div class="amd-subject"><b>Sujet :</b><span> ' + clean_amd_subject(currAmd.sujet) + "</span></div>" +
                             '<div class="amd-text"><b>Signataires :</b> <span>' + currAmd.signataires + "</span></div>" +
                             '<div class="amd-text"><b>Exposé des motifs :</b> ' + currAmd.expose + "</div>" +
                             '<div class="amd-text"><b>Texte :</b> ' + currAmd.texte + '</div>' +
@@ -352,7 +364,7 @@ var mod2Scope, highlight;
 
             function color_amd(d) {
                 if (mod2Scope.groups[d.groupe]) {
-                    return mod2Scope.adjustColor(mod2Scope.groups[d.groupe].color).toString();
+                    return thelawfactory.utils.adjustColor(mod2Scope.groups[d.groupe].color).toString();
                 } else return "#E6E6E6";
             }
 

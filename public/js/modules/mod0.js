@@ -46,7 +46,12 @@ reset_filters();
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
-    var setMod0Size = thelawfactory.utils.setModSize(".main-sc", 0);
+    var setMod0Size = thelawfactory.utils.setModSize(".main-sc", 0),
+        goodRound = function (n) {
+            if (n && Math.abs(n) < 1)
+                return parseFloat(n).toFixed(2).replace('.', ',');
+            return parseInt(n);
+        };
 
     thelawfactory.mod0 = function () {
 
@@ -868,7 +873,7 @@ reset_filters();
                     /* Badge for Parlamentaries Amendments adopted */
 
 
-                    var tauxSuccesAmdt = d.total_amendements == 0 ? 0 : mod0Scope.goodRound(100 * (d.total_amendements_adoptes / (d.total_amendements + 0.0)));
+                    var tauxSuccesAmdt = d.total_amendements == 0 ? 0 : goodRound(100 * (d.total_amendements_adoptes / (d.total_amendements + 0.0)));
                     extrainfo += '<li data-toggle="tooltip" title="Taux d\'adoption des amendements" data-placement="bottom">';
                     extrainfo += '<div class="badge badge-tlf">';
                     extrainfo += '<div class="badge-prefix">' + tauxSuccesAmdt + '&nbsp;%</div>';
@@ -881,7 +886,7 @@ reset_filters();
 
                     /* Badge for evolution of law volume */
 
-                    var volumeEvo = d.input_text_length2 ? mod0Scope.goodRound(100 * ((d.output_text_length2 - d.input_text_length2) / (d.input_text_length2 + 0.0))) : 0;
+                    var volumeEvo = d.input_text_length2 ? goodRound(100 * ((d.output_text_length2 - d.input_text_length2) / (d.input_text_length2 + 0.0))) : 0;
                     extrainfo += '<li data-toggle="tooltip" title="Taux d\'évolution de la taille globale du texte de loi en nombre de caractères" data-placement="bottom">';
                     extrainfo += '<div class="badge badge-tlf">';
                     extrainfo += '<div class="badge-prefix">' + (volumeEvo > 0 ? "+" : "") + volumeEvo + '&nbsp;%</div>';
@@ -911,7 +916,7 @@ reset_filters();
                     /* Badge for modification of law */
                     extrainfo += '<li data-toggle="tooltip" title="Taux de modification du texte originel" data-placement="bottom">';
                     extrainfo += '<div class="badge badge-tlf">';
-                    extrainfo += '<div class="badge-prefix">' + mod0Scope.goodRound(100 * d.ratio_texte_modif) + '&nbsp;%</div>';
+                    extrainfo += '<div class="badge-prefix">' + goodRound(100 * d.ratio_texte_modif) + '&nbsp;%</div>';
                     extrainfo += '<div class="badge-icon icon-balance"';
                     extrainfo += '></div>';
                     extrainfo += '</div>';
