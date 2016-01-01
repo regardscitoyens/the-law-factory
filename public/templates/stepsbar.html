@@ -8,7 +8,7 @@
     </div>
 
     <div class="stb-insts">
-        <div class="stb-inst {{string_to_slug(i.name)}}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in inst">
+        <div class="stb-inst {{ i.name | slug }}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in inst">
             <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}">{{i.short_name}}</span>
             <span ng-hide="i.display_short">{{i.long_name}}</span>
         </div>
