@@ -808,7 +808,7 @@ var valign, stacked, mod1Scope, aligned = true;
                         if (mod1Scope.drawing) return;
 
                         var spin = !d.originalText || (!d.textDiff && d.prev_dir && (d.status == "sup" || d.n_diff) && d.id_step.substr(-5) != "depot");
-                        if (spin) mod1Scope.startSpinner('load_art');
+                        if (spin) thelawfactory.utils.spinner.start('load_art');
                         $(".art-txt").animate({opacity: 0}, 100, function () {
                             $("#readMode").show();
                             $("#text-title").empty();
@@ -855,7 +855,7 @@ var valign, stacked, mod1Scope, aligned = true;
                                             d.textDiff += "</li></ul>";
                                         } else d.textDiff += d.originalText;
 
-                                        mod1Scope.stopSpinner(mod1Scope.update_revs_view, 'load_art');
+                                        thelawfactory.utils.spinner.stop(mod1Scope.update_revs_view, 'load_art');
                                         clearInterval(waitload);
                                     }
                                 }, 100);

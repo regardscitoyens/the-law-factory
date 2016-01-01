@@ -114,7 +114,7 @@ function drawFlows(top_ordered) {
         $('#menu-order .selectedchoice').text("« échiquier politique »");
     }
     $("#viz-int").empty();
-    mod2bScope.startSpinner();
+    thelawfactory.utils.spinner.start();
     $("#viz-int").animate({opacity: 0}, 50, function () {
         var height;
         if (num * 60 >= $("#viz").height()) height = num * 60;
@@ -130,7 +130,7 @@ function drawFlows(top_ordered) {
             .init();
         d3.selectAll("g:not(.main-g)").attr("transform", "translate(" + offset + ",0) scale(" + (width - offset) / width + ",1)");
         wrap(offset - 25);
-        mod2bScope.stopSpinner(function () {
+        thelawfactory.utils.spinner.stop(function () {
             $("#viz-int").animate({opacity: 1}, 50);
             mod2bScope.drawing = true;
             setTimeout(thelawfactory.utils.setTextContainerHeight, 250);

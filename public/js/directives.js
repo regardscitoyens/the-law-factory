@@ -53,7 +53,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
 
                 function update() {
 
-                    scope.startSpinner();
+                    thelawfactory.utils.spinner.start();
 
                     api.getArticle(scope.loi).then(function (data) {
                         $rootScope.lawTitle = data.short_title;
@@ -65,7 +65,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                                 clearInterval(loop);
                                 scope.currentstep = (scope.steps && !scope.steps[scope.steps.length - 1].enddate ? scope.steps[scope.steps.length - 1] : undefined);
                                 d3.select(element[0]).datum(data).call(mod1);
-                                scope.stopSpinner();
+                                thelawfactory.utils.spinner.stop();
                             }, 50);
                     }, function () {
                         scope.display_error("impossible de trouver les articles de ce texte");
@@ -94,7 +94,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
 
                 function update() {
 
-                    scope.startSpinner();
+                    thelawfactory.utils.spinner.start();
 
                     if (scope.etape != null) api.getAmendement(scope.loi, scope.etape).then(function (data) {
                         scope.data = data;
@@ -125,7 +125,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
 
                     function update() {
 
-                        scope.startSpinner();
+                        thelawfactory.utils.spinner.start();
 
                         if (scope.etape != null) {
 
@@ -171,7 +171,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                     var mod0 = thelawfactory.mod0();
 
                     function update() {
-                        scope.startSpinner();
+                        thelawfactory.utils.spinner.start();
                         api.getDossiers().then(function (data) {
                             d3.select(element[0]).datum(data).call(mod0);
                         }, function () {

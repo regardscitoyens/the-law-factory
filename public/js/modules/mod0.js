@@ -227,10 +227,10 @@ reset_filters();
                         reset_filters();
                         action = 'filter';
                     }
-                    mod0Scope.startSpinner();
+                    thelawfactory.utils.spinner.start();
                     $("#gantt svg").animate({opacity: 0}, 50, function () {
                         updateGantt(action);
-                        mod0Scope.stopSpinner(function () {
+                        thelawfactory.utils.spinner.stop(function () {
                             $("#gantt svg").animate({opacity: 1}, 50);
                         });
                     });

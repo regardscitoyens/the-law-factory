@@ -148,7 +148,7 @@ var mod2Scope, highlight;
                 if (merged == undefined) merged = grouped;
                 $('#menu-display .selectedchoice').text(merged ? 'groupée' : 'par articles');
                 $("svg").empty();
-                mod2Scope.startSpinner();
+                thelawfactory.utils.spinner.start();
                 $("svg").animate({opacity: 0}, 50, function () {
                     jumpLines = 0;
                     (merged ? drawMerged() : draw());
@@ -157,7 +157,7 @@ var mod2Scope, highlight;
                     svg.attr("height", Math.max(minheight, z + parseInt(a) + ah));
                     if (mod2Scope.article != null)
                         selectRow(mod2Scope.article, true);
-                    mod2Scope.stopSpinner(function () {
+                    thelawfactory.utils.spinner.stop(function () {
                         svg.attr("width", $("#viz").width());
                         $("svg").animate({opacity: 1}, 50);
                         mod2Scope.drawing = true;
@@ -336,7 +336,7 @@ var mod2Scope, highlight;
                 $("#text-title").text("Amendement " + d.numero);
                 $(".text-container").empty();
                 thelawfactory.utils.setTextContainerHeight();
-                mod2Scope.startSpinner('load_amd');
+                thelawfactory.utils.spinner.start('load_amd');
                 setTimeout(function () {
                     d3.json(api_root + d.id_api + '/json', function (error, json) {
                         var currAmd = json.amendement,
@@ -354,7 +354,7 @@ var mod2Scope, highlight;
                             '<div class="amd-text"><b>Texte :</b> ' + currAmd.texte + '</div>' +
                             '<p class="sources"><small><a target="_blank" href="' + source_am + '</a></small></p>'
                         );
-                        mod2Scope.stopSpinner(function () {
+                        thelawfactory.utils.spinner.stop(function () {
                             $(".text-container").animate({opacity: 1}, 350);
                             $('.text-container').scrollTop(0);
                         }, 'load_amd');

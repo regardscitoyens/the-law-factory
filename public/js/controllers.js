@@ -52,45 +52,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
             }
         };
 
-        $scope.spinner = null;
-        $scope.spinner_opts = {
-            lines: 13, // The number of lines to draw
-            length: 20, // The length of each line
-            width: 10, // The line thickness
-            radius: 30, // The radius of the inner circle
-            corners: 1, // Corner roundness (0..1)
-            rotate: 0, // The rotation offset
-            direction: 1, // 1: clockwise, -1: counterclockwise
-            color: '#bbb', // #rgb or #rrggbb or array of colors
-            speed: 1, // Rounds per second
-            trail: 60, // Afterglow percentage
-            shadow: false, // Whether to render a shadow
-            hwaccel: false, // Whether to use hardware acceleration
-            className: 'spinner', // The CSS class to assign to the spinner
-            zIndex: 2e9, // The z-index (defaults to 2000000000)
-            top: '50%', // Top position relative to parent
-            left: '50%' // Left position relative to parent
-        };
-
-        $scope.startSpinner = function (divid) {
-            if ($scope.spinner != null) return;
-            if (!divid) divid = 'preload';
-            var target = document.getElementById(divid);
-            $scope.spinner = new Spinner($scope.spinner_opts);
-            $('#' + divid).animate({opacity: 1}, 0, function () {
-                $scope.spinner.spin(target);
-            });
-        };
-        $scope.stopSpinner = function (callback, divid) {
-            if ($scope.spinner == null) return (callback ? callback() : undefined);
-            if (!divid) divid = 'preload';
-            $('#' + divid).animate({opacity: 0}, 0, function () {
-                $scope.spinner.stop();
-                $scope.spinner = null;
-                return (callback ? callback() : undefined);
-            });
-        };
-
         $scope.vizTitle = "";
         $scope.helpText = '<div id="help-msg"><p>VIZTEXT</p><p>Cliquez sur le bouton <span class="question_mark">?</span> ci-dessus pour voir un tutoriel interactif de cette visualisation.<p></div>';
         $scope.setHelpText = function (t) {
