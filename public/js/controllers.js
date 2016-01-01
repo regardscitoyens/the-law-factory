@@ -16,7 +16,6 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
         $(".introjs-helperLayer").remove();
         $(".introjs-overlay").remove();
 
-        $scope.drawing = false;
         $scope.loi = $location.search()['loi'];
         $scope.etape = $location.search()['etape'];
         $scope.article = $location.search()['article'];
