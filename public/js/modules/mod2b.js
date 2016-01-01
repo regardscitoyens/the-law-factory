@@ -1,6 +1,6 @@
 var num = 0;
 var svg, mydata;
-var participants, mod2bScope, highlight;
+var participants, mod2bScope, highlight, resetHighlight, groups;
 var width;
 var setMod2bSize = thelawfactory.utils.setModSize("#viz-int", 1),
     shortenString = function (s, n) {
@@ -41,20 +41,25 @@ function wrap(width) {
 }
 
 function init(data, step) {
-
     mod2bScope = $('.mod2').scope();
-    highlight = mod2bScope.highlightGroup;
-    mod2bScope.groups = data[step].groupes;
+    mod2bScope.groups = groups;
+    highlight = function(group) {
+        thelawfactory.utils.highlightGroup(mod2bScope.vizTitle, mod2bScope.helpText, groups,  group);
+    };
+    resetHighlight = function() {
+        thelawfactory.utils.resetHighlight(mod2bScope.vizTitle, mod2bScope.helpText);
+    };
+    groups = data[step].groupes;
     participants = data[step].orateurs;
     mydata = [];
     var divs = d3.values(data[step].divisions).sort(function (a, b) {
             return a.order - b.order;
         }),
-        orderedGroupes = d3.keys(mod2bScope.groups).sort(function (a, b) {
-            return mod2bScope.groups[a].order - mod2bScope.groups[b].order
+        orderedGroupes = d3.keys(groups).sort(function (a, b) {
+            return groups[a].order - groups[b].order
         });
-    mod2bScope.drawGroupsLegend();
-    d3.entries(mod2bScope.groups).forEach(function (d) {
+    thelawfactory.utils.drawGroupsLegend(data[step].groupes);
+    d3.entries(groups).forEach(function (d) {
         mydata.push({
             key: d.key,
             values: [],
@@ -305,7 +310,7 @@ sven.viz.streamkey = function () {
 
         d3.select("svg").on("click", function () {
             d3.selectAll(".focused").classed('focused', false);
-            mod2bScope.resetHighlight('ints');
+            resetHighlight();
         });
 
         // we'll add a special css class for the first rect with a width > 50 to show on tuto !
@@ -401,7 +406,7 @@ sven.viz.streamkey = function () {
             .on('mouseenter', function (d) {
                 highlight(d.category);
             })
-            .on('mouseleave', mod2bScope.resetHighlight);
+            .on('mouseleave', resetHighlight);
 
         layer.selectAll("path")
             .data(function (d) {
@@ -478,7 +483,7 @@ sven.viz.streamkey = function () {
 
     var sortByGroupe = function (data) {
         return sort(data, "category", function (a, b) {
-            return mod2bScope.groups[b].order - mod2bScope.groups[a].order;
+            return groups[b].order - groups[a].order;
         });
     };
 

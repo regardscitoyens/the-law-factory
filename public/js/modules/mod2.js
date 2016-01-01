@@ -35,11 +35,20 @@ var mod2Scope, highlight;
 
         function vis(selection) {
 
-            var articles;
+            var articles, groups, resetHighlight;
             mod2Scope = $('.mod2').scope();
-            highlight = mod2Scope.highlightGroup;
+
+            highlight = function(group) {
+                thelawfactory.utils.highlightGroup(mod2Scope.vizTitle, mod2Scope.helpText, mod2Scope.groups, group);
+            };
+
+            resetHighlight = function() {
+                thelawfactory.utils.resetHighlight(mod2Scope.vizTitle, mod2Scope.helpText);
+            };
+
             selection.each(function (d) {
                 mod2Scope.groups = d.groupes;
+                groups = d.groupes;
                 articles = d.sujets;
                 api_root = d.api_root_url;
             });
@@ -50,7 +59,7 @@ var mod2Scope, highlight;
                 if (d3.event) d3.event.stopPropagation();
                 var sel = d3.select("." + slugArticle(art));
                 if (!sel.empty()) {
-                    mod2Scope.resetHighlight('amds');
+                    resetHighlight();
                     d3.selectAll("g").style("opacity", 0.2);
                     sel.style("opacity", 1);
                     if (pos) $("#viz").animate({scrollTop: sel.attr("data-offset")})
@@ -59,7 +68,7 @@ var mod2Scope, highlight;
 
             deselectRow = function () {
                 if (d3.event) d3.event.stopPropagation();
-                mod2Scope.resetHighlight('amds');
+                resetHighlight();
                 $("#readMode").hide();
                 d3.selectAll("g").style("opacity", 1);
             };
@@ -89,8 +98,8 @@ var mod2Scope, highlight;
                 .on("click", deselectRow);
 
             var compare_partys = function (a, b) {
-                    if (mod2Scope.groups[a].order < mod2Scope.groups[b].order) return -1;
-                    if (mod2Scope.groups[a].order > mod2Scope.groups[b].order) return 1;
+                    if (groups[a].order < groups[b].order) return -1;
+                    if (groups[a].order > groups[b].order) return 1;
                 },
                 statsorder = {"adopté": 0, "rejeté": 1, "non-voté": 2},
                 compare_stats = function (a, b) {
@@ -261,7 +270,7 @@ var mod2Scope, highlight;
                 var popover = function (e) {
                     var date = e.date.split('-'),
                         div = d3.select(document.createElement("div")).style("width", "100%");
-                    div.append("p").html("<b>" + mod2Scope.groups[e.groupe].nom + "</b>");
+                    div.append("p").html("<b>" + groups[e.groupe].nom + "</b>");
                     div.append("p").html("Sort : " + e.sort + "");
                     div.append("p").html("<small>" + [date[2], date[1], date[0]].join("/") + "</small>");
                     return {
@@ -325,7 +334,7 @@ var mod2Scope, highlight;
 
             function select(d) {
                 d3.event.stopPropagation();
-                if (!mod2Scope.drawing) mod2Scope.resetHighlight('amds');
+                if (!mod2Scope.drawing) resetHighlight();
                 d3.selectAll("#a_" + d.numero.replace(/[^a-z\d]/ig, ''))
                     .classed("actv-amd", true)
                     .style("opacity", 1)
@@ -363,14 +372,14 @@ var mod2Scope, highlight;
             }
 
             function color_amd(d) {
-                if (mod2Scope.groups[d.groupe]) {
-                    return thelawfactory.utils.adjustColor(mod2Scope.groups[d.groupe].color).toString();
+                if (groups[d.groupe]) {
+                    return thelawfactory.utils.adjustColor(groups[d.groupe].color).toString();
                 } else return "#E6E6E6";
             }
 
             $(document).ready(function () {
                 $(".text-container").empty().html(mod2Scope.helpText);
-                mod2Scope.drawGroupsLegend();
+                thelawfactory.utils.drawGroupsLegend(groups);
                 $('.readMode').tooltip({animated: 'fade', placement: 'bottom'});
                 if ($(".others div").length) $(".others").append('<div class="leg-item"></div>');
                 [

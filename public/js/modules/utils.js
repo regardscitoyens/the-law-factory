@@ -129,4 +129,63 @@
 
         return self;
     })();
+
+    utils.drawGroupsLegend = function (groups) {
+        var col, type, oncl, ct = 0;
+        d3.entries(groups)
+            .sort(function (a, b) {
+                return a.value.order - b.value.order;
+            })
+            .forEach(function (d) {
+                col = utils.adjustColor(d.value.color);
+                type = (d.value.link !== "" ? 'colors' : 'others');
+                oncl = ' onclick="highlight(\'' + d.key + '\');" title="' + d.value.nom + '" data-toggle="tooltip" data-placement="left">';
+                $("." + type).append('<div class="leg-item"><div ' + (ct == 3 ? ' id="tuto-legend"' : '') + 'class="leg-value" style="background-color:' + col + '"' + oncl + '</div>' +
+                    '<div class="leg-key"' + oncl + d.key + '</div></div>');
+                ct++;
+            });
+        $(".leg-value").tooltip();
+        $(".leg-key").tooltip();
+    };
+
+    utils.highlightGroup = function (vizTitle, helpText, groups, group) {
+        if (!e) var e = window.event;
+        if (e) {
+            e.cancelBubble = true;
+            if (e.stopPropagation) e.stopPropagation();
+        }
+        if (!$('.focused')) {
+            $(".text-container").empty().html(helpText);
+            if (groups[group]) $("#text-title").html(groups[group].nom);
+        }
+        $(".legend").on("click", function() { utils.resetHighlight(vizTitle, helpText); });
+        group = "." + utils.slugGroup(group);
+        d3.selectAll("path" + group).transition(50).style("fill-opacity", 0.6);
+        d3.selectAll("rect" + group).transition(50).style("opacity", 0.9);
+        d3.selectAll("path:not(" + group + ")").transition(50).style("fill-opacity", 0.2);
+        d3.selectAll("rect:not(" + group + ")").transition(50).style("opacity", 0.2);
+    };
+
+    utils.resetHighlight = function (vizTitle, helpText) {
+        if (!e) var e = window.event;
+        if (e) {
+            e.cancelBubble = true;
+            if (e.stopPropagation) e.stopPropagation();
+        }
+        if ($('.focused').length) {
+            d3.selectAll("rect.focused").transition(50).style("opacity", 0.55);
+            d3.selectAll("path.focused").transition(50).style("fill-opacity", 0.45);
+            d3.selectAll("rect.main-focused").transition(50).style("opacity", 1);
+            d3.selectAll("rect:not(.focused)").transition(50).style("opacity", 0.2);
+            d3.selectAll("path:not(.focused)").transition(50).style("fill-opacity", 0.2);
+        } else {
+            $(".text-container").empty().html(helpText);
+            $("#text-title").html(vizTitle);
+            d3.selectAll("rect").transition(50).style("opacity", 0.9);
+            d3.selectAll("path").transition(50).style("fill-opacity", 0.3);
+        }
+        d3.selectAll(".actv-amd")
+            .style("stroke", "none")
+            .classed("actv-amd", false);
+    };
 })();
