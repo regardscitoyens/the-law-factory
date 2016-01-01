@@ -369,11 +369,5 @@ angular.module('theLawFactory.controllers', ['theLawFactory.config']).
                 );
             }
         };
-
-        $scope.showFirstTimeTutorial = function () {
-            $('#menu-tutorial span').tooltip();
-            if (!localStorage.getItem("tuto-" + $scope.mod) || localStorage.getItem("tuto-" + $scope.mod) != "done")
-                $scope.toggleTutorial();
-        }
     }
 );
