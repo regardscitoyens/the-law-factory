@@ -76,8 +76,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                 update();
             }
         };
-    }]).directive('mod2', ['api', '$rootScope', '$location', '$compile',
-    function (api, $rootScope) {
+    }]).directive('mod2', ['api', '$rootScope', function (api, $rootScope) {
         return {
             restrict: 'A',
             replace: false,
@@ -87,25 +86,21 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                 $scope.mod = "mod2";
                 $scope.setHelpText("Chaque boîte représente un amendement dont le pictogramme indique le sort et la couleur le groupe politique de ses auteurs. Cliquez sur un amendement pour en lire le contenu et les détails.");
                 $scope.vizTitle = "AMENDEMENTS";
-            },
-            link: function postLink(scope, element) {
-
-                var mod2 = thelawfactory.mod2();
-
-                function update() {
-
-                    thelawfactory.utils.spinner.start();
-
-                    if (scope.etape != null) api.getAmendement(scope.loi, scope.etape).then(function (data) {
-                        scope.data = data;
-                        $rootScope.pageTitle = $rootScope.lawTitle + " - Amendements | ";
-                        d3.select(element[0]).datum(data).call(mod2);
-                    }, function () {
-                        scope.display_error("impossible de trouver les amendements pour ce texte à cette étape");
-                    });
-                }
 
                 update();
+
+                function update() {
+                    var mod2 = thelawfactory.mod2();
+                    thelawfactory.utils.spinner.start();
+
+                    if ($scope.etape != null) api.getAmendement($scope.loi, $scope.etape).then(function (data) {
+                        $scope.data = data;
+                        $rootScope.pageTitle = $rootScope.lawTitle + " - Amendements | ";
+                        mod2(data, $scope.vizTitle, $scope.helpText);
+                    }, function () {
+                        $scope.display_error("impossible de trouver les amendements pour ce texte à cette étape");
+                    });
+                }
             }
         }
     }])

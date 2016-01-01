@@ -3,7 +3,6 @@ var sortByStat;
 var sortByParty;
 var redraw;
 var grouped = null;
-var api_root;
 var mod2Scope, highlight;
 
 (function () {
@@ -33,25 +32,24 @@ var mod2Scope, highlight;
             return "";
         }
 
-        function vis(selection) {
+        function vis(data, vizTitle, helpText) {
 
-            var articles, groups, resetHighlight;
+            var drawing = false,
+                articles = data.sujets,
+                groups = data.groupes,
+                api_root = data.api_root_url,
+                resetHighlight;
+
             mod2Scope = $('.mod2').scope();
 
             highlight = function(group) {
-                thelawfactory.utils.highlightGroup(mod2Scope.vizTitle, mod2Scope.helpText, mod2Scope.groups, group);
+                thelawfactory.utils.highlightGroup(vizTitle, helpText, groups, group);
             };
 
             resetHighlight = function() {
-                thelawfactory.utils.resetHighlight(mod2Scope.vizTitle, mod2Scope.helpText);
+                thelawfactory.utils.resetHighlight(vizTitle, helpText);
             };
 
-            selection.each(function (d) {
-                mod2Scope.groups = d.groupes;
-                groups = d.groupes;
-                articles = d.sujets;
-                api_root = d.api_root_url;
-            });
             if (Object.keys(articles).length < 2)
                 $('#display_menu').parent().hide();
 
@@ -169,10 +167,10 @@ var mod2Scope, highlight;
                     thelawfactory.utils.spinner.stop(function () {
                         svg.attr("width", $("#viz").width());
                         $("svg").animate({opacity: 1}, 50);
-                        mod2Scope.drawing = true;
+                        drawing = true;
                         setTimeout(thelawfactory.utils.setTextContainerHeight, 250);
                         if (selected_amd) $("#" + selected_amd).d3Click();
-                        mod2Scope.drawing = false;
+                        drawing = false;
                     });
                 });
             };
@@ -334,13 +332,13 @@ var mod2Scope, highlight;
 
             function select(d) {
                 d3.event.stopPropagation();
-                if (!mod2Scope.drawing) resetHighlight();
+                if (!drawing) resetHighlight();
                 d3.selectAll("#a_" + d.numero.replace(/[^a-z\d]/ig, ''))
                     .classed("actv-amd", true)
                     .style("opacity", 1)
                     .style("stroke", "#333344")
                     .style("stroke-width", 2);
-                if (mod2Scope.drawing) return;
+                if (drawing) return;
                 $("#readMode").show();
                 $("#text-title").text("Amendement " + d.numero);
                 $(".text-container").empty();
@@ -378,7 +376,7 @@ var mod2Scope, highlight;
             }
 
             $(document).ready(function () {
-                $(".text-container").empty().html(mod2Scope.helpText);
+                $(".text-container").empty().html(helpText);
                 thelawfactory.utils.drawGroupsLegend(groups);
                 $('.readMode').tooltip({animated: 'fade', placement: 'bottom'});
                 if ($(".others div").length) $(".others").append('<div class="leg-item"></div>');
@@ -394,11 +392,11 @@ var mod2Scope, highlight;
                 $(".leg-key").tooltip();
                 redraw(false);
                 $(window).resize(function () {
-                    if (mod2Scope.drawing || $(".view").scope().mod != "mod2") return;
-                    mod2Scope.drawing = true;
+                    if (drawing || $(".view").scope().mod != "mod2") return;
+                    drawing = true;
                     setTimeout(function () {
                         redraw();
-                        mod2Scope.drawing = false;
+                        drawing = false;
                     }, 150);
                 });
             });
