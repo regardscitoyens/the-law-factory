@@ -483,12 +483,10 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                 mod: '@'
             },
             template: '<li id="menu-tutorial" ng-click="toggleTutorial()" class="pull-right"><span title="Voir le tutoriel" data-toggle="tooltip" data-placement="left"><a>?</a></span></li>',
-            controller: function ($timeout, $scope, api) {
-                $scope.tutorial = false;
-                /////////////////////////////////////////////////////////////
+            controller: function ($timeout, $rootScope, $scope, api) {
                 $scope.toggleTutorial = function () {
-                    if (!$scope.tutorial) {
-                        $scope.tutorial = true;
+                    if (!$rootScope.tutorial) {
+                        $rootScope.tutorial = true;
                         api.getTutorials().then(function (data) {
                                 var tuto = data[$scope.mod];
                                 var step = 1;
@@ -552,7 +550,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                                 var exit_introjs = function () {
                                     $('.div-over-svg').remove();
                                     $(window).scrollTop(0);
-                                    $scope.tutorial = false;
+                                    $rootScope.tutorial = false;
                                     localStorage.setItem("tuto-" + $scope.mod, "done");
                                 };
                                 introjs.onexit(exit_introjs);

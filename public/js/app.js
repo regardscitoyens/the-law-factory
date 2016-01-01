@@ -58,6 +58,7 @@ angular.module('theLawFactory', [
     $rootScope.$state = $state;
     $rootScope.APIRootUrl = API_ROOT_URL;
     $rootScope.error = '';
+    $rootScope.tutorial = false;
 
     $rootScope.display_error = function (e) {
         $log.error(e);
