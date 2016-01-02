@@ -46,24 +46,24 @@ angular.module('theLawFactory.directives', [])
                 $scope.setHelpText("Chaque boîte représente un article dont la taille indique la longueur du texte et la couleur le degré de modifications à cette étape. Cliquez sur un article pour lire le texte et voir le détail des modifications.");
                 $scope.vizTitle = "ARTICLES";
 
-                $scope.$watch('steps', function (value) {
-                    if (!value) return;
-                    update();
+                thelawfactory.utils.spinner.start();
+
+                api.getArticle($scope.loi).then(function (data) {
+                    $rootScope.lawTitle = data.short_title;
+                    $rootScope.pageTitle = $rootScope.lawTitle + " - Articles | ";
+                    $scope.currentstep = ($scope.steps && !$scope.steps[$scope.steps.length - 1].enddate ? $scope.steps[$scope.steps.length - 1] : undefined);
+                    $scope.articlesData = data;
+                }, function () {
+                    $scope.display_error("impossible de trouver les articles de ce texte");
                 });
 
-                function update() {
+                $scope.$watchGroup(['steps', 'articlesData'], function (values) {
+                    if (!values[0] || !values[1]) return;
+
                     var mod1 = thelawfactory.mod1();
-                    thelawfactory.utils.spinner.start();
-                    api.getArticle($scope.loi).then(function (data) {
-                        $rootScope.lawTitle = data.short_title;
-                        $rootScope.pageTitle = $rootScope.lawTitle + " - Articles | ";
-                        $scope.currentstep = ($scope.steps && !$scope.steps[$scope.steps.length - 1].enddate ? $scope.steps[$scope.steps.length - 1] : undefined);
-                        mod1(data, $scope.APIRootUrl, $scope.loi, $scope.currentstep, $scope.helpText);
-                        thelawfactory.utils.spinner.stop();
-                    }, function () {
-                        $scope.display_error("impossible de trouver les articles de ce texte");
-                    });
-                }
+                    mod1($scope.articlesData, $scope.APIRootUrl, $scope.loi, $scope.currentstep, $scope.helpText);
+                    thelawfactory.utils.spinner.stop();
+                });
 
                 $scope.revs = true;
 
