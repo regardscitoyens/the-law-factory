@@ -35,18 +35,18 @@ var accentMap = {
 
 /* Directives */
 
-angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootScope', '$location', '$compile',
-    function (api, $rootScope) {
+angular.module('theLawFactory.directives', [])
+    .directive('mod1', ['$rootScope', 'api', function ($rootScope, api) {
         return {
             restrict: 'A',
             replace: false,
             templateUrl: 'templates/mod1.html',
-            controller: function ($log, $scope) {
+            controller: function ($scope) {
                 $scope.mod = "mod1";
                 $scope.setHelpText("Chaque boîte représente un article dont la taille indique la longueur du texte et la couleur le degré de modifications à cette étape. Cliquez sur un article pour lire le texte et voir le détail des modifications.");
                 $scope.vizTitle = "ARTICLES";
 
-                $scope.$watch('steps', function(value) {
+                $scope.$watch('steps', function (value) {
                     if (!value) return;
                     update();
                 });
@@ -55,7 +55,6 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                     var mod1 = thelawfactory.mod1();
                     thelawfactory.utils.spinner.start();
                     api.getArticle($scope.loi).then(function (data) {
-                        $log.debug('articles loaded', data);
                         $rootScope.lawTitle = data.short_title;
                         $rootScope.pageTitle = $rootScope.lawTitle + " - Articles | ";
                         $scope.currentstep = ($scope.steps && !$scope.steps[$scope.steps.length - 1].enddate ? $scope.steps[$scope.steps.length - 1] : undefined);
@@ -88,7 +87,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                 };
             }
         };
-    }]).directive('mod2', ['api', '$rootScope', function (api, $rootScope) {
+    }]).directive('mod2', ['$rootScope', 'api', function ($rootScope, api) {
         return {
             restrict: 'A',
             replace: false,
@@ -182,8 +181,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                 }
             };
         }])
-    .directive('lawlist', ['api', '$rootScope', "$location",
-        function (api, $rootScope, $location) {
+    .directive('lawlist', ['$location', '$rootScope', 'api', function ($location, $rootScope, api) {
             return {
                 restrict: 'A',
                 replace: false,
@@ -302,7 +300,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                 }
             }
         }])
-    .directive('movescroll', ['$rootScope', function () {
+    .directive('movescroll', function () {
         return {
             restrict: 'A',
             controller: function ($scope) {
@@ -347,9 +345,8 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
                 });
             }
         };
-    }])
-    .directive('stepsbar', ['$timeout', 'api', '$rootScope', "$location",
-        function ($timeout, api, $rootScope) {
+    })
+    .directive('stepsbar', ['$timeout', '$rootScope', 'api', function ($timeout, $rootScope, api) {
             return {
                 restrict: 'A',
                 replace: false,
@@ -461,8 +458,7 @@ angular.module('theLawFactory.directives', []).directive('mod1', ['api', '$rootS
             }
         }
     ])
-    .directive('about', ['$rootScope', '$location', '$compile',
-        function ($rootScope) {
+    .directive('about', ['$rootScope', function ($rootScope) {
             return {
                 restrict: 'A',
                 replace: false,
