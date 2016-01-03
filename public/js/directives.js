@@ -560,6 +560,13 @@ angular.module('theLawFactory.directives', [])
                     }
                 };
 
+                // To be used potentially when wanting to autoactivate the tutorial on first visit by user
+                $scope.showFirstTimeTutorial = function () {
+                    $('#menu-tutorial span').tooltip();
+                    if (!localStorage.getItem("tuto-" + $scope.mod) || localStorage.getItem("tuto-" + $scope.mod) != "done")
+                        $scope.toggleTutorial();
+                };
+
                 function getSVGScale (t) {
                     t = t[0];
                     var xforms = t.transform.animVal,
