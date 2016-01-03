@@ -106,10 +106,10 @@ var valign, stacked, mod1Scope, aligned = true;
             return html.join('');
         }
 
-        function vis(selection) {
-            selection.each(function (data) {
-                var bigList = [];
-                var art = d3.values(data.articles);
+        function vis(data, APIRootUrl, loi, currentstep, helpText) {
+                var drawing = false,
+                    bigList = [],
+                    art = d3.values(data.articles);
 
                 art.sort(function (a, b) {
                     if (a.section === "echec") return (b.section === "echec" ? 0 : -1);
@@ -132,7 +132,6 @@ var valign, stacked, mod1Scope, aligned = true;
 
                 // Dynamic load of articles text at each step
                 function load_texte_articles() {
-                    console.log("yo");
                     var delay = 50;
                     d3.set(bigList.map(function (d) {
                         return d.directory;
@@ -140,7 +139,7 @@ var valign, stacked, mod1Scope, aligned = true;
                         .forEach(function (d) {
                             delay += 50;
                             setTimeout(function () {
-                                d3.json(encodeURI(mod1Scope.APIRootUrl + mod1Scope.loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
+                                d3.json(encodeURI(APIRootUrl + loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
                                     json.articles.forEach(function (a) {
                                         if (!textArticles[a.titre]) textArticles[a.titre] = {};
                                         textArticles[a.titre][d] = [];
@@ -148,7 +147,7 @@ var valign, stacked, mod1Scope, aligned = true;
                                             textArticles[a.titre][d].push(a.alineas[k]);
                                         });
                                     });
-                                    mod1Scope.to_load -= 1;
+                                    to_load -= 1;
                                 });
                             }, delay);
                         });
@@ -193,7 +192,7 @@ var valign, stacked, mod1Scope, aligned = true;
 
                 //compute stages and sections
                 var stages = computeStages(),
-                    columns = stages.length + (mod1Scope.currentstep ? 1 : 0),
+                    columns = stages.length + (currentstep ? 1 : 0),
                     sections = computeSections(),
                     sectHeight = 15,
                     sectJump = 25,
@@ -234,7 +233,7 @@ var valign, stacked, mod1Scope, aligned = true;
                     });
                 });
 
-                mod1Scope.to_load = d3.set(bigList.map(function (d) {
+                var to_load = d3.set(bigList.map(function (d) {
                     return d.directory;
                 })).values().length;
 
@@ -805,7 +804,7 @@ var valign, stacked, mod1Scope, aligned = true;
 
                         d3.rgb(d3.select(this).style("fill")).darker(2);
 
-                        if (mod1Scope.drawing) return;
+                        if (drawing) return;
 
                         var spin = !d.originalText || (!d.textDiff && d.prev_dir && (d.status == "sup" || d.n_diff) && d.id_step.substr(-5) != "depot");
                         if (spin) thelawfactory.utils.spinner.start('load_art');
@@ -821,7 +820,7 @@ var valign, stacked, mod1Scope, aligned = true;
                                 + "</p>" : "") +
                                 "<p><b>" + titre_etape(d) + "</b></p>" +
                                 (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-" + d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ?
-                                '<div class="gotomod' + (mod1Scope.read ? ' readmode' : '') + '"><a class="btn btn-info" href="amendements.html?loi=' + mod1Scope.loi + '&etape=' + d.directory + '&article=' + d.article + '">Explorer les amendements</a></div>' : '');
+                                '<div class="gotomod' + (mod1Scope.read ? ' readmode' : '') + '"><a class="btn btn-info" href="amendements.html?loi=' + loi + '&etape=' + d.directory + '&article=' + d.article + '">Explorer les amendements</a></div>' : '');
                             if (d.n_diff) {
                                 if (d.id_step.substr(-5) == "depot")
                                     descr += '<p class="comment"><b>Article déposé à cette étape</b></p>';
@@ -835,7 +834,7 @@ var valign, stacked, mod1Scope, aligned = true;
 
                             if (spin) {
                                 var waitload = setInterval(function () {
-                                    if (!mod1Scope.to_load) {
+                                    if (!to_load) {
 
                                         if (textArticles[d.article][d.directory] && d.status != "sup") {
                                             d.originalText = '<ul class="originaltext"><li><' + balise + '>' + $.map(textArticles[d.article][d.directory], function (i) {
@@ -875,22 +874,21 @@ var valign, stacked, mod1Scope, aligned = true;
 
                 $(document).ready(function () {
                     drawArticles();
-                    $(".art-txt").empty().html(mod1Scope.helpText);
+                    $(".art-txt").empty().html(helpText);
                     setTimeout(load_texte_articles, 50);
                     $(window).resize(function () {
-                        if (mod1Scope.drawing || $(".view").scope().mod != "mod1") return;
+                        if (drawing || $(".view").scope().mod != "mod1") return;
                         var selected_art = d3.selectAll(".curr");
                         if (selected_art[0].length) selected_art = selected_art[0][0].id;
                         else selected_art = "";
-                        mod1Scope.drawing = true;
+                        drawing = true;
                         setTimeout(function () {
                             drawArticles();
                             if (selected_art) $("#" + selected_art).d3Click();
-                            mod1Scope.drawing = false;
+                            drawing = false;
                         }, 50);
                     });
                 });
-            });
         }
 
         return vis;
