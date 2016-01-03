@@ -9,30 +9,13 @@ var valign, stacked, mod1Scope, aligned = true;
     thelawfactory.mod1 = function () {
 
         mod1Scope = $(".mod1").scope();
-        var textArticles = {};
-
-        function titre_etape(article) {
-            return article['id_step']
-                .replace('CMP_CMP', 'CMP')
-                .split('_')
-                .slice(1, 4)
-                .map(function (d) {
-                    return thelawfactory.utils.getLongName(d);
-                }
-            ).join(' ⋅ ');
-        }
 
         function clean_premier(s) {
             return (s ? s.replace(/1(<sup>)?er(<\/sup>)?/ig, '1') : '');
         }
 
-        function split_section(s) {
-            s = s.replace(/<[^>]*>/g, '');
-            return s.split(/([ALTCVS]+\d+[\s<\/>a-z]*(?:[A-Z]+$)?)/);
-        }
-
         function sub_section(s) {
-            s = split_section(s);
+            s = thelawfactory.mod1.split_section(s);
             return s.length > 1 ? s[s.length - 2] : s[0];
         }
 
@@ -41,39 +24,9 @@ var valign, stacked, mod1Scope, aligned = true;
         }
 
         function titre_parent(s, length) {
-            s = split_section(s);
+            s = thelawfactory.mod1.split_section(s);
             if (s.length > 1) s = s.slice(0, s.length - 2);
-            return titre_section(s.join(''), length);
-        }
-
-        function titre_section(s, length) {
-            if (!s) return s;
-            var res = "",
-                s = split_section(s);
-            var i, sLen = s.length;
-            for (i = 0; i < sLen; ++i) {
-                if (s[i]) {
-                    res += (res ? " ⋅ " : "");
-                    res += s[i].replace(/([LTCVS]+)(\d+e?r?)\s*([\sa-z]*)/, '$1 $2 $3')
-                        .replace(/1er?/g, '1<sup>er</sup>')
-                        .replace(/^SS( \d)/, (length ? (length == 1 ? "S-Sec." : "Sous-section") : "SS") + '$1')
-                        .replace(/^S( \d)/, (length ? (length == 1 ? "Sect." : "Section") : "S") + '$1')
-                        .replace("C ", (length ? (length == 1 ? "Chap." : "Chapitre") : "C") + " ")
-                        .replace("V ", (length ? (length == 1 ? "Vol." : "Volume") : "V") + " ")
-                        .replace("L ", (length ? "Livre" : "L") + " ")
-                        .replace("T ", (length ? "Titre" : "T") + " ");
-                }
-            }
-            return res;
-        }
-
-        function titre_article(article, length) {
-            var num = (article.newnum != undefined ? article.newnum : article.article)
-                    .replace(/1er?/, '1'),
-                newnum = (article.newnum != undefined ? " (" + article.article + ")" : "")
-                    .replace(/1er?/, '1<sup>er</sup>'),
-                res = (length ? (length == 1 ? "Art." : "Article ") : "A ");
-            return res + num + newnum;
+            return thelawfactory.mod1.titre_section(s.join(''), length);
         }
 
         function section_opacity(s) {
@@ -82,7 +35,7 @@ var valign, stacked, mod1Scope, aligned = true;
             if (s.lastIndexOf("A", 0) === 0)
                 return 0.65;
             try {
-                return 0.95 - 0.12 * (split_section(s).filter(function (d) {
+                return 0.95 - 0.12 * (thelawfactory.mod1.split_section(s).filter(function (d) {
                         return d != "";
                     }).length - 1);
             } catch (e) {
@@ -91,22 +44,7 @@ var valign, stacked, mod1Scope, aligned = true;
             }
         }
 
-        function diff_to_html(diffs) {
-            var html = [];
-            for (var x = 0; x < diffs.length; x++) {
-                var text = diffs[x][1].replace(/&/g, '&amp;')
-                        .replace(/</g, '&lt;').replace(/>/g, '&gt;'),
-                    typ = 'span';
-                if (diffs[x][0] != 0) {
-                    typ = 'del';
-                    if (diffs[x][0] == 1) typ = 'ins';
-                }
-                html.push('<' + typ + '>' + text.replace(/\n/g, '</' + typ + '></li><li><' + typ + '>') + '</' + typ + '>');
-            }
-            return html.join('');
-        }
-
-        function vis(data, APIRootUrl, loi, currentstep, helpText) {
+        function vis(data, currentstep, helpText, onClick) {
             var drawing = false,
                 bigList = [],
                 art = d3.values(data.articles);
@@ -129,29 +67,6 @@ var valign, stacked, mod1Scope, aligned = true;
                 }
                 return ao / a.steps.length - bo / b.steps.length;
             });
-
-            // Dynamic load of articles text at each step
-            function load_texte_articles() {
-                var delay = 50;
-                d3.set(bigList.map(function (d) {
-                    return d.directory;
-                })).values().sort()
-                    .forEach(function (d) {
-                        delay += 50;
-                        setTimeout(function () {
-                            d3.json(encodeURI(APIRootUrl + loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
-                                json.articles.forEach(function (a) {
-                                    if (!textArticles[a.titre]) textArticles[a.titre] = {};
-                                    textArticles[a.titre][d] = [];
-                                    Object.keys(a.alineas).sort().forEach(function (k) {
-                                        textArticles[a.titre][d].push(a.alineas[k]);
-                                    });
-                                });
-                                to_load -= 1;
-                            });
-                        }, delay);
-                    });
-            }
 
             //Utility functions
             function findStage(s) {
@@ -195,21 +110,7 @@ var valign, stacked, mod1Scope, aligned = true;
                 columns = stages.length + (currentstep ? 1 : 0),
                 sections = computeSections(),
                 sectHeight = 15,
-                sectJump = 25,
-                test_section_details = function (section, etape, field) {
-                    return (data.sections && data.sections[section] && data.sections[section][etape] && data.sections[section][etape][field] != undefined);
-                },
-                get_section_details = function (section, etape, field) {
-                    return (test_section_details(section, etape, field) ? data.sections[section][etape][field] : "");
-                },
-                format_section = function (obj, length) {
-                    var sec = (obj.section ? obj.section : obj);
-                    if (sec.lastIndexOf("A", 0) === 0)
-                        return titre_article(obj, length);
-                    if (length < 2 && sec)
-                        sec = sub_section(sec);
-                    return titre_section(sec, length);
-                };
+                sectJump = 25;
 
             if (sections.length < 2 && art.length == 1)
                 $("#menu-display .dropdown-toggle").addClass('disabled');
@@ -232,10 +133,6 @@ var valign, stacked, mod1Scope, aligned = true;
                     bigList.push(f);
                 });
             });
-
-            var to_load = d3.set(bigList.map(function (d) {
-                return d.directory;
-            })).values().length;
 
             var maxlen = d3.max(art, function (d) {
                 return d3.max(d.steps, function (e) {
@@ -267,14 +164,14 @@ var valign, stacked, mod1Scope, aligned = true;
             function article_hover(d) {
                 var div = d3.select(document.createElement("div")).style("width", "100%");
                 if (d.section.lastIndexOf("A", 0) !== 0)
-                    div.append("p").html("<small>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(data.sections[d.section][d.id_step]['newnum'], 2) + " (" + format_section(d, 1) + ')' : format_section(d, 2)) + "</small>");
-                div.append("p").html("<small>" + titre_etape(d) + "</small>");
+                    div.append("p").html("<small>" + (thelawfactory.mod1.test_section_details(data.sections, d.section, d.id_step, 'newnum') ? thelawfactory.mod1.titre_section(data.sections[d.section][d.id_step]['newnum'], 2) + " (" + thelawfactory.mod1.format_section(d, 1) + ')' : thelawfactory.mod1.format_section(d, 2)) + "</small>");
+                div.append("p").html("<small>" + thelawfactory.mod1.titre_etape(d) + "</small>");
                 if (d.n_diff == 0) div.append('p').text(d.status == "sup" ? "Supprimé à cette étape" : "Aucune modification");
                 else if (d.n_diff == 1 && d.id_step.substr(-5) !== "depot") div.append("p").text((d.prev_step ? "Réintroduit" : "Ajouté") + " à cette étape");
                 else if (d.id_step.substr(-5) != "depot") div.append("p").html("Modifications : " + d3.round(d['n_diff'] * 100, 2) + "&nbsp;%");
                 div.append("p").html("<small>Longueur du texte : " + d['length'] + " caractères</small>");
                 return {
-                    title: clean_premier(titre_article(d, 2)),
+                    title: clean_premier(thelawfactory.mod1.titre_article(d, 2)),
                     content: div,
                     placement: "mouse",
                     gravity: "bottom",
@@ -287,20 +184,20 @@ var valign, stacked, mod1Scope, aligned = true;
                 var title,
                     title_details,
                     div = d3.select(document.createElement("div")).style("width", "100%");
-                div.append("p").html("<small>" + titre_etape(d) + "</small>");
-                if (test_section_details(d.section, d.id_step, 'title') && d.section == "echec") {
+                div.append("p").html("<small>" + thelawfactory.mod1.titre_etape(d) + "</small>");
+                if (thelawfactory.mod1.test_section_details(data.sections, d.section, d.id_step, 'title') && d.section == "echec") {
                     title = d.status;
-                    title_details = get_section_details(d.section, d.id_step, 'title');
+                    title_details = thelawfactory.mod1.get_section_details(data.sections, d.section, d.id_step, 'title');
                 } else {
-                    if (test_section_details(d.section, d.id_step, 'newnum')) {
-                        var newnum = get_section_details(d.section, d.id_step, 'newnum');
-                        title = titre_section(newnum, 2) + " (" + num_sub_section(d.section) + ")";
-                        title_details = titre_section(newnum.replace(sub_section(newnum), ''), 2) + " (" + format_section(d, 1) + ')';
+                    if (thelawfactory.mod1.test_section_details(data.sections, d.section, d.id_step, 'newnum')) {
+                        var newnum = thelawfactory.mod1.get_section_details(data.sections, d.section, d.id_step, 'newnum');
+                        title = thelawfactory.mod1.titre_section(newnum, 2) + " (" + num_sub_section(d.section) + ")";
+                        title_details = thelawfactory.mod1.titre_section(newnum.replace(sub_section(newnum), ''), 2) + " (" + thelawfactory.mod1.format_section(d, 1) + ')';
                     } else {
-                        title = titre_section(d.section, 2);
+                        title = thelawfactory.mod1.titre_section(d.section, 2);
                         title_details = titre_parent(d.section, 2);
                     }
-                    title += (test_section_details(d.section, d.id_step, 'title') ? " : " + get_section_details(d.section, d.id_step, 'title') : "");
+                    title += (thelawfactory.mod1.test_section_details(data.sections, d.section, d.id_step, 'title') ? " : " + thelawfactory.mod1.get_section_details(data.sections, d.section, d.id_step, 'title') : "");
                 }
                 if (title_details) div.append("p").html("<small>" + title_details + "</small>");
                 return {
@@ -500,8 +397,8 @@ var valign, stacked, mod1Scope, aligned = true;
                                 if (data.sections && d.section === 'echec') return d.status;
                                 var sec;
                                 if (d.section.lastIndexOf("A", 0) === 0) sec = d;
-                                else sec = sub_section(test_section_details(d.section, d.id_step, 'newnum') ? data.sections[d.section][d.id_step]['newnum'] : d.section);
-                                return clean_premier(format_section(sec, longlabel));
+                                else sec = sub_section(thelawfactory.mod1.test_section_details(data.sections, d.section, d.id_step, 'newnum') ? data.sections[d.section][d.id_step]['newnum'] : d.section);
+                                return clean_premier(thelawfactory.mod1.format_section(sec, longlabel));
                             })
                             .popover(function (d) {
                                 return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))
@@ -616,8 +513,8 @@ var valign, stacked, mod1Scope, aligned = true;
                                     currY += lerp(f.length) + 1
                                 });
                                 // Identify section jumps
-                                var lastsplit = split_section(lastS);
-                                var cursplit = split_section(currS[currIdx].section);
+                                var lastsplit = thelawfactory.mod1.split_section(lastS);
+                                var cursplit = thelawfactory.mod1.split_section(currS[currIdx].section);
                                 while (lastsplit.length) {
                                     var newpiece = "";
                                     piece = "";
@@ -806,63 +703,7 @@ var valign, stacked, mod1Scope, aligned = true;
 
                     if (drawing) return;
 
-                    var spin = !d.originalText || (!d.textDiff && d.prev_dir && (d.status == "sup" || d.n_diff) && d.id_step.substr(-5) != "depot");
-                    if (spin) thelawfactory.utils.spinner.start('load_art');
-                    $(".art-txt").animate({opacity: 0}, 100, function () {
-                        $("#readMode").show();
-                        $("#text-title").empty();
-                        $(".art-meta").empty();
-                        $(".art-txt").empty();
-                        $("#text-title").html(titre_article(d, 2));
-                        thelawfactory.utils.setTextContainerHeight();
-                        var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " (" + format_section(d, 1) + ')' : format_section(d, 2)) + "</b>" +
-                            (test_section_details(d.section, d.id_step, 'title') ? " : " + get_section_details(d.section, d.id_step, 'title') : "")
-                            + "</p>" : "") +
-                            "<p><b>" + titre_etape(d) + "</b></p>" +
-                            (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-" + d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ?
-                            '<div class="gotomod' + (mod1Scope.read ? ' readmode' : '') + '"><a class="btn btn-info" href="amendements.html?loi=' + loi + '&etape=' + d.directory + '&article=' + d.article + '">Explorer les amendements</a></div>' : '');
-                        if (d.n_diff) {
-                            if (d.id_step.substr(-5) == "depot")
-                                descr += '<p class="comment"><b>Article déposé à cette étape</b></p>';
-                            else if (d.status == "new") descr += "<p><b>Article " + (d.prev_step ? "réintroduit" : "ajouté") + " à cette étape</b></p>";
-                        } else descr += '<p class="comment"><b>Article ' + (d.status == "sup" ? "supprimé" : "sans modification") + " à cette étape</b></p>";
-                        if ((d.n_diff || d.status == "sup") && d.status != "new") $("#revsMode").show();
-                        else $("#revsMode").hide();
-
-                        var balise = (d.id_step.substr(-5) != "depot" && d.status == "new" ? 'ins' : 'span');
-                        $(".art-meta").html(descr);
-
-                        if (spin) {
-                            var waitload = setInterval(function () {
-                                if (!to_load) {
-
-                                    if (textArticles[d.article][d.directory] && d.status != "sup") {
-                                        d.originalText = '<ul class="originaltext"><li><' + balise + '>' + $.map(textArticles[d.article][d.directory], function (i) {
-                                                return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
-                                            }).join("</" + balise + "></li><li><" + balise + ">") + "</" + balise + "></li></ul>";
-                                    } else d.originalText = "<p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
-
-                                    if (textArticles[d.article][d.prev_dir]) {
-                                        var dmp = new diff_match_patch();
-                                        dmp.Diff_Timeout = 5;
-                                        dmp.Diff_EditCost = 25;
-                                        var diff = dmp.diff_main(textArticles[d.article][d.prev_dir].join("\n"), textArticles[d.article][d.directory].join("\n"));
-                                        dmp.diff_cleanupEfficiency(diff);
-                                        d.textDiff = '<ul class="textdiff"><li>';
-                                        d.textDiff += diff_to_html(diff)
-                                            .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
-                                        d.textDiff += "</li></ul>";
-                                    } else d.textDiff += d.originalText;
-
-                                    thelawfactory.utils.spinner.stop(mod1Scope.update_revs_view, 'load_art');
-                                    clearInterval(waitload);
-                                }
-                            }, 100);
-                        } else {
-                            if (!d.textDiff) d.textDiff += d.originalText;
-                            mod1Scope.update_revs_view();
-                        }
-                    });
+                    onClick(d);
                 }
 
                 if (aligned) valign();
@@ -875,7 +716,6 @@ var valign, stacked, mod1Scope, aligned = true;
             $(document).ready(function () {
                 drawArticles();
                 $(".art-txt").empty().html(helpText);
-                setTimeout(load_texte_articles, 50);
                 $(window).resize(function () {
                     if (drawing || $(".view").scope().mod != "mod1") return;
                     var selected_art = d3.selectAll(".curr");
@@ -892,5 +732,74 @@ var valign, stacked, mod1Scope, aligned = true;
         }
 
         return vis;
+    };
+
+    thelawfactory.mod1.titre_section = function (s, length) {
+        if (!s) return s;
+        var res = "",
+            s = thelawfactory.mod1.split_section(s);
+        var i, sLen = s.length;
+        for (i = 0; i < sLen; ++i) {
+            if (s[i]) {
+                res += (res ? " ⋅ " : "");
+                res += s[i].replace(/([LTCVS]+)(\d+e?r?)\s*([\sa-z]*)/, '$1 $2 $3')
+                    .replace(/1er?/g, '1<sup>er</sup>')
+                    .replace(/^SS( \d)/, (length ? (length == 1 ? "S-Sec." : "Sous-section") : "SS") + '$1')
+                    .replace(/^S( \d)/, (length ? (length == 1 ? "Sect." : "Section") : "S") + '$1')
+                    .replace("C ", (length ? (length == 1 ? "Chap." : "Chapitre") : "C") + " ")
+                    .replace("V ", (length ? (length == 1 ? "Vol." : "Volume") : "V") + " ")
+                    .replace("L ", (length ? "Livre" : "L") + " ")
+                    .replace("T ", (length ? "Titre" : "T") + " ");
+            }
+        }
+        return res;
+    };
+
+    thelawfactory.mod1.format_section = function (obj, length) {
+        var sec = (obj.section ? obj.section : obj);
+        if (sec.lastIndexOf("A", 0) === 0)
+            return thelawfactory.mod1.titre_article(obj, length);
+        if (length < 2 && sec)
+            sec = sub_section(sec);
+        return utils.titre_section(sec, length);
+    };
+
+    thelawfactory.mod1.titre_article = function (article, length) {
+        var num = (article.newnum != undefined ? article.newnum : article.article)
+                .replace(/1er?/, '1'),
+            newnum = (article.newnum != undefined ? " (" + article.article + ")" : "")
+                .replace(/1er?/, '1<sup>er</sup>'),
+            res = (length ? (length == 1 ? "Art." : "Article ") : "A ");
+        return res + num + newnum;
+    };
+
+    thelawfactory.mod1.split_section = function (s) {
+        s = s.replace(/<[^>]*>/g, '');
+        return s.split(/([ALTCVS]+\d+[\s<\/>a-z]*(?:[A-Z]+$)?)/);
+    };
+
+    thelawfactory.mod1.test_section_details = function (sections, section, etape, field) {
+        return (sections && sections[section] && sections[section][etape] && sections[section][etape][field] != undefined);
+    };
+
+    thelawfactory.mod1.get_section_details = function (sections, section, etape, field) {
+        return (thelawfactory.mod1.test_section_details(sections, section, etape, field) ? sections[section][etape][field] : "");
+    };
+
+    thelawfactory.mod1.titre_etape = function (article) {
+        return article['id_step']
+            .replace('CMP_CMP', 'CMP')
+            .split('_')
+            .slice(1, 4)
+            .map(function (d) {
+                return thelawfactory.utils.getLongName(d);
+            }
+        ).join(' ⋅ ');
+    };
+
+    thelawfactory.mod1.findArticleStep = function(articles, article, step) {
+        return articles[article.replace(/\s/g, '_')].steps.filter(function(articleStep) {
+            return articleStep.directory === step;
+        })[0];
     };
 })();

@@ -72,8 +72,44 @@ angular.module('theLawFactory.services', ['theLawFactory.config'])
                         $log.debug('tutorials loaded', data);
                         return data;
                     });
+            },
+            getTexte: function (loi, directory) {
+                return $http.get(encodeURI(API_ROOT_URL + loi + "/procedure/" + directory + "/texte/texte.json"))
+                    .then(function(response) {
+                        response.data.directory = directory;
+                        return response.data;
+                    });
             }
         };
+
+        api.getTextArticles = function(loi, directories) {
+            var promises = directories
+                .sort()
+                .map(function(directory) {
+                    return api.getTexte(loi, directory)
+                });
+
+            return $q.all(promises).then(function(results) {
+                var textArticles = {};
+
+                results.forEach(function (texte) {
+                    texte.articles.forEach(function(article) {
+                        if (!textArticles[article.titre]) textArticles[article.titre] = {};
+                        textArticles[article.titre][texte.directory] = [];
+                        Object.keys(article.alineas)
+                            .sort()
+                            .forEach(function (k) {
+                                textArticles[article.titre][texte.directory].push(article.alineas[k]);
+                            });
+                    });
+                });
+
+                $log.debug('text articles loaded', textArticles);
+
+                return textArticles;
+            });
+        };
+
         return api;
     });
 

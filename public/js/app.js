@@ -31,7 +31,7 @@ angular.module('theLawFactory', [
             controller: 'mainCtrl'
         })
         .state('articles', {
-            url: '/articles.html?loi',
+            url: '/articles.html?loi&etape&article',
             template: '<div mod1 read-mode class="mod1"></div>',
             controller: 'mainCtrl'
         })

@@ -15,7 +15,7 @@
     </div>
 
     <div class="stb-steps">
-        <div class="stb-step stb-{{i.directory.substr(0, i.directory.search('_'))}}" ng-class="{'current': etape === i.directory}" style="width:{{(1/total)*100}}%" ng-repeat="i in steps">
+        <div class="stb-step stb-{{i.directory.substr(0, i.directory.search('_'))}}" ng-class="{'current': etape === i.directory && mod != 'mod1'}" style="width:{{(1/total)*100}}%" ng-repeat="i in steps">
 
             <div>
                 <span>
@@ -29,25 +29,25 @@
             <div class="stb-links">
                 <a
                     class="stb-link stb-amds"
-                    ng-show="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='mod2b'))"
+                    ng-show="i.nb_amendements"
                     data-toggle="tooltip"
                     data-placement="bottom"
                     title="Explorer les amendements"
                     href="amendements.html?loi={{loi}}&etape={{i.directory}}">
                     <span class="glyphicon glyphicon-folder-open"></span>
                 </a>
-                <span ng-hide="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='mod2b'))" class="stb-link glyphicon glyphicon-folder-open low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='mod2'}"></span>
+                <span ng-hide="i.nb_amendements" class="stb-link glyphicon glyphicon-folder-open low-vis" ng-class="{'stb-curr-st':etape==i.directory && i.nb_amendements}"></span>
 
                 <a
                     class="stb-link stb-ints"
-                    ng-show="i.has_interventions && (etape!=i.directory ||(etape==i.directory && mod=='mod2'))"
+                    ng-show="i.has_interventions"
                     data-toggle="tooltip"
                     data-placement="bottom"
                     title="Explorer les débats"
                     href="debats.html?loi={{loi}}&etape={{i.directory}}">
                     <span class="glyphicon glyphicon-comment"></span>
                 </a>
-                <span ng-hide="i.has_interventions && (etape!=i.directory ||(etape==i.directory && mod=='mod2'))" class="stb-link glyphicon glyphicon-comment low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='mod2b'}"></span>
+                <span ng-hide="i.has_interventions" class="stb-link glyphicon glyphicon-comment low-vis" ng-class="{'stb-curr-st':etape==i.directory && i.has_interventions}"></span>
             </div>
 
         </div>

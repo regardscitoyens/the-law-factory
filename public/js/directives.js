@@ -36,15 +36,14 @@ var accentMap = {
 /* Directives */
 
 angular.module('theLawFactory.directives', [])
-    .directive('mod1', ['$rootScope', 'api', function ($rootScope, api) {
+    .directive('mod1', ['$rootScope', '$timeout', '$state', 'api', function ($rootScope, $timeout, $state, api) {
         return {
             restrict: 'A',
             replace: false,
             templateUrl: 'templates/mod1.html',
             controller: function ($scope) {
                 $scope.mod = "mod1";
-                $scope.setHelpText("Chaque boîte représente un article dont la taille indique la longueur du texte et la couleur le degré de modifications à cette étape. Cliquez sur un article pour lire le texte et voir le détail des modifications.");
-                $scope.vizTitle = "ARTICLES";
+                $scope.mod1Ready = false;
 
                 thelawfactory.utils.spinner.start();
 
@@ -53,6 +52,8 @@ angular.module('theLawFactory.directives', [])
                     $rootScope.pageTitle = $rootScope.lawTitle + " - Articles | ";
                     $scope.currentstep = ($scope.steps && !$scope.steps[$scope.steps.length - 1].enddate ? $scope.steps[$scope.steps.length - 1] : undefined);
                     $scope.articlesData = data;
+
+                    fetchTextArticles(data);
                 }, function () {
                     $scope.display_error("impossible de trouver les articles de ce texte");
                 });
@@ -61,30 +62,64 @@ angular.module('theLawFactory.directives', [])
                     if (!values[0] || !values[1]) return;
 
                     var mod1 = thelawfactory.mod1();
-                    mod1($scope.articlesData, $scope.APIRootUrl, $scope.loi, $scope.currentstep, $scope.helpText);
+                    mod1($scope.articlesData, $scope.currentstep, $scope.helpText, onClick);
                     thelawfactory.utils.spinner.stop();
+                    $scope.mod1Ready =true;
                 });
 
-                $scope.revs = true;
+                $scope.$watchGroup(['article', 'etape', 'articlesData', 'mod1Ready'], function(values) {
+                    if (!values[0] || !values[1] || !values[2] || !values[3])
+                        return;
 
-                $scope.hiderevs = function () {
-                    $scope.revs = false;
-                    return $scope.update_revs_view();
-                };
+                    var d = thelawfactory.mod1.findArticleStep($scope.articlesData.articles, $scope.article, $scope.etape);
 
-                $scope.showrevs = function () {
-                    $scope.revs = true;
-                    return $scope.update_revs_view();
-                };
-
-                $scope.update_revs_view = function () {
-                    var d = d3.select('#viz .curr').data()[0];
-                    if ($scope.revs) {
-                        $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
-                    } else {
-                        $(".art-txt").html(d.originalText).animate({opacity: 1}, 350);
+                    if (!d) {
+                        $log.error('cannot find article ' + $scope.article + ' at step ' + $scope.etape);
                     }
-                };
+
+                    var articleId = ("#art-" + d.step_num + "-" + $scope.article).replace(/\s/g, ''),
+                        articleSelector = $(articleId),
+                        vizSelector = $("#viz");
+
+                    // Scroll if needed
+                    // XXX : we have to wail a little before rendering of articles is really finished
+                    $timeout(function() {
+                        if (vizSelector.height() < articleSelector.parent().offset().top - vizSelector.offset().top)
+                            vizSelector.animate({scrollTop: $("#art-2-8").parent().offset().top - $("#viz").offset().top}, 'slow');
+                    }, 500);
+
+                    articleSelector.d3Click();
+                });
+
+                function onClick(d) {
+                    safeApply($scope, function() {
+                        $scope.article = d.article;
+                        $scope.etape = d.directory;
+                        $state.go('articles', {loi: $scope.loi, article: d.article, etape: d.directory}, {notify: false});
+                    });
+                }
+
+                function fetchTextArticles(articlesData) {
+                    var directories = [];
+                    d3.values(articlesData.articles).forEach(function(article) {
+                        article.steps.forEach(function(step) {
+                            if (directories.indexOf(step.directory) === -1)
+                                directories.push(step.directory);
+                        });
+                    });
+
+                    api.getTextArticles($scope.loi, directories).then(function(textArticles) {
+                        $scope.textArticles = textArticles;
+                    });
+                }
+
+                function safeApply(scope, fn) {
+                    var phase = scope.$root.$$phase;
+                    if(phase == '$apply' || phase == '$digest')
+                        scope.$eval(fn);
+                    else
+                        scope.$apply(fn);
+                }
             }
         };
     }]).directive('mod2', ['$rootScope', 'api', function ($rootScope, api) {
@@ -651,4 +686,121 @@ angular.module('theLawFactory.directives', [])
                 };
             }
         }
-    });
+    }).directive('mod1Panel', ['$log', '$timeout', function ($log) {
+        return {
+            restrict: 'E',
+            replace: true,
+            templateUrl: 'templates/mod1-panel.html',
+            controller: function ($scope) {
+                $scope.setHelpText("Chaque boîte représente un article dont la taille indique la longueur du texte et la couleur le degré de modifications à cette étape. Cliquez sur un article pour lire le texte et voir le détail des modifications.");
+                $scope.vizTitle = "ARTICLES";
+                $scope.revs = true;
+
+                $scope.hiderevs = function () {
+                    $scope.revs = false;
+                    return $scope.update_revs_view();
+                };
+
+                $scope.showrevs = function () {
+                    $scope.revs = true;
+                    return $scope.update_revs_view();
+                };
+
+                $scope.update_revs_view = function () {
+                    var d = thelawfactory.mod1.findArticleStep($scope.articlesData.articles, $scope.article, $scope.etape);
+
+                    if (!d) {
+                        $log.error('cannot find article ' + $scope.article + ' at step ' + $scope.etape);
+                        return;
+                    }
+
+                    if ($scope.revs) {
+                        $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
+                    } else {
+                        $(".art-txt").html(d.originalText).animate({opacity: 1}, 350);
+                    }
+                };
+                
+                $scope.$watchGroup(['textArticles', 'article', 'etape'], function(values) {
+                    if (!values[0] || !values[1] || !values[2]) return;
+                    showDiff();
+                });
+                
+                function showDiff() {
+                    var d = thelawfactory.mod1.findArticleStep($scope.articlesData.articles, $scope.article, $scope.etape);
+
+                    if (!d) {
+                        $log.error('cannot find article ' + $scope.article + ' at step ' + $scope.etape);
+                        return;
+                    }
+
+                    var spin = !d.originalText || (!d.textDiff && d.prev_dir && (d.status == "sup" || d.n_diff) && d.id_step.substr(-5) != "depot");
+                    if (spin) thelawfactory.utils.spinner.start('load_art');
+                    $(".art-txt").animate({opacity: 0}, 100, function () {
+                        $("#readMode").show();
+                        $("#text-title").empty();
+                        $(".art-meta").empty();
+                        $(".art-txt").empty();
+                        $("#text-title").html(thelawfactory.mod1.titre_article(d, 2));
+                        thelawfactory.utils.setTextContainerHeight();
+                        var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (thelawfactory.mod1.test_section_details($scope.articlesData.sections, d.section, d.id_step, 'newnum') ? thelawfactory.mod1.titre_section(thelawfactory.mod1.get_section_details($scope.articlesData.sections, d.section, d.id_step, 'newnum'), 2) + " (" + thelawfactory.mod1.format_section(d, 1) + ')' : thelawfactory.mod1.format_section(d, 2)) + "</b>" +
+                            (thelawfactory.mod1.test_section_details($scope.articlesData.sections, d.section, d.id_step, 'title') ? " : " + thelawfactory.mod1.get_section_details($scope.articlesData.sections, d.section, d.id_step, 'title') : "")
+                            + "</p>" : "") +
+                            "<p><b>" + thelawfactory.mod1.titre_etape(d) + "</b></p>" +
+                            (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-" + d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ?
+                            '<div class="gotomod' + ($scope.read ? ' readmode' : '') + '"><a class="btn btn-info" href="amendements.html?loi=' + $scope.loi + '&etape=' + d.directory + '&article=' + d.article + '">Explorer les amendements</a></div>' : '');
+                        if (d.n_diff) {
+                            if (d.id_step.substr(-5) == "depot")
+                                descr += '<p class="comment"><b>Article déposé à cette étape</b></p>';
+                            else if (d.status == "new") descr += "<p><b>Article " + (d.prev_step ? "réintroduit" : "ajouté") + " à cette étape</b></p>";
+                        } else descr += '<p class="comment"><b>Article ' + (d.status == "sup" ? "supprimé" : "sans modification") + " à cette étape</b></p>";
+                        if ((d.n_diff || d.status == "sup") && d.status != "new") $("#revsMode").show();
+                        else $("#revsMode").hide();
+
+                        var balise = (d.id_step.substr(-5) != "depot" && d.status == "new" ? 'ins' : 'span');
+                        $(".art-meta").html(descr);
+
+                        if (spin) {
+                            if ($scope.textArticles[d.article][d.directory] && d.status != "sup") {
+                                d.originalText = '<ul class="originaltext"><li><' + balise + '>' + $.map($scope.textArticles[d.article][d.directory], function (i) {
+                                        return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
+                                    }).join("</" + balise + "></li><li><" + balise + ">") + "</" + balise + "></li></ul>";
+                            } else d.originalText = "<p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
+
+                            if ($scope.textArticles[d.article][d.prev_dir]) {
+                                var dmp = new diff_match_patch();
+                                dmp.Diff_Timeout = 5;
+                                dmp.Diff_EditCost = 25;
+                                var diff = dmp.diff_main($scope.textArticles[d.article][d.prev_dir].join("\n"), $scope.textArticles[d.article][d.directory].join("\n"));
+                                dmp.diff_cleanupEfficiency(diff);
+                                d.textDiff = '<ul class="textdiff"><li>';
+                                d.textDiff += diff_to_html(diff)
+                                    .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
+                                d.textDiff += "</li></ul>";
+                            } else d.textDiff += d.originalText;
+
+                            thelawfactory.utils.spinner.stop($scope.update_revs_view, 'load_art');
+                        } else {
+                            if (!d.textDiff) d.textDiff += d.originalText;
+                            $scope.update_revs_view();
+                        }
+                    });
+                }
+
+                function diff_to_html(diffs) {
+                    var html = [];
+                    for (var x = 0; x < diffs.length; x++) {
+                        var text = diffs[x][1].replace(/&/g, '&amp;')
+                                .replace(/</g, '&lt;').replace(/>/g, '&gt;'),
+                            typ = 'span';
+                        if (diffs[x][0] != 0) {
+                            typ = 'del';
+                            if (diffs[x][0] == 1) typ = 'ins';
+                        }
+                        html.push('<' + typ + '>' + text.replace(/\n/g, '</' + typ + '></li><li><' + typ + '>') + '</' + typ + '>');
+                    }
+                    return html.join('');
+                }
+            }
+        };
+    }]);
