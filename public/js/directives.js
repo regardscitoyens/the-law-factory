@@ -51,7 +51,6 @@ angular.module('theLawFactory.directives', [])
                 api.getArticle($scope.loi).then(function (data) {
                     $rootScope.lawTitle = data.short_title;
                     $rootScope.pageTitle = $rootScope.lawTitle + " - Articles | ";
-                    $scope.currentstep = ($scope.steps && !$scope.steps[$scope.steps.length - 1].enddate ? $scope.steps[$scope.steps.length - 1] : undefined);
                     $scope.articlesData = data;
                 }, function () {
                     $scope.display_error("impossible de trouver les articles de ce texte");
@@ -61,6 +60,7 @@ angular.module('theLawFactory.directives', [])
                     if (!values[0] || !values[1]) return;
 
                     var mod1 = thelawfactory.mod1();
+                    $scope.currentstep = ($scope.steps && !$scope.steps[$scope.steps.length - 1].enddate ? $scope.steps[$scope.steps.length - 1] : undefined);
                     mod1($scope.articlesData, $scope.APIRootUrl, $scope.loi, $scope.currentstep, $scope.helpText);
                     thelawfactory.utils.spinner.stop();
                 });
