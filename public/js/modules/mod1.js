@@ -270,33 +270,34 @@ var valign, stacked, mod1Scope, aligned = true;
                 };
             }
 
-            function section_hover(d) {
+            function section_hover(d, curS) {
                 var title,
                     title_details,
-                    div = d3.select(document.createElement("div")).style("width", "100%");
-                div.append("p").html("<small>" + titre_etape(d) + "</small>");
-                if (test_section_details(d.section, d.id_step, 'title') && d.section == "echec") {
+                    div = d3.select(document.createElement("div")).style("width", "100%"),
+                    curS = curS || d.section;
+                div.append("p").html("<small>"+titre_etape(d)+"</small>");
+                if (test_section_details(curS, d.id_step, 'title') && curS == "echec") {
                     title = d.status;
-                    title_details = get_section_details(d.section, d.id_step, 'title');
+                    title_details = get_section_details(curS, d.id_step, 'title');
                 } else {
-                    if (test_section_details(d.section, d.id_step, 'newnum')) {
-                        var newnum = get_section_details(d.section, d.id_step, 'newnum');
-                        title = titre_section(newnum, 2) + " (" + num_sub_section(d.section) + ")";
+                    if (test_section_details(curS, d.id_step, 'newnum')) {
+                        var newnum = get_section_details(curS, d.id_step, 'newnum');
+                        title = titre_section(newnum, 2) + " (" + num_sub_section(curS) + ")";
                         title_details = titre_section(newnum.replace(sub_section(newnum), ''), 2) + " (" + format_section(d, 1) + ')';
                     } else {
-                        title = titre_section(d.section, 2);
-                        title_details = titre_parent(d.section, 2);
+                        title = titre_section(curS, 2);
+                        title_details = titre_parent(curS, 2);
                     }
-                    title += (test_section_details(d.section, d.id_step, 'title') ? " : " + get_section_details(d.section, d.id_step, 'title') : "");
+                    title += (test_section_details(curS, d.id_step, 'title') ? " : " + get_section_details(curS, d.id_step, 'title') : "");
                 }
                 if (title_details) div.append("p").html("<small>" + title_details + "</small>");
                 return {
-                    title: clean_premier(title),
-                    content: div,
-                    placement: "mouse",
-                    gravity: "bottom",
-                    displacement: [-140, 15],
-                    mousemove: true
+                    title : clean_premier(title),
+                    content : div,
+                    placement : "mouse",
+                    gravity : "bottom",
+                    displacement : [-140, 15],
+                    mousemove : true
                 };
             }
 
@@ -446,7 +447,7 @@ var valign, stacked, mod1Scope, aligned = true;
                                         .attr("height", sectHeight)
                                         .style("opacity", section_opacity(curS))
                                         .popover(function () {
-                                            return section_hover(d)
+                                            return section_hover(d, curS)
                                         });
                                 }
                             });
@@ -494,7 +495,7 @@ var valign, stacked, mod1Scope, aligned = true;
                                         .attr("y", d.y - 4 - ct * sectHeight)
                                         .attr("class", "head-lbl")
                                         .popover(function () {
-                                            return section_hover(d)
+                                            return section_hover(d, curS)
                                         })
                                         .text(clean_premier(titre_section(sub_section(curS), longlabel)));
                                     ct++;
