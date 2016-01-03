@@ -55,9 +55,10 @@ reset_filters();
 
     thelawfactory.mod0 = function () {
 
-        function vis(selection) {
+        function vis(data, APIRootUrl, vizTitle, helpText) {
             mod0Scope = $('.mod0').scope();
-            var legendcontainer = d3.select("#legend").append("svg"),
+            var drawing = false,
+                legendcontainer = d3.select("#legend").append("svg"),
                 ganttcontainer = d3.select("#gantt").append("svg").attr("id", "modOsvg"),
                 lawscont, grid,
                 currFile,
@@ -75,7 +76,7 @@ reset_filters();
                 steph = lawh - 16,
                 z = 1,
                 layout = "t",
-                maxstat = 24, binstat = 30,
+                maxstat = 24,binstat = 30,
                 get_stat_bin = function (v) {
                     return Math.min(maxstat, Math.ceil((v - 1) / binstat)) * binstat;
                 },
@@ -215,7 +216,7 @@ reset_filters();
                 $("#gantt").scrollLeft(perc * width * z - $("#gantt").width() / 2);
             };
 
-            selection.each(function (data) {
+
                 drawGantt = function (action) {
                     setMod0Size();
                     thelawfactory.utils.setTextContainerHeight();
@@ -407,7 +408,7 @@ reset_filters();
 
                 // function used for multiple data files - progressive loading
                 function dynamicLoad() {
-                    d3.json(mod0Scope.APIRootUrl + currFile, function (error, json) {
+                    d3.json(APIRootUrl + currFile, function (error, json) {
                         data = json;
                         prepareData();
                         currFile = json.next_page;
@@ -835,9 +836,9 @@ reset_filters();
 
                 function unclick() {
                     selected_bill = "";
-                    $("#text-title").text(mod0Scope.vizTitle);
+                    $("#text-title").text(vizTitle);
                     $("#text-title").attr('data-original-title', "").tooltip('fixTitle');
-                    $(".text-container").empty().html(mod0Scope.helpText);
+                    $(".text-container").empty().html(helpText);
                     d3.selectAll(".g-law").style("opacity", 1);
                 }
 
@@ -970,7 +971,7 @@ reset_filters();
                     extrainfo += '<a href="' + d.url_dossier_senat + '" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Sénat</a> &nbsp; &nbsp; ';
                     extrainfo += '<a href="' + d.url_dossier_assemblee + '" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Assemblée</a>';
                     extrainfo += d.url_jo ? '<br/><a href="' + d.url_jo + '" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur Légifrance</a>' : '';
-                    extrainfo += ' &nbsp; &nbsp; <a href="' + mod0Scope.APIRootUrl + d.id + '/" target="_blank"><span class="glyphicon glyphicon-link"></span> OpenData</a>';
+                    extrainfo += ' &nbsp; &nbsp; <a href="' + APIRootUrl + d.id + '/" target="_blank"><span class="glyphicon glyphicon-link"></span> OpenData</a>';
                     extrainfo += ' / <a href="http://git.lafabriquedelaloi.fr/parlement/' + d.id + '/" target="_blank">Git</a>';
                     extrainfo += '</small>';
                     extrainfo += '</p>';
@@ -1052,17 +1053,14 @@ reset_filters();
                     setTimeout((currFile ? dynamicLoad : drawGantt), 0);
                     $("#text-title").tooltip();
                     $(window).resize(function () {
-                        if (mod0Scope.drawing || $(".view").scope().mod != "mod0") return;
-                        mod0Scope.drawing = true;
+                        if (drawing || $(".view").scope().mod != "mod0") return;
+                        drawing = true;
                         setTimeout(function () {
                             drawGantt("resize");
-                            mod0Scope.drawing = false;
+                            drawing = false;
                         }, 350);
                     });
                 });
-
-
-            });
         }
 
         return vis;
