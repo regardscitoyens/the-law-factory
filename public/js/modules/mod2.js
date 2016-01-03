@@ -27,7 +27,7 @@ var utils, highlight;
         selection.each(function(d,i){
             utils.groups = d.groupes;
             articles=d.sujets;
-            api_root=d.api_root_url;
+            api_root=d.api_root_url.replace(/^https?:/, '');
         });
         if (Object.keys(articles).length < 2)
             $('#display_menu').parent().hide();
