@@ -761,7 +761,7 @@ var valign, stacked, mod1Scope, aligned = true;
             return thelawfactory.mod1.titre_article(obj, length);
         if (length < 2 && sec)
             sec = sub_section(sec);
-        return utils.titre_section(sec, length);
+        return thelawfactory.mod1.titre_section(sec, length);
     };
 
     thelawfactory.mod1.titre_article = function (article, length) {
