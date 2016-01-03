@@ -45,6 +45,19 @@ angular.module('theLawFactory.directives', [])
                 $scope.mod = "mod1";
                 $scope.setHelpText("Chaque boîte représente un article dont la taille indique la longueur du texte et la couleur le degré de modifications à cette étape. Cliquez sur un article pour lire le texte et voir le détail des modifications.");
                 $scope.vizTitle = "ARTICLES";
+                $scope.chronomissing = true;
+
+                // Hack pour cacher le bouton retour chrono quand il marche pas sur les textes en cours
+                $rootScope.lawlist = $rootScope.lawlist || [];
+                $rootScope.$watch('lawlist', function(value) {
+                    if (!value) return;
+                    for (var i = 0; i < $rootScope.lawlist.length; i++) {
+                        if ($rootScope.lawlist[i].id === $scope.loi) {
+                            $scope.chronomissing = false;
+                            break;
+                        }
+                    }
+                });
 
                 thelawfactory.utils.spinner.start();
 
@@ -205,7 +218,7 @@ angular.module('theLawFactory.directives', [])
                                 return law;
                             });
 
-                            document.lawlist = laws;
+                            $rootScope.lawlist = laws;
 
                             $("#search").mouseenter(function () {
                                 $(".form-law").css('opacity', 1);
