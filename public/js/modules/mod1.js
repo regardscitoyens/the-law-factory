@@ -154,15 +154,6 @@ var valign, stacked, mod1Scope, aligned = true;
             }
 
             //Utility functions
-            function findStage(s) {
-                var istage, stageLen = stages.length;
-                for (istage = 0; istage < stageLen; ++istage) {
-                    if (s === stages[istage])
-                        return istage;
-                }
-                return -1;
-            }
-
             function computeStages() {
                 var stages = [];
 
@@ -184,10 +175,6 @@ var valign, stacked, mod1Scope, aligned = true;
                     })
                     .entries(art)
                     .map(function(d) { return d.key; });
-            }
-
-            function findSection(s) {
-                return sections.indexOf(s);
             }
 
             //compute stages and sections
@@ -221,8 +208,8 @@ var valign, stacked, mod1Scope, aligned = true;
                     f.section = d.section;
                     f.prev_step = null;
                     f.prev_dir = null;
-                    f.sect_num = findSection(f.section);
-                    f.step_num = findStage(f.id_step);
+                    f.sect_num = sections.indexOf(f.section);
+                    f.step_num = stages.indexOf(f.id_step);
                     if (j != 0 && f.id_step.substr(-5) != "depot") {
                         k = j - 1;
                         while (k > 0 && d.steps[k].status === "echec") k--;
@@ -361,7 +348,7 @@ var valign, stacked, mod1Scope, aligned = true;
                                 return lerp(d.length)
                             })
                             .attr("class", function (d) {
-                                return "article " + d.section.replace(/ |<|\/|>|/g, "") + " sect" + findStage(d.id_step);
+                                return "article " + d.section.replace(/ |<|\/|>|/g, "") + " sect" + d.step_num;
                             })
                             .classed('article-first', function (d) {
                                 if (!firstamade && st > 2 && d.n_diff && d.status != "new") {
