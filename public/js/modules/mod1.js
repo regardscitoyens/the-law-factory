@@ -368,8 +368,6 @@ var valign, stacked, mod1Scope, aligned = true;
                             }))
                             .enter().append("rect")
                             .attr("class", "new")
-                            .style("stroke", "none")
-                            .style("fill", '#8DF798')
                             .attr("y", function (d) {
                                 return d.y + 1
                             })
@@ -379,7 +377,6 @@ var valign, stacked, mod1Scope, aligned = true;
                             .attr("height", function (d) {
                                 return lerp(d.length) - 2
                             })
-                            .attr("width", 6)
                             .on("click", onclick)
                             .popover(article_hover);
 
@@ -390,8 +387,6 @@ var valign, stacked, mod1Scope, aligned = true;
                             }))
                             .enter().append("rect")
                             .attr("class", "sup")
-                            .style("stroke", "none")
-                            .style("fill", '#FD5252')
                             .attr("y", function (d) {
                                 return d.y + 1
                             })
@@ -401,7 +396,6 @@ var valign, stacked, mod1Scope, aligned = true;
                             .attr("height", function (d) {
                                 return lerp(d.length) - 2
                             })
-                            .attr("width", 6)
                             .on("click", onclick)
                             .popover(article_hover);
 
@@ -417,15 +411,12 @@ var valign, stacked, mod1Scope, aligned = true;
                             .attr("y", function (d) {
                                 return d.y - sectHeight
                             })
-                            .attr("class", "header")
+                            .classed("header", true)
+                            .classed("echec", function(d) { return d.section === 'echec'})
                             .attr("width", colwidth)
                             .attr("height", function (d) {
                                 return (d.section === 'echec' ? maxy - 50 : sectHeight);
                             })
-                            .style("fill", function (d) {
-                                return (d.section === 'echec' ? "#FD5252" : "#716259")
-                            })
-                            .style("stroke", "none")
                             .style("opacity", function (d) {
                                 return section_opacity(d.section)
                             })
@@ -453,8 +444,6 @@ var valign, stacked, mod1Scope, aligned = true;
                                         .attr("class", "header")
                                         .attr("width", colwidth)
                                         .attr("height", sectHeight)
-                                        .style("fill", "#716259")
-                                        .style("stroke", "none")
                                         .style("opacity", section_opacity(curS))
                                         .popover(function () {
                                             return section_hover(d)
@@ -474,15 +463,8 @@ var valign, stacked, mod1Scope, aligned = true;
                             .attr("y", function (d) {
                                 return d.y - (d.section === 'echec' ? 2 : 4)
                             })
-                            .attr("class", "head-lbl")
-                            .attr("font-family", "sans-serif")
-                            .attr("text-anchor", "middle")
-                            .attr("letter-spacing", "0.2em")
-                            .attr("font-size", function (d) {
-                                return (d.section === 'echec' ? '10px' : '9px')
-                            })
-                            .attr("font-weight", "bold")
-                            .style("fill", 'white')
+                            .classed("head-lbl", true)
+                            .classed("echec", function(d) {return d.section === 'echec';})
                             .text(function (d) {
                                 if (data.sections && d.section === 'echec') return d.status;
                                 var sec;
@@ -511,12 +493,6 @@ var valign, stacked, mod1Scope, aligned = true;
                                         .attr("x", d.x - 2 + colwidth / 2)
                                         .attr("y", d.y - 4 - ct * sectHeight)
                                         .attr("class", "head-lbl")
-                                        .attr("font-family", "sans-serif")
-                                        .attr("text-anchor", "middle")
-                                        .attr("letter-spacing", "0.2em")
-                                        .attr("font-size", '9px')
-                                        .attr("font-weight", "bold")
-                                        .style("fill", 'white')
                                         .popover(function () {
                                             return section_hover(d)
                                         })

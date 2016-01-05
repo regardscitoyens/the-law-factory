@@ -322,13 +322,48 @@ body{
 }
 
 .mod1 #viz {
-    height:100%;
-    overflow-y:auto;
+	height: 100%;
+	overflow-y: auto;
+}
+
+.mod1 .head-lbl {
+	font-family: sans-serif;
+	text-anchor: middle;
+	letter-spacing: 0.2em;
+	font-weight: bold;
+	fill: white;
+	font-size: 9px;
+}
+
+.mod1 .head-lbl.echec {
+	font-size: 10px;
+}
+
+.mod1 .header {
+	fill: #716259;
+	stroke: none;
+}
+
+.mod1 .header.echec {
+	fill: #FD5252;
+}
+
+.mod1 .new {
+	stroke: none;
+	fill: #8DF798;
+	width: 6px;
+}
+
+.mod1 .sup {
+	stroke: none;
+	fill: #FD5252;
+	width: 6px;
 }
 
 .mod2 .viz-container, .mod0 .viz-container{
     height: 100%;
 }
+
 .viz-container h4{
 	text-align:center;
 	padding:20px 4px;
