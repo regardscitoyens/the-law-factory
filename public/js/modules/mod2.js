@@ -76,7 +76,7 @@ var utils, highlight;
                 if (utils.groups[a].order < utils.groups[b].order) return -1;
                 if (utils.groups[a].order > utils.groups[b].order) return 1;
             },
-            statsorder = {"adopté": 0, "rejeté": 1, "non-voté": 2},
+            statsorder = {"adopté": 0, "rejeté": 1, "non-voté": 2, "en attente": 3},
             compare_stats = function(a,b){
                 if (statsorder[a] < statsorder[b]) return -1;
                 if (statsorder[a] > statsorder[b]) return 1;
@@ -315,7 +315,7 @@ var utils, highlight;
             $(".text-container").empty();
             utils.setTextContainerHeight();
             utils.startSpinner('load_amd');
-            setTimeout(function(){ d3.json(api_root+d.id_api+'/json',function(error, json){
+            setTimeout(function(){ d3.json(api_root+d.id_api+'/json?'+new Date(),function(error, json){
                 var currAmd = json.amendement,
                     source_am = '.fr</a> &nbsp; &nbsp; <a href="'+currAmd.source+'" target="_blank"><span class="glyphicon glyphicon-link"></span>',
                     statico = get_status_img(d),
