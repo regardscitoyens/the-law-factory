@@ -102,21 +102,25 @@ function(api, $rootScope, $location, $compile) {
         },
         link : function postLink(scope, element, attrs) {
 
-            var mod2 = thelawfactory.mod2();
+            var mapper = thelawfactory.amendements();
+            var resize = thelawfactory.amendements.resize;
 
             function update() {
 
                 scope.startSpinner();
 
                 if (scope.etape != null) api.getAmendement(scope.loi, scope.etape).then(function(data) {
-                    scope.data = data;
                     $rootScope.pageTitle =  $rootScope.lawTitle + " - Amendements | ";
-                    d3.select(element[0]).datum(data).call(mod2);
+                    scope.data = mapper(data);
+
+                    resize();
                 }, function(error) {
                     scope.display_error("impossible de trouver les amendements pour ce texte à cette étape");
                 });
             }
             update();
+
+            $(window).on('resize', resize);
         }
     }
 }])

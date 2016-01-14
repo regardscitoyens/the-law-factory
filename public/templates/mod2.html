@@ -39,11 +39,45 @@
 
         <div class="main-sc">
           <div id="viz">
-            <div id="preload"></div>
+            <div class="sujet" ng-repeat="sujet in data.sujets">
+              <div class="titre" onclick="thelawfactory.amendements.focus(this);">{{ sujet.titre }}</div>
+              <div class="amendements">
+                <div class="amendement"
+                  style="background-color: {{ adjustColor(amdt.color).toString() }}; background-image: url({{ amdt.sort_image }});"
+                  onclick="thelawfactory.amendements.select(this, {{ amdt }});"
+                  ng-repeat="amdt in sujet.amdts_groupe">
+                  <div class="amendement-tooltip">
+                    <div class="numero">Amendement {{ amdt.numero }}</div>
+                    <div class="groupe">{{ data.groupes[amdt.groupe].nom }}</div>
+                    <div class="sort">Sort: {{ amdt.sort }}</div>
+                    <div class="date">{{ amdt.date }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="legend">LÉGENDE<div class="colors"></div><div class="others"></div></div>
+        <div class="legend">
+          LÉGENDE
+          <div class="colors">
+            <div class="leg-item" ng-repeat="(key, groupe) in data.legende.groupes">
+              <div class="leg-value" style="background-color: {{ adjustColor(groupe.color).toString() }};"></div>
+              <div class="leg-key">{{ key }}</div>
+            </div>
+          </div>
+          <div class="others">
+            <div class="leg-item" ng-repeat="groupe in [data.groupes.Gouvernement]">
+              <div class="leg-value" style="background-color: {{ adjustColor(groupe.color).toString() }};"></div>
+              <div class="leg-key">Gouvernement</div>
+            </div>
+            <div class="leg-item"></div>
+            <div class="leg-item" ng-repeat="(sort, image) in data.legende.sorts">
+              <div class="leg-value leg-sort" style="background-image: url({{ image }});"></div>
+              <div class="leg-key">{{ sort }}</div>
+            </div>
+          </div>
+        </div>
         <div class="clear"></div>
       </div>
 
@@ -63,4 +97,4 @@
 
   </div>
 </div>
-<script type="text/javascript" src="js/modules/mod2.js"></script>
+<script type="text/javascript" src="js/modules/amendements.js"></script>
