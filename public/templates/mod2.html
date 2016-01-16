@@ -45,9 +45,9 @@
         </div>
 
         <div class="main-sc">
-          <div id="viz" ng-class="data.colonnes">
-            <div class="sujet" ng-cloak ng-repeat="sujet in data.sujets">
-              <div class="titre" todo-onclick="thelawfactory.amendements.focus(this);">{{ sujet.titre }}</div>
+          <div id="viz" class="{{ data.colonnes }} {{ article ? 'focus-mode' : '' }}" ng-click="focusSubject($event)">
+            <div ng-cloak class="sujet {{ article === sujet.article ? 'focus' : '' }}" ng-repeat="sujet in data.sujets" data-article="{{ sujet.article }}">
+              <div class="titre" ng-click="focusSubject($event, sujet.article)">{{ sujet.titre }}</div>
               <div class="amendements">
                 <div class="amendement amendement-{{ amdt.id_api }}"
                   style="background-color: {{ amdt.color }}; background-image: url({{ amdt.sort_image }});"      

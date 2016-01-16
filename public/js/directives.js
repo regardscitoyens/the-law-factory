@@ -175,6 +175,9 @@ angular.module('theLawFactory.directives', [])
                     .forEach(function(key) {
                         var sujet = apiData.sujets[key];
 
+                        // Extraction numero d'article
+                        sujet.article = sujet.details.replace(/^article /, '');
+
                         // Ajout image et couleur du groupe aux amendements
                         sujet.amendements.forEach(function(amdt) {
                             amdt.sort_image = sort_image[amdt.sort];
@@ -308,6 +311,21 @@ angular.module('theLawFactory.directives', [])
                             thelawfactory.utils.spinner.stop('load_amd');
                             $scope.display_error("impossible de trouver le contenu de cet amendement");
                         });
+                    }
+                };
+
+                // Focus sur un sujet
+                $scope.focusSubject = function($event, article) {
+                    var $target = $($event.target);
+                    if ($target.hasClass('amendement')) {
+                        if ($target.parents('.sujet').attr('data-article') === $scope.article) return;
+                    }
+
+                    if (!article) {
+                        $scope.article = null;
+                    } else {
+                        $event.stopPropagation();
+                        $scope.article = article;
                     }
                 };
 

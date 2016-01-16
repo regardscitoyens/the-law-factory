@@ -379,6 +379,10 @@ body{
 
 .mod2 .sujet {
     padding: 15px 20px 0 30px;
+    -webkit-transition: opacity 0.25s ease-in-out;
+    -moz-transition: opacity 0.25s ease-in-out;
+    -o-transition: opacity 0.25s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
 }
 .mod2 .colonnes .sujet {
     width: 50%;
@@ -392,6 +396,7 @@ body{
 }
 .mod2 .sujet .titre {
     font-size: 0.9em;
+    cursor: pointer;
 }
 .mod2 .focus-mode .sujet {
     opacity: 0.25;
