@@ -45,7 +45,7 @@
         </div>
 
         <div class="main-sc">
-          <div id="viz">
+          <div id="viz" ng-class="data.colonnes">
             <div class="sujet" ng-cloak ng-repeat="sujet in data.sujets">
               <div class="titre" todo-onclick="thelawfactory.amendements.focus(this);">{{ sujet.titre }}</div>
               <div class="amendements">

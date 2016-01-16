@@ -128,7 +128,7 @@ angular.module('theLawFactory.directives', [])
                     }, tri = {
                         "sort": tri_amdts_sort,
                         "groupe": tri_amdts_groupe
-                    }, groupes;
+                    }, groupes, availableWidth, columnsThreshold = 0;
 
                 function cssColor(col)              { return thelawfactory.utils.adjustColor(col).toString(); }
                 function compare_sujets(a, b)       { return a.order - b.order; }
@@ -150,6 +150,7 @@ angular.module('theLawFactory.directives', [])
                         };
                     }
 
+                    var max_amdts = 0;
                     var tri_amdts = tri[$scope.sortOrder] || compare_amdts_numero;
                     var data = { 
                         groupes: groupes,
@@ -157,7 +158,8 @@ angular.module('theLawFactory.directives', [])
                             groupes: {},
                             sorts: {}
                         },
-                        sujets: []
+                        sujets: [],
+                        colonnes: ''
                     };
 
                     if ($scope.group) {
@@ -184,6 +186,8 @@ angular.module('theLawFactory.directives', [])
                             // Regroupement de tous les amendements
                             data.sujets[0].amendements = data.sujets[0].amendements.concat(sujet.amendements);
                         } else {
+                            max_amdts = Math.max(max_amdts, sujet.amendements.length);
+
                             // Tri des amendements du sujet
                             sujet.amendements.sort(tri_amdts);
 
@@ -196,6 +200,13 @@ angular.module('theLawFactory.directives', [])
                         // Tri des amendements
                         data.sujets[0].amendements.sort(tri_amdts);
                     } else {
+                        // Seuil de bascule en mode 2 colonnes
+                        columnsThreshold = (1 + max_amdts) * 2;
+
+                        if (columnsThreshold  < availableWidth) {
+                            data.colonnes = 'colonnes';
+                        }
+
                         // Tri des sujets
                         data.sujets.sort(compare_sujets);
                     }
@@ -224,17 +235,36 @@ angular.module('theLawFactory.directives', [])
 
                     $timeout(function() {
                         resize();
-
                         if ($scope.selectedAmdt) {
                             $('.amendement-' + $scope.selectedAmdt.id_api).addClass('selected');
                         }
                     }, 0);
                 }
 
+                /* Calcul du nombre d'amendements max en largeur:
+                 * (Largeur du conteneur - (marge interne horizontale = 50px))
+                 *   /
+                 * (taille 1 amendement = 20x + marge inter-amendement = 1px)
+                 */
+                function computeAvailableWidth() {
+                    availableWidth = Math.floor(($('#viz').width() - 50) / 21);
+                }
+
                 // Redimensionne les conteneurs
                 function resize() {
                     thelawfactory.utils.setModSize("#viz", 1)();
                     thelawfactory.utils.setTextContainerHeight();
+
+                    computeAvailableWidth();
+
+                    // Gestion de la bascule 1 ou 2 colonnes
+                    if (columnsThreshold !== 0) {
+                        if (columnsThreshold < availableWidth) {
+                            $('#viz').addClass('colonnes');
+                        } else {
+                            $('#viz').removeClass('colonnes');
+                        }
+                    }
                 }
                 
                 // Lit les données depuis l'API et déclenche le redessin
