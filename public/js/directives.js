@@ -243,10 +243,10 @@ angular.module('theLawFactory.directives', [])
                 /* Calcul du nombre d'amendements max en largeur:
                  * (Largeur du conteneur - (marge interne horizontale = 50px))
                  *   /
-                 * (taille 1 amendement = 20x + marge inter-amendement = 1px)
+                 * (taille 1 amendement = 20px)
                  */
                 function computeAvailableWidth() {
-                    availableWidth = Math.floor(($('#viz').width() - 50) / 21);
+                    availableWidth = Math.floor(($('#viz').width() - 50) / 20);
                 }
 
                 // Redimensionne les conteneurs

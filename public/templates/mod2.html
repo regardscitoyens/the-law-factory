@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <ul id="menu-left" class="nav navbar-nav">
         <li class="active" id="menu-back"><a ng-href="articles.html?loi={{loi}}">&lt; Voir les articles du texte</a></li>
-        <li class="dropdown">
+        <li class="dropdown" id="menu-display">
           <span ng-cloak class="dropdown-toggle" data-toggle="dropdown">
             Vue {{ group ? 'groupée' : 'par articles' }}
             <b class="caret"></b>
@@ -14,7 +14,7 @@
             <li><a class="{{ group ? 'chosen' : '' }}" ng-click="group = true">groupée</a></li>
           </ul>
         </li>
-        <li class="dropdown">
+        <li class="dropdown" id="menu-order">
           <span ng-cloak class="dropdown-toggle" data-toggle="dropdown">
             Trié par {{ sortOrder === 'sort' ? 'sort final' : (sortOrder === 'groupe' ? 'groupe politique' : 'numéro') }}
             <b class="caret"></b>

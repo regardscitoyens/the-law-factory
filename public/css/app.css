@@ -377,8 +377,12 @@ body{
     height: 100%;
 }
 
+.mod2 .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
 .mod2 .sujet {
-    padding: 15px 20px 0 30px;
+    padding: 12px 20px 0 30px;
     -webkit-transition: opacity 0.25s ease-in-out;
     -moz-transition: opacity 0.25s ease-in-out;
     -o-transition: opacity 0.25s ease-in-out;
@@ -389,13 +393,14 @@ body{
     display: inline-block;
 }
 .mod2 .colonnes .sujet:nth-child(2n+1) {
-    padding-right: 21px;
+    padding-right: 20px;
 }
 .mod2 .colonnes .sujet:nth-child(2n) {
     padding-left: 0;
 }
 .mod2 .sujet .titre {
-    font-size: 0.9em;
+    font-size: 0.85em;
+    margin-bottom: 1px;
     cursor: pointer;
 }
 .mod2 .focus-mode .sujet {
@@ -413,9 +418,10 @@ body{
     display: inline-block;
     width: 20px;
     height: 20px;
-    margin: 0px 1px 1px 0px;
+    margin: 0;
     background-repeat: no-repeat;
     background-position: center;
+    border: 1px solid #ffffff;
 }
 .mod2 .amendement.selected {
     border: 2px solid #333344;
@@ -424,7 +430,7 @@ body{
     opacity: 0;
     position: absolute;
     z-index: 1;
-    margin: -80px 0 0 30px;
+    margin: -82px 0 0 30px;
     background-color: #ffffff;
     border: 1px solid #cccccc;
     padding: 1px;
@@ -440,7 +446,7 @@ body{
     height: 23px;
     position: absolute;
     left: -11px;
-    top: 80px;
+    top: 79px;
     background-image: url(../img/left-arrow.png);
 }
 .mod2 .amendement:hover .amendement-tooltip {
