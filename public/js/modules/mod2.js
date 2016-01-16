@@ -107,12 +107,12 @@ var mod2Scope, highlight;
                 compare_by_party = function (a, b) {
                     if (a.groupe != b.groupe) return compare_partys(a.groupe, b.groupe);
                     if (a.sort != b.sort) return compare_stats(a.sort, b.sort);
-                    return a.numero - b.numero;
+                    return a.numero.replace(/^\D+/, '') - b.numero.replace(/^\D+/, '');
                 },
                 compare_by_stat = function (a, b) {
                     if (a.sort != b.sort) return compare_stats(a.sort, b.sort);
                     if (a.groupe != b.groupe) return compare_partys(a.groupe, b.groupe);
-                    return a.numero - b.numero;
+                    return a.numero.replace(/^\D+/, '') - b.numero.replace(/^\D+/, '');
                 },
                 check_half = function (g) {
                     var half_col = false;
