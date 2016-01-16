@@ -125,15 +125,18 @@ angular.module('theLawFactory.directives', [])
                         "rejeté": "img/ko.png",
                         "non-voté": "img/nd.png",
                         "en attente": ""
+                    }, tri = {
+                        "sort": tri_amdts_sort,
+                        "groupe": tri_amdts_groupe
                     }, groupes;
 
                 function cssColor(col)              { return thelawfactory.utils.adjustColor(col).toString(); }
                 function compare_sujets(a, b)       { return a.order - b.order; }
                 function compare_amdts_sort(a, b)   { return sort_ordre[a.sort] - sort_ordre[b.sort]; }
                 function compare_amdts_groupe(a, b) { return groupes[a.groupe].order - groupes[b.groupe].order; }
-                function tri_amdts_sort(a, b)       { return compare_amdts_sort(a, b) || compare_amdts_groupe(a, b); }
-                function tri_amdts_groupe(a, b)     { return compare_amdts_groupe(a, b) || compare_amdts_sort(a, b); }
-
+                function compare_amdts_numero(a, b) { return a.numero.replace(/^\D+/, '') - b.numero.replace(/^\D+/, ''); }
+                function tri_amdts_sort(a, b)       { return compare_amdts_sort(a, b) || compare_amdts_groupe(a, b) || compare_amdts_numero(a, b); }
+                function tri_amdts_groupe(a, b)     { return compare_amdts_groupe(a, b) || compare_amdts_sort(a, b) || compare_amdts_numero(a, b); }
 
                 // Prépare les données de l'API pour rendre le rendu Angular plus simple
                 function transformData(apiData) {
@@ -147,7 +150,7 @@ angular.module('theLawFactory.directives', [])
                         };
                     }
 
-                    var tri_amdts = $scope.sortOrder === 'sort' ? tri_amdts_sort : tri_amdts_groupe;
+                    var tri_amdts = tri[$scope.sortOrder] || compare_amdts_numero;
                     var data = { 
                         groupes: groupes,
                         legende: {

@@ -16,12 +16,13 @@
         </li>
         <li class="dropdown">
           <span ng-cloak class="dropdown-toggle" data-toggle="dropdown">
-            Trié par {{ sortOrder === 'sort' ? 'sort final' : 'groupe politique' }}
+            Trié par {{ sortOrder === 'sort' ? 'sort final' : (sortOrder === 'groupe' ? 'groupe politique' : 'numéro') }}
             <b class="caret"></b>
           </span>
           <ul class="dropdown-menu" role="menu">
             <li><a class="{{ sortOrder === 'sort' ? 'chosen' : '' }}" ng-click="sortOrder = 'sort'">sort final</a></li>
             <li><a class="{{ sortOrder === 'groupe' ? 'chosen' : '' }}" ng-click="sortOrder = 'groupe'">groupe politique</a></li>
+            <li><a class="{{ sortOrder === 'numero' ? 'chosen' : '' }}" ng-click="sortOrder = 'numero'">numéro</a></li>
           </ul>
         </li>
       </ul>
