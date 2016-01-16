@@ -132,6 +132,7 @@ angular.module('theLawFactory.directives', [])
 
                 function cssColor(col)              { return thelawfactory.utils.adjustColor(col).toString(); }
                 function compare_sujets(a, b)       { return a.order - b.order; }
+                function compare_groupes(a, b)      { return groupes[a].order - groupes[b].order; }
                 function compare_amdts_sort(a, b)   { return sort_ordre[a.sort] - sort_ordre[b.sort]; }
                 function compare_amdts_groupe(a, b) { return groupes[a.groupe].order - groupes[b.groupe].order; }
                 function compare_amdts_numero(a, b) { return a.numero.replace(/^\D+/, '') - b.numero.replace(/^\D+/, ''); }
@@ -215,7 +216,7 @@ angular.module('theLawFactory.directives', [])
                     }
 
                     // Construction de la légende
-                    Object.keys(groupes).forEach(function(key) {
+                    Object.keys(groupes).sort(compare_groupes).forEach(function(key) {
                         groupes[key].cssColor = cssColor(groupes[key].color);
 
                         if (key !== 'Gouvernement') {

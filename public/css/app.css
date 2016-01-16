@@ -472,6 +472,9 @@ body{
     background-repeat: no-repeat;
     background-position: center;
 }
+.mod2 .others .leg-key {
+    text-transform: capitalize;
+}
 
 .viz-container h4{
 	text-align:center;
