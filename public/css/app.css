@@ -30,6 +30,10 @@ h1,h2,h3,h4 {
     font-family:"Oxygen", sans-serif !important;
 }
 
+[ng-cloak] {
+    display: none !important;
+}
+
 #header-search { margin-right: 390px; margin-left: 210px;padding: 5px 50px 0px 0px;}
 #header-search .input-group {
     width: 100%;
@@ -373,6 +377,82 @@ body{
     height: 100%;
 }
 
+
+.mod2 .sujet {
+    margin: 15px 20px 15px 30px;
+}
+.mod2 .sujet .titre {
+    font-size: 0.9em;
+}
+.mod2 .focus-mode .sujet {
+    opacity: 0.25;
+}
+.mod2 .focus-mode .sujet.focus {
+    opacity: 1;
+}
+.mod2 .amendements {
+    display: flex;
+    flex-flow: row wrap;
+    background-image: url(../img/filler.png);
+}
+.mod2 .amendement {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0px 1px 1px 0px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.mod2 .amendement.selected {
+    border: 2px solid #333344;
+}
+.mod2 .amendement-tooltip {
+    opacity: 0;
+    position: absolute;
+    z-index: 1;
+    margin: -80px 0 0 30px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 1px;
+    box-shadow: 2px 2px 10px -4px black;
+    pointer-events: none;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;s
+}
+.mod2 .amendement-tooltip .arrow {
+    width: 11px;
+    height: 23px;
+    position: absolute;
+    left: -11px;
+    top: 80px;
+    background-image: url(../img/left-arrow.png);
+}
+.mod2 .amendement:hover .amendement-tooltip {
+    opacity: 1;
+}
+.mod2 .amendement-tooltip .numero {
+    background-color: #716259;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+.mod2 .amendement-tooltip .groupe {
+    font-weight: bold;
+}
+.mod2 .amendement-tooltip .groupe,
+.mod2 .amendement-tooltip .sort,
+.mod2 .amendement-tooltip .date {
+    margin: 15px;
+}
+.mod2 .leg-sort {
+    background-color: #b4b4b4;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .viz-container h4{
 	text-align:center;
 	padding:20px 4px;
@@ -681,6 +761,7 @@ ul.ui-autocomplete {
 	float:right;
     background-color: white;
 }
+
 #commands{
     width: 10%;
     margin-top: 35px;

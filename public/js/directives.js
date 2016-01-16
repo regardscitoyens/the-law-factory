@@ -100,7 +100,7 @@ angular.module('theLawFactory.directives', [])
                 };
             }
         };
-    }]).directive('mod2', ['$rootScope', 'api', function ($rootScope, api) {
+    }]).directive('mod2', ['$rootScope', '$timeout', 'api', function ($rootScope, $timeout, api) {
         return {
             restrict: 'A',
             replace: false,
@@ -110,21 +110,186 @@ angular.module('theLawFactory.directives', [])
                 $scope.mod = "mod2";
                 $scope.setHelpText("Chaque boîte représente un amendement dont le pictogramme indique le sort et la couleur le groupe politique de ses auteurs. Cliquez sur un amendement pour en lire le contenu et les détails.");
                 $scope.vizTitle = "AMENDEMENTS";
+                $scope.group = false;
+                $scope.sortOrder = 'sort';
+                $scope.selectedAmdt = null;
+                $scope.selectedAmdtData = null;
 
-                update();
+                var sort_ordre = {
+                        "adopté": 0,
+                        "rejeté": 1,
+                        "non-voté": 2,
+                        "en attente": 3
+                    }, sort_image = {
+                        "adopté": "img/ok.png",
+                        "rejeté": "img/ko.png",
+                        "non-voté": "img/nd.png",
+                        "en attente": ""
+                    }, groupes;
 
+                function cssColor(col)              { return thelawfactory.utils.adjustColor(col).toString(); }
+                function compare_sujets(a, b)       { return a.order - b.order; }
+                function compare_amdts_sort(a, b)   { return sort_ordre[a.sort] - sort_ordre[b.sort]; }
+                function compare_amdts_groupe(a, b) { return groupes[a.groupe].order - groupes[b.groupe].order; }
+                function tri_amdts_sort(a, b)       { return compare_amdts_sort(a, b) || compare_amdts_groupe(a, b); }
+                function tri_amdts_groupe(a, b)     { return compare_amdts_groupe(a, b) || compare_amdts_sort(a, b); }
+
+
+                // Prépare les données de l'API pour rendre le rendu Angular plus simple
+                function transformData(apiData) {
+                    groupes = apiData.groupes;
+
+                    if (!('Gouvernement') in groupes) {
+                        groupes['Gouvernement'] = {
+                            color: '#e6e6e6',
+                            nom: 'Gouvernement',
+                            order: 999
+                        };
+                    }
+
+                    var tri_amdts = $scope.sortOrder === 'sort' ? tri_amdts_sort : tri_amdts_groupe;
+                    var data = { 
+                        groupes: groupes,
+                        legende: {
+                            groupes: {},
+                            sorts: {}
+                        },
+                        sujets: []
+                    };
+
+                    if ($scope.group) {
+                        // Création d'un sujet unique en cas de groupement
+                        data.sujets.push({
+                            titre: "Tout le texte",
+                            amendements: []
+                        });
+                    }
+
+                    // Parcours des sujets
+                    Object.keys(apiData.sujets)
+                    .forEach(function(key) {
+                        var sujet = apiData.sujets[key];
+
+                        // Ajout image et couleur du groupe aux amendements
+                        sujet.amendements.forEach(function(amdt) {
+                            amdt.sort_image = sort_image[amdt.sort];
+                            amdt.color = cssColor(groupes[amdt.groupe].color);
+                            amdt.nom_groupe = groupes[amdt.groupe].nom;
+                        });
+
+                        if ($scope.group) {
+                            // Regroupement de tous les amendements
+                            data.sujets[0].amendements = data.sujets[0].amendements.concat(sujet.amendements);
+                        } else {
+                            // Tri des amendements du sujet
+                            sujet.amendements.sort(tri_amdts);
+
+                            // Ajout du sujet à la liste
+                            data.sujets.push(sujet);
+                        }
+                    });
+
+                    if ($scope.group) {
+                        // Tri des amendements
+                        data.sujets[0].amendements.sort(tri_amdts);
+                    } else {
+                        // Tri des sujets
+                        data.sujets.sort(compare_sujets);
+                    }
+
+                    // Construction de la légende
+                    Object.keys(groupes).forEach(function(key) {
+                        groupes[key].cssColor = cssColor(groupes[key].color);
+
+                        if (key !== 'Gouvernement') {
+                            data.legende.groupes[key] = groupes[key];
+                        }
+                    });
+                    Object.keys(sort_image).forEach(function(key) {
+                        if (key !== 'en attente') {
+                            data.legende.sorts[key] = sort_image[key];
+                        }
+                    });
+
+                    return data;
+                }
+
+                // Redessine les dernières données de l'API (à appeler sur changement de tri/groupement)
+                function redraw() {
+                    if (!$scope.apiData) return;
+                    $scope.data = transformData($scope.apiData);
+
+                    $timeout(function() {
+                        resize();
+
+                        if ($scope.selectedAmdt) {
+                            $('.amendement-' + $scope.selectedAmdt.id_api).addClass('selected');
+                        }
+                    }, 0);
+                }
+
+                // Redimensionne les conteneurs
+                function resize() {
+                    thelawfactory.utils.setModSize("#viz", 1)();
+                    thelawfactory.utils.setTextContainerHeight();
+                }
+                
+                // Lit les données depuis l'API et déclenche le redessin
                 function update() {
-                    var mod2 = thelawfactory.mod2();
                     thelawfactory.utils.spinner.start();
 
-                    if ($scope.etape != null) api.getAmendement($scope.loi, $scope.etape).then(function (data) {
-                        $scope.data = data;
-                        $rootScope.pageTitle = $rootScope.lawTitle + " - Amendements | ";
-                        mod2(data, $scope.vizTitle, $scope.helpText);
-                    }, function () {
-                        $scope.display_error("impossible de trouver les amendements pour ce texte à cette étape");
-                    });
+                    if ($scope.etape != null) {
+                        api.getAmendement($scope.loi, $scope.etape)
+                        .then(function (data) {
+                            $scope.apiData = data;
+                            $rootScope.pageTitle = $rootScope.lawTitle + " - Amendements | ";
+                        }, function () {
+                            $scope.display_error("impossible de trouver les amendements pour ce texte à cette étape");
+                        });
+                    }
                 }
+
+                // Affichage du contenu d'un amendement
+                $scope.selectAmdt = function(amdt) {
+                    $('.mod2 .amendement.selected').removeClass('selected');
+
+                    if (amdt) {
+                        $('.amendement-' + amdt.id_api).addClass('selected');
+
+                        thelawfactory.utils.setTextContainerHeight();
+                        thelawfactory.utils.spinner.start('load_amd');
+
+                        api.getAmendementContent($scope.apiData.api_root_url, amdt.id_api)
+                        .then(function(data) {
+                            $scope.selectedAmdt = amdt;
+                            
+                            var amdtContenu = data.amendement;
+
+                            amdtContenu.sujet = thelawfactory.utils.cleanAmdSubject(amdtContenu.sujet);
+                            amdtContenu.origine = amdtContenu.url_nosdeputes ? 'an' : 'senat';
+                            amdtContenu.url = amdtContenu.url_nosdeputes || amdtContenu.url_nossenateurs;
+
+                            $scope.selectedAmdtData = amdtContenu;
+
+                            thelawfactory.utils.spinner.stop(function () {
+                                $(".text-container").animate({opacity: 1}, 350);
+                                $('.text-container').scrollTop(0);
+                            }, 'load_amd');
+                        }, function() {
+                            thelawfactory.utils.spinner.stop('load_amd');
+                            $scope.display_error("impossible de trouver le contenu de cet amendement");
+                        });
+                    }
+                };
+
+                // Déclencheurs de redessin
+                $scope.$watchGroup(['apiData', 'group', 'sortOrder'], redraw);
+
+                // Redimensionnement automatique
+                $(window).on('resize', resize);
+
+                // Chargement initial
+                update();
             }
         }
     }])
