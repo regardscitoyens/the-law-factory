@@ -75,11 +75,13 @@
             </div>
           </div>
           <div class="others">
-            <div class="leg-item" ng-repeat="groupe in [data.groupes.Gouvernement]">
-              <div class="leg-value" style="background-color: {{ groupe.cssColor }};"></div>
-              <div class="leg-key">Gouvernement</div>
-            </div>
-            <div class="leg-item"></div>
+            <span ng-if="data.groupes.Gouvernement">
+              <div class="leg-item" ng-repeat="groupe in [data.groupes.Gouvernement]">
+                <div class="leg-value" style="background-color: {{ groupe.cssColor }};"></div>
+                <div class="leg-key">Gouvernement</div>
+              </div>
+              <div class="leg-item"></div>
+            </span>
             <div class="leg-item" ng-repeat="(sort, image) in data.legende.sorts">
               <div class="leg-value leg-sort" style="background-image: url({{ image }});"></div>
               <div class="leg-key">{{ sort }}</div>

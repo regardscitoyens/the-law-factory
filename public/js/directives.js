@@ -219,11 +219,7 @@ angular.module('theLawFactory.directives', [])
                             data.legende.groupes[key] = groupes[key];
                         }
                     });
-                    Object.keys(sort_image).forEach(function(key) {
-                        if (key !== 'en attente') {
-                            data.legende.sorts[key] = sort_image[key];
-                        }
-                    });
+                    data.legende.sorts = sort_image;
 
                     return data;
                 }
