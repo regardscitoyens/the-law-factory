@@ -100,7 +100,7 @@ angular.module('theLawFactory.directives', [])
                 };
             }
         };
-    }]).directive('mod2', ['$rootScope', '$timeout', 'api', function ($rootScope, $timeout, api) {
+    }]).directive('mod2', ['$rootScope', '$timeout', '$sce', 'api', function ($rootScope, $timeout, $sce, api) {
         return {
             restrict: 'A',
             replace: false,
@@ -109,6 +109,7 @@ angular.module('theLawFactory.directives', [])
                 $scope.step = 0;
                 $scope.mod = "mod2";
                 $scope.setHelpText("Chaque boîte représente un amendement dont le pictogramme indique le sort et la couleur le groupe politique de ses auteurs. Cliquez sur un amendement pour en lire le contenu et les détails.");
+                $scope.trustedHelpText = $sce.trustAsHtml($scope.helpText);
                 $scope.vizTitle = "AMENDEMENTS";
                 $scope.group = false;
                 $scope.sortOrder = 'sort';
@@ -293,6 +294,9 @@ angular.module('theLawFactory.directives', [])
                             amdtContenu.sujet = thelawfactory.utils.cleanAmdSubject(amdtContenu.sujet);
                             amdtContenu.origine = amdtContenu.url_nosdeputes ? 'an' : 'senat';
                             amdtContenu.url = amdtContenu.url_nosdeputes || amdtContenu.url_nossenateurs;
+
+                            amdtContenu.trustedExpose = $sce.trustAsHtml(amdtContenu.expose);
+                            amdtContenu.trustedTexte = $sce.trustAsHtml(amdtContenu.texte);
 
                             $scope.selectedAmdtData = amdtContenu;
 

@@ -103,6 +103,7 @@
         </h4>
         <div id="load_amd"></div>
         <div class="text-container">
+          <div ng-cloak ng-if="!selectedAmdtData" ng-bind-html="trustedHelpText"></div>
           <div ng-cloak ng-if="selectedAmdtData">
             <span class="amd-date">{{ d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(selectedAmdt.date)) }}</span>
             <span class="amd-sort">
@@ -121,11 +122,11 @@
             </div>
             <div class="amd-text">
               <b>Exposé des motifs :</b>
-              <span ng-bind-html="selectedAmdtData.expose"></span>
+              <span ng-bind-html="selectedAmdtData.trustedExpose"></span>
             </div>
             <div class="amd-text">
               <b>Texte :</b>
-              <span ng-bind-html="selectedAmdtData.texte"></span>
+              <span ng-bind-html="selectedAmdtData.trustedTexte"></span>
             </div>
             <p class="sources">
               <small>
