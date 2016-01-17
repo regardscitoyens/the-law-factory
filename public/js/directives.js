@@ -137,7 +137,7 @@ angular.module('theLawFactory.directives', [])
                     }, tri = {
                         "sort": tri_amdts_sort,
                         "groupe": tri_amdts_groupe
-                    }, groupes, availableWidth, columnsThreshold = 0;
+                    }, groupes, availableWidth, firstDraw = true, columnsThreshold = 0;
 
                 function cssColor(col)              { return thelawfactory.utils.adjustColor(col).toString(); }
                 function compare_sujets(a, b)       { return a.order - b.order; }
@@ -236,8 +236,22 @@ angular.module('theLawFactory.directives', [])
 
                     $timeout(function() {
                         resize();
+                        
                         if ($scope.selectedAmdt) {
                             $('.amendement-' + $scope.selectedAmdt.id_api).addClass('selected');
+                        }
+
+                        if (firstDraw) {
+                            var $focus = $('.sujet.focus');
+                            var $viz = $('#viz');
+
+                            if ($focus.length) {
+                                $viz.animate({
+                                    scrollTop: $focus.offset().top - $viz.offset().top
+                                });
+                            }
+
+                            firstDraw = false;
                         }
                     }, 0);
                 }
