@@ -477,6 +477,36 @@ body{
 .mod2 .amendement-tooltip .date {
     margin: 15px;
 }
+.mod2 .leg-tooltip {
+    background-color: #716259;
+    color: white;
+    font-size: 0.9em;
+    padding: 5px;
+    opacity: 0;
+    position: absolute;
+    z-index: 1;
+    margin: -34px 0 0 -5px;
+    box-shadow: 2px 2px 10px -4px black;
+    pointer-events: none;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;s
+}
+.mod2 .leg-tooltip:before {
+    content: ' ';
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top:6px solid #716259;
+    position: absolute;
+    top: 100%;
+    left: 8px;
+}
+.mod2 .leg-item:hover .leg-tooltip {
+    opacity: 1;
+}
 .mod2 .leg-sort {
     background-color: #b4b4b4;
     background-repeat: no-repeat;
@@ -615,7 +645,6 @@ ins {
 }
 .colors, .others{
 	margin-top:2px;
-    overflow:hidden;
 }
 
 .others {

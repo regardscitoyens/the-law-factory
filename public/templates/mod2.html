@@ -85,6 +85,7 @@
             <div class="leg-item" ng-repeat="(key, groupe) in data.legende.groupes" ng-click="focusAmendements(key)">
               <div class="leg-value" style="background-color: {{ groupe.cssColor }};"></div>
               <div class="leg-key">{{ key }}</div>
+              <div class="leg-tooltip">{{ groupe.nom }}</div>
             </div>
           </div>
           <div class="others">
