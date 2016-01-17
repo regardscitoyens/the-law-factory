@@ -111,8 +111,16 @@ angular.module('theLawFactory.directives', [])
                 $scope.setHelpText("Chaque boîte représente un amendement dont le pictogramme indique le sort et la couleur le groupe politique de ses auteurs. Cliquez sur un amendement pour en lire le contenu et les détails.");
                 $scope.trustedHelpText = $sce.trustAsHtml($scope.helpText);
                 $scope.vizTitle = "AMENDEMENTS";
-                $scope.group = false;
+
+                // Permet le focus sur les amendements par groupe ou par sort
+                $scope.focusGroupe = null;
+                $scope.focusSort = null;
+
+                // Définit le regroupement et le tri des amendements
+                $scope.groupAll = false;
                 $scope.sortOrder = 'sort';
+
+                // Permet l'affichage du contenu d'un amendement
                 $scope.selectedAmdt = null;
                 $scope.selectedAmdtData = null;
 
@@ -156,7 +164,7 @@ angular.module('theLawFactory.directives', [])
                         colonnes: ''
                     };
 
-                    if ($scope.group) {
+                    if ($scope.groupAll) {
                         // Création d'un sujet unique en cas de groupement
                         data.sujets.push({
                             titre: "Tout le texte",
@@ -179,7 +187,7 @@ angular.module('theLawFactory.directives', [])
                             amdt.nom_groupe = groupes[amdt.groupe].nom;
                         });
 
-                        if ($scope.group) {
+                        if ($scope.groupAll) {
                             // Regroupement de tous les amendements
                             data.sujets[0].amendements = data.sujets[0].amendements.concat(sujet.amendements);
                         } else {
@@ -193,7 +201,7 @@ angular.module('theLawFactory.directives', [])
                         }
                     });
 
-                    if ($scope.group) {
+                    if ($scope.groupAll) {
                         // Tri des amendements
                         data.sujets[0].amendements.sort(tri_amdts);
                     } else {
@@ -320,14 +328,27 @@ angular.module('theLawFactory.directives', [])
 
                     if (!article) {
                         $scope.article = null;
+                        $scope.focusGroupe = null;
+                        $scope.focusSort = null;
                     } else {
                         $event.stopPropagation();
                         $scope.article = article;
                     }
                 };
 
+                // Focus sur un groupe ou sort
+                $scope.focusAmendements = function(groupe, sort) {
+                    if (groupe) {
+                        $scope.focusGroupe = groupe;
+                        $scope.focusSort = null;
+                    } else {
+                        $scope.focusGroupe = null;
+                        $scope.focusSort = sort;
+                    }
+                };
+
                 // Déclencheurs de redessin
-                $scope.$watchGroup(['apiData', 'group', 'sortOrder'], redraw);
+                $scope.$watchGroup(['apiData', 'groupAll', 'sortOrder'], redraw);
 
                 // Redimensionnement automatique
                 $(window).on('resize', resize);

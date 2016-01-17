@@ -6,12 +6,12 @@
         <li class="active" id="menu-back"><a ng-href="articles.html?loi={{loi}}">&lt; Voir les articles du texte</a></li>
         <li class="dropdown" id="menu-display">
           <span ng-cloak class="dropdown-toggle" data-toggle="dropdown">
-            Vue {{ group ? 'groupée' : 'par articles' }}
+            Vue {{ groupAll ? 'groupée' : 'par articles' }}
             <b class="caret"></b>
           </span>
           <ul class="dropdown-menu" role="menu" id="display_menu">
-            <li><a class="{{ group ? '' : 'chosen' }}" ng-click="group = false">par articles</a></li>
-            <li><a class="{{ group ? 'chosen' : '' }}" ng-click="group = true">groupée</a></li>
+            <li><a class="{{ groupAll ? '' : 'chosen' }}" ng-click="groupAll = false">par articles</a></li>
+            <li><a class="{{ groupAll ? 'chosen' : '' }}" ng-click="groupAll = true">groupée</a></li>
           </ul>
         </li>
         <li class="dropdown" id="menu-order">
@@ -45,12 +45,24 @@
         </div>
 
         <div class="main-sc">
-          <div id="viz" class="{{ data.colonnes }} {{ article ? 'focus-mode' : '' }}" ng-click="focusSubject($event)">
+          <div id="viz" ng-click="focusSubject($event)"
+            class="
+              {{ data.colonnes }}
+              {{ article ? 's-focus-mode' : '' }}
+              {{ focusGroupe || focusSort ? 'a-focus-mode' : '' }}
+            ">
             <div ng-cloak class="sujet {{ $first ? 'first-art-s' : '' }} {{ article === sujet.article ? 'focus' : '' }}"
               ng-repeat="sujet in data.sujets" data-article="{{ sujet.article }}">
               <div class="titre" ng-click="focusSubject($event, sujet.article)">{{ sujet.titre }}</div>
               <div class="amendements">
-                <div class="amendement amendement-{{ amdt.id_api }} {{ $parent.$first &amp;&amp; $first ? 'first-art' : '' }}"
+                <div
+                  class="
+                    amendement
+                    amendement-{{ amdt.id_api }}
+                    {{ $parent.$first &amp;&amp; $first ? 'first-art' : '' }}
+                    {{ focusGroupe &amp;&amp; amdt.groupe === focusGroupe ? 'focus' : '' }}
+                    {{ focusSort &amp;&amp; amdt.sort === focusSort ? 'focus' : '' }}
+                  "
                   style="background-color: {{ amdt.color }}; background-image: url({{ amdt.sort_image }});"      
                   ng-click="selectAmdt(amdt)"          
                   ng-repeat="amdt in sujet.amendements">
@@ -70,20 +82,20 @@
         <div class="legend">
           LÉGENDE
           <div class="colors">
-            <div class="leg-item" ng-repeat="(key, groupe) in data.legende.groupes">
+            <div class="leg-item" ng-repeat="(key, groupe) in data.legende.groupes" ng-click="focusAmendements(key)">
               <div class="leg-value" style="background-color: {{ groupe.cssColor }};"></div>
               <div class="leg-key">{{ key }}</div>
             </div>
           </div>
           <div class="others">
             <span ng-if="data.groupes.Gouvernement">
-              <div class="leg-item" ng-repeat="groupe in [data.groupes.Gouvernement]">
+              <div class="leg-item" ng-repeat="groupe in [data.groupes.Gouvernement]" ng-click="focusAmendements('Gouvernement')">
                 <div class="leg-value" style="background-color: {{ groupe.cssColor }};"></div>
                 <div class="leg-key">Gouvernement</div>
               </div>
               <div class="leg-item"></div>
             </span>
-            <div class="leg-item" ng-repeat="(sort, image) in data.legende.sorts">
+            <div class="leg-item" ng-repeat="(sort, image) in data.legende.sorts" ng-click="focusAmendements(null, sort)">
               <div class="leg-value leg-sort" style="background-image: url({{ image }});"></div>
               <div class="leg-key">{{ sort }}</div>
             </div>

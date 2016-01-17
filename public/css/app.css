@@ -403,10 +403,10 @@ body{
     margin-bottom: 1px;
     cursor: pointer;
 }
-.mod2 .focus-mode .sujet {
+.mod2 .s-focus-mode .sujet {
     opacity: 0.25;
 }
-.mod2 .focus-mode .sujet.focus {
+.mod2 .s-focus-mode .sujet.focus {
     opacity: 1;
 }
 .mod2 .amendements {
@@ -422,6 +422,16 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     border: 1px solid #ffffff;
+    -webkit-transition: opacity 0.25s ease-in-out;
+    -moz-transition: opacity 0.25s ease-in-out;
+    -o-transition: opacity 0.25s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
+}
+.mod2 .a-focus-mode .amendement {
+    opacity: 0.15;
+}
+.mod2 .a-focus-mode .amendement.focus {
+    opacity: 1;
 }
 .mod2 .amendement.selected {
     border: 2px solid #333344;
