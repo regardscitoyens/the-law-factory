@@ -810,7 +810,10 @@ var valign, stacked, mod1Scope, aligned = true;
                                         var dmp = new diff_match_patch();
                                         dmp.Diff_Timeout = 5;
                                         dmp.Diff_EditCost = 25;
-                                        var diff = dmp.diff_main(textArticles[d.article][d.prev_dir].join("\n"), textArticles[d.article][d.directory].join("\n"));
+                                        var preptxt = function (arts, art, dir) {
+                                                return arts[art][dir].join("\n").replace(/<[^>]+>/g, '');
+                                            },
+                                            diff = dmp.diff_main(preptxt(textArticles, d.article, d.prev_dir), preptxt(textArticles, d.article, d.directory));
                                         dmp.diff_cleanupEfficiency(diff);
                                         d.textDiff = '<ul class="textdiff"><li>';
                                         d.textDiff += diff_to_html(diff)
