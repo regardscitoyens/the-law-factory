@@ -116,7 +116,7 @@
           {{ selectedAmdt ? 'Amendement ' + selectedAmdt.numero : 'AMENDEMENTS' }}
         </h4>
         <div id="load_amd"></div>
-        <div class="text-container">
+        <div class="text-container {{ loadingAmdt ? 'loading' : '' }}">
           <div ng-cloak ng-if="!selectedAmdtData" ng-bind-html="trustedHelpText"></div>
           <div ng-cloak ng-if="selectedAmdtData">
             <span class="amd-date">{{ d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(selectedAmdt.date)) }}</span>

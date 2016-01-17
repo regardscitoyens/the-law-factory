@@ -121,6 +121,7 @@ angular.module('theLawFactory.directives', [])
                 $scope.sortOrder = 'sort';
 
                 // Permet l'affichage du contenu d'un amendement
+                $scope.loadingAmdt = false;
                 $scope.selectedAmdt = null;
                 $scope.selectedAmdtData = null;
 
@@ -307,10 +308,10 @@ angular.module('theLawFactory.directives', [])
                         thelawfactory.utils.setTextContainerHeight();
                         thelawfactory.utils.spinner.start('load_amd');
 
+                        $scope.loadingAmdt = true;
+
                         api.getAmendementContent($scope.apiData.api_root_url, amdt.id_api)
                         .then(function(data) {
-                            $scope.selectedAmdt = amdt;
-                            
                             var amdtContenu = data.amendement;
 
                             amdtContenu.sujet = thelawfactory.utils.cleanAmdSubject(amdtContenu.sujet);
@@ -320,10 +321,11 @@ angular.module('theLawFactory.directives', [])
                             amdtContenu.trustedExpose = $sce.trustAsHtml(amdtContenu.expose);
                             amdtContenu.trustedTexte = $sce.trustAsHtml(amdtContenu.texte);
 
+                            $scope.loadingAmdt = false;
+                            $scope.selectedAmdt = amdt;
                             $scope.selectedAmdtData = amdtContenu;
 
                             thelawfactory.utils.spinner.stop(function () {
-                                $(".text-container").animate({opacity: 1}, 350);
                                 $('.text-container').scrollTop(0);
                             }, 'load_amd');
                         }, function() {
