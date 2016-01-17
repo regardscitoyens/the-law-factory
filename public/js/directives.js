@@ -143,14 +143,6 @@ angular.module('theLawFactory.directives', [])
                 function transformData(apiData) {
                     groupes = apiData.groupes;
 
-                    if (!('Gouvernement') in groupes) {
-                        groupes['Gouvernement'] = {
-                            color: '#e6e6e6',
-                            nom: 'Gouvernement',
-                            order: 999
-                        };
-                    }
-
                     var max_amdts = 0;
                     var tri_amdts = tri[$scope.sortOrder] || compare_amdts_numero;
                     var data = { 
