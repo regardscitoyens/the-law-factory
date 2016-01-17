@@ -53,7 +53,7 @@ angular.module('theLawFactory.services', ['theLawFactory.config'])
                     });
             },
             getAmendementContent: function (api_root, id) {
-                return apiService.getDataSample(api_root + id + '/json')
+                return apiService.getDataSample(api_root.replace(/^https?:/, '') + id + '/json')
                     .then(function(data) {
                         $log.debug('amendement content loaded', data);
                         return data;
