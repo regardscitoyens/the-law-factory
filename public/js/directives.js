@@ -373,6 +373,15 @@ angular.module('theLawFactory.directives', [])
                     }
                 };
 
+                // Repositionnement du tooltip
+                $scope.repositionTooltip = function($event) {
+                    var $amdt = $($event.target);
+                    var $tip = $amdt.find('.amendement-tooltip');
+                    var offset = $amdt.position();
+
+                    $tip.css({ top: offset.top + 'px', left: offset.left + 'px' });
+                };
+
                 // Déclencheurs de redessin
                 $scope.$watchGroup(['apiData', 'groupAll', 'sortOrder'], redraw);
 

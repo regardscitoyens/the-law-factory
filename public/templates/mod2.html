@@ -64,7 +64,8 @@
                     {{ focusSort &amp;&amp; amdt.sort === focusSort ? 'focus' : '' }}
                   "
                   style="background-color: {{ amdt.color }}; background-image: url({{ amdt.sort_image }});"      
-                  ng-click="selectAmdt(amdt)"          
+                  ng-click="selectAmdt(amdt)"
+                  ng-mousemove="repositionTooltip($event)"
                   ng-repeat="amdt in sujet.amendements">
                   <div class="amendement-tooltip">
                     <div class="numero">Amendement {{ amdt.numero }}</div>
