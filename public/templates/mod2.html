@@ -70,7 +70,7 @@
                     <div class="numero">Amendement {{ amdt.numero }}</div>
                     <div class="groupe">{{ amdt.nom_groupe }}</div>
                     <div class="sort">Sort: {{ amdt.sort }}</div>
-                    <div class="date">{{ amdt.date }}</div>
+                    <div class="date">{{ formatDate(amdt.date) }}</div>
                     <div class="arrow"></div>
                   </div>
                 </div>
@@ -119,7 +119,7 @@
         <div class="text-container {{ loadingAmdt ? 'loading' : '' }}">
           <div ng-cloak ng-if="!selectedAmdtData" ng-bind-html="trustedHelpText"></div>
           <div ng-cloak ng-if="selectedAmdtData">
-            <span class="amd-date">{{ d3.time.format("%d/%m/%Y")(d3.time.format("%Y-%m-%d").parse(selectedAmdt.date)) }}</span>
+            <span class="amd-date">{{ formatDate(selectedAmdt.date) }}</span>
             <span class="amd-sort">
               {{ selectedAmdtData.sort }}
               <span class="amd-txt-status" style="background-color:{{ selectedAmdt.color }}">
