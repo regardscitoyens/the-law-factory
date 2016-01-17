@@ -24,7 +24,7 @@
     },
     "mod2":{
         "#viz":"right = <h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Amendements&nbsp;»</h6><i>Vous pouvez quitter ce tutoriel à tout moment en cliquant sur le bouton ci-dessous. Relancez-le en cliquant sur le point d'interrogation en haut à droite.</i><br/><br/>Cette vue présente les amendements déposés par le gouvernement et les parlementaires lors d’une étape donnée de la procédure législative. @ scrolltop = #viz",
-        ".svg.first-art-s":"bottom = Chaque carré coloré représente un amendement. Sa couleur indique le groupe politique de ses auteurs et un pictogramme indique si l'amendement a été adopté, rejeté, ou non-voté (redondant, abandonné, irrecevable…).",
+        ".first-art-s":"bottom = Chaque carré coloré représente un amendement. Sa couleur indique le groupe politique de ses auteurs et un pictogramme indique si l'amendement a été adopté, rejeté, ou non-voté (redondant, abandonné, irrecevable…).",
         ".text":"left = En cliquant sur un carré, toutes les informations relatives à cet amendement s’affichent à droite : date, signataire(s), sort, exposé et détails des propositions de modification du texte. @ click = .first-art",
         ".legend":"top = La légende présente les différents groupes parlementaires ayant proposé les amendements, ainsi que les différents sorts finaux.<br/>Cliquez sur un groupe ou un statut pour filtrer dynamiquement l'affichage. @ click = #tuto-legend",
         "#menu-display":"right = Cliquez ici pour basculer entre deux vues&nbsp;:<br/><ul><li><u><b>par articles</b></u> affichant les amendements en fonction de leurs sujets</li><li>...</li></ul> @ click = #dm-draw",

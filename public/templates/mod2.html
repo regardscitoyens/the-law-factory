@@ -46,10 +46,11 @@
 
         <div class="main-sc">
           <div id="viz" class="{{ data.colonnes }} {{ article ? 'focus-mode' : '' }}" ng-click="focusSubject($event)">
-            <div ng-cloak class="sujet {{ article === sujet.article ? 'focus' : '' }}" ng-repeat="sujet in data.sujets" data-article="{{ sujet.article }}">
+            <div ng-cloak class="sujet {{ $first ? 'first-art-s' : '' }} {{ article === sujet.article ? 'focus' : '' }}"
+              ng-repeat="sujet in data.sujets" data-article="{{ sujet.article }}">
               <div class="titre" ng-click="focusSubject($event, sujet.article)">{{ sujet.titre }}</div>
               <div class="amendements">
-                <div class="amendement amendement-{{ amdt.id_api }}"
+                <div class="amendement amendement-{{ amdt.id_api }} {{ $parent.$first &amp;&amp; $first ? 'first-art' : '' }}"
                   style="background-color: {{ amdt.color }}; background-image: url({{ amdt.sort_image }});"      
                   ng-click="selectAmdt(amdt)"          
                   ng-repeat="amdt in sujet.amendements">
