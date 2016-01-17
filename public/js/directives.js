@@ -275,7 +275,7 @@ angular.module('theLawFactory.directives', [])
 
                     // Gestion de la bascule 1 ou 2 colonnes
                     if (columnsThreshold !== 0) {
-                        if (columnsThreshold < availableWidth) {
+                        if (columnsThreshold < availableWidth && !$scope.groupAll) {
                             $('#viz').addClass('colonnes');
                         } else {
                             $('#viz').removeClass('colonnes');
