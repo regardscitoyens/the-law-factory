@@ -52,7 +52,7 @@
               {{ focusGroupe || focusSort ? 'a-focus-mode' : '' }}
             ">
             <div ng-cloak class="sujet {{ $first ? 'first-art-s' : '' }} {{ article === sujet.article ? 'focus' : '' }}"
-              ng-repeat="sujet in data.sujets" data-article="{{ sujet.article }}">
+              ng-repeat="sujet in data.sujets track by sujet.article" data-article="{{ sujet.article }}">
               <div class="titre" ng-click="focusSubject($event, sujet.article)">{{ sujet.titre }}</div>
               <div class="amendements">
                 <div
@@ -66,7 +66,7 @@
                   style="background-color: {{ amdt.color }}; background-image: url({{ amdt.sort_image }});"      
                   ng-click="selectAmdt(amdt)"
                   ng-mousemove="repositionTooltip($event)"
-                  ng-repeat="amdt in sujet.amendements">
+                  ng-repeat="amdt in sujet.amendements track by amdt.id_api">
                   <div class="amendement-tooltip">
                     <div class="numero">Amendement {{ amdt.numero }}</div>
                     <div class="groupe">{{ amdt.nom_groupe }}</div>

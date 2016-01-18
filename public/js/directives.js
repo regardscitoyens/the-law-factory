@@ -138,7 +138,11 @@ angular.module('theLawFactory.directives', [])
                     }, tri = {
                         "sort": tri_amdts_sort,
                         "groupe": tri_amdts_groupe
-                    }, groupes, availableWidth, firstDraw = true, columnsThreshold = 0;
+                    }, groupes,
+                    availableWidth,
+                    firstDraw = true,
+                    columnsThreshold = 0,
+                    refreshInterval = 120000;
 
                 function cssColor(col)              { return thelawfactory.utils.adjustColor(col).toString(); }
                 function compare_sujets(a, b)       { return a.order - b.order; }
@@ -285,16 +289,29 @@ angular.module('theLawFactory.directives', [])
                 
                 // Lit les données depuis l'API et déclenche le redessin
                 function update() {
-                    thelawfactory.utils.spinner.start();
-
                     if ($scope.etape != null) {
                         api.getAmendement($scope.loi, $scope.etape)
                         .then(function (data) {
                             $scope.apiData = data;
                             $rootScope.pageTitle = $rootScope.lawTitle + " - Amendements | ";
+                            enableAutoRefresh();
                         }, function () {
                             $scope.display_error("impossible de trouver les amendements pour ce texte à cette étape");
                         });
+                    }
+                }
+
+                // Cherche si l'étape courante a une date de fin vide et active la maj auto dans ce cas
+                function enableAutoRefresh() {
+                    if ($scope.steps && $scope.steps.length > 0) {
+                        var step = $scope.steps.filter(function(s) { return s.directory === $scope.etape; })[0];
+
+                        if (step && step.enddate === "") {
+                            $timeout(update, refreshInterval);
+                        }
+                    } else {
+                        // Etapes pas chargees, on réessaie plus tard
+                        $timeout(enableAutoRefresh, 1000);
                     }
                 }
 

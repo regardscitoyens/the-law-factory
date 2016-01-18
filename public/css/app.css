@@ -1331,6 +1331,17 @@ li.src-fcs, li.ui-state-focus, li.ui-state-focus a:hover, li.ui-state-focus a:li
     opacity: 0.6;
 }
 
+.stb-live {
+    float: left;
+    padding-left: 4px;
+    font-size: 10px;
+    opacity: 0.6;
+}
+.stb-live:before {
+    content: '\e031';
+
+}
+
 /*END OF STEPSBAR */
 
 ul.filters {
