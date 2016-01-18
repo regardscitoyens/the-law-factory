@@ -67,7 +67,7 @@ function init(data, step, vizTitle, helpText) {
     });
 
     d3.entries(data[step].divisions).forEach(function (a) {
-        a.value.step = a.key;
+        a.value.step = (a.value.commission ? a.value.commission + " " : "") + a.key;
     });
     num = divs.length;
     divs.forEach(function (f) {
