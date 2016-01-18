@@ -26,7 +26,11 @@ function wrap(width) {
         while (word = words.pop()) {
             line.push(word);
             tspan.text(line.join(" "));
-            if (tspan.node().getComputedTextLength() > width) {
+            if (word === 'BREAK') {
+                line.pop();
+                lines.push(line.join(" "));
+                line = [];
+            } else if (tspan.node().getComputedTextLength() > width) {
                 line.pop();
                 lines.push(line.join(" "));
                 line = [word];
@@ -67,7 +71,7 @@ function init(data, step, vizTitle, helpText) {
     });
 
     d3.entries(data[step].divisions).forEach(function (a) {
-        a.value.step = (a.value.commission ? a.value.commission + " " : "") + a.key;
+        a.value.step = (a.value.commission ? a.value.commission + " BREAK " : "") + a.key;
     });
     num = divs.length;
     divs.forEach(function (f) {
@@ -122,7 +126,7 @@ function drawFlows(top_ordered) {
         var height;
         if (num * 60 >= $("#viz").height()) height = num * 60;
         else height = $("#viz").height() - 50;
-        var offset = Math.round(width / 5);
+        var offset = Math.max(300, Math.round(width/5));
         sven.viz.streamkey()
             .data(mydata)
             .target("#viz-int")
