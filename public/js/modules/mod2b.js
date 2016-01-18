@@ -52,7 +52,7 @@ function init(data,step) {
     });
 
     d3.entries(data[step].divisions).forEach(function(a,b){
-        a.value.step = a.key;
+        a.value.step = (a.value.commission ? a.value.commission + " " : "") + a.key;
     });
     num = divs.length;
     divs.forEach(function(f,j){
