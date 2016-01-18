@@ -20,7 +20,7 @@ function wrap(width) {
     while (word = words.pop()) {
       line.push(word);
       tspan.text(line.join(" "));
-      if (word === 'BREAK') {
+      if (word === '<br/>') {
         line.pop();
         lines.push(line.join(" "));
         line = [];
@@ -56,7 +56,7 @@ function init(data,step) {
     });
 
     d3.entries(data[step].divisions).forEach(function(a,b){
-        a.value.step = (a.value.commission ? a.value.commission + " BREAK " : "") + a.key;
+        a.value.step = (a.value.commission ? a.value.commission + " <br/> " : "") + a.key;
     });
     num = divs.length;
     divs.forEach(function(f,j){
@@ -325,7 +325,7 @@ sven.viz.streamkey = function(){
                 $("#text-title").html(d.label);
                 utils.setTextContainerHeight();
                 $(".text-container").empty()
-                $(".text-container").append('<p class="orat-title">'+d.x+"</p>");
+                $(".text-container").append('<p class="orat-title">' + d.x + "</p>");
 
                 spArray= d3.entries(d.speakers).sort(function(a,b){return b.value.nb_mots - a.value.nb_mots});
                 spArray.forEach(function(g,j){
