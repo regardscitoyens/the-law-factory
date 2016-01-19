@@ -52,6 +52,13 @@ angular.module('theLawFactory.services', ['theLawFactory.config'])
                         return data;
                     });
             },
+            getAmendementContent: function (api_root, id) {
+                return apiService.getDataSample(api_root.replace(/^https?:/, '') + id + '/json')
+                    .then(function(data) {
+                        $log.debug('amendement content loaded', data);
+                        return data;
+                    });
+            },
             getIntervention: function (id) {
                 return apiService.getDataSample(API_ROOT_URL + id + '/viz/interventions.json')
                     .then(function(data) {
