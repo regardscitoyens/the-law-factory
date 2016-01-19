@@ -26,14 +26,10 @@ function wrap(width) {
         while (word = words.pop()) {
             line.push(word);
             tspan.text(line.join(" "));
-            if (word === '<br/>') {
+            if (word === '<br/>' || tspan.node().getComputedTextLength() > width) {
                 line.pop();
                 lines.push(line.join(" "));
-                line = [];
-            } else if (tspan.node().getComputedTextLength() > width) {
-                line.pop();
-                lines.push(line.join(" "));
-                line = [word];
+                line = (word === '<br/>' ? [] : [word]);
             }
         }
         lines.push(line.join(" "));
@@ -71,7 +67,7 @@ function init(data, step, vizTitle, helpText) {
     });
 
     d3.entries(data[step].divisions).forEach(function (a) {
-        a.value.step = (a.value.commission ? a.value.commission + " <br/> " : "") + a.key;
+        a.value.step = a.key;
     });
     num = divs.length;
     divs.forEach(function (f) {
