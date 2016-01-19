@@ -142,7 +142,7 @@ angular.module('theLawFactory.directives', [])
                     availableWidth,
                     firstDraw = true,
                     columnsThreshold = 0,
-                    refreshInterval = 120000;
+                    refreshInterval = 60000;
 
                 function cssColor(col)              { return thelawfactory.utils.adjustColor(col).toString(); }
                 function compare_sujets(a, b)       { return a.order - b.order; }
