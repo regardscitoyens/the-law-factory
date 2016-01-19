@@ -134,7 +134,7 @@ angular.module('theLawFactory.directives', [])
                         "adopté": "img/ok.png",
                         "rejeté": "img/ko.png",
                         "non-voté": "img/nd.png",
-                        "en attente": ""
+                        "en attente": "img/at.png"
                     }, tri = {
                         "sort": tri_amdts_sort,
                         "groupe": tri_amdts_groupe
