@@ -243,7 +243,7 @@ var utils, highlight;
               var popover = function (e) {
                   var date = e.date.split('-'),
                       div = d3.select(document.createElement("div")).style("width", "100%");
-                  div.append("p").html("<b>" + utils.groups[e.groupe].nom + "</b>");
+                  div.append("p").html("<b>" + (e.aut ? e.aut + "<br/>" : "") + utils.groups[e.groupe].nom + "</b>");
                   div.append("p").html("Sort : " + e.sort + "");
                   div.append("p").html("<small>" + [date[2], date[1], date[0]].join("/") + "</small>");
                   return {
