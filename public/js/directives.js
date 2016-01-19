@@ -211,7 +211,7 @@ angular.module('theLawFactory.directives', [])
                         data.sujets[0].amendements.sort(tri_amdts);
                     } else {
                         // Seuil de bascule en mode 2 colonnes
-                        columnsThreshold = (1 + max_amdts) * 2;
+                        columnsThreshold = 1 + max_amdts * 2;
 
                         if (columnsThreshold  < availableWidth) {
                             data.colonnes = 'colonnes';
@@ -267,7 +267,7 @@ angular.module('theLawFactory.directives', [])
                  * (taille 1 amendement = 20px)
                  */
                 function computeAvailableWidth() {
-                    availableWidth = Math.floor(($('#viz').width() - 50) / 20);
+                    availableWidth = Math.floor(($('#sujets').width() - 50) / 20);
                 }
 
                 // Redimensionne les conteneurs
@@ -312,6 +312,33 @@ angular.module('theLawFactory.directives', [])
                     } else {
                         // Etapes pas chargees, on réessaie plus tard
                         $timeout(enableAutoRefresh, 1000);
+                    }
+                }
+
+                // Gère la navigation au clavier
+                function keypress(e) {
+                    if (!$scope.selectedAmdt) return;
+
+                    var $amdt = $('.amendement-' + $scope.selectedAmdt.id_api);
+                    var $amdts = $('.amendement');
+                    var index = $amdts.index($amdt);
+                    var newamdt;
+
+                    switch (e.keyCode) {
+                        case 37: // gauche
+                            if (index > 0) newamdt = $amdts.get(index - 1);
+                            break;
+                        case 39: // droite
+                            if (index < $amdts.length - 1) newamdt = $amdts.get(index + 1);
+                            break;
+                        case 38: // haut
+                        case 40: // bas
+                        default:
+                            return;
+                    }
+
+                    if (newamdt) {
+                        $(newamdt).click();
                     }
                 }
 
@@ -404,6 +431,9 @@ angular.module('theLawFactory.directives', [])
 
                 // Redimensionnement automatique
                 $(window).on('resize', resize);
+
+                // Appuis claviers
+                $(window).on('keydown', keypress);
 
                 // Chargement initial
                 update();
