@@ -364,13 +364,11 @@ body{
 .mod1 .new {
 	stroke: none;
 	fill: #8DF798;
-	width: 6px;
 }
 
 .mod1 .sup {
 	stroke: none;
 	fill: #FD5252;
-	width: 6px;
 }
 
 .mod2 .viz-container, .mod0 .viz-container{
@@ -449,7 +447,7 @@ body{
     -webkit-transition: opacity 0.25s ease-in-out;
     -moz-transition: opacity 0.25s ease-in-out;
     -o-transition: opacity 0.25s ease-in-out;
-    transition: opacity 0.25s ease-in-out;s
+    transition: opacity 0.25s ease-in-out;
 }
 .mod2 .amendement-tooltip .arrow {
     width: 11px;

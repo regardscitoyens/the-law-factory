@@ -378,6 +378,7 @@ var valign, stacked, mod1Scope, aligned = true;
                             .attr("height", function (d) {
                                 return lerp(d.length) - 2
                             })
+                            .attr("width", 6)
                             .on("click", onclick)
                             .popover(article_hover);
 
@@ -397,6 +398,7 @@ var valign, stacked, mod1Scope, aligned = true;
                             .attr("height", function (d) {
                                 return lerp(d.length) - 2
                             })
+                            .attr("width", 6)
                             .on("click", onclick)
                             .popover(article_hover);
 
