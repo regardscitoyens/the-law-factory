@@ -14,6 +14,7 @@ angular.module('theLawFactory', [
     'theLawFactory.directives',
     'theLawFactory.navettes',
     'theLawFactory.articles',
+    'theLawFactory.debats',
     'theLawFactory.amendements',
     'theLawFactory.analytics'
 ]).config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
