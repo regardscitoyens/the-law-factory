@@ -1,4 +1,4 @@
-var drawGantt, mod0Scope,
+var drawGantt, navettesScope,
     locale = d3.locale({
         decimal: ",",
         thousands: ".",
@@ -46,17 +46,17 @@ reset_filters();
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
-    var setMod0Size = thelawfactory.utils.setModSize(".main-sc", 0),
+    var setNavettesSize = thelawfactory.utils.setModSize(".main-sc", 0),
         goodRound = function (n) {
             if (n && Math.abs(n) < 1)
                 return parseFloat(n).toFixed(2).replace('.', ',');
             return parseInt(n);
         };
 
-    thelawfactory.mod0 = function () {
+    thelawfactory.navettes = function () {
 
         function vis(data, APIRootUrl, vizTitle, helpText) {
-            mod0Scope = $('.mod0').scope();
+            navettesScope = $('.navettes').scope();
             var drawing = false,
                 legendcontainer = d3.select("#legend").append("svg"),
                 ganttcontainer = d3.select("#gantt").append("svg").attr("id", "modOsvg"),
@@ -154,7 +154,7 @@ reset_filters();
                 return format.parse(val);
             }
 
-            thelawfactory.mod0.zooming = function (lvl) {
+            thelawfactory.navettes.zooming = function (lvl) {
                 var perc = ($("#gantt").scrollLeft() + $("#gantt").width() / 2) / (width * z);
                 if ($("#gantt").scrollLeft() == 0 && $("#gantt").scrollTop() == 0) {
                     if (layout == 't') {
@@ -167,7 +167,7 @@ reset_filters();
                 if (d3.event && d3.event.scale) z = d3.event.scale;
                 else if (lvl) z = lvl;
                 else z = 1;
-                $("#mod0-slider").slider("value", z);
+                $("#navettes-slider").slider("value", z);
 
                 d3.selectAll(".steps").attr("transform", "scale(" + z + ",1)");
                 d3.selectAll(".law-bg").attr("transform", "scale(" + z + ",1)");
@@ -207,8 +207,8 @@ reset_filters();
                         return (i % Math.round(tickpresence(rat)(z)) == 0 && tscale(d) + 60 / z < width ? 1 : 0);
                     });
                 }
-                if (z > 1) $(".mod0 #gantt").css('cursor', 'move');
-                else $(".mod0 #gantt").css('cursor', 'default');
+                if (z > 1) $(".navettes #gantt").css('cursor', 'move');
+                else $(".navettes #gantt").css('cursor', 'default');
 
                 legendcontainer.attr("width", width * z);
                 ganttcontainer.attr("width", width * z);
@@ -218,13 +218,13 @@ reset_filters();
 
 
             drawGantt = function (action) {
-                setMod0Size();
+                setNavettesSize();
                 thelawfactory.utils.setTextContainerHeight();
                 width = parseInt(d3.select("#gantt").style("width")) - 30;
                 minheight = $("#gantt").height() - 50;
                 setTimeout(computeFilters, 50);
                 if (action == 'reset') {
-                    mod0Scope.loi = null;
+                    navettesScope.loi = null;
                     reset_filters();
                     action = 'filter';
                 }
@@ -246,13 +246,13 @@ reset_filters();
                 else unclick();
 
                 refreshLengthFilter();
-                var zoo = $("#mod0-slider").attr('value'),
+                var zoo = $("#navettes-slider").attr('value'),
                     scroll = {scrollTop: "0px", scrollLeft: "0px"};
                 lawscont = ganttcontainer.append("g").attr("class", "laws");
                 grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
                 $("#legend").height(35);
-                setMod0Size();
-                if (!action) action = mod0Scope.action;
+                setNavettesSize();
+                if (!action) action = navettesScope.action;
                 if (!action) action = 'time';
                 if (action == 'time') {
                     layout = "t";
@@ -324,7 +324,7 @@ reset_filters();
                 }
                 if (layout == "q") {
                     $("#legend").height(0);
-                    setMod0Size();
+                    setNavettesSize();
                     $("#menu-display .selectedchoice").text('quantitative');
                     quantiPosition();
                     drawLabels();
@@ -332,7 +332,7 @@ reset_filters();
                     d3.select(".timeline").attr("transform", "translate(-" + $(this).scrollLeft() + ", 0)");
                     d3.selectAll(".law-name").attr("transform", "translate(" + $(this).scrollLeft() + ", 0)");
                 });
-                thelawfactory.mod0.zooming(zoo);
+                thelawfactory.navettes.zooming(zoo);
                 if (scroll && !resize) $("#gantt").animate(scroll);
             };
 
@@ -520,15 +520,15 @@ reset_filters();
 
             function drawLaws() {
                 // filter and sort laws
-                if (mod0Scope.loi) {
+                if (navettesScope.loi) {
                     $('.viewonelaw').show();
                     $('.noviewonelaw').hide();
                     cleanBillsFilter();
                     smallset = dossiers.filter(function (d) {
-                        return d.id == mod0Scope.loi;
+                        return d.id == navettesScope.loi;
                     });
                     if (!smallset.length) {
-                        var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(mod0Scope.loi)), "i");
+                        var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(navettesScope.loi)), "i");
                         smallset = dossiers.filter(function (value) {
                             value = clean_accents(value.Titre + " " + value.id + " " + value["Thèmes"] + " " + value.short_title);
                             return matcher.test(clean_accents(value));
@@ -734,7 +734,7 @@ reset_filters();
                     .attr("stroke", "#ddd")
                     .attr("stroke-width", 1)
                     .attr("opacity", 0.6);
-                if (mod0Scope.loi) {
+                if (navettesScope.loi) {
                     onclick(smallset[0]);
                 }
             }
@@ -1053,7 +1053,7 @@ reset_filters();
                 setTimeout((currFile ? dynamicLoad : drawGantt), 0);
                 $("#text-title").tooltip();
                 $(window).resize(function () {
-                    if (drawing || $(".view").scope().mod != "mod0") return;
+                    if (drawing || $(".view").scope().mod != "navettes") return;
                     drawing = true;
                     setTimeout(function () {
                         drawGantt("resize");
