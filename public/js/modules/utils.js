@@ -193,4 +193,44 @@
             .style("stroke", "none")
             .classed("actv-amd", false);
     };
+    
+    utils.accentMap = {
+        "á": "a",
+        "à": "a",
+        "â": "a",
+        "é": "e",
+        "è": "e",
+        "ê": "e",
+        "ë": "e",
+        "ç": "c",
+        "î": "i",
+        "ï": "i",
+        "ô": "o",
+        "ö": "o",
+        "ù": "u",
+        "Û": "u",
+        "ü": "u"
+    };
+
+    utils.clean_accents = function (term) {
+        var ret = "";
+        for (var i = 0; i < term.length; i++) {
+            ret += utils.accentMap[term.charAt(i)] || term.charAt(i);
+        }
+        return ret;
+    };
+
+    utils.opacity_amdts = function (d) {
+        if (d > 1000) d = 1000;
+        return 0.05 + 0.75 * d / 1000;
+    };
+
+    utils.opacity_mots = function (d) {
+        if (d > 100000) d = 100000;
+        return 0.05 + 0.75 * d / 100000;
+    };
+
+    utils.upperFirst = function (s) {
+        return (!s ? "" : s.charAt(0).toUpperCase() + s.substring(1));
+    };
 })();

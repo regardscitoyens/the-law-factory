@@ -1,37 +1,5 @@
 'use strict';
 
-// Useful functions
-var accentMap = {
-    "á": "a",
-    "à": "a",
-    "â": "a",
-    "é": "e",
-    "è": "e",
-    "ê": "e",
-    "ë": "e",
-    "ç": "c",
-    "î": "i",
-    "ï": "i",
-    "ô": "o",
-    "ö": "o",
-    "ù": "u",
-    "Û": "u",
-    "ü": "u"
-}, clean_accents = function (term) {
-    var ret = "";
-    for (var i = 0; i < term.length; i++) {
-        ret += accentMap[term.charAt(i)] || term.charAt(i);
-    }
-    return ret;
-}, opacity_amdts = function (d) {
-    if (d > 1000) d = 1000;
-    return 0.05 + 0.75 * d / 1000;
-}, opacity_mots = function (d) {
-    if (d > 100000) d = 100000;
-    return 0.05 + 0.75 * d / 100000;
-}, upperFirst = function (s) {
-    return (!s ? "" : s.charAt(0).toUpperCase() + s.substring(1));
-};
 
 /* Directives */
 
@@ -68,12 +36,12 @@ angular.module('theLawFactory.directives', [])
                                 $(".form-law").css('opacity', 0.3);
                             }).autocomplete({
                                 source: function (request, response) {
-                                    var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(request.term)), "i");
+                                    var matcher = new RegExp($.ui.autocomplete.escapeRegex(thelawfactory.utils.clean_accents(request.term)), "i");
                                     response($.map($.grep(laws.sort(function (a, b) {
                                         return b["Date de promulgation"] > a["Date de promulgation"];
                                     }), function (value) {
-                                        value = clean_accents(value.Titre + " " + value.id + " " + value["Thèmes"] + " " + value.short_title);
-                                        return matcher.test(clean_accents(value));
+                                        value = thelawfactory.utils.clean_accents(value.Titre + " " + value.id + " " + value["Thèmes"] + " " + value.short_title);
+                                        return matcher.test(thelawfactory.utils.clean_accents(value));
                                     }), function (n) {
                                         return {
                                             "label": n.short_title.replace(/ \([^)]*\)/g, '') + " (" + n.Titre + ")",
@@ -133,8 +101,8 @@ angular.module('theLawFactory.directives', [])
 
                                 var icodiv = $("<div class='src-ico'>")
                                     .append('<div><span class="glyphicon glyphicon-calendar"></span> ' + item.dates + "</div>")
-                                    .append('<div title="' + item.amendements + ' amendements déposés sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-folder-open" style="opacity: ' + opacity_amdts(item.amendements) + '"></span> ' + item.amendements + "</div>")
-                                    .append('<div title="' + item.words + ' mots prononcés lors des débats sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-comment" style="opacity: ' + opacity_mots(item.words) + '"></span> ' + 1000 * (Math.round(item.words / 1000.)) + "</div>")
+                                    .append('<div title="' + item.amendements + ' amendements déposés sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-folder-open" style="opacity: ' + thelawfactory.utils.opacity_amdts(item.amendements) + '"></span> ' + item.amendements + "</div>")
+                                    .append('<div title="' + item.words + ' mots prononcés lors des débats sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-comment" style="opacity: ' + thelawfactory.utils.opacity_mots(item.words) + '"></span> ' + 1000 * (Math.round(item.words / 1000.)) + "</div>")
                                     .append(themesdiv);
                                 $(".search").tooltip();
 
@@ -210,11 +178,11 @@ angular.module('theLawFactory.directives', [])
                     scope.total = 0;
                     api.getProcedure(scope.loi).then(function (data) {
 
-                        var tit = upperFirst(data.long_title),
+                        var tit = thelawfactory.utils.upperFirst(data.long_title),
                             leg = "";
                         if (tit.length > 60) {
                             leg = ' data-toggle="tooltip" data-placement="right" title="' + tit + '"';
-                            tit = scope.loi.substr(0, 3).toUpperCase() + " " + upperFirst(data.short_title);
+                            tit = scope.loi.substr(0, 3).toUpperCase() + " " + thelawfactory.utils.upperFirst(data.short_title);
                         }
                         $(".title").html(
                             '<h4 class="law-title"' + leg + '>' + tit + '</h4>' +
