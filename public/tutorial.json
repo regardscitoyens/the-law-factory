@@ -11,7 +11,7 @@
         "#menu-zoom":"bottom = Le zoom vous permet d'ajuster l'échelle horizontale de la frise chronologique.",
         "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutoriel."
     },
-    "mod1":{
+    "articles":{
         ".main":"right = <h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Articles&nbsp;»</h6><i>Vous pouvez quitter ce tutoriel à tout moment en cliquant sur le bouton ci-dessous. Relancez-le en cliquant sur le point d'interrogation en haut à droite.</i><br/><br/>Cette vue présente l’évolution des articles d'un texte au fil des étapes de la procédure parlementaire. @ scrolltop = #viz , click = #closeread",
         "#stepsbar":"bottom = Chaque colonne représente les étapes successives de discussion et modification du texte : dépôt par le gouvernement ou des parlementaires, examens à l'Assemblée nationale et au Sénat lors des différentes lectures ou « navettes », ainsi que l'éventuel examen en Commission Mixte Paritaire.",
         ".stb-step.stb-01":"right = À chaque étape, lorsque des données sont disponibles, vous pouvez accéder à : <ul><li><span class='glyphicon glyphicon-folder-open'></span>l’ensemble des amendements déposés à cette étape</li><li><span class='glyphicon glyphicon-comment'></span>les débats parlementaires correspondants</li><li><span class='glyphicon glyphicon-link'></span>le texte de loi intermédiaire publié à cette étape</li></ul>",

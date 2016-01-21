@@ -1,14 +1,14 @@
-var valign, stacked, mod1Scope, aligned = true;
+var valign, stacked, articlesScope, aligned = true;
 
 (function () {
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
-    var setMod1Size = thelawfactory.utils.setModSize("#viz", 0);
+    var setArticlesSize = thelawfactory.utils.setModSize("#viz", 0);
 
-    thelawfactory.mod1 = function () {
+    thelawfactory.articles = function () {
 
-        mod1Scope = $(".mod1").scope();
+        articlesScope = $(".articles").scope();
         var textArticles = {};
 
         function titre_etape(article) {
@@ -306,7 +306,7 @@ var valign, stacked, mod1Scope, aligned = true;
                 var firstmade = false, firstamade = false; // to class the first article which has a rect (for tuto)
 
                 //init coordinates
-                setMod1Size();
+                setArticlesSize();
                 prepareSizes();
                 setCoordinates();
 
@@ -606,7 +606,7 @@ var valign, stacked, mod1Scope, aligned = true;
                 d3.select("body").on("keydown", function () {
                     var c = (d3.select(".curr")),
                         sel, elm;
-                    if (mod1Scope.tutorial) return;
+                    if (articlesScope.tutorial) return;
                     if (c.empty()) return;
                     var cur = c.datum();
 
@@ -786,7 +786,7 @@ var valign, stacked, mod1Scope, aligned = true;
                             + "</p>" : "") +
                             "<p><b>" + titre_etape(d) + "</b></p>" +
                             (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-" + d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ?
-                            '<div class="gotomod' + (mod1Scope.read ? ' readmode' : '') + '"><a class="btn btn-info" href="amendements.html?loi=' + loi + '&etape=' + d.directory + '&article=' + d.article + '">Explorer les amendements</a></div>' : '');
+                            '<div class="gotomod' + (articlesScope.read ? ' readmode' : '') + '"><a class="btn btn-info" href="amendements.html?loi=' + loi + '&etape=' + d.directory + '&article=' + d.article + '">Explorer les amendements</a></div>' : '');
                         if (d.n_diff) {
                             if (d.id_step.substr(-5) == "depot")
                                 descr += '<p class="comment"><b>Article déposé à cette étape</b></p>';
@@ -823,13 +823,13 @@ var valign, stacked, mod1Scope, aligned = true;
                                         d.textDiff += "</li></ul>";
                                     } else d.textDiff += d.originalText;
 
-                                    thelawfactory.utils.spinner.stop(mod1Scope.update_revs_view, 'load_art');
+                                    thelawfactory.utils.spinner.stop(articlesScope.update_revs_view, 'load_art');
                                     clearInterval(waitload);
                                 }
                             }, 100);
                         } else {
                             if (!d.textDiff) d.textDiff += d.originalText;
-                            mod1Scope.update_revs_view();
+                            articlesScope.update_revs_view();
                         }
                     });
                 }
@@ -846,7 +846,7 @@ var valign, stacked, mod1Scope, aligned = true;
                 $(".art-txt").empty().html(helpText);
                 setTimeout(load_texte_articles, 50);
                 $(window).resize(function () {
-                    if (drawing || $(".view").scope().mod != "mod1") return;
+                    if (drawing || $(".view").scope().mod != "articles") return;
                     var selected_art = d3.selectAll(".curr");
                     if (selected_art[0].length) selected_art = selected_art[0][0].id;
                     else selected_art = "";

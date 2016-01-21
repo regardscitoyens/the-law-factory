@@ -334,12 +334,12 @@ body{
     position:relative;
 }
 
-.mod1 #viz {
+.articles #viz {
 	height: 100%;
 	overflow-y: auto;
 }
 
-.mod1 .head-lbl {
+.articles .head-lbl {
 	font-family: sans-serif;
 	text-anchor: middle;
 	letter-spacing: 0.2em;
@@ -348,25 +348,25 @@ body{
 	font-size: 9px;
 }
 
-.mod1 .head-lbl.echec {
+.articles .head-lbl.echec {
 	font-size: 10px;
 }
 
-.mod1 .header {
+.articles .header {
 	fill: #716259;
 	stroke: none;
 }
 
-.mod1 .header.echec {
+.articles .header.echec {
 	fill: #FD5252;
 }
 
-.mod1 .new {
+.articles .new {
 	stroke: none;
 	fill: #8DF798;
 }
 
-.mod1 .sup {
+.articles .sup {
 	stroke: none;
 	fill: #FD5252;
 }
@@ -812,7 +812,7 @@ ul.ui-autocomplete {
 .navettes .text  {
 	width:23.39%;
 }
-.mod1 .text, .mod2 .text  {
+.articles .text, .mod2 .text  {
     position:absolute;
     left: 73.3%;
     -webkit-transition: all 0.4s ease-in-out;
@@ -1041,12 +1041,12 @@ h4 a{
     margin: 15px 0px 5px 0px;
     text-align: center;
 }
-.mod1 .gotomod {
+.articles .gotomod {
     position: relative;
     top: 0;
     right: 0;
 }
-.mod1 .gotomod.readmode {
+.articles .gotomod.readmode {
     margin: 0;
     text-align: right;
     position: absolute;

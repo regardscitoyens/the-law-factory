@@ -1,11 +1,11 @@
 angular.module('theLawFactory.articles', [])
-    .directive('mod1', ['$rootScope', 'api', function ($rootScope, api) {
+    .directive('articles', ['$rootScope', 'api', function ($rootScope, api) {
         return {
             restrict: 'A',
             replace: false,
-            templateUrl: 'templates/mod1.html',
+            templateUrl: 'templates/articles.html',
             controller: function ($scope) {
-                $scope.mod = "mod1";
+                $scope.mod = "articles";
                 $scope.setHelpText("Chaque boîte représente un article dont la taille indique la longueur du texte et la couleur le degré de modifications à cette étape. Cliquez sur un article pour lire le texte et voir le détail des modifications.");
                 $scope.vizTitle = "ARTICLES";
                 $scope.chronomissing = true;
@@ -35,9 +35,9 @@ angular.module('theLawFactory.articles', [])
                 $scope.$watchGroup(['steps', 'articlesData'], function (values) {
                     if (!values[0] || !values[1]) return;
 
-                    var mod1 = thelawfactory.mod1();
+                    var articles = thelawfactory.articles();
                     $scope.currentstep = ($scope.steps && !$scope.steps[$scope.steps.length - 1].enddate ? $scope.steps[$scope.steps.length - 1] : undefined);
-                    mod1($scope.articlesData, $scope.APIRootUrl, $scope.loi, $scope.currentstep, $scope.helpText);
+                    articles($scope.articlesData, $scope.APIRootUrl, $scope.loi, $scope.currentstep, $scope.helpText);
                     thelawfactory.utils.spinner.stop();
                 });
 
