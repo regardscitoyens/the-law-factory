@@ -28,7 +28,7 @@
       </ul>
       <ul class="nav navbar-nav" id="menu-right">
       <li id="menu-zoom">&nbsp;</li>
-      <tutorial mod="mod2"></tutorial>
+      <tutorial mod="amendements"></tutorial>
       </ul>
     </div>
     </nav>
@@ -56,7 +56,7 @@
               <div class="sujet {{ $first ? 'first-art-s' : '' }} {{ article === sujet.article ? 'focus' : '' }}"
                 ng-repeat="sujet in data.sujets track by sujet.article" data-article="{{ sujet.article }}">
                 <div class="titre" ng-click="focusSubject($event, sujet.article)">{{ sujet.titre }}</div>
-                <div class="amendements">
+                <div class="liste-amendements">
                   <div
                     class="
                       amendement

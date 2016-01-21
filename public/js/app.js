@@ -41,7 +41,7 @@ angular.module('theLawFactory', [
         })
         .state('amendements', {
             url: '/amendements.html?loi&etape',
-            template: '<div mod2 read-mode class="mod2"></div>',
+            template: '<div amendements read-mode class="amendements"></div>',
             controller: 'mainCtrl'
         })
         .state('debates', {

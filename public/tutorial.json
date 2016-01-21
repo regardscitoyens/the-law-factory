@@ -22,7 +22,7 @@
         ".allinks": "left = Vous pouvez retrouver toutes les sources de nos données sur les sites du Sénat et de l'Assemblée, ainsi que le texte promulgué sur LégiFrance et les données en OpenData ou sur un répertoire Git. @ click = #dm-aligned",
         "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutoriel."
     },
-    "mod2":{
+    "amendements":{
         "#viz":"right = <h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Amendements&nbsp;»</h6><i>Vous pouvez quitter ce tutoriel à tout moment en cliquant sur le bouton ci-dessous. Relancez-le en cliquant sur le point d'interrogation en haut à droite.</i><br/><br/>Cette vue présente les amendements déposés par le gouvernement et les parlementaires lors d’une étape donnée de la procédure législative. @ scrolltop = #viz",
         ".first-art-s":"bottom = Chaque carré coloré représente un amendement. Sa couleur indique le groupe politique de ses auteurs et un pictogramme indique si l'amendement a été adopté, rejeté, ou non-voté (redondant, abandonné, irrecevable…).",
         ".text":"left = En cliquant sur un carré, toutes les informations relatives à cet amendement s’affichent à droite : date, signataire(s), sort, exposé et détails des propositions de modification du texte. @ click = .first-art",
