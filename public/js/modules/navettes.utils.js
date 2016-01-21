@@ -106,7 +106,7 @@ reset_filters();
                         .replace('constitutionnalité', 'Conseil Constitutionnel')
                         .replace('assemblee', 'Assemblée nationale')
                         .replace('senat', 'Sénat');
-                    return upperFirst(d);
+                    return thelawfactory.utils.upperFirst(d);
                 },
                 french_date = function (d) {
                     if (!d) return "";
@@ -438,8 +438,8 @@ reset_filters();
                         return i == a.indexOf(itm);   // unify
                     });
                     allThemes.sort(function (a, b) {
-                        var ac = clean_accents(a),
-                            bc = clean_accents(b);
+                        var ac = thelawfactory.utils.clean_accents(a),
+                            bc = thelawfactory.utils.clean_accents(b);
                         return (ac === bc ? 0 : (ac < bc ? -1 : 1))
                     });
                     allThemes.unshift('Tous les thèmes');
@@ -528,10 +528,10 @@ reset_filters();
                         return d.id == navettesScope.loi;
                     });
                     if (!smallset.length) {
-                        var matcher = new RegExp($.ui.autocomplete.escapeRegex(clean_accents(navettesScope.loi)), "i");
+                        var matcher = new RegExp($.ui.autocomplete.escapeRegex(thelawfactory.utils.clean_accents(navettesScope.loi)), "i");
                         smallset = dossiers.filter(function (value) {
-                            value = clean_accents(value.Titre + " " + value.id + " " + value["Thèmes"] + " " + value.short_title);
-                            return matcher.test(clean_accents(value));
+                            value = thelawfactory.utils.clean_accents(value.Titre + " " + value.id + " " + value["Thèmes"] + " " + value.short_title);
+                            return matcher.test(thelawfactory.utils.clean_accents(value));
                         });
                     }
                 } else {
