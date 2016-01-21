@@ -286,12 +286,22 @@ angular.module('theLawFactory.directives', [])
                         }
                     }
                 }
+
+                // Déclenche le chargement initial
+                function init() {
+                    $timeout(function() {
+                        update();
+                        resize();
+                        thelawfactory.utils.spinner.start();
+                    }, 50);
+                }
                 
                 // Lit les données depuis l'API et déclenche le redessin
                 function update() {
                     if ($scope.etape != null) {
                         api.getAmendement($scope.loi, $scope.etape)
                         .then(function (data) {
+                            thelawfactory.utils.spinner.stop();
                             $scope.apiData = data;
                             $rootScope.pageTitle = $rootScope.lawTitle + " - Amendements | ";
                             enableAutoRefresh();
@@ -436,7 +446,7 @@ angular.module('theLawFactory.directives', [])
                 $(window).on('keydown', keypress);
 
                 // Chargement initial
-                update();
+                init();
             }
         }
     }])

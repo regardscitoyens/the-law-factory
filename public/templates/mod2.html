@@ -45,14 +45,15 @@
         </div>
 
         <div class="main-sc">
-          <div id="viz" ng-click="focusSubject($event)"
+          <div id="preload"></div>
+          <div id="viz" ng-cloak ng-click="focusSubject($event)"
             class="
               {{ data.colonnes }}
               {{ article ? 's-focus-mode' : '' }}
               {{ focusGroupe || focusSort ? 'a-focus-mode' : '' }}
             ">
             <div id="sujets">
-              <div ng-cloak class="sujet {{ $first ? 'first-art-s' : '' }} {{ article === sujet.article ? 'focus' : '' }}"
+              <div class="sujet {{ $first ? 'first-art-s' : '' }} {{ article === sujet.article ? 'focus' : '' }}"
                 ng-repeat="sujet in data.sujets track by sujet.article" data-article="{{ sujet.article }}">
                 <div class="titre" ng-click="focusSubject($event, sujet.article)">{{ sujet.titre }}</div>
                 <div class="amendements">
