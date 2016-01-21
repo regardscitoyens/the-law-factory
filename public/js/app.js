@@ -31,7 +31,7 @@ angular.module('theLawFactory', [
         })
         .state('laws', {
             url: '/lois.html?loi',
-            template: '<div mod0 class="mod0"></div>',
+            template: '<div navettes class="navettes"></div>',
             controller: 'mainCtrl'
         })
         .state('articles', {

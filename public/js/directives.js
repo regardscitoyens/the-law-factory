@@ -392,7 +392,7 @@ angular.module('theLawFactory.directives', [])
                                                 }
                                                 break;
                                             case 'zoom' :
-                                                thelawfactory.mod0.zooming(parseInt(action[1]));
+                                                thelawfactory.navettes.zooming(parseInt(action[1]));
                                                 break;
                                         }
                                     });
@@ -455,7 +455,7 @@ angular.module('theLawFactory.directives', [])
                  * Draw a div over the jQuery node passed as argument
                  */
                 function drawDivOverElement (oElement, sElementClass) {
-                    var selk = $scope.mod == "mod0" ? '#gantt' : '#viz';
+                    var selk = $scope.mod == "navettes" ? '#gantt' : '#viz';
                     if (oElement.prop('tagName') == 'rect') {
                         var oNewElement = oElement.clone(true);
                         oNewElement.attr('x', 0).attr('y', 0).attr('style', oElement.parent().attr('style'));

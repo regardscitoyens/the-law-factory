@@ -371,7 +371,7 @@ body{
 	fill: #FD5252;
 }
 
-.mod2 .viz-container, .mod0 .viz-container{
+.mod2 .viz-container, .navettes .viz-container{
     height: 100%;
 }
 
@@ -616,12 +616,12 @@ ins {
 	font-style: italic;
 	background-color: #F9F7F8;
 }
-.mod0 .labels-sc {
+.navettes .labels-sc {
 	width: 95.46%;
     height: 150px;
     float: right;
 }
-.mod0 .labels-sc div{
+.navettes .labels-sc div{
 	clear: none !important;
 	text-align:	center;
 }
@@ -809,7 +809,7 @@ ul.ui-autocomplete {
 	width:100%;
 	height:auto;
 }
-.mod0 .text  {
+.navettes .text  {
 	width:23.39%;
 }
 .mod1 .text, .mod2 .text  {
@@ -836,7 +836,7 @@ ul.ui-autocomplete {
 	margin-left:1%;
 }
 
-.mod0 #text-title{
+.navettes #text-title{
 	width:100% !important;
 	margin:0 !important;
 	margin-bottom:1%;
@@ -844,7 +844,7 @@ ul.ui-autocomplete {
     z-index: 1;
 }
 
-.mod2 .viz-container h4,.mod0 .viz-container h4{
+.mod2 .viz-container h4,.navettes .viz-container h4{
 	text-align: center;
     padding: 20px 4px;
 	width: 6.8%;
@@ -858,7 +858,7 @@ ul.ui-autocomplete {
     font-size: 16px;
 }
 
-.mod2 .stages,.mod0 #bars{
+.mod2 .stages,.navettes #bars{
 	display: inline-block;
     text-align: left;
     float: left;
@@ -870,27 +870,27 @@ ul.ui-autocomplete {
     padding-left: 4.56% !important;
 }
 
-.mod0 #bars{
+.navettes #bars{
 	background-color:white;
 	padding-bottom:10px;
     width: 100%;
     height: 130px;
 }
 
-.mod0 .bar-step:first-child {
+.navettes .bar-step:first-child {
 	margin-left:1%;
 }
 
-.mod0 .main-sc {
+.navettes .main-sc {
 	overflow-y: hidden !important;
 	height:80%;
 }
 
-.mod0 #commands{
+.navettes #commands{
     width: 10.34%;
     height: 100%;
 }
-.mod0 #legend {
+.navettes #legend {
 	width:95.46%;
     height: 35px;
     float: right;
@@ -898,7 +898,7 @@ ul.ui-autocomplete {
     overflow-x:hidden;
     overflow-y:hidden;
 }
-.mod0 #gantt {
+.navettes #gantt {
 	height:550px;
 	width:94.86%;
     float: right;
@@ -912,7 +912,7 @@ ul.ui-autocomplete {
     user-select: none;
     cursor:move;
 }
-.mod0 #margin{
+.navettes #margin{
     float:right;
     width:0.6%;
     height:100%;
@@ -1062,13 +1062,13 @@ h4 a{
     border-radius: 0;
     background-color:#716259;
 }
-.mod0 .extrainfos {
+.navettes .extrainfos {
     vertical-align: bottom;
     /* position: absolute; */
     bottom: 3%;
     width: 100%;
 }
-.mod0 .text-container p {
+.navettes .text-container p {
     margin-top: 10px;
 }
 text {
@@ -1085,7 +1085,7 @@ text {
     position: relative;
     top: 0.3em;
 }
-.mod0 .text-container p, .pop0 p {
+.navettes .text-container p, .pop0 p {
     text-align: center;
 }
 .text-container .badge {
@@ -1109,7 +1109,7 @@ text {
 	padding-left: 10px;
 }
 
-#mod0-slider-label {
+#navettes-slider-label {
     cursor: default;
 }
 
@@ -1117,7 +1117,7 @@ text {
 	padding-left: 10px;
 }
 
-#mod0-slider {
+#navettes-slider {
 	width: 60px;
 	height: 16px;
 	margin-top: 17px;
@@ -1128,7 +1128,7 @@ text {
 	cursor: pointer;
 }
 
-#mod0-slider > .ui-slider-handle{
+#navettes-slider > .ui-slider-handle{
 	width:10px;
 	margin-top: 4px;
 	height:16px;
@@ -1423,7 +1423,7 @@ noscript h2 {
     cursor:pointer;
 }
 
-.mod0 .badge .glyphicon {
+.navettes .badge .glyphicon {
     top:0.2em;
 }
 
@@ -1446,7 +1446,7 @@ noscript h2 {
     margin-top: 2px;
     border-right-color: #FFF !important;
 }
-.mod0 .text .tooltip {
+.navettes .text .tooltip {
     opacity: 1;
 }
 .badge{

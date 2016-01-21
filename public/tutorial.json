@@ -1,5 +1,5 @@
 {
-    "mod0":{
+    "navettes":{
         "#gantt":"right = <h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Navettes&nbsp;»</h6><i>Vous pouvez quitter ce tutoriel à tout moment en cliquant sur le bouton ci-dessous. Relancez-le en cliquant sur le point d'interrogation en haut à droite.</i><br/><br/>Cette vue panoptique porte sur les débats parlementaires à chaque étape de la procédure législative.<br/>Pour chaque texte s'affichent les différentes étapes du processus législatif pour lesquelles vous pouvez obtenir des détails au survol de la souris. @ click = #backtoall , scrolltop = #gantt , zoom = 0",
         "#sidebar":"left = En cliquant sur un texte, vous pouvez consulter dans cet encart différentes informations et éléments quantitatifs sur celui-ci.<br/>Cliquez sur le bouton &nbsp;<span style='background-color: #716259;color: white; padding: 3px;'>Explorer les articles</span>&nbsp; pour vous rendre sur la visualisation «&nbsp;Articles&nbsp;», qui vous permettra d'explorer les modifications effectuées sur ce texte. @ click = .g-law-first",
         "#menu-display":"right = Cliquez sur ce bouton pour changer de mode de représentation des textes&nbsp;:<ul><li>la <u><b>vue chronologique</b></u> affiche le texte le plus récent en haut et le plus vieux en bas&nbsp;;</li><li>...</li></ul> @ click = #dm-time",
