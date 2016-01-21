@@ -46,7 +46,7 @@ angular.module('theLawFactory', [
         })
         .state('debates', {
             url: '/debats.html?loi&etape',
-            template: '<div mod2b class="mod2"></div>',
+            template: '<div debats class="debats"></div>',
             controller: 'mainCtrl'
         });
 

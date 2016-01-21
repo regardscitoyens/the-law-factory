@@ -812,7 +812,7 @@ ul.ui-autocomplete {
 .navettes .text  {
 	width:23.39%;
 }
-.articles .text, .mod2 .text  {
+.articles .text, .mod2 .text, .debats .text  {
     position:absolute;
     left: 73.3%;
     -webkit-transition: all 0.4s ease-in-out;
@@ -821,7 +821,7 @@ ul.ui-autocomplete {
     transition: all 0.4s ease-in-out;
 }
 
-.mod2 #viz {
+.mod2 #viz, .debats #viz {
     overflow-y:auto;
     overflow-x:hidden;
     width:95.44%;
@@ -858,7 +858,7 @@ ul.ui-autocomplete {
     font-size: 16px;
 }
 
-.mod2 .stages,.navettes #bars{
+.mod2 .stages, .debats .stages, .navettes #bars{
 	display: inline-block;
     text-align: left;
     float: left;
@@ -923,7 +923,7 @@ ul.ui-autocomplete {
     font-family:"Oxygen", sans-serif !important;
 }*/
 
-.mod2 .leg-item{
+.mod2 .leg-item, .debats .leg-item {
 	cursor:pointer;
 }
 .valid-step{

@@ -1,13 +1,13 @@
 angular.module('theLawFactory.debats', [])
-    .directive('mod2b', ['api', '$rootScope', '$location', '$compile',
+    .directive('debats', ['api', '$rootScope', '$location', '$compile',
         function (api, $rootScope) {
             return {
                 restrict: 'A',
                 replace: false,
-                templateUrl: 'templates/mod2b.html',
+                templateUrl: 'templates/debats.html',
                 controller: function ($scope) {
                     $scope.step = 0;
-                    $scope.mod = "mod2b";
+                    $scope.mod = "debats";
                     $scope.setHelpText("Chaque boîte représente un groupe d'orateurs intervenus dans les débats sur un sujet. La longueur indique le nombre de mots prononcés et la couleur le groupe politique. Cliquez sur une boîte pour voir la liste des orateurs et consulter le texte des débats.");
                     $scope.vizTitle = "DÉBATS";
 
