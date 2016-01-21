@@ -1,12 +1,12 @@
 angular.module('theLawFactory.amendements', [])
-	.directive('mod2', ['$rootScope', '$timeout', '$sce', '$location', 'api', function ($rootScope, $timeout, $sce, $location, api) {
+	.directive('amendements', ['$rootScope', '$timeout', '$sce', '$location', 'api', function ($rootScope, $timeout, $sce, $location, api) {
         return {
             restrict: 'A',
             replace: false,
-            templateUrl: 'templates/mod2.html',
+            templateUrl: 'templates/amendements.html',
             controller: function ($scope) {
                 $scope.step = 0;
-                $scope.mod = "mod2";
+                $scope.mod = "amendements";
                 $scope.setHelpText("Chaque boîte représente un amendement dont le pictogramme indique le sort et la couleur le groupe politique de ses auteurs. Cliquez sur un amendement pour en lire le contenu et les détails.");
                 $scope.trustedHelpText = $sce.trustAsHtml($scope.helpText);
                 $scope.vizTitle = "AMENDEMENTS";
@@ -264,7 +264,7 @@ angular.module('theLawFactory.amendements', [])
 
                 // Affichage du contenu d'un amendement
                 $scope.selectAmdt = function(amdt) {
-                    $('.mod2 .amendement.selected').removeClass('selected');
+                    $('.amendements .amendement.selected').removeClass('selected');
 
                     if (amdt) {
                         $('.amendement-' + amdt.id_api).addClass('selected');

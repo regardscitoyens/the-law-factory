@@ -37,21 +37,21 @@
                     <span class="glyphicon glyphicon-folder-open"></span>
                     <span ng-hide="i.enddate" class="glyphicon stb-live"></span>
                 </a>
-                <span ng-hide="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='debats'))" class="stb-link low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='mod2'}">
+                <span ng-hide="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='debats'))" class="stb-link low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='amendements'}">
                     <span class="glyphicon glyphicon-folder-open"></span>
                     <span ng-hide="i.enddate" class="glyphicon stb-live" data-toggle="tooltip" data-placement="bottom" title="Mise à jour en temps réel"></span>
                 </span>
 
                 <a
                     class="stb-link stb-ints"
-                    ng-show="i.has_interventions && (etape!=i.directory ||(etape==i.directory && mod=='mod2'))"
+                    ng-show="i.has_interventions && (etape!=i.directory ||(etape==i.directory && mod=='amendements'))"
                     data-toggle="tooltip"
                     data-placement="bottom"
                     title="Explorer les débats"
                     href="debats.html?loi={{loi}}&etape={{i.directory}}">
                     <span class="glyphicon glyphicon-comment"></span>
                 </a>
-                <span ng-hide="i.has_interventions && (etape!=i.directory ||(etape==i.directory && mod=='mod2'))" class="stb-link glyphicon glyphicon-comment low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='debats'}"></span>
+                <span ng-hide="i.has_interventions && (etape!=i.directory ||(etape==i.directory && mod=='amendements'))" class="stb-link glyphicon glyphicon-comment low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='debats'}"></span>
             </div>
 
         </div>

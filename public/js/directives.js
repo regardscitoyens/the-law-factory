@@ -476,7 +476,7 @@ angular.module('theLawFactory.directives', [])
                         var bbox = d3.select(sElementClass)[0][0].getBBox();
                         var width = bbox.width;
                         var height = bbox.height;
-                        if ($scope.mod == "mod2")
+                        if ($scope.mod == "amendements")
                             height += 20;
                         var top = $(selk).offset().top + d3.select(sElementClass)[0][0].getBBox().y + parseInt(oElement.attr('data-offset'));
                         var left = $(selk).offset().left + bbox.x;

@@ -371,50 +371,50 @@ body{
 	fill: #FD5252;
 }
 
-.mod2 .viz-container, .navettes .viz-container{
+.amendements .viz-container, .navettes .viz-container{
     height: 100%;
 }
 
-.mod2 .container-fluid {
+.amendements .container-fluid {
     padding-left: 0;
     padding-right: 0;
 }
-.mod2 .sujet {
+.amendements .sujet {
     padding: 12px 20px 0 30px;
     -webkit-transition: opacity 0.25s ease-in-out;
     -moz-transition: opacity 0.25s ease-in-out;
     -o-transition: opacity 0.25s ease-in-out;
     transition: opacity 0.25s ease-in-out;
 }
-.mod2 .colonnes .sujet {
+.amendements .colonnes .sujet {
     width: 50%;
     display: inline-block;
 }
-.mod2 .colonnes .sujet:nth-child(2n+1) {
+.amendements .colonnes .sujet:nth-child(2n+1) {
     padding-right: 5px;
 }
-.mod2 .colonnes .sujet:nth-child(2n) {
+.amendements .colonnes .sujet:nth-child(2n) {
     padding-left: 15px;
 }
-.mod2 .sujet .titre {
+.amendements .sujet .titre {
     font-size: 0.85em;
     margin-bottom: 1px;
 }
-.mod2 .sujet .titre-link {
+.amendements .sujet .titre-link {
     cursor: pointer;
 }
-.mod2 .s-focus-mode .sujet {
+.amendements .s-focus-mode .sujet {
     opacity: 0.25;
 }
-.mod2 .s-focus-mode .sujet.focus {
+.amendements .s-focus-mode .sujet.focus {
     opacity: 1;
 }
-.mod2 .amendements {
+.amendements .liste-amendements {
     display: flex;
     flex-flow: row wrap;
     background-image: url(../img/filler.png);
 }
-.mod2 .amendement {
+.amendements .amendement {
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -427,16 +427,16 @@ body{
     -o-transition: opacity 0.25s ease-in-out;
     transition: opacity 0.25s ease-in-out;
 }
-.mod2 .a-focus-mode .amendement {
+.amendements .a-focus-mode .amendement {
     opacity: 0.15;
 }
-.mod2 .a-focus-mode .amendement.focus {
+.amendements .a-focus-mode .amendement.focus {
     opacity: 1;
 }
-.mod2 .amendement.selected {
+.amendements .amendement.selected {
     border: 2px solid #333344;
 }
-.mod2 .amendement-tooltip {
+.amendements .amendement-tooltip {
     opacity: 0;
     position: absolute;
     z-index: 1;
@@ -451,7 +451,7 @@ body{
     -o-transition: opacity 0.25s ease-in-out;
     transition: opacity 0.25s ease-in-out;
 }
-.mod2 .amendement-tooltip .arrow {
+.amendements .amendement-tooltip .arrow {
     width: 11px;
     height: 23px;
     position: absolute;
@@ -459,25 +459,25 @@ body{
     top: 79px;
     background-image: url(../img/left-arrow.png);
 }
-.mod2 .amendement:hover .amendement-tooltip {
+.amendements .amendement:hover .amendement-tooltip {
     opacity: 1;
 }
-.mod2 .amendement-tooltip .numero {
+.amendements .amendement-tooltip .numero {
     background-color: #716259;
     color: white;
     padding: 10px;
     font-weight: bold;
     text-align: center;
 }
-.mod2 .amendement-tooltip .groupe {
+.amendements .amendement-tooltip .groupe {
     font-weight: bold;
 }
-.mod2 .amendement-tooltip .groupe,
-.mod2 .amendement-tooltip .sort,
-.mod2 .amendement-tooltip .date {
+.amendements .amendement-tooltip .groupe,
+.amendements .amendement-tooltip .sort,
+.amendements .amendement-tooltip .date {
     margin: 15px;
 }
-.mod2 .leg-tooltip {
+.amendements .leg-tooltip {
     background-color: #716259;
     color: white;
     font-size: 0.9em;
@@ -493,7 +493,7 @@ body{
     -o-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
 }
-.mod2 .leg-tooltip:before {
+.amendements .leg-tooltip:before {
     content: ' ';
     width: 0;
     height: 0;
@@ -504,24 +504,24 @@ body{
     top: 100%;
     left: 8px;
 }
-.mod2 .leg-item:hover .leg-tooltip {
+.amendements .leg-item:hover .leg-tooltip {
     opacity: 1;
 }
-.mod2 .leg-sort {
+.amendements .leg-sort {
     background-color: #b4b4b4;
     background-repeat: no-repeat;
     background-position: center;
 }
-.mod2 .others .leg-key {
+.amendements .others .leg-key {
     text-transform: capitalize;
 }
-.mod2 .text-container {
+.amendements .text-container {
     -webkit-transition: opacity 0.2s ease-in-out;
     -moz-transition: opacity 0.2s ease-in-out;
     -o-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
 }
-.mod2 .text-container.loading {
+.amendements .text-container.loading {
     opacity: 0;
 }
 
@@ -812,7 +812,7 @@ ul.ui-autocomplete {
 .navettes .text  {
 	width:23.39%;
 }
-.articles .text, .mod2 .text, .debats .text  {
+.articles .text, .amendements .text, .debats .text  {
     position:absolute;
     left: 73.3%;
     -webkit-transition: all 0.4s ease-in-out;
@@ -821,7 +821,7 @@ ul.ui-autocomplete {
     transition: all 0.4s ease-in-out;
 }
 
-.mod2 #viz, .debats #viz {
+.amendements #viz, .debats #viz {
     overflow-y:auto;
     overflow-x:hidden;
     width:95.44%;
@@ -844,7 +844,7 @@ ul.ui-autocomplete {
     z-index: 1;
 }
 
-.mod2 .viz-container h4,.navettes .viz-container h4{
+.amendements .viz-container h4,.navettes .viz-container h4{
 	text-align: center;
     padding: 20px 4px;
 	width: 6.8%;
@@ -858,7 +858,7 @@ ul.ui-autocomplete {
     font-size: 16px;
 }
 
-.mod2 .stages, .debats .stages, .navettes #bars{
+.amendements .stages, .debats .stages, .navettes #bars{
 	display: inline-block;
     text-align: left;
     float: left;
@@ -923,7 +923,7 @@ ul.ui-autocomplete {
     font-family:"Oxygen", sans-serif !important;
 }*/
 
-.mod2 .leg-item, .debats .leg-item {
+.amendements .leg-item, .debats .leg-item {
 	cursor:pointer;
 }
 .valid-step{
@@ -1308,7 +1308,7 @@ li.src-fcs, li.ui-state-focus, li.ui-state-focus a:hover, li.ui-state-focus a:li
 .stb-inst.cc {
 	background-color: rgba(174,234,170,0.3);
 }
-.mod2 .stb-step {
+.amendements .stb-step {
     border-bottom: 1px solid #AAA;
 }
 .stb-step.current {
@@ -1470,7 +1470,7 @@ noscript h2 {
 	cursor: pointer;
 }
 
-.mod2 .text h4 {
+.amendements .text h4 {
     width: 100%;
     float: right;
 }
