@@ -1330,14 +1330,25 @@ li.src-fcs, li.ui-state-focus, li.ui-state-focus a:hover, li.ui-state-focus a:li
 }
 
 .stb-live {
-    float: left;
-    padding-left: 4px;
-    font-size: 10px;
+    margin-left: 4px;
     opacity: 0.6;
+}
+.stb-curr-st .stb-live {
+    -moz-animation: live-rotate 10s infinite;
+    -webkit-animation: live-rotate 10s infinite;
+}
+@-webkit-keyframes live-rotate {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}
+@-moz-keyframes live-rotate {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
 }
 .stb-live:before {
     content: '\e031';
-
 }
 
 /*END OF STEPSBAR */

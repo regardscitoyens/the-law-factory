@@ -19,7 +19,6 @@
 
             <div>
                 <span>
-                    <span ng-hide="i.enddate" class="glyphicon stb-live" data-toggle="tooltip" data-placement="bottom" title="Mise à jour automatique"></span>
                     <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{ i.long_name }} <br/> {{ i.enddate | formatDate }}">{{i.short_name}}</span>
                     <span ng-hide="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{ i.enddate | formatDate }}">{{i.long_name}}</span>
                     <a ng-hide="!i.source_url || i.source_url=='renvoi en commission'" class="stb-linkstep glyphicon glyphicon-link" data-toggle="tooltip" data-placement="bottom" title="Voir la source" href="{{i.source_url}}" target="_blank"></a>
@@ -33,11 +32,15 @@
                     ng-show="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='mod2b'))"
                     data-toggle="tooltip"
                     data-placement="bottom"
-                    title="Explorer les amendements"
+                    title="Explorer les amendements{{ i.enddate === '' ? ' (Mise à jour en temps réel)' : '' }}"
                     href="amendements.html?loi={{loi}}&etape={{i.directory}}">
                     <span class="glyphicon glyphicon-folder-open"></span>
+                    <span ng-hide="i.enddate" class="glyphicon stb-live"></span>
                 </a>
-                <span ng-hide="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='mod2b'))" class="stb-link glyphicon glyphicon-folder-open low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='mod2'}"></span>
+                <span ng-hide="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='mod2b'))" class="stb-link low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='mod2'}">
+                    <span class="glyphicon glyphicon-folder-open"></span>
+                    <span ng-hide="i.enddate" class="glyphicon stb-live" data-toggle="tooltip" data-placement="bottom" title="Mise à jour en temps réel"></span>
+                </span>
 
                 <a
                     class="stb-link stb-ints"
