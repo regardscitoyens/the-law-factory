@@ -1,8 +1,8 @@
 var num = 0;
 var svg, mydata;
-var participants, highlight, resetHighlight, groups, mod2bDrawing;
+var participants, highlight, resetHighlight, groups, debatsDrawing;
 var width;
-var setMod2bSize = thelawfactory.utils.setModSize("#viz-int", 1),
+var setDebatsSize = thelawfactory.utils.setModSize("#viz-int", 1),
     shortenString = function (s, n) {
     if (s.length > n) {
         s = s.substr(0, s.indexOf(' ', n - 20)) + "…";
@@ -94,16 +94,16 @@ function init(data, step, vizTitle, helpText) {
 }
 
 $(window).resize(function () {
-    if (mod2bDrawing || $(".view").scope().mod != "mod2b") return;
-    mod2bDrawing = true;
+    if (debatsDrawing || $(".view").scope().mod != "debats") return;
+    debatsDrawing = true;
     setTimeout(function () {
         $("#display_menu .chosen").click();
-        mod2bDrawing = false;
+        debatsDrawing = false;
     }, 150);
 });
 
 function drawFlows(top_ordered) {
-    setMod2bSize();
+    setDebatsSize();
     thelawfactory.utils.setTextContainerHeight();
     var selected_itv = d3.selectAll(".main-focused");
     if (selected_itv[0].length) selected_itv = selected_itv[0][0].id;
@@ -135,10 +135,10 @@ function drawFlows(top_ordered) {
         wrap(offset - 25);
         thelawfactory.utils.spinner.stop(function () {
             $("#viz-int").animate({opacity: 1}, 50);
-            mod2bDrawing = true;
+            debatsDrawing = true;
             setTimeout(thelawfactory.utils.setTextContainerHeight, 250);
             if (selected_itv) $("#" + selected_itv).d3Click();
-            mod2bDrawing = false;
+            debatsDrawing = false;
         });
     });
 }
@@ -360,7 +360,7 @@ sven.viz.streamkey = function () {
                 d3.select(d3.select(this).node().parentNode).selectAll("rect").classed('focused', true).transition().style("opacity", 0.55);
                 d3.select(this).classed('main-focused', true).transition().style("opacity", 1);
 
-                if (mod2bDrawing) return;
+                if (debatsDrawing) return;
                 $("#text-title").html(d.label);
                 thelawfactory.utils.setTextContainerHeight();
                 $(".text-container").empty()

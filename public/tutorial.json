@@ -32,7 +32,7 @@
         "#menu-order":"right = Le menu de tri permet d'alterner entre un tri regroupant les amendements d'abord par groupe politique ou par sort final.",
         "#menu-tutorial a":"left = Cliquez ici pour afficher de nouveau ce tutoriel. @ click = #dm-draw"
     },
-    "mod2b":{
+    "debats":{
         "#viz":"right = <h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Débats&nbsp;»</h6><i>Vous pouvez quitter ce tutoriel à tout moment en cliquant sur le bouton ci-dessous. Relancez-le en cliquant sur le point d'interrogation en haut à droite.</i><br/><br/>Cette vue présente les discussions parlementaires à une étape donnée de la procédure législative.<br/>Plus on descend dans la page, plus on progresse dans la discussion des réunions de commissions et des séances en hémicycle consacrées à l'examen du texte. @ scrolltop = #viz",
         ".svg.rect-first":"bottom = Chaque rectangle représente, pour une section du débat, à la participation d'un groupe d'orateurs : parlementaires, ministres et éventuels auditionnés.<br/>Plus les membres de ce groupes ont parlé, plus le rectangle correspondant est long.",
         ".text":"left = Cliquez sur un rectangle pour faire apparaître à droite les orateurs de ce groupe intervenus lors de cette phase et classés par ordre décroissant de mots prononcés.<br/>On peut cliquer sur les photos des parlementaires pour retrouver leurs pages personnelles sur NosDéputés.fr ou NosSénateurs.fr, ainsi qu'au texte complet des interventions de chacun à cet instant des débats @ click = .rect-first",

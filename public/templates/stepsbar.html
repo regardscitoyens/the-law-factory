@@ -29,7 +29,7 @@
             <div class="stb-links">
                 <a
                     class="stb-link stb-amds"
-                    ng-show="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='mod2b'))"
+                    ng-show="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='debats'))"
                     data-toggle="tooltip"
                     data-placement="bottom"
                     title="Explorer les amendements{{ i.enddate === '' ? ' (Mise à jour en temps réel)' : '' }}"
@@ -37,7 +37,7 @@
                     <span class="glyphicon glyphicon-folder-open"></span>
                     <span ng-hide="i.enddate" class="glyphicon stb-live"></span>
                 </a>
-                <span ng-hide="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='mod2b'))" class="stb-link low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='mod2'}">
+                <span ng-hide="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='debats'))" class="stb-link low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='mod2'}">
                     <span class="glyphicon glyphicon-folder-open"></span>
                     <span ng-hide="i.enddate" class="glyphicon stb-live" data-toggle="tooltip" data-placement="bottom" title="Mise à jour en temps réel"></span>
                 </span>
@@ -51,7 +51,7 @@
                     href="debats.html?loi={{loi}}&etape={{i.directory}}">
                     <span class="glyphicon glyphicon-comment"></span>
                 </a>
-                <span ng-hide="i.has_interventions && (etape!=i.directory ||(etape==i.directory && mod=='mod2'))" class="stb-link glyphicon glyphicon-comment low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='mod2b'}"></span>
+                <span ng-hide="i.has_interventions && (etape!=i.directory ||(etape==i.directory && mod=='mod2'))" class="stb-link glyphicon glyphicon-comment low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='debats'}"></span>
             </div>
 
         </div>
