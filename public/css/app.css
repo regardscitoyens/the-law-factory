@@ -1842,6 +1842,9 @@ footer{
     margin: 8px;
     margin-top: 35px;
 }
+.sources a {
+    white-space: nowrap;
+}
 .amd-date {
     float: left;
     padding: 8px;

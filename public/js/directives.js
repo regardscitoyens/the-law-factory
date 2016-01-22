@@ -100,7 +100,7 @@ angular.module('theLawFactory.directives', [])
                 };
             }
         };
-    }]).directive('mod2', ['$rootScope', '$timeout', '$sce', 'api', function ($rootScope, $timeout, $sce, api) {
+    }]).directive('mod2', ['$rootScope', '$timeout', '$sce', '$location', 'api', function ($rootScope, $timeout, $sce, $location, api) {
         return {
             restrict: 'A',
             replace: false,
@@ -124,6 +124,7 @@ angular.module('theLawFactory.directives', [])
                 $scope.loadingAmdt = false;
                 $scope.selectedAmdt = null;
                 $scope.selectedAmdtData = null;
+                console.dir($location.search()['amdt']);
 
                 var sort_ordre = {
                         "adopté": 0,
@@ -256,6 +257,17 @@ angular.module('theLawFactory.directives', [])
                                 });
                             }
 
+                            var amdtNum = $location.search()['amdt'];
+                            if (amdtNum) {
+                                var $amdt = $('.amendement-num-' + amdtNum);
+                                var $sujet = $amdt.parents('.sujet');
+
+                                $amdt.click();
+                                $viz.animate({
+                                    scrollTop: $sujet.offset().top - $viz.offset().top
+                                });
+                            }
+
                             firstDraw = false;
                         }
                     }, 0);
@@ -371,6 +383,9 @@ angular.module('theLawFactory.directives', [])
                             amdtContenu.sujet = thelawfactory.utils.cleanAmdSubject(amdtContenu.sujet);
                             amdtContenu.origine = amdtContenu.url_nosdeputes ? 'an' : 'senat';
                             amdtContenu.url = amdtContenu.url_nosdeputes || amdtContenu.url_nossenateurs;
+
+                            $location.search('amdt', amdt.numero);
+                            amdtContenu.tlfurl = $location.url();
 
                             amdtContenu.trustedExpose = $sce.trustAsHtml(amdtContenu.expose);
                             amdtContenu.trustedTexte = $sce.trustAsHtml(amdtContenu.texte);

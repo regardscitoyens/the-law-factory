@@ -61,6 +61,7 @@
                     class="
                       amendement
                       amendement-{{ amdt.id_api }}
+                      amendement-num-{{ amdt.numero }}
                       {{ $parent.$first &amp;&amp; $first ? 'first-art' : '' }}
                       {{ focusGroupe &amp;&amp; amdt.groupe === focusGroupe ? 'focus' : '' }}
                       {{ focusSort &amp;&amp; amdt.sort === focusSort ? 'focus' : '' }}
@@ -153,8 +154,10 @@
               <small>
                 <a target="_blank" href="{{ selectedAmdtData.url }}"><span class="glyphicon glyphicon-link"></span>
                   {{ selectedAmdtData.origine === 'an' ? 'NosDéputés' : 'NosSénateurs' }}.fr</a> &nbsp; &nbsp;
-                <a target="_blank" href="{{ selectedAmdtData.source }}"><span class="glyphicon glyphicon-link"></span> 
-                  {{ selectedAmdtData.origine === 'an' ? 'Assemblée Nationale' : 'Sénat' }}</a>
+                <a target="_blank" href="{{ selectedAmdtData.source }}"><span class="glyphicon glyphicon-link"></span>
+                  {{ selectedAmdtData.origine === 'an' ? 'Assemblée Nationale' : 'Sénat' }}</a> &nbsp; &nbsp;
+                <a href="{{ selectedAmdtData.tlfurl }}"><span class="glyphicon glyphicon-link"></span>
+                  Perma-lien</a>
               </small>
             </p>
           </div>
