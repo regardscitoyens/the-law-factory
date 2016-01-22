@@ -15,6 +15,7 @@ angular.module('theLawFactory', [
     'theLawFactory.lawlist',
     'theLawFactory.movescroll',
     'theLawFactory.stepsbar',
+    'theLawFactory.about',
     'theLawFactory.navettes',
     'theLawFactory.articles',
     'theLawFactory.debats',
