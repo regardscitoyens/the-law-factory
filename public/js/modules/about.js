@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('theLawFactory.about', [])
     .directive('about', ['$rootScope', function ($rootScope) {
             return {

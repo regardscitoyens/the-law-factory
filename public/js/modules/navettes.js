@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('theLawFactory.navettes', [])
     .directive('navettes', ['api', '$rootScope', '$location', '$compile',
         function (api, $rootScope) {

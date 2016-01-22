@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('theLawFactory.amendements', [])
 	.directive('amendements', ['$rootScope', '$timeout', '$sce', '$location', 'api', function ($rootScope, $timeout, $sce, $location, api) {
         return {

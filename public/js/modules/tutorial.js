@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('theLawFactory.tutorial', [])
     .directive('tutorial', function() {
         return {
