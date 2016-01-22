@@ -423,6 +423,8 @@ angular.module('theLawFactory.directives', [])
                         $event.stopPropagation();
                         $scope.article = article;
                     }
+
+                    $location.search('article', article);
                 };
 
                 // Focus sur un groupe ou sort
