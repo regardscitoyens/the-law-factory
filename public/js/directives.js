@@ -124,7 +124,6 @@ angular.module('theLawFactory.directives', [])
                 $scope.loadingAmdt = false;
                 $scope.selectedAmdt = null;
                 $scope.selectedAmdtData = null;
-                console.dir($location.search()['amdt']);
 
                 var sort_ordre = {
                         "adopté": 0,
