@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('theLawFactory.lawlist', [])
     .directive('lawlist', ['$location', '$rootScope', 'api', function ($location, $rootScope, api) {
             return {

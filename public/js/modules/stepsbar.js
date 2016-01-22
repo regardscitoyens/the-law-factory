@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('theLawFactory.stepsbar', [])
     .directive('stepsbar', ['$timeout', '$rootScope', 'api', function ($timeout, $rootScope, api) {
             return {

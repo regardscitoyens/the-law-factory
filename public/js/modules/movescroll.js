@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('theLawFactory.movescroll', [])
     .directive('movescroll', function () {
         return {

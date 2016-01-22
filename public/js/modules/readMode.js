@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('theLawFactory.readMode', [])
     .directive('readMode', function() {
         return {
