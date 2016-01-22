@@ -636,7 +636,7 @@ ins {
 
 }
 .leg-item{
-	float:left;
+    display: inline-block;
 	width: 12%;
 	margin-top:5px;
 	margin-left:2%;
@@ -652,10 +652,6 @@ ins {
 }
 .colors, .others{
 	margin-top:2px;
-}
-
-.others {
-    margin-top:10px;
 }
 
 .leg-key{
