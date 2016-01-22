@@ -410,6 +410,11 @@ angular.module('theLawFactory.directives', [])
                         if ($target.parents('.sujet').attr('data-article') === $scope.article) return;
                     }
 
+                    if ($scope.article === article) {
+                        // Re-clic sur un article = désélection
+                        article = null;
+                    }
+
                     if (!article) {
                         $scope.article = null;
                         $scope.focusGroupe = null;
