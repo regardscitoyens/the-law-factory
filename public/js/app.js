@@ -13,6 +13,7 @@ angular.module('theLawFactory', [
     'theLawFactory.services',
     'theLawFactory.directives',
     'theLawFactory.lawlist',
+    'theLawFactory.movescroll',
     'theLawFactory.navettes',
     'theLawFactory.articles',
     'theLawFactory.debats',
