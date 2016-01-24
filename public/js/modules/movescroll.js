@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('theLawFactory.movescroll', [])
+angular.module('theLawFactory')
     .directive('movescroll', function () {
         return {
             restrict: 'A',

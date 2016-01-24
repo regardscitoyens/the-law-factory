@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('theLawFactory.readMode', [])
+angular.module('theLawFactory')
     .directive('readMode', function() {
         return {
             restrict: 'A',

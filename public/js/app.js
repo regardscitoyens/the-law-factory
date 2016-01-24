@@ -2,27 +2,18 @@
 
 // Default configuration - do not change here
 // Configuration id to be set in public/js/config.js
-angular.module('theLawFactory.config', []).constant('API_ROOT_URL', 'https://www.lafabriquedelaloi.fr/api/').constant('GOOGLE_ANALYTICS_ID', '').constant('HOST_FOR_GOOGLE', '');
+angular.module('theLawFactory.config', [])
+    .constant('API_ROOT_URL', 'https://www.lafabriquedelaloi.fr/api/')
+    .constant('GOOGLE_ANALYTICS_ID', '')
+    .constant('HOST_FOR_GOOGLE', '');
 
-// Declare app level module which depends on filters, and services
+// Declare app level module
 angular.module('theLawFactory', [
     'ngSanitize',
     'ui.router',
-    'theLawFactory.config',
-    'theLawFactory.controllers',
-    'theLawFactory.services',
-    'theLawFactory.lawlist',
-    'theLawFactory.movescroll',
-    'theLawFactory.stepsbar',
-    'theLawFactory.about',
-    'theLawFactory.tutorial',
-    'theLawFactory.readMode',
-    'theLawFactory.navettes',
-    'theLawFactory.articles',
-    'theLawFactory.debats',
-    'theLawFactory.amendements',
-    'theLawFactory.analytics'
-]).config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
+    'theLawFactory.config'
+])
+.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('home', {
             url: '/',
