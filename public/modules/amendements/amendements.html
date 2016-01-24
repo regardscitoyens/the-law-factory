@@ -68,7 +68,7 @@
                   {{ focusGroupe &amp;&amp; amdt.groupe === focusGroupe ? 'focus' : '' }}
                   {{ focusSort &amp;&amp; amdt.sort === focusSort ? 'focus' : '' }}
                   "
-                  style="background-color: {{ amdt.color }}; background-image: url({{ amdt.sort_image }});"      
+                  style="background-color: {{ amdt.color }}; background-image: url({{ amdt.sort_image }});"
                   ng-click="selectAmdt(amdt)"
                   ng-mousemove="repositionTooltip($event)"
                   ng-repeat="amdt in sujet.amendements track by amdt.id_api">

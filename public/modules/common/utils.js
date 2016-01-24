@@ -3,9 +3,9 @@
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
     thelawfactory.utils = {};
-    
+
     var utils = thelawfactory.utils;
-    
+
     utils.shortNames = {
         "1relecture": "1<sup>ère</sup> Lect.",
         "2melecture": "2<sup>ère</sup> Lect.",
@@ -43,11 +43,11 @@
     utils.hashName = function (n) {
         return n.replace(/\W/g, '').toLowerCase();
     };
-    
+
     utils.getShortName = function (l) {
         return (utils.shortNames[utils.hashName(l)] ? utils.shortNames[utils.hashName(l)] : l);
     };
-    
+
     utils.getLongName = function (l) {
         return (utils.longNames[utils.hashName(l)] ? utils.longNames[utils.hashName(l)] : l);
     };
@@ -193,7 +193,7 @@
             .style("stroke", "none")
             .classed("actv-amd", false);
     };
-    
+
     utils.accentMap = {
         "á": "a",
         "à": "a",
