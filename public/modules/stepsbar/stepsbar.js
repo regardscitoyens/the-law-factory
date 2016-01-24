@@ -5,7 +5,7 @@ angular.module('theLawFactory')
             return {
                 restrict: 'A',
                 replace: false,
-                templateUrl: 'templates/stepsbar.html',
+                templateUrl: 'modules/stepsbar/stepsbar.html',
                 link: function (scope) {
                     scope.total = 0;
                     api.getProcedure(scope.loi).then(function (data) {

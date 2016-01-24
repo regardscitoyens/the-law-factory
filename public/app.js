@@ -17,12 +17,12 @@ angular.module('theLawFactory', [
     $stateProvider
         .state('home', {
             url: '/',
-            templateUrl: 'templates/home.html',
+            templateUrl: 'modules/home/home.html',
             controller: 'mainCtrl'
         })
         .state('about', {
             url: '/a-propos.html',
-            templateUrl: 'templates/about.html',
+            templateUrl: 'modules/about/about.html',
             controller: 'mainCtrl'
         })
         .state('laws', {
