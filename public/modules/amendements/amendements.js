@@ -61,7 +61,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
 
                 var max_amdts = 0;
                 var tri_amdts = tri[$scope.sortOrder] || compare_amdts_numero;
-                var data = { 
+                var data = {
                     groupes: groupes,
                     legende: {
                         groupes: {},
@@ -143,7 +143,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
 
                 $timeout(function() {
                     resize();
-                    
+
                     if ($scope.selectedAmdt) {
                         $('.amendement-' + $scope.selectedAmdt.id_api).addClass('selected');
                     }
@@ -208,7 +208,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
                     thelawfactory.utils.spinner.start();
                 }, 50);
             }
-            
+
             // Lit les données depuis l'API et déclenche le redessin
             function update() {
                 if ($scope.etape != null) {
