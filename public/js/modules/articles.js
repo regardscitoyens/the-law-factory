@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('theLawFactory.articles', [])
+angular.module('theLawFactory')
     .directive('articles', ['$rootScope', 'api', function ($rootScope, api) {
         return {
             restrict: 'A',

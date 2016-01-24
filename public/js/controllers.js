@@ -11,8 +11,8 @@ jQuery.fn.d3Click = function () {
 
 /* Controllers */
 
-angular.module('theLawFactory.controllers', ['theLawFactory.config']).
-    controller('mainCtrl', function ($timeout, $scope, $http, apiService, api, $rootScope, $location) {
+angular.module('theLawFactory')
+    .controller('mainCtrl', function ($timeout, $scope, $http, apiService, api, $rootScope, $location) {
         $(".introjs-helperLayer").remove();
         $(".introjs-overlay").remove();
 

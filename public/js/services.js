@@ -2,7 +2,7 @@
 
 /* Services */
 
-angular.module('theLawFactory.services', ['theLawFactory.config'])
+angular.module('theLawFactory')
     .config(['$httpProvider', function ($httpProvider) {
         delete $httpProvider.defaults.headers.common["X-Requested-With"]
     }])

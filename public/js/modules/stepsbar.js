@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('theLawFactory.stepsbar', [])
+angular.module('theLawFactory')
     .directive('stepsbar', ['$timeout', '$rootScope', 'api', function ($timeout, $rootScope, api) {
             return {
                 restrict: 'A',

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('theLawFactory.debats', [])
+angular.module('theLawFactory')
     .directive('debats', ['api', '$rootScope', '$location', '$compile',
         function (api, $rootScope) {
             return {

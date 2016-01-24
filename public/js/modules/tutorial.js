@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('theLawFactory.tutorial', [])
+angular.module('theLawFactory')
     .directive('tutorial', function() {
         return {
             restrict: 'E',
