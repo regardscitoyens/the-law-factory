@@ -6,7 +6,7 @@ angular.module('theLawFactory')
             return {
                 restrict: 'A',
                 replace: false,
-                templateUrl: 'templates/debats.html',
+                templateUrl: 'modules/debats/debats.html',
                 controller: function ($scope) {
                     $scope.step = 0;
                     $scope.mod = "debats";

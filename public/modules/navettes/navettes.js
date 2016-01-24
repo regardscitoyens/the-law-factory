@@ -6,7 +6,7 @@ angular.module('theLawFactory')
             return {
                 restrict: 'A',
                 replace: false,
-                templateUrl: 'templates/navettes.html',
+                templateUrl: 'modules/navettes/navettes.html',
                 controller: function ($scope) {
                     $scope.mod = "navettes";
                     $scope.setHelpText("Chaque ligne représente la chronologie des débats sur un projet ou une proposition de loi. La couleur indique l'institution en charge du texte à un instant donné (Assemblée en bleu, Sénat en rouge...). Cliquez sur un texte pour en consulter le résumé et en explorer les articles.");

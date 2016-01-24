@@ -5,7 +5,7 @@ angular.module('theLawFactory')
         return {
             restrict: 'A',
             replace: false,
-            templateUrl: 'templates/articles.html',
+            templateUrl: 'modules/articles/articles.html',
             controller: function ($scope) {
                 $scope.mod = "articles";
                 $scope.setHelpText("Chaque boîte représente un article dont la taille indique la longueur du texte et la couleur le degré de modifications à cette étape. Cliquez sur un article pour lire le texte et voir le détail des modifications.");

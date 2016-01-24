@@ -5,7 +5,7 @@ angular.module('theLawFactory')
             return {
                 restrict: 'A',
                 replace: false,
-                templateUrl: 'templates/about.html',
+                templateUrl: 'modules/about/about.html',
                 controller: function ($scope) {
                     $rootScope.pageTitle = " À propos | ";
                     $scope.mod = "about";
