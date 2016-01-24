@@ -1,166 +1,165 @@
 <div class="row">
   <div class="cont-width offset-width" style="background-color: white;">
     <nav id="filter-nav" class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-      <ul id="menu-left" class="nav navbar-nav">
-        <li class="active" id="menu-back"><a ng-href="articles.html?loi={{loi}}">&lt; Voir les articles du texte</a></li>
-        <li class="dropdown" id="menu-display">
-          <span ng-cloak class="dropdown-toggle" data-toggle="dropdown">
-            Vue {{ groupAll ? 'groupée' : 'par articles' }}
-            <b class="caret"></b>
-          </span>
-          <ul class="dropdown-menu" role="menu" id="display_menu">
-            <li><a class="{{ groupAll ? '' : 'chosen' }}" ng-click="groupAll = false">par articles</a></li>
-            <li><a class="{{ groupAll ? 'chosen' : '' }}" ng-click="groupAll = true">groupée</a></li>
-          </ul>
-        </li>
-        <li class="dropdown" id="menu-order">
-          <span ng-cloak class="dropdown-toggle" data-toggle="dropdown">
-            Trié par {{ sortOrder === 'sort' ? 'sort final' : (sortOrder === 'groupe' ? 'groupe politique' : 'numéro') }}
-            <b class="caret"></b>
-          </span>
-          <ul class="dropdown-menu" role="menu">
-            <li><a class="{{ sortOrder === 'sort' ? 'chosen' : '' }}" ng-click="sortOrder = 'sort'">sort final</a></li>
-            <li><a class="{{ sortOrder === 'groupe' ? 'chosen' : '' }}" ng-click="sortOrder = 'groupe'">groupe politique</a></li>
-            <li><a class="{{ sortOrder === 'numero' ? 'chosen' : '' }}" ng-click="sortOrder = 'numero'">numéro</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav" id="menu-right">
-      <li id="menu-zoom">&nbsp;</li>
-      <tutorial mod="amendements"></tutorial>
-      </ul>
-    </div>
+      <div class="container-fluid">
+        <ul id="menu-left" class="nav navbar-nav">
+          <li class="active" id="menu-back"><a ng-href="articles.html?loi={{loi}}">&lt; Voir les articles du texte</a></li>
+          <li class="dropdown" id="menu-display">
+            <span ng-cloak class="dropdown-toggle" data-toggle="dropdown">
+              Vue {{ groupAll ? 'groupée' : 'par articles' }}
+              <b class="caret"></b>
+            </span>
+            <ul class="dropdown-menu" role="menu" id="display_menu">
+              <li><a class="{{ groupAll ? '' : 'chosen' }}" ng-click="groupAll = false">par articles</a></li>
+              <li><a class="{{ groupAll ? 'chosen' : '' }}" ng-click="groupAll = true">groupée</a></li>
+            </ul>
+          </li>
+          <li class="dropdown" id="menu-order">
+            <span ng-cloak class="dropdown-toggle" data-toggle="dropdown">
+              Trié par {{ sortOrder === 'sort' ? 'sort final' : (sortOrder === 'groupe' ? 'groupe politique' : 'numéro') }}
+              <b class="caret"></b>
+            </span>
+            <ul class="dropdown-menu" role="menu">
+              <li><a class="{{ sortOrder === 'sort' ? 'chosen' : '' }}" ng-click="sortOrder = 'sort'">sort final</a></li>
+              <li><a class="{{ sortOrder === 'groupe' ? 'chosen' : '' }}" ng-click="sortOrder = 'groupe'">groupe politique</a></li>
+              <li><a class="{{ sortOrder === 'numero' ? 'chosen' : '' }}" ng-click="sortOrder = 'numero'">numéro</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav" id="menu-right">
+          <li id="menu-zoom">&nbsp;</li>
+          <tutorial mod="amendements"></tutorial>
+        </ul>
+      </div>
     </nav>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12 viz-container">
-     <div class="scrolling">
-        <div class="labels-sc">
-          <div class="stages shift-steps">
-              <div stepsbar></div>
-          </div>
+    <div class="scrolling">
+      <div class="labels-sc">
+        <div class="stages shift-steps">
+          <div stepsbar></div>
         </div>
+      </div>
 
-        <div class="main-sc">
-          <div id="preload"></div>
-          <div id="viz" ng-cloak ng-click="focusSubject($event)"
-            class="
-              {{ data.colonnes }}
-              {{ article ? 's-focus-mode' : '' }}
-              {{ focusGroupe || focusSort ? 'a-focus-mode' : '' }}
-            ">
-            <div id="sujets">
-              <div class="sujet {{ $first ? 'first-art-s' : '' }} {{ article === sujet.article ? 'focus' : '' }}"
-                ng-repeat="sujet in data.sujets track by sujet.article" data-article="{{ sujet.article }}">
-                <div class="titre" ng-click="focusSubject($event, sujet.article)">{{ sujet.titre }}</div>
-                <div class="liste-amendements">
-                  <div
-                    class="
-                      amendement
-                      amendement-{{ amdt.id_api }}
-                      amendement-num-{{ amdt.numero }}
-                      {{ $parent.$first &amp;&amp; $first ? 'first-art' : '' }}
-                      {{ focusGroupe &amp;&amp; amdt.groupe === focusGroupe ? 'focus' : '' }}
-                      {{ focusSort &amp;&amp; amdt.sort === focusSort ? 'focus' : '' }}
-                    "
-                    style="background-color: {{ amdt.color }}; background-image: url({{ amdt.sort_image }});"      
-                    ng-click="selectAmdt(amdt)"
-                    ng-mousemove="repositionTooltip($event)"
-                    ng-repeat="amdt in sujet.amendements track by amdt.id_api">
-                    <div class="amendement-tooltip">
-                      <div class="numero">Amendement {{ amdt.numero }}</div>
-                      <div class="groupe">
-                        <span ng-if="amdt.aut">{{ amdt.aut }}<br/></span>
-                        {{ amdt.nom_groupe }}
-                      </div>
-                      <div class="sort">Sort: {{ amdt.sort }}</div>
-                      <div class="date">{{ formatDate(amdt.date) }}</div>
-                      <div class="arrow"></div>
+      <div class="main-sc">
+        <div id="preload"></div>
+        <div id="viz" ng-cloak ng-click="focusSubject($event)"
+          class="
+          {{ data.colonnes }}
+          {{ article ? 's-focus-mode' : '' }}
+          {{ focusGroupe || focusSort ? 'a-focus-mode' : '' }}
+          ">
+          <div id="sujets">
+            <div class="sujet {{ $first ? 'first-art-s' : '' }} {{ article === sujet.article ? 'focus' : '' }}"
+              ng-repeat="sujet in data.sujets track by sujet.article" data-article="{{ sujet.article }}">
+              <div class="titre" ng-click="focusSubject($event, sujet.article)">{{ sujet.titre }}</div>
+              <div class="liste-amendements">
+                <div
+                  class="
+                  amendement
+                  amendement-{{ amdt.id_api }}
+                  amendement-num-{{ amdt.numero }}
+                  {{ $parent.$first &amp;&amp; $first ? 'first-art' : '' }}
+                  {{ focusGroupe &amp;&amp; amdt.groupe === focusGroupe ? 'focus' : '' }}
+                  {{ focusSort &amp;&amp; amdt.sort === focusSort ? 'focus' : '' }}
+                  "
+                  style="background-color: {{ amdt.color }}; background-image: url({{ amdt.sort_image }});"      
+                  ng-click="selectAmdt(amdt)"
+                  ng-mousemove="repositionTooltip($event)"
+                  ng-repeat="amdt in sujet.amendements track by amdt.id_api">
+                  <div class="amendement-tooltip">
+                    <div class="numero">Amendement {{ amdt.numero }}</div>
+                    <div class="groupe">
+                      <span ng-if="amdt.aut">{{ amdt.aut }}<br/></span>
+                      {{ amdt.nom_groupe }}
                     </div>
+                    <div class="sort">Sort: {{ amdt.sort }}</div>
+                    <div class="date">{{ formatDate(amdt.date) }}</div>
+                    <div class="arrow"></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="legend">
-          LÉGENDE
-          <div class="colors">
-            <div class="leg-item" ng-repeat="(key, groupe) in data.legende.groupes" ng-click="focusAmendements(key)">
-              <div class="leg-value" style="background-color: {{ groupe.cssColor }};"></div>
-              <div class="leg-key">{{ key }}</div>
-              <div class="leg-tooltip">{{ groupe.nom }}</div>
-            </div>
-          </div>
-          <div class="others">
-            <span ng-if="data.groupes.Gouvernement">
-              <div class="leg-item" ng-repeat="groupe in [data.groupes.Gouvernement]" ng-click="focusAmendements('Gouvernement')">
-                <div class="leg-value" style="background-color: {{ groupe.cssColor }};"></div>
-                <div class="leg-key">Gouvernement</div>
-              </div>
-              <div class="leg-item"></div>
-            </span>
-            <div class="leg-item" ng-repeat="(sort, image) in data.legende.sorts" ng-click="focusAmendements(null, sort)">
-              <div class="leg-value leg-sort" style="background-image: url({{ image }});"></div>
-              <div class="leg-key">{{ sort }}</div>
-            </div>
-          </div>
-        </div>
-        <div class="clear"></div>
       </div>
 
-      <div class="text">
-
-        <div id="readMode" style="display:initial;" ng-if="selectedAmdt">
-          <div ng-hide="read" class="interactive readMode" ng-click="readmode()" data-toggle="tooltip" title="Déployer le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-left"></span></div>
-          <div ng-show="read" class="interactive readMode" ng-click="viewmode()" data-toggle="tooltip" title="Replier le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-right"></div>
-        </div>
-
-        <h4 id="text-title">
-          {{ selectedAmdt ? 'Amendement ' + selectedAmdt.numero : 'AMENDEMENTS' }}
-        </h4>
-        <div id="load_amd"></div>
-        <div class="text-container {{ loadingAmdt ? 'loading' : '' }}">
-          <div ng-cloak ng-if="!selectedAmdtData" ng-bind-html="trustedHelpText"></div>
-          <div ng-cloak ng-if="selectedAmdtData">
-            <span class="amd-date">{{ formatDate(selectedAmdt.date) }}</span>
-            <span class="amd-sort">
-              {{ selectedAmdtData.sort }}
-              <span class="amd-txt-status" style="background-color:{{ selectedAmdt.color }}">
-                <img style="visibility: {{ selectedAmdt.sort_image === '' ? 'hidden' : 'visible'}}; margin:0; padding:4px; width:18px;" ng-src="{{ selectedAmdt.sort_image }}" />
-              </span>
-            </span>
-            <div class="amd-subject">
-              <b>Sujet :</b>
-              <span>{{ selectedAmdtData.sujet }}</span>
-            </div>
-            <div class="amd-text">
-              <b>Signataires :</b>
-              <span>{{ selectedAmdtData.signataires }}</span>
-            </div>
-            <div class="amd-text">
-              <b>Exposé des motifs :</b>
-              <span ng-bind-html="selectedAmdtData.trustedExpose"></span>
-            </div>
-            <div class="amd-text">
-              <b>Texte :</b>
-              <span ng-bind-html="selectedAmdtData.trustedTexte"></span>
-            </div>
-            <p class="sources">
-              <small>
-                <a target="_blank" href="{{ selectedAmdtData.url }}"><span class="glyphicon glyphicon-link"></span>
-                  {{ selectedAmdtData.origine === 'an' ? 'NosDéputés' : 'NosSénateurs' }}.fr</a> &nbsp; &nbsp;
-                <a target="_blank" href="{{ selectedAmdtData.source }}"><span class="glyphicon glyphicon-link"></span>
-                  {{ selectedAmdtData.origine === 'an' ? 'Assemblée Nationale' : 'Sénat' }}</a> &nbsp; &nbsp;
-                <a href="{{ selectedAmdtData.tlfurl }}"><span class="glyphicon glyphicon-link"></span>
-                  Perma-lien</a>
-              </small>
-            </p>
+      <div class="legend">
+        LÉGENDE
+        <div class="colors">
+          <div class="leg-item" ng-repeat="(key, groupe) in data.legende.groupes" ng-click="focusAmendements(key)">
+            <div class="leg-value" style="background-color: {{ groupe.cssColor }};"></div>
+            <div class="leg-key">{{ key }}</div>
+            <div class="leg-tooltip">{{ groupe.nom }}</div>
           </div>
+        </div>
+        <div class="others">
+          <span ng-if="data.groupes.Gouvernement">
+            <div class="leg-item" ng-repeat="groupe in [data.groupes.Gouvernement]" ng-click="focusAmendements('Gouvernement')">
+              <div class="leg-value" style="background-color: {{ groupe.cssColor }};"></div>
+              <div class="leg-key">Gouvernement</div>
+            </div>
+            <div class="leg-item"></div>
+          </span>
+          <div class="leg-item" ng-repeat="(sort, image) in data.legende.sorts" ng-click="focusAmendements(null, sort)">
+            <div class="leg-value leg-sort" style="background-image: url({{ image }});"></div>
+            <div class="leg-key">{{ sort }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="text">
+
+      <div id="readMode" style="display:initial;" ng-if="selectedAmdt">
+        <div ng-hide="read" class="interactive readMode" ng-click="readmode()" data-toggle="tooltip" title="Déployer le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-left"></span></div>
+        <div ng-show="read" class="interactive readMode" ng-click="viewmode()" data-toggle="tooltip" title="Replier le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-right"></div>
+      </div>
+
+      <h4 id="text-title">
+        {{ selectedAmdt ? 'Amendement ' + selectedAmdt.numero : 'AMENDEMENTS' }}
+      </h4>
+      <div id="load_amd"></div>
+      <div class="text-container {{ loadingAmdt ? 'loading' : '' }}">
+        <div ng-cloak ng-if="!selectedAmdtData" ng-bind-html="trustedHelpText"></div>
+        <div ng-cloak ng-if="selectedAmdtData">
+          <span class="amd-date">{{ formatDate(selectedAmdt.date) }}</span>
+          <span class="amd-sort">
+            {{ selectedAmdtData.sort }}
+            <span class="amd-txt-status" style="background-color:{{ selectedAmdt.color }}">
+              <img style="visibility: {{ selectedAmdt.sort_image === '' ? 'hidden' : 'visible'}}; margin:0; padding:4px; width:18px;" ng-src="{{ selectedAmdt.sort_image }}" />
+            </span>
+          </span>
+          <div class="amd-subject">
+            <b>Sujet :</b>
+            <span>{{ selectedAmdtData.sujet }}</span>
+          </div>
+          <div class="amd-text">
+            <b>Signataires :</b>
+            <span>{{ selectedAmdtData.signataires }}</span>
+          </div>
+          <div class="amd-text">
+            <b>Exposé des motifs :</b>
+            <span ng-bind-html="selectedAmdtData.trustedExpose"></span>
+          </div>
+          <div class="amd-text">
+            <b>Texte :</b>
+            <span ng-bind-html="selectedAmdtData.trustedTexte"></span>
+          </div>
+          <p class="sources">
+            <small>
+              <a target="_blank" href="{{ selectedAmdtData.url }}"><span class="glyphicon glyphicon-link"></span>
+                {{ selectedAmdtData.origine === 'an' ? 'NosDéputés' : 'NosSénateurs' }}.fr</a> &nbsp; &nbsp;
+              <a target="_blank" href="{{ selectedAmdtData.source }}"><span class="glyphicon glyphicon-link"></span>
+                {{ selectedAmdtData.origine === 'an' ? 'Assemblée Nationale' : 'Sénat' }}</a> &nbsp; &nbsp;
+              <a href="{{ selectedAmdtData.tlfurl }}"><span class="glyphicon glyphicon-link"></span>
+                Perma-lien</a>
+            </small>
+          </p>
         </div>
       </div>
     </div>

@@ -1,61 +1,61 @@
 <div class="row">
   <div class="cont-width offset-width" style="background-color: white;">
     <nav id="filter-nav" class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-      <ul id="menu-left" class="nav navbar-nav">
-	     <li ng-hide="chronomissing" class="active" id="menu-back"><a ng-href="lois.html?loi={{loi}}">&lt; Voir la chronologie du texte</a></li>
-	     <li id="menu-display" class="dropdown">
-          <span id="menu-value" class="dropdown-toggle" data-toggle="dropdown">Vue <span class="selectedchoice">alignée</span> <b class="caret"></b></span>
+      <div class="container-fluid">
+        <ul id="menu-left" class="nav navbar-nav">
+          <li ng-hide="chronomissing" class="active" id="menu-back"><a ng-href="lois.html?loi={{loi}}">&lt; Voir la chronologie du texte</a></li>
+          <li id="menu-display" class="dropdown">
+            <span id="menu-value" class="dropdown-toggle" data-toggle="dropdown">Vue <span class="selectedchoice">alignée</span> <b class="caret"></b></span>
             <ul class="dropdown-menu" id="display_menu">
-	      <li><a id="dm-aligned" class="chosen" onclick="valign()">alignée</a></li>
-	      <li><a id="dm-stacked" onclick="stacked()">compacte</a></li>
+              <li><a id="dm-aligned" class="chosen" onclick="valign()">alignée</a></li>
+              <li><a id="dm-stacked" onclick="stacked()">compacte</a></li>
             </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav" id="menu-right">
-      <li id="menu-zoom">&nbsp;</li>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav" id="menu-right">
+          <li id="menu-zoom">&nbsp;</li>
           <tutorial mod="articles"></tutorial>
-      </ul>
-    </div>
+        </ul>
+      </div>
     </nav>
   </div>
 </div>
 
 <div class="row">
-	<div class="col-md-12 viz-container">
-		<div class="labels">
-		</div>
-		<div class="main">
-			<div class="stages">
-                <div stepsbar></div>
-			</div>
+  <div class="col-md-12 viz-container">
+    <div class="labels">
+    </div>
+    <div class="main">
+      <div class="stages">
+        <div stepsbar></div>
+      </div>
 
-			<div id="viz">
-                <div id="preload"></div>
-			</div>
-		</div>
+      <div id="viz">
+        <div id="preload"></div>
+      </div>
+    </div>
 
-		<div class="text" id="guide">
-          <div id="readMode">
-			<div id="openread" ng-hide="read" class="interactive readMode" ng-click="readmode()" data-toggle="tooltip" title="Déployer le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-left"></span></div>
-			<div id="closeread" ng-show="read" class="interactive readMode" ng-click="viewmode()" data-toggle="tooltip" title="Replier le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-right"></div>
-          </div>
+    <div class="text" id="guide">
+      <div id="readMode">
+        <div id="openread" ng-hide="read" class="interactive readMode" ng-click="readmode()" data-toggle="tooltip" title="Déployer le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-left"></span></div>
+        <div id="closeread" ng-show="read" class="interactive readMode" ng-click="viewmode()" data-toggle="tooltip" title="Replier le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-right"></div>
+      </div>
 
-          <div id="revsMode">
-			<div ng-show="revs" class="interactive revsMode" ng-click="hiderevs()"  data-toggle="tooltip" title="Cacher les modifications" data-placement="bottom" data-original-title="Cacher les modifications"><span class="glyphicon glyphicon glyphicon-check"> </span></div>
+      <div id="revsMode">
+        <div ng-show="revs" class="interactive revsMode" ng-click="hiderevs()"  data-toggle="tooltip" title="Cacher les modifications" data-placement="bottom" data-original-title="Cacher les modifications"><span class="glyphicon glyphicon glyphicon-check"> </span></div>
 
-            <div ng-hide="revs" class="interactive revsMode" ng-click="showrevs()" data-toggle="tooltip" title="Afficher les modifications" data-placement="bottom" data-original-title="Afficher les modifications"><span class="glyphicon glyphicon glyphicon-edit"></span></div>
-          </div>
+        <div ng-hide="revs" class="interactive revsMode" ng-click="showrevs()" data-toggle="tooltip" title="Afficher les modifications" data-placement="bottom" data-original-title="Afficher les modifications"><span class="glyphicon glyphicon glyphicon-edit"></span></div>
+      </div>
 
-		  <h4 id="text-title">ARTICLES</h4>
-		  <div class="text-container">
-			<div class="art-meta"></div>
-            <div id="load_art"></div>
-		    <div class="art-txt"></div>
-		  </div>
+      <h4 id="text-title">ARTICLES</h4>
+      <div class="text-container">
+        <div class="art-meta"></div>
+        <div id="load_art"></div>
+        <div class="art-txt"></div>
+      </div>
 
-		</div>
-	</div>
+    </div>
+  </div>
 
 </div>
 <script type="text/javascript" src="lib/google-diff-match-patch-r106.min.js"></script>
