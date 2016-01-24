@@ -1,52 +1,51 @@
 <div class="row">
   <div class="cont-width offset-width" style="background-color: white;">
     <nav id="filter-nav" class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-      <ul id="menu-left" class="nav navbar-nav">
-	<li id="backtoall" onclick="drawGantt('reset')" class="active viewonelaw" style="display: none;"><a>&lt; Tous les textes</a></li>
-    <li id="menu-display" class="dropdown">
-      <span id="display_value" class="dropdown-toggle" data-toggle="dropdown"><span id="display_content">Vue <span class="selectedchoice">chronologique</span> <b class="caret"></b></span></span>
-      <ul class="dropdown-menu" id="display_menu">
-        <li><a id="dm-time" class="chosen" onclick="drawGantt('time')">chronologique</a></li>
-        <li><a id="dm-absolute" onclick="drawGantt('absolute')">comparative</a></li>
-        <li><a id="dm-quanti" onclick="drawGantt('quanti')">quantitative</a></li>
-      </ul>
-    </li>
-	<li id="menu-empty" class="viewonelaw" style="display: none;">&nbsp;</li>
-	<li class="dropdown noviewonelaw" id="menu-sort">
-          <span class="dropdown-toggle disabled" data-toggle="dropdown">Trié par <span class="selectedchoice">date</span> <b class="caret"></b></span>
+      <div class="container-fluid">
+        <ul id="menu-left" class="nav navbar-nav">
+          <li id="backtoall" onclick="drawGantt('reset')" class="active viewonelaw" style="display: none;"><a>&lt; Tous les textes</a></li>
+          <li id="menu-display" class="dropdown">
+            <span id="display_value" class="dropdown-toggle" data-toggle="dropdown"><span id="display_content">Vue <span class="selectedchoice">chronologique</span> <b class="caret"></b></span></span>
+            <ul class="dropdown-menu" id="display_menu">
+              <li><a id="dm-time" class="chosen" onclick="drawGantt('time')">chronologique</a></li>
+              <li><a id="dm-absolute" onclick="drawGantt('absolute')">comparative</a></li>
+              <li><a id="dm-quanti" onclick="drawGantt('quanti')">quantitative</a></li>
+            </ul>
+          </li>
+          <li id="menu-empty" class="viewonelaw" style="display: none;">&nbsp;</li>
+          <li class="dropdown noviewonelaw" id="menu-sort">
+            <span class="dropdown-toggle disabled" data-toggle="dropdown">Trié par <span class="selectedchoice">date</span> <b class="caret"></b></span>
             <ul class="dropdown-menu" role="menu" id="display_order">
               <li><a id="do-length" class="chosen" onclick="drawGantt('sortl')">durée d'adoption</a></li>
               <li><a id="do-date" onclick="drawGantt('sortd')">date de promulgation</a></li>
               <li><a id="do-amds" onclick="drawGantt('sorta')">amendements déposés</a></li>
             </ul>
-        </li>        
-	<li class="dropdown noviewonelaw" id="menu-amendments">
-          <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Plus de 50 amendements</span> <b class="caret"></b></span>
-	  <ul class="dropdown-menu" id="amendments"></ul>
-        </li>        
-	<li class="dropdown noviewonelaw" id="menu-years">
-          <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Étudié en 2013</span> <b class="caret"></b></span>
-	  <ul class="dropdown-menu" id="years"></ul>
-        </li>        
-	<li class="dropdown noviewonelaw" id="menu-themes">
-          <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Tous les thèmes</span> <b class="caret"></b></span>
-          <ul class="dropdown-menu" id="themes"></ul>
-        </li>        
-      </ul>
-      <ul class="nav navbar-nav" id="menu-right">
-        <li id="menu-zoom-label">
-          <span id="navettes-slider-label">Zoom</span>
-        </li>
-        <li id="menu-zoom-slider">
-          <span id="navettes-slider"></span>
-        </li>
-        <tutorial mod="navettes"></tutorial>
-      </ul>
+          </li>        
+          <li class="dropdown noviewonelaw" id="menu-amendments">
+            <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Plus de 50 amendements</span> <b class="caret"></b></span>
+            <ul class="dropdown-menu" id="amendments"></ul>
+          </li>        
+          <li class="dropdown noviewonelaw" id="menu-years">
+            <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Étudié en 2013</span> <b class="caret"></b></span>
+            <ul class="dropdown-menu" id="years"></ul>
+          </li>        
+          <li class="dropdown noviewonelaw" id="menu-themes">
+            <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Tous les thèmes</span> <b class="caret"></b></span>
+            <ul class="dropdown-menu" id="themes"></ul>
+          </li>        
+        </ul>
+        <ul class="nav navbar-nav" id="menu-right">
+          <li id="menu-zoom-label">
+            <span id="navettes-slider-label">Zoom</span>
+          </li>
+          <li id="menu-zoom-slider">
+            <span id="navettes-slider"></span>
+          </li>
+          <tutorial mod="navettes"></tutorial>
+        </ul>
       </div>
+    </nav>
   </div>
-  </nav>
-</div>
 </div>
 
 <div class="row">
@@ -77,12 +76,12 @@
   </div>
 </div>
 <style>
-.popover {
+  .popover {
     width: 215px;
-}
-.popover h3 {
+  }
+  .popover h3 {
     background-color: #FFF !important;
     color: #716259 !important;
-}
+  }
 </style>
 <script type="text/javascript" src="modules/navettes/navettes.viz.js"></script>
