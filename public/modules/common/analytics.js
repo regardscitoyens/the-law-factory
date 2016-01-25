@@ -1,5 +1,7 @@
 angular.module('theLawFactory')
-.run(function ($rootScope, $location, $http, GOOGLE_ANALYTICS_ID, HOST_FOR_GOOGLE) {
+.run(function ($log, $rootScope, $location, GOOGLE_ANALYTICS_ID, HOST_FOR_GOOGLE) {
+    $log.debug('GOOGLE_ANALYTICS_ID:', GOOGLE_ANALYTICS_ID);
+    $log.debug('HOST_FOR_GOOGLE:', HOST_FOR_GOOGLE);
     if (GOOGLE_ANALYTICS_ID) {
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
