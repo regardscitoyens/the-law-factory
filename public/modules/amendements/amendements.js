@@ -212,7 +212,17 @@ function ($rootScope, $timeout, $sce, $location, api) {
                         thelawfactory.utils.spinner.stop();
                         $scope.apiData = data;
                         $rootScope.pageTitle = $rootScope.lawTitle + " - Amendements | ";
-                        enableAutoRefresh();
+
+                        // Active l'autorefresh si step en cours
+                        $scope.$watch('steps', function(steps) {
+                            if (!steps) return;
+
+                            var step = steps.filter(function(s) { return s.directory === $scope.etape; })[0];
+
+                            if (step && step.enddate === "") {
+                                $timeout(update, refreshInterval);
+                            }
+                        });
 
                         // Attend que l'animation ait au moins duré 1s
                         $timeout(function() {
@@ -221,20 +231,6 @@ function ($rootScope, $timeout, $sce, $location, api) {
                     }, function () {
                         $scope.display_error("impossible de trouver les amendements pour ce texte à cette étape");
                     });
-                }
-            }
-
-            // Cherche si l'étape courante a une date de fin vide et active la maj auto dans ce cas
-            function enableAutoRefresh() {
-                if ($scope.steps && $scope.steps.length > 0) {
-                    var step = $scope.steps.filter(function(s) { return s.directory === $scope.etape; })[0];
-
-                    if (step && step.enddate === "") {
-                        $timeout(update, refreshInterval);
-                    }
-                } else {
-                    // Etapes pas chargees, on réessaie plus tard
-                    $timeout(enableAutoRefresh, 1000);
                 }
             }
 
