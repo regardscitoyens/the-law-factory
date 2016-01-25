@@ -1331,9 +1331,9 @@ li.src-fcs, li.ui-state-focus, li.ui-state-focus a:hover, li.ui-state-focus a:li
     margin-left: 4px;
     opacity: 0.6;
 }
-.stb-curr-st .stb-live {
-    -moz-animation: live-rotate 10s infinite;
-    -webkit-animation: live-rotate 10s infinite;
+.stb-curr-st .stb-live.reloading {
+    -moz-animation: live-rotate 2s infinite;
+    -webkit-animation: live-rotate 2s infinite;
 }
 @-webkit-keyframes live-rotate {
     0% { transform: rotate(0deg); }

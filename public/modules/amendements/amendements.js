@@ -212,12 +212,23 @@ function ($rootScope, $timeout, $sce, $location, api) {
             // Lit les données depuis l'API et déclenche le redessin
             function update() {
                 if ($scope.etape != null) {
+                    // Anime l'icône "live"
+                    var started = Date.now();
+                    $rootScope.$apply(function(s) {
+                        s.reloading = true;
+                    });
+
                     api.getAmendement($scope.loi, $scope.etape)
                     .then(function (data) {
                         thelawfactory.utils.spinner.stop();
                         $scope.apiData = data;
                         $rootScope.pageTitle = $rootScope.lawTitle + " - Amendements | ";
                         enableAutoRefresh();
+
+                        // Attend que l'animation ait au moins duré 1s
+                        $timeout(function() {
+                            $rootScope.reloading = false;
+                        }, Math.max(0, 1000 - (Date.now() - started)));
                     }, function () {
                         $scope.display_error("impossible de trouver les amendements pour ce texte à cette étape");
                     });
