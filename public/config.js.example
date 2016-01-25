@@ -1,4 +1,4 @@
-angular.module('theLawFactory.config')
+angular.module('theLawFactory')
     .constant('API_ROOT_URL', 'https://www.lafabriquedelaloi.fr/api/')
     .constant('GOOGLE_ANALYTICS_ID','')
     .constant('HOST_FOR_GOOGLE', 'lafabriquedelaloi.fr')

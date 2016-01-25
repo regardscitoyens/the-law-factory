@@ -1,18 +1,14 @@
 'use strict';
 
-// Default configuration - do not change here
-// Configuration id to be set in public/js/config.js
-angular.module('theLawFactory.config', [])
-    .constant('API_ROOT_URL', 'https://www.lafabriquedelaloi.fr/api/')
-    .constant('GOOGLE_ANALYTICS_ID', '')
-    .constant('HOST_FOR_GOOGLE', '');
-
 // Declare app level module
 angular.module('theLawFactory', [
     'ngSanitize',
     'ui.router',
-    'theLawFactory.config'
 ])
+// Default config, overridable in config.js
+.constant('API_ROOT_URL', 'https://www.lafabriquedelaloi.fr/api/')
+.constant('GOOGLE_ANALYTICS_ID', '')
+.constant('HOST_FOR_GOOGLE', '')
 .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('home', {
