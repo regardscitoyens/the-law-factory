@@ -399,6 +399,8 @@ body{
 .mod2 .sujet .titre {
     font-size: 0.85em;
     margin-bottom: 1px;
+}
+.mod2 .sujet .titre-link {
     cursor: pointer;
 }
 .mod2 .s-focus-mode .sujet {
