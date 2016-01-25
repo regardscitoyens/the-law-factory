@@ -384,7 +384,7 @@ angular.module('theLawFactory.directives', [])
                             amdtContenu.url = amdtContenu.url_nosdeputes || amdtContenu.url_nossenateurs;
 
                             $location.search('amdt', amdt.numero);
-                            amdtContenu.tlfurl = $location.url();
+                            amdtContenu.tlfurl = $location.absUrl();
 
                             amdtContenu.trustedExpose = $sce.trustAsHtml(amdtContenu.expose);
                             amdtContenu.trustedTexte = $sce.trustAsHtml(amdtContenu.texte);
