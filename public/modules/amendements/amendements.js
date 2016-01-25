@@ -200,23 +200,12 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 }
             }
 
-            // Déclenche le chargement initial
-            function init() {
-                $timeout(function() {
-                    update();
-                    resize();
-                    thelawfactory.utils.spinner.start();
-                }, 50);
-            }
-
             // Lit les données depuis l'API et déclenche le redessin
             function update() {
                 if ($scope.etape != null) {
                     // Anime l'icône "live"
                     var started = Date.now();
-                    $rootScope.$apply(function(s) {
-                        s.reloading = true;
-                    });
+                    $rootScope.reloading = true;
 
                     api.getAmendement($scope.loi, $scope.etape)
                     .then(function (data) {
@@ -380,7 +369,12 @@ function ($rootScope, $timeout, $sce, $location, api) {
             $(window).on('keydown', keypress);
 
             // Chargement initial
-            init();
+            var initFinished = $scope.$watch('etape', function() {
+                initFinished();
+                update();
+                resize();
+                thelawfactory.utils.spinner.start();
+            });
         }
     }
 }]);
