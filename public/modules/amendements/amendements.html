@@ -89,10 +89,11 @@
         </div>
       </div>
 
-      <div class="legend">
+      <div class="legend {{ focusGroupe || focusSort ? 'a-focus-mode' : '' }}" ng-click="focusAmendements($event)">
         LÉGENDE
         <div class="colors">
-          <div class="leg-item" ng-repeat="(key, groupe) in data.legende.groupes" ng-click="focusAmendements(key)">
+          <div class="leg-item {{ focusGroupe === key ? '' : 'faded' }}"
+            ng-repeat="(key, groupe) in data.legende.groupes" ng-click="focusAmendements($event, key)">
             <div class="leg-value" style="background-color: {{ groupe.cssColor }};"></div>
             <div class="leg-key">{{ key }}</div>
             <div class="leg-tooltip">{{ groupe.nom }}</div>
@@ -100,13 +101,15 @@
         </div>
         <div class="others">
           <span ng-if="data.groupes.Gouvernement">
-            <div class="leg-item" ng-repeat="groupe in [data.groupes.Gouvernement]" ng-click="focusAmendements('Gouvernement')">
+            <div class="leg-item {{ focusGroupe === 'Gouvernement' ? '' : 'faded' }}"
+              ng-repeat="groupe in [data.groupes.Gouvernement]" ng-click="focusAmendements($event, 'Gouvernement')">
               <div class="leg-value" style="background-color: {{ groupe.cssColor }};"></div>
               <div class="leg-key">Gouvernement</div>
             </div>
             <div class="leg-item"></div>
           </span>
-          <div class="leg-item" ng-repeat="(sort, image) in data.legende.sorts" ng-click="focusAmendements(null, sort)">
+          <div class="leg-item {{ focusSort === sort ? '' : 'faded' }}"
+            ng-repeat="(sort, image) in data.legende.sorts" ng-click="focusAmendements($event, null, sort)">
             <div class="leg-value leg-sort" style="background-image: url({{ image }});"></div>
             <div class="leg-key">{{ sort }}</div>
           </div>

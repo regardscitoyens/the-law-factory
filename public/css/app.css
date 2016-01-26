@@ -512,6 +512,9 @@ body{
     background-repeat: no-repeat;
     background-position: center;
 }
+.amendements .a-focus-mode .faded {
+    opacity: 0.15;
+}
 .amendements .others .leg-key {
     text-transform: capitalize;
 }

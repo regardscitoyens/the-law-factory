@@ -326,7 +326,9 @@ function ($rootScope, $timeout, $sce, $location, api) {
             };
 
             // Focus sur un groupe ou sort
-            $scope.focusAmendements = function(groupe, sort) {
+            $scope.focusAmendements = function(e, groupe, sort) {
+                e.stopPropagation();
+
                 if (groupe) {
                     $scope.focusGroupe = groupe;
                     $scope.focusSort = null;
