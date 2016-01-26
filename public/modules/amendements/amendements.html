@@ -48,38 +48,41 @@
         <div id="preload"></div>
         <div id="viz" ng-cloak ng-click="focusSubject($event)"
           class="
-          {{ data.colonnes }}
-          {{ article ? 's-focus-mode' : '' }}
-          {{ focusGroupe || focusSort ? 'a-focus-mode' : '' }}
+            {{ article ? 's-focus-mode' : '' }}
+            {{ focusGroupe || focusSort ? 'a-focus-mode' : '' }}
+            {{ twoColumnMode ? 'colonnes' : '' }}
           ">
           <div id="sujets">
-            <div class="sujet {{ $first ? 'first-art-s' : '' }} {{ article === sujet.article ? 'focus' : '' }}"
-              ng-repeat="sujet in data.sujets track by sujet.article" data-article="{{ sujet.article }}">
+            <div class="sujet {{ article === sujet.article ? 'focus' : '' }}"
+              ng-model-options="{ debounce: 100 }"
+              ng-repeat="sujet in data.sujets track by sujet.article" data-article="{{ ::sujet.article }}">
               <div class="titre">
-                <span class="titre-link" ng-click="focusSubject($event, sujet.article)">{{ sujet.titre }}</span>
+                <span class="titre-link" ng-click="focusSubject($event, sujet.article)">{{ ::sujet.titre }}</span>
               </div>
-              <div class="liste-amendements">
+              <div class="liste-amendements" style="height: {{ sujet.height }}px;">
                 <div
                   class="
-                  amendement
-                  amendement-{{ amdt.id_api }}
-                  amendement-num-{{ amdt.numero }}
-                  {{ $parent.$first &amp;&amp; $first ? 'first-art' : '' }}
-                  {{ focusGroupe &amp;&amp; amdt.groupe === focusGroupe ? 'focus' : '' }}
-                  {{ focusSort &amp;&amp; amdt.sort === focusSort ? 'focus' : '' }}
+                    amendement
+                    amendement-{{ ::amdt.id_api }}
+                    amendement-num-{{ ::amdt.numero }}
+                    {{ focusGroupe && amdt.groupe === focusGroupe ? 'focus' : '' }}
+                    {{ focusSort && amdt.sort === focusSort ? 'focus' : '' }}
                   "
-                  style="background-color: {{ amdt.color }}; background-image: url({{ amdt.sort_image }});"
+                  style="
+                    background-color: {{ ::amdt.color }};
+                    background-image: url({{ amdt.sort_image }});
+                  "
                   ng-click="selectAmdt(amdt)"
                   ng-mousemove="repositionTooltip($event)"
                   ng-repeat="amdt in sujet.amendements track by amdt.id_api">
                   <div class="amendement-tooltip">
-                    <div class="numero">Amendement {{ amdt.numero }}</div>
+                    <div class="numero">Amendement {{ ::amdt.numero }}</div>
                     <div class="groupe">
-                      <span ng-if="amdt.aut">{{ amdt.aut }}<br/></span>
-                      {{ amdt.nom_groupe }}
+                      <span ng-if="amdt.aut">{{ ::amdt.aut }}<br/></span>
+                      {{ ::amdt.nom_groupe }}
                     </div>
                     <div class="sort">Sort: {{ amdt.sort }}</div>
-                    <div class="date">{{ formatDate(amdt.date) }}</div>
+                    <div class="date">{{ ::formatDate(amdt.date) }}</div>
                     <div class="arrow"></div>
                   </div>
                 </div>
@@ -94,24 +97,24 @@
         <div class="colors">
           <div class="leg-item {{ focusGroupe === key ? '' : 'faded' }}"
             ng-repeat="(key, groupe) in data.legende.groupes" ng-click="focusAmendements($event, key)">
-            <div class="leg-value" style="background-color: {{ groupe.cssColor }};"></div>
-            <div class="leg-key">{{ key }}</div>
-            <div class="leg-tooltip">{{ groupe.nom }}</div>
+            <div class="leg-value" style="background-color: {{ ::groupe.cssColor }};"></div>
+            <div class="leg-key">{{ ::key }}</div>
+            <div class="leg-tooltip">{{ ::groupe.nom }}</div>
           </div>
         </div>
         <div class="others">
           <span ng-if="data.groupes.Gouvernement">
             <div class="leg-item {{ focusGroupe === 'Gouvernement' ? '' : 'faded' }}"
               ng-repeat="groupe in [data.groupes.Gouvernement]" ng-click="focusAmendements($event, 'Gouvernement')">
-              <div class="leg-value" style="background-color: {{ groupe.cssColor }};"></div>
+              <div class="leg-value" style="background-color: {{ ::groupe.cssColor }};"></div>
               <div class="leg-key">Gouvernement</div>
             </div>
             <div class="leg-item"></div>
           </span>
           <div class="leg-item {{ focusSort === sort ? '' : 'faded' }}"
             ng-repeat="(sort, image) in data.legende.sorts" ng-click="focusAmendements($event, null, sort)">
-            <div class="leg-value leg-sort" style="background-image: url({{ image }});"></div>
-            <div class="leg-key">{{ sort }}</div>
+            <div class="leg-value leg-sort" style="background-image: url({{ ::image }});"></div>
+            <div class="leg-key">{{ ::sort }}</div>
           </div>
         </div>
       </div>
@@ -170,3 +173,6 @@
     </div>
   </div>
 </div>
+
+<div id="probe"><div id="inside"></div></div>
+<script type="text/javascript" src="modules/amendements/amendements.viz.js"></script>

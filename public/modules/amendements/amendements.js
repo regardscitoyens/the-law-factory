@@ -22,134 +22,22 @@ function ($rootScope, $timeout, $sce, $location, api) {
             $scope.groupAll = false;
             $scope.sortOrder = 'sort';
 
+            // Mode 2 colonnes
+            $scope.twoColumnMode = false;
+
             // Permet l'affichage du contenu d'un amendement
             $scope.loadingAmdt = false;
             $scope.selectedAmdt = null;
             $scope.selectedAmdtData = null;
 
-            var sort_ordre = {
-                    "adopté": 0,
-                    "rejeté": 1,
-                    "non-voté": 2,
-                    "en attente": 3
-                }, sort_image = {
-                    "adopté": "img/ok.png",
-                    "rejeté": "img/ko.png",
-                    "non-voté": "img/nd.png",
-                    "en attente": "img/at.png"
-                }, tri = {
-                    "sort": tri_amdts_sort,
-                    "groupe": tri_amdts_groupe
-                }, groupes,
-                availableWidth,
+            var viz = thelawfactory.amendements,
                 firstDraw = true,
-                columnsThreshold = 0,
                 refreshInterval = 60000;
-
-            function cssColor(col)              { return thelawfactory.utils.adjustColor(col).toString(); }
-            function compare_sujets(a, b)       { return a.order - b.order; }
-            function compare_groupes(a, b)      { return groupes[a].order - groupes[b].order; }
-            function compare_amdts_sort(a, b)   { return sort_ordre[a.sort] - sort_ordre[b.sort]; }
-            function compare_amdts_groupe(a, b) { return groupes[a.groupe].order - groupes[b.groupe].order; }
-            function compare_amdts_numero(a, b) { return a.numero.replace(/^\D+/, '') - b.numero.replace(/^\D+/, ''); }
-            function tri_amdts_sort(a, b)       { return compare_amdts_sort(a, b) || compare_amdts_groupe(a, b) || compare_amdts_numero(a, b); }
-            function tri_amdts_groupe(a, b)     { return compare_amdts_groupe(a, b) || compare_amdts_sort(a, b) || compare_amdts_numero(a, b); }
-
-            // Prépare les données de l'API pour rendre le rendu Angular plus simple
-            function transformData(apiData) {
-                groupes = apiData.groupes;
-
-                var max_amdts = 0;
-                var tri_amdts = tri[$scope.sortOrder] || compare_amdts_numero;
-                var en_attente = false;
-                var data = {
-                    groupes: groupes,
-                    legende: {
-                        groupes: {},
-                        sorts: {}
-                    },
-                    sujets: [],
-                    colonnes: ''
-                };
-
-                if ($scope.groupAll) {
-                    // Création d'un sujet unique en cas de groupement
-                    data.sujets.push({
-                        titre: "Tout le texte",
-                        amendements: []
-                    });
-                }
-
-                // Parcours des sujets
-                Object.keys(apiData.sujets)
-                .forEach(function(key) {
-                    var sujet = apiData.sujets[key];
-
-                    // Extraction numero d'article
-                    sujet.article = sujet.details.replace(/^article /, '');
-
-                    // Ajout image et couleur du groupe aux amendements
-                    sujet.amendements.forEach(function(amdt) {
-                        amdt.sort_image = sort_image[amdt.sort];
-                        amdt.color = cssColor(groupes[amdt.groupe].color);
-                        amdt.nom_groupe = groupes[amdt.groupe].nom;
-
-                        if (amdt.sort === 'en attente') {
-                            en_attente = true;
-                        }
-                    });
-
-                    if ($scope.groupAll) {
-                        // Regroupement de tous les amendements
-                        data.sujets[0].amendements = data.sujets[0].amendements.concat(sujet.amendements);
-                    } else {
-                        max_amdts = Math.max(max_amdts, sujet.amendements.length);
-
-                        // Tri des amendements du sujet
-                        sujet.amendements.sort(tri_amdts);
-
-                        // Ajout du sujet à la liste
-                        data.sujets.push(sujet);
-                    }
-                });
-
-                if ($scope.groupAll) {
-                    // Tri des amendements
-                    data.sujets[0].amendements.sort(tri_amdts);
-                } else {
-                    // Seuil de bascule en mode 2 colonnes
-                    columnsThreshold = 1 + max_amdts * 2;
-
-                    if (columnsThreshold  < availableWidth) {
-                        data.colonnes = 'colonnes';
-                    }
-
-                    // Tri des sujets
-                    data.sujets.sort(compare_sujets);
-                }
-
-                // Construction de la légende
-                Object.keys(groupes).sort(compare_groupes).forEach(function(key) {
-                    groupes[key].cssColor = cssColor(groupes[key].color);
-
-                    if (key !== 'Gouvernement') {
-                        data.legende.groupes[key] = groupes[key];
-                    }
-                });
-
-                Object.keys(sort_image).forEach(function(sort) {
-                    if (en_attente || sort !== 'en attente') {
-                        data.legende.sorts[sort] = sort_image[sort];
-                    }
-                });
-
-                return data;
-            }
 
             // Redessine les dernières données de l'API (à appeler sur changement de tri/groupement)
             function redraw() {
                 if (!$scope.apiData) return;
-                $scope.data = transformData($scope.apiData);
+                viz.transformData($scope);
 
                 $timeout(function() {
                     resize();
@@ -184,30 +72,11 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 }, 0);
             }
 
-            /* Calcul du nombre d'amendements max en largeur:
-             * (Largeur du conteneur - (marge interne horizontale = 50px))
-             *   /
-             * (taille 1 amendement = 20px)
-             */
-            function computeAvailableWidth() {
-                availableWidth = Math.floor(($('#sujets').width() - 50) / 20);
-            }
-
             // Redimensionne les conteneurs
             function resize() {
                 thelawfactory.utils.setModSize("#viz", 1)();
                 thelawfactory.utils.setTextContainerHeight();
-
-                computeAvailableWidth();
-
-                // Gestion de la bascule 1 ou 2 colonnes
-                if (columnsThreshold !== 0) {
-                    if (columnsThreshold < availableWidth && !$scope.groupAll) {
-                        $('#viz').addClass('colonnes');
-                    } else {
-                        $('#viz').removeClass('colonnes');
-                    }
-                }
+                viz.measureViewportSize();
             }
 
             // Lit les données depuis l'API et déclenche le redessin
@@ -241,33 +110,6 @@ function ($rootScope, $timeout, $sce, $location, api) {
                     }, function () {
                         $scope.display_error("impossible de trouver les amendements pour ce texte à cette étape");
                     });
-                }
-            }
-
-            // Gère la navigation au clavier
-            function keypress(e) {
-                if (!$scope.selectedAmdt) return;
-
-                var $amdt = $('.amendement-' + $scope.selectedAmdt.id_api);
-                var $amdts = $('.amendement');
-                var index = $amdts.index($amdt);
-                var newamdt;
-
-                switch (e.keyCode) {
-                    case 37: // gauche
-                        if (index > 0) newamdt = $amdts.get(index - 1);
-                        break;
-                    case 39: // droite
-                        if (index < $amdts.length - 1) newamdt = $amdts.get(index + 1);
-                        break;
-                    case 38: // haut
-                    case 40: // bas
-                    default:
-                        return;
-                }
-
-                if (newamdt) {
-                    $(newamdt).click();
                 }
             }
 
@@ -358,7 +200,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 }
             };
 
-            // Repositionnement du tooltip
+            // Repositionnement du tooltip d'un amendement
             $scope.repositionTooltip = function($event) {
                 var $amdt = $($event.target);
                 var $tip = $amdt.find('.amendement-tooltip');
@@ -371,16 +213,55 @@ function ($rootScope, $timeout, $sce, $location, api) {
             $scope.$watchGroup(['apiData', 'groupAll', 'sortOrder'], redraw);
 
             // Redimensionnement automatique
-            $(window).on('resize', resize);
+            var resizing;
+            $(window).on('resize', function() {
+                $timeout.cancel(resizing);
+                resizing = $timeout(function() {
+                    resize();
+                    viz.transformData($scope, true);
+                    resizing = false;
+                }, 200);
+            });
 
             // Appuis claviers
-            $(window).on('keydown', keypress);
+            $(window).on('keydown', function(e) {
+                if (!$scope.selectedAmdt) return;
+
+                var $amdt = $('.amendement-' + $scope.selectedAmdt.id_api);
+                var $amdts = $('.amendement');
+                var index = $amdts.index($amdt);
+                var newamdt;
+
+                switch (e.keyCode) {
+                    case 37: // gauche
+                        if (index > 0) newamdt = $amdts.get(index - 1);
+                        break;
+                    case 39: // droite
+                        if (index < $amdts.length - 1) newamdt = $amdts.get(index + 1);
+                        break;
+                    case 38: // haut
+                    case 40: // bas
+                    default:
+                        return;
+                }
+
+                if (newamdt) {
+                    $(newamdt).click();
+                }
+            });
 
             // Chargement initial
             var initFinished = $scope.$watch('etape', function() {
+                // Arrêt du $watch
                 initFinished();
+
+                // Déclenchement de la mise à jour des données
                 update();
+
+                // Recalcul des dimensions
                 resize();
+
+                // Affichage du spinner
                 thelawfactory.utils.spinner.start();
             });
         }

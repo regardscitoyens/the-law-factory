@@ -371,6 +371,15 @@ body{
     fill: #FD5252;
 }
 
+.amendements #probe {
+    position: absolute;
+    left: -1000px;
+
+    width: 100px;
+    height: 100px;
+    overflow: scroll;
+}
+
 .amendements .viz-container, .navettes .viz-container{
     height: 100%;
 }
@@ -411,11 +420,11 @@ body{
 }
 .amendements .liste-amendements {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
+    align-content: flex-start;
     background-image: url(../img/filler.png);
 }
 .amendements .amendement {
-    display: inline-block;
     width: 20px;
     height: 20px;
     margin: 0;
