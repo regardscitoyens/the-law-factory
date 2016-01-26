@@ -61,6 +61,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
 
                 var max_amdts = 0;
                 var tri_amdts = tri[$scope.sortOrder] || compare_amdts_numero;
+                var en_attente = false;
                 var data = {
                     groupes: groupes,
                     legende: {
@@ -92,6 +93,10 @@ function ($rootScope, $timeout, $sce, $location, api) {
                         amdt.sort_image = sort_image[amdt.sort];
                         amdt.color = cssColor(groupes[amdt.groupe].color);
                         amdt.nom_groupe = groupes[amdt.groupe].nom;
+
+                        if (amdt.sort === 'en attente') {
+                            en_attente = true;
+                        }
                     });
 
                     if ($scope.groupAll) {
@@ -131,7 +136,12 @@ function ($rootScope, $timeout, $sce, $location, api) {
                         data.legende.groupes[key] = groupes[key];
                     }
                 });
-                data.legende.sorts = sort_image;
+
+                Object.keys(sort_image).forEach(function(sort) {
+                    if (en_attente || sort !== 'en attente') {
+                        data.legende.sorts[sort] = sort_image[sort];
+                    }
+                });
 
                 return data;
             }
