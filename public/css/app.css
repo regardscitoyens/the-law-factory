@@ -1071,7 +1071,7 @@ h4 a{
     right: 30px;
     float: right;
 }
-.gotomod a.btn-info {
+.gotomod a.btn-info, .gotomod a.btn-info:hover {
     float:none;
     font-weight: bold;
     font-size: 1.1em;
