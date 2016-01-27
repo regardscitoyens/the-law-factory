@@ -434,6 +434,7 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     border: 1px solid #ffffff;
+    cursor: pointer;
     -webkit-transition: opacity 0.25s ease-in-out;
     -moz-transition: opacity 0.25s ease-in-out;
     -o-transition: opacity 0.25s ease-in-out;
