@@ -22,6 +22,11 @@
         "rejeté": 1,
         "non-voté": 2,
         "en attente": 3
+    }, sort_name = {
+        "adopté": "Adopté",
+        "rejeté": "Rejeté",
+        "non-voté": "Non voté",
+        "en attente": "En attente"
     }, sort_image = {
         "adopté": "img/ok.png",
         "rejeté": "img/ko.png",
@@ -167,7 +172,10 @@
 
                 Object.keys(sort_image).forEach(function(sort) {
                     if (en_attente || sort !== 'en attente') {
-                        data.legende.sorts[sort] = sort_image[sort];
+                        data.legende.sorts[sort] = {
+                            name: sort_name[sort],
+                            img: sort_image[sort]
+                        };
                     }
                 });
             } else {

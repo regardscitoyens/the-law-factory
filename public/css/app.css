@@ -525,9 +525,6 @@ body{
 .amendements .a-focus-mode .faded {
     opacity: 0.15;
 }
-.amendements .others .leg-key {
-    text-transform: capitalize;
-}
 .amendements .text-container {
     -webkit-transition: opacity 0.2s ease-in-out;
     -moz-transition: opacity 0.2s ease-in-out;

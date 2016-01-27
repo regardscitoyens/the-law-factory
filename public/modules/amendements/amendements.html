@@ -116,9 +116,9 @@
             <div class="leg-item"></div>
           </span>
           <div class="leg-item {{ focusSort === sort ? '' : 'faded' }}"
-            ng-repeat="(sort, image) in data.legende.sorts" ng-click="focusAmendements($event, null, sort)">
-            <div class="leg-value leg-sort" style="background-image: url({{ ::image }});"></div>
-            <div class="leg-key">{{ ::sort }}</div>
+            ng-repeat="(sortid, sort) in data.legende.sorts" ng-click="focusAmendements($event, null, sortid)">
+            <div class="leg-value leg-sort" style="background-image: url({{ ::sort.img }});"></div>
+            <div class="leg-key">{{ ::sort.name }}</div>
           </div>
         </div>
       </div>
