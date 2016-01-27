@@ -51,6 +51,7 @@
             {{ article ? 's-focus-mode' : '' }}
             {{ focusGroupe || focusSort ? 'a-focus-mode' : '' }}
             {{ twoColumnMode ? 'colonnes' : '' }}
+            sort-by-{{ sortOrder }}
           ">
           <div id="sujets">
             <div class="sujet {{ article === sujet.article ? 'focus' : '' }}"

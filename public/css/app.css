@@ -424,6 +424,9 @@ body{
     align-content: flex-start;
     background-image: url(../img/filler.png);
 }
+.amendements .sort-by-numero .liste-amendements {
+    flex-direction: row;
+}
 .amendements .amendement {
     width: 20px;
     height: 20px;

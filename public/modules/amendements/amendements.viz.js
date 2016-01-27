@@ -43,20 +43,20 @@
     function tri_amdts_groupe(a, b)     { return compare_amdts_groupe(a, b) || compare_amdts_sort(a, b) || compare_amdts_numero(a, b); }
 
     // Column allocation inside a subject
-    function allocateAmendments(sujet) {
+    function allocateAmendments(sujet, sortOrder) {
         var amendements = sujet.amendements;
         var snake = sujet.amendements_snake = [];
         var nb = sujet.amendements.length;
 
-        if (nb < availableWidth) {
-            // Single line, as many columns as amendments
-            sujet.height = amendmentSize;
+        var nlignes = Math.ceil(nb / availableWidth);
+        sujet.height = nlignes * amendmentSize;
+
+        if (sortOrder === 'numero' || nb < availableWidth) {
+            // Single line or sort by number
             sujet.amendements_snake = sujet.amendements;
         } else {
             // Multiline, allocate amendments top to bottom, left to right
-            var nlignes = Math.ceil(nb / availableWidth);
             var ncolonnes = Math.ceil(nb / nlignes);
-            sujet.height = nlignes * amendmentSize;
 
             amendements.forEach(function(a, index) {
                 var col = Math.floor(index / nlignes);
@@ -170,7 +170,7 @@
 
             var twoColumns = (availableWidth > maxAmendments * 2 + 1);
             data.sujets.forEach(function(s) {
-                allocateAmendments(s);
+                allocateAmendments(s, scope.sortOrder);
             });
 
             scope.twoColumnMode = twoColumns;
