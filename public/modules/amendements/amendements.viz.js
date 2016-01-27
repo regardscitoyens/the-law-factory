@@ -55,8 +55,14 @@
             // Single line or sort by number
             sujet.amendements_snake = sujet.amendements;
         } else {
-            // Multiline, allocate amendments top to bottom, left to right
+            // Multiline, allocate amendments in "snake" order (In columns, left to 
+            // right, each column in the reverse order as the previous one)
             var ncolonnes = Math.ceil(nb / nlignes);
+
+            // Add placeholders with a unique id_api for holes in the last column
+            for (var i = 0; i < nlignes; i++) {
+                snake[ncolonnes * nlignes - (i + 1)] = { empty: true, id_api: 'empty-' + i + '-' + sujet.article };
+            }
 
             amendements.forEach(function(a, index) {
                 var col = Math.floor(index / nlignes);

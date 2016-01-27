@@ -70,12 +70,13 @@
                     {{ focusSort && amdt.sort === focusSort ? 'focus' : '' }}
                   "
                   style="
+                    visibility: {{ amdt.empty ? 'hidden' : 'visible' }};
                     background-color: {{ ::amdt.color }};
                     background-image: url({{ amdt.sort_image }});
                   "
-                  ng-click="selectAmdt(amdt)"
-                  ng-mouseenter="showTooltip($parent.$index, $index)"
-                  ng-mouseleave="hideTooltip()"
+                  ng-click="amdt.empty || selectAmdt(amdt)"
+                  ng-mouseenter="amdt.empty || showTooltip($parent.$index, $index)"
+                  ng-mouseleave="amdt.empty || hideTooltip()"
                   ng-repeat="amdt in sujet.amendements_snake track by amdt.id_api">
                 </div>
               </div>
