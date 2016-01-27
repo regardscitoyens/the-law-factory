@@ -920,7 +920,7 @@ ul.ui-autocomplete {
     width:94.86%;
     float: right;
     background-color:white;
-    overflow: scroll;
+    overflow: auto;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
