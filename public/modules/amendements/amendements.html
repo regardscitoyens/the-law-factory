@@ -74,8 +74,8 @@
                   "
                   ng-click="selectAmdt(amdt)"
                   ng-mousemove="repositionTooltip($event)"
-                  ng-repeat="amdt in sujet.amendements track by amdt.id_api">
-                  <div class="amendement-tooltip">
+                  ng-repeat="amdt in sujet.amendements_snake track by amdt.id_api">
+                  <div ng-if="amdt" class="amendement-tooltip">
                     <div class="numero">Amendement {{ ::amdt.numero }}</div>
                     <div class="groupe">
                       <span ng-if="amdt.aut">{{ ::amdt.aut }}<br/></span>

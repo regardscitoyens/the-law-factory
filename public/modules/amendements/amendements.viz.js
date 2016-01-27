@@ -45,7 +45,7 @@
     // Column allocation inside a subject
     function allocateAmendments(sujet) {
         var amendements = sujet.amendements;
-        var snake = sujets.amendements_snake = [];
+        var snake = sujet.amendements_snake = [];
         var nb = sujet.amendements.length;
 
         if (nb < availableWidth) {
