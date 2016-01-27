@@ -25,6 +25,9 @@ function ($rootScope, $timeout, $sce, $location, api) {
             // Mode 2 colonnes
             $scope.twoColumnMode = false;
 
+            // Largeur des sujets
+            $scope.subjectWidth = 0;
+
             // Permet l'affichage du contenu d'un amendement
             $scope.loadingAmdt = false;
             $scope.selectedAmdt = null;

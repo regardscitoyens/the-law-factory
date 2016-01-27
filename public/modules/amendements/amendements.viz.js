@@ -168,11 +168,13 @@
                 data = scope.data;
             }
 
+            var twoColumns = (availableWidth > maxAmendments * 2 + 1);
             data.sujets.forEach(function(s) {
                 allocateAmendments(s);
             });
 
-            scope.twoColumnMode = (availableWidth > maxAmendments * 2 + 1);
+            scope.twoColumnMode = twoColumns;
+            scope.subjectWidth = amendmentSize * (twoColumns ? Math.floor((availableWidth / 2) - 1) : availableWidth);
             scope.data = data;
         }
     };
