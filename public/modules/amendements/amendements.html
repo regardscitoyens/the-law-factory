@@ -73,20 +73,22 @@
                     background-image: url({{ amdt.sort_image }});
                   "
                   ng-click="selectAmdt(amdt)"
-                  ng-mousemove="repositionTooltip($event)"
+                  ng-mouseenter="showTooltip($parent.$index, $index)"
+                  ng-mouseleave="hideTooltip()"
                   ng-repeat="amdt in sujet.amendements_snake track by amdt.id_api">
-                  <div ng-if="amdt" class="amendement-tooltip">
-                    <div class="numero">Amendement {{ ::amdt.numero }}</div>
-                    <div class="groupe">
-                      <span ng-if="amdt.aut">{{ ::amdt.aut }}<br/></span>
-                      {{ ::amdt.nom_groupe }}
-                    </div>
-                    <div class="sort">Sort: {{ amdt.sort }}</div>
-                    <div class="date">{{ ::formatDate(amdt.date) }}</div>
-                    <div class="arrow"></div>
-                  </div>
                 </div>
               </div>
+            </div>
+
+            <div id="amendement-tooltip" ng-cloak>
+              <div class="numero">Amendement {{ hoverAmendement.numero }}</div>
+              <div class="groupe">
+                <span ng-if="amdt.aut">{{ hoverAmendement.aut }}<br/></span>
+                {{ hoverAmendement.nom_groupe }}
+              </div>
+              <div class="sort">Sort: {{ hoverAmendement.sort }}</div>
+              <div class="date">{{ formatDate(hoverAmendement.date) }}</div>
+              <div class="arrow"></div>
             </div>
           </div>
         </div>

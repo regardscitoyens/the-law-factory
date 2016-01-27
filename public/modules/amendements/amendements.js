@@ -28,6 +28,9 @@ function ($rootScope, $timeout, $sce, $location, api) {
             // Largeur des sujets
             $scope.subjectWidth = 0;
 
+            // Gestion du tooltip amendements
+            $scope.hoverAmendement = null;
+
             // Permet l'affichage du contenu d'un amendement
             $scope.loadingAmdt = false;
             $scope.selectedAmdt = null;
@@ -195,6 +198,8 @@ function ($rootScope, $timeout, $sce, $location, api) {
 
             // Formatage de date
             $scope.formatDate = function(date) {
+                if (!date) return;
+
                 var m = date.match(/(\d{4})-(\d{2})-(\d{2})/);
                 if (m) {
                     return m[3] + '/' + m[2] + '/' + m[1];
@@ -203,13 +208,35 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 }
             };
 
-            // Repositionnement du tooltip d'un amendement
-            $scope.repositionTooltip = function($event) {
-                var $amdt = $($event.target);
-                var $tip = $amdt.find('.amendement-tooltip');
+            // Gestion du tooltip d'un amendement
+            var hideTimeout;
+
+            $scope.showTooltip = function(idxSujet, idxAmdt) {
+                // Annuler une éventuelle tempo de hideTooltip
+                $timeout.cancel(hideTimeout);
+
+                var amdt = $scope.data.sujets[idxSujet].amendements_snake[idxAmdt];
+
+                var $amdt = $('.amendement-' + amdt.id_api);
                 var offset = $amdt.position();
 
-                $tip.css({ top: offset.top + 'px', left: offset.left + 'px' });
+                var $tip = $('#amendement-tooltip');
+                $tip.css({ top: offset.top + 'px', left: offset.left + 'px', opacity: 1 });
+
+                $scope.hoverAmendement = amdt;
+            };
+
+            $scope.hideTooltip = function() {
+                // Tempo pour éviter un clignotement dans le cas où la souris se balade vite
+                hideTimeout = $timeout(function() {
+                    var $tip = $('#amendement-tooltip');
+                    $tip.css({ opacity: 0 });
+
+                    // Laisser finir l'animation css avant d'effacer le contenu
+                    hideTimeout = $timeout(function() {
+                        $scope.hoverAmendement = null;
+                    }, 250);
+                }, 50);
             };
 
             // Déclencheurs de redessin

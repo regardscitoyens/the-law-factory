@@ -445,7 +445,7 @@ body{
 .amendements .amendement.selected {
     border: 2px solid #333344;
 }
-.amendements .amendement-tooltip {
+.amendements #amendement-tooltip {
     opacity: 0;
     position: absolute;
     z-index: 1;
@@ -460,7 +460,7 @@ body{
     -o-transition: opacity 0.25s ease-in-out;
     transition: opacity 0.25s ease-in-out;
 }
-.amendements .amendement-tooltip .arrow {
+.amendements #amendement-tooltip .arrow {
     width: 11px;
     height: 23px;
     position: absolute;
@@ -468,22 +468,19 @@ body{
     top: 79px;
     background-image: url(../img/left-arrow.png);
 }
-.amendements .amendement:hover .amendement-tooltip {
-    opacity: 1;
-}
-.amendements .amendement-tooltip .numero {
+.amendements #amendement-tooltip .numero {
     background-color: #716259;
     color: white;
     padding: 10px;
     font-weight: bold;
     text-align: center;
 }
-.amendements .amendement-tooltip .groupe {
+.amendements #amendement-tooltip .groupe {
     font-weight: bold;
 }
-.amendements .amendement-tooltip .groupe,
-.amendements .amendement-tooltip .sort,
-.amendements .amendement-tooltip .date {
+.amendements #amendement-tooltip .groupe,
+.amendements #amendement-tooltip .sort,
+.amendements #amendement-tooltip .date {
     margin: 15px;
 }
 .amendements .leg-tooltip {
