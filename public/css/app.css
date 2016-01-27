@@ -1627,10 +1627,6 @@ footer .nav>li>a {
     font-size: 13px;
 }
 
-.view{
-    height: 100%;
-}
-
 #home{
     height: 100%;
     overflow: scroll;
