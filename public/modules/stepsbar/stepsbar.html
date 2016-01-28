@@ -39,7 +39,7 @@
         </a>
         <span ng-hide="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='debats'))" class="stb-link low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='amendements'}">
           <span class="glyphicon glyphicon-folder-open"></span>
-          <span ng-hide="i.enddate" class="glyphicon stb-live {{ reloading ? 'reloading' : '' }}" data-toggle="tooltip" data-placement="bottom" title="Mise à jour en temps réel"></span>
+          <span ng-hide="i.enddate || !i.nb_amendements" class="glyphicon stb-live {{ reloading ? 'reloading' : '' }}" data-toggle="tooltip" data-placement="bottom" title="Mise à jour en temps réel"></span>
         </span>
 
         <a
