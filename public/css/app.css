@@ -388,6 +388,9 @@ body{
     padding-left: 0;
     padding-right: 0;
 }
+.amendements #sujets {
+    padding-bottom: 30px;
+}
 .amendements .sujet {
     padding: 12px 20px 0 30px;
     -webkit-transition: opacity 0.25s ease-in-out;
