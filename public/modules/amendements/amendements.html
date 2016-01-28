@@ -107,14 +107,16 @@
           </div>
         </div>
         <div class="others">
-          <span ng-if="data.groupes.Gouvernement">
-            <div class="leg-item {{ focusGroupe === 'Gouvernement' ? '' : 'faded' }}"
-              ng-repeat="groupe in [data.groupes.Gouvernement]" ng-click="focusAmendements($event, 'Gouvernement')">
-              <div class="leg-value" style="background-color: {{ ::groupe.cssColor }};"></div>
-              <div class="leg-key">Gouvernement</div>
-            </div>
-            <div class="leg-item"></div>
-          </span>
+          <div class="leg-item {{ focusGroupe === 'Gouvernement' ? '' : 'faded' }}"
+            ng-if="data.groupes.Gouvernement"
+            ng-click="focusAmendements($event, 'Gouvernement')">
+            <div class="leg-value" style="background-color: {{ ::data.groupes.Gouvernement.cssColor }};"></div>
+            <div class="leg-key">Gouvernement</div>
+          </div>
+          <div class="leg-item" ng-if="data.groupes.Gouvernement">
+            <div class="leg-value"></div>
+            <div class="leg-key">&nbsp;</div>
+          </div>
           <div class="leg-item {{ focusSort === sort ? '' : 'faded' }}"
             ng-repeat="(sortid, sort) in data.legende.sorts" ng-click="focusAmendements($event, null, sortid)">
             <div class="leg-value leg-sort" style="background-image: url({{ ::sort.img }});"></div>
