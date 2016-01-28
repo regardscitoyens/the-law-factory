@@ -19,8 +19,8 @@ function ($rootScope, $timeout, $sce, $location, api) {
             $scope.focusSort = null;
 
             // Définit le regroupement et le tri des amendements
-            $scope.groupAll = false;
-            $scope.sortOrder = 'sort';
+            $scope.groupAll = $location.search()['group'] === '1'
+            $scope.sortOrder = $location.search()['sort'] || 'sort';
 
             // Mode 2 colonnes
             $scope.twoColumnMode = false;
@@ -241,6 +241,17 @@ function ($rootScope, $timeout, $sce, $location, api) {
 
             // Déclencheurs de redessin
             $scope.$watchGroup(['apiData', 'groupAll', 'sortOrder'], redraw);
+
+            // Déclencheurs de modification de l'URL
+            $scope.$watch('sortOrder', function() {
+                var value = $scope.sortOrder;
+                $location.search('sort', value === 'sort' ? null : value);
+            });
+
+            $scope.$watch('groupAll', function() {
+                var value = $scope.groupAll;
+                $location.search('group', value ? '1' : null);
+            });
 
             // Redimensionnement automatique
             var resizing;
