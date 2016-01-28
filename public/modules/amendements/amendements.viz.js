@@ -47,6 +47,28 @@
     function tri_amdts_sort(a, b)       { return compare_amdts_sort(a, b) || compare_amdts_groupe(a, b) || compare_amdts_numero(a, b); }
     function tri_amdts_groupe(a, b)     { return compare_amdts_groupe(a, b) || compare_amdts_sort(a, b) || compare_amdts_numero(a, b); }
 
+    // Computes the number of amendments in a row
+    function getRowSize(isSnake, nbAmdts, rows, row) {
+        var rowSize;
+
+        if (isSnake) {
+            var fullCols = Math.floor(nbAmdts / rows);
+            var lastCount = nbAmdts - fullCols * rows;
+
+            rowSize = fullCols;
+
+            if (fullCols % 2) {
+                rowSize += row < rows - lastCount ? 0 : 1;
+            } else {
+                rowSize += row < lastCount ? 1 : 0;
+            }
+        } else {
+            rowSize = Math.min(nbAmdts - availableWidth * row, availableWidth);
+        }
+
+        return rowSize;
+    }
+
     // Column allocation inside a subject
     function allocateAmendments(sujet, sortOrder) {
         var amendements = sujet.amendements;
@@ -88,6 +110,81 @@
 
             var viewportWidth = $('#viz').width() - scrollbarWidth;
             availableWidth = Math.floor((viewportWidth - subjectHMargin) / amendmentSize);
+        },
+
+        // Finds amendment id after move from current amendment
+        getOffsetAmendmentId: function(scope, amdt, sujet, direction) {
+            var sujets = scope.data.sujets;
+            var sindex = sujets.indexOf(sujet);
+            var schanged = false;
+
+            var nb = sujet.amendements.length;
+            var isSnake = sujet.amendements_snake !== sujet.amendements;
+            var rows = sujet.height / amendmentSize;
+            var cols = isSnake ? Math.ceil(nb / rows) : Math.min(nb, availableWidth);
+
+            var row, col;
+            var index = sujet.amendements_snake.indexOf(amdt);
+
+            // Compute row, col position of current amendment
+            if (isSnake) {
+                col = Math.floor(index / rows);
+                row = index - col * rows;
+            } else {
+                row = Math.floor(index / cols);
+                col = index - row * cols;
+            }
+
+            // Update position
+            switch (direction) {
+            case 'up':      row--; break;
+            case 'down':    row++; break;
+            case 'left':    col--; break;
+            case 'right':   col++; break;
+            }
+
+            // Horizontal wrap => change rows
+            if (col < 0) {
+                col = availableWidth - 1;
+                row--;
+            } else if (col >= getRowSize(isSnake, nb, rows, row)) {
+                col = 0;
+                row++;
+            }
+
+            // Vertical wrap => change subjects
+            if (row < 0) {
+                if (sindex <= 0) return; // No subject before
+
+                sujet = sujets[sindex - 1];
+                schanged = true;
+                row = sujet.height / amendmentSize - 1;
+            } else if (row >= rows) {
+                if (sindex >= sujets.length - 1) return; // No subject after
+
+                sujet = sujets[sindex + 1];
+                schanged = true;
+                row = 0;
+            }
+
+            if (schanged) {
+                // Recompute subject variables
+                nb = sujet.amendements.length;
+                isSnake = sujet.amendements_snake !== sujet.amendements;
+                rows = sujet.height / amendmentSize;
+                cols = isSnake ? Math.ceil(nb / rows) : Math.min(nb, availableWidth);
+            }
+
+            // Restrain col to the actual number of amdts on target row
+            var rowSize = getRowSize(isSnake, nb, rows, row);
+            col = Math.min(col, rowSize - 1);
+
+            // Find amendment at new row, col position
+            if (isSnake) {
+                return sujet.amendements_snake[col * rows + row].id_api;
+            } else {
+                return sujet.amendements_snake[row * cols + col].id_api;
+            }
         },
 
         // Transforms data from api format to something usable by the angular template

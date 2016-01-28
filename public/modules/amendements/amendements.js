@@ -265,29 +265,25 @@ function ($rootScope, $timeout, $sce, $location, api) {
             });
 
             // Appuis claviers
+            var directions = {
+                '37': 'left',
+                '38': 'up',
+                '39': 'right',
+                '40': 'down'
+            };
             $(window).on('keydown', function(e) {
                 if (!$scope.selectedAmdt) return;
+                if (!(e.keyCode in directions)) return
 
-                var $amdt = $('.amendement-' + $scope.selectedAmdt.id_api);
-                var $amdts = $('.amendement');
-                var index = $amdts.index($amdt);
-                var newamdt;
+                var amdt = $scope.selectedAmdt;
+                var $amdt = $('.amendement-' + amdt.id_api);
+                var $sujet = $amdt.parents('.sujet');
+                var sujet = $sujet.scope().sujet;
 
-                switch (e.keyCode) {
-                    case 37: // gauche
-                        if (index > 0) newamdt = $amdts.get(index - 1);
-                        break;
-                    case 39: // droite
-                        if (index < $amdts.length - 1) newamdt = $amdts.get(index + 1);
-                        break;
-                    case 38: // haut
-                    case 40: // bas
-                    default:
-                        return;
-                }
-
-                if (newamdt) {
-                    $(newamdt).click();
+                var newid = viz.getOffsetAmendmentId($scope, amdt, sujet, directions[e.keyCode]);
+                if (newid) {
+                    $('.amendement-' + newid).click();
+                    e.preventDefault();
                 }
             });
 
