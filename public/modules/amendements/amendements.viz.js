@@ -139,24 +139,25 @@
             }
 
             // Update position
+            var horiz;
             switch (direction) {
-            case 'up':      row--; break;
-            case 'down':    row++; break;
-            case 'left':    col--; break;
-            case 'right':   col++; break;
+            case 'up':      row--; horiz = false; break;
+            case 'down':    row++; horiz = false; break;
+            case 'left':    col--; horiz = true;  break;
+            case 'right':   col++; horiz = true;  break;
             }
 
             // Horizontal wrap => change rows
-            if (col < 0) {
+            if (horiz && col < 0) {
                 col = maxWidth - 1;
                 row--;
-            } else if (col >= getRowSize(isSnake, nb, twoColumns, rows, row)) {
+            } else if (horiz && col >= getRowSize(isSnake, nb, twoColumns, rows, row)) {
                 col = 0;
                 row++;
             }
 
             // Vertical wrap => change subjects
-            var inc = (twoColumns && (direction === 'up' || direction === 'down')) ? 2 : 1;
+            var inc = (twoColumns && !horiz) ? 2 : 1;
             if (row < 0) {
                 if (sindex < inc) return; // No subject before
 
