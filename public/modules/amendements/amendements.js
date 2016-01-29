@@ -255,14 +255,14 @@ function ($rootScope, $timeout, $sce, $location, api) {
 
             // Redimensionnement automatique
             var resizing;
-            $(window).on('resize', function() {
+            function handleResize() {
                 $timeout.cancel(resizing);
                 resizing = $timeout(function() {
                     resize();
                     viz.transformData($scope, true);
                     resizing = false;
                 }, 200);
-            });
+            }
 
             // Appuis claviers
             var directions = {
@@ -271,9 +271,9 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 '39': 'right',
                 '40': 'down'
             };
-            $(window).on('keydown', function(e) {
+            function handleKeyDown(e) {
                 if (!$scope.selectedAmdt) return;
-                if (!(e.keyCode in directions)) return
+                if (!(e.keyCode in directions)) return;
 
                 var amdt = $scope.selectedAmdt;
                 var $amdt = $('.amendement-' + amdt.id_api);
@@ -285,6 +285,14 @@ function ($rootScope, $timeout, $sce, $location, api) {
                     $('.amendement-' + newid).click();
                     e.preventDefault();
                 }
+            }
+
+            $(window).on('keydown', handleKeyDown);
+            $(window).on('resize', handleResize);
+
+            $scope.$on('$destroy', function() {
+                $(window).off('keydown', handleKeyDown)
+                $(window).off('resize', handleResize)
             });
 
             // Chargement initial
