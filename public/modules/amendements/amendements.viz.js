@@ -48,8 +48,9 @@
     function tri_amdts_groupe(a, b)     { return compare_amdts_groupe(a, b) || compare_amdts_sort(a, b) || compare_amdts_numero(a, b); }
 
     // Computes the number of amendments in a row
-    function getRowSize(isSnake, nbAmdts, rows, row) {
+    function getRowSize(isSnake, nbAmdts, twoColumns, rows, row) {
         var rowSize;
+        var maxWidth = twoColumns ? (availableWidth / 2) - 1 : availableWidth;
 
         if (isSnake) {
             var fullCols = Math.floor(nbAmdts / rows);
@@ -63,7 +64,7 @@
                 rowSize += row < lastCount ? 1 : 0;
             }
         } else {
-            rowSize = Math.min(nbAmdts - availableWidth * row, availableWidth);
+            rowSize = Math.min(nbAmdts - maxWidth * row, maxWidth);
         }
 
         return rowSize;
@@ -114,6 +115,8 @@
 
         // Finds amendment id after move from current amendment
         getOffsetAmendmentId: function(scope, amdt, sujet, direction) {
+            var twoColumns = scope.twoColumnMode;
+            var maxWidth = twoColumns ? (availableWidth / 2) - 1 : availableWidth;
             var sujets = scope.data.sujets;
             var sindex = sujets.indexOf(sujet);
             var schanged = false;
@@ -121,7 +124,7 @@
             var nb = sujet.amendements.length;
             var isSnake = sujet.amendements_snake !== sujet.amendements;
             var rows = sujet.height / amendmentSize;
-            var cols = isSnake ? Math.ceil(nb / rows) : Math.min(nb, availableWidth);
+            var cols = isSnake ? Math.ceil(nb / rows) : Math.min(nb, maxWidth);
 
             var row, col;
             var index = sujet.amendements_snake.indexOf(amdt);
@@ -145,24 +148,25 @@
 
             // Horizontal wrap => change rows
             if (col < 0) {
-                col = availableWidth - 1;
+                col = maxWidth - 1;
                 row--;
-            } else if (col >= getRowSize(isSnake, nb, rows, row)) {
+            } else if (col >= getRowSize(isSnake, nb, twoColumns, rows, row)) {
                 col = 0;
                 row++;
             }
 
             // Vertical wrap => change subjects
+            var inc = (twoColumns && (direction === 'up' || direction === 'down')) ? 2 : 1;
             if (row < 0) {
-                if (sindex <= 0) return; // No subject before
+                if (sindex < inc) return; // No subject before
 
-                sujet = sujets[sindex - 1];
+                sujet = sujets[sindex - inc];
                 schanged = true;
                 row = sujet.height / amendmentSize - 1;
             } else if (row >= rows) {
-                if (sindex >= sujets.length - 1) return; // No subject after
+                if (sindex >= sujets.length - inc) return; // No subject after
 
-                sujet = sujets[sindex + 1];
+                sujet = sujets[sindex + inc];
                 schanged = true;
                 row = 0;
             }
@@ -172,11 +176,11 @@
                 nb = sujet.amendements.length;
                 isSnake = sujet.amendements_snake !== sujet.amendements;
                 rows = sujet.height / amendmentSize;
-                cols = isSnake ? Math.ceil(nb / rows) : Math.min(nb, availableWidth);
+                cols = isSnake ? Math.ceil(nb / rows) : Math.min(nb, maxWidth);
             }
 
             // Restrain col to the actual number of amdts on target row
-            var rowSize = getRowSize(isSnake, nb, rows, row);
+            var rowSize = getRowSize(isSnake, nb, twoColumns, rows, row);
             col = Math.min(col, rowSize - 1);
 
             // Find amendment at new row, col position
