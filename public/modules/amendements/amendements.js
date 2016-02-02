@@ -153,7 +153,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
                             $('.text-container').scrollTop(0);
                         }, 'load_amd');
                     }, function() {
-                        thelawfactory.utils.spinner.stop('load_amd');
+                        thelawfactory.utils.spinner.stop(null, 'load_amd');
                         $scope.display_error("impossible de trouver le contenu de cet amendement");
                     });
                 }
