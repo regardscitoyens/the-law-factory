@@ -35,6 +35,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
             $scope.loadingAmdt = false;
             $scope.selectedAmdt = null;
             $scope.selectedAmdtData = null;
+            $scope.selectedAmdtError = null;
 
             var viz = thelawfactory.amendements,
                 firstDraw = true,
@@ -148,13 +149,17 @@ function ($rootScope, $timeout, $sce, $location, api) {
                         $scope.loadingAmdt = false;
                         $scope.selectedAmdt = amdt;
                         $scope.selectedAmdtData = amdtContenu;
+                        $scope.selectedAmdtError = null;
 
                         thelawfactory.utils.spinner.stop(function () {
                             $('.text-container').scrollTop(0);
                         }, 'load_amd');
                     }, function() {
                         thelawfactory.utils.spinner.stop(null, 'load_amd');
-                        $scope.display_error("impossible de trouver le contenu de cet amendement");
+
+                        $scope.loadingAmdt = false;
+                        $scope.selectedAmdtData = null;
+                        $scope.selectedAmdtError = "Impossible de trouver le contenu de cet amendement";
                     });
                 }
             };

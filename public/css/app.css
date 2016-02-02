@@ -541,6 +541,17 @@ body{
     -o-transition: none;
     transition: none;
 }
+.amendements .text-container .error {
+    padding: 10px;
+    text-align: center;
+}
+.amendements .text-container .error h5 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
 
 .viz-container h4{
     text-align:center;

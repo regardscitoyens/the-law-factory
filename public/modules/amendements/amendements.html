@@ -139,7 +139,12 @@
       </h4>
       <div id="load_amd"></div>
       <div class="text-container {{ loadingAmdt ? 'loading' : '' }}">
-        <div ng-cloak ng-if="!selectedAmdtData" ng-bind-html="trustedHelpText"></div>
+        <div ng-cloak ng-if="!selectedAmdtData && !selectedAmdtError" ng-bind-html="trustedHelpText"></div>
+        <div ng-cloak ng-if="selectedAmdtError" class="error" >
+          <h5>Oups ! Il semble que vous soyez tombé sur un bug</h5>
+          Erreur : {{ selectedAmdtError }}. N'hésitez pas à
+          <a href="//github.com/regardscitoyens/the-law-factory/issues" target="_blank">nous le signaler</a> !
+        </div>
         <div ng-cloak ng-if="selectedAmdtData">
           <span class="amd-date">{{ formatDate(selectedAmdt.date) }}</span>
           <span class="amd-sort">
