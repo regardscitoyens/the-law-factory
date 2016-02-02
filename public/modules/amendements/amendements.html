@@ -96,7 +96,7 @@
         </div>
       </div>
 
-      <div class="legend {{ focusGroupe || focusSort ? 'a-focus-mode' : '' }}" ng-click="focusAmendements($event)">
+      <div ng-cloak class="legend {{ focusGroupe || focusSort ? 'a-focus-mode' : '' }}" ng-click="focusAmendements($event)">
         LÉGENDE
         <div class="colors">
           <div class="leg-item {{ focusGroupe === key ? '' : 'faded' }}"
@@ -134,7 +134,7 @@
         <div ng-show="read" class="interactive readMode" ng-click="viewmode()" data-toggle="tooltip" title="Replier le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-right"></div>
       </div>
 
-      <h4 id="text-title">
+      <h4 ng-cloak id="text-title">
         {{ selectedAmdt ? 'Amendement ' + selectedAmdt.numero : 'AMENDEMENTS' }}
       </h4>
       <div id="load_amd"></div>
