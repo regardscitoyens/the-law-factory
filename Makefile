@@ -51,7 +51,7 @@ $(DOCROOT)/config.js: $(DOCROOT)/config.js.example
 
 $(PRODJS):
 	mkdir -p $$(dirname $@)
-	cat $^ > $@
+	cat $^ | sed -r 's/# sourceMappingURL=[^ ]+\.map//g' > $@
 
 $(PRODCSS):
 	mkdir -p $$(dirname $@)
