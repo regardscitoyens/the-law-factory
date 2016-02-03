@@ -136,7 +136,7 @@
     })();
 
     utils.drawGroupsLegend = function (groups) {
-        var col, type, oncl, ct = 0;
+        var col, type, oncl, tip, ct = 0;
         d3.entries(groups)
             .sort(function (a, b) {
                 return a.value.order - b.value.order;
@@ -144,13 +144,13 @@
             .forEach(function (d) {
                 col = utils.adjustColor(d.value.color);
                 type = (d.value.link !== "" ? 'colors' : 'others');
-                oncl = ' onclick="highlight(\'' + d.key + '\');" title="' + d.value.nom + '" data-toggle="tooltip" data-placement="left">';
-                $("." + type).append('<div class="leg-item"><div ' + (ct == 3 ? ' id="tuto-legend"' : '') + 'class="leg-value" style="background-color:' + col + '"' + oncl + '</div>' +
+                oncl = ' onclick="highlight(\'' + d.key + '\');">';
+                tip = ' title="' + d.value.nom + '" data-toggle="tooltip" data-placement="left"';
+                $("." + type).append('<div class="leg-item"' + tip + '><div ' + (ct == 3 ? ' id="tuto-legend"' : '') + 'class="leg-value" style="background-color:' + col + '"' + oncl + '</div>' +
                     '<div class="leg-key"' + oncl + d.key + '</div></div>');
                 ct++;
             });
-        $(".leg-value").tooltip();
-        $(".leg-key").tooltip();
+        $(".leg-item").tooltip({container:'body'});
     };
 
     utils.highlightGroup = function (vizTitle, helpText, groups, group) {
