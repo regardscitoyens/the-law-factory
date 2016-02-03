@@ -8,9 +8,11 @@ angular.module('theLawFactory')
         scope: {
             mod: '@'
         },
-        template: '<li id="menu-tutorial" ng-click="toggleTutorial()" class="pull-right"><span title="Voir le tutoriel" data-toggle="tooltip" data-placement="left"><a>?</a></span></li>',
+        template: '<a href="#" class="button nav-item" ng-click="toggleTutorial($event)"><span title="Voir le tutoriel" data-toggle="tooltip" data-placement="left">?</span></a>',
         controller: function ($timeout, $rootScope, $scope, api) {
-            $scope.toggleTutorial = function () {
+            $scope.toggleTutorial = function (ev) {
+                ev.preventDefault();
+
                 if (!$rootScope.tutorial) {
                     $rootScope.tutorial = true;
                     api.getTutorials().then(function (data) {
@@ -93,7 +95,7 @@ angular.module('theLawFactory')
 
             // To be used potentially when wanting to autoactivate the tutorial on first visit by user
             $scope.showFirstTimeTutorial = function () {
-                $('#menu-tutorial span').tooltip();
+                $('#menu-tutorial span').tooltip({container:'body'});
                 if (!localStorage.getItem("tuto-" + $scope.mod) || localStorage.getItem("tuto-" + $scope.mod) != "done")
                     $scope.toggleTutorial();
             };
