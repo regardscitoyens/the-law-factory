@@ -81,8 +81,6 @@ function ($rootScope, $timeout, $sce, $location, api) {
 
             // Redimensionne les conteneurs
             function resize() {
-                thelawfactory.utils.setModSize("#viz", 1)();
-                thelawfactory.utils.setTextContainerHeight();
                 viz.measureViewportSize();
             }
 
@@ -127,7 +125,6 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 if (amdt) {
                     $('.amendement-' + amdt.id_api).addClass('selected');
 
-                    thelawfactory.utils.setTextContainerHeight();
                     thelawfactory.utils.spinner.start('load_amd');
 
                     $scope.loadingAmdt = true;
@@ -223,10 +220,11 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 var amdt = $scope.data.sujets[idxSujet].amendements_snake[idxAmdt];
 
                 var $amdt = $('.amendement-' + amdt.id_api);
-                var offset = $amdt.position();
+                var offset = $amdt.offset();
+                var voffset = $('#display').offset();
 
                 var $tip = $('#amendement-tooltip');
-                $tip.css({ top: offset.top + 'px', left: offset.left + 'px', opacity: 1 });
+                $tip.css({ top: (offset.top - voffset.top) + 'px', left: (offset.left - voffset.left) + 'px', opacity: 1 });
 
                 $scope.hoverAmendement = amdt;
             };
