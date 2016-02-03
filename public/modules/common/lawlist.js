@@ -102,7 +102,7 @@ function ($location, $rootScope, api) {
                             .append('<div title="' + item.amendements + ' amendements déposés sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-folder-open" style="opacity: ' + thelawfactory.utils.opacity_amdts(item.amendements) + '"></span> ' + item.amendements + "</div>")
                             .append('<div title="' + item.words + ' mots prononcés lors des débats sur ce texte" class="search" data-toggle="tooltip" data-placement="bottom"><span class="glyphicon glyphicon-comment" style="opacity: ' + thelawfactory.utils.opacity_mots(item.words) + '"></span> ' + 1000 * (Math.round(item.words / 1000.)) + "</div>")
                             .append(themesdiv);
-                        $(".search").tooltip();
+                        $(".search").tooltip({ container: 'body' });
 
                         var txtdiv = $("<div class='src-txt'>")
                             .append("<a>" + item.label + "</a>")
