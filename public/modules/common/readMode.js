@@ -8,15 +8,13 @@ angular.module('theLawFactory')
             $scope.read = $location.search()['read'] === '1';
 
             $scope.readmode = function () {
-                $(".text").css({"width": "93.43%", "left": "3.3%"});
-                $(".gotomod").addClass('readmode');
+                $("#sidebar").addClass('readmode');
                 $location.search('read', '1');
                 $scope.read = true;
             };
 
             $scope.viewmode = function () {
-                $(".text").css({"width": "23.40%", "left": "73.3%"});
-                $(".gotomod").removeClass('readmode');
+                $("#sidebar").removeClass('readmode');
                 $location.search('read', null);
                 $scope.read = false;
             };
