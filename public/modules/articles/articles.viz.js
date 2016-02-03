@@ -4,8 +4,6 @@ var valign, stacked, articlesScope, aligned = true;
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
-    var setArticlesSize = thelawfactory.utils.setModSize("#viz", 0);
-
     thelawfactory.articles = function () {
 
         articlesScope = $(".articles").scope();
@@ -306,7 +304,6 @@ var valign, stacked, articlesScope, aligned = true;
                 var firstmade = false, firstamade = false; // to class the first article which has a rect (for tuto)
 
                 //init coordinates
-                setArticlesSize();
                 prepareSizes();
                 setCoordinates();
 
@@ -360,7 +357,10 @@ var valign, stacked, articlesScope, aligned = true;
                             })
                             .call(styleRect)
                             .on("click", onclick)
-                            .popover(article_hover);
+                            .popover(article_hover)
+                            .on("mouseenter", function() {
+                                $(".popover").addClass("articles-popover");
+                            });
 
                         //Add green labels for new elements
                         group.selectAll(".new")
@@ -380,7 +380,10 @@ var valign, stacked, articlesScope, aligned = true;
                             })
                             .attr("width", 6)
                             .on("click", onclick)
-                            .popover(article_hover);
+                            .popover(article_hover)
+                            .on("mouseenter", function() {
+                                $(".popover").addClass("articles-popover");
+                            });
 
                         //Add red labels for removed elements
                         group.selectAll(".sup")
@@ -400,7 +403,10 @@ var valign, stacked, articlesScope, aligned = true;
                             })
                             .attr("width", 6)
                             .on("click", onclick)
-                            .popover(article_hover);
+                            .popover(article_hover)
+                            .on("mouseenter", function() {
+                                $(".popover").addClass("articles-popover");
+                            });
 
                         //Add headers
                         group.selectAll(".header")
@@ -428,7 +434,11 @@ var valign, stacked, articlesScope, aligned = true;
                             })
                             .filter(function (d) {
                                 return d.section.lastIndexOf("A", 0) === 0
-                            }).on("click", onclick);
+                            })
+                            .on("click", onclick)
+                            .on("mouseenter", function() {
+                                $(".popover").addClass("articles-popover");
+                            });
 
                         group.selectAll(".header")
                             .filter(function (d) {
@@ -450,6 +460,9 @@ var valign, stacked, articlesScope, aligned = true;
                                         .style("opacity", section_opacity(curS))
                                         .popover(function () {
                                             return section_hover(d, curS)
+                                        })
+                                        .on("mouseenter", function() {
+                                            $(".popover").addClass("articles-popover");
                                         });
                                 }
                             });
@@ -478,6 +491,9 @@ var valign, stacked, articlesScope, aligned = true;
                             .popover(function (d) {
                                 return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))
                             })
+                            .on("mouseenter", function() {
+                                $(".popover").addClass("articles-popover");
+                            })
                             .filter(function (d) {
                                 return d.section.lastIndexOf("A", 0) === 0
                             }).on("click", onclick);
@@ -498,6 +514,9 @@ var valign, stacked, articlesScope, aligned = true;
                                         .attr("class", "head-lbl")
                                         .popover(function () {
                                             return section_hover(d, curS)
+                                        })
+                                        .on("mouseenter", function() {
+                                            $(".popover").addClass("articles-popover");
                                         })
                                         .text(clean_premier(titre_section(sub_section(curS), longlabel)));
                                     ct++;
@@ -780,13 +799,12 @@ var valign, stacked, articlesScope, aligned = true;
                         $(".art-meta").empty();
                         $(".art-txt").empty();
                         $("#text-title").html(titre_article(d, 2));
-                        thelawfactory.utils.setTextContainerHeight();
                         var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " (" + format_section(d, 1) + ')' : format_section(d, 2)) + "</b>" +
                             (test_section_details(d.section, d.id_step, 'title') ? " : " + get_section_details(d.section, d.id_step, 'title') : "")
                             + "</p>" : "") +
                             "<p><b>" + titre_etape(d) + "</b></p>" +
                             (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-" + d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ?
-                            '<div class="gotomod' + (articlesScope.read ? ' readmode' : '') + '"><a class="btn btn-info" href="amendements.html?loi=' + loi + '&etape=' + d.directory + '&article=' + d.article + '">Explorer les amendements</a></div>' : '');
+                            '<div class="gotomod' + (articlesScope.read ? ' readmode' : '') + '"><a class="button" href="amendements.html?loi=' + loi + '&etape=' + d.directory + '&article=' + d.article + '">Explorer les amendements</a></div>' : '');
                         if (d.n_diff) {
                             if (d.id_step.substr(-5) == "depot")
                                 descr += '<p class="comment"><b>Article déposé à cette étape</b></p>';
@@ -836,9 +854,8 @@ var valign, stacked, articlesScope, aligned = true;
 
                 if (aligned) valign();
                 else stacked();
-                $('.readMode').tooltip({animated: 'fade', placement: 'bottom'});
-                $('.revsMode').tooltip({animated: 'fade', placement: 'bottom'});
-                setTimeout(thelawfactory.utils.setTextContainerHeight, 500);
+                $('.readMode').tooltip({animated: 'fade', placement: 'bottom', container: 'body'});
+                $('.revsMode').tooltip({animated: 'fade', placement: 'bottom', container: 'body'});
             };
 
             $(document).ready(function () {
@@ -846,7 +863,7 @@ var valign, stacked, articlesScope, aligned = true;
                 $(".art-txt").empty().html(helpText);
                 setTimeout(load_texte_articles, 50);
                 $(window).resize(function () {
-                    if (drawing || $(".view").scope().mod != "articles") return;
+                    if (drawing || $("#view").scope().mod != "articles") return;
                     var selected_art = d3.selectAll(".curr");
                     if (selected_art[0].length) selected_art = selected_art[0][0].id;
                     else selected_art = "";
