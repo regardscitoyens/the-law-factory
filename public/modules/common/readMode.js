@@ -9,13 +9,13 @@ angular.module('theLawFactory')
 
             $scope.readmode = function () {
                 $("#sidebar").addClass('readmode');
-                $location.search('read', '1');
+                if ($scope.mod === 'amendements') $location.search('read', '1');
                 $scope.read = true;
             };
 
             $scope.viewmode = function () {
                 $("#sidebar").removeClass('readmode');
-                $location.search('read', null);
+                if ($scope.mod === 'amendements') $location.search('read', null);
                 $scope.read = false;
             };
 
