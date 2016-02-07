@@ -1292,6 +1292,13 @@ body {
 .amendements .a-focus-mode .faded {
   opacity: 0.15;
 }
+.amendements #load_amd {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 .amendements .text-container {
   -webkit-transition: opacity 0.25s ease-in-out;
   -moz-transition: opacity 0.25s ease-in-out;
@@ -1316,6 +1323,9 @@ body {
 }
 .amendements .text-container .sources {
   text-align: center;
+}
+.amendements .text-container .sources a {
+  white-space: nowrap;
 }
 .amendements .text-container.loading {
   opacity: 0;
