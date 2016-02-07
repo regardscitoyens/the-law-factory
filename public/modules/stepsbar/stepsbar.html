@@ -1,4 +1,4 @@
-<div id="stepsbar">
+<div>
 
   <div class="stb-stages">
     <div class="stb-stage" id="stage_{{$index}}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in stages">
@@ -51,7 +51,9 @@
           href="debats.html?loi={{loi}}&etape={{i.directory}}">
           <span class="glyphicon glyphicon-comment"></span>
         </a>
-        <span ng-hide="i.has_interventions && (etape!=i.directory ||(etape==i.directory && mod=='amendements'))" class="stb-link glyphicon glyphicon-comment low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='debats'}"></span>
+        <span ng-hide="i.has_interventions && (etape!=i.directory ||(etape==i.directory && mod=='amendements'))" class="stb-link low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='debats'}">
+          <span class="glyphicon glyphicon-comment"></span>
+        </span>
       </div>
 
     </div>

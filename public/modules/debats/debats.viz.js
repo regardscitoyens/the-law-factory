@@ -2,8 +2,7 @@ var num = 0;
 var svg, mydata;
 var participants, highlight, resetHighlight, groups, debatsDrawing;
 var width;
-var setDebatsSize = thelawfactory.utils.setModSize("#viz-int", 1),
-    shortenString = function (s, n) {
+var shortenString = function (s, n) {
     if (s.length > n) {
         s = s.substr(0, s.indexOf(' ', n - 20)) + "…";
     }
@@ -94,7 +93,7 @@ function init(data, step, vizTitle, helpText) {
 }
 
 $(window).resize(function () {
-    if (debatsDrawing || $(".view").scope().mod != "debats") return;
+    if (debatsDrawing || $("#view").scope().mod != "debats") return;
     debatsDrawing = true;
     setTimeout(function () {
         $("#display_menu .chosen").click();
@@ -103,8 +102,6 @@ $(window).resize(function () {
 });
 
 function drawFlows(top_ordered) {
-    setDebatsSize();
-    thelawfactory.utils.setTextContainerHeight();
     var selected_itv = d3.selectAll(".main-focused");
     if (selected_itv[0].length) selected_itv = selected_itv[0][0].id;
     else selected_itv = "";
@@ -136,7 +133,6 @@ function drawFlows(top_ordered) {
         thelawfactory.utils.spinner.stop(function () {
             $("#viz-int").animate({opacity: 1}, 50);
             debatsDrawing = true;
-            setTimeout(thelawfactory.utils.setTextContainerHeight, 250);
             if (selected_itv) $("#" + selected_itv).d3Click();
             debatsDrawing = false;
         });
@@ -362,7 +358,6 @@ sven.viz.streamkey = function () {
 
                 if (debatsDrawing) return;
                 $("#text-title").html(d.label);
-                thelawfactory.utils.setTextContainerHeight();
                 $(".text-container").empty()
                 $(".text-container").append('<p class="orat-title">' + d.x + "</p>");
 
@@ -372,10 +367,10 @@ sven.viz.streamkey = function () {
                 spArray.forEach(function (g) {
                     var ordiv = document.createElement('div');
                     ordiv.className = "orateur";
+                    if (participants[g.key].photo) $(ordiv).append('<a class="orat-pic" href="' + participants[g.key].link + '" target="_blank"><img src="' + participants[g.key].photo + "/" + parseInt(siz) + '?color=1"/></a>');
                     var div = document.createElement('div');
                     div.className = "orat-info";
                     var siz = $(".text-container").width() * 0.25;
-                    if (participants[g.key].photo) $(div).append('<a href="' + participants[g.key].link + '" target="_blank"><img src="' + participants[g.key].photo + "/" + parseInt(siz) + '?color=1"/></a>');
                     $(div).append("<p class='orat-name'><b>" + (participants[g.key].photo ? '<a href="' + participants[g.key].link + '" target="_blank">' + participants[g.key].nom + "</a>" : participants[g.key].nom) + "</b></p>");
                     if (participants[g.key].fonction.length) $(div).append("<p class='orat-fonction'>" + participants[g.key].fonction + "</p>");
                     $(div).append('<p><a class="orat-disc" href="' + g.value.link + '" target="_blank">Lire les interventions</a></p>');
@@ -385,7 +380,7 @@ sven.viz.streamkey = function () {
                     $(div).append("<span>" + g.value.nb_mots + "<br/>mots</span>");
                     $(ordiv).append(div);
                     $(".text-container").append(ordiv);
-                })
+                });
             })
             .popover(function (d) {
                 var orateurs = (d.speakers ? Object.keys(d.speakers).length : 0),
@@ -402,6 +397,7 @@ sven.viz.streamkey = function () {
                 };
             })
             .on('mouseenter', function (d) {
+                $(".popover").addClass("debats-popover");
                 highlight(d.category);
             })
             .on('mouseleave', resetHighlight);

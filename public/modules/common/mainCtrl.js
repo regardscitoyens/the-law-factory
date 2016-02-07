@@ -26,4 +26,6 @@ function ($timeout, $scope, $http, apiService, api, $rootScope, $location) {
     $scope.setHelpText = function (t) {
         $scope.helpText = $scope.helpText.replace("VIZTEXT", t);
     };
+
+    $("body > .tooltip").remove();
 });

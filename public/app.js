@@ -27,22 +27,22 @@ angular.module('theLawFactory', [
         })
         .state('laws', {
             url: '/lois.html?loi',
-            template: '<div navettes class="navettes"></div>',
+            template: '<div navettes class="module navettes"></div>',
             controller: 'mainCtrl'
         })
         .state('articles', {
             url: '/articles.html?loi',
-            template: '<div articles read-mode class="articles"></div>',
+            template: '<div articles read-mode class="module articles"></div>',
             controller: 'mainCtrl'
         })
         .state('amendements', {
             url: '/amendements.html?loi&etape',
-            template: '<div amendements read-mode class="amendements"></div>',
+            template: '<div amendements read-mode class="module amendements"></div>',
             controller: 'mainCtrl'
         })
         .state('debates', {
             url: '/debats.html?loi&etape',
-            template: '<div debats class="debats"></div>',
+            template: '<div debats class="module debats"></div>',
             controller: 'mainCtrl'
         });
 
