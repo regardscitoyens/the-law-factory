@@ -1204,9 +1204,14 @@ body {
 .amendements .sujet .titre-link {
   cursor: pointer;
 }
+.amendements .colonnes #sujets {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 .amendements .colonnes .sujet {
   width: 50%;
-  display: inline-block;
 }
 .amendements .colonnes .sujet:nth-child(2n+1) {
   padding-right: 5px;
