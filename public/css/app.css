@@ -173,6 +173,47 @@ a:active {
 * {
   box-sizing: border-box;
 }
+/* Tutorial */
+.introjs-tooltip {
+  direction: ltr;
+  min-width: 350px;
+}
+.introjs-tooltiptext {
+  text-align: left;
+  margin: 7px;
+  min-width: 320px;
+}
+.introjs-tooltipbuttons {
+  text-align: center;
+}
+.introjs-tooltip h6 {
+  font-size: 15px;
+  background-color: #716259;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+.introjs-tooltip ul {
+  padding: 15px;
+}
+.introjs-button, .introjs-button:hover, .introjs-button:focus {
+  color: #716259;
+  border-left: 1px solid #d4d4d4;
+  border-radius: .2em .2em .2em .2em;
+  text-decoration: none;
+}
+.introjs-tooltip .glyphicon {
+  margin-right: 7px;
+}
+.introjs-showElement.darkonintrojs,
+.introjs-showElement .darkonintrojs,
+.introjs-showElement .darkonintrojs span {
+  color: #716259 !important;
+}
+.introjs-disabled {
+    display: none;
+}
 /******************************** Main layout ********************************/
 body {
   height: 100%;
