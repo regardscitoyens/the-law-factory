@@ -55,25 +55,7 @@
     utils.getVizHeight = function () {
         return $(window).height() - $("#header-nav").height() - $(".title").height() - $("#menu-left").height() - $("footer").height() - parseInt($(".row").css("margin-bottom")) - 36;
     };
-
-    utils.setModSize = function (elsel, pad) {
-        return function () {
-            var myheight = utils.getVizHeight();
-            $(".text").height(myheight + pad);
-            if (elsel == ".main-sc") {
-                $(elsel).height(myheight - parseInt($(".labels-sc").css('height')));
-                $("#gantt").height($(elsel).height() - $("#legend").height());
-            }
-            else $(elsel).height(myheight - $(".stages").height() - (pad ? parseInt($(".legend").css('height')) : 0));
-        }
-    };
-
-    utils.setTextContainerHeight = function () {
-        var h = $(".text").height() - $("#text-title").outerHeight();
-        if (h > 0) $(".text-container").height(h);
-        else setTimeout(utils.setTextContainerHeight, 100);
-    };
-
+    
     utils.adjustColor = function (c) {
         var col = d3.hsl(c);
         if (col.s > 0.5) col.s = 0.5;
