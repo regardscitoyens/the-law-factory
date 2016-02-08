@@ -182,6 +182,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
                     $scope.article = article;
                 }
 
+                $location.replace();
                 $location.search('article', article);
             };
 
@@ -248,11 +249,13 @@ function ($rootScope, $timeout, $sce, $location, api) {
             // Déclencheurs de modification de l'URL
             $scope.$watch('sortOrder', function() {
                 var value = $scope.sortOrder;
+                $location.replace();
                 $location.search('sort', value === 'sort' ? null : value);
             });
 
             $scope.$watch('groupAll', function() {
                 var value = $scope.groupAll;
+                $location.replace();
                 $location.search('group', value ? '1' : null);
             });
 
