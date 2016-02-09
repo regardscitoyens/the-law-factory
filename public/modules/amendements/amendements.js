@@ -306,8 +306,21 @@ function ($rootScope, $timeout, $sce, $location, api) {
 
                 var newid = viz.getOffsetAmendmentId($scope, amdt, sujet, directions[e.keyCode]);
                 if (newid) {
-                    $('.amendement-' + newid).click();
+                    var newamd = $('.amendement-' + newid);
+                    newamd.click();
                     e.preventDefault();
+                    
+                    // Visibilité de l'amendement sélectionné
+                    var $viz = $('#viz');
+                    var height = $viz.height();
+                    var scrollTop = $viz.scrollTop();
+                    var top = newamd.position().top;
+
+                    if (top < 0) {
+                        $viz.animate({ scrollTop: scrollTop + top - 20 });
+                    } else if (top + 20 > height) {
+                        $viz.animate({ scrollTop: scrollTop + (top + 20 - height) });
+                    }
                 }
             }
 
