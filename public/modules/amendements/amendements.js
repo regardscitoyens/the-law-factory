@@ -290,6 +290,8 @@ function ($rootScope, $timeout, $sce, $location, api) {
 
             // Appuis claviers
             var directions = {
+                '33': 'prev',
+                '34': 'next',
                 '37': 'left',
                 '38': 'up',
                 '39': 'right',
@@ -309,7 +311,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
                     var newamd = $('.amendement-' + newid);
                     newamd.click();
                     e.preventDefault();
-                    
+
                     // Visibilité de l'amendement sélectionné
                     var $viz = $('#viz');
                     var height = $viz.height();
