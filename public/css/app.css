@@ -1314,16 +1314,29 @@ body {
   -o-transition: opacity 0.25s ease-in-out;
   transition: opacity 0.25s ease-in-out;
 }
-.amendements .text-container .amd-sort {
-  float: right;
+.amendements .text-container .amd-nav,
+.amendements .text-container .amd-status {
+  display: flex;
+  justify-content: space-between;
 }
-.amendements .text-container .amd-txt-status {
-  display: inline-flex;
-  vertical-align: text-bottom;
-
-  height: 20px;
-  width: 20px;
-  border: 1px solid #FFF;
+.amendements .text-container .amd-nav {
+  margin-bottom: 13px;
+  display: none;
+}
+.amendements .readmode .amd-nav {
+  display: flex;
+}
+.amendements .amd-nav a {
+  color: #716259;
+  outline: none;
+}
+.amendements .amd-nav a:hover {
+  opacity: 0.7;
+}
+.amendements .amd-nav a:hover,
+.amendements .amd-nav a:active,
+.amendements .amd-nav a:focus {
+  text-decoration: none;
 }
 .amendements .text-container .amd-motifs {
   max-height: 110px;
@@ -1351,7 +1364,9 @@ body {
   background-image: none;
   border-bottom: none;
 }
-.amendements .text-container .amd-subject,
+.amendements .text-container .amd-subject {
+  margin-top: 13px;
+}
 .amendements .text-container .amd-text {
   margin: 13px 0;
 }

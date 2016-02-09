@@ -326,6 +326,14 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 }
             }
 
+            $scope.triggerKeyDown = function(key) {
+                // Appel via $timeout(..., false) pour exécution hors du cycle $digest
+                // (nécessaire car handleKeyDown appelle le ng-click de l'amendement sélectionné).
+                $timeout(function() {
+                    handleKeyDown({ keyCode: key, preventDefault: function() {}});
+                }, 0, false);
+            };
+
             $(window).on('keydown', handleKeyDown);
             $(window).on('resize', handleResize);
 

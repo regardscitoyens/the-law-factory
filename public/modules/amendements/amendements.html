@@ -129,11 +129,17 @@
         <a href="//github.com/regardscitoyens/the-law-factory/issues" target="_blank">nous le signaler</a> !
       </div>
       <div ng-cloak ng-if="selectedAmdtData">
-        <span class="amd-date">{{ formatDate(selectedAmdt.date) }}</span>
-        <span class="amd-sort">
-          {{ selectedAmdtData.sort }}
-          <span class="amd-txt-status" style="background-color:{{ selectedAmdt.color }}">
-            <img style="visibility: {{ selectedAmdt.sort_image === '' ? 'hidden' : 'visible'}}; margin:0; padding:4px; width:18px;" ng-src="{{ selectedAmdt.sort_image }}" />
+        <span class="amd-nav">
+          <a href="#" ng-click="triggerKeyDown(33)"><span class="glyphicon glyphicon-chevron-left"></span> amendement précédent</a>
+          <a href="#" ng-click="triggerKeyDown(34)">amendement suivant <span class="glyphicon glyphicon-chevron-right"></span></a>
+        </span>
+        <span class="amd-status">
+          <span class="amd-date">{{ formatDate(selectedAmdt.date) }}</span>
+          <span class="amd-sort">
+            {{ selectedAmdtData.sort }}
+            <span class="amd-txt-status" style="background-color:{{ selectedAmdt.color }}">
+              <img style="visibility: {{ selectedAmdt.sort_image === '' ? 'hidden' : 'visible'}}; margin:0; padding:4px; width:18px;" ng-src="{{ selectedAmdt.sort_image }}" />
+            </span>
           </span>
         </span>
         <div class="amd-subject">
