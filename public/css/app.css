@@ -820,7 +820,7 @@ body {
   padding: 5px;
   opacity: 0;
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   margin: -34px 0 0 -5px;
   box-shadow: 2px 2px 10px -4px black;
   pointer-events: none;
@@ -1314,17 +1314,45 @@ body {
   float: right;
 }
 .amendements .text-container .amd-txt-status {
+  display: inline-flex;
+  vertical-align: text-bottom;
+
   height: 20px;
   width: 20px;
   border: 1px solid #FFF;
 }
+.amendements .text-container .amd-motifs {
+  max-height: 110px;
+  overflow: hidden;
+  position: relative;
+}
+.amendements .text-container .amd-motifs-fade {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 20px;
+
+  z-index: 1;
+
+  border-bottom: 1px solid #dad1cb;
+  background-image: url(../img/fade-down.png);
+  background-repeat: repeat-x;
+  cursor: pointer;
+}
+.amendements .text-container .amd-motifs.expanded {
+  max-height: initial;
+}
+.amendements .text-container .amd-motifs.expanded .amd-motifs-fade {
+  background-image: none;
+  border-bottom: none;
+}
 .amendements .text-container .amd-subject,
 .amendements .text-container .amd-text {
-  margin: 13px 0 13px 6.5px;
+  margin: 13px 0;
 }
-.amendements .text-container .amd-subject b,
-.amendements .text-container .amd-text b {
-  margin-left: -6.5px;
+.amendements .text-container .amd-text-content {
+  margin-left: 6.5px;
 }
 .amendements .text-container .sources {
   text-align: center;

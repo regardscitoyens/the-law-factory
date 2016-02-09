@@ -138,17 +138,22 @@
           <b>Sujet :</b>
           <span>{{ selectedAmdtData.sujet }}</span>
         </div>
-        <div class="amd-text">
-          <b>Signataires :</b>
-          <span>{{ selectedAmdtData.signataires }}</span>
-        </div>
-        <div class="amd-text">
-          <b>Exposé des motifs :</b>
-          <span ng-bind-html="selectedAmdtData.trustedExpose"></span>
+        <div class="amd-motifs {{ motifsExpanded ? 'expanded' : '' }}" ng-click="toggleMotifs()">
+          <div class="amd-text">
+            <b>Signataires :</b>
+            <span>{{ selectedAmdtData.signataires }}</span>
+          </div>
+          <div class="amd-text">
+            <b>Exposé des motifs :</b>
+            <div class="amd-text-content" ng-bind-html="selectedAmdtData.trustedExpose"></div>
+          </div>
+          <div class="amd-motifs-fade" data-toggle="tooltip" data-placement="bottom"
+            data-original-title="{{ motifsExpanded ? 'Replier' : 'Déployer' }} l'exposé des motifs"
+            title="{{ motifsExpanded ? 'Replier' : 'Déployer' }} l'exposé des motifs"></div>
         </div>
         <div class="amd-text">
           <b>Texte :</b>
-          <span ng-bind-html="selectedAmdtData.trustedTexte"></span>
+          <div class="amd-text-content" ng-bind-html="selectedAmdtData.trustedTexte"></div>
         </div>
         <p class="sources">
           <small>

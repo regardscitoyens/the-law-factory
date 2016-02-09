@@ -18,9 +18,10 @@ function ($rootScope, $timeout, $sce, $location, api) {
             $scope.focusGroupe = null;
             $scope.focusSort = null;
 
-            // Définit le regroupement et le tri des amendements
+            // Définit le regroupement, le tri des amendements et l'affichage des motifs
             $scope.groupAll = $location.search()['group'] === '1'
             $scope.sortOrder = $location.search()['sort'] || 'sort';
+            $scope.motifsExpanded = $location.search()['motifs'] === '1';
 
             // Mode 2 colonnes
             $scope.twoColumnMode = false;
@@ -243,6 +244,10 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 }, 50);
             };
 
+            $scope.toggleMotifs = function() {
+                $scope.motifsExpanded = !$scope.motifsExpanded;
+            };
+
             // Déclencheurs de redessin
             $scope.$watchGroup(['apiData', 'groupAll', 'sortOrder'], redraw);
 
@@ -257,6 +262,19 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 var value = $scope.groupAll;
                 $location.replace();
                 $location.search('group', value ? '1' : null);
+            });
+
+            $scope.$watch('motifsExpanded', function() {
+                var value = $scope.motifsExpanded;
+                $location.replace();
+                $location.search('motifs', value ? '1' : null);
+                $('.amd-motifs-fade').tooltip({ container: 'body' });
+            });
+
+            $scope.$watch('selectedAmdtData', function() {
+                $timeout(function() {
+                    $('.amd-motifs-fade').tooltip({ container: 'body' });
+                }, 0);
             });
 
             // Redimensionnement automatique
