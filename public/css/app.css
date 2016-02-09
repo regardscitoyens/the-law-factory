@@ -614,7 +614,8 @@ body {
   right: 25%;
   height: 118px;
 }
-#viz {
+#viz,
+#viz + #preload {
   position: absolute;
   overflow-x: hidden;
   overflow-y: auto;
@@ -622,6 +623,9 @@ body {
   left: 0;
   right: 25%;
   bottom: 0;
+}
+#viz + #preload {
+  pointer-events: none;
 }
 #viz.has-legend {
   bottom: 100px;
