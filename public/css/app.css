@@ -167,9 +167,6 @@ a:active {
 [ng-cloak] {
   display: none !important;
 }
-.low-vis {
-  opacity: 0.05 !important;
-}
 * {
   box-sizing: border-box;
 }
@@ -927,6 +924,9 @@ body {
   flex-basis: 50%;
   color: #716259;
   opacity: 0.4;
+}
+#stepsbar .stb-links .low-vis {
+  opacity: 0.05;
 }
 #stepsbar .stb-links .stb-curr-st {
   opacity: 1;
