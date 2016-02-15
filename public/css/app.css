@@ -1178,6 +1178,9 @@ body {
 .articles .art-txt ul li {
   margin-bottom: 13px;
 }
+.articles ul.originaltext {
+  list-style-type: number;
+}
 .articles-popover h3 {
   background-color: #716259;
   color: #fff;
