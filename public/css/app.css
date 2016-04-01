@@ -895,18 +895,18 @@ body {
   position: relative;
 }
 #stepsbar .stb-inst.gouvernement {
-  background-color: rgba(204, 203, 179, 0.003);
+  background-color: rgba(204, 203, 179, 0.3);
 }
 #stepsbar .stb-inst.assemblee,
 #stepsbar .stb-inst.deputes {
-  background-color: rgba(206, 214, 221, 0.003);
+  background-color: rgba(206, 214, 221, 0.3);
 }
 #stepsbar .stb-inst.senat,
 #stepsbar .stb-inst.senateurs {
-  background-color: rgba(249, 155, 144, 0.003);
+  background-color: rgba(249, 155, 144, 0.3);
 }
 #stepsbar .stb-inst.cmp {
-  background-color: rgba(231, 221, 158, 0.003);
+  background-color: rgba(231, 221, 158, 0.3);
 }
 #stepsbar .stb-linkstep {
   font-size: 10px;
@@ -1160,6 +1160,9 @@ body {
   stroke: none;
   fill: #fd5252;
 }
+.articles .article {
+  cursor: pointer;
+}
 .articles .art-meta {
   text-align: center;
 }
@@ -1179,7 +1182,15 @@ body {
   margin-bottom: 13px;
 }
 .articles ul.originaltext {
-  list-style-type: number;
+  list-style-type: decimal-leading-zero;
+  font-size: 0.7em;
+}
+.articles ul.originaltext li span,
+.articles ul.originaltext li ins {
+  font-size: 1.5em;
+}
+.articles ul.originaltext li ins {
+  background: #E6FFE6;
 }
 .articles-popover h3 {
   background-color: #716259;
