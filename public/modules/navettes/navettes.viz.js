@@ -982,6 +982,7 @@ reset_filters();
                 $(".text-container").empty().html(textContent);
                 $('.badges-list li').tooltip({container:'body'});
                 $("a.badge").tooltip({container:'body'});
+                $("a.badge").click(function() { $(this).tooltip('hide'); });
             }
 
             function drawStats() {
