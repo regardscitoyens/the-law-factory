@@ -1017,8 +1017,20 @@ body {
   background-color: #d8d1c9;
   border: 1px solid #716259;
 }
+.navettes .text-container {
+  display: flex;
+  flex-flow: column nowrap;
+}
 .navettes .text-container p {
   text-align: center;
+}
+.navettes .text-container .extrainfos {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.navettes .text-container .extrainfos .badges-list {
+  flex-grow: 1;
 }
 .navettes .gotomod {
   text-align: center;
@@ -1032,6 +1044,7 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  align-content: flex-start;
 }
 .navettes .badges-list li {
   width: 50%;
