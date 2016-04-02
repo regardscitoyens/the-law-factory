@@ -1340,6 +1340,22 @@ body {
 .amendements .readmode .amd-nav {
   display: flex;
 }
+.amendements .amd-flex {
+  display: flex;
+  flex-flow: column nowrap;
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  right: 13px;
+  bottom: 13px;
+}
+.amendements .amd-flex .amd-nav,
+.amendements .amd-flex .amd-status,
+.amendements .amd-flex .amd-subject,
+.amendements .amd-flex .amd-sources {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
 .amendements .amd-nav a {
   color: #716259;
   outline: none;
@@ -1352,45 +1368,41 @@ body {
 .amendements .amd-nav a:focus {
   text-decoration: none;
 }
-.amendements .text-container .amd-motifs {
-  max-height: 110px;
+.amendements .amd-flex .amd-signataires,
+.amendements .amd-flex .amd-motifs,
+.amendements .amd-flex .amd-text {
+  flex-basis: 40%;
   overflow: hidden;
+  margin: 13px 0;
+  cursor: pointer;
   position: relative;
 }
-.amendements .text-container .amd-motifs-fade {
+.amendements .amd-flex .amd-signataires {
+  flex-basis: 20%;
+}
+.amendements .amd-flex .amd-fade {
   position: absolute;
   bottom: 0;
   right: 0;
   left: 0;
-  height: 20px;
+  height: 30px;
 
   z-index: 1;
 
-  border-bottom: 1px solid #dad1cb;
+  /* border-bottom: 1px solid #dad1cb; */
   background-image: url(../img/fade-down.png);
   background-repeat: repeat-x;
-  cursor: pointer;
 }
-.amendements .text-container .amd-motifs.expanded {
-  max-height: initial;
+.amendements .amd-flex .expanded .amd-fade {
+  display: none;
 }
-.amendements .text-container .amd-motifs.expanded .amd-motifs-fade {
-  background-image: none;
-  border-bottom: none;
-}
-.amendements .text-container .amd-subject {
-  margin-top: 13px;
-}
-.amendements .text-container .amd-text {
-  margin: 13px 0;
-}
-.amendements .text-container .amd-text-content {
+.amendements .amd-flex .amd-text-content {
   margin-left: 6.5px;
 }
-.amendements .text-container .sources {
+.amendements .amd-flex .amd-sources {
   text-align: center;
 }
-.amendements .text-container .sources a {
+.amendements .amd-flex .amd-sources a {
   white-space: nowrap;
 }
 .amendements .text-container.loading {
@@ -1399,6 +1411,15 @@ body {
   -moz-transition: none;
   -o-transition: none;
   transition: none;
+}
+.amendements .amd-flex.has-expanded .amd-signataires,
+.amendements .amd-flex.has-expanded .amd-motifs,
+.amendements .amd-flex.has-expanded .amd-text {
+  flex-basis: 10%;
+}
+.amendements .amd-flex.has-expanded .expanded {
+  flex-basis: 80%;
+  overflow-y: auto;
 }
 /*********************************** Debats **********************************/
 .debats .orat-title {

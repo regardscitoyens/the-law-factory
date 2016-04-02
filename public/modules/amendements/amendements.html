@@ -128,7 +128,7 @@
         Erreur : {{ selectedAmdtError }}. N'hésitez pas à
         <a href="//github.com/regardscitoyens/the-law-factory/issues" target="_blank">nous le signaler</a> !
       </div>
-      <div ng-cloak ng-if="selectedAmdtData">
+      <div ng-cloak ng-if="selectedAmdtData" class="amd-flex {{ amdtExpanded !== 'none' ? 'has-expanded' : '' }}">
         <span class="amd-nav">
           <a href="#" ng-click="triggerKeyDown(33)"><span class="glyphicon glyphicon-chevron-left"></span> amendement précédent</a>
           <a href="#" ng-click="triggerKeyDown(34)">amendement suivant <span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -146,24 +146,22 @@
           <b>Sujet :</b>
           <span>{{ selectedAmdtData.sujet }}</span>
         </div>
-        <div class="amd-motifs {{ motifsExpanded ? 'expanded' : '' }}" ng-click="toggleMotifs()">
-          <div class="amd-text">
-            <b>Signataires :</b>
-            <span>{{ selectedAmdtData.signataires }}</span>
-          </div>
-          <div class="amd-text">
-            <b>Exposé des motifs :</b>
-            <div class="amd-text-content" ng-bind-html="selectedAmdtData.trustedExpose"></div>
-          </div>
-          <div class="amd-motifs-fade" data-toggle="tooltip" data-placement="bottom"
-            data-original-title="{{ motifsExpanded ? 'Replier' : 'Déployer' }} l'exposé des motifs"
-            title="{{ motifsExpanded ? 'Replier' : 'Déployer' }} l'exposé des motifs"></div>
+        <div class="amd-signataires {{ amdtExpanded === 'signataires' ? 'expanded' : '' }}" ng-click="setExpanded('signataires')">
+          <b>Signataires :</b>
+          <div class="amd-text-content">{{ selectedAmdtData.signataires }}</div>
+          <div class="amd-fade"></div>
         </div>
-        <div class="amd-text">
+        <div class="amd-motifs {{ amdtExpanded === 'motifs' ? 'expanded' : '' }}" ng-click="setExpanded('motifs')">
+          <b>Exposé des motifs :</b>
+          <div class="amd-text-content" ng-bind-html="selectedAmdtData.trustedExpose"></div>
+          <div class="amd-fade"></div>
+        </div>
+        <div class="amd-text {{ amdtExpanded === 'text' ? 'expanded' : '' }}" ng-click="setExpanded('text')">
           <b>Texte :</b>
           <div class="amd-text-content" ng-bind-html="selectedAmdtData.trustedTexte"></div>
+          <div class="amd-fade"></div>
         </div>
-        <p class="sources">
+        <p class="sources amd-sources">
           <small>
             <a target="_blank" href="{{ selectedAmdtData.url }}"><span class="glyphicon glyphicon-link"></span>
               {{ selectedAmdtData.origine === 'an' ? 'NosDéputés' : 'NosSénateurs' }}.fr</a> &nbsp; &nbsp;

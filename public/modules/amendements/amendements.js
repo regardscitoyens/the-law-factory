@@ -21,7 +21,8 @@ function ($rootScope, $timeout, $sce, $location, api) {
             // Définit le regroupement, le tri des amendements et l'affichage des motifs
             $scope.groupAll = $location.search()['group'] === '1'
             $scope.sortOrder = $location.search()['sort'] || 'sort';
-            $scope.motifsExpanded = $location.search()['motifs'] === '1';
+
+            $scope.amdtExpanded = 'none';
 
             // Mode 2 colonnes
             $scope.twoColumnMode = false;
@@ -244,8 +245,8 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 }, 50);
             };
 
-            $scope.toggleMotifs = function() {
-                $scope.motifsExpanded = !$scope.motifsExpanded;
+            $scope.setExpanded = function(what) {
+                $scope.amdtExpanded = what;
             };
 
             // Déclencheurs de redessin
@@ -264,11 +265,10 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 $location.search('group', value ? '1' : null);
             });
 
-            $scope.$watch('motifsExpanded', function() {
-                var value = $scope.motifsExpanded;
-                $location.replace();
-                $location.search('motifs', value ? '1' : null);
-                $('.amd-motifs-fade').tooltip({ container: 'body' });
+            $scope.$watch('amdtExpanded', function() {
+                ['signataires', 'motifs', 'text'].forEach(function(item) {
+                    $('.amd-flex .amd-' + item).scrollTop(0);
+                });
             });
 
             $scope.$watch('selectedAmdtData', function() {
