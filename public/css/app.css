@@ -114,9 +114,8 @@ a:active {
   border-right-color: #716259;
 }
 .popover {
-  min-width: 200px;
+  min-width: 220px;
   border-radius: 0;
-  width: 215px;
 }
 .popover h3 {
   background-color: #fff;

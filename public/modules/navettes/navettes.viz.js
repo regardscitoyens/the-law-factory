@@ -124,19 +124,20 @@ reset_filters();
                             div.append("p").html("Pro" + (d.auteur_depot == "Gouvernement" ? "jet" : "position") + " de loi");
                         }
                     }
-                    div.append("p").html('<span class="glyphicon glyphicon-calendar"></span><span> ' + french_date(d.date) + (d.enddate && d.enddate != d.date ? " →  " + french_date(d.enddate) : '') + '</span>');
+                    div.append("p").html('<span class="glyphicon glyphicon-calendar"></span><span>&nbsp;' + french_date(d.date) + (d.enddate && d.enddate != d.date ? "&nbsp;→&nbsp;" + french_date(d.enddate) : '') + '</span>');
                     if (d.echec || d.decision) {
                         div.append("p").html((d.echec ? d.echec : d.decision).toUpperCase());
                     }
                     if ((d.institution == "assemblee" || d.institution == "senat") && d.nb_amendements) {
                         div.append("p").style("vertical-align", "middle").html(d.nb_amendements + " amendement" + (d.nb_amendements > 1 ? 's' : ''));
                     }
+
                     return {
                         title: title,
                         content: div,
                         placement: "mouse",
                         gravity: "bottom",
-                        displacement: [-105, 8],
+                        displacement: [-115, 8],
                         mousemove: true
                     };
                 };
