@@ -40,6 +40,8 @@ function wrap(width) {
 }
 
 function init(data, step, vizTitle, helpText) {
+    sven.viz.groupes = data[step].groupes;
+
     highlight = function(group) {
         thelawfactory.utils.highlightGroup(vizTitle, helpText, groups,  group);
     };
@@ -102,6 +104,8 @@ $(window).resize(function () {
 });
 
 function drawFlows(top_ordered) {
+    sven.viz.currently_top_ordered = top_ordered;
+
     var selected_itv = d3.selectAll(".main-focused");
     if (selected_itv[0].length) selected_itv = selected_itv[0][0].id;
     else selected_itv = "";
@@ -139,8 +143,111 @@ function drawFlows(top_ordered) {
     });
 }
 
-sven = {},
-    sven.viz = {};
+function focusRect(d) {
+    if (!d) {
+        d = d3.select(this).data()[0];
+    }
+
+    if (d3.event)
+        d3.event.stopPropagation();
+
+    d3.selectAll("path").transition().style("fill-opacity", 0.1);
+    d3.selectAll("rect").transition().style("opacity", 0.1);
+    d3.selectAll(".focused").classed('focused', false).classed('main-focused', false);
+    d3.select(d3.select(this).node().parentNode).selectAll("path").classed('focused', true).transition().style("fill-opacity", 0.45);
+    d3.select(d3.select(this).node().parentNode).selectAll("rect").classed('focused', true).transition().style("opacity", 0.55);
+    d3.select(this).classed('main-focused', true).transition().style("opacity", 1);
+
+    if (debatsDrawing) return;
+    $("#text-title").html(d.label);
+    $(".text-container").empty()
+    $(".text-container").append('<p class="orat-title">' + d.x + "</p>");
+
+    var spArray = d3.entries(d.speakers).sort(function (a, b) {
+        return b.value.nb_mots - a.value.nb_mots
+    });
+    spArray.forEach(function (g) {
+        var ordiv = document.createElement('div');
+        ordiv.className = "orateur";
+        if (participants[g.key].photo) $(ordiv).append('<a class="orat-pic" href="' + participants[g.key].link + '" target="_blank"><img src="' + participants[g.key].photo + "/" + parseInt(siz) + '?color=1"/></a>');
+        var div = document.createElement('div');
+        div.className = "orat-info";
+        var siz = $(".text-container").width() * 0.25;
+        $(div).append("<p class='orat-name'><b>" + (participants[g.key].photo ? '<a href="' + participants[g.key].link + '" target="_blank">' + participants[g.key].nom + "</a>" : participants[g.key].nom) + "</b></p>");
+        if (participants[g.key].fonction.length) $(div).append("<p class='orat-fonction'>" + participants[g.key].fonction + "</p>");
+        $(div).append('<p><a class="orat-disc" href="' + g.value.link + '" target="_blank">Lire les interventions</a></p>');
+        $(ordiv).append(div);
+        div = document.createElement('div');
+        div.className = "orat-count";
+        $(div).append("<span>" + g.value.nb_mots + "<br/>mots</span>");
+        $(ordiv).append(div);
+        $(".text-container").append(ordiv);
+    });
+}
+
+function getRowRects(rect) {
+    var layers = $(".main-g g[class^=layer_]");
+
+    var layer = rect.parent();
+    var curindex = layer.find('rect').index(rect);
+
+    return layers.map(function() {
+        return $(this).find('rect').get(curindex);
+    }).sort(function(a, b) {
+        var da = d3.select(a).data()[0];
+        var db = d3.select(b).data()[0];
+
+        if (!da || !db) return;
+
+        if (sven.viz.currently_top_ordered) {
+            return db.value - da.value;
+        } else {
+            return groups[da.category].order - groups[db.category].order;
+        }
+    });
+}
+
+function getOffsetRect(direction) {
+    var cur = $('rect.main-focused');
+    if (!cur || cur.length === 0) return;
+
+
+    //currently_top_ordered?
+
+    var newRect;
+    switch (direction) {
+        case 'up':
+            newRect = cur.prev('rect');
+            break;
+
+        case 'down':
+            newRect = cur.next('rect');
+            break;
+
+        case 'left':
+            var row = getRowRects(cur);
+            var index = row.index(cur);
+            var prev = row[index - 1];
+
+            if (prev) return $(prev);
+            break;
+
+        case 'right':
+            var row = getRowRects(cur);
+            var index = row.index(cur);
+            var next = row[index + 1];
+
+            if (next) return $(next);
+            break;
+    }
+
+    return newRect;
+}
+
+sven = {};
+sven.viz = {
+    currently_top_ordered: false
+};
 
 sven.viz.streamkey = function () {
 
@@ -260,7 +367,7 @@ sven.viz.streamkey = function () {
         var setMinHeight = d3.scale.linear().domain([d3.min(values), d3.max(values)]);
 
         //sort data, compute baseline and propagate it
-        var dataF = layout(sorting(data), setMinHeight);
+        var dataF = layout(sorting(data), setMinHeight);;
 
         mX = m - 1;
         mY = d3.max(dataF, function (d) {
@@ -348,39 +455,7 @@ sven.viz.streamkey = function () {
             .attr("cursor", "pointer")
             .attr("display", "inline")
             .on("click", function (d) {
-                d3.event.stopPropagation();
-                d3.selectAll("path").transition().style("fill-opacity", 0.1);
-                d3.selectAll("rect").transition().style("opacity", 0.1);
-                d3.selectAll(".focused").classed('focused', false).classed('main-focused', false);
-                d3.select(d3.select(this).node().parentNode).selectAll("path").classed('focused', true).transition().style("fill-opacity", 0.45);
-                d3.select(d3.select(this).node().parentNode).selectAll("rect").classed('focused', true).transition().style("opacity", 0.55);
-                d3.select(this).classed('main-focused', true).transition().style("opacity", 1);
-
-                if (debatsDrawing) return;
-                $("#text-title").html(d.label);
-                $(".text-container").empty()
-                $(".text-container").append('<p class="orat-title">' + d.x + "</p>");
-
-                var spArray = d3.entries(d.speakers).sort(function (a, b) {
-                    return b.value.nb_mots - a.value.nb_mots
-                });
-                spArray.forEach(function (g) {
-                    var ordiv = document.createElement('div');
-                    ordiv.className = "orateur";
-                    if (participants[g.key].photo) $(ordiv).append('<a class="orat-pic" href="' + participants[g.key].link + '" target="_blank"><img src="' + participants[g.key].photo + "/" + parseInt(siz) + '?color=1"/></a>');
-                    var div = document.createElement('div');
-                    div.className = "orat-info";
-                    var siz = $(".text-container").width() * 0.25;
-                    $(div).append("<p class='orat-name'><b>" + (participants[g.key].photo ? '<a href="' + participants[g.key].link + '" target="_blank">' + participants[g.key].nom + "</a>" : participants[g.key].nom) + "</b></p>");
-                    if (participants[g.key].fonction.length) $(div).append("<p class='orat-fonction'>" + participants[g.key].fonction + "</p>");
-                    $(div).append('<p><a class="orat-disc" href="' + g.value.link + '" target="_blank">Lire les interventions</a></p>');
-                    $(ordiv).append(div);
-                    div = document.createElement('div');
-                    div.className = "orat-count";
-                    $(div).append("<span>" + g.value.nb_mots + "<br/>mots</span>");
-                    $(ordiv).append(div);
-                    $(".text-container").append(ordiv);
-                });
+                focusRect.call(this, d);
             })
             .popover(function (d) {
                 var orateurs = (d.speakers ? Object.keys(d.speakers).length : 0),
@@ -472,6 +547,7 @@ sven.viz.streamkey = function () {
             });
 
         }
+
         return stepsY;
     }
 
@@ -535,7 +611,6 @@ sven.viz.streamkey = function () {
             for (i = 0; i < m; i++)
                 dataInit[j][i] = []
         }
-
         data.forEach(function (d, i) {
             d.forEach(function (e) {
                 dataInit[e.index][i] = e;
