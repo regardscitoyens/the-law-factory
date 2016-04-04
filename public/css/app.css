@@ -875,8 +875,8 @@ body {
 #stepsbar .stb-steps .stb-step:nth-child(2n) {
   background-color: #e9e4db;
 }
-#stepsbar .stb-stages .stb-stage:nth-child(2n).current,
-#stepsbar .stb-steps .stb-step:nth-child(2n).current {
+#stepsbar .stb-stages .stb-stage.current,
+#stepsbar .stb-steps .stb-step.current {
   background-color: #fff;
 }
 #stepsbar .stb-stage + .stb-stage,
