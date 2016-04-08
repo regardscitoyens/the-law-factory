@@ -34,7 +34,7 @@
         "senat": "Sénat",
         "gouvernement": "Gouvernement",
         "commission": "Commission",
-        "hemicycle": "Hémicyle",
+        "hemicycle": "Hémicycle",
         "depot": "Dépôt",
         "depots": "Dépôts",
         "cmp": "Commission Mixte Paritaire"
