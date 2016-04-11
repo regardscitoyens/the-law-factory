@@ -1231,6 +1231,9 @@ body {
   color: #fff;
   border-radius: 0;
 }
+.articles #sidebar .gotomod {
+  font-size: 1.1em;
+}
 /********************************* Amendements *******************************/
 .amendements #probe {
   position: absolute;
