@@ -290,7 +290,7 @@ body {
 }
 #header-nav #navbar-form {
   flex-grow: 1;
-  margin-right: 20%;
+  margin-right: 10%;
   margin-left: 26px;
   display: flex;
   flex-flow: row nowrap;
