@@ -90,6 +90,14 @@ a:active {
   border-radius: 2px;
   padding: 6.5px 13px;
 }
+.shortcuts,
+.shortcuts:hover,
+.shortcuts:active,
+.shortcuts:focus {
+  color: #716259;
+  text-decoration: none;
+  font-size: 1.2em;
+}
 .textdiff del {
   background-color: #ffe6e6;
 }
@@ -499,9 +507,10 @@ body {
 #home #homelinks li {
   background-color: #fff;
   margin: 13px;
-  padding: 13px;
   height: 94px;
   display: flex;
+  align-items: stretch;
+  flex-flow: column nowrap;
   text-align: left;
 }
 #home #homelinks li:hover {
@@ -513,6 +522,8 @@ body {
 }
 #home #homelinks li a {
   display: flex;
+  padding: 13px;
+  flex-grow: 1;
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: flex-start;
