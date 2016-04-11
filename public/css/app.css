@@ -1370,6 +1370,15 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.amendements .text-container .amd-txt-status {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+}
+.amendements .text-container .amd-txt-status img {
+  position: absolute;
+}
 .amendements .text-container .amd-nav {
   margin-bottom: 13px;
   display: none;
