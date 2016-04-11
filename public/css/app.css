@@ -936,11 +936,21 @@ body {
   color: #716259;
   opacity: 0.4;
 }
+#stepsbar .stb-links .stb-link:hover {
+  text-decoration: none;
+}
 #stepsbar .stb-links .low-vis {
   opacity: 0.05;
 }
 #stepsbar .stb-links .stb-curr-st {
   opacity: 1;
+}
+#stepsbar .stb-live {
+  margin-left: 4px;
+  opacity: 0.6;
+}
+#stepsbar .stb-live:before {
+  content: '\e031';
 }
 /********************************** Navettes *********************************/
 .navettes #navettes-slider {
