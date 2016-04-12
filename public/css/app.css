@@ -712,6 +712,12 @@ body {
 .module nav .nav-item {
   margin: 0 26px;
 }
+.module nav .dropdown {
+  white-space: nowrap;
+}
+.module nav .dropdown .selectedchoice {
+  white-space: normal;
+}
 #display {
   background-color: #fff;
 }
@@ -960,6 +966,7 @@ body {
   background-color: #f6f6f6;
   cursor: pointer;
   padding-right: 10px;
+  margin-left: 0;
 }
 .navettes #navettes-slider .ui-slider-handle {
   width: 10px;
