@@ -1465,6 +1465,7 @@ body {
 }
 .amendements .amd-flex.has-expanded .expanded {
   flex-basis: 80%;
+  cursor: initial;
   overflow-y: auto;
 }
 /*********************************** Debats **********************************/
