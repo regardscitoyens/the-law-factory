@@ -6,5 +6,6 @@
 .idea
 config.js
 Depends.mk
-public/prod/*
-public/index.prod.html
+public/built/*
+public/index.built.html
+prod/*
