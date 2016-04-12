@@ -65,6 +65,17 @@ function ($rootScope, $timeout, $sce, $location, api) {
                             });
                         }
 
+                        var article = $location.search()['article'];
+                        if (article) {
+                            var $article = $('.sujet[data-article="' + article + '"]');
+                            var $alink = $article.find('.titre-link');
+
+                            $alink.click();
+                            $viz.animate({
+                                scrollTop: $article.offset().top - $viz.offset().top
+                            });
+                        }
+
                         var amdtNum = $location.search()['amdt'];
                         if (amdtNum) {
                             var $amdt = $('.amendement-num-' + amdtNum);
