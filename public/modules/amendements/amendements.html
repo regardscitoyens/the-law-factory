@@ -128,7 +128,7 @@
         Erreur : {{ selectedAmdtError }}. N'hésitez pas à
         <a href="//github.com/regardscitoyens/the-law-factory/issues" target="_blank">nous le signaler</a> !
       </div>
-      <div ng-cloak ng-if="selectedAmdtData" class="amd-flex {{ amdtExpanded !== 'none' ? 'has-expanded' : '' }}">
+      <div ng-cloak ng-if="selectedAmdtData" class="amd-flex">
         <span class="amd-nav">
           <a href="#" ng-click="triggerKeyDown(33)"><span class="glyphicon glyphicon-chevron-left"></span> amendement précédent</a>
           <a href="#" ng-click="triggerKeyDown(34)">amendement suivant <span class="glyphicon glyphicon-chevron-right"></span></a>

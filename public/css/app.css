@@ -1417,15 +1417,12 @@ body {
 .amendements .amd-flex .amd-signataires,
 .amendements .amd-flex .amd-motifs,
 .amendements .amd-flex .amd-text {
-  flex-basis: 40%;
   overflow: hidden;
   margin: 13px 0;
   cursor: pointer;
   position: relative;
 }
-.amendements .amd-flex .amd-signataires {
-  flex-basis: 20%;
-}
+
 .amendements .amd-flex .amd-fade {
   position: absolute;
   bottom: 0;
@@ -1458,12 +1455,12 @@ body {
   -o-transition: none;
   transition: none;
 }
-.amendements .amd-flex.has-expanded .amd-signataires,
-.amendements .amd-flex.has-expanded .amd-motifs,
-.amendements .amd-flex.has-expanded .amd-text {
+.amendements .amd-flex .amd-signataires,
+.amendements .amd-flex .amd-motifs,
+.amendements .amd-flex .amd-text {
   flex-basis: 10%;
 }
-.amendements .amd-flex.has-expanded .expanded {
+.amendements .amd-flex .expanded {
   flex-basis: 80%;
   cursor: initial;
   overflow-y: auto;

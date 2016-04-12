@@ -161,6 +161,8 @@ function ($rootScope, $timeout, $sce, $location, api) {
                         $scope.selectedAmdtData = amdtContenu;
                         $scope.selectedAmdtError = null;
 
+                        $scope.setExpanded(localStorage.getItem('amendements-expanded') || 'motifs');
+
                         thelawfactory.utils.spinner.stop(function () {
                             $('.text-container').scrollTop(0);
                         }, 'load_amd');
@@ -257,6 +259,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
             };
 
             $scope.setExpanded = function(what) {
+                localStorage.setItem('amendements-expanded', what);
                 $scope.amdtExpanded = what;
             };
 
