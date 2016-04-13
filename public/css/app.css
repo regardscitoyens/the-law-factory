@@ -805,6 +805,9 @@ body {
   margin-left: 2%;
   cursor: pointer;
 }
+.amendements #legend .leg-empty {
+  cursor: initial;
+}
 .amendements #legend .others .leg-item,
 .debats #legend .others .leg-item {
   min-width: 12%;
