@@ -1,21 +1,21 @@
 <div>
 
   <div class="stb-stages">
-    <div class="stb-stage" id="stage_{{$index}}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in stages">
+    <div ng-cloak class="stb-stage" id="stage_{{$index}}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in stages">
       <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}" ng-bind-html="i.short_name"></span>
       <span ng-hide="i.display_short" ng-bind-html="i.long_name"></span>
     </div>
   </div>
 
   <div class="stb-insts">
-    <div class="stb-inst {{ i.name | slug }}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in inst">
+    <div ng-cloak class="stb-inst {{ i.name | slug }}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in inst">
       <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}">{{i.short_name}}</span>
       <span ng-hide="i.display_short">{{i.long_name}}</span>
     </div>
   </div>
 
   <div class="stb-steps">
-    <div class="stb-step stb-{{i.directory.substr(0, i.directory.search('_'))}}" ng-class="{'current': etape === i.directory}" style="width:{{(1/total)*100}}%" ng-repeat="i in steps">
+    <div ng-cloak class="stb-step stb-{{i.directory.substr(0, i.directory.search('_'))}}" ng-class="{'current': etape === i.directory}" style="width:{{(1/total)*100}}%" ng-repeat="i in steps">
 
       <div>
         <span>
