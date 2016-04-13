@@ -2,7 +2,7 @@
   <a class="button nav-item" ng-href="articles.html?loi={{loi}}">&lt; Voir les articles du texte</a>
 
   <span class="nav-item dropdown" id="menu-display">
-    <span ng-cloak class="dropdown-toggle" data-toggle="dropdown">
+    <span class="dropdown-toggle" data-toggle="dropdown">
       Vue {{ groupAll ? 'groupée' : 'par articles' }}
       <b class="caret"></b>
     </span>
@@ -12,7 +12,7 @@
     </ul>
   </span>
   <span class="nav-item dropdown" id="menu-order">
-    <span ng-cloak class="dropdown-toggle" data-toggle="dropdown">
+    <span class="dropdown-toggle" data-toggle="dropdown">
       Trié par {{ sortOrder === 'sort' ? 'sort final' : (sortOrder === 'groupe' ? 'groupe politique' : 'numéro') }}
       <b class="caret"></b>
     </span>
