@@ -367,7 +367,7 @@ sven.viz.streamkey = function () {
         var setMinHeight = d3.scale.linear().domain([d3.min(values), d3.max(values)]);
 
         //sort data, compute baseline and propagate it
-        var dataF = layout(sorting(data), setMinHeight);;
+        var dataF = layout(sorting(data), setMinHeight);
 
         mX = m - 1;
         mY = d3.max(dataF, function (d) {
