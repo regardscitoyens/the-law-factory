@@ -463,6 +463,7 @@ sven.viz.streamkey = function () {
                 div.append("p").html("<b>" + d.x + "</b>");
                 div.append("p").html(d.value + " mots prononcés par " + orateurs + " orateur" + (orateurs > 1 ? 's' : ''));
                 return {
+                    css: "debats-popover",
                     title: d.label,
                     content: div,
                     placement: "mouse",
@@ -472,7 +473,6 @@ sven.viz.streamkey = function () {
                 };
             })
             .on('mouseenter', function (d) {
-                $(".popover").addClass("debats-popover");
                 highlight(d.category);
             })
             .on('mouseleave', resetHighlight);

@@ -259,6 +259,7 @@ var valign, stacked, articlesScope, aligned = true;
                 else if (d.id_step.substr(-5) != "depot") div.append("p").html("Modifications : " + d3.round(d['n_diff'] * 100, 2) + "&nbsp;%");
                 div.append("p").html("<small>Longueur du texte : " + d['length'] + " caractères</small>");
                 return {
+                    css: "articles-popover",
                     title: clean_premier(titre_article(d, 2)),
                     content: div,
                     placement: "mouse",
@@ -290,6 +291,7 @@ var valign, stacked, articlesScope, aligned = true;
                 }
                 if (title_details) div.append("p").html("<small>" + title_details + "</small>");
                 return {
+                    css: "articles-popover",
                     title : clean_premier(title),
                     content : div,
                     placement : "mouse",
@@ -357,10 +359,7 @@ var valign, stacked, articlesScope, aligned = true;
                             })
                             .call(styleRect)
                             .on("click", onclick)
-                            .popover(article_hover)
-                            .on("mouseenter", function() {
-                                $(".popover").addClass("articles-popover");
-                            });
+                            .popover(article_hover);
 
                         //Add green labels for new elements
                         group.selectAll(".new")
@@ -380,10 +379,7 @@ var valign, stacked, articlesScope, aligned = true;
                             })
                             .attr("width", 6)
                             .on("click", onclick)
-                            .popover(article_hover)
-                            .on("mouseenter", function() {
-                                $(".popover").addClass("articles-popover");
-                            });
+                            .popover(article_hover);
 
                         //Add red labels for removed elements
                         group.selectAll(".sup")
@@ -403,10 +399,7 @@ var valign, stacked, articlesScope, aligned = true;
                             })
                             .attr("width", 6)
                             .on("click", onclick)
-                            .popover(article_hover)
-                            .on("mouseenter", function() {
-                                $(".popover").addClass("articles-popover");
-                            });
+                            .popover(article_hover);
 
                         //Add headers
                         group.selectAll(".header")
@@ -435,10 +428,7 @@ var valign, stacked, articlesScope, aligned = true;
                             .filter(function (d) {
                                 return d.section.lastIndexOf("A", 0) === 0
                             })
-                            .on("click", onclick)
-                            .on("mouseenter", function() {
-                                $(".popover").addClass("articles-popover");
-                            });
+                            .on("click", onclick);
 
                         group.selectAll(".header")
                             .filter(function (d) {
@@ -460,9 +450,6 @@ var valign, stacked, articlesScope, aligned = true;
                                         .style("opacity", section_opacity(curS))
                                         .popover(function () {
                                             return section_hover(d, curS)
-                                        })
-                                        .on("mouseenter", function() {
-                                            $(".popover").addClass("articles-popover");
                                         });
                                 }
                             });
@@ -491,9 +478,6 @@ var valign, stacked, articlesScope, aligned = true;
                             .popover(function (d) {
                                 return (d.section.lastIndexOf("A", 0) === 0 ? article_hover(d) : section_hover(d))
                             })
-                            .on("mouseenter", function() {
-                                $(".popover").addClass("articles-popover");
-                            })
                             .filter(function (d) {
                                 return d.section.lastIndexOf("A", 0) === 0
                             }).on("click", onclick);
@@ -514,9 +498,6 @@ var valign, stacked, articlesScope, aligned = true;
                                         .attr("class", "head-lbl")
                                         .popover(function () {
                                             return section_hover(d, curS)
-                                        })
-                                        .on("mouseenter", function() {
-                                            $(".popover").addClass("articles-popover");
                                         })
                                         .text(clean_premier(titre_section(sub_section(curS), longlabel)));
                                     ct++;

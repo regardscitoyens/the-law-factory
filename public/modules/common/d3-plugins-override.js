@@ -1,0 +1,72 @@
+(function() {
+var annotate;
+
+annotate = function(options, create) {
+  var el, move_tip;
+  el = d3.select(this);
+  move_tip = function(selection) {
+    var center, offsets;
+    center = [0, 0];
+    var body;
+    body = d3.select('body');
+    if (options.placement === "mouse") {
+      center = d3.mouse(body.node());
+    } else {
+      offsets = this.ownerSVGElement.getBoundingClientRect();
+      center[0] = offsets.left;
+      center[1] = offsets.top;
+      center[0] += options.position[0];
+      center[1] += options.position[1];
+      center[0] += window.scrollX;
+      center[1] += window.scrollY;
+    }
+    center[0] += options.displacement[0];
+    center[1] += options.displacement[1];
+    return selection.style("left", "" + center[0] + "px").style("top", "" + center[1] + "px").style("display", "block");
+  };
+  el.on("mouseover", function() {
+    var inner, tip;
+    tip = create();
+    tip.classed("annotation", true).classed(options.gravity, true).classed('fade', true).style("display", "none");
+    tip.append("div").attr("class", "arrow");
+    inner = function() {
+      return tip.classed('in', true);
+    };
+    setTimeout(inner, 10);
+    return tip.style("display", "").call(move_tip.bind(this));
+  });
+  if (options.mousemove) {
+    el.on("mousemove", function() {
+      return d3.select(".annotation").call(move_tip.bind(this));
+    });
+  }
+  return el.on("mouseout", function() {
+    var remover, tip;
+    tip = d3.selectAll(".annotation").classed('in', false);
+    remover = function() {
+      return tip.remove();
+    };
+    return setTimeout(remover, 150);
+  });
+};
+
+// Override d3-bootstrap-plugins popover to enable passing additional classes
+d3.selection.prototype.popover = function(f) {
+  var body;
+  body = d3.select('body');
+  return this.each(function(d, i) {
+    var create_popover, options;
+    options = f.apply(this, arguments);
+    create_popover = function() {
+      var inner, tip;
+      tip = body.append("div").classed("popover", true);
+      if (options.css) tip.classed(options.css, true);
+      inner = tip.append("div").attr("class", "popover-inner");
+      inner.append("h3").text(options.title).attr("class", "popover-title");
+      inner.append("div").attr("class", "popover-content").append("p").html(options.content[0][0].outerHTML);
+      return tip;
+    };
+    return annotate.call(this, options, create_popover);
+  });
+};
+}());
