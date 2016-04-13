@@ -868,6 +868,14 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
+/* Debat-specific styles */
+.debats #legend .leg-item {
+  cursor: initial;
+}
+.debats #legend .leg-key,
+.debats #legend .leg-value {
+  cursor: pointer;
+}
 /********************************* Steps bar *********************************/
 #stepsbar {
   display: flex;
