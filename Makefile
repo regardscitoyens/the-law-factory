@@ -18,9 +18,11 @@
 SRCDIR := public
 BUILTDIR := $(SRCDIR)/built
 INSTALLDIR := prod
+INSTALLTMPDIR := prod.tmp
+INSTALLOLDDIR := prod.old
 SRCINDEX := $(SRCDIR)/index.html
 BUILTINDEX := $(SRCDIR)/index.built.html
-IBUILTINDEX := $(patsubst $(SRCDIR)/%,$(INSTALLDIR)/%,$(BUILTINDEX))
+IBUILTINDEX := $(patsubst $(SRCDIR)/%,$(INSTALLTMPDIR)/%,$(BUILTINDEX))
 BUILTCSS := $(BUILTDIR)/main.css
 BUILTJS := $(BUILTDIR)/main.js
 
@@ -28,7 +30,7 @@ ALLCSS := $(shell find $(SRCDIR) -name *.css)
 ALLJS := $(shell find $(SRCDIR) -name *.js)
 
 all: $(BUILTINDEX) $(BUILTJS) $(BUILTCSS)
-install: $(INSTALLDIR) $(INSTALLDIR)/index.html
+install: $(INSTALLTMPDIR) $(INSTALLTMPDIR)/index.html $(INSTALLDIR)
 
 include Depends.mk
 
@@ -63,12 +65,19 @@ clean:
 	rm -f Depends.mk $(BUILTINDEX) $(BUILTJS) $(BUILTCSS)
 	[ -d $(BUILTDIR) ] && rmdir $(BUILTDIR) || true
 
-.PHONY: $(INSTALLDIR)
-$(INSTALLDIR):
-	[ -d $(INSTALLDIR) ] && rm -r $(INSTALLDIR) || true
-	cp -R $(SRCDIR) $(INSTALLDIR)
+.PHONY: $(INSTALLTMPDIR)
+$(INSTALLTMPDIR):
+	[ -d $(INSTALLTMPDIR) ] && rm -r $(INSTALLTMPDIR) || true
+	cp -R $(SRCDIR) $(INSTALLTMPDIR)
 
-.PHONY: $(INSTALLDIR)/index.html
-$(INSTALLDIR)/index.html: $(INSTALLDIR)
+.PHONY: $(INSTALLTMPDIR)/index.html
+$(INSTALLTMPDIR)/index.html: $(INSTALLTMPDIR)
 	[ -f $@ ] && rm $@ || true
 	mv $(IBUILTINDEX) $@
+
+.PHONY: $(INSTALLDIR)
+$(INSTALLDIR):
+	[ -d $(INSTALLOLDDIR) ] && rm -r $(INSTALLOLDDIR) || true
+	[ -d $(INSTALLDIR) ] && mv $(INSTALLDIR) $(INSTALLOLDDIR) || true
+	mv $(INSTALLTMPDIR) $(INSTALLDIR)
+	rm -r $(INSTALLOLDDIR)
