@@ -30,7 +30,7 @@ ALLCSS := $(shell find $(SRCDIR) -name *.css)
 ALLJS := $(shell find $(SRCDIR) -name *.js)
 
 all: $(BUILTINDEX) $(BUILTJS) $(BUILTCSS)
-install: $(INSTALLTMPDIR) $(INSTALLTMPDIR)/index.html $(INSTALLDIR)
+install: all $(INSTALLTMPDIR) $(INSTALLTMPDIR)/index.html $(INSTALLDIR)
 
 include Depends.mk
 
