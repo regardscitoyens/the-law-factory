@@ -233,7 +233,8 @@ body {
   height: 62px;
   overflow: hidden;
 }
-#view {
+#view,
+noscript {
   position: absolute;
   top: 62px;
   left: 0;
@@ -280,6 +281,16 @@ body {
 #error > p a:active {
   opacity: 1;
   text-decoration: underline;
+}
+noscript {
+  text-align: center;
+}
+noscript h2 {
+  font-size: 3em;
+  color: #700;
+}
+noscript span {
+  font-size: 1.4em;
 }
 /***************************** Header and footer *****************************/
 #header-nav {
