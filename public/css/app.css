@@ -977,6 +977,9 @@ noscript span {
   margin-left: 4px;
   opacity: 0.6;
 }
+#stepsbar .stb-curr-st .stb-live {
+  cursor: pointer;
+}
 #stepsbar .stb-live:before {
   content: '\e031';
 }

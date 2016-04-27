@@ -98,6 +98,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
             }
 
             // Lit les données depuis l'API et déclenche le redessin
+            var updatePromise = null;
             function update(isInitialLoad) {
                 if ($scope.etape != null) {
                     // Anime l'icône "live"
@@ -117,7 +118,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
                             var step = steps.filter(function(s) { return s.directory === $scope.etape; })[0];
 
                             if (step && step.enddate === "") {
-                                $timeout(update, refreshInterval);
+                                updatePromise = $timeout(update, refreshInterval);
                             }
                         });
 
@@ -129,11 +130,19 @@ function ($rootScope, $timeout, $sce, $location, api) {
                         if (isInitialLoad) {
                             $scope.display_error("impossible de trouver les amendements pour ce texte à cette étape");
                         } else {
-                            $timeout(update, refreshInterval);
+                            updatePromise = $timeout(update, refreshInterval);
                         }
                     });
                 }
             }
+
+            $scope.updateAmdts = function() {
+                if (updatePromise) {
+                    $timeout.cancel(updatePromise);
+                }
+
+                update();
+            };
 
             // Affichage du contenu d'un amendement
             $scope.selectAmdt = function(amdt) {
