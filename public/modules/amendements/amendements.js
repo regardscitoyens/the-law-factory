@@ -98,7 +98,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
             }
 
             // Lit les données depuis l'API et déclenche le redessin
-            function update() {
+            function update(isInitialLoad) {
                 if ($scope.etape != null) {
                     // Anime l'icône "live"
                     var started = Date.now();
@@ -126,7 +126,11 @@ function ($rootScope, $timeout, $sce, $location, api) {
                             $rootScope.reloading = false;
                         }, Math.max(0, 1000 - (Date.now() - started)));
                     }, function () {
-                        $scope.display_error("impossible de trouver les amendements pour ce texte à cette étape");
+                        if (isInitialLoad) {
+                            $scope.display_error("impossible de trouver les amendements pour ce texte à cette étape");
+                        } else {
+                            $timeout(update, refreshInterval);
+                        }
                     });
                 }
             }
@@ -362,7 +366,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 initFinished();
 
                 // Déclenchement de la mise à jour des données
-                update();
+                update(true);
 
                 // Recalcul des dimensions
                 resize();
