@@ -1,0 +1,46 @@
+[
+    {
+        "titre": "Les derniers textes débattus",
+        "lien": "Explorer les textes récents",
+        "url": "lois.html",
+        "textes": [
+            {
+                "titre": "République numérique",
+                "status": "En cours",
+                "loi": "pjl15-republique_numerique"
+            },
+            {
+                "titre": "Réutilisation des données publiques",
+                "status": "118 amendements",
+                "loi": "pjl15-034"
+            },
+            {
+                "titre": "Renseignement",
+                "status": "1198 amendements",
+                "loi": "pjl14-424"
+            }
+        ]
+    },
+    {
+        "titre": "Les derniers les plus amendés",
+        "lien": "Explorer les textes les plus amendés",
+        "url": "lois.html?action=quanti",
+        "textes": [
+            {
+                "titre": "Mariage pour couples de personnes du même sexe",
+                "status": "9201 amendements",
+                "loi": "pjl12-349"
+            },
+            {
+                "titre": "Collectivités territoriales",
+                "status": "2122 amendements",
+                "loi": "pjl09-060"
+            },
+            {
+                "titre": "Élection et modification du calendrier électoral",
+                "status": "2043 amendements",
+                "loi": "pjl12-166"
+            }
+        ]
+    }
+]

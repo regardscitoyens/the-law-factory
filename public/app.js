@@ -17,7 +17,7 @@ angular.module('theLawFactory', [
     $stateProvider
         .state('home', {
             url: '/',
-            templateUrl: 'modules/home/home.html',
+            template: '<div home id="home"></div>',
             controller: 'mainCtrl'
         })
         .state('about', {
