@@ -20,8 +20,7 @@ function ($timeout, $rootScope, api) {
                 $(".title").html(
                     '<h4 class="law-title"' + leg + '>' + tit + '</h4>' +
                     '<span class="links darkonintrojs">' +
-                    (data.url_dossier_senat ? '<a href="'+data.url_dossier_senat+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a>' : '') +
-                    (data.url_dossier_senat && data.url_dossier_assemblee ? '<br/>' : '') +
+                    (data.url_dossier_senat ? '<a href="'+data.url_dossier_senat+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a><br/>' : '&nbsp;<br/>') +
                     (data.url_dossier_assemblee ? '<a href="' + data.url_dossier_assemblee + '" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Assemblée</a>' : '') +
                     '</span><span class="links darkonintrojs">' +
                     (data.url_jo ? '<a href="' + data.url_jo + '" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Loi sur Légifrance</a><br/>' : '&nbsp;<br/>') +
