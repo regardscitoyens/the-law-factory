@@ -90,7 +90,7 @@
         ng-repeat="(key, groupe) in data.legende.groupes" ng-click="focusAmendements($event, key)">
         <div class="leg-value" style="background-color: {{ ::groupe.cssColor }};"></div>
         <div class="leg-key">{{ ::key }}</div>
-        <div class="leg-tooltip">{{ ::groupe.nom }}</div>
+        <div class="leg-tooltip">{{ ::groupe.nom }} ({{ groupe.total }})</div>
       </div>
     </div>
     <div class="others">
@@ -99,6 +99,7 @@
         ng-click="focusAmendements($event, 'Gouvernement')">
         <div class="leg-value" style="background-color: {{ ::data.groupes.Gouvernement.cssColor }};"></div>
         <div class="leg-key">Gouvernement</div>
+        <div class="leg-tooltip">Gouvernement ({{ data.total_gouv }})</div>
       </div>
       <div class="leg-item leg-empty" ng-if="data.groupes.Gouvernement">
         <div class="leg-value"></div>
@@ -108,6 +109,7 @@
         ng-repeat="(sortid, sort) in data.legende.sorts" ng-click="focusAmendements($event, null, sortid)">
         <div class="leg-value leg-sort" style="background-image: url({{ ::sort.img }});"></div>
         <div class="leg-key">{{ ::sort.name }}</div>
+        <div class="leg-tooltip">{{ ::sort.name }} ({{ sort.total || 0 }})</div>
       </div>
     </div>
   </div>

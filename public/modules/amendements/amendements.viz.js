@@ -234,6 +234,8 @@
             var tri_amdts = tri[scope.sortOrder] || compare_amdts_numero;
             var en_attente = false;
             var data;
+            var groupe_totaux = {};
+            var sort_totaux = {};
 
             if (!onlyReallocate) {
                 groupes = apiData.groupes;
@@ -270,6 +272,18 @@
                         amdt.color = cssColor(groupes[amdt.groupe].color);
                         amdt.nom_groupe = groupes[amdt.groupe].nom;
 
+                        if (amdt.sort in sort_totaux) {
+                            sort_totaux[amdt.sort] += 1;
+                        } else {
+                            sort_totaux[amdt.sort] = 1;
+                        }
+
+                        if (amdt.groupe in groupe_totaux) {
+                            groupe_totaux[amdt.groupe] += 1;
+                        } else {
+                            groupe_totaux[amdt.groupe] = 1;
+                        }
+
                         if (amdt.sort === 'en attente') {
                             en_attente = true;
                         }
@@ -301,9 +315,12 @@
                 // Build legend contents
                 Object.keys(groupes).sort(compare_groupes).forEach(function(key) {
                     groupes[key].cssColor = cssColor(groupes[key].color);
+                    groupes[key].total = groupe_totaux[key];
 
                     if (key !== 'Gouvernement') {
                         data.legende.groupes[key] = groupes[key];
+                    } else {
+                        data.total_gouv = groupe_totaux[key];
                     }
                 });
 
@@ -311,7 +328,8 @@
                     if (en_attente || sort !== 'en attente') {
                         data.legende.sorts[sort] = {
                             name: sort_name[sort],
-                            img: sort_image[sort]
+                            img: sort_image[sort],
+                            total: sort_totaux[sort]
                         };
                     }
                 });
