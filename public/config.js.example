@@ -2,6 +2,8 @@ angular.module('theLawFactory.config', [])
     .constant('API_ROOT_URL', 'https://www.lafabriquedelaloi.fr/api/')
     .constant('GOOGLE_ANALYTICS_ID','')
     .constant('HOST_FOR_GOOGLE', 'lafabriquedelaloi.fr')
+    .constant('PIWIK_HOST','stats.regardscitoyens.org')
+    .constant('PIWIK_SITE_ID', 1)
     .config(function($logProvider){
         $logProvider.debugEnabled(false);
     });
