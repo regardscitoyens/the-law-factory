@@ -19,17 +19,16 @@ function ($timeout, $rootScope, api) {
                 }
                 $(".title").html(
                     '<h4 class="law-title"' + leg + '>' + tit + '</h4>' +
-                    '<div class="allinks darkonintrojs"><span class="links">' +
-                    (data.url_jo ? '<a href="' + data.url_jo + '" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Loi sur Légifrance</a><br/>' : '') +
-                    '<a href="' + scope.APIRootUrl + scope.loi + '/" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Open Data</a>' +
-                    (data.url_jo ? '&nbsp; /<a href="http://git.lafabriquedelaloi.fr/parlement/' + scope.loi+'/" target="_blank" class="darkonintrojs">Git</a>' : '') +
-                    '</span><span class="links">' +
-                    (data.url_dossier_senat ? '<a href="'+data.url_dossier_senat+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a>' : '') +
-                    (data.url_dossier_senat && data.url_dossier_assemblee ? '<br/>' : '') +
+                    '<span class="links darkonintrojs">' +
+                    (data.url_dossier_senat ? '<a href="'+data.url_dossier_senat+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a><br/>' : '&nbsp;<br/>') +
                     (data.url_dossier_assemblee ? '<a href="' + data.url_dossier_assemblee + '" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Assemblée</a>' : '') +
-                    '</span></div>'
+                    '</span><span class="links darkonintrojs">' +
+                    (data.url_jo ? '<a href="' + data.url_jo + '" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Loi sur Légifrance</a><br/>' : '&nbsp;<br/>') +
+                    '<a href="' + scope.APIRootUrl + scope.loi + '/" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Open Data</a>' +
+                    (data.url_jo ? '&nbsp; /<a href="http://git.lafabriquedelaloi.fr/parlement/' + scope.loi+'/" target="_blank" class="darkonintrojs">Git</a>' : '&nbsp;') +
+                    '</span>'
                 );
-                if (leg) $(".law-title").tooltip();
+                if (leg) $(".law-title").tooltip({ container: 'body' });
 
                 scope.stages = [];
                 scope.steps = [];
@@ -84,10 +83,10 @@ function ($timeout, $rootScope, api) {
                 scope.stages.push(addStageInst(currStage));
                 scope.inst.push(addStageInst(currInst));
                 $timeout(function () {
-                    $(".stb-step span").tooltip({html: true});
-                    $(".stb-step a").tooltip({html: true});
-                    $(".stb-inst span").tooltip();
-                    $(".stb-stage span").tooltip({html: true});
+                    $(".stb-step span").tooltip({html: true, container:'body'});
+                    $(".stb-step a").tooltip({html: true, container:'body'});
+                    $(".stb-inst span").tooltip({container:'body'});
+                    $(".stb-stage span").tooltip({html: true, container:'body'});
                 }, 0);
 
             }, function () {

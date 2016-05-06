@@ -46,8 +46,7 @@ reset_filters();
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
-    var setNavettesSize = thelawfactory.utils.setModSize(".main-sc", 0),
-        goodRound = function (n) {
+    var goodRound = function (n) {
             if (n && Math.abs(n) < 1)
                 return parseFloat(n).toFixed(2).replace('.', ',');
             return parseInt(n);
@@ -58,8 +57,8 @@ reset_filters();
         function vis(data, APIRootUrl, vizTitle, helpText) {
             navettesScope = $('.navettes').scope();
             var drawing = false,
-                legendcontainer = d3.select("#legend").append("svg"),
-                ganttcontainer = d3.select("#gantt").append("svg").attr("id", "modOsvg"),
+                legendcontainer = d3.select("#timeline").append("svg"),
+                ganttcontainer = d3.select("#viz").append("svg").attr("id", "modOsvg"),
                 lawscont, grid,
                 currFile,
                 steps, laws,
@@ -125,19 +124,20 @@ reset_filters();
                             div.append("p").html("Pro" + (d.auteur_depot == "Gouvernement" ? "jet" : "position") + " de loi");
                         }
                     }
-                    div.append("p").html('<span class="glyphicon glyphicon-calendar"></span><span> ' + french_date(d.date) + (d.enddate && d.enddate != d.date ? " →  " + french_date(d.enddate) : '') + '</span>');
+                    div.append("p").html('<span class="glyphicon glyphicon-calendar"></span><span>&nbsp;' + french_date(d.date) + (d.enddate && d.enddate != d.date ? "&nbsp;→&nbsp;" + french_date(d.enddate) : '') + '</span>');
                     if (d.echec || d.decision) {
                         div.append("p").html((d.echec ? d.echec : d.decision).toUpperCase());
                     }
                     if ((d.institution == "assemblee" || d.institution == "senat") && d.nb_amendements) {
                         div.append("p").style("vertical-align", "middle").html(d.nb_amendements + " amendement" + (d.nb_amendements > 1 ? 's' : ''));
                     }
+
                     return {
                         title: title,
                         content: div,
                         placement: "mouse",
                         gravity: "bottom",
-                        displacement: [-105, 8],
+                        displacement: [-115, 8],
                         mousemove: true
                     };
                 };
@@ -155,8 +155,8 @@ reset_filters();
             }
 
             thelawfactory.navettes.zooming = function (lvl) {
-                var perc = ($("#gantt").scrollLeft() + $("#gantt").width() / 2) / (width * z);
-                if ($("#gantt").scrollLeft() == 0 && $("#gantt").scrollTop() == 0) {
+                var perc = ($("#viz").scrollLeft() + $("#viz").width() / 2) / (width * z);
+                if ($("#viz").scrollLeft() == 0 && $("#viz").scrollTop() == 0) {
                     if (layout == 't') {
                         perc = 1;
                     } else if (layout == 'a') {
@@ -207,39 +207,42 @@ reset_filters();
                         return (i % Math.round(tickpresence(rat)(z)) == 0 && tscale(d) + 60 / z < width ? 1 : 0);
                     });
                 }
-                if (z > 1) $(".navettes #gantt").css('cursor', 'move');
-                else $(".navettes #gantt").css('cursor', 'default');
+                if (z > 1) $(".navettes #viz").css('cursor', 'move');
+                else $(".navettes #viz").css('cursor', 'default');
 
                 legendcontainer.attr("width", width * z);
                 ganttcontainer.attr("width", width * z);
 
-                $("#gantt").scrollLeft(perc * width * z - $("#gantt").width() / 2);
+                $("#viz").scrollLeft(perc * width * z - $("#viz").width() / 2);
             };
 
 
             drawGantt = function (action) {
-                setNavettesSize();
-                thelawfactory.utils.setTextContainerHeight();
-                width = parseInt(d3.select("#gantt").style("width")) - 30;
-                minheight = $("#gantt").height() - 50;
+                width = parseInt(d3.select("#viz").style("width")) - 30;
+                minheight = $("#viz").height() - 50;
                 setTimeout(computeFilters, 50);
+                if (action == 'quanti') {
+                    $("#viz").removeClass('has-timeline');
+                } else {
+                    $("#viz").addClass('has-timeline');
+                }
                 if (action == 'reset') {
                     navettesScope.loi = null;
                     reset_filters();
                     action = 'filter';
                 }
                 thelawfactory.utils.spinner.start();
-                $("#gantt svg").animate({opacity: 0}, 50, function () {
+                $("#viz svg").animate({opacity: 0}, 50, function () {
                     updateGantt(action);
                     thelawfactory.utils.spinner.stop(function () {
-                        $("#gantt svg").animate({opacity: 1}, 50);
+                        $("#viz svg").animate({opacity: 1}, 50);
                     });
                 });
             };
 
             var updateGantt = function (action) {
-                $("#gantt svg").empty();
-                $("#legend svg").empty();
+                $("#viz svg").empty();
+                $("#timeline svg").empty();
                 $("#bars").empty();
                 var resize = (action == "resize");
                 if (resize) action = "";
@@ -250,8 +253,7 @@ reset_filters();
                     scroll = {scrollTop: "0px", scrollLeft: "0px"};
                 lawscont = ganttcontainer.append("g").attr("class", "laws");
                 grid = ganttcontainer.insert('g', ':first-child').attr("class", "grid");
-                $("#legend").height(35);
-                setNavettesSize();
+                $("#timeline").height(35);
                 if (!action) action = navettesScope.action;
                 if (!action) action = 'time';
                 if (action == 'time') {
@@ -323,17 +325,16 @@ reset_filters();
                     absolutePosition();
                 }
                 if (layout == "q") {
-                    $("#legend").height(0);
-                    setNavettesSize();
+                    $("#timeline").height(0);
                     $("#menu-display .selectedchoice").text('quantitative');
                     quantiPosition();
                     drawLabels();
-                } else d3.select("#gantt").on("scroll", function () {
+                } else d3.select("#viz").on("scroll", function () {
                     d3.select(".timeline").attr("transform", "translate(-" + $(this).scrollLeft() + ", 0)");
                     d3.selectAll(".law-name").attr("transform", "translate(" + $(this).scrollLeft() + ", 0)");
                 });
                 thelawfactory.navettes.zooming(zoo);
-                if (scroll && !resize) $("#gantt").animate(scroll);
+                if (scroll && !resize) $("#viz").animate(scroll);
             };
 
             function prepareSteps(steps, id) {
@@ -475,7 +476,7 @@ reset_filters();
 
                 if (!smallset.length) return ganttcontainer.append("g")
                     .append("text")
-                    .attr("x", parseInt(d3.select("#gantt").style("width")) * 0.5)
+                    .attr("x", parseInt(d3.select("#viz").style("width")) * 0.5)
                     .attr("y", 120)
                     .style("fill", "#716259")
                     .attr("font-size", "1.5em")
@@ -664,7 +665,7 @@ reset_filters();
                         };
                     });
                 $(".law-bg").hover(function () {
-                    $('.popover').addClass("IP")
+                    $('.popover').addClass("IP navettes-popover")
                 });
 
                 //addsingle law steps
@@ -689,14 +690,14 @@ reset_filters();
                     .attr("height", steph)
                     .popover(popover);
                 $(".step").hover(function (d) {
-                    $('.popover').addClass(color_step(d.target.__data__))
+                    $('.popover').addClass(color_step(d.target.__data__) + " navettes-popover")
                 });
 
                 //add labels
                 ganttcontainer.selectAll(".law-name")
                     .data(smallset).enter()
                     .append("text")
-                    .attr("x", parseInt(d3.select("#gantt").style("width")) * 0.5)
+                    .attr("x", parseInt(d3.select("#viz").style("width")) * 0.5)
                     .attr("y", function (d, i) {
                         return i * (20 + lawh) + 17;
                     })
@@ -709,9 +710,9 @@ reset_filters();
                     .on("click", function (d) {
                         if (layout === "t") {
                             var posx = tscale(format.parse(d.beginning)) * z - 15;
-                            $("#gantt").animate({scrollLeft: posx + "px"});
+                            $("#viz").animate({scrollLeft: posx + "px"});
                         }
-                        else $("#gantt").animate({scrollLeft: 0 + "px"});
+                        else $("#viz").animate({scrollLeft: 0 + "px"});
                         onclick(d);
                     });
 
@@ -768,7 +769,7 @@ reset_filters();
                             .popover(popover);
                     });
                 $(".step-lbl-r").hover(function (d) {
-                    $('.popover').addClass(color_step(d.target.__data__))
+                    $('.popover').addClass(color_step(d.target.__data__) + " navettes-popover")
                 });
             }
 
@@ -850,11 +851,10 @@ reset_filters();
 
                 $("#text-title").text(d.short_title);
                 $("#text-title").attr('data-original-title', d.long_title).tooltip('fixTitle');
-                thelawfactory.utils.setTextContainerHeight();
 
                 var textContent = '';
                 textContent += '<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + '</p>';
-                textContent += '<div class="gotomod"><a id="explore" class="btn btn-info" href="articles.html?loi=' + d.id + '">Explorer les articles</a></div>';
+                textContent += '<div class="gotomod"><a id="explore" class="button" href="articles.html?loi=' + d.id + '">Explorer les articles</a></div>';
                 if (d.procedure != "Normale") textContent += '<p>(procédure accélérée)</p>';
                 d.steps.forEach(function (e) {
                     if (e.decision === "partiellement conforme") textContent += '<p>(censure partielle par le Conseil Constitutionnel)</p>';
@@ -980,42 +980,40 @@ reset_filters();
                 textContent += extrainfo;
 
                 $(".text-container").empty().html(textContent);
-                $('.badges-list li').tooltip();
-                $("a.badge").tooltip();
+                $('.badges-list li').tooltip({container:'body'});
+                $("a.badge").tooltip({container:'body'});
+                $("a.badge").click(function() { $(this).tooltip('hide'); });
             }
 
             function drawStats() {
 
-                $(".labels-sc h5").html(
+                $("#legend h5").html(
                     active_filters['length'] ?
                     "Supprimer le filtre sur les textes de " + (active_filters['length'] / 30 + " mois").replace("24 mois", "2 ans et +") :
                         "Filtrer par durée d'adoption des textes"
                 );
 
-                var margin_top = 10,
-                    text_height = 35,
-                    height = $(".labels-sc").height() - parseInt($(".labels-sc h5").css("height")) - margin_top,
+                var margin = 30,
+                    height = $("#legend").height() - margin,
                     barcontainer = d3.select("#bars"),
                     m = d3.max(d3.values(stats)),
-                    bscale = d3.scale.linear().range([0, height - text_height]);
+                    bscale = d3.scale.linear().range([0, height]);
                 bscale.domain([0, m]);
 
                 d3.entries(stats).forEach(function (e) {
                     var label = (e.key == maxstat * binstat ? '2&nbsp;ans et&nbsp;+' : e.key / binstat + " mois"),
                         step = barcontainer
                             .append("div")
-                            .attr("class", "bar-step")
-                            .attr("style", "width: " + 95 / (maxstat + 1) + "%; margin-right: " + 5 / (maxstat + 1) + "%; margin-top:" + margin_top + "px;");
+                            .attr("class", "bar-step");
                     if (active_filters['length'] && active_filters['length'] != e.key)
-                        step.style("height", (height - text_height) + "px")
-                            .on('click', function () {
+                        step.on('click', function () {
                                 rmBillsFilter('length');
                             });
 
                     step.append("div")
                         .attr("id", "mois_" + e.key)
                         .attr("class", (active_filters['length'] == e.key ? "filtered_month " : "") + "bar-value")
-                        .attr("style", "height:" + bscale(e.value) + "px; width:100%; top:" + bscale(m - e.value) + "px")
+                        .attr("style", "height:" + bscale(e.value) + "px;")
                         .on('click', function () {
                             if (active_filters['length'] == e.key) rmBillsFilter('length');
                             else addBillsFilter('length', e.key);
@@ -1040,7 +1038,6 @@ reset_filters();
 
                     step.append("div")
                         .attr("class", "bar-key")
-                        .attr("style", "top:" + (bscale(m - e.value) + 5) + "px; font-size:" + d3.min([(parseInt(barcontainer.style("width")) / maxstat), 8]) + "px; height:" + text_height + "px;")
                         .html(label);
                 });
             }
@@ -1049,11 +1046,11 @@ reset_filters();
             $(document).ready(function () {
                 prepareData();
                 currFile = data.next_page;
-                $("a.badge").tooltip();
+                $("a.badge").tooltip({container:'body'});
                 setTimeout((currFile ? dynamicLoad : drawGantt), 0);
-                $("#text-title").tooltip();
+                $("#text-title").tooltip({container:'body'});
                 $(window).resize(function () {
-                    if (drawing || $(".view").scope().mod != "navettes") return;
+                    if (drawing || $("#view").scope().mod != "navettes") return;
                     drawing = true;
                     setTimeout(function () {
                         drawGantt("resize");

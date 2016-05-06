@@ -1,21 +1,21 @@
-<div id="stepsbar">
+<div>
 
   <div class="stb-stages">
-    <div class="stb-stage" id="stage_{{$index}}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in stages">
+    <div ng-cloak class="stb-stage" id="stage_{{$index}}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in stages">
       <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}" ng-bind-html="i.short_name"></span>
       <span ng-hide="i.display_short" ng-bind-html="i.long_name"></span>
     </div>
   </div>
 
   <div class="stb-insts">
-    <div class="stb-inst {{ i.name | slug }}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in inst">
+    <div ng-cloak class="stb-inst {{ i.name | slug }}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in inst">
       <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}">{{i.short_name}}</span>
       <span ng-hide="i.display_short">{{i.long_name}}</span>
     </div>
   </div>
 
   <div class="stb-steps">
-    <div class="stb-step stb-{{i.directory.substr(0, i.directory.search('_'))}}" ng-class="{'current': etape === i.directory}" style="width:{{(1/total)*100}}%" ng-repeat="i in steps">
+    <div ng-cloak class="stb-step stb-{{i.directory.substr(0, i.directory.search('_'))}}" ng-class="{'current': etape === i.directory}" style="width:{{(1/total)*100}}%" ng-repeat="i in steps">
 
       <div>
         <span>
@@ -39,7 +39,7 @@
         </a>
         <span ng-hide="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='debats'))" class="stb-link low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='amendements'}">
           <span class="glyphicon glyphicon-folder-open"></span>
-          <span ng-hide="i.enddate || !i.nb_amendements" class="glyphicon stb-live {{ reloading ? 'reloading' : '' }}" data-toggle="tooltip" data-placement="bottom" title="Mise à jour en temps réel"></span>
+          <span ng-hide="i.enddate || !i.nb_amendements" class="glyphicon stb-live {{ reloading ? 'reloading' : '' }}" data-toggle="tooltip" data-placement="bottom" title="Mise à jour en temps réel &ndash; cliquer pour forcer la mise à jour" ng-click="updateAmdts()"></span>
         </span>
 
         <a
@@ -51,7 +51,9 @@
           href="debats.html?loi={{loi}}&etape={{i.directory}}">
           <span class="glyphicon glyphicon-comment"></span>
         </a>
-        <span ng-hide="i.has_interventions && (etape!=i.directory ||(etape==i.directory && mod=='amendements'))" class="stb-link glyphicon glyphicon-comment low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='debats'}"></span>
+        <span ng-hide="i.has_interventions && (etape!=i.directory ||(etape==i.directory && mod=='amendements'))" class="stb-link low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='debats'}">
+          <span class="glyphicon glyphicon-comment"></span>
+        </span>
       </div>
 
     </div>

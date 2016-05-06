@@ -18,9 +18,11 @@ function ($rootScope, $timeout, $sce, $location, api) {
             $scope.focusGroupe = null;
             $scope.focusSort = null;
 
-            // Définit le regroupement et le tri des amendements
+            // Définit le regroupement, le tri des amendements et l'affichage des motifs
             $scope.groupAll = $location.search()['group'] === '1'
             $scope.sortOrder = $location.search()['sort'] || 'sort';
+
+            $scope.amdtExpanded = 'none';
 
             // Mode 2 colonnes
             $scope.twoColumnMode = false;
@@ -63,6 +65,17 @@ function ($rootScope, $timeout, $sce, $location, api) {
                             });
                         }
 
+                        var article = $location.search()['article'];
+                        if (article) {
+                            var $article = $('.sujet[data-article="' + article + '"]');
+                            var $alink = $article.find('.titre-link');
+
+                            $alink.click();
+                            $viz.animate({
+                                scrollTop: $article.offset().top - $viz.offset().top
+                            });
+                        }
+
                         var amdtNum = $location.search()['amdt'];
                         if (amdtNum) {
                             var $amdt = $('.amendement-num-' + amdtNum);
@@ -81,13 +94,12 @@ function ($rootScope, $timeout, $sce, $location, api) {
 
             // Redimensionne les conteneurs
             function resize() {
-                thelawfactory.utils.setModSize("#viz", 1)();
-                thelawfactory.utils.setTextContainerHeight();
                 viz.measureViewportSize();
             }
 
             // Lit les données depuis l'API et déclenche le redessin
-            function update() {
+            var updatePromise = null;
+            function update(isInitialLoad) {
                 if ($scope.etape != null) {
                     // Anime l'icône "live"
                     var started = Date.now();
@@ -106,7 +118,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
                             var step = steps.filter(function(s) { return s.directory === $scope.etape; })[0];
 
                             if (step && step.enddate === "") {
-                                $timeout(update, refreshInterval);
+                                updatePromise = $timeout(update, refreshInterval);
                             }
                         });
 
@@ -115,10 +127,22 @@ function ($rootScope, $timeout, $sce, $location, api) {
                             $rootScope.reloading = false;
                         }, Math.max(0, 1000 - (Date.now() - started)));
                     }, function () {
-                        $scope.display_error("impossible de trouver les amendements pour ce texte à cette étape");
+                        if (isInitialLoad) {
+                            $scope.display_error("impossible de trouver les amendements pour ce texte à cette étape");
+                        } else {
+                            updatePromise = $timeout(update, refreshInterval);
+                        }
                     });
                 }
             }
+
+            $scope.updateAmdts = function() {
+                if (updatePromise) {
+                    $timeout.cancel(updatePromise);
+                }
+
+                update();
+            };
 
             // Affichage du contenu d'un amendement
             $scope.selectAmdt = function(amdt) {
@@ -127,7 +151,6 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 if (amdt) {
                     $('.amendement-' + amdt.id_api).addClass('selected');
 
-                    thelawfactory.utils.setTextContainerHeight();
                     thelawfactory.utils.spinner.start('load_amd');
 
                     $scope.loadingAmdt = true;
@@ -150,6 +173,8 @@ function ($rootScope, $timeout, $sce, $location, api) {
                         $scope.selectedAmdt = amdt;
                         $scope.selectedAmdtData = amdtContenu;
                         $scope.selectedAmdtError = null;
+
+                        $scope.setExpanded(localStorage.getItem('amendements-expanded') || 'motifs');
 
                         thelawfactory.utils.spinner.stop(function () {
                             $('.text-container').scrollTop(0);
@@ -185,6 +210,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
                     $scope.article = article;
                 }
 
+                $location.replace();
                 $location.search('article', article);
             };
 
@@ -223,10 +249,11 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 var amdt = $scope.data.sujets[idxSujet].amendements_snake[idxAmdt];
 
                 var $amdt = $('.amendement-' + amdt.id_api);
-                var offset = $amdt.position();
+                var offset = $amdt.offset();
+                var voffset = $('#display').offset();
 
                 var $tip = $('#amendement-tooltip');
-                $tip.css({ top: offset.top + 'px', left: offset.left + 'px', opacity: 1 });
+                $tip.css({ top: (offset.top - voffset.top) + 'px', left: (offset.left - voffset.left) + 'px', opacity: 1 });
 
                 $scope.hoverAmendement = amdt;
             };
@@ -244,18 +271,37 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 }, 50);
             };
 
+            $scope.setExpanded = function(what) {
+                localStorage.setItem('amendements-expanded', what);
+                $scope.amdtExpanded = what;
+            };
+
             // Déclencheurs de redessin
             $scope.$watchGroup(['apiData', 'groupAll', 'sortOrder'], redraw);
 
             // Déclencheurs de modification de l'URL
             $scope.$watch('sortOrder', function() {
                 var value = $scope.sortOrder;
+                $location.replace();
                 $location.search('sort', value === 'sort' ? null : value);
             });
 
             $scope.$watch('groupAll', function() {
                 var value = $scope.groupAll;
+                $location.replace();
                 $location.search('group', value ? '1' : null);
+            });
+
+            $scope.$watch('amdtExpanded', function() {
+                ['signataires', 'motifs', 'text'].forEach(function(item) {
+                    $('.amd-flex .amd-' + item).scrollTop(0);
+                });
+            });
+
+            $scope.$watch('selectedAmdtData', function() {
+                $timeout(function() {
+                    $('.amd-motifs-fade').tooltip({ container: 'body' });
+                }, 0);
             });
 
             // Redimensionnement automatique
@@ -271,6 +317,8 @@ function ($rootScope, $timeout, $sce, $location, api) {
 
             // Appuis claviers
             var directions = {
+                '33': 'prev',
+                '34': 'next',
                 '37': 'left',
                 '38': 'up',
                 '39': 'right',
@@ -287,10 +335,31 @@ function ($rootScope, $timeout, $sce, $location, api) {
 
                 var newid = viz.getOffsetAmendmentId($scope, amdt, sujet, directions[e.keyCode]);
                 if (newid) {
-                    $('.amendement-' + newid).click();
+                    var newamd = $('.amendement-' + newid);
+                    newamd.click();
                     e.preventDefault();
+
+                    // Visibilité de l'amendement sélectionné
+                    var $viz = $('#viz');
+                    var height = $viz.height();
+                    var scrollTop = $viz.scrollTop();
+                    var top = newamd.position().top;
+
+                    if (top < 0) {
+                        $viz.animate({ scrollTop: scrollTop + top - 20 });
+                    } else if (top + 20 > height) {
+                        $viz.animate({ scrollTop: scrollTop + (top + 20 - height) });
+                    }
                 }
             }
+
+            $scope.triggerKeyDown = function(key) {
+                // Appel via $timeout(..., false) pour exécution hors du cycle $digest
+                // (nécessaire car handleKeyDown appelle le ng-click de l'amendement sélectionné).
+                $timeout(function() {
+                    handleKeyDown({ keyCode: key, preventDefault: function() {}});
+                }, 0, false);
+            };
 
             $(window).on('keydown', handleKeyDown);
             $(window).on('resize', handleResize);
@@ -306,7 +375,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 initFinished();
 
                 // Déclenchement de la mise à jour des données
-                update();
+                update(true);
 
                 // Recalcul des dimensions
                 resize();

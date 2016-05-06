@@ -27,6 +27,58 @@ function (api, $rootScope) {
                     })
                 }
             }
+
+            var directions = {
+                '37': 'left',
+                '38': 'up',
+                '39': 'right',
+                '40': 'down'
+            };
+
+            function handleKeyDown(e) {
+                if (!(e.keyCode in directions)) return;
+
+                var newRect = getOffsetRect(directions[e.keyCode]);
+
+                if (newRect && newRect.length) {
+                    focusRect.call(newRect[0]);
+
+                    var $viz = $('#viz');
+                    var height = $viz.height();
+                    var scrollTop = $viz.scrollTop();
+                    var viztop = $viz.offset().top;
+                    var top = null;
+
+                    if (newRect.attr('x')) {
+                        // Visible rect
+                        top = newRect.position().top - viztop;
+                    } else {
+                        // Invisible rect => use filter-title
+                        var x = d3.select(newRect[0]).data()[0].x;
+                        var filter = $('text.filter-title').filter(function(index) {
+                            return $(this).find('tspan').text() === x;
+                        }).get(0);
+
+                        top = $(filter).position().top - viztop;
+                    }
+
+                    if (top != null) {
+                        if (top < 20) {
+                            $viz.animate({ scrollTop: scrollTop + top - 20 }, { queue: false, duration: 200 });
+                        } else if (top + 50 > height) {
+                            $viz.animate({ scrollTop: scrollTop + (top + 50 - height) }, { queue: false, duration: 200 });
+                        }
+                    }
+                }
+
+                e.preventDefault();
+            }
+
+            $(window).on('keypress', handleKeyDown);
+
+            $scope.$on('$destroy', function() {
+                $(window).off('keypress', handleKeyDown);
+            });
         }
     };
 }]);

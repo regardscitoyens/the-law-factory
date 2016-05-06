@@ -33,10 +33,10 @@ Data backend API code is available on repository https://github.com/RegardsCitoy
 
 A sample Apache configuration is given in the `conf` directory.
 
-To reduce browser request counts per page, you may build a production version that uses concatenated versions of scripts and stylesheets by running `make` from the repository root.
+To reduce browser request counts per page, you may build a production version that uses concatenated versions of scripts and stylesheets by running `make` and `make install` from the repository root.  In this case you will want to serve the `prod` directory instead.
 
-In this case:
+Notes:
 * if you haven't created `public/config.js` yet, it will be copied from `public/config.js.example`
-* you have to run `make` again if you make any changes to the `public/config.js` file
-* you may run `make clean` to return the tree to its original, fresh-from-git-repository state
+* you have to run `make` and `make install` again if you make any changes to the `public/config.js` file
+* you may run `make clean` to return the tree to its original, fresh-from-git-repository state, but leaves the `prod` directory.
 

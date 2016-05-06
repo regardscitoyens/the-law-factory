@@ -83,7 +83,7 @@
             // Single line or sort by number
             sujet.amendements_snake = sujet.amendements;
         } else {
-            // Multiline, allocate amendments in "snake" order (In columns, left to 
+            // Multiline, allocate amendments in "snake" order (In columns, left to
             // right, each column in the reverse order as the previous one)
             var ncolonnes = Math.ceil(nb / nlignes);
 
@@ -128,6 +128,41 @@
 
             var row, col;
             var index = sujet.amendements_snake.indexOf(amdt);
+
+            // Handle read mode: only prev/next are handled
+            if (scope.read || direction === 'prev' || direction === 'next') {
+                switch (direction) {
+                case 'up':
+                case 'left':
+                    direction = 'prev';
+                    break;
+                case 'down':
+                case 'right':
+                    direction = 'next';
+                    break;
+                }
+
+                index = sujet.amendements.indexOf(amdt);
+                if (direction === 'prev') {
+                    if (index === 0) {
+                        if (sindex === 0) return;
+                        sindex--;
+                        index = sujets[sindex].amendements.length - 1;
+                    } else {
+                        index--;
+                    }
+                } else {
+                    if (index === nb - 1) {
+                        if (sindex === sujets.length - 1) return;
+                        sindex++;
+                        index = 0;
+                    } else {
+                        index++;
+                    }
+                }
+
+                return sujets[sindex].amendements[index].id_api;
+            }
 
             // Compute row, col position of current amendment
             if (isSnake) {

@@ -2,72 +2,82 @@
 # Build script for the-law-factory
 #
 # "make" will create the following files:
-#   - public/prod/main.js - concatenated scripts
-#   - public/prod/main.css - concatenated stylesheets
-#   - public/index.prod.html - index that uses the above instead of linking to multiple files
+#   - public/built/main.js - concatenated scripts
+#   - public/built/main.css - concatenated stylesheets
+#   - public/index.built.html - index that uses the above instead of linking to multiple files
 #
-#   It will also make index.prod.html the "active" index by linking index.html to it.
 #   Also note that if no public/config.js file exists when calling "make", it will be copied
 #   from public/config.js.example.
 #
-# "make clean" will remove what "make" created and make public/index.dev.html active again.
+# "make clean" will remove what "make" created.
+#
+# "make install" will put everything needed in a "prod" directory alongside "public" and
+# replace the index inside by the built version.
 #
 
-DOCROOT := public
-BUILTDIR := prod
+SRCDIR := public
+BUILTDIR := $(SRCDIR)/built
+INSTALLDIR := prod
+INSTALLTMPDIR := prod.tmp
+INSTALLOLDDIR := prod.old
+SRCINDEX := $(SRCDIR)/index.html
+BUILTINDEX := $(SRCDIR)/index.built.html
+IBUILTINDEX := $(patsubst $(SRCDIR)/%,$(INSTALLTMPDIR)/%,$(BUILTINDEX))
+BUILTCSS := $(BUILTDIR)/main.css
+BUILTJS := $(BUILTDIR)/main.js
 
-DEVINDEX := $(DOCROOT)/index.dev.html
-ALLCSS := $(wildcard $(DOCROOT)/css/*.css) $(wildcard $(DOCROOT)/fonts/*.css)
-ALLJS := $(wildcard $(DOCROOT)/*.js) $(wildcard $(DOCROOT)/lib/*.js) $(wildcard $(DOCROOT)/modules/*/*.js)
+ALLCSS := $(shell find $(SRCDIR) -name *.css)
+ALLJS := $(shell find $(SRCDIR) -name *.js)
 
-PRODINDEX := $(DOCROOT)/index.prod.html
-PRODJS := $(DOCROOT)/$(BUILTDIR)/main.js
-PRODCSS := $(DOCROOT)/$(BUILTDIR)/main.css
-
-INDEXLINK := $(DOCROOT)/index.html
-
-all: $(PRODINDEX) $(PRODJS) $(PRODCSS) link-prod
+all: $(BUILTINDEX) $(BUILTJS) $(BUILTCSS)
+install: all $(INSTALLTMPDIR) $(INSTALLTMPDIR)/index.html $(INSTALLDIR)
 
 include Depends.mk
 
-Depends.mk: $(DEVINDEX) $(ALLCSS) $(ALLJS)
-	grep '<script type="text/javascript" src' $(DEVINDEX) | sed -r 's;.*src="([^"]+)".*;$(PRODINDEX): $(DOCROOT)/\1;' > Depends.mk
-	grep '<script type="text/javascript" src' $(DEVINDEX) | sed -r 's;.*src="([^"]+)".*;$(PRODJS): $(DOCROOT)/\1;' >> Depends.mk
-	grep '<link rel="stylesheet" href' $(DEVINDEX) | sed -r 's;.*href="([^"]+)".*;$(PRODINDEX): $(DOCROOT)/\1;' >> Depends.mk
-	grep '<link rel="stylesheet" href' $(DEVINDEX) | sed -r 's;.*href="([^"]+)".*;$(PRODCSS): $(DOCROOT)/\1;' >> Depends.mk
+# Create depends by extracting references to css/js files from index
+Depends.mk: $(SRCINDEX) $(ALLCSS) $(ALLJS)
+	grep '<script type="text/javascript" src' $(SRCINDEX) | sed -r 's;.*src="([^"]+)".*;$(BUILTJS): $(SRCDIR)/\1;' > Depends.mk
+	grep '<link rel="stylesheet" href' $(SRCINDEX) | sed -r 's;.*href="([^"]+)".*;$(BUILTCSS): $(SRCDIR)/\1;' >> Depends.mk
 
-$(PRODINDEX): $(DEVINDEX)
+$(BUILTINDEX): $(SRCINDEX)
 	cat $< \
-	| sed -r '0,/(<script type="text\/javascript" src[^>]+><\/script>)/s//<script src="$(BUILTDIR)\/main.js"><\/script>\n\1/' \
-	| sed -r '0,/(<link rel="stylesheet" href[^>]+>)/s//<link href="$(BUILTDIR)\/main.css" rel="stylesheet">\n\1/' \
+	| sed -r '0,/(<script type="text\/javascript" src[^>]+><\/script>)/s//<script src="$(subst /,\/,$(patsubst $(SRCDIR)/%,%,$(BUILTJS)))"><\/script>\n\1/' \
+	| sed -r '0,/(<link rel="stylesheet" href[^>]+>)/s//<link href="$(subst /,\/,$(patsubst $(SRCDIR)/%,%,$(BUILTCSS)))" rel="stylesheet">\n\1/' \
 	| sed -r 's/(<script type="text\/javascript" src[^>]+><\/script>)/<!-- \1 -->/' \
 	| sed -r 's/(<link rel="stylesheet" href[^>]+>)/<!-- \1 -->/' \
 	> $@
 
 # Copy config.js.example if config.js does net exist
-$(DOCROOT)/config.js: $(DOCROOT)/config.js.example
+$(SRCDIR)/config.js: $(SRCDIR)/config.js.example
 	[ ! -f $@ ] && cp $^ $@ || true
 	touch $@
 
-$(PRODJS):
+$(BUILTJS):
 	mkdir -p $$(dirname $@)
 	cat $^ | sed -r 's/# sourceMappingURL=[^ ]+\.map//g' > $@
 
-$(PRODCSS):
+$(BUILTCSS):
 	mkdir -p $$(dirname $@)
 	cat $^ > $@
 
-@PHONY: link-prod
-link-prod: $(PRODINDEX)
-	[ -L $(INDEXLINK) ] && rm $(INDEXLINK) || true
-	ln -s $$(basename $(PRODINDEX)) $(INDEXLINK)
+.PHONY: clean
+clean:
+	rm -f Depends.mk $(BUILTINDEX) $(BUILTJS) $(BUILTCSS)
+	[ -d $(BUILTDIR) ] && rmdir $(BUILTDIR) || true
 
-@PHONY: link-dev
-link-dev:
-	[ -L $(INDEXLINK) ] && rm $(INDEXLINK) || true
-	ln -s $$(basename $(DEVINDEX)) $(INDEXLINK)
+.PHONY: $(INSTALLTMPDIR)
+$(INSTALLTMPDIR):
+	[ -d $(INSTALLTMPDIR) ] && rm -r $(INSTALLTMPDIR) || true
+	cp -R $(SRCDIR) $(INSTALLTMPDIR)
 
-@PHONY: clean
-clean: link-dev
-	rm -f Depends.mk $(PRODINDEX) $(PRODJS) $(PRODCSS)
-	[ -d $(DOCROOT)/$(BUILTDIR) ] && rmdir $(DOCROOT)/$(BUILTDIR) || true
+.PHONY: $(INSTALLTMPDIR)/index.html
+$(INSTALLTMPDIR)/index.html: $(INSTALLTMPDIR)
+	[ -f $@ ] && rm $@ || true
+	mv $(IBUILTINDEX) $@
+
+.PHONY: $(INSTALLDIR)
+$(INSTALLDIR):
+	[ -d $(INSTALLOLDDIR) ] && rm -r $(INSTALLOLDDIR) || true
+	[ -d $(INSTALLDIR) ] && mv $(INSTALLDIR) $(INSTALLOLDDIR) || true
+	mv $(INSTALLTMPDIR) $(INSTALLDIR)
+	rm -r $(INSTALLOLDDIR)

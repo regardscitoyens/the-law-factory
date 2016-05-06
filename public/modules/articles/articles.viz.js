@@ -4,8 +4,6 @@ var valign, stacked, articlesScope, aligned = true;
 
     var thelawfactory = window.thelawfactory || (window.thelawfactory = {});
 
-    var setArticlesSize = thelawfactory.utils.setModSize("#viz", 0);
-
     thelawfactory.articles = function () {
 
         articlesScope = $(".articles").scope();
@@ -261,6 +259,7 @@ var valign, stacked, articlesScope, aligned = true;
                 else if (d.id_step.substr(-5) != "depot") div.append("p").html("Modifications : " + d3.round(d['n_diff'] * 100, 2) + "&nbsp;%");
                 div.append("p").html("<small>Longueur du texte : " + d['length'] + " caractères</small>");
                 return {
+                    css: "articles-popover",
                     title: clean_premier(titre_article(d, 2)),
                     content: div,
                     placement: "mouse",
@@ -292,6 +291,7 @@ var valign, stacked, articlesScope, aligned = true;
                 }
                 if (title_details) div.append("p").html("<small>" + title_details + "</small>");
                 return {
+                    css: "articles-popover",
                     title : clean_premier(title),
                     content : div,
                     placement : "mouse",
@@ -306,7 +306,6 @@ var valign, stacked, articlesScope, aligned = true;
                 var firstmade = false, firstamade = false; // to class the first article which has a rect (for tuto)
 
                 //init coordinates
-                setArticlesSize();
                 prepareSizes();
                 setCoordinates();
 
@@ -428,7 +427,8 @@ var valign, stacked, articlesScope, aligned = true;
                             })
                             .filter(function (d) {
                                 return d.section.lastIndexOf("A", 0) === 0
-                            }).on("click", onclick);
+                            })
+                            .on("click", onclick);
 
                         group.selectAll(".header")
                             .filter(function (d) {
@@ -780,13 +780,12 @@ var valign, stacked, articlesScope, aligned = true;
                         $(".art-meta").empty();
                         $(".art-txt").empty();
                         $("#text-title").html(titre_article(d, 2));
-                        thelawfactory.utils.setTextContainerHeight();
                         var descr = (d.section.lastIndexOf("A", 0) !== 0 ? "<p><b>" + (test_section_details(d.section, d.id_step, 'newnum') ? titre_section(get_section_details(d.section, d.id_step, 'newnum'), 2) + " (" + format_section(d, 1) + ')' : format_section(d, 2)) + "</b>" +
                             (test_section_details(d.section, d.id_step, 'title') ? " : " + get_section_details(d.section, d.id_step, 'title') : "")
                             + "</p>" : "") +
                             "<p><b>" + titre_etape(d) + "</b></p>" +
                             (d.n_diff > 0.05 && d.n_diff != 1 && $(".stb-" + d.directory.substr(0, d.directory.search('_'))).find("a.stb-amds:visible").length ?
-                            '<div class="gotomod' + (articlesScope.read ? ' readmode' : '') + '"><a class="btn btn-info" href="amendements.html?loi=' + loi + '&etape=' + d.directory + '&article=' + d.article + '">Explorer les amendements</a></div>' : '');
+                            '<div class="gotomod' + (articlesScope.read ? ' readmode' : '') + '"><a class="button" href="amendements.html?loi=' + loi + '&etape=' + d.directory + '&article=' + d.article + '">Explorer les amendements</a></div>' : '');
                         if (d.n_diff) {
                             if (d.id_step.substr(-5) == "depot")
                                 descr += '<p class="comment"><b>Article déposé à cette étape</b></p>';
@@ -836,9 +835,8 @@ var valign, stacked, articlesScope, aligned = true;
 
                 if (aligned) valign();
                 else stacked();
-                $('.readMode').tooltip({animated: 'fade', placement: 'bottom'});
-                $('.revsMode').tooltip({animated: 'fade', placement: 'bottom'});
-                setTimeout(thelawfactory.utils.setTextContainerHeight, 500);
+                $('.readMode').tooltip({animated: 'fade', placement: 'bottom', container: 'body'});
+                $('.revsMode').tooltip({animated: 'fade', placement: 'bottom', container: 'body'});
             };
 
             $(document).ready(function () {
@@ -846,7 +844,7 @@ var valign, stacked, articlesScope, aligned = true;
                 $(".art-txt").empty().html(helpText);
                 setTimeout(load_texte_articles, 50);
                 $(window).resize(function () {
-                    if (drawing || $(".view").scope().mod != "articles") return;
+                    if (drawing || $("#view").scope().mod != "articles") return;
                     var selected_art = d3.selectAll(".curr");
                     if (selected_art[0].length) selected_art = selected_art[0][0].id;
                     else selected_art = "";
