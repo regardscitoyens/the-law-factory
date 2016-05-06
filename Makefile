@@ -80,4 +80,4 @@ $(INSTALLDIR):
 	[ -d $(INSTALLOLDDIR) ] && rm -r $(INSTALLOLDDIR) || true
 	[ -d $(INSTALLDIR) ] && mv $(INSTALLDIR) $(INSTALLOLDDIR) || true
 	mv $(INSTALLTMPDIR) $(INSTALLDIR)
-	rm -r $(INSTALLOLDDIR)
+	[ -d $(INSTALLOLDDIR) ] && rm -r $(INSTALLOLDDIR) || true
