@@ -23,6 +23,7 @@ function group_color(group) {
     case "ECOLO": return "rgb(0,230,30)";
     case "RRDP": return "rgb(250,195,132)";
     case "UDI": return "rgb(30,180,255)";
+    case "LES-REP": return "rgb(30,30,200)";
     case "UMP": return "rgb(30,30,200)";
     case "NI": return "rgb(100,100,100)";
     default: return "#555555";
@@ -222,7 +223,7 @@ function init() {
       zoomMin: 0.01,
       zoomMax: 4,
       singleHover: true,
-    //  drawEdges: false,
+      drawEdges: false,
       defaultLabelColor: '#333'
     }
   });
@@ -237,21 +238,24 @@ function init() {
       $('#recenter').click();
       $('#layout').addClass('running');
       $('#menu').hide();
+      if ($('#layout').hasClass('hemicycle')) {
+        s.settings({drawEdges: true});
+      }
       var prefix = ($('#layout').hasClass('hemicycle') ? 'fa2' : 'hem');
       sigma.plugins.animate(s, {
         x: prefix + 'x',
         y: prefix + 'y'
       }, {
         duration: 1500,
+        easing: 'cubicInOut',
         onComplete: function(){
           if ($('#layout').hasClass('hemicycle')) {
-          //  s.settings({drawEdges: true}).refresh();
             $('#layout').removeClass('hemicycle');
             $('#layout').text('Hémicycle');
           } else {
             $('#layout').addClass('hemicycle');
             $('#layout').text('Cosignatures');
-          //  s.settings({drawEdges: false}).refresh();
+            s.settings({drawEdges: false}).refresh();
           }
           $('#layout').removeClass('running');
           $('#menu').show();
