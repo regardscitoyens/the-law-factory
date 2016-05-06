@@ -1,0 +1,59 @@
+<nav ng-cloak role="navigation">
+  <a id="backtoall" href="#" onclick="drawGantt('reset')" class="nav-item button active viewonelaw" style="display: none;">&lt; Tous les textes</a>
+  <span id="menu-display" class="nav-item dropdown">
+    <span id="display_value" class="dropdown-toggle" data-toggle="dropdown"><span id="display_content">Vue <span class="selectedchoice">chronologique</span><b class="caret"></b></span></span>
+    <ul class="dropdown-menu" id="display_menu">
+      <li><a id="dm-time" class="chosen" onclick="drawGantt('time')">chronologique</a></li>
+      <li><a id="dm-absolute" onclick="drawGantt('absolute')">comparative</a></li>
+      <li><a id="dm-quanti" onclick="drawGantt('quanti')">quantitative</a></li>
+    </ul>
+  </span>
+  <span class="nav-item dropdown noviewonelaw" id="menu-sort">
+    <span class="dropdown-toggle disabled" data-toggle="dropdown">Trié par <span class="selectedchoice">date</span><b class="caret"></b></span>
+    <ul class="dropdown-menu" role="menu" id="display_order">
+      <li><a id="do-length" class="chosen" onclick="drawGantt('sortl')">durée d'adoption</a></li>
+      <li><a id="do-date" onclick="drawGantt('sortd')">date de promulgation</a></li>
+      <li><a id="do-amds" onclick="drawGantt('sorta')">amendements déposés</a></li>
+    </ul>
+  </span>
+  <span class="nav-item dropdown noviewonelaw" id="menu-amendments">
+    <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Plus de 50 amendements</span><b class="caret"></b></span>
+    <ul class="dropdown-menu" id="amendments"></ul>
+  </span>
+  <span class="nav-item dropdown noviewonelaw" id="menu-years">
+    <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Étudié en 2013</span><b class="caret"></b></span>
+    <ul class="dropdown-menu" id="years"></ul>
+  </span>
+  <span class="nav-item dropdown noviewonelaw" id="menu-themes">
+    <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Tous les thèmes</span><b class="caret"></b></span>
+    <ul class="dropdown-menu" id="themes"></ul>
+  </span>
+
+  <span class="spacer"></span>
+
+  <span id="navettes-slider-label" class="nav-item">Zoom</span>
+  <span id="navettes-slider" class="nav-item"></span>
+
+  <tutorial mod="navettes"></tutorial>
+  </ul>
+</nav>
+
+<div id="display">
+  <div id="timeline"></div>
+
+  <div id="viz" class="has-legend has-timeline" movescroll>
+    <div id="preload"></div>
+  </div>
+
+  <div id="sidebar" class="text">
+    <h4 id="text-title" data-placement="top" data-toggle="tooltip">NAVETTES</h4>
+    <div class="text-container"></div>
+  </div>
+
+  <div id="legend">
+    <h5>Filtrer par durée d'adoption des textes</h5>
+    <div id="bars"></div>
+  </div>
+</div>
+
+<script type="text/javascript" src="modules/navettes/navettes.viz.js"></script>

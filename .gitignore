@@ -5,3 +5,7 @@
 .pydevproject
 .idea
 config.js
+Depends.mk
+public/built/*
+public/index.built.html
+prod/*

@@ -1,0 +1,45 @@
+<nav ng-cloak role="navigation">
+  <a class="nav-item button" ng-hide="chronomissing" ng-href="lois.html?loi={{loi}}">&lt; Voir la chronologie du texte</a>
+
+  <span class="nav-item dropdown">
+    <span id="menu-value" class="dropdown-toggle" data-toggle="dropdown">Vue <span class="selectedchoice">alignée</span> <b class="caret"></b></span>
+    <ul class="dropdown-menu" id="display_menu">
+      <li><a id="dm-aligned" class="chosen" onclick="valign()">alignée</a></li>
+      <li><a id="dm-stacked" onclick="stacked()">compacte</a></li>
+    </ul>
+  </span>
+
+  <span class="spacer"></span>
+
+  <tutorial mod="articles"></tutorial>
+</nav>
+
+<div id="display">
+  <div id="stepsbar" stepsbar></div>
+
+  <div id="viz">
+    <div id="preload"></div>
+  </div>
+
+  <div id="sidebar">
+    <div id="readMode">
+      <div id="openread" ng-hide="read" class="interactive readMode" ng-click="readmode()" data-toggle="tooltip" title="Déployer le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-left"></span></div>
+      <div id="closeread" ng-show="read" class="interactive readMode" ng-click="viewmode()" data-toggle="tooltip" title="Replier le panneau" data-placement="bottom" data-original-title="Déployer le panneau"><span class="glyphicon glyphicon-chevron-right"></div>
+    </div>
+
+    <div id="revsMode">
+      <div ng-show="revs" class="interactive revsMode" ng-click="hiderevs()"  data-toggle="tooltip" title="Cacher les modifications" data-placement="bottom" data-original-title="Cacher les modifications"><span class="glyphicon glyphicon glyphicon-check"> </span></div>
+
+      <div ng-hide="revs" class="interactive revsMode" ng-click="showrevs()" data-toggle="tooltip" title="Afficher les modifications" data-placement="bottom" data-original-title="Afficher les modifications"><span class="glyphicon glyphicon glyphicon-edit"></span></div>
+    </div>
+
+    <h4 id="text-title">ARTICLES</h4>
+    <div class="text-container">
+      <div class="art-meta"></div>
+      <div id="load_art"></div>
+      <div class="art-txt"></div>
+    </div>
+  </div>
+
+<script type="text/javascript" src="lib/google-diff-match-patch-r106.min.js"></script>
+<script type="text/javascript" src="modules/articles/articles.viz.js"></script>
