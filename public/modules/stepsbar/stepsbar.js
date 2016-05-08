@@ -52,7 +52,8 @@ function ($timeout, $rootScope, api) {
                     return a.debats_order - b.debats_order;
                 });
 
-                createShortLabelsRule(displayedSteps.length);
+                createShortLabelsStylesheet(displayedSteps.length, 150, '*');
+                createShortLabelsStylesheet(displayedSteps.length, 190, '.cmp');
 
                 displayedSteps.forEach(function (e) {
                     scope.steps.push(e);
@@ -112,23 +113,25 @@ function ($timeout, $rootScope, api) {
                 return thelawfactory.utils.getShortName(el.step);
             }
 
-            var shortStyle;
-            function createShortLabelsRule(numSteps) {
-                // Compute viewport size such that each step is 150px wide, knowing that there are 39px margins
+            var shortStylesheets = {};
+            function createShortLabelsStylesheet(numSteps, maxSize, containerSelector)
+            {
+                // Compute viewport size such that each step is <maxSize> wide, knowing that there are 39px margins
                 // on left & right and the stepsbar takes 75% of the available width
-                var widthThreshold = 150 * numSteps * 4/3 + 2 * 39;
+                var widthThreshold = maxSize * numSteps * 4/3 + 2 * 39
 
                 // Set a CSS rule to hide long labels and show short labels when under that threshold
-                if (shortStyle) {
-                    document.head.removeChild(style);
+                if (shortStylesheets[containerSelector]) {
+                    document.head.removeChild(shortStylesheets[containerSelector]);
                 }
 
-                shortStyle = document.createElement("style");
+                var shortStyle = shortStylesheets[containerSelector] = document.createElement("style");
                 shortStyle.setAttribute("media", "screen and (max-width : " + widthThreshold + "px)");
                 document.head.appendChild(shortStyle);
 
-                shortStyle.sheet.insertRule("#stepsbar .long-label { display: none; }", 0);
-                shortStyle.sheet.insertRule("#stepsbar .short-label { display: initial; }", 1);
+                if (containerSelector === '*') containerSelector = '';
+                shortStyle.sheet.insertRule("#stepsbar " + containerSelector + " .long-label { display: none; }", 0);
+                shortStyle.sheet.insertRule("#stepsbar " + containerSelector + " .short-label { display: initial; }", 1);
             }
         }
     }
