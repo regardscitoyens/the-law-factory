@@ -261,6 +261,9 @@ noscript {
   height: 32px;
   overflow: hidden;
 }
+#footer .colorblind-toggle {
+  height: 1.2em;
+}
 /******************************* Error message *******************************/
 #error {
   background-color: #716259;

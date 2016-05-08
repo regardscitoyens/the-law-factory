@@ -62,6 +62,7 @@ angular.module('theLawFactory', [
     $rootScope.mod = null;
     $rootScope.error = '';
     $rootScope.tutorial = false;
+    $rootScope.colorMode = localStorage.getItem('colorMode') || 'normal';
 
     $rootScope.display_error = function (e) {
         $log.error(e);

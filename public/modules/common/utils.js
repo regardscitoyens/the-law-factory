@@ -55,12 +55,34 @@
     utils.getVizHeight = function () {
         return $(window).height() - $("#header-nav").height() - $(".title").height() - $("#menu-left").height() - $("footer").height() - parseInt($(".row").css("margin-bottom")) - 36;
     };
-    
+
+    var colorMode = localStorage.getItem('colorMode') || 'normal';
+    var colorBlindPalette = {
+        /* GDR     */ '#ff1e1e': '#dc2200',
+        /* SOC     */ '#ff32be': '#ff7f7f',
+        /* ECOLO   */ '#00e61e': '#69a12b',
+        /* RRDP    */ '#fac384': '#ffcc99',
+        /* UDI     */ '#1eb4ff': '#00b7ff',
+        /* LES-REP */ '#1e1ec8': '#270098',
+        /* NI      */ '#a5a5a5': '#bfbfbf',
+        /* GOUV    */ '#cccbb3': '#cccbb3'
+    };
+
     utils.adjustColor = function (c) {
         var col = d3.hsl(c);
-        if (col.s > 0.5) col.s = 0.5;
-        if (col.l < 0.7) col.l = 0.7;
-        return col;
+
+        if (colorMode === 'colorblind') {
+            return d3.hsl(colorBlindPalette[col.toString()] || col.toString());
+        } else {
+            if (col.s > 0.5) col.s = 0.5;
+            if (col.l < 0.7) col.l = 0.7;
+            return col;
+        }
+    };
+
+    utils.toggleColorBlind = function() {
+        localStorage.setItem('colorMode', colorMode == 'normal' ? 'colorblind' : 'normal');
+        location.reload();
     };
 
     utils.slugGroup = function (group) {
