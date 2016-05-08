@@ -12,57 +12,18 @@
   </div>
 
   <div id="homelinks">
-    <div class="laws">
-      <h5>Les derniers textes débattus</h5>
+    <div ng-cloak class="laws" ng-repeat="col in colonnes">
+      <h5>{{ ::col.titre }}</h5>
       <ul>
-        <li>
-          <a href="articles.html?loi=pjl15-republique_numerique">
-            <div class="title">République numérique</div>
-            <div class="status">En cours</div>
-          </a>
-        </li>
-        <li>
-          <a href="articles.html?loi=pjl15-034">
-            <div class="title">Réutilisation des données publiques</div>
-            <div class="status"><span class="number">118</span> amendements</div>
-          </a>
-        </li>
-        <li>
-          <a href="articles.html?loi=pjl14-424">
-            <div class="title">Renseignement</div>
-            <div class="status"><span class="number">1198</span> amendements</div>
+        <li ng-repeat="texte in col.textes">
+          <a href="articles.html?loi={{ ::texte.loi }}">
+            <div class="title">{{ ::texte.titre }}</div>
+            <div class="status">{{ ::texte.status }}</div>
           </a>
         </li>
       </ul>
-
-      <p><a href="lois.html">Explorer les textes récents</a></p>
+      <p><a href="{{ ::col.url }}">{{ ::col.lien }}</a></p>
     </div>
-
-    <div class="laws">
-      <h5>Les textes les plus amendés</h5>
-      <ul>
-        <li>
-          <a href="articles.html?loi=pjl12-349">
-            <div class="title">Mariage pour couples de personnes du même sexe</div>
-            <div class="status"><span class="number">9201</span> amendements</div>
-          </a>
-        </li>
-        <li>
-          <a href="articles.html?loi=pjl09-060">
-            <div class="title">Collectivités territoriales</div>
-            <div class="status"><span class="number">2122</span> amendements</div>
-          </a>
-        </li>
-        <li>
-          <a href="articles.html?loi=pjl12-166">
-            <div class="title">Élection et modification du calendrier électoral</div>
-            <div class="status"><span class="number">2043</span> amendements</div>
-          </a>
-        </li>
-      </ul>
-      <p><a href="lois.html?action=quanti">Explorer les textes les plus amendés</a></p>
-    </div>
-
   </div>
 
   <div class="disclaimer">
