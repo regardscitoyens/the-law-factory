@@ -45,17 +45,19 @@ function ($timeout, $rootScope, api) {
                 });
                 scope.barwidth = $("#stepsbar").width();
 
-                data.steps.filter(function (e) {
+                var displayedSteps = data.steps.filter(function (e) {
                     return e.debats_order != null;
                 })
                 .sort(function (a, b) {
                     return a.debats_order - b.debats_order;
-                })
-                .forEach(function (e) {
+                });
+
+                createShortLabelsRule(displayedSteps.length);
+
+                displayedSteps.forEach(function (e) {
                     scope.steps.push(e);
                     e.short_name = stepLabel(e);
                     e.long_name = stepLegend(e);
-                    e.display_short = (scope.barwidth / scope.total < (e.step == "depot" && e.auteur_depot != "Gouvernement" ? 150 : 120));
 
                     if (e.step === "depot") {
                         if (currStage.name) currStage.num++;
@@ -97,7 +99,6 @@ function ($timeout, $rootScope, api) {
                 var obj = $.extend(true, {}, currObj);
                 obj.long_name = thelawfactory.utils.getLongName(obj.name);
                 obj.short_name = thelawfactory.utils.getShortName(obj.name);
-                obj.display_short = (obj.long_name != obj.short_name && scope.barwidth * obj.num / scope.total < (obj.name === "CMP" ? 190 : 130));
                 return obj;
             }
 
@@ -109,6 +110,25 @@ function ($timeout, $rootScope, api) {
             function stepLabel (el) {
                 if (el.step === "depot") return (el.auteur_depot == "Gouvernement" ? "PJL" : "PPL");
                 return thelawfactory.utils.getShortName(el.step);
+            }
+
+            var shortStyle;
+            function createShortLabelsRule(numSteps) {
+                // Compute viewport size such that each step is 150px wide, knowing that there are 39px margins
+                // on left & right and the stepsbar takes 75% of the available width
+                var widthThreshold = 150 * numSteps * 4/3 + 2 * 39;
+
+                // Set a CSS rule to hide long labels and show short labels when under that threshold
+                if (shortStyle) {
+                    document.head.removeChild(style);
+                }
+
+                shortStyle = document.createElement("style");
+                shortStyle.setAttribute("media", "screen and (max-width : " + widthThreshold + "px)");
+                document.head.appendChild(shortStyle);
+
+                shortStyle.sheet.insertRule("#stepsbar .long-label { display: none; }", 0);
+                shortStyle.sheet.insertRule("#stepsbar .short-label { display: initial; }", 1);
             }
         }
     }

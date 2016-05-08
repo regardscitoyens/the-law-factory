@@ -2,15 +2,15 @@
 
   <div class="stb-stages">
     <div ng-cloak class="stb-stage" id="stage_{{$index}}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in stages">
-      <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}" ng-bind-html="i.short_name"></span>
-      <span ng-hide="i.display_short" ng-bind-html="i.long_name"></span>
+      <span class="short-label" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}" ng-bind-html="i.short_name"></span>
+      <span class="long-label" ng-bind-html="i.long_name"></span>
     </div>
   </div>
 
   <div class="stb-insts">
     <div ng-cloak class="stb-inst {{ i.name | slug }}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in inst">
-      <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}">{{i.short_name}}</span>
-      <span ng-hide="i.display_short">{{i.long_name}}</span>
+      <span class="short-label" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}">{{i.short_name}}</span>
+      <span class="long-label">{{i.long_name}}</span>
     </div>
   </div>
 
@@ -19,8 +19,8 @@
 
       <div>
         <span>
-          <span ng-show="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{ i.long_name }} <br/> {{ i.enddate | formatDate }}">{{i.short_name}}</span>
-          <span ng-hide="i.display_short" data-toggle="tooltip" data-placement="bottom" title="{{ i.enddate | formatDate }}">{{i.long_name}}</span>
+          <span class="short-label" data-toggle="tooltip" data-placement="bottom" title="{{ i.long_name }} <br/> {{ i.enddate | formatDate }}">{{i.short_name}}</span>
+          <span class="long-label" data-toggle="tooltip" data-placement="bottom" title="{{ i.enddate | formatDate }}">{{i.long_name}}</span>
           <a ng-hide="!i.source_url || i.source_url=='renvoi en commission'" class="stb-linkstep glyphicon glyphicon-link" data-toggle="tooltip" data-placement="bottom" title="Voir la source" href="{{i.source_url}}" target="_blank"></a>
           <span ng-show="i.source_url=='renvoi en commission'" class="stb-link stb-renvoi glyphicon glyphicon-ban-circle" data-toggle="tooltip" data-placement="bottom" title="Renvoi en commission"></span>
         </span>

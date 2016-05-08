@@ -899,6 +899,9 @@ noscript span {
   flex-flow: column nowrap;
   background-color: #f3eee5;
 }
+#stepsbar .short-label {
+  display: none;
+}
 #stepsbar .stb-stages,
 #stepsbar .stb-insts,
 #stepsbar .stb-steps {
