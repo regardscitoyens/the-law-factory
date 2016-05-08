@@ -9,3 +9,4 @@ Depends.mk
 public/built/*
 public/index.built.html
 prod/*
+api
