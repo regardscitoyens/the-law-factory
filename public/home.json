@@ -5,6 +5,11 @@
         "url": "lois.html",
         "textes": [
             {
+                "titre": "PJL Travail",
+                "status": "En cours",
+                "loi": "pjl15-nouvelles_libertes_entreprises_actifs"
+            },
+            {
                 "titre": "République numérique",
                 "status": "En cours",
                 "loi": "pjl15-republique_numerique"
@@ -30,6 +35,11 @@
                 "titre": "Mariage pour couples de personnes du même sexe",
                 "status": "9201 amendements",
                 "loi": "pjl12-349"
+            },
+            {
+                "titre": "PJL Travail",
+                "status": "En cours, + de 5084 amendements",
+                "loi": "pjl15-nouvelles_libertes_entreprises_actifs"
             },
             {
                 "titre": "Collectivités territoriales",
