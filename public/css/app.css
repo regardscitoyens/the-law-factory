@@ -403,12 +403,12 @@ noscript span {
 .ui-autocomplete li .src-ico .glyphicon {
   color: #716259;
 }
-.ui-autocomplete li:hover {
+.ui-autocomplete li.ui-state-focus {
   background-color: #716259;
   color: #fff;
 }
-.ui-autocomplete li:hover .src-ico,
-.ui-autocomplete li:hover .glyphicon {
+.ui-autocomplete li.ui-state-focus .src-ico,
+.ui-autocomplete li.ui-state-focus .glyphicon {
   color: inherit;
 }
 #footer {
