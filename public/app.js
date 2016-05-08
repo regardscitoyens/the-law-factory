@@ -4,8 +4,10 @@
 // Default config, overridable in config.js
 angular.module('theLawFactory.config', [])
 .constant('API_ROOT_URL', 'https://www.lafabriquedelaloi.fr/api/')
+.constant('HOST_FOR_GOOGLE', '')
 .constant('GOOGLE_ANALYTICS_ID', '')
-.constant('HOST_FOR_GOOGLE', '');
+.constant('PIWIK_HOST', '')
+.constant('PIWIK_SITE_ID', null);
 
 // Declare app level module
 angular.module('theLawFactory', [
