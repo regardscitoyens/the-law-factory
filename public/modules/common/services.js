@@ -78,6 +78,13 @@ angular.module('theLawFactory')
                     $log.debug('tutorials loaded', data);
                     return data;
                 });
+        },
+        getHome: function() {
+            return apiService.getDataSample('home.json')
+                .then(function(data) {
+                    $log.debug('home loaded', data);
+                    return data;
+                });
         }
     };
     return api;
