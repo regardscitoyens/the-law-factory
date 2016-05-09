@@ -167,13 +167,15 @@ function focusRect(d) {
         return b.value.nb_mots - a.value.nb_mots
     });
     spArray.forEach(function (g) {
+        var link = participants[g.key].link.replace(/^https?:/, '');
+        var photo = participants[g.key].photo && participants[g.key].photo.replace(/^https?:/, '');
         var ordiv = document.createElement('div');
         ordiv.className = "orateur";
-        if (participants[g.key].photo) $(ordiv).append('<a class="orat-pic" href="' + participants[g.key].link + '" target="_blank"><img src="' + participants[g.key].photo + "/" + parseInt(siz) + '?color=1"/></a>');
+        var siz = $(".text-container").width() * 0.25;
+        if (photo) $(ordiv).append('<a class="orat-pic" href="' + link + '" target="_blank"><img src="' + photo + "/" + parseInt(siz) + '?color=1"/></a>');
         var div = document.createElement('div');
         div.className = "orat-info";
-        var siz = $(".text-container").width() * 0.25;
-        $(div).append("<p class='orat-name'><b>" + (participants[g.key].photo ? '<a href="' + participants[g.key].link + '" target="_blank">' + participants[g.key].nom + "</a>" : participants[g.key].nom) + "</b></p>");
+        $(div).append("<p class='orat-name'><b>" + (photo ? '<a href="' + link + '" target="_blank">' + participants[g.key].nom + "</a>" : participants[g.key].nom) + "</b></p>");
         if (participants[g.key].fonction.length) $(div).append("<p class='orat-fonction'>" + participants[g.key].fonction + "</p>");
         $(div).append('<p><a class="orat-disc" href="' + g.value.link + '" target="_blank">Lire les interventions</a></p>');
         $(ordiv).append(div);
