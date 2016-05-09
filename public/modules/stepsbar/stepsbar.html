@@ -1,7 +1,7 @@
 <div>
 
   <div class="stb-stages">
-    <div ng-cloak class="stb-stage" id="stage_{{$index}}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in stages">
+    <div ng-cloak class="stb-stage {{ i.name | slug }}" id="stage_{{$index}}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in stages">
       <span class="short-label" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}" ng-bind-html="i.short_name"></span>
       <span class="long-label" ng-bind-html="i.long_name"></span>
     </div>
