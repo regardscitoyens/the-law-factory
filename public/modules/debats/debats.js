@@ -51,15 +51,15 @@ function (api, $rootScope) {
 
                     if (newRect.attr('x')) {
                         // Visible rect
-                        top = newRect.position().top - viztop;
+                        top = newRect.offset().top - viztop;
                     } else {
                         // Invisible rect => use filter-title
-                        var x = d3.select(newRect[0]).data()[0].x;
+                        var x = d3.select(newRect[0]).data()[0].x.replace(/\s+/g, '');
                         var filter = $('text.filter-title').filter(function(index) {
-                            return $(this).find('tspan').text() === x;
+                            return $(this).find('tspan').text().replace(/\s+/g, '') === x;
                         }).get(0);
 
-                        top = $(filter).position().top - viztop;
+                        top = $(filter).offset().top - viztop;
                     }
 
                     if (top != null) {
@@ -74,10 +74,10 @@ function (api, $rootScope) {
                 e.preventDefault();
             }
 
-            $(window).on('keypress', handleKeyDown);
+            $(window).on('keydown', handleKeyDown);
 
             $scope.$on('$destroy', function() {
-                $(window).off('keypress', handleKeyDown);
+                $(window).off('keydown', handleKeyDown);
             });
         }
     };
