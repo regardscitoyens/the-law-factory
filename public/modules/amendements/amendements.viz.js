@@ -278,14 +278,28 @@
                             sort_totaux[amdt.sort] = 1;
                         }
 
-                        if (amdt.groupe in groupe_totaux) {
-                            groupe_totaux[amdt.groupe] += 1;
-                        } else {
-                            groupe_totaux[amdt.groupe] = 1;
+                        if (!(amdt.groupe in groupe_totaux)) {
+                            groupe_totaux[amdt.groupe] = {
+                                total: 0,
+                                adoptes: 0,
+                                rejetes: 0
+                            };
                         }
 
-                        if (amdt.sort === 'en attente') {
-                            en_attente = true;
+                        groupe_totaux[amdt.groupe].total += 1;
+
+                        switch (amdt.sort) {
+                            case 'rejeté':
+                                groupe_totaux[amdt.groupe].rejetes += 1;
+                                break;
+
+                            case 'adopté':
+                                groupe_totaux[amdt.groupe].adoptes += 1;
+                                break;
+
+                            case 'en attente':
+                                en_attente = true;
+                                break;
                         }
                     });
 
@@ -315,12 +329,12 @@
                 // Build legend contents
                 Object.keys(groupes).sort(compare_groupes).forEach(function(key) {
                     groupes[key].cssColor = cssColor(groupes[key].color);
-                    groupes[key].total = groupe_totaux[key];
+                    groupes[key].totaux = groupe_totaux[key];
 
                     if (key !== 'Gouvernement') {
                         data.legende.groupes[key] = groupes[key];
                     } else {
-                        data.total_gouv = groupe_totaux[key];
+                        data.totaux_gouv = groupe_totaux[key];
                     }
                 });
 

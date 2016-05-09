@@ -90,7 +90,10 @@
         ng-repeat="(key, groupe) in data.legende.groupes" ng-click="focusAmendements($event, key)">
         <div class="leg-value" style="background-color: {{ ::groupe.cssColor }};"></div>
         <div class="leg-key">{{ ::key }}</div>
-        <div class="leg-tooltip">{{ ::groupe.nom }} ({{ groupe.total }})</div>
+        <div class="leg-tooltip large">
+          <span class="leg-tooltip-title">{{ ::groupe.nom }}</span>
+          <span class="leg-tooltip-details">({{ groupe.totaux.total }} amendements dont {{ groupe.totaux.adoptes }} adoptés et {{ groupe.totaux.rejetes }} rejetés)</span>
+        </div>
       </div>
     </div>
     <div class="others">
@@ -99,7 +102,10 @@
         ng-click="focusAmendements($event, 'Gouvernement')">
         <div class="leg-value" style="background-color: {{ ::data.groupes.Gouvernement.cssColor }};"></div>
         <div class="leg-key">Gouvernement</div>
-        <div class="leg-tooltip">Gouvernement ({{ data.total_gouv }})</div>
+        <div class="leg-tooltip large">
+          <span class="leg-tooltip-title">Gouvernement</span>
+          <span class="leg-tooltip-details">({{ data.totaux_gouv.total }} amendements dont {{ data.totaux_gouv.adoptes }} adoptés et {{ data.totaux_gouv.rejetes }} rejetés)</span>
+        </div>
       </div>
       <div class="leg-item leg-empty" ng-if="data.groupes.Gouvernement">
         <div class="leg-value"></div>
@@ -109,7 +115,7 @@
         ng-repeat="(sortid, sort) in data.legende.sorts" ng-click="focusAmendements($event, null, sortid)">
         <div class="leg-value leg-sort" style="background-image: url({{ ::sort.img }});"></div>
         <div class="leg-key">{{ ::sort.name }}</div>
-        <div class="leg-tooltip">{{ ::sort.name }} ({{ sort.total || 0 }})</div>
+        <div class="leg-tooltip">{{ sort.total || 0 }} amendements {{ ::sort.name.toLowerCase() }}s</div>
       </div>
     </div>
   </div>
