@@ -94,7 +94,7 @@
           <span class="leg-tooltip-title">{{ ::groupe.nom }}</span>
           <span class="leg-tooltip-details">
             (<ng-pluralize count="groupe.totaux.total"
-              when="{'0': 'aucun amendement)', '1': 'un amdendement dont', 'other': '{} amendements dont'}"></ng-pluralize>
+              when="{'0': 'aucun amendement)', '1': 'un amendement dont', 'other': '{} amendements dont'}"></ng-pluralize>
             <span ng-if="groupe.totaux.total > 0">
               <ng-pluralize count="groupe.totaux.adoptes"
                 when="{'0': 'aucun adopté', '1': 'un adopté', 'other': '{} adoptés'}"></ng-pluralize>
@@ -116,7 +116,7 @@
           <span class="leg-tooltip-title">Gouvernement</span>
           <span class="leg-tooltip-details">
             (<ng-pluralize count="data.totaux_gouv.total"
-              when="{'0': 'aucun amendement)', '1': 'un amdendement dont', 'other': '{} amendements dont'}"></ng-pluralize>
+              when="{'0': 'aucun amendement)', '1': 'un amendement dont', 'other': '{} amendements dont'}"></ng-pluralize>
             <span ng-if="data.totaux_gouv.total > 0">
               <ng-pluralize count="data.totaux_gouv.adoptes"
                 when="{'0': 'aucun adopté', '1': 'un adopté', 'other': '{} adoptés'}"></ng-pluralize>
