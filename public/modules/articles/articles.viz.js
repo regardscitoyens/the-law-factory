@@ -97,6 +97,22 @@ var valign, stacked, articlesScope, aligned = true;
             }
         }
 
+        function diff_preview(diffs) {
+            var html = [];
+            var cls = {
+                '0': 'id',
+                '1': 'ins',
+                '-1': 'del'
+            };
+
+            diffs.forEach(function(d) {
+                var size = d[1].length;
+                html.push('<div class="preview-item ' + cls[d[0]] + '" style="flex-grow:'  + size + '; flex-shrink:' + size + ';"></div>');
+            });
+
+            return html.join('');
+        }
+
         function diff_to_html(diffs) {
             var html = [];
             for (var x = 0; x < diffs.length; x++) {
@@ -843,6 +859,7 @@ var valign, stacked, articlesScope, aligned = true;
                                         d.textDiff += diff_to_html(diff)
                                             .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
                                         d.textDiff += "</li></ul>";
+                                        d.diffPreview = diff_preview(diff);
                                     } else d.textDiff += d.originalText;
 
                                     thelawfactory.utils.spinner.stop(articlesScope.update_revs_view, 'load_art');
