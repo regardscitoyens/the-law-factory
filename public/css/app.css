@@ -1235,6 +1235,9 @@ noscript span {
 .articles .article {
   cursor: pointer;
 }
+.articles #sidebar .text-container {
+  padding-right: 21px;
+}
 .articles .art-meta {
   text-align: center;
 }
@@ -1271,6 +1274,25 @@ noscript span {
 }
 .articles #sidebar .gotomod {
   font-size: 1.1em;
+}
+.articles .art-preview {
+  position: absolute;
+  width: 8px;
+  top: 73px;
+  right: 19px;
+  bottom: 13px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  border: 1px solid #ccc;
+
+  visibility: hidden;
+}
+.articles .art-preview .ins {
+  background-color: #8f8;
+}
+.articles .art-preview .del {
+  background-color: #f88;
 }
 /********************************* Amendements *******************************/
 .amendements #probe {

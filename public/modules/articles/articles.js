@@ -59,8 +59,16 @@ function ($rootScope, api) {
             $scope.update_revs_view = function () {
                 var d = d3.select('#viz .curr').data()[0];
                 if ($scope.revs) {
+                    if (d.diffPreview) {
+                        $(".art-preview").css({visibility:'visible'});
+                        $(".art-preview").html(d.diffPreview).animate({opacity: 1}, 350);
+                    } else {
+                        $(".art-preview").css({visibility:'hidden'});
+                    }
+
                     $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
                 } else {
+                    $(".art-preview").css({visibility:'hidden'});
                     $(".art-txt").html(d.originalText).animate({opacity: 1}, 350);
                 }
             };
