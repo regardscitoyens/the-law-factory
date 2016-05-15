@@ -422,7 +422,9 @@ noscript span {
   align-items: center;
 }
 #footer li a {
-  margin: 0 13px;
+  margin: 0;
+  padding: 0 13px;
+  display: block;
   line-height: 32px;
   text-transform: uppercase;
   text-decoration: none;
