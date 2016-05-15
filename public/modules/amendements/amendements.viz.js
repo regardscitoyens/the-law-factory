@@ -234,6 +234,8 @@
             var tri_amdts = tri[scope.sortOrder] || compare_amdts_numero;
             var en_attente = false;
             var data;
+            var groupe_totaux = {};
+            var sort_totaux = {};
 
             if (!onlyReallocate) {
                 groupes = apiData.groupes;
@@ -270,8 +272,34 @@
                         amdt.color = cssColor(groupes[amdt.groupe].color);
                         amdt.nom_groupe = groupes[amdt.groupe].nom;
 
-                        if (amdt.sort === 'en attente') {
-                            en_attente = true;
+                        if (amdt.sort in sort_totaux) {
+                            sort_totaux[amdt.sort] += 1;
+                        } else {
+                            sort_totaux[amdt.sort] = 1;
+                        }
+
+                        if (!(amdt.groupe in groupe_totaux)) {
+                            groupe_totaux[amdt.groupe] = {
+                                total: 0,
+                                adoptes: 0,
+                                rejetes: 0
+                            };
+                        }
+
+                        groupe_totaux[amdt.groupe].total += 1;
+
+                        switch (amdt.sort) {
+                            case 'rejeté':
+                                groupe_totaux[amdt.groupe].rejetes += 1;
+                                break;
+
+                            case 'adopté':
+                                groupe_totaux[amdt.groupe].adoptes += 1;
+                                break;
+
+                            case 'en attente':
+                                en_attente = true;
+                                break;
                         }
                     });
 
@@ -301,9 +329,12 @@
                 // Build legend contents
                 Object.keys(groupes).sort(compare_groupes).forEach(function(key) {
                     groupes[key].cssColor = cssColor(groupes[key].color);
+                    groupes[key].totaux = groupe_totaux[key];
 
                     if (key !== 'Gouvernement') {
                         data.legende.groupes[key] = groupes[key];
+                    } else {
+                        data.totaux_gouv = groupe_totaux[key];
                     }
                 });
 
@@ -311,7 +342,8 @@
                     if (en_attente || sort !== 'en attente') {
                         data.legende.sorts[sort] = {
                             name: sort_name[sort],
-                            img: sort_image[sort]
+                            img: sort_image[sort],
+                            total: sort_totaux[sort]
                         };
                     }
                 });

@@ -74,6 +74,11 @@ angular.module('theLawFactory', [
         var d2 = d.split('-');
         return d2[2] + "/" + d2[1] + "/" + d2[0];
     }
+}).filter('s_plural', function() {
+    return function (n) {
+        if (n > 1) return 's';
+        return '';
+    }
 }).filter('slug', function() {
     return function (str) {
         str = str.replace(/^\s+|\s+$/g, ''); // trim
