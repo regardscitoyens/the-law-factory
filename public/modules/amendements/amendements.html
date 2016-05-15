@@ -90,7 +90,20 @@
         ng-repeat="(key, groupe) in data.legende.groupes" ng-click="focusAmendements($event, key)">
         <div class="leg-value" style="background-color: {{ ::groupe.cssColor }};"></div>
         <div class="leg-key">{{ ::key }}</div>
-        <div class="leg-tooltip">{{ ::groupe.nom }}</div>
+        <div class="leg-tooltip large">
+          <span class="leg-tooltip-title">{{ ::groupe.nom }}</span>
+          <span class="leg-tooltip-details">
+            (<ng-pluralize count="groupe.totaux.total"
+              when="{'0': 'aucun amendement)', '1': 'un amendement dont', 'other': '{} amendements dont'}"></ng-pluralize>
+            <span ng-if="groupe.totaux.total > 0">
+              <ng-pluralize count="groupe.totaux.adoptes"
+                when="{'0': 'aucun adopté', '1': 'un adopté', 'other': '{} adoptés'}"></ng-pluralize>
+              et
+              <ng-pluralize count="groupe.totaux.rejetes"
+                when="{'0': 'aucun rejeté', '1': 'un rejeté', 'other': '{} rejetés'}"></ng-pluralize>)
+            </span>
+          </span>
+        </div>
       </div>
     </div>
     <div class="others">
@@ -99,6 +112,20 @@
         ng-click="focusAmendements($event, 'Gouvernement')">
         <div class="leg-value" style="background-color: {{ ::data.groupes.Gouvernement.cssColor }};"></div>
         <div class="leg-key">Gouvernement</div>
+        <div class="leg-tooltip large">
+          <span class="leg-tooltip-title">Gouvernement</span>
+          <span class="leg-tooltip-details">
+            (<ng-pluralize count="data.totaux_gouv.total"
+              when="{'0': 'aucun amendement)', '1': 'un amendement dont', 'other': '{} amendements dont'}"></ng-pluralize>
+            <span ng-if="data.totaux_gouv.total > 0">
+              <ng-pluralize count="data.totaux_gouv.adoptes"
+                when="{'0': 'aucun adopté', '1': 'un adopté', 'other': '{} adoptés'}"></ng-pluralize>
+              et
+              <ng-pluralize count="data.totaux_gouv.rejetes"
+                when="{'0': 'aucun rejeté', '1': 'un rejeté', 'other': '{} rejetés'}"></ng-pluralize>)
+            </span>
+          </span>
+        </div>
       </div>
       <div class="leg-item leg-empty" ng-if="data.groupes.Gouvernement">
         <div class="leg-value"></div>
@@ -108,6 +135,14 @@
         ng-repeat="(sortid, sort) in data.legende.sorts" ng-click="focusAmendements($event, null, sortid)">
         <div class="leg-value leg-sort" style="background-image: url({{ ::sort.img }});"></div>
         <div class="leg-key">{{ ::sort.name }}</div>
+        <div class="leg-tooltip">
+          <ng-pluralize count="sort.total || 0"
+            when="{
+              '0': 'Aucun amendement {{ sort.name.toLowerCase() }}',
+              '1': 'Un amendement {{ sort.name.toLowerCase() }}',
+              'other': '{} amendements {{ sort.name.toLowerCase() }}s'
+            }"></ng-pluralize>
+        </div>
       </div>
     </div>
   </div>

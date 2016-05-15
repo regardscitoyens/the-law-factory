@@ -814,8 +814,7 @@ noscript span {
   padding: 6.5px 13px;
 }
 /************************ Amendements / Debats legend ************************/
-.amendements #legend .leg-item,
-.debats #legend .leg-item {
+#legend .leg-item {
   width: 12%;
   margin-top: 5px;
   margin-left: 2%;
@@ -824,38 +823,32 @@ noscript span {
 .amendements #legend .leg-empty {
   cursor: initial;
 }
-.amendements #legend .others .leg-item,
-.debats #legend .others .leg-item {
+#legend .others .leg-item {
   min-width: 12%;
   width: auto;
 }
-.amendements #legend .leg-value,
-.debats #legend .leg-value {
+#legend .leg-value {
   width: 18px;
   height: 18px;
   float: left;
 }
-.amendements #legend .colors,
-.debats #legend .colors,
-.amendements #legend .others,
-.debats #legend .others {
+#legend .colors,
+#legend .others {
   display: flex;
   margin-top: 2px;
 }
-.amendements #legend .leg-key,
-.debats #legend .leg-key {
+#legend .leg-key {
   float: left;
   margin-left: 4px;
   font-size: 0.9em;
 }
-.amendements #legend .leg-tooltip,
-.debats #legend .leg-tooltip {
+#legend .leg-tooltip {
   background-color: #716259;
   color: white;
   font-size: 0.9em;
   padding: 5px;
   opacity: 0;
-  position: absolute;
+  position: fixed;
   z-index: 10;
   margin: -34px 0 0 -5px;
   box-shadow: 2px 2px 10px -4px black;
@@ -865,8 +858,17 @@ noscript span {
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
-.amendements #legend .leg-tooltip:before,
-.debats #legend .leg-tooltip:before {
+#legend .leg-tooltip.large {
+  margin-top: -52px;
+}
+#legend .leg-tooltip .leg-tooltip-title {
+  font-weight: bold;
+  display: block;
+}
+#legend .leg-tooltip .leg-tooltip-details {
+  font-size: 0.8em;
+}
+#legend .leg-tooltip:before {
   content: ' ';
   width: 0;
   height: 0;
@@ -877,12 +879,10 @@ noscript span {
   top: 100%;
   left: 8px;
 }
-.amendements #legend .leg-item:hover .leg-tooltip,
-.debats #legend .leg-item:hover .leg-tooltip {
+#legend .leg-item:hover .leg-tooltip {
   opacity: 1;
 }
-.amendements #legend .leg-sort,
-.debats #legend .leg-sort {
+#legend .leg-sort {
   background-color: #b4b4b4;
   background-repeat: no-repeat;
   background-position: center;
