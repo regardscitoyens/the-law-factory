@@ -8,6 +8,11 @@ function ($rootScope, api) {
         replace: false,
         templateUrl: 'modules/articles/articles.html',
         controller: function ($scope) {
+            var vMargins = 26;
+            var $textContainer = $(".text-container");
+            var $diffPreview = $(".diff-preview");
+            var $cursor;
+
             $scope.mod = "articles";
             $scope.setHelpText("Chaque boîte représente un article dont la taille indique la longueur du texte et la couleur le degré de modifications à cette étape. Cliquez sur un article pour lire le texte et voir le détail des modifications.");
             $scope.vizTitle = "ARTICLES";
@@ -60,18 +65,110 @@ function ($rootScope, api) {
                 var d = d3.select('#viz .curr').data()[0];
                 if ($scope.revs) {
                     if (d.diffPreview) {
-                        $(".art-preview").css({visibility:'visible'});
-                        $(".art-preview").html(d.diffPreview).animate({opacity: 1}, 350);
+                        $("#sidebar").addClass("has-diff-preview");
+                        $diffPreview.html(d.diffPreview).animate({opacity: 1}, 350);
+
+                        setTimeout(function() { updateCursor(true); }, 0);
                     } else {
-                        $(".art-preview").css({visibility:'hidden'});
+                        $("#sidebar").removeClass("has-diff-preview");
                     }
 
                     $(".art-txt").html(d.textDiff).animate({opacity: 1}, 350);
                 } else {
-                    $(".art-preview").css({visibility:'hidden'});
+                    $("#sidebar").removeClass("has-diff-preview");
                     $(".art-txt").html(d.originalText).animate({opacity: 1}, 350);
                 }
             };
+
+
+            function initCursor() {
+                var first = !$cursor;
+
+                $cursor = $('<div class="cursor">')
+                $diffPreview.append($cursor);
+
+                var startY, contentHeight, containerHeight, availableHeight, cursorHeight, startTop, maxTop;
+
+                function cursorDragMove(e) {
+                    cursorDragUpdate(e);
+
+                    e.preventDefault();
+                }
+
+                function cursorDragStop(e) {
+                    cursorDragUpdate(e);
+
+                    $(document).off("mousemove", cursorDragMove);
+                    $(document).off("mouseup", cursorDragStop);
+                }
+
+                function cursorDragUpdate(e) {
+                    var deltaY = e.clientY - startY;
+                    var cursorTop = Math.min(maxTop, Math.max(0, startTop + deltaY))
+
+                    $cursor.css({ top: cursorTop + 'px' });
+                    $textContainer.scrollTop((contentHeight - availableHeight) * cursorTop / (containerHeight - cursorHeight));
+                }
+
+                function cursorDragStart(e, barClicked) {
+                    startY = e.clientY;
+
+                    contentHeight = $(".art-meta").height() + $(".art-txt").height() + vMargins;
+                    containerHeight = $textContainer.height() + vMargins;
+                    availableHeight = containerHeight - vMargins;
+
+                    cursorHeight = $cursor.height();
+                    startTop = $cursor.position().top;
+                    maxTop = containerHeight - cursorHeight;
+
+                    if (barClicked) {
+                        var clickY = $(e.target).position().top + e.offsetY;
+                        startTop = Math.min(maxTop, Math.max(0, clickY - cursorHeight / 2));
+
+                        $cursor.css({ top: startTop + 'px' });
+                        $textContainer.scrollTop((contentHeight - availableHeight) * startTop / (containerHeight - cursorHeight));
+                    }
+
+                    $(document).on("mousemove", cursorDragMove);
+                    $(document).on("mouseup", cursorDragStop);
+
+                    e.preventDefault();
+                    e.stopPropagation();
+                };
+
+                $cursor.on("mousedown", cursorDragStart);
+
+                if (first) {
+                    $diffPreview.on("mousedown", function(e) {
+                        cursorDragStart(e, true);
+                    });
+                }
+            }
+
+
+            function updateCursor(articleReloaded) {
+                var contentHeight = $(".art-meta").height() + $(".art-txt").height() + vMargins;
+
+                var containerHeight = $textContainer.height() + vMargins;
+                var availableHeight = containerHeight - vMargins;
+
+                var scrollTop = $textContainer.scrollTop();
+                var cursorHeight = containerHeight * availableHeight / contentHeight;
+                var cursorTop = (containerHeight - cursorHeight) * scrollTop / (contentHeight - availableHeight);
+
+                if (!$cursor || articleReloaded === true) {
+                    initCursor();
+                }
+
+                $cursor.css({
+                    height: cursorHeight + 'px',
+                    top: cursorTop + 'px'
+                });
+            }
+
+
+            $textContainer.on("scroll", updateCursor);
+            $(window).on("resize", updateCursor);
         }
     };
 }]);
