@@ -1336,6 +1336,13 @@ nav .tutorial-button {
   color: #fff;
   border-radius: 0;
 }
+.articles #sidebar #load_art {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 .articles #sidebar .gotomod {
   font-size: 1.1em;
 }
@@ -1343,6 +1350,12 @@ nav .tutorial-button {
   /* Hide scrollbar */
   right: -100px;
   padding-right: 113px;
+}
+.articles #sidebar.readmode.has-diff-preview .gotomod a.button {
+  right: 113px;
+}
+.articles #sidebar.has-diff-preview #load_art {
+  right: 100px;
 }
 .articles .diff-preview {
   position: absolute;
