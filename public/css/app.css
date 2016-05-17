@@ -1296,9 +1296,6 @@ nav .tutorial-button {
 .articles .article {
   cursor: pointer;
 }
-.articles #sidebar .text-container {
-  padding-right: 21px;
-}
 .articles .art-meta {
   text-align: center;
 }
@@ -1342,23 +1339,38 @@ nav .tutorial-button {
 .articles #sidebar .gotomod {
   font-size: 1.1em;
 }
-.articles .art-preview {
+.articles #sidebar.has-diff-preview .text-container {
+  /* Hide scrollbar */
+  right: -100px;
+  padding-right: 113px;
+}
+.articles .diff-preview {
   position: absolute;
-  width: 8px;
-  top: 73px;
-  right: 19px;
-  bottom: 13px;
+  width: 13px;
+  top: 60px;
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
-  border: 1px solid #ccc;
-
+  border-left: 1px solid #ccc;
   visibility: hidden;
 }
-.articles .art-preview .ins {
+.articles .has-diff-preview .diff-preview {
+  visibility: visible;
+}
+.articles .diff-preview .cursor {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.25;
+  cursor: pointer;
+}
+.articles .diff-preview .ins {
   background-color: #8f8;
 }
-.articles .art-preview .del {
+.articles .diff-preview .del {
   background-color: #f88;
 }
 /********************************* Amendements *******************************/
