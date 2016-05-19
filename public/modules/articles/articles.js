@@ -167,9 +167,12 @@ function ($rootScope, api) {
                 });
             }
 
-
             $textContainer.on("scroll", updateCursor);
             $(window).on("resize", updateCursor);
+
+            $scope.$watch("read", function() {
+                setTimeout(updateCursor, 500);
+            });
         }
     };
 }]);
