@@ -836,7 +836,9 @@ var valign, stacked, articlesScope, aligned = true;
                                         d.textDiff += diff_to_html(diff)
                                             .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
                                         d.textDiff += "</li></ul>";
-                                        d.diffPreview = diff_preview(diff);
+
+                                        if (d.status !== 'new' && d.status !== 'sup')
+                                            d.diffPreview = diff_preview(diff);
                                     } else d.textDiff += d.originalText;
 
                                     thelawfactory.utils.spinner.stop(articlesScope.update_revs_view, 'load_art');
