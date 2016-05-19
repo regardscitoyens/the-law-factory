@@ -9,6 +9,7 @@ function ($rootScope, api) {
         templateUrl: 'modules/articles/articles.html',
         controller: function ($scope) {
             var vMargins = 26;
+            var hasDiff = false;
             var $textContainer = $(".text-container");
             var $diffPreview = $(".diff-preview");
             var $cursor;
@@ -63,11 +64,14 @@ function ($rootScope, api) {
 
             $scope.update_revs_view = function () {
                 var d = d3.select('#viz .curr').data()[0];
+
+                hasDiff = false;
                 if ($scope.revs) {
                     if (d.diffPreview) {
                         $("#sidebar").addClass("has-diff-preview");
                         $diffPreview.html(d.diffPreview).animate({opacity: 1}, 350);
 
+                        hasDiff = true;
                         setTimeout(function() { updateCursor(true); }, 0);
                     } else {
                         $("#sidebar").removeClass("has-diff-preview");
@@ -87,7 +91,7 @@ function ($rootScope, api) {
                 $cursor = $('<div class="cursor">')
                 $diffPreview.append($cursor);
 
-                var startY, contentHeight, containerHeight, availableHeight, cursorHeight, startTop, maxTop;
+                var startY = null, contentHeight, containerHeight, availableHeight, cursorHeight, startTop, maxTop;
 
                 function cursorDragMove(e) {
                     cursorDragUpdate(e);
@@ -98,12 +102,15 @@ function ($rootScope, api) {
                 function cursorDragStop(e) {
                     cursorDragUpdate(e);
 
-                    $(document).off("mousemove", cursorDragMove);
-                    $(document).off("mouseup", cursorDragStop);
+                    startY = null;
+                    $(document).off("mousemove touchmove", cursorDragMove);
+                    $(document).off("mouseup touchend", cursorDragStop);
                 }
 
                 function cursorDragUpdate(e) {
-                    var deltaY = e.clientY - startY;
+                    var pointer = e.originalEvent && e.originalEvent.changedTouches && e.originalEvent.changedTouches[0] || e;
+
+                    var deltaY = pointer.clientY - startY;
                     var cursorTop = Math.min(maxTop, Math.max(0, startTop + deltaY))
 
                     $cursor.css({ top: cursorTop + 'px' });
@@ -111,7 +118,10 @@ function ($rootScope, api) {
                 }
 
                 function cursorDragStart(e, barClicked) {
-                    startY = e.clientY;
+                    if (startY !== null) return;
+
+                    var pointer = e.originalEvent && e.originalEvent.changedTouches && e.originalEvent.changedTouches[0] || e;
+                    startY = pointer.clientY;
 
                     contentHeight = $(".art-meta").height() + $(".art-txt").height() + vMargins;
                     containerHeight = $textContainer.height() + vMargins;
@@ -129,17 +139,17 @@ function ($rootScope, api) {
                         $textContainer.scrollTop((contentHeight - availableHeight) * startTop / (containerHeight - cursorHeight));
                     }
 
-                    $(document).on("mousemove", cursorDragMove);
-                    $(document).on("mouseup", cursorDragStop);
+                    $(document).on("mousemove touchmove", cursorDragMove);
+                    $(document).on("mouseup touchend", cursorDragStop);
 
                     e.preventDefault();
                     e.stopPropagation();
                 };
 
-                $cursor.on("mousedown", cursorDragStart);
+                $cursor.on("mousedown touchstart", cursorDragStart);
 
                 if (first) {
-                    $diffPreview.on("mousedown", function(e) {
+                    $diffPreview.on("mousedown touchstart", function(e) {
                         cursorDragStart(e, true);
                     });
                 }
@@ -147,6 +157,8 @@ function ($rootScope, api) {
 
 
             function updateCursor(articleReloaded) {
+                if (!hasDiff) return;
+
                 var contentHeight = $(".art-meta").height() + $(".art-txt").height() + vMargins;
 
                 var containerHeight = $textContainer.height() + vMargins;
