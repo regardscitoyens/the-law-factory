@@ -153,6 +153,12 @@ function ($rootScope, api) {
                 var containerHeight = $textContainer.height() + vMargins;
                 var availableHeight = containerHeight - vMargins;
 
+                if (contentHeight < availableHeight) {
+                    $("#sidebar").removeClass("has-diff-preview");
+                } else {
+                    $("#sidebar").addClass("has-diff-preview");
+                }
+
                 var scrollTop = $textContainer.scrollTop();
                 var cursorHeight = containerHeight * availableHeight / contentHeight;
                 var cursorTop = (containerHeight - cursorHeight) * scrollTop / (contentHeight - availableHeight);
