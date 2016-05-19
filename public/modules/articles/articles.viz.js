@@ -837,7 +837,7 @@ var valign, stacked, articlesScope, aligned = true;
                                             .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
                                         d.textDiff += "</li></ul>";
 
-                                        if (d.status !== 'new' && d.status !== 'sup')
+                                        if (d.status !== 'new' && d.status !== 'sup' && d.n_diff !== 0)
                                             d.diffPreview = diff_preview(diff);
                                     } else d.textDiff += d.originalText;
 
