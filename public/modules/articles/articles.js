@@ -88,6 +88,7 @@ function ($rootScope, api) {
 
             function initCursor() {
                 var first = !$cursor;
+                if ($cursor) $cursor.remove();
 
                 $cursor = $('<div class="cursor">')
                 $diffPreview.append($cursor);
@@ -124,7 +125,7 @@ function ($rootScope, api) {
                     var pointer = e.originalEvent && e.originalEvent.changedTouches && e.originalEvent.changedTouches[0] || e;
                     startY = pointer.clientY;
 
-                    contentHeight = $(".art-meta").height() + $(".art-txt").height() + vMargins;
+                    contentHeight = $(".art-meta").height() + $(".art-txt").height();
                     containerHeight = $textContainer.height() + vMargins;
                     availableHeight = containerHeight - vMargins;
 
@@ -160,7 +161,7 @@ function ($rootScope, api) {
             function updateCursor(articleReloaded) {
                 if (!hasDiff) return;
 
-                var contentHeight = $(".art-meta").height() + $(".art-txt").height() + vMargins;
+                var contentHeight = $(".art-meta").height() + $(".art-txt").height();
 
                 var containerHeight = $textContainer.height() + vMargins;
                 var availableHeight = containerHeight - vMargins;
