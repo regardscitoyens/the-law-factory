@@ -4,29 +4,29 @@ angular.module('theLawFactory')
 .directive('readMode', ['$location', function($location) {
     return {
         restrict: 'A',
-        controller: function($scope) {
-            $scope.read = $location.search()['read'] === '1';
+        controller: function($rootScope, $scope) {
+            $rootScope.read = $location.search()['read'] === '1';
 
-            $scope.readmode = function () {
+            $rootScope.readmode = function () {
                 $("#sidebar").addClass('readmode');
                 if ($scope.mod === 'amendements') {
                     $location.replace();
                     $location.search('read', '1');
                 }
-                $scope.read = true;
+                $rootScope.read = true;
             };
 
-            $scope.viewmode = function () {
+            $rootScope.viewmode = function () {
                 $("#sidebar").removeClass('readmode');
                 if ($scope.mod === 'amendements') {
                     $location.replace();
                     $location.search('read', null);
                 }
-                $scope.read = false;
+                $rootScope.read = false;
             };
 
-            if ($scope.read) {
-                $scope.readmode();
+            if ($rootScope.read) {
+                $rootScope.readmode();
             }
         }
     }
