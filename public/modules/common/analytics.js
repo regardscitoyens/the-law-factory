@@ -28,7 +28,7 @@ angular.module('theLawFactory')
         var paq = window._paq = [];
         var url = '//' + PIWIK_HOST + '/';
 
-        paq.push(['setDomains', ['*.www.lafabriquedelaloi.fr']]);
+        paq.push(['setDomains', ['*.lafabriquedelaloi.fr']]);
         paq.push(['trackPageView']);
         paq.push(['enableLinkTracking']);
         paq.push(['setTrackerUrl', url + 'piwik.php']);
