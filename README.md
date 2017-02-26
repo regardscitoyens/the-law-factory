@@ -17,8 +17,8 @@ Data backend API code is available on repository https://github.com/RegardsCitoy
 * Configure the aplication by copying `public/config.js.example` as `public/config.js` and set the API Url to the path on which you serve the data directory of RegardsCitoyens:the-law-factory-parser.git. Optionnally set also there your google analytics id and host.
 
   ```bash
-    cp public/js/config.js{.example,}
-    vi public/js/config.js
+    cp public/config.js{.example,}
+    vi public/config.js
   ```
 
 * Serve the `public` directory on a webserver
