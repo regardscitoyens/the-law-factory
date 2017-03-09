@@ -1476,6 +1476,34 @@ noscript span {
   background-image: url(../img/fade-down.png);
   background-repeat: repeat-x;
 }
+
+.amendements .amd-flex .amd-expand-symbol {
+    display:none;
+    color: #888;
+}
+
+/* The fading effect hides the title (e.g. 'Signataires', 'Texte', 'Exposé des
+   motifs') when the resolution is low. When needed, it is replaced by a '[...]'
+   text */
+
+@media (max-height:869px) {
+    .amendements .amd-flex .expanded .amd-expand-symbol {
+	display:none;
+    }
+    .amendements .amd-flex .amd-expand-symbol {
+	display:inline;
+    }
+    .amendements .amd-flex .amd-text-content,
+    .amendements .amd-flex .amd-fade {
+	display: none;
+    }
+
+    .amendements .amd-flex .expanded .amd-text-content {
+	display: block;
+    }
+
+}
+
 .amendements .amd-flex .expanded .amd-fade {
   display: none;
 }
