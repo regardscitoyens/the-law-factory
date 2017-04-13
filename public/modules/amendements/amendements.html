@@ -182,17 +182,20 @@
           <span>{{ selectedAmdtData.sujet }}</span>
         </div>
         <div class="amd-signataires {{ amdtExpanded === 'signataires' ? 'expanded' : '' }}" ng-click="setExpanded('signataires')">
-          <b>Signataires :</b>
+          <b>Signataires</b>
+          <div class='amd-expand-symbol'><span class="glyphicon glyphicon-plus-sign"></span></div>
           <div class="amd-text-content">{{ selectedAmdtData.signataires }}</div>
           <div class="amd-fade"></div>
         </div>
         <div class="amd-motifs {{ amdtExpanded === 'motifs' ? 'expanded' : '' }}" ng-click="setExpanded('motifs')">
-          <b>Exposé des motifs :</b>
+          <b>Exposé des motifs</b>
+          <div class='amd-expand-symbol'><span class="glyphicon glyphicon-plus-sign"></div>
           <div class="amd-text-content" ng-bind-html="selectedAmdtData.trustedExpose"></div>
           <div class="amd-fade"></div>
         </div>
         <div class="amd-text {{ amdtExpanded === 'text' ? 'expanded' : '' }}" ng-click="setExpanded('text')">
-          <b>Texte :</b>
+          <b>Texte</b>
+          <div class='amd-expand-symbol'><span class="glyphicon glyphicon-plus-sign"></div>
           <div class="amd-text-content" ng-bind-html="selectedAmdtData.trustedTexte"></div>
           <div class="amd-fade"></div>
         </div>
