@@ -429,9 +429,8 @@ reset_filters();
                         hashYears[y1] = true;
                     });
                     allYears[0] = "Toutes années";
-                    var ihashYear, hashYearsLen = hashYears.length;
-                    for (ihashYear = 0; ihashYear < hashYearsLen; ++ihashYear) {
-                        allYears.push(ihashYear);
+                    for (var year in hashYears) {
+                        allYears.push(year);
                     }
                     allYears.sort();
                     allYears.reverse();
