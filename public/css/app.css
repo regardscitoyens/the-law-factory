@@ -251,7 +251,7 @@ noscript {
   top: 75px;
   left: 39px;
   right: 39px;
-  z-index: 100;
+  z-index: 20;
 }
 #footer {
   position: absolute;
@@ -374,7 +374,7 @@ noscript span {
   border: 1px solid #716259;
   overflow-y: auto;
   overflow-x: hidden;
-  z-index: 20;
+  z-index: 21;
   list-style: none;
   padding: 0;
 }
