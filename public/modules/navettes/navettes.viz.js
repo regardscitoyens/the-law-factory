@@ -854,7 +854,7 @@ reset_filters();
                 var textContent = '';
                 textContent += '<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + '</p>';
                 textContent += '<div class="gotomod"><a id="explore" class="button" href="articles.html?loi=' + d.id + '">Explorer les articles</a></div>';
-                if (d.procedure != "Normale") textContent += '<p>(procédure accélérée)</p>';
+                if (d.urgence) textContent += '<p>(procédure accélérée)</p>';
                 d.steps.forEach(function (e) {
                     if (e.decision === "partiellement conforme") textContent += '<p>(censure partielle par le Conseil Constitutionnel)</p>';
                 });
