@@ -10,7 +10,9 @@ function ($rootScope, api) {
         controller: function ($scope) {
             $scope.colonnes = [];
             api.getHome().then(function (data) {
-            	$scope.colonnes = data;
+                $scope.total = data.total;
+                $scope.maximum = data.maximum;
+                $scope.colonnes = [data.recent, data.focus];
             });
         }
     };

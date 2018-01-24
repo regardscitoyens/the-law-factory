@@ -80,7 +80,7 @@ angular.module('theLawFactory')
                 });
         },
         getHome: function() {
-            return apiService.getDataSample('home.json')
+            return apiService.getDataSample(API_ROOT_URL + 'home.json')
                 .then(function(data) {
                     $log.debug('home loaded', data);
                     return data;
