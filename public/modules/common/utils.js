@@ -98,8 +98,10 @@
     };
 
     utils.cleanAmdSubject = function (s) {
-        return s.replace(/ART[\.\s]+/i, "Article ")
-            .replace(/A(vant|pr?s) A/i, "A$1 l'A");
+        return utils.upperFirst(s.toLowerCase()
+            .replace(/premier/i, "1er")
+            .replace(/art[\.\s]+/i, "Article ")
+            .replace(/a(vant|pr[eè]s) A/i, "A$1 l'A"));
     };
 
     utils.spinner = (function() {
