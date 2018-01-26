@@ -971,7 +971,7 @@ reset_filters();
                 extrainfo += '<a href="' + d.url_dossier_assemblee + '" target="_blank"><span class="glyphicon glyphicon-link"></span> dossier Assemblée</a>';
                 extrainfo += d.url_jo ? '<br/><a href="' + d.url_jo + '" target="_blank"><span class="glyphicon glyphicon-link"></span> loi sur Légifrance</a>' : '';
                 extrainfo += ' &nbsp; &nbsp; <a href="' + APIRootUrl + d.id + '/" target="_blank"><span class="glyphicon glyphicon-link"></span> OpenData</a>';
-                extrainfo += ' / <a href="http://git.lafabriquedelaloi.fr/parlement/' + d.id + '/" target="_blank">Git</a>';
+                //extrainfo += ' / <a href="http://git.lafabriquedelaloi.fr/parlement/' + d.id + '/" target="_blank">Git</a>';
                 extrainfo += '</small>';
                 extrainfo += '</p>';
                 extrainfo += '</div>';

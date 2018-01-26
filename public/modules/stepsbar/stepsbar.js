@@ -25,7 +25,7 @@ function ($timeout, $rootScope, api) {
                     '</span><span class="links darkonintrojs">' +
                     (data.url_jo ? '<a href="' + data.url_jo + '" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Loi sur Légifrance</a><br/>' : '&nbsp;<br/>') +
                     '<a href="' + scope.APIRootUrl + scope.loi + '/" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Open Data</a>' +
-                    (data.url_jo ? '&nbsp; /<a href="http://git.lafabriquedelaloi.fr/parlement/' + scope.loi+'/" target="_blank" class="darkonintrojs">Git</a>' : '&nbsp;') +
+                    //(data.url_jo ? '&nbsp;/&nbsp;<a href="http://git.lafabriquedelaloi.fr/parlement/' + scope.loi+'/" target="_blank" class="darkonintrojs">Git</a>' : '') +
                     '</span>'
                 );
                 if (leg) $(".law-title").tooltip({ container: 'body' });
