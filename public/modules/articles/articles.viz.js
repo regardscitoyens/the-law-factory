@@ -11,7 +11,7 @@ var valign, stacked, articlesScope, aligned = true;
 
         function titre_etape(article) {
             return article['id_step']
-                .replace('CMP_CMP', 'CMP')
+                .replace('cmp_cmp', 'CMP')
                 .split('_')
                 .slice(1, 4)
                 .map(function (d) {
