@@ -8,7 +8,11 @@
 
     utils.shortNames = {
         "1erelecture": "1<sup>ère</sup> Lect.",
+        "1relecture": "1<sup>ère</sup> Lect.",
         "2emelecture": "2<sup>ème</sup> Lect.",
+        "2melecture": "2<sup>ème</sup> Lect.",
+        "3emelecture": "3<sup>ème</sup> Lect.",
+        "3melecture": "3<sup>ème</sup> Lect.",
         "nouvlect": "Nouv. Lect.",
         "ldfinitive": "Lect.&nbsp;Déf.",
         "assemblee": "AN",
@@ -25,7 +29,11 @@
 
     utils.longNames = {
         "1erelecture": "1<sup>ère</sup> Lecture",
+        "1relecture": "1<sup>ère</sup> Lecture",
         "2emelecture": "2<sup>ème</sup> Lecture",
+        "2melecture": "2<sup>ème</sup> Lecture",
+        "3emelecture": "3<sup>ème</sup> Lecture",
+        "3melecture": "3<sup>ème</sup> Lecture",
         "nouvlect": "Nouvelle Lecture",
         "ldfinitive": "Lecture Définitive",
         "assemblee": "Assemblée",
