@@ -264,7 +264,7 @@
                     var sujet = apiData.sujets[key];
 
                     // Extract article number
-                    sujet.article = sujet.details.replace(/^article /, '');
+                    sujet.article = sujet.titre.replace(/^article /, '');
 
                     // Add status image, group color and group name to amendments
                     sujet.amendements.forEach(function(amdt) {
