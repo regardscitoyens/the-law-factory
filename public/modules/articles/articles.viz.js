@@ -26,7 +26,7 @@ var valign, stacked, articlesScope, aligned = true;
 
         function split_section(s) {
             s = s.replace(/<[^>]*>/g, '');
-            return s.split(/([ALTCVS]+\d+[\s<\/>a-z]*(?:[A-Z]+$)?)/);
+            return s.split(/([ALTCVSP]+\d+[\s<\/>a-z]*(?:[A-Z]+$)?)/);
         }
 
         function sub_section(s) {
@@ -35,7 +35,7 @@ var valign, stacked, articlesScope, aligned = true;
         }
 
         function num_sub_section(s) {
-            return sub_section(s).replace(/^[LTCVS]+/, '');
+            return sub_section(s).replace(/^[LTCVSP]+/, '');
         }
 
         function titre_parent(s, length) {
@@ -52,14 +52,15 @@ var valign, stacked, articlesScope, aligned = true;
             for (i = 0; i < sLen; ++i) {
                 if (s[i]) {
                     res += (res ? " ⋅ " : "");
-                    res += s[i].replace(/([LTCVS]+)(\d+e?r?)\s*([\sa-z]*)/, '$1 $2 $3')
+                    res += s[i].replace(/([LTCVSP]+)(\d+e?r?)\s*([\sa-z]*)/, '$1 $2 $3')
                         .replace(/1er?/g, '1<sup>er</sup>')
                         .replace(/^SS( \d)/, (length ? (length == 1 ? "S-Sec." : "Sous-section") : "SS") + '$1')
                         .replace(/^S( \d)/, (length ? (length == 1 ? "Sect." : "Section") : "S") + '$1')
                         .replace("C ", (length ? (length == 1 ? "Chap." : "Chapitre") : "C") + " ")
                         .replace("V ", (length ? (length == 1 ? "Vol." : "Volume") : "V") + " ")
                         .replace("L ", (length ? "Livre" : "L") + " ")
-                        .replace("T ", (length ? "Titre" : "T") + " ");
+                        .replace("T ", (length ? "Titre" : "T") + " ")
+                        .replace("P ", (length ? "Partie" : "P") + " ");
                 }
             }
             return res;
