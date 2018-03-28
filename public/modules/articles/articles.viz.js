@@ -111,17 +111,23 @@ var valign, stacked, articlesScope, aligned = true;
                 art = d3.values(data.articles);
 
             art.sort(function (a, b) {
+                // put echec first
                 if (a.section === "echec") return (b.section === "echec" ? 0 : -1);
                 else if (b.section === "echec") return 1;
-                var al = a.titre.split(" "), bl = b.titre.split(" "),
-                    ao = 0, bo = 0;
-                if (parseInt(al[0]) != parseInt(bl[0]))
-                    return parseInt(al[0]) - parseInt(bl[0]);
+
+                // sort by article number if the number is not the same
+                var a_num = parseInt(a.titre.split(" ")[0]), b_num = parseInt(b.titre.split(" ")[0]);
+                if (!isNaN(a_num) && !isNaN(b_num) && a_num != b_num)
+                    return a_num - b_num;
+
+                // sort by mean .order
+                var ao = 0, bo = 0
                 for (var i_s = 0; i_s < a.steps.length; i_s++) {
                     ao += a.steps[i_s]['order'];
                     for (var j_s = 0; j_s < b.steps.length; j_s++) {
                         if (i_s == 0)
                             bo += b.steps[j_s]['order'];
+                        // if both articles can be found on the same step, simply sort by .order
                         if (a.steps[i_s]['id_step'] == b.steps[j_s]['id_step'])
                             return a.steps[i_s]['order'] - b.steps[j_s]['order'];
                     }
@@ -567,10 +573,9 @@ var valign, stacked, articlesScope, aligned = true;
                         for (isection = 0; isection < sectionsLen; ++isection) {
                             var currS = currT.filter(function (e) {
                                 return e.sect_num == isection;
-                            })
-                                .sort(function (a, b) {
-                                    return a.order - b.order;
-                                });
+                            }).sort(function (a, b) {
+                                return a.order - b.order;
+                            });
                             if (currS.length) {
                                 var currIdx;
                                 currS.forEach(function (f, k) {
