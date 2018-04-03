@@ -40,3 +40,6 @@ Notes:
 * you have to run `make` and `make install` again if you make any changes to the `public/config.js` file
 * you may run `make clean` to return the tree to its original, fresh-from-git-repository state, but leaves the `prod` directory.
 
+## Credits
+
+This work is supported by a public grant overseen by the French National Research Agency (ANR) as part of the “Investissements d’Avenir” program within the framework of the LIEPP center of excellence (ANR11LABX0091, ANR 11 IDEX000502)
