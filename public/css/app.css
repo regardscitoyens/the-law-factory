@@ -573,6 +573,7 @@ noscript span {
 #about-text {
   margin: 13px 39px;
   padding: 13px;
+  background: #fff;
 }
 #about-title {
   background-color: #716259;
