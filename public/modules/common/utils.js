@@ -24,7 +24,11 @@
         "hemicycle": "Hém.",
         "depot": "Dépôt",
         "depots": "Dépôts",
-        "cmp": "CMP"
+        "cmp": "CMP",
+        "constitutionnalit": "Constit.",
+        "conseilconstitutionnel": "C.C.",
+        "partiellementconforme": "Censuré",
+        "conforme": "Conforme",
     };
 
     utils.longNames = {
@@ -45,7 +49,11 @@
         "hemicycle": "Hémicycle",
         "depot": "Dépôt",
         "depots": "Dépôts",
-        "cmp": "Commission Mixte Paritaire"
+        "cmp": "Commission Mixte Paritaire",
+        "constitutionnalit": "Constitutionnalité",
+        "conseilconstitutionnel": "Conseil Constituonnel",
+        "partiellementconforme": "Partiellement conforme",
+        "conforme": "Conforme",
     };
 
     utils.hashName = function (n) {
