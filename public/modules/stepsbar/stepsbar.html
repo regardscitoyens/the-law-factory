@@ -32,7 +32,7 @@
           ng-show="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='debats'))"
           data-toggle="tooltip"
           data-placement="bottom"
-          title="Explorer les amendements{{ i.enddate === '' ? ' (Mise à jour en temps réel)' : '' }}"
+          title="Explorer {{i.nb_amendements + (i.nb_amendements > 1 ? ' amendements' : 'amendement')}}{{ i.enddate === '' ? ' (Mise à jour en temps réel)' : '' }}"
           href="amendements.html?loi={{loi}}&etape={{i.directory}}">
           <span class="glyphicon glyphicon-folder-open"></span>
           <span ng-hide="i.enddate" class="glyphicon stb-live"></span>
