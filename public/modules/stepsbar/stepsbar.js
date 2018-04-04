@@ -18,7 +18,9 @@ function ($timeout, $rootScope, api) {
                     tit = scope.loi.substr(0, 3).toUpperCase() + " " + thelawfactory.utils.upperFirst(data.short_title);
                 }
                 $(".title").html(
-                    '<h4 class="law-title"' + leg + '>' + tit + '</h4>' +
+                    '<h4 class="law-title"' + leg + '>' +
+                    (data.urgence ? '<i class="glyphicon glyphicon-flash" title="Procédure accélérée"></i> ': '') +
+                    tit + '</h4>' +
                     '<span class="links darkonintrojs">' +
                     (data.url_dossier_senat ? '<a href="'+data.url_dossier_senat+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a><br/>' : '&nbsp;<br/>') +
                     (data.url_dossier_assemblee ? '<a href="' + data.url_dossier_assemblee + '" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Assemblée</a>' : '') +
