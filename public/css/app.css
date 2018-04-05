@@ -704,6 +704,10 @@ noscript span {
   flex-grow: 1;
   line-height: 50px;
 }
+.module-title .urgence {
+  margin-left: -5px;
+  margin-right: 10px;
+}
 .module-title .links {
   flex-basis: 144px;
 }

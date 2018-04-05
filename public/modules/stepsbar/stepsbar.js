@@ -19,7 +19,7 @@ function ($timeout, $rootScope, api) {
                 }
                 $(".title").html(
                     '<h4 class="law-title"' + leg + '>' +
-                    (data.urgence ? '<i class="glyphicon glyphicon-flash" title="Procédure accélérée"></i> ': '') +
+                    (data.urgence ? '<i class="urgence glyphicon glyphicon-flash" title="Procédure accélérée" data-toggle="tooltip" data-placement="bottom"></i> ': '') +
                     tit + '</h4>' +
                     '<span class="links darkonintrojs">' +
                     (data.url_dossier_senat ? '<a href="'+data.url_dossier_senat+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a><br/>' : '&nbsp;<br/>') +
@@ -31,6 +31,7 @@ function ($timeout, $rootScope, api) {
                     '</span>'
                 );
                 if (leg) $(".law-title").tooltip({ container: 'body' });
+                if (data.urgence) $("i.urgence").tooltip({ container: 'body' });
 
                 scope.stages = [];
                 scope.steps = [];
