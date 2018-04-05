@@ -593,6 +593,13 @@ noscript span {
 #about-text ul {
   padding-left: 1.5em;
 }
+#about-text .partners {
+  height: 60px;
+  text-align: center;
+}
+#about-text .partners img {
+  margin: 5px 15px;
+}
 /**************************** Common module layont ***************************/
 .module-title {
   position: absolute;
