@@ -26,9 +26,10 @@
         "depots": "Dépôts",
         "cmp": "CMP",
         "constitutionnalit": "Constit.",
-        "conseilconstitutionnel": "C.C.",
+        "conseilconstitutionnel": "CC",
         "partiellementconforme": "Censuré",
         "conforme": "Conforme",
+        "congrs": "Congrès"
     };
 
     utils.longNames = {
@@ -51,9 +52,10 @@
         "depots": "Dépôts",
         "cmp": "Commission Mixte Paritaire",
         "constitutionnalit": "Constitutionnalité",
-        "conseilconstitutionnel": "Conseil Constituonnel",
+        "conseilconstitutionnel": "Conseil Constitutionnel",
         "partiellementconforme": "Partiellement conforme",
         "conforme": "Conforme",
+        "congrs": "Congrès"
     };
 
     utils.hashName = function (n) {
