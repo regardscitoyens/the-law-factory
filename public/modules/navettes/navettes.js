@@ -13,7 +13,7 @@ function (api, $rootScope) {
             $scope.vizTitle = "NAVETTES";
             $rootScope.pageTitle = "";
 
-            $(".title").html('<h4 class="law-title">Explorer les textes promulgués depuis 2010</h4>');
+            $(".title").html('<h4 class="law-title">Explorer les textes promulgués depuis 2008</h4>');
             $("#navettes-slider").slider({
                 min: 1,
                 max: 10,
