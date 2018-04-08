@@ -2,8 +2,11 @@
 
   <div class="stb-stages">
     <div ng-cloak class="stb-stage {{ i.name | slug }}" id="stage_{{$index}}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in stages">
+      <div>
       <span class="short-label" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}" ng-bind-html="i.short_name"></span>
-      <span class="long-label" ng-bind-html="i.long_name"></span>
+      <span class="long-label" ng-bind-html="i.long_name + (i.urgence ? ' (urgence)' : '')"></span>
+      <span ng-show="i.urgence" class="stb-link stb-special glyphicon glyphicon-flash" data-toggle="tooltip" data-placement="bottom" title="Procédure accélérée"></span>
+      </div>
     </div>
   </div>
 
@@ -22,7 +25,7 @@
           <span class="short-label" data-toggle="tooltip" data-placement="bottom" title="{{ i.long_name }} <br/> {{ i.enddate | formatDate }}">{{i.short_name}}</span>
           <span class="long-label" data-toggle="tooltip" data-placement="bottom" title="{{ i.enddate | formatDate }}">{{i.long_name}}</span>
           <a ng-hide="!i.source_url || i.echec=='renvoi en commission'" class="stb-linkstep glyphicon glyphicon-link" data-toggle="tooltip" data-placement="bottom" title="Voir la source" href="{{i.source_url}}" target="_blank"></a>
-          <span ng-show="i.echec=='renvoi en commission'" class="stb-link stb-renvoi glyphicon glyphicon-ban-circle" data-toggle="tooltip" data-placement="bottom" title="Renvoi en commission"></span>
+          <span ng-show="i.echec=='renvoi en commission'" class="stb-link stb-special glyphicon glyphicon-ban-circle" data-toggle="tooltip" data-placement="bottom" title="Renvoi en commission"></span>
         </span>
       </div>
 
