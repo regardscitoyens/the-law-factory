@@ -314,9 +314,11 @@ noscript span {
   flex-grow: 1;
   position: relative;
   height: 34px;
+}
+#header-nav #navbar-form .inputgrp input {
   opacity: 0.3;
 }
-#header-nav #navbar-form:hover .inputgrp {
+#header-nav #navbar-form:hover .inputgrp input {
   opacity: 1;
 }
 #header-nav #navbar-form input {
@@ -336,6 +338,7 @@ noscript span {
   right: 13px;
   top: 0;
   line-height: 34px;
+  opacity: 0.3;
 }
 #header-nav #navbar-form button {
   display: inline-block;
@@ -410,6 +413,9 @@ noscript span {
 .ui-autocomplete li.ui-state-focus .src-ico,
 .ui-autocomplete li.ui-state-focus .glyphicon {
   color: inherit;
+}
+.ui-helper-hidden-accessible {
+  display: none;
 }
 #footer {
   list-style: none;

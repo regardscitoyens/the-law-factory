@@ -72,21 +72,21 @@ function ($location, $rootScope, api) {
                         appendTo: ".lawlist",
                         select: function (event, ui) {
                             $rootScope.$apply(function () {
-                                $("body").css("overflow", "auto");
                                 $location.path(($location.path() === '/lois.html' ? 'loi' : 'article') + "s.html");
                                 $location.search("loi=" + ui.item.value);
                                 $(".form-law").css('opacity', 0.3);
+                                $('#navbar-form .message').text('');
                             });
                         },
                         messages: {
                             noResults: function () {
                                 var msg = 'Aucune loi trouvée';
-                                $('#header-search .message').text(msg);
+                                $('#navbar-form .message').text(msg);
                                 return msg;
                             },
                             results: function (d) {
                                 var msg = d + " loi" + (d > 1 ? "s trouvées" : " trouvée");
-                                $('#header-search .message').text(msg);
+                                $('#navbar-form .message').text(msg);
                                 return msg;
                             }
                         }
