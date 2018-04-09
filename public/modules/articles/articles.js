@@ -63,6 +63,7 @@ function ($rootScope, api) {
                 } else {
                     $(".art-txt").html(d.originalText).animate({opacity: 1}, 350);
                 }
+                $(".art-txt table").attr("class", "table table-bordered table-striped");
             };
         }
     };
