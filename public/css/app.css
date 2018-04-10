@@ -1279,10 +1279,16 @@ noscript span {
   top: 13px;
 }
 .articles .art-txt ul {
-  padding-left: 13px;
+  padding-left: 10px;
 }
 .articles .art-txt ul li {
   margin-bottom: 13px;
+  padding-left: 5px;
+}
+.articles .art-txt ul li span {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: -5px;
 }
 .articles ul.originaltext {
   list-style-type: decimal-leading-zero;
