@@ -1285,14 +1285,14 @@ noscript span {
   margin-bottom: 13px;
   padding-left: 5px;
 }
-.articles .art-txt ul li span {
-  display: inline-block;
-  vertical-align: top;
-  margin-top: -5px;
-}
 .articles ul.originaltext {
   list-style-type: decimal-leading-zero;
   font-size: 0.7em;
+}
+.articles .art-txt ul.originaltext li span {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: -5px;
 }
 .articles ul.originaltext li span,
 .articles ul.originaltext li ins {
