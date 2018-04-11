@@ -18,7 +18,7 @@ var drawGantt, navettesScope,
     active_filters,
     reset_filters = function () {
         active_filters = {
-            year: 2017,
+            year: 2018,
             theme: "",
             length: '',
             amendments: allAmendments[3]
