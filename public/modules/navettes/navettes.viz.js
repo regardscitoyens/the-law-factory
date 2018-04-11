@@ -103,6 +103,7 @@ reset_filters();
                         .replace('CMP', 'Commission Mixte Paritaire')
                         .replace('hemicycle', 'Hémicycle')
                         .replace('constitutionnalité', 'Conseil Constitutionnel')
+                        .replace('congrès', 'Congrès')
                         .replace('assemblee', 'Assemblée nationale')
                         .replace('senat', 'Sénat');
                     return thelawfactory.utils.upperFirst(d);
@@ -113,7 +114,7 @@ reset_filters();
                     return [d[2], d[1], d[0]].join('/');
                 },
                 popover = function (d) {
-                    var title = ((d.institution == "assemblee" || d.institution == "senat") && layout == 'q' ? format_title(d.institution) + " — " : "") + format_title(d.step ? d.step : d.stage),
+                    var title = ((d.institution == "assemblee" || d.institution == "senat" || d.institution == "congrès") && layout == 'q' ? format_title(d.institution) + " — " : "") + format_title(d.step && d.stage !== "congrès" ? d.step : d.stage),
                         div = d3.select(document.createElement("div")).style("width", "100%").attr('class', 'pop0');
                     if (d.stage == "CMP") {
                         div.append("p").html(title);
@@ -341,6 +342,8 @@ reset_filters();
                 steps.forEach(function (e, j) {
                     if (e.stage === "constitutionnalité" || e.institution === "conseil constitutionnel")
                         e.stepname = "CC";
+                    else if (e.stage === "congrès")
+                        e.stepname = "CG";
                     else if (e.stage === "promulgation")
                         e.stepname = "JO";
                     else if (e.step !== "depot" && (e.institution === "assemblee" || e.institution === "senat"))
@@ -386,7 +389,7 @@ reset_filters();
 
                         var remove = [];
                         d.timesteps.forEach(function (s, j) {
-                            if ((s.step === 'hemicycle' && d.timesteps[j - 1].stage != 'l. définitive') || (s.step === 'depot' && j)) {
+                            if ((s.step === 'hemicycle' && d.timesteps[j-1].stage !== 'l. définitive' && s.stage !== 'congrès') || (s.step === 'depot' && j)) {
                                 remove.unshift(j);
                                 if (s.step === 'hemicycle') {
                                     d.timesteps[j - 1].enddate = s.enddate;
@@ -792,6 +795,7 @@ reset_filters();
                 if (d.institution === "assemblee") return "AN";
                 if (d.institution === "senat") return "SE";
                 if (d.institution === "conseil constitutionnel") return "CC";
+                if (d.institution === "congrès") return "CG";
                 if (d.stage === "promulgation") return "PR";
                 return "Color_Default";
             }

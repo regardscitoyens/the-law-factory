@@ -1061,6 +1061,9 @@ noscript span {
 .navettes .CC {
   fill: #aeeaaa;
 }
+.navettes .CG {
+  fill: #dfb3f3;
+}
 .navettes .PR {
   fill: #716259;
 }
@@ -1197,6 +1200,9 @@ noscript span {
 }
 .navettes-popover.CC h3 {
   border-bottom: 7px solid #aeeaaa;
+}
+.navettes-popover.CG h3 {
+  border-bottom: 7px solid #dfb3f3;
 }
 .navettes-popover.PR h3 {
   border-bottom: 7px solid #716259;
