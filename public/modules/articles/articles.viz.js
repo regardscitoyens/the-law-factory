@@ -12,6 +12,8 @@ var valign, stacked, articlesScope, aligned = true;
         function titre_etape(article) {
             return article['id_step']
                 .replace('cmp_cmp', 'CMP')
+                .replace('_congres', '')
+                .replace(/_$/, '')
                 .split('_')
                 .slice(1, 4)
                 .map(function (d) {

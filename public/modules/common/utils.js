@@ -55,7 +55,8 @@
         "conseilconstitutionnel": "Conseil Constitutionnel",
         "partiellementconforme": "Partiellement conforme",
         "conforme": "Conforme",
-        "congrs": "Congrès"
+        "congrs": "Congrès",
+        "congres": "Congrès"
     };
 
     utils.hashName = function (n) {
