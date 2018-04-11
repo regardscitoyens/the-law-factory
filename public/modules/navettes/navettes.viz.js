@@ -435,7 +435,7 @@ reset_filters();
                     allYears.sort();
                     allYears.reverse();
                     allThemes = allThemes.filter(function (itm, i, a) {
-                        return i == a.indexOf(itm);   // unify
+                        return itm && i == a.indexOf(itm);   // unify
                     });
                     allThemes.sort(function (a, b) {
                         var ac = thelawfactory.utils.clean_accents(a),
