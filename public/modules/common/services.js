@@ -66,7 +66,7 @@ angular.module('theLawFactory')
                 });
         },
         getDossiers: function () {
-            return apiService.getDataSample(API_ROOT_URL + 'dossiers_0_49.json')
+            return apiService.getDataSample(API_ROOT_URL + 'dossiers_0.json')
                 .then(function(data) {
                     $log.debug('dossiers loaded', data);
                     return data;
