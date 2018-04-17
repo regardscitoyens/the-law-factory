@@ -27,7 +27,7 @@
         "cmp": "CMP",
         "constitutionnalit": "Constit.",
         "conseilconstitutionnel": "CC",
-        "partiellementconforme": "Censuré",
+        "partiellementconforme": "Censure",
         "conforme": "Conforme",
         "congrs": "Congrès"
     };
