@@ -828,8 +828,8 @@ var valign, stacked, articlesScope, aligned = true;
                                             },
                                             diff = dmp.diff_main(preptxt(textArticles, d.article, d.prev_dir), preptxt(textArticles, d.article, d.directory));
                                         // see https://neil.fraser.name/software/diff_match_patch/demos/diff.html to try other methods
-                                        dmp.diff_cleanupEfficiency(diff);
                                         dmp.diff_cleanupSemantic(diff);
+                                        dmp.diff_cleanupEfficiency(diff);
                                         d.textDiff = '<ul class="textdiff"><li>';
                                         d.textDiff += diff_to_html(diff)
                                             .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
