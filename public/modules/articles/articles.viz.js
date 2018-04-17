@@ -329,7 +329,11 @@ var valign, stacked, articlesScope, aligned = true;
                     for (se in sections) {
 
                         var datarts = bigList.filter(function (d) {
-                            return (d.length > 0 && d.step_num == st && d.sect_num == se)
+                            d.viz_height = d.length;
+                            if (d.status == 'sup') {
+                                d.viz_height = 50;
+                            }
+                            return (d.viz_height && d.step_num == st && d.sect_num == se);
                         });
                         var group = svg.append("g")
                             .attr("class", "group se" + se + " st" + st);
@@ -354,7 +358,7 @@ var valign, stacked, articlesScope, aligned = true;
                             })
                             .attr("width", colwidth)
                             .attr("height", function (d) {
-                                return lerp(d.length)
+                                return lerp(d.viz_height)
                             })
                             .attr("class", function (d) {
                                 return "article " + d.section.replace(/ |<|\/|>|/g, "") + " sect" + d.step_num;
@@ -384,7 +388,7 @@ var valign, stacked, articlesScope, aligned = true;
                                 return d.x + 1
                             })
                             .attr("height", function (d) {
-                                return lerp(d.length) - 2
+                                return lerp(d.viz_height) - 2
                             })
                             .attr("width", 6)
                             .on("click", onclick)
@@ -393,7 +397,7 @@ var valign, stacked, articlesScope, aligned = true;
                         //Add red labels for removed elements
                         group.selectAll(".sup")
                             .data(bigList.filter(function (d) {
-                                return (d.length > 0 && d.step_num == st && d.sect_num == se && d.status === "sup")
+                                return (d.step_num == st && d.sect_num == se && d.status === "sup")
                             }))
                             .enter().append("rect")
                             .attr("class", "sup")
@@ -404,7 +408,7 @@ var valign, stacked, articlesScope, aligned = true;
                                 return d.x + 1
                             })
                             .attr("height", function (d) {
-                                return lerp(d.length) - 2
+                                return lerp(d.viz_height) - 2
                             })
                             .attr("width", 6)
                             .on("click", onclick)
@@ -531,7 +535,7 @@ var valign, stacked, articlesScope, aligned = true;
                         return d.x + colwidth;
                     })
                     .attr("y1", function (d) {
-                        return d.y + (lerp(d.length)) / 2
+                        return d.y + (lerp(d.viz_height)) / 2
                     })
                     .attr("x2", function (d) {
                         return bigList.filter(function (e) {
@@ -542,7 +546,7 @@ var valign, stacked, articlesScope, aligned = true;
                         var a = bigList.filter(function (e) {
                             return d.article == e.article && d.step_num == e.prev_step
                         })[0];
-                        return a.y + (lerp(a.length)) / 2;
+                        return a.y + (lerp(a.viz_height)) / 2;
                     })
                     .style("stroke", "#d0d0e0")
                     .style("stroke-width", 1);
@@ -709,7 +713,7 @@ var valign, stacked, articlesScope, aligned = true;
                                 if (!hs) hs = 0;
                                 d.hs = parseFloat(hs)
                             }
-                            return d.hs + d.y + (lerp(d.length)) / 2
+                            return d.hs + d.y + (lerp(d.viz_height)) / 2
                         })
                         .attr("y2", function (d) {
 
@@ -721,7 +725,7 @@ var valign, stacked, articlesScope, aligned = true;
                                 if (!he) he = 0;
                                 a.he = parseFloat(he)
                             }
-                            return a.he + a.y + (lerp(a.length)) / 2;
+                            return a.he + a.y + (lerp(a.viz_height)) / 2;
                         });
                 }
 
@@ -737,13 +741,13 @@ var valign, stacked, articlesScope, aligned = true;
 
                     d3.selectAll("line").transition().duration(500)
                         .attr("y1", function (d) {
-                            return d.y + (lerp(d.length)) / 2
+                            return d.y + (lerp(d.viz_height)) / 2
                         })
                         .attr("y2", function (d) {
                             var a = bigList.filter(function (e) {
                                 return e.article === d.article && e.prev_step == d.step_num
                             })[0];
-                            return a.y + (lerp(a.length)) / 2;
+                            return a.y + (lerp(a.viz_height)) / 2;
                         });
                     $("svg").height(maxy);
                 };

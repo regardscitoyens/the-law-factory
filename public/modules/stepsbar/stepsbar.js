@@ -108,7 +108,7 @@ function ($timeout, $rootScope, api) {
             function stepLegend (el) {
                 if (el.step === "depot") return (el.auteur_depot == "Gouvernement" ? "Projet de Loi" : "Proposition de Loi");
                 if (el.stage === "constitutionnalité") {
-                    return thelawfactory.utils.getLongName(el.decision || '');
+                    return thelawfactory.utils.getLongName(el.decision || 'conforme');
                 }
                 else return thelawfactory.utils.getLongName(el.step);
             }
