@@ -35,14 +35,14 @@
           ng-show="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='debats'))"
           data-toggle="tooltip"
           data-placement="bottom"
-          title="Explorer {{i.nb_amendements + (i.nb_amendements > 1 ? ' amendements' : 'amendement')}}{{ i.enddate === '' ? ' (Mise à jour en temps réel)' : '' }}"
+          title="Explorer {{i.nb_amendements + (i.nb_amendements > 1 ? ' amendements' : 'amendement')}}" livetitle="{{ i.enddate === '' ? ' (Mise à jour en temps réel)' : '' }}"
           href="amendements.html?loi={{loi}}&etape={{i.directory}}">
           <span class="glyphicon glyphicon-folder-open"></span>
           <span ng-hide="i.enddate" class="glyphicon stb-live"></span>
         </a>
         <span ng-hide="i.nb_amendements && (etape!=i.directory ||(etape==i.directory && mod=='debats'))" class="stb-link low-vis" ng-class="{'stb-curr-st':etape==i.directory && mod=='amendements'}">
           <span class="glyphicon glyphicon-folder-open"></span>
-          <span ng-hide="i.enddate || !i.nb_amendements" class="glyphicon stb-live {{ reloading ? 'reloading' : '' }}" data-toggle="tooltip" data-placement="bottom" title="Mise à jour en temps réel &ndash; cliquer pour forcer la mise à jour" ng-click="updateAmdts()"></span>
+          <!-- <span ng-hide="i.enddate || !i.nb_amendements" class="glyphicon stb-live {{ reloading ? 'reloading' : '' }}" data-toggle="tooltip" data-placement="bottom" title="Mise à jour en temps réel &ndash; cliquer pour forcer la mise à jour" ng-click="updateAmdts()"></span> -->
         </span>
 
         <a

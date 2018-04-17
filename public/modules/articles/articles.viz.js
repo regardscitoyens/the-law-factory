@@ -47,7 +47,7 @@ var valign, stacked, articlesScope, aligned = true;
         }
 
         function art_height(d) {
-            return d.status == 'sup' ? 50 : d.length;
+            return d.status == 'sup' ? 20 : d.length;
         }
 
         function titre_section(s, length) {
