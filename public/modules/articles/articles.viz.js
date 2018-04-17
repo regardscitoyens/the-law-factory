@@ -320,9 +320,9 @@ var valign, stacked, articlesScope, aligned = true;
                 prepareSizes();
                 setCoordinates();
 
-                maxy = Math.max($("#viz").height(), d3.max(bigList, function (d) {
+                maxy = Math.max($("#viz").height() - 50, d3.max(bigList, function (d) {
                         return d.y + lerp(d.length)
-                    }) + 50);
+                    }));
                 //create SVG
                 $("svg").remove();
                 svg = d3.select("#viz").append("svg").attr("width", "100%").attr("height", maxy).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -428,7 +428,7 @@ var valign, stacked, articlesScope, aligned = true;
                             .classed("echec", function(d) { return d.section === 'echec'})
                             .attr("width", colwidth)
                             .attr("height", function (d) {
-                                return (d.section === 'echec' ? maxy - 50 : sectHeight);
+                                return (d.section === 'echec' ? maxy : sectHeight);
                             })
                             .style("opacity", function (d) {
                                 return section_opacity(d.section)
@@ -588,7 +588,7 @@ var valign, stacked, articlesScope, aligned = true;
                                         currS[currIdx].head = 1;
                                     }
                                     f.y = currY;
-                                    f.x = f.step_num * width / columns + 10;
+                                    f.x = f.step_num * width / columns + 10 + (f.step_num !== stagesLen - 1 ? 5 : 0);
                                     currY += lerp(f.length) + 1
                                 });
                                 // Identify section jumps
