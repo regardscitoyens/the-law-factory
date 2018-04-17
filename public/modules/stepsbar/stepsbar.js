@@ -116,7 +116,7 @@ function ($timeout, $rootScope, api) {
             function stepLabel (el) {
                 if (el.step === "depot") return (el.auteur_depot == "Gouvernement" ? "PJL" : "PPL");
                 if (el.stage === "constitutionnalité") {
-                    return thelawfactory.utils.getShortName(el.decision || '');
+                    return thelawfactory.utils.getShortName(el.decision || 'conforme');
                 }
                 return thelawfactory.utils.getShortName(el.step);
             }
