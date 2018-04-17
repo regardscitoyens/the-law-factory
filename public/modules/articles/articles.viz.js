@@ -149,18 +149,16 @@ var valign, stacked, articlesScope, aligned = true;
                 })).values().sort()
                     .forEach(function (d) {
                         delay += 50;
-                        setTimeout(function () {
-                            d3.json(encodeURI(APIRootUrl + loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
-                                json.articles.forEach(function (a) {
-                                    if (!textArticles[a.titre]) textArticles[a.titre] = {};
-                                    textArticles[a.titre][d] = [];
-                                    Object.keys(a.alineas).sort().forEach(function (k) {
-                                        textArticles[a.titre][d].push(a.alineas[k]);
-                                    });
+                        d3.json(encodeURI(APIRootUrl + loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
+                            json.articles.forEach(function (a) {
+                                if (!textArticles[a.titre]) textArticles[a.titre] = {};
+                                textArticles[a.titre][d] = [];
+                                Object.keys(a.alineas).sort().forEach(function (k) {
+                                    textArticles[a.titre][d].push(a.alineas[k]);
                                 });
-                                to_load -= 1;
                             });
-                        }, delay);
+                            to_load -= 1;
+                        });
                     });
             }
 
@@ -856,7 +854,6 @@ var valign, stacked, articlesScope, aligned = true;
             $(document).ready(function () {
                 drawArticles();
                 $(".art-txt").empty().html(helpText);
-                setTimeout(load_texte_articles, 50);
                 $(window).resize(function () {
                     if (drawing || $("#view").scope().mod != "articles") return;
                     var selected_art = d3.selectAll(".curr");
@@ -869,6 +866,7 @@ var valign, stacked, articlesScope, aligned = true;
                         drawing = false;
                     }, 50);
                 });
+                setTimeout(load_texte_articles, 250);
             });
         }
 
