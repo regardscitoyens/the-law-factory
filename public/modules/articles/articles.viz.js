@@ -817,7 +817,7 @@ var valign, stacked, articlesScope, aligned = true;
                                             }).join("</" + balise + "></li><li><" + balise + ">") + "</" + balise + "></li></ul>";
                                     } else d.originalText = "<p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
 
-                                    if (textArticles[d.article][d.prev_dir] && d.n_diff) {
+                                    if (textArticles[d.article][d.prev_dir]) {
                                         if (!textArticles[d.article][d.directory])
                                             textArticles[d.article][d.directory] = [];
                                         var dmp = new diff_match_patch();
@@ -826,11 +826,13 @@ var valign, stacked, articlesScope, aligned = true;
                                         var preptxt = function (arts, art, dir) {
                                                 return arts[art][dir].join("\n").replace(/<[^>]+>/g, '');
                                             },
-                                            diff = dmp.diff_main(preptxt(textArticles, d.article, d.prev_dir), preptxt(textArticles, d.article, d.directory));
+                                            t1 = preptxt(textArticles, d.article, d.prev_dir),
+                                            t2 = preptxt(textArticles, d.article, d.directory),
+                                            diff = dmp.diff_main(t1, t2);
                                         // see https://neil.fraser.name/software/diff_match_patch/demos/diff.html to try other methods
                                         dmp.diff_cleanupSemantic(diff);
                                         dmp.diff_cleanupEfficiency(diff);
-                                        d.textDiff = '<ul class="textdiff"><li>';
+                                        d.textDiff = '<ul class="' + (t1 !== t2 ? 'textdiff' : 'originaltext' ) + '"><li>';
                                         d.textDiff += diff_to_html(diff)
                                             .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
                                         d.textDiff += "</li></ul>";
