@@ -38,11 +38,11 @@ function ($location, $rootScope, api) {
                             response($.map($.grep(laws.sort(function (a, b) {
                                 return b["Date de promulgation"] > a["Date de promulgation"];
                             }), function (value) {
-                                value = thelawfactory.utils.clean_accents(value.Titre + " " + value.id + " " + value["Thèmes"] + " " + value.short_title);
+                                value = thelawfactory.utils.clean_accents(value.Titre + " " + value.id + " " + value["Thèmes"] + " " + value.short_title + " " + value.loi_dite);
                                 return matcher.test(thelawfactory.utils.clean_accents(value));
                             }), function (n) {
                                 return {
-                                    "label": n.short_title.replace(/ \([^)]*\)/g, '') + " (" + n.Titre + ")",
+                                    "label": (n.short_title || "").replace(/ \([^)]*\)/g, '') + " (" + (n.loi_dite ? n.loi_dite + " : " : "") + n.Titre + ")",
                                     "value": n.id,
                                     "themes": n["Thèmes"],
                                     "amendements": n.total_amendements,
@@ -93,7 +93,7 @@ function ($location, $rootScope, api) {
                     })
                     .data("ui-autocomplete")._renderItem = function (ul, item) {
                         var themesdiv = $("<div>");
-                        item.themes.replace(/ et /g, ', ').split(', ').forEach(function (e) {
+                        (item.themes || "").replace(/ et /g, ', ').split(', ').forEach(function (e) {
                             themesdiv.append("<span class='glyphicon glyphicon-tag'></span> " + e.toLowerCase() + " ");
                         });
 
