@@ -117,6 +117,10 @@ var valign, stacked, articlesScope, aligned = true;
                 art = d3.values(data.articles);
 
             art.sort(function (a, b) {
+                if (a.order || b.order)
+                    return a.order - b.order;
+                // TODO remove rest when all data regenerated
+
                 // put echec first
                 if (a.section === "echec") return (b.section === "echec" ? 0 : -1);
                 else if (b.section === "echec") return 1;
@@ -214,6 +218,8 @@ var valign, stacked, articlesScope, aligned = true;
                 d.steps.forEach(function (f, j) {
                     f.textDiff = "";
                     f.article = d.titre;
+                    // TODO: remove if when all data regenerated
+                    if (d.order) f.order = d.order;
                     f.section = d.section;
                     f.prev_step = null;
                     f.prev_dir = null;
