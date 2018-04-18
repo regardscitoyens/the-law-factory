@@ -441,6 +441,13 @@ noscript span {
   background-color: #eee;
 }
 /************************************ Home ***********************************/
+#home #homewarning {
+  text-align: center;
+  padding: 5px;
+  background-color: #f99b91;
+  color: white;
+  font-weight: bold;
+}
 #home #headline {
   text-align: center;
   padding: 13px 0;
