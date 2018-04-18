@@ -589,7 +589,7 @@ var valign, stacked, articlesScope, aligned = true;
                                     }
                                     f.y = currY;
                                     f.x = f.step_num * width / columns + 10 + (f.step_num !== stagesLen - 1 ? 5 : 0);
-                                    currY += lerp(f.length) + 1
+                                    currY += lerp(art_height(f)) + 1
                                 });
                                 // Identify section jumps
                                 var lastsplit = split_section(lastS);
