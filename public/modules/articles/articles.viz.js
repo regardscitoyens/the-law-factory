@@ -817,7 +817,7 @@ var valign, stacked, articlesScope, aligned = true;
                                             }).join("</" + balise + "></li><li><" + balise + ">") + "</" + balise + "></li></ul>";
                                     } else d.originalText = "<p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
 
-                                    if (textArticles[d.article][d.prev_dir]) {
+                                    if (textArticles[d.article][d.prev_dir] && d.n_diff) {
                                         if (!textArticles[d.article][d.directory])
                                             textArticles[d.article][d.directory] = [];
                                         var dmp = new diff_match_patch();
