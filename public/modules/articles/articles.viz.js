@@ -58,10 +58,11 @@ var valign, stacked, articlesScope, aligned = true;
             for (i = 0; i < sLen; ++i) {
                 if (s[i]) {
                     res += (res ? " ⋅ " : "");
-                    res += s[i].replace(/([LTCVSP]+)(\d+e?r?)\s*([\sa-z]*)/, '$1 $2 $3')
+                    res += s[i].replace(/([LTCVSP]+)(\d+e?r?|L)\s*([\sa-z]*)/, '$1 $2 $3')
                         .replace(/1er?/g, '1<sup>er</sup>')
-                        .replace(/^SS( \d)/, (length ? (length == 1 ? "S-Sec." : "Sous-section") : "SS") + '$1')
-                        .replace(/^S( \d)/, (length ? (length == 1 ? "Sect." : "Section") : "S") + '$1')
+                        .replace(/^SS( [\dL])/, (length ? (length == 1 ? "S-Sec." : "Sous-section") : "SS") + '$1')
+                        .replace(/^S( [\dL])/, (length ? (length == 1 ? "Sect." : "Section") : "S") + '$1')
+                        .replace(" L", " " + (length ? (length == 1 ? "Lim." : "Liminaire") : "L"))
                         .replace("C ", (length ? (length == 1 ? "Chap." : "Chapitre") : "C") + " ")
                         .replace("V ", (length ? (length == 1 ? "Vol." : "Volume") : "V") + " ")
                         .replace("L ", (length ? "Livre" : "L") + " ")
