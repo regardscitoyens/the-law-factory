@@ -23,7 +23,10 @@ function ($location, $rootScope, api) {
                         $.each(headers, function (i, header) {
                             law[header] = lawdata[i];
                         });
+                        law.searchable = thelawfactory.utils.clean_accents(law.Titre + " " + law.id + " " + law["Thèmes"] + " " + law.short_title + " " + law.loi_dite);
                         return law;
+                    }).sort(function (a, b) {
+                        return b["Date de promulgation"] > a["Date de promulgation"];
                     });
 
                     $rootScope.lawlist = laws;
@@ -34,13 +37,9 @@ function ($location, $rootScope, api) {
                         $(".form-law").css('opacity', 0.3);
                     }).autocomplete({
                         source: function (request, response) {
+                            if (request.term.length < 3) return response([]);
                             var matcher = new RegExp($.ui.autocomplete.escapeRegex(thelawfactory.utils.clean_accents(request.term)), "i");
-                            response($.map($.grep(laws.sort(function (a, b) {
-                                return b["Date de promulgation"] > a["Date de promulgation"];
-                            }), function (value) {
-                                value = thelawfactory.utils.clean_accents(value.Titre + " " + value.id + " " + value["Thèmes"] + " " + value.short_title + " " + value.loi_dite);
-                                return matcher.test(thelawfactory.utils.clean_accents(value));
-                            }), function (n) {
+                            response($.map($.grep(laws, function (value) { return matcher.test(value.searchable); }), function (n) {
                                 return {
                                     "label": (n.short_title || "").replace(/ \([^)]*\)/g, '') + " (" + (n.loi_dite ? n.loi_dite + " : " : "") + n.Titre + ")",
                                     "value": n.id,
