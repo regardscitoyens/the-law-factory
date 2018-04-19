@@ -76,7 +76,7 @@ function ($timeout, $rootScope, api) {
                     }
                     currStage.urgence = data.urgence && /^1/.test(currStage.name);
 
-                    if ((e.step === "depot" && currInst.name === e.auteur_depot) || (e.step !== "depot" && e.institution === currInst.name))
+                    if (currStage.num !== 1 && ((e.step === "depot" && currInst.name === e.auteur_depot) || (e.step !== "depot" && e.institution === currInst.name)))
                         currInst.num++;
                     else {
                         if (currInst.name)
