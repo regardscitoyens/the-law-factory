@@ -139,7 +139,7 @@ function ($timeout, $rootScope, api) {
 
                 if (containerSelector === '*') containerSelector = '';
                 shortStyle.sheet.insertRule("#stepsbar " + containerSelector + " .long-label { display: none; }", 0);
-                shortStyle.sheet.insertRule("#stepsbar " + containerSelector + " .short-label { display: initial; }", 1);
+                shortStyle.sheet.insertRule("#stepsbar " + containerSelector + " .short-label { display: block; }", 1);
             }
         }
     }
