@@ -9,13 +9,12 @@ function ($location, $rootScope, api) {
         link: function postLink(scope) {
             function update() {
                 api.getLawlist().then(function (data) {
-                    scope.ll = data;
                     // Process data to a list of law object
                     // with properties' names set by headers
-                    var headers, laws, rows = scope.ll.split(/\r\n|\n/);
+                    var rows = data.split(/[\r\n]+/).filter(function(x) { return x.trim(); }),
                     headers = rows.splice(0, 1)[0].split(";").map(function (x) {
                         return x.replace(/(^"|"$)/g, '')
-                    });
+                    }),
                     laws = $.map(rows, function (row) {
                         var law = {}, lawdata = row.split(';').map(function (x) {
                             return x.replace(/(^"|"$)/g, '')
