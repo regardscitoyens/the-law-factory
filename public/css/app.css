@@ -630,6 +630,9 @@ noscript span {
   right: 0;
   height: 50px;
 }
+nav .tutorial-button {
+  display: block;
+}
 /* Main module display zone */
 #display {
   position: absolute;

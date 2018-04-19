@@ -24,6 +24,8 @@ function (api, $rootScope) {
                 }
             });
 
+            $(".tutorial-button").tooltip();
+
             update();
 
             function update() {

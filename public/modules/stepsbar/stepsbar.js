@@ -30,6 +30,7 @@ function ($timeout, $rootScope, api) {
                     '</span>'
                 );
                 if (leg) $(".law-title").tooltip({ container: 'body' });
+                $(".tutorial-button").tooltip();
 
                 scope.stages = [];
                 scope.steps = [];

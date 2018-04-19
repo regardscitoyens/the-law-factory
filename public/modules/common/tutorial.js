@@ -8,7 +8,7 @@ angular.module('theLawFactory')
         scope: {
             mod: '@'
         },
-        template: '<a href="#" class="button nav-item" ng-click="toggleTutorial($event)"><span title="Voir le tutoriel" data-toggle="tooltip" data-placement="left">?</span></a>',
+        template: '<a title="Voir le tutoriel" data-toggle="tooltip" data-placement="left" href="#" class="button nav-item tutorial-button" ng-click="toggleTutorial($event)"><span>?</span></a>',
         controller: function ($timeout, $rootScope, $scope, api) {
             $scope.toggleTutorial = function (ev) {
                 ev.preventDefault();
