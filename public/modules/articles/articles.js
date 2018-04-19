@@ -28,7 +28,7 @@ function ($rootScope, api) {
             thelawfactory.utils.spinner.start();
 
             api.getArticle($scope.loi).then(function (data) {
-                $rootScope.lawTitle = data.short_title;
+                $rootScope.lawTitle = thelawfactory.utils.niceLawName(data);
                 $rootScope.pageTitle = $rootScope.lawTitle + " - Articles | ";
                 $scope.articlesData = data;
             }, function () {

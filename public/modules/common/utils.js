@@ -71,6 +71,15 @@
         return (utils.longNames[utils.hashName(l)] ? utils.longNames[utils.hashName(l)] : l);
     };
 
+    utils.niceLawName = function (l) {
+        return l.short_title + (l.loi_dite ? " (" + l.loi_dite + ")" : "");
+    };
+
+    utils.searchableLaw = function (l) {
+        return utils.clean_accents(l.Titre + " " + l.id + " " + l["Thèmes"] + " " + l.short_title +
+          (l.loi_dite ? " " + l.loi_dite : ""));
+    };
+
     utils.getVizHeight = function () {
         return $(window).height() - $("#header-nav").height() - $(".title").height() - $("#menu-left").height() - $("footer").height() - parseInt($(".row").css("margin-bottom")) - 36;
     };

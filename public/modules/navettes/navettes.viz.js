@@ -533,7 +533,7 @@ reset_filters();
                     if (!smallset.length) {
                         var matcher = new RegExp($.ui.autocomplete.escapeRegex(thelawfactory.utils.clean_accents(navettesScope.loi)), "i");
                         smallset = dossiers.filter(function (value) {
-                            value = thelawfactory.utils.clean_accents(value.Titre + " " + value.id + " " + value["Thèmes"] + " " + value.short_title);
+                            value = thelawfactory.utils.searchableLaw(value);
                             return matcher.test(thelawfactory.utils.clean_accents(value));
                         });
                     }
@@ -704,7 +704,7 @@ reset_filters();
                         return i * (20 + lawh) + 17;
                     })
                     .attr("class", "law-name").text(function (e) {
-                        return e.short_title;
+                        return thelawfactory.utils.niceLawName(e);
                     })
                     .style("fill", "#716259")
                     .attr("font-size", "0.9em")
@@ -852,7 +852,7 @@ reset_filters();
                 d3.selectAll(".g-law").style("opacity", 0.2);
                 d3.select(".g-law." + d.id).style("opacity", 1);
 
-                $("#text-title").text(d.short_title);
+                $("#text-title").text(thelawfactory.utils.niceLawName(d));
                 $("#text-title").attr('data-original-title', d.long_title).tooltip('fixTitle');
 
                 var textContent = '';

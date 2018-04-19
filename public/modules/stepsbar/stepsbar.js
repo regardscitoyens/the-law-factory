@@ -15,8 +15,7 @@ function ($timeout, $rootScope, api) {
                     leg = "";
                 if (tit.length > 60) {
                     leg = ' data-toggle="tooltip" data-placement="top" title="' + tit + '"';
-                    tit = scope.loi.substr(0, 3).toUpperCase() + " " + thelawfactory.utils.upperFirst(data.short_title) +
-                      (data.loi_dite ? " (" + data.loi_dite + ")" : "");
+                    tit = scope.loi.substr(0, 3).toUpperCase() + " " + thelawfactory.utils.niceLawName(data);
                 }
                 $(".title").html(
                     '<h4 class="law-title"' + leg + '>' +
@@ -38,7 +37,7 @@ function ($timeout, $rootScope, api) {
                 var currStage = {name: "", num: 1},
                     currInst = {name: "", num: 1};
                 if (!$rootScope.lawTitle) {
-                    $rootScope.lawTitle = data.short_title;
+                    $rootScope.lawTitle = thelawfactory.utils.niceLawName(data);
                     $rootScope.pageTitle = ($rootScope.pageTitle + "").replace('undefined', $rootScope.lawTitle);
                 }
 

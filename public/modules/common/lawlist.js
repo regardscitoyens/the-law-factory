@@ -22,7 +22,7 @@ function ($location, $rootScope, api) {
                         $.each(headers, function (i, header) {
                             law[header] = lawdata[i];
                         });
-                        law.searchable = thelawfactory.utils.clean_accents(law.Titre + " " + law.id + " " + law["Thèmes"] + " " + law.short_title + " " + law.loi_dite);
+                        law.searchable = thelawfactory.utils.searchableLaw(law);
                         return law;
                     }).sort(function (a, b) {
                         return b["Date de promulgation"] > a["Date de promulgation"];
