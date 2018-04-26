@@ -479,7 +479,7 @@ var valign, stacked, articlesScope, aligned = true;
                             }))
                             .enter().append("text")
                             .attr("x", function (d) {
-                                return d.x - 2 + colwidth / 2
+                                return d.x + colwidth / 2
                             })
                             .attr("y", function (d) {
                                 return d.y - (d.section === 'echec' ? 2 : 4)
