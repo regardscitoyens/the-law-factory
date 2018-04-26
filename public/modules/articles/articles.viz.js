@@ -149,22 +149,19 @@ var valign, stacked, articlesScope, aligned = true;
             // Dynamic load of articles text at each step
             function load_texte_articles() {
                 var delay = 50;
-                d3.set(bigList.map(function (d) {
-                    return d.directory;
-                })).values().sort()
-                    .forEach(function (d) {
-                        delay += 50;
-                        d3.json(encodeURI(APIRootUrl + loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
-                            json.articles.forEach(function (a) {
-                                if (!textArticles[a.titre]) textArticles[a.titre] = {};
-                                textArticles[a.titre][d] = [];
-                                Object.keys(a.alineas).sort().forEach(function (k) {
-                                    textArticles[a.titre][d].push(a.alineas[k]);
-                                });
+                steps_to_load.forEach(function (d) {
+                    delay += 50;
+                    d3.json(encodeURI(APIRootUrl + loi + "/procedure/" + d + "/texte/texte.json"), function (error, json) {
+                        json.articles.forEach(function (a) {
+                            if (!textArticles[a.titre]) textArticles[a.titre] = {};
+                            textArticles[a.titre][d] = [];
+                            Object.keys(a.alineas).sort().forEach(function (k) {
+                                textArticles[a.titre][d].push(a.alineas[k]);
                             });
-                            to_load -= 1;
                         });
+                        left_to_load -= 1;
                     });
+                });
             }
 
             //Utility functions
@@ -236,9 +233,12 @@ var valign, stacked, articlesScope, aligned = true;
                 });
             });
 
-            var to_load = d3.set(bigList.map(function (d) {
-                return d.directory;
-            })).values().length;
+            var steps_to_load = d3.set(bigList.filter(function(d) {
+                    return d.section !== 'echec';
+                }).map(function (d) {
+                    return d.directory;
+                })).values().sort(),
+            left_to_load = steps_to_load.length;
 
             var maxlen = d3.max(art, function (d) {
                 return d3.max(d.steps, function (e) {
@@ -816,7 +816,7 @@ var valign, stacked, articlesScope, aligned = true;
 
                         if (spin) {
                             var waitload = setInterval(function () {
-                                if (!to_load) {
+                                if (!left_to_load) {
 
                                     if (textArticles[d.article][d.directory] && d.status != "sup") {
                                         d.originalText = '<ul class="originaltext"><li><' + balise + '>' + $.map(textArticles[d.article][d.directory], function (i) {
