@@ -487,7 +487,7 @@ var valign, stacked, articlesScope, aligned = true;
                             .classed("head-lbl", true)
                             .classed("echec", function(d) {return d.section === 'echec';})
                             .text(function (d) {
-                                if (data.sections && d.section === 'echec') return d.status;
+                                if (data.sections && d.section === 'echec') return (d.status !== 'RENVOI EN COMMISSION' ? d.status : 'ÉCHEC');
                                 var sec;
                                 if (d.section.lastIndexOf("A", 0) === 0) sec = d;
                                 else sec = sub_section(test_section_details(d.section, d.id_step, 'newnum') ? data.sections[d.section][d.id_step]['newnum'] : d.section);
