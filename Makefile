@@ -25,6 +25,7 @@ BUILTINDEX := $(SRCDIR)/index.built.html
 IBUILTINDEX := $(patsubst $(SRCDIR)/%,$(INSTALLTMPDIR)/%,$(BUILTINDEX))
 BUILTCSS := $(BUILTDIR)/main.css
 BUILTJS := $(BUILTDIR)/main.js
+BUILDTIME := $(shell date +%y%m%d-%H%M)
 
 ALLCSS := $(shell find $(SRCDIR) -name *.css)
 ALLJS := $(shell find $(SRCDIR) -name *.js)
@@ -41,8 +42,8 @@ Depends.mk: $(SRCINDEX) $(ALLCSS) $(ALLJS)
 
 $(BUILTINDEX): $(SRCINDEX)
 	cat $< \
-	| sed -r '0,/(<script type="text\/javascript" src[^>]+><\/script>)/s//<script src="$(subst /,\/,$(patsubst $(SRCDIR)/%,%,$(BUILTJS)))"><\/script>\n\1/' \
-	| sed -r '0,/(<link rel="stylesheet" href[^>]+>)/s//<link href="$(subst /,\/,$(patsubst $(SRCDIR)/%,%,$(BUILTCSS)))" rel="stylesheet">\n\1/' \
+	| sed -r '0,/(<script type="text\/javascript" src[^>]+><\/script>)/s//<script src="$(subst /,\/,$(patsubst $(SRCDIR)/%,%,$(BUILTJS)))?$(BUILDTIME)"><\/script>\n\1/' \
+	| sed -r '0,/(<link rel="stylesheet" href[^>]+>)/s//<link href="$(subst /,\/,$(patsubst $(SRCDIR)/%,%,$(BUILTCSS)))?$(BUILDTIME)" rel="stylesheet">\n\1/' \
 	| sed -r 's/(<script type="text\/javascript" src[^>]+><\/script>)/<!-- \1 -->/' \
 	| sed -r 's/(<link rel="stylesheet" href[^>]+>)/<!-- \1 -->/' \
 	> $@
