@@ -302,6 +302,9 @@ noscript span {
   align-items: center;
   background-color: #fff;
 }
+.navbar {
+  border-radius: 0;
+}
 #header-nav #navbar-form {
   flex-grow: 1;
   margin-right: 10%;
