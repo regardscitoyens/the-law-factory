@@ -16,26 +16,29 @@
       <li><a id="do-amds" onclick="drawGantt('sorta')">amendements déposés</a></li>
     </ul>
   </span>
-  <span class="nav-item dropdown noviewonelaw" id="menu-amendments">
-    <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Plus de 50 amendements</span><b class="caret"></b></span>
-    <ul class="dropdown-menu" id="amendments"></ul>
-  </span>
-  <span class="nav-item dropdown noviewonelaw" id="menu-years">
-    <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Étudié en 2018</span><b class="caret"></b></span>
-    <ul class="dropdown-menu" id="years"></ul>
-  </span>
-  <span class="nav-item dropdown noviewonelaw" id="menu-themes">
-    <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Tous les thèmes</span><b class="caret"></b></span>
-    <ul class="dropdown-menu" id="themes"></ul>
+  <span id="menu-left">
+    <span class="nav-item dropdown noviewonelaw" id="menu-amendments">
+      <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Plus de 50 amendements</span><b class="caret"></b></span>
+      <ul class="dropdown-menu" id="amendments"></ul>
+    </span>
+    <span class="nav-item dropdown noviewonelaw" id="menu-years">
+      <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Étudié en 2018</span><b class="caret"></b></span>
+      <ul class="dropdown-menu" id="years"></ul>
+    </span>
+    <span class="nav-item dropdown noviewonelaw" id="menu-themes">
+      <span href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="selectedchoice">Tous les thèmes</span><b class="caret"></b></span>
+      <ul class="dropdown-menu" id="themes"></ul>
+    </span>
   </span>
 
   <span class="spacer"></span>
 
-  <span id="navettes-slider-label" class="nav-item">Zoom</span>
-  <span id="navettes-slider" class="nav-item"></span>
+  <span id="menu-zoom">
+    <span id="navettes-slider-label" class="nav-item">Zoom</span>
+    <span id="navettes-slider" class="nav-item"></span>
+  </span>
 
   <tutorial mod="navettes"></tutorial>
-  </ul>
 </nav>
 
 <div id="display">

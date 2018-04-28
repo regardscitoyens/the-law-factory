@@ -171,6 +171,9 @@ a:active {
   display: inline-block;
   color: white;
 }
+#menu-zoom {
+  display: flex;
+}
 [ng-cloak] {
   display: none !important;
 }
