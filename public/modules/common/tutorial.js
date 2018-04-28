@@ -16,30 +16,20 @@ angular.module('theLawFactory')
                 if (!$rootScope.tutorial) {
                     $rootScope.tutorial = true;
                     api.getTutorials().then(function (data) {
-                        var tuto = data[$scope.mod];
-                        var step = 1;
                         var actions = [];
-                        var tutoKeys = d3.keys(tuto);
-                        var i, tutoLen = tutoKeys.length;
-                        for (i = 0 ; i < tutoLen ; ++i) {
-                            var id = tutoKeys[i];
-                            if (tuto[id].indexOf('@') != -1) {
-                                var message = tuto[id].split(' @ ');
-                                tuto[id] = message[0];
-                                actions[step] = message[1];
-                            } else {
-                                actions[step] = '';
-                            }
-                            var infos = tuto[id].split(" = ");
+                        var step = 1
+                        data[$scope.mod].forEach(function(tuto) {
+                            var id = tuto.elt;
                             if (id.substring(0, 4) == '.svg') {
                                 id = id.substring(4);
                                 id = drawDivOverElement($(id), id);
                             }
-                            $(id).attr('data-position', infos[0]);
-                            $(id).attr('data-tooltipClass', 'tooltip-' + id.replace(/^[#\.]/, "")); // remove selector (first # or .)
-                            $(id).attr('data-intro', infos[1]);
+                            actions[step] = tuto.actions || [];
+                            $(id).attr('data-position', tuto.position);
+                            $(id).attr('data-tooltipClass', 'tooltip-' + id.replace(/^[#\.]/, ""));
+                            $(id).attr('data-intro', tuto.text);
                             $(id).attr('data-step', step++);
-                        }
+                        });
                         var introjs = introJs().setOptions({
                             showBullets: false,
                             showStepNumbers: false,
@@ -52,25 +42,22 @@ angular.module('theLawFactory')
                             if ($(e).hasClass('div-over-svg'))
                                 $('.div-over-svg').show();
                             else $('.div-over-svg').hide();
-                            var data_step = $(e).attr('data-step');
-                            var acts = actions[data_step].split(' , ');
-                            $.each(acts, function (index, value) {
-                                var action = value.split(' = ');
-                                switch (action[0]) {
+                            actions[$(e).attr('data-step')].forEach(function(action) {
+                                switch (action.typ) {
                                     case 'scrolltop' :
-                                        $(action[1]).scrollTop(0);
+                                        $(action.val).scrollTop(0);
                                         break;
                                     case 'click' :
-                                        $(action[1]).css('opacity', 1);
+                                        $(action.val).css('opacity', 1);
                                         try {
-                                            $(action[1]).d3Click();
-                                            $(action[1]).click();
-                                            $(action[1])[0].click();
+                                            $(action.val).d3Click();
+                                            $(action.val).click();
+                                            $(action.val)[0].click();
                                         } catch (e) {
                                         }
                                         break;
                                     case 'zoom' :
-                                        thelawfactory.navettes.zooming(parseInt(action[1]));
+                                        thelawfactory.navettes.zooming(parseInt(action.val));
                                         break;
                                 }
                             });
