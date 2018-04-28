@@ -7,8 +7,8 @@
       <b class="caret"></b>
     </span>
     <ul class="dropdown-menu" role="menu" id="display_menu">
-      <li><a class="{{ groupAll ? '' : 'chosen' }}" ng-click="groupAll = false">par articles</a></li>
-      <li><a class="{{ groupAll ? 'chosen' : '' }}" ng-click="groupAll = true">groupée</a></li>
+      <li><a id="dm-draw" class="{{ groupAll ? '' : 'chosen' }}" ng-click="groupAll = false">par articles</a></li>
+      <li><a id="dm-merged" class="{{ groupAll ? 'chosen' : '' }}" ng-click="groupAll = true">groupée</a></li>
     </ul>
   </span>
   <span class="nav-item dropdown" id="menu-order">
@@ -17,9 +17,9 @@
       <b class="caret"></b>
     </span>
     <ul class="dropdown-menu" role="menu">
-      <li><a class="{{ sortOrder === 'sort' ? 'chosen' : '' }}" ng-click="sortOrder = 'sort'">sort final</a></li>
-      <li><a class="{{ sortOrder === 'groupe' ? 'chosen' : '' }}" ng-click="sortOrder = 'groupe'">groupe politique</a></li>
-      <li><a class="{{ sortOrder === 'numero' ? 'chosen' : '' }}" ng-click="sortOrder = 'numero'">numéro</a></li>
+      <li><a id="od-sort" class="{{ sortOrder === 'sort' ? 'chosen' : '' }}" ng-click="sortOrder = 'sort'">sort final</a></li>
+      <li><a id="od-gpe" class="{{ sortOrder === 'groupe' ? 'chosen' : '' }}" ng-click="sortOrder = 'groupe'">groupe politique</a></li>
+      <li><a id="od-num" class="{{ sortOrder === 'numero' ? 'chosen' : '' }}" ng-click="sortOrder = 'numero'">numéro</a></li>
     </ul>
   </span>
 
