@@ -33,10 +33,10 @@ angular.module('theLawFactory')
                         var introjs = introJs().setOptions({
                             showBullets: false,
                             showStepNumbers: false,
-                            nextLabel: "suite...",
-                            prevLabel: "...retour",
-                            skipLabel: "quitter ce tutoriel",
-                            doneLabel: "quitter ce tutoriel"
+                            nextLabel: "➡",
+                            prevLabel: "⬅",
+                            skipLabel: "✖",
+                            doneLabel: "✖"
                         });
                         introjs.onbeforechange(function (e) {
                             if ($(e).hasClass('div-over-svg'))

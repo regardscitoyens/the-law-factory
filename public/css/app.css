@@ -210,6 +210,17 @@ a:active {
   border-radius: .2em .2em .2em .2em;
   text-decoration: none;
 }
+.introjs-button {
+  float: left;
+  margin: 0px 5px;
+  padding: 5px;
+  font-size: 22px;
+}
+.introjs-button.introjs-skipbutton {
+  float: right;
+  padding: 7px;
+  font-size: 18px;
+}
 .introjs-tooltip .glyphicon {
   margin-right: 7px;
 }
