@@ -727,8 +727,12 @@ nav .tutorial-button {
   margin-left: -5px;
   margin-right: 10px;
 }
+.module-title .allinks {
+  flex-basis: 288px;
+}
 .module-title .links {
-  flex-basis: 144px;
+  display: inline-block;
+  margin: 0px 13px;
 }
 .module-title a {
   color: #fff;
