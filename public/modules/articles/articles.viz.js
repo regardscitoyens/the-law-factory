@@ -118,13 +118,14 @@ var valign, stacked, articlesScope, aligned = true;
                 art = d3.values(data.articles);
 
             art.sort(function (a, b) {
-                if (a.order || b.order)
-                    return a.order - b.order;
-                // TODO remove rest when all data regenerated
-
                 // put echec first
                 if (a.section === "echec") return (b.section === "echec" ? 0 : -1);
                 else if (b.section === "echec") return 1;
+
+                if (a.order || b.order)
+                    return a.order - b.order;
+
+                // TODO remove rest when all data regenerated
 
                 // sort by article number if the number is not the same
                 var a_num = parseInt(a.titre.split(" ")[0]), b_num = parseInt(b.titre.split(" ")[0]);
