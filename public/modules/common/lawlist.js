@@ -91,7 +91,7 @@ function ($location, $rootScope, api) {
                     })
                     .data("ui-autocomplete")._renderItem = function (ul, item) {
                         var themesdiv = $("<div>");
-                        (item.themes || "").replace(/ et /g, ', ').split(', ').forEach(function (e) {
+                        (item.themes || "").split(',').forEach(function (e) {
                             themesdiv.append("<span class='glyphicon glyphicon-tag'></span> " + e.toLowerCase() + " ");
                         });
 
