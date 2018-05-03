@@ -52,8 +52,8 @@
         "depots": "Dépôts",
         "cmp": "Commission Mixte Paritaire",
         "constitutionnalit": "Constitutionnalité",
-        "conseilconstitutionnel": "Conseil Constitutionnel",
-        "partiellementconforme": "Partiellement conforme",
+        "conseilconstitutionnel": "Conseil Constit.",
+        "partiellementconforme": "Censure",
         "conforme": "Conforme",
         "congrs": "Congrès",
         "congres": "Congrès"
