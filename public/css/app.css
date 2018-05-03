@@ -1380,6 +1380,7 @@ nav .tutorial-button {
   background-color: black;
   opacity: 0.25;
   cursor: pointer;
+  border-radius: 5px;
 }
 .articles .diff-preview .ins {
   background-color: #8f8;

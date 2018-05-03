@@ -8,7 +8,7 @@ function ($rootScope, api) {
         replace: false,
         templateUrl: 'modules/articles/articles.html',
         controller: function ($scope) {
-            var vMargins = 26;
+            var vMargins = 19;
             var hasDiff = false;
             var $textContainer = $(".text-container");
             var $diffPreview = $(".diff-preview");
