@@ -425,7 +425,7 @@ reset_filters();
                 var y1, hashYears = {};
                 if (!allYears.length) {
                     dossiers.forEach(function (l) {
-                        allThemes = allThemes.concat(l.themes.join(',').replace(/ et /g, ',').split(','));
+                        allThemes = allThemes.concat(l.themes);
                         y1 = l.beginning.substr(0, 4);
                         hashYears[y1] = true;
                         y1 = l.end.substr(0, 4);
