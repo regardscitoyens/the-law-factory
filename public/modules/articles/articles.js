@@ -8,7 +8,6 @@ function ($rootScope, api) {
         replace: false,
         templateUrl: 'modules/articles/articles.html',
         controller: function ($scope) {
-            var vMargins = 19;
             var hasDiff = false;
             var $textContainer = $(".text-container");
             var $diffPreview = $(".diff-preview");
@@ -126,8 +125,8 @@ function ($rootScope, api) {
                     startY = pointer.clientY;
 
                     contentHeight = $(".art-meta").height() + $(".art-txt").height();
-                    containerHeight = $textContainer.height() + vMargins;
-                    availableHeight = containerHeight - vMargins;
+                    containerHeight = $textContainer.outerHeight();
+                    availableHeight = $textContainer.height();
 
                     cursorHeight = $cursor.height();
                     startTop = $cursor.position().top;
@@ -163,8 +162,8 @@ function ($rootScope, api) {
 
                 var contentHeight = $(".art-meta").height() + $(".art-txt").height();
 
-                var containerHeight = $textContainer.height() + vMargins;
-                var availableHeight = containerHeight - vMargins;
+                var containerHeight = $textContainer.outerHeight();
+                var availableHeight = $textContainer.height();
 
                 if (contentHeight < availableHeight) {
                     $("#sidebar").removeClass("has-diff-preview");
