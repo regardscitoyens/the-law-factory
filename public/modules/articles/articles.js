@@ -173,7 +173,7 @@ function ($rootScope, api) {
 
                 var scrollTop = $textContainer.scrollTop();
                 var cursorHeight = containerHeight * availableHeight / contentHeight;
-                var cursorTop = (containerHeight - cursorHeight) * scrollTop / (contentHeight - availableHeight);
+                var cursorTop = Math.min(containerHeight - cursorHeight, containerHeight * scrollTop / contentHeight);
 
                 if (!$cursor || articleReloaded === true) {
                     initCursor();

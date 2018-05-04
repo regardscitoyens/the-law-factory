@@ -97,8 +97,8 @@ var valign, stacked, articlesScope, aligned = true;
             }
         }
 
-        function diff_preview(diffs) {
-            var html = [];
+        function diff_preview(diffs, intro) {
+            var html = ['<div class="preview-item id" style="flex-grow:'  + (100 + intro.length) + '; flex-shrink:' + (100 + intro.length) + ';"></div>'];
             var cls = {
                 '0': 'id',
                 '1': 'ins',
@@ -109,6 +109,7 @@ var valign, stacked, articlesScope, aligned = true;
                 var size = d[1].length;
                 html.push('<div class="preview-item ' + cls[d[0]] + '" style="flex-grow:'  + size + '; flex-shrink:' + size + ';"></div>');
             });
+            html.push('<div class="preview-item id" style="flex-grow:100; flex-shrink:100;"></div>');
 
             return html.join('');
         }
@@ -861,7 +862,7 @@ var valign, stacked, articlesScope, aligned = true;
                                         d.textDiff += "</li></ul>";
 
                                         if (d.status !== 'new' && d.status !== 'sup' && d.n_diff !== 0)
-                                            d.diffPreview = diff_preview(diff);
+                                            d.diffPreview = diff_preview(diff, $('.art-meta').text());
                                     } else d.textDiff += d.originalText;
 
                                     thelawfactory.utils.spinner.stop(articlesScope.update_revs_view, 'load_art');
