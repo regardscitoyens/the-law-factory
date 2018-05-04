@@ -135,32 +135,7 @@ var valign, stacked, articlesScope, aligned = true;
                 art = d3.values(data.articles);
 
             art.sort(function (a, b) {
-                if (a.order || b.order)
-                    return a.order - b.order;
-                // TODO remove rest when all data regenerated
-
-                // put echec first
-                if (a.section === "echec") return (b.section === "echec" ? 0 : -1);
-                else if (b.section === "echec") return 1;
-
-                // sort by article number if the number is not the same
-                var a_num = parseInt(a.titre.split(" ")[0]), b_num = parseInt(b.titre.split(" ")[0]);
-                if (!isNaN(a_num) && !isNaN(b_num) && a_num != b_num)
-                    return a_num - b_num;
-
-                // sort by mean .order
-                var ao = 0, bo = 0
-                for (var i_s = 0; i_s < a.steps.length; i_s++) {
-                    ao += a.steps[i_s]['order'];
-                    for (var j_s = 0; j_s < b.steps.length; j_s++) {
-                        if (i_s == 0)
-                            bo += b.steps[j_s]['order'];
-                        // if both articles can be found on the same step, simply sort by .order
-                        if (a.steps[i_s]['id_step'] == b.steps[j_s]['id_step'])
-                            return a.steps[i_s]['order'] - b.steps[j_s]['order'];
-                    }
-                }
-                return ao / a.steps.length - bo / b.steps.length;
+                return a.order - b.order;
             });
 
             // Dynamic load of articles text at each step
@@ -233,8 +208,7 @@ var valign, stacked, articlesScope, aligned = true;
                 d.steps.forEach(function (f, j) {
                     f.textDiff = "";
                     f.article = d.titre;
-                    // TODO: remove if when all data regenerated
-                    if (d.order) f.order = d.order;
+                    f.order = d.order;
                     f.section = d.section;
                     f.prev_step = null;
                     f.prev_dir = null;
