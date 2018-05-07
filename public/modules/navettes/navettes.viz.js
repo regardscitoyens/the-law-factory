@@ -867,7 +867,7 @@ reset_filters();
                 extrainfo += '<ul class="badges-list">';
                 extrainfo += '<li data-toggle="tooltip" title="Total d\'amendements déposés" data-placement="bottom">';
                 extrainfo += '<div class="badge badge-tlf">';
-                extrainfo += '<div class="badge-prefix">' + (d.total_amendements ? d.total_amendements : '0') + '</div>';
+                extrainfo += '<div class="badge-prefix">' + d.stats.total_amendements + '</div>';
                 extrainfo += '<div class="badge-icon icon-AmD" ';
                 extrainfo += '></div>';
                 extrainfo += '</div>';
@@ -877,7 +877,7 @@ reset_filters();
                 /* Badge for Parlamentaries Amendments adopted */
 
 
-                var tauxSuccesAmdt = d.total_amendements == 0 ? 0 : goodRound(100 * (d.total_amendements_adoptes / (d.total_amendements + 0.0)));
+                var tauxSuccesAmdt = d.stats.total_amendements == 0 ? 0 : goodRound(100 * (d.stats.total_amendements_adoptes / (d.stats.total_amendements + 0.0)));
                 extrainfo += '<li data-toggle="tooltip" title="Taux d\'adoption des amendements" data-placement="bottom">';
                 extrainfo += '<div class="badge badge-tlf">';
                 extrainfo += '<div class="badge-prefix">' + tauxSuccesAmdt + '&nbsp;%</div>';
@@ -890,7 +890,7 @@ reset_filters();
 
                 /* Badge for evolution of law volume */
 
-                var volumeEvo = d.input_text_length2 ? goodRound(100 * ((d.output_text_length2 - d.input_text_length2) / (d.input_text_length2 + 0.0))) : 0;
+                var volumeEvo = goodRound(100 * ((d.stats.output_text_length - d.stats.input_text_length) / (d.stats.input_text_length + 0.0)));
                 extrainfo += '<li data-toggle="tooltip" title="Taux d\'évolution de la taille globale du texte de loi en nombre de caractères" data-placement="bottom">';
                 extrainfo += '<div class="badge badge-tlf">';
                 extrainfo += '<div class="badge-prefix">' + (volumeEvo > 0 ? "+" : "") + volumeEvo + '&nbsp;%</div>';
@@ -920,7 +920,7 @@ reset_filters();
                 /* Badge for modification of law */
                 extrainfo += '<li data-toggle="tooltip" title="Taux de modification du texte originel" data-placement="bottom">';
                 extrainfo += '<div class="badge badge-tlf">';
-                extrainfo += '<div class="badge-prefix">' + goodRound(100 * d.ratio_texte_modif) + '&nbsp;%</div>';
+                extrainfo += '<div class="badge-prefix">' + goodRound(100 * d.stats.ratio_texte_modif) + '&nbsp;%</div>';
                 extrainfo += '<div class="badge-icon icon-balance"';
                 extrainfo += '></div>';
                 extrainfo += '</div>';
@@ -950,7 +950,7 @@ reset_filters();
                  extrainfo += '<h7>Amendements Parlementaires adoptés</h7>'
                  extrainfo += '</li>';*/
 
-                var mots = (Math.round(d.total_mots / 1000.) + "" ).replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;").replace(/^0/, '');
+                var mots = (Math.round(d.stats.total_mots / 1000.) + "" ).replace(/\B(?=(\d{3})+(?!\d))/g, "&nbsp;").replace(/^0/, '');
 
                 extrainfo += '<li class="last" data-toggle="tooltip" title="Total de mots prononcés durant les débats parlementaires" data-placement="bottom">';
                 extrainfo += '<div class="badge badge-tlf">';
