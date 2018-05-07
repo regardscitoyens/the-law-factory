@@ -8,6 +8,7 @@ var valign, stacked, articlesScope, aligned = true;
 
         articlesScope = $(".articles").scope();
         var textArticles = {};
+        var liensArticles = {};
 
         function titre_etape(article) {
             return article['id_step']
@@ -129,6 +130,16 @@ var valign, stacked, articlesScope, aligned = true;
             return html.join('');
         }
 
+        function add_links(alinea, article, directory) {
+            if (liensArticles[article] && liensArticles[article][directory]) {
+                liensArticles[article][directory].forEach(lien => {
+                    // TODO: find a more robust method, here a link can be replaced two times (<a><a>link</a></a>)
+                    alinea = alinea.replace(lien, '<a href="https://duckduckgo.com/?q=!ducky+' + encodeURIComponent(lien) + '" target="_blank">' + lien + '</a>');
+                });
+            }
+            return alinea
+        }
+
         function vis(data, APIRootUrl, loi, currentstep, helpText) {
             var drawing = false,
                 bigList = [],
@@ -150,6 +161,9 @@ var valign, stacked, articlesScope, aligned = true;
                             Object.keys(a.alineas).sort().forEach(function (k) {
                                 textArticles[a.titre][d].push(a.alineas[k]);
                             });
+
+                            if (!liensArticles[a.titre]) liensArticles[a.titre] = {};
+                            liensArticles[a.titre][d] = a.liens;
                         });
                         left_to_load -= 1;
                     });
@@ -811,7 +825,8 @@ var valign, stacked, articlesScope, aligned = true;
 
                                     if (textArticles[d.article][d.directory] && d.status != "sup") {
                                         d.originalText = '<ul class="originaltext"><li><' + balise + '>' + $.map(textArticles[d.article][d.directory], function (i) {
-                                                return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1')
+                                                i = add_links(i, d.article, d.directory);
+                                                return i.replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
                                             }).join("</" + balise + "></li><li><" + balise + ">") + "</" + balise + "></li></ul>";
                                     } else d.originalText = "<p><i>Pour en visionner l'ancienne version, passez en vue différentielle (en cliquant sur l'icone <span class=\"glyphicon glyphicon glyphicon-edit\"></span>) ou consultez la version de cet article à l'étape parlementaire précédente.</i></p>";
 
@@ -834,6 +849,8 @@ var valign, stacked, articlesScope, aligned = true;
                                         d.textDiff += diff_to_html(diff)
                                             .replace(/\s+([:»;\?!%€])/g, '&nbsp;$1');
                                         d.textDiff += "</li></ul>";
+
+                                        d.textDiff = add_links(d.textDiff, d.article, d.directory);
 
                                         if (d.status !== 'new' && d.status !== 'sup' && d.n_diff !== 0)
                                             d.diffPreview = diff_preview(diff, $('.art-meta').text());

@@ -104,6 +104,9 @@ a:active {
 .textdiff ins {
   background-color: #e6ffe6;
 }
+.textdiff a {
+  background-color: #e6ffe6;
+}
 .tooltip-inner {
   background-color: #716259;
   border-radius: 0;
@@ -1307,6 +1310,10 @@ nav .tutorial-button {
   position: absolute;
   right: 13px;
   top: 13px;
+}
+.articles .art-txt a {
+  /* do not promote reference links since they are not reliable for now */
+  color: inherit;
 }
 .articles .art-txt ul {
   padding-left: 10px;
