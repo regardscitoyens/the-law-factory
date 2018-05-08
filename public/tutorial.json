@@ -2,7 +2,7 @@
   {
     "elt": "#viz",
     "position": "right",
-    "text": "<h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Navettes&nbsp;»</h6><i>Vous pouvez quitter ce tutoriel à tout moment en cliquant sur le bouton ci-dessous. Relancez-le en cliquant sur le point d'interrogation en haut à droite.</i><br/><br/>Cette vue panoptique porte sur les débats parlementaires à chaque étape de la procédure législative.<br/>Pour chaque texte s'affichent les différentes étapes du processus législatif pour lesquelles vous pouvez obtenir des détails au survol de la souris.",
+    "text": "<h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Navettes&nbsp;»</h6><i>Vous pouvez naviguer à travers ce tutoriel ou le quitter à tout moment en cliquant sur les boutons en haut à droite. Relancez-le en cliquant sur le point d'interrogation au dessous.</i><br/><br/>Cette vue panoptique porte sur les débats parlementaires à chaque étape de la procédure législative.<br/>Pour chaque texte s'affichent les différentes étapes du processus législatif pour lesquelles vous pouvez obtenir des détails au survol de la souris.",
     "actions": [
       {"typ": "click", "val": "#backtoall"},
       {"typ": "scrolltop", "val": "#gantt"},
@@ -64,7 +64,7 @@
   {
     "elt": "#viz",
     "position": "right",
-    "text": "<h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Articles&nbsp;»</h6><i>Vous pouvez quitter ce tutoriel à tout moment en cliquant sur le bouton ci-dessous. Relancez-le en cliquant sur le point d'interrogation en haut à droite.</i><br/><br/>Cette vue présente l’évolution des articles d'un texte au fil des étapes de la procédure parlementaire.",
+    "text": "<h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Articles&nbsp;»</h6><i>Vous pouvez naviguer à travers ce tutoriel ou le quitter à tout moment en cliquant sur les boutons en haut à droite. Relancez-le en cliquant sur le point d'interrogation au dessous.</i><br/><br/>Cette vue présente l’évolution des articles d'un texte au fil des étapes de la procédure parlementaire.",
     "actions": [
       {"typ": "scrolltop", "val": "#viz"},
       {"typ": "click", "val": "#closeread"}
@@ -118,7 +118,7 @@
   {
     "elt": "#viz",
     "position": "right",
-    "text": "<h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Amendements&nbsp;»</h6><i>Vous pouvez quitter ce tutoriel à tout moment en cliquant sur le bouton ci-dessous. Relancez-le en cliquant sur le point d'interrogation en haut à droite.</i><br/><br/>Cette vue présente les amendements déposés par le gouvernement et les parlementaires lors d’une étape donnée de la procédure législative.",
+    "text": "<h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Amendements&nbsp;»</h6><i>Vous pouvez naviguer à travers ce tutoriel ou le quitter à tout moment en cliquant sur les boutons en haut à droite. Relancez-le en cliquant sur le point d'interrogation au dessous.</i><br/><br/>Cette vue présente les amendements déposés par le gouvernement et les parlementaires lors d’une étape donnée de la procédure législative.",
     "actions": [
       {"typ": "scrolltop", "val": "#viz"}
     ]
@@ -181,7 +181,7 @@
   {
     "elt": "#viz",
     "position": "right",
-    "text": "<h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Débats&nbsp;»</h6><i>Vous pouvez quitter ce tutoriel à tout moment en cliquant sur le bouton ci-dessous. Relancez-le en cliquant sur le point d'interrogation en haut à droite.</i><br/><br/>Cette vue présente les discussions parlementaires à une étape donnée de la procédure législative.<br/>Plus on descend dans la page, plus on progresse dans la discussion des réunions de commissions et des séances en hémicycle consacrées à l'examen du texte.",
+    "text": "<h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Débats&nbsp;»</h6><i>Vous pouvez naviguer à travers ce tutoriel ou le quitter à tout moment en cliquant sur les boutons en haut à droite. Relancez-le en cliquant sur le point d'interrogation au dessous.</i><br/><br/>Cette vue présente les discussions parlementaires à une étape donnée de la procédure législative.<br/>Plus on descend dans la page, plus on progresse dans la discussion des réunions de commissions et des séances en hémicycle consacrées à l'examen du texte.",
     "actions": [
       {"typ": "scrolltop", "val": "#viz"}
     ]
