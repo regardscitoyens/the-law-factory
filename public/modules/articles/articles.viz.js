@@ -336,7 +336,7 @@ var valign, stacked, articlesScope, aligned = true;
                         return d.y + lerp(d.length)
                     }));
                 //create SVG
-                $("svg").remove();
+                $("#viz svg").remove();
                 svg = d3.select("#viz").append("svg").attr("width", "100%").attr("height", maxy).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
                 //draw everything
                 for (st in stages) {
@@ -374,7 +374,7 @@ var valign, stacked, articlesScope, aligned = true;
                                 return "article " + d.section.replace(/ |<|\/|>|/g, "") + " sect" + d.step_num;
                             })
                             .classed('article-first', function (d) {
-                                if (!firstamade && st > 2 && d.n_diff && d.status != "new") {
+                                if (!firstamade && st > 1 && d.n_diff && d.status != "new") {
                                     firstamade = true;
                                     return true;
                                 }
@@ -634,13 +634,13 @@ var valign, stacked, articlesScope, aligned = true;
 
                     //LEFT
                     if (d3.event.keyCode == 37) {
-                        sel = d3.selectAll(".article").filter(function (e) {
+                        sel = d3.selectAll("#viz .article").filter(function (e) {
                             return e.article == cur.article && cur.prev_step == e.step_num
                         });
                     }
                     //RIGHT
                     else if (d3.event.keyCode == 39) {
-                        sel = d3.selectAll(".article").filter(function (e) {
+                        sel = d3.selectAll("#viz .article").filter(function (e) {
                             return e.article == cur.article && e.prev_step == cur.step_num
                         });
                     }
@@ -703,9 +703,9 @@ var valign, stacked, articlesScope, aligned = true;
                             });
                         y0 += h;
                     }
-                    $("svg").height(Math.max(y0, maxy));
+                    $("#viz svg").height(Math.max(y0, maxy));
 
-                    d3.selectAll(".group").transition().duration(500)
+                    d3.selectAll("#viz .group").transition().duration(500)
                         .attr("transform", function () {
                             if ($(this).attr("data-offset")) return "translate(0," + parseFloat($(this).attr('data-offset')) + ")";
                             else return "translate(0,0)";
@@ -746,10 +746,11 @@ var valign, stacked, articlesScope, aligned = true;
                     $("#display_menu .chosen").removeClass('chosen');
                     $("#display_menu #dm-stacked").addClass('chosen');
                     $("#menu-display .selectedchoice").text('compacte');
-                    d3.selectAll(".group").transition().duration(500)
+                    d3.selectAll("#viz .group").transition().duration(500)
                         .attr("transform", "translate(0,0)");
 
                     d3.selectAll("line").transition().duration(500)
+//TODO FIX LINES
                         .attr("y1", function (d) {
                             return d.y + (lerp(d.viz_height)) / 2
                         })
@@ -759,7 +760,7 @@ var valign, stacked, articlesScope, aligned = true;
                             })[0];
                             return a.y + (lerp(a.viz_height)) / 2;
                         });
-                    $("svg").height(maxy);
+                    $("#viz svg").height(maxy);
                 };
 
                 //on click behaviour
@@ -768,13 +769,13 @@ var valign, stacked, articlesScope, aligned = true;
                         .style("stroke-dasharray", "none");
                     //STYLE OF CLICKED ELEMENT AND ROW
                     //Reset rectangles
-                    d3.selectAll(".article").call(styleRect);
+                    d3.selectAll("#viz .article").call(styleRect);
                     d3.selectAll(".curr").classed("curr", false);
 
                     d3.select(this).classed("curr", true);
 
                     //Select the elements in same group
-                    d3.selectAll(".article").filter(function (e) {
+                    d3.selectAll("#viz .article").filter(function (e) {
                         return e && d && e.article == d.article;
                     })
                         .style("stroke", "#333344").style("stroke-width", 1).style("fill", function () {

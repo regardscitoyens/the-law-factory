@@ -40,8 +40,8 @@ angular.module('theLawFactory')
                         });
                         introjs.onbeforechange(function (e) {
                             if ($(e).hasClass('div-over-svg'))
-                                $('.div-over-svg').show();
-                            else $('.div-over-svg').hide();
+                                $(e).find('svg').css("opacity", 1);
+                            else $('.div-over-svg svg').css("opacity", 0);
                             actions[$(e).attr('data-step')].forEach(function(action) {
                                 switch (action.typ) {
                                     case 'scrolltop' :
@@ -154,9 +154,9 @@ angular.module('theLawFactory')
                     console.log("Weird tag given on element: ", oElement, oElement.prop('tagName'));
                 }
                 var sElementClass = sElementClass.replace('.', '') + '-div';
-                var node = '<div class="' + sElementClass + ' div-over-svg" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"><svg id="introsvg"></svg></div>';
+                var node = '<div class="' + sElementClass + ' div-over-svg" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"><svg></svg></div>';
                 $('body').append(node);
-                $("#introsvg").append(oNewElement);
+                $("." + sElementClass + " svg").append(oNewElement);
                 return '.' + sElementClass;
             }
         }

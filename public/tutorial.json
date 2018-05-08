@@ -86,7 +86,7 @@
     "position": "left",
     "text": "Cliquez sur la boîte d'un article pour faire apparaître son contenu et les modifications apportées au texte lors de cette étape dans la zone de droite. Les ajouts au texte sont surlignés en vert et les suppressions en rouge.<br/>En cliquant sur l'icone <span class='glyphicon glyphicon-chevron-left' style='margin:5px'></span> à gauche du titre, vous pouvez déplier et agrandir la fenêtre de texte pour mieux lire le texte des articles.<br/>Vous pouvez utiliser les flèches du clavier pour naviguer de version en version et d'article en article.<br/>Cliquez sur le bouton <span class='glyphicon glyphicon glyphicon-check' style='margin:5px'></span> pour basculer entre l'affichage du texte tel qu'il a été voté à cette étape, et l'affichage présentant les modifications en couleurs.",
     "actions": [
-      {"typ": "click", "val": ".article-first"}
+      {"typ": "click", "val": "#viz .article-first"}
     ]
   }, {
     "elt": "#menu-display",
