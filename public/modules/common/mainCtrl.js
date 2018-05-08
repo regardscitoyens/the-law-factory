@@ -21,7 +21,7 @@ function ($timeout, $scope, $http, apiService, api, $rootScope, $location) {
     $scope.etape = $location.search()['etape'];
     $scope.action = $location.search()['action'];
     $scope.vizTitle = "";
-    $scope.helpText = '<div id="help-msg"><p>VIZTEXT</p><p>Cliquez sur le bouton <span class="question_mark">?</span> ci-dessus pour voir un tutoriel interactif de cette visualisation.<p></div>';
+    $scope.helpText = '<div id="help-msg"><p>VIZTEXT</p><p id="start-tuto" onclick="$(\'.tutorial-button\').click()">Cliquez ici ou sur le bouton <span class="question_mark">?</span> ci-dessus pour voir un tutoriel interactif de cette visualisation.<p></div>';
     $scope.setHelpText = function (t) {
         $scope.helpText = $scope.helpText.replace("VIZTEXT", t);
     };

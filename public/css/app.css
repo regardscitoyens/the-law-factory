@@ -839,6 +839,15 @@ nav .tutorial-button {
   padding: 0 26px;
   text-align: center;
   font-style: italic;
+  margin-top: 20px;
+}
+#sidebar #help-msg #start-tuto {
+  border: 1px solid #dad1cb;
+  background-color: #fafafa;
+  padding: 8px;
+  font-style: normal;
+  margin-top: 30px;
+  cursor: pointer;
 }
 #sidebar .question_mark {
   display: inline-block;
