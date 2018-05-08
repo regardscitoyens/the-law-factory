@@ -1293,7 +1293,7 @@ nav .tutorial-button {
   content: '\e809';
 }
 /********************************** Articles *********************************/
-.articles .head-lbl {
+.articles .head-lbl, .div-over-svg .head-lbl {
   font-family: sans-serif;
   text-anchor: middle;
   letter-spacing: 0.2em;
@@ -1301,18 +1301,18 @@ nav .tutorial-button {
   fill: #fff;
   font-size: 9px;
 }
-.articles .header {
+.articles .header, .div-over-svg .header {
   fill: #716259;
   stroke: none;
 }
-.articles .header.echec {
+.articles .header.echec, .div-over-svg .header.echec {
   fill: #fd5252;
 }
-.articles .new {
+.articles .new, .div-over-svg .new {
   stroke: none;
   fill: #8df798;
 }
-.articles .sup {
+.articles .sup, .div-over-svg .sup {
   stroke: none;
   fill: #fd5252;
 }
