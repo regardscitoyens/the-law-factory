@@ -127,6 +127,7 @@ a:active {
 .popover {
   min-width: 220px;
   border-radius: 0;
+  z-index: 10000000;
 }
 .popover h3 {
   background-color: #fff;
