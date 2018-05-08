@@ -195,6 +195,14 @@ a:active {
 }
 .introjs-tooltipbuttons {
   text-align: center;
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 8px 3px;
+  width: 130px;
 }
 .introjs-tooltip h6 {
   font-size: 15px;
@@ -214,10 +222,13 @@ a:active {
   text-decoration: none;
 }
 .introjs-button {
-  float: left;
+  float: right;
   margin: 0px 5px;
   padding: 5px;
   font-size: 22px;
+}
+.introjs-button.introjs-prevbutton {
+  float: left;
 }
 .introjs-button.introjs-skipbutton {
   float: right;
