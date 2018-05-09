@@ -152,10 +152,10 @@ function focusRect(d) {
         d3.event.stopPropagation();
 
     d3.selectAll("path").transition().style("fill-opacity", 0.1);
-    d3.selectAll("rect").transition().style("opacity", 0.1);
-    d3.selectAll(".focused").classed('focused', false).classed('main-focused', false);
+    d3.selectAll("#viz rect").transition().style("opacity", 0.1);
+    d3.selectAll(".focused").classed('focused', false);       d3.selectAll(".main-focused").classed('main-focused', false);
     d3.select(d3.select(this).node().parentNode).selectAll("path").classed('focused', true).transition().style("fill-opacity", 0.45);
-    d3.select(d3.select(this).node().parentNode).selectAll("rect").classed('focused', true).transition().style("opacity", 0.55);
+    d3.select(d3.select(this).node().parentNode).selectAll("#viz rect").classed('focused', true).transition().style("opacity", 0.55);
     d3.select(this).classed('main-focused', true).transition().style("opacity", 1);
 
     if (debatsDrawing) return;
@@ -210,7 +210,7 @@ function getRowRects(rect) {
 }
 
 function getOffsetRect(direction) {
-    var cur = $('rect.main-focused');
+    var cur = $('#viz rect.main-focused');
     if (!cur || cur.length === 0) return;
 
 
@@ -411,8 +411,9 @@ sven.viz.streamkey = function () {
                 d3.select(".desc").attr("style", "top: " + (d3.event.pageY - $(".desc").height() - 15) + "px; left:" + (d3.event.pageX - $(".desc").width() / 2) + "px");
             });
 
-        d3.select("svg").on("click", function () {
+        d3.select("#viz svg").on("click", function () {
             d3.selectAll(".focused").classed('focused', false);
+            d3.selectAll(".main-focused").classed('main-focused', false);
             resetHighlight();
         });
 

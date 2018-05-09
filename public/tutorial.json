@@ -181,14 +181,18 @@
   {
     "elt": "#viz",
     "position": "right",
-    "text": "<h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Débats&nbsp;»</h6><i>Vous pouvez naviguer à travers ce tutoriel ou le quitter à tout moment en cliquant sur les boutons en haut à droite. Relancez-le en cliquant sur le point d'interrogation au dessous.</i><br/><br/>Cette vue présente les discussions parlementaires à une étape donnée de la procédure législative.<br/>Plus on descend dans la page, plus on progresse dans la discussion des réunions de commissions ou des séances en hémicycle consacrées à l'examen du texte.",
+    "text": "<h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Débats&nbsp;»</h6><i>Vous pouvez naviguer à travers ce tutoriel ou le quitter à tout moment en cliquant sur les boutons en haut à droite. Relancez-le en cliquant sur le point d'interrogation au dessous.</i><br/><br/>Cette vue présente les discussions parlementaires à une étape donnée de la procédure législative.<br/>Plus on descend dans la page, plus on progresse dans la discussion des réunions de commissions ou des séances en hémicycle consacrées à l'examen du texte.<br/>Vous pouvez survoler les flux pour obtenir plus de précisions.",
     "actions": [
-      {"typ": "scrolltop", "val": "#viz"}
+      {"typ": "scrolltop", "val": "#viz"},
+      {"typ": "click", "val": "#viz svg"}
     ]
   }, {
     "elt": ".svg.rect-first",
     "position": "bottom",
-    "text": "Chaque rectangle représente la participation d'un groupe d'orateurs à une portion du débat : présidents et rapporteurs, groupes politiques, ministres et éventuels auditionnés.<br/>Plus les membres de ce groupe ont parlé, plus le rectangle correspondant est long."
+    "text": "Chaque rectangle représente la participation d'un groupe d'orateurs à une portion du débat : présidents et rapporteurs, groupes politiques, ministres et éventuels auditionnés.<br/>Plus les membres de ce groupe ont parlé, plus le rectangle correspondant est long.",
+    "actions": [
+      {"typ": "click", "val": "#viz svg"}
+    ]
   }, {
     "elt": "#sidebar",
     "position": "left",
@@ -201,7 +205,8 @@
     "position": "top",
     "text": "La légende rassemble les différents groupes parlementaires ou fonctions identifiées : présidence des débats (président de séance ou de commission), rapporteurs, membres du gouvernement, auditionnés.<br/>Cliquez sur un groupe pour n'afficher que ses interventions.",
     "actions": [
-      {"typ": "click", "val": "#tuto-legend"}
+      {"typ": "click", "val": "#tuto-legend"},
+      {"typ": "click", "val": "#viz svg"}
     ]
   }, {
     "elt": "#menu-order",
