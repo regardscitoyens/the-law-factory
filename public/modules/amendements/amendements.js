@@ -42,7 +42,6 @@ function ($rootScope, $timeout, $sce, $location, api) {
             var viz = thelawfactory.amendements,
                 firstDraw = true,
                 refreshInterval = 60000;
-            $('.readMode').tooltip({animated: 'fade', placement: 'bottom', container: 'body'});
 
             // Redessine les dernières données de l'API (à appeler sur changement de tri/groupement)
             function redraw() {
@@ -302,6 +301,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
             $scope.$watch('selectedAmdtData', function() {
                 $timeout(function() {
                     $('.amd-motifs-fade').tooltip({ container: 'body' });
+                    $('.readMode').tooltip({animated: 'fade', placement: 'bottom', container: 'body'});
                 }, 0);
             });
 

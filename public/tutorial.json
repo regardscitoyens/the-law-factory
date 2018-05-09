@@ -181,39 +181,39 @@
   {
     "elt": "#viz",
     "position": "right",
-    "text": "<h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Débats&nbsp;»</h6><i>Vous pouvez naviguer à travers ce tutoriel ou le quitter à tout moment en cliquant sur les boutons en haut à droite. Relancez-le en cliquant sur le point d'interrogation au dessous.</i><br/><br/>Cette vue présente les discussions parlementaires à une étape donnée de la procédure législative.<br/>Plus on descend dans la page, plus on progresse dans la discussion des réunions de commissions et des séances en hémicycle consacrées à l'examen du texte.",
+    "text": "<h6>TUTORIEL : Bienvenue sur la visualisation «&nbsp;Débats&nbsp;»</h6><i>Vous pouvez naviguer à travers ce tutoriel ou le quitter à tout moment en cliquant sur les boutons en haut à droite. Relancez-le en cliquant sur le point d'interrogation au dessous.</i><br/><br/>Cette vue présente les discussions parlementaires à une étape donnée de la procédure législative.<br/>Plus on descend dans la page, plus on progresse dans la discussion des réunions de commissions ou des séances en hémicycle consacrées à l'examen du texte.",
     "actions": [
       {"typ": "scrolltop", "val": "#viz"}
     ]
   }, {
     "elt": ".svg.rect-first",
     "position": "bottom",
-    "text": "Chaque rectangle représente, pour une section du débat, à la participation d'un groupe d'orateurs : parlementaires, ministres et éventuels auditionnés.<br/>Plus les membres de ce groupes ont parlé, plus le rectangle correspondant est long."
+    "text": "Chaque rectangle représente la participation d'un groupe d'orateurs à une portion du débat : présidents et rapporteurs, groupes politiques, ministres et éventuels auditionnés.<br/>Plus les membres de ce groupe ont parlé, plus le rectangle correspondant est long."
   }, {
     "elt": "#sidebar",
     "position": "left",
-    "text": "Cliquez sur un rectangle pour faire apparaître à droite les orateurs de ce groupe intervenus lors de cette phase et classés par ordre décroissant de mots prononcés.<br/>On peut cliquer sur les photos des parlementaires pour retrouver leurs pages personnelles sur NosDéputés.fr ou NosSénateurs.fr, ainsi qu'au texte complet des interventions de chacun à cet instant des débats",
+    "text": "Cliquez sur un rectangle pour faire apparaître à droite les orateurs de ce groupe intervenus lors de cette phase et classés par ordre décroissant de mots prononcés.<br/>On peut cliquer sur les photos des parlementaires pour retrouver leurs pages sur NosDéputés.fr ou NosSénateurs.fr, ainsi qu'accéder au texte complet des interventions de chacun à cet instant des débats.",
     "actions": [
       {"typ": "click", "val": ".rect-first"}
     ]
   }, {
     "elt": "#legend",
     "position": "top",
-    "text": "La légende présente les différents groupes parlementaires ou fonctions identifiées : présidence des débat (président de séance ou de commission), rapporteurs, membres du gouvernement, auditionnés.<br/>Cliquez sur un groupe pour n'afficher que ses interventions.",
+    "text": "La légende rassemble les différents groupes parlementaires ou fonctions identifiées : présidence des débats (président de séance ou de commission), rapporteurs, membres du gouvernement, auditionnés.<br/>Cliquez sur un groupe pour n'afficher que ses interventions.",
     "actions": [
       {"typ": "click", "val": "#tuto-legend"}
     ]
   }, {
     "elt": "#menu-order",
     "position": "right",
-    "text": "Cliquez sur ce menu pour basculer l'affichage entre deux modes&nbsp;: <ul><li><u><b>«&nbsp;échiquier politique&nbsp;»</b></u>, qui présente toujours dans le même ordre la présidence, puis les groupes, les rapporteurs, le gouvernement et les auditionnés</li><li>...</li></ul>",
+    "text": "Cliquez sur ce menu pour basculer l'affichage entre deux modes&nbsp;: <ul><li><u><b>«&nbsp;échiquier politique&nbsp;»</b></u>, qui présente toujours dans le même ordre la présidence, puis les groupes, les rapporteurs, le gouvernement et les auditionnés&nbsp;;</li><li>...</li></ul>",
     "actions": [
       {"typ": "click", "val": "#dm-classic"}
     ]
   }, {
     "elt": "#menu-value",
     "position": "right",
-    "text": "Cliquez sur ce menu pour basculer l'affichage entre deux modes&nbsp;: <ul><li><b>«&nbsp;échiquier politique&nbsp;»</b>, qui présente toujours dans le même ordre la présidence, puis les groupes, les rapporteurs, le gouvernement et les auditionnés</li><li><u><b>«&nbsp;quantitatif&nbsp;»</b></u>, qui trie les groupes à chaque étape par ordre décroissant du nombre de mots prononcés</li></ul>",
+    "text": "Cliquez sur ce menu pour basculer l'affichage entre deux modes&nbsp;: <ul><li><b>«&nbsp;échiquier politique&nbsp;»</b>, qui présente toujours dans le même ordre la présidence, puis les groupes, les rapporteurs, le gouvernement et les auditionnés&nbsp;;</li><li><u><b>«&nbsp;quantitatif&nbsp;»</b></u>, qui trie les groupes à chaque étape par ordre décroissant du nombre de mots prononcés.</li></ul>",
     "actions": [
       {"typ": "click", "val": "#dm-quanti"}
     ]
