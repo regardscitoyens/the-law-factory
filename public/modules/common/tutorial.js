@@ -123,7 +123,6 @@ angular.module('theLawFactory')
                     selk = $scope.mod == "navettes" ? '#gantt' : '#viz';
                 if (oElement.prop('tagName') == 'rect') {
                     var oNewElement = oElement.clone(true);
-                    oNewElement.attr('x', 0).attr('y', 0).attr('style', oElement.parent().attr('style'));
                     var scale0 = getSVGScale(oElement.parent());
                     var scale1 = getSVGScale(oElement.parent().parent());
                     var trans0 = getSVGTranslate(oElement.parent());
@@ -136,6 +135,9 @@ angular.module('theLawFactory')
                     var top = $(selk).offset().top +
                         parseInt(oElement.attr('y')) * scale0[1] * scale1[1] +
                         trans0[1] + trans1[1];
+                    oNewElement.attr('x', 0).attr('y', 0)
+                    .attr('width', width).attr('height', height)
+                    .attr('style', oElement.parent().attr('style'));
                 } else if (oElement.prop('tagName') == 'g') {
                     var oNewElement = oElement.clone(true);
                     var bbox = d3.select(sElementClass)[0][0].getBBox();
