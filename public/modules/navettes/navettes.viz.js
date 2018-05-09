@@ -964,7 +964,7 @@ reset_filters();
                 extrainfo += '</ul>';
 
                 var themes = "<p>";
-                d.themes.join(",").replace(/ et /g, ',').split(',').forEach(function (e) {
+                d.themes.forEach(function (e) {
                     themes += "<a onclick=\"addBillsFilter('theme','" + e + "')\" class='badge' title='Filtrer les textes correspondant à ce thème' data-toggle='tooltip' data-placement='left'><span class='glyphicon glyphicon-tag'></span> " + e + "</a>&nbsp;&nbsp;";
                 });
                 extrainfo += themes + "</p>";
