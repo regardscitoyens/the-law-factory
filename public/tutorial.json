@@ -157,7 +157,7 @@
   }, {
     "elt": "#menu-order",
     "position": "right",
-    "text": "Le menu de tri permet d'ordonner différemment les amendements, par numéro, <u><b>par sort puis groupe politique</b></u>, ...",
+    "text": "Le menu de tri permet d'ordonner différemment les amendements : par numéro, <u><b>par sort puis groupe politique</b></u>, ...",
     "actions": [
       {"typ": "click", "val": "#od-sort"}
     ]
