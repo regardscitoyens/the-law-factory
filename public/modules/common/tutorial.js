@@ -11,7 +11,7 @@ angular.module('theLawFactory')
         template: '<a title="Voir le tutoriel" data-toggle="tooltip" data-placement="left" href="#" class="button nav-item tutorial-button" ng-click="toggleTutorial($event)"><span>?</span></a>',
         controller: function ($timeout, $rootScope, $scope, api) {
             $scope.toggleTutorial = function (ev) {
-                ev.preventDefault();
+                if (ev) ev.preventDefault();
 
                 if (!$rootScope.tutorial) {
                     $rootScope.tutorial = true;
@@ -86,6 +86,7 @@ angular.module('theLawFactory')
                 if (!localStorage.getItem("tuto-" + $scope.mod) || localStorage.getItem("tuto-" + $scope.mod) != "done")
                     $scope.toggleTutorial();
             };
+            $timeout($scope.showFirstTimeTutorial, 150);
 
             function getSVGScale (t) {
                 t = t[0];
