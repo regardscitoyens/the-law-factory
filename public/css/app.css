@@ -105,7 +105,7 @@ a:active {
   background-color: #e6ffe6;
 }
 .textdiff a {
-  background-color: #e6ffe6;
+  background-color: inherit;
 }
 .tooltip {
   z-index: 10000000;
