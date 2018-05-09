@@ -80,10 +80,10 @@ reset_filters();
                     return Math.min(maxstat, Math.ceil((v - 1) / binstat)) * binstat;
                 },
                 sortByLeng = function (a, b) {
-                    return b.total_days - a.total_days
+                    return b.stats.total_days - a.stats.total_days
                 },
                 sortByAmds = function (a, b) {
-                    return b.total_amendements - a.total_amendements
+                    return b.stats.total_amendements - a.stats.total_amendements
                 },
                 sortByDate = function (a, b) {
                     return Date.parse(b.end) - Date.parse(a.end)
@@ -557,13 +557,13 @@ reset_filters();
                             if (!active_filters['amendments']) return true;
                             switch (active_filters['amendments']) {
                                 case allAmendments[1]:
-                                    return !d.total_amendements;
+                                    return !d.stats.total_amendements;
                                     break;
                                 case allAmendments[2]:
-                                    return d.total_amendements && d.total_amendements < 51;
+                                    return d.stats.total_amendements && d.stats.total_amendements < 51;
                                     break;
                                 case allAmendments[3]:
-                                    return d.total_amendements > 50;
+                                    return d.stats.total_amendements > 50;
                                     break;
                             }
                         })
