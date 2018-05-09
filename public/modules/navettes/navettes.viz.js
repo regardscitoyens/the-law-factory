@@ -551,7 +551,7 @@ reset_filters();
                         })
                         .filter(function (d) {
                             if (!active_filters['length']) return true;
-                            return active_filters['length'] == get_stat_bin(d.total_days);
+                            return active_filters['length'] == get_stat_bin(d.stats.total_days);
                         })
                         .filter(function (d) {
                             if (!active_filters['amendments']) return true;
@@ -578,8 +578,8 @@ reset_filters();
                 smallset.forEach(function (d) {
                     mindate = (mindate && mindate < d.beginning ? mindate : d.beginning);
                     maxdate = (maxdate && maxdate > d.end ? maxdate : d.end);
-                    maxduration = Math.max(maxduration, d.total_days);
-                    stats[get_stat_bin(d.total_days)]++;
+                    maxduration = Math.max(maxduration, d.stats.total_days);
+                    stats[get_stat_bin(d.stats.total_days)]++;
                 });
                 drawStats();
                 if (smallset.length == 0) {
