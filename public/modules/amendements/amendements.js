@@ -42,6 +42,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
             var viz = thelawfactory.amendements,
                 firstDraw = true,
                 refreshInterval = 60000;
+            $('.readMode').tooltip({animated: 'fade', placement: 'bottom', container: 'body'});
 
             // Redessine les dernières données de l'API (à appeler sur changement de tri/groupement)
             function redraw() {
