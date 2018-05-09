@@ -11,7 +11,7 @@
   }, {
     "elt": "#sidebar",
     "position": "left",
-    "text": "En cliquant sur un texte, vous pouvez consulter dans cet encart différentes informations et éléments quantitatifs sur celui-ci.<br/>Cliquez sur le bouton &nbsp;<span style='background-color: #716259;color: white; padding: 3px;'>Explorer les articles</span>&nbsp; pour vous rendre sur la visualisation «&nbsp;Articles&nbsp;», qui vous permettra d'explorer les modifications effectuées sur ce texte.",
+    "text": "En cliquant sur un texte, vous pouvez consulter dans cet encart différentes informations et éléments quantitatifs sur celui-ci.<br/>Cliquez sur le bouton &nbsp;<span style='background-color: #716259;color: white; padding: 4px 8px;'>Explorer les articles</span>&nbsp; pour vous rendre sur la visualisation «&nbsp;Articles&nbsp;», qui vous permettra d'explorer les modifications effectuées sur ce texte.",
     "actions": [
       {"typ": "click", "val": ".g-law-first"}
     ]
