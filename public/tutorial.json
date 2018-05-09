@@ -11,7 +11,7 @@
   }, {
     "elt": "#sidebar",
     "position": "left",
-    "text": "En cliquant sur un texte, vous pouvez consulter dans cet encart différentes informations et éléments quantitatifs sur celui-ci.<br/>Cliquez sur le bouton &nbsp;<span style='background-color: #716259;color: white; padding: 4px 8px;'>Explorer les articles</span>&nbsp; pour vous rendre sur la visualisation «&nbsp;Articles&nbsp;», qui vous permettra d'explorer les modifications effectuées sur ce texte.",
+    "text": "En cliquant sur un texte, vous pouvez consulter dans cet encart différentes informations et éléments quantitatifs sur celui-ci.<br/>Cliquez sur le bouton &nbsp;<span class='tutobutton'>Explorer les articles</span>&nbsp; pour vous rendre sur la visualisation «&nbsp;Articles&nbsp;», qui vous permettra d'explorer les modifications effectuées sur ce texte.",
     "actions": [
       {"typ": "click", "val": ".g-law-first"}
     ]
@@ -84,7 +84,7 @@
   }, {
     "elt": "#sidebar",
     "position": "left",
-    "text": "Cliquez sur la boîte d'un article pour faire apparaître son contenu et les modifications apportées au texte lors de cette étape dans la zone de droite. Les ajouts au texte sont surlignés en vert et les suppressions en rouge.<br/>En cliquant sur l'icone <span class='glyphicon glyphicon-chevron-left' style='margin:5px'></span> à gauche du titre, vous pouvez déplier et agrandir la fenêtre de texte pour mieux lire le texte des articles.<br/>Vous pouvez utiliser les flèches du clavier pour naviguer de version en version et d'article en article.<br/>Cliquez sur le bouton <span class='glyphicon glyphicon glyphicon-check' style='margin:5px'></span> pour basculer entre l'affichage du texte tel qu'il a été voté à cette étape, et l'affichage présentant les modifications en couleurs.",
+    "text": "Cliquez sur la boîte d'un article pour faire apparaître son contenu et les modifications apportées au texte lors de cette étape dans la zone de droite. Les ajouts au texte sont surlignés en vert et les suppressions en rouge.<br/>En cliquant sur l'icone <span class='tutobutton glyphicon glyphicon-chevron-left' style='margin:5px'></span> à gauche du numéro de l'article, vous pouvez déplier et agrandir la fenêtre de texte pour mieux lire le texte des articles.<br/>Vous pouvez utiliser les flèches du clavier pour naviguer de version en version et d'article en article.<br/>Cliquez sur le bouton <span class='tutobutton glyphicon glyphicon glyphicon-check' style='margin:5px'></span> pour basculer entre l'affichage du texte tel qu'il a été voté à cette étape, et l'affichage présentant les modifications en couleurs.",
     "actions": [
       {"typ": "click", "val": "#viz .article-first"}
     ]
@@ -129,7 +129,7 @@
   }, {
     "elt": "#sidebar",
     "position": "left",
-    "text": "En cliquant sur un carré, toutes les informations relatives à cet amendement s’affichent à droite : date, sujet, sort... Cliquez sur les signataire(s), l'exposé ou le texte pour dévoiler les détails des propositions de modification du texte.",
+    "text": "En cliquant sur un carré, toutes les informations relatives à cet amendement s’affichent à droite : date, sujet, sort... Cliquez sur les signataire(s), l'exposé ou le texte pour dévoiler les détails des propositions de modification du texte.<br/>Comme dans la vue des articles, en cliquant sur l'icone <span class='tutobutton glyphicon glyphicon-chevron-left' style='margin:5px'></span> à gauche du numéro de l'amendement, vous pouvez déplier et agrandir la fenêtre de texte pour mieux lire le texte.",
     "actions": [
       {"typ": "click", "val": ".amendement:first"}
     ]

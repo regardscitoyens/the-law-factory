@@ -665,6 +665,11 @@ noscript span {
 nav .tutorial-button {
   display: block;
 }
+.tutobutton {
+  background-color: #716259;
+  color: white;
+  padding: 4px 8px;
+}
 /* Main module display zone */
 #display {
   position: absolute;
