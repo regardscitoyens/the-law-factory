@@ -1479,7 +1479,7 @@ nav .tutorial-button {
 .amendements .sort-by-numero .liste-amendements {
   flex-direction: row;
 }
-.amendements .amendement {
+.amendements .amendement, .div-over-svg .amendement {
   width: 20px;
   height: 20px;
   margin: 0;

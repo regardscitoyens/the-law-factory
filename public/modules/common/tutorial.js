@@ -40,8 +40,8 @@ angular.module('theLawFactory')
                         });
                         introjs.onbeforechange(function (e) {
                             if ($(e).hasClass('div-over-svg'))
-                                $(e).find('svg').css("opacity", 1);
-                            else $('.div-over-svg svg').css("opacity", 0);
+                                $(e).css("opacity", 1);
+                            else $('.div-over-svg').css("opacity", 0);
                             actions[$(e).attr('data-step')].forEach(function(action) {
                                 switch (action.typ) {
                                     case 'scrolltop' :
@@ -119,7 +119,8 @@ angular.module('theLawFactory')
              * Draw a div over the jQuery node passed as argument
              */
             function drawDivOverElement (oElement, sElementClass) {
-                var selk = $scope.mod == "navettes" ? '#gantt' : '#viz';
+                var typ = "svg",
+                    selk = $scope.mod == "navettes" ? '#gantt' : '#viz';
                 if (oElement.prop('tagName') == 'rect') {
                     var oNewElement = oElement.clone(true);
                     oNewElement.attr('x', 0).attr('y', 0).attr('style', oElement.parent().attr('style'));
@@ -140,9 +141,7 @@ angular.module('theLawFactory')
                     var bbox = d3.select(sElementClass)[0][0].getBBox();
                     var width = bbox.width;
                     var height = bbox.height;
-                    if ($scope.mod == "amendements")
-                        height += 20;
-                    var top = $(selk).offset().top + d3.select(sElementClass)[0][0].getBBox().y + parseInt(oElement.attr('data-offset'));
+                    var top = $(selk).offset().top + bbox.y + parseInt(oElement.attr('data-offset'));
                     var left = $(selk).offset().left + bbox.x;
                     oNewElement.find('*').each(function () {
                         var x = $(this).attr('x');
@@ -150,13 +149,21 @@ angular.module('theLawFactory')
                         var y = $(this).attr('y');
                         $(this).attr('y', y - bbox.y);
                     });
+                } else if (oElement.prop('tagName').toLowerCase() == 'div') {
+                    var oNewElement = oElement.clone(true);
+                    var bbox = $(sElementClass)[0].getBoundingClientRect();
+                    var width = bbox.width;
+                    var height = bbox.height;
+                    var top = bbox.y;
+                    var left = bbox.x;
+                    typ = "div";
                 } else {
                     console.log("Weird tag given on element: ", oElement, oElement.prop('tagName'));
                 }
                 var sElementClass = sElementClass.replace('.', '') + '-div';
-                var node = '<div class="' + sElementClass + ' div-over-svg" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"><svg></svg></div>';
+                var node = '<div class="' + sElementClass + ' div-over-svg" style="position: absolute; top: ' + top + 'px; left : ' + left + 'px; width: ' + width + 'px; height: ' + height + 'px;"><'+typ+'></'+typ+'></div>';
                 $('body').append(node);
-                $("." + sElementClass + " svg").append(oNewElement);
+                $("." + sElementClass + " " + typ).append(oNewElement);
                 return '.' + sElementClass;
             }
         }

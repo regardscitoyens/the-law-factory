@@ -50,6 +50,7 @@
           <div
             class="
               amendement
+              {{ amdt.tutorial ? 'amendement-tutorial' : ''}}
               amendement-{{ ::amdt.id_api }}
               amendement-num-{{ ::amdt.numero }}
               {{ focusGroupe && amdt.groupe === focusGroupe ? 'focus' : '' }}

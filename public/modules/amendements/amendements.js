@@ -81,10 +81,13 @@ function ($rootScope, $timeout, $sce, $location, api) {
                             var $amdt = $('.amendement-num-' + amdtNum);
                             var $sujet = $amdt.parents('.sujet');
 
+
                             $amdt.click();
                             $viz.animate({
                                 scrollTop: $sujet.offset().top - $viz.offset().top
                             });
+                        } else {
+                            $scope.apiData.sujets[Object.keys($scope.apiData.sujets)[0]].amendements[0].tutorial = true;
                         }
 
                         firstDraw = false;
@@ -147,8 +150,13 @@ function ($rootScope, $timeout, $sce, $location, api) {
             // Affichage du contenu d'un amendement
             $scope.selectAmdt = function(amdt) {
                 $('.amendements .amendement.selected').removeClass('selected');
+                $scope.apiData.sujets[Object.keys($scope.apiData.sujets)[0]].amendements[0].tutorial = false;
+                if ($scope.selectedAmdt) {
+                    $scope.selectedAmdt.tutorial = false;
+                }
 
                 if (amdt) {
+                    amdt.tutorial = true
                     $('.amendement-' + amdt.id_api).addClass('selected');
 
                     thelawfactory.utils.spinner.start('load_amd');

@@ -123,7 +123,7 @@
       {"typ": "scrolltop", "val": "#viz"}
     ]
   }, {
-    "elt": ".amendement:first",
+    "elt": ".svg.amendement-tutorial",
     "position": "bottom",
     "text": "Chaque carré coloré représente un amendement. Sa couleur indique le groupe politique de ses auteurs et un pictogramme indique si l'amendement a été adopté, rejeté, ou non-voté (redondant, abandonné, irrecevable…)."
   }, {
@@ -131,7 +131,7 @@
     "position": "left",
     "text": "En cliquant sur un carré, toutes les informations relatives à cet amendement s’affichent à droite : date, sujet, sort... Cliquez sur les signataire(s), l'exposé ou le texte pour dévoiler les détails des propositions de modification du texte.<br/>Comme dans la vue des articles, en cliquant sur l'icone <span class='tutobutton glyphicon glyphicon-chevron-left' style='margin:5px'></span> à gauche du numéro de l'amendement, vous pouvez déplier et agrandir la fenêtre de texte pour mieux lire le texte.",
     "actions": [
-      {"typ": "click", "val": ".amendement:first"}
+      {"typ": "click", "val": ".amendement-tutorial"}
     ]
   }, {
     "elt": "#legend",
