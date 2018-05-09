@@ -750,15 +750,14 @@ var valign, stacked, articlesScope, aligned = true;
                         .attr("transform", "translate(0,0)");
 
                     d3.selectAll("line").transition().duration(500)
-//TODO FIX LINES
                         .attr("y1", function (d) {
-                            return d.y + (lerp(d.viz_height)) / 2
+                            return d.y + (lerp(art_height(d))) / 2
                         })
                         .attr("y2", function (d) {
                             var a = bigList.filter(function (e) {
                                 return e.article === d.article && e.prev_step == d.step_num
                             })[0];
-                            return a.y + (lerp(a.viz_height)) / 2;
+                            return a.y + (lerp(art_height(a))) / 2;
                         });
                     $("#viz svg").height(maxy);
                 };
