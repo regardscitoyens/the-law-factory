@@ -129,9 +129,9 @@
   }, {
     "elt": "#sidebar",
     "position": "left",
-    "text": "En cliquant sur un carré, toutes les informations relatives à cet amendement s’affichent à droite : date, signataire(s), sort, exposé et détails des propositions de modification du texte.",
+    "text": "En cliquant sur un carré, toutes les informations relatives à cet amendement s’affichent à droite : date, sujet, sort... Cliquez sur les signataire(s), l'exposé ou le texte pour dévoiler les détails des propositions de modification du texte.",
     "actions": [
-      {"typ": "click", "val": ".sujet:first-child"}
+      {"typ": "click", "val": ".amendement:first"}
     ]
   }, {
     "elt": "#legend",
