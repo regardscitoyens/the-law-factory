@@ -106,6 +106,7 @@ a:active {
 }
 .textdiff a {
   background-color: inherit;
+  font-style: italic;
 }
 .tooltip {
   z-index: 10000000;
