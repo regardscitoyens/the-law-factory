@@ -106,7 +106,7 @@ a:active {
   background-color: #e6ffe6;
   text-decoration-color: rgba(0, 0, 0, 0.3);
 }
-.textdiff a {
+.originaltext a, .textdiff a {
   background-color: inherit;
   font-style: italic;
 }
