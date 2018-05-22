@@ -37,18 +37,7 @@ function ($rootScope, api) {
                 $rootScope.pageTitle = $rootScope.lawTitle + " - Articles | ";
                 $scope.articlesData = data;
             }, function () {
-                // detect if the law has a new ID and redirect to the new page
-                $rootScope.$watch('lawlist', function(value) {
-                    if (value) {
-                        for (var i = 0; i < $rootScope.lawlist.length; i++) {
-                            if ($rootScope.lawlist[i].assemblee_id === $scope.loi) {
-                                window.location.replace(window.location.href.replace($scope.loi, $rootScope.lawlist[i].id));
-                                return;
-                            }
-                        }
-                    }
-                    $scope.display_error("impossible de trouver les articles de ce texte");
-                });
+                $scope.display_error("impossible de trouver les articles de ce texte");
             });
 
             $scope.$watchGroup(['steps', 'articlesData'], function (values) {

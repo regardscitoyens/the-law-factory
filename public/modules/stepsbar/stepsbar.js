@@ -96,7 +96,18 @@ function ($timeout, $rootScope, api) {
                 }, 0);
 
             }, function () {
-                scope.display_error("impossible de trouver la procédure de ce texte");
+                // detect if the law has a new ID and redirect to the new page
+                $rootScope.$watch('lawlist', function(value) {
+                    if (value) {
+                        for (var i = 0; i < $rootScope.lawlist.length; i++) {
+                            if ($rootScope.lawlist[i].assemblee_id === scope.loi) {
+                                window.location.replace(window.location.href.replace(scope.loi, $rootScope.lawlist[i].id));
+                                return;
+                            }
+                        }
+                    }
+                    scope.display_error("impossible de trouver la procédure de ce texte");
+                });
             });
 
             function addStageInst (currObj) {
