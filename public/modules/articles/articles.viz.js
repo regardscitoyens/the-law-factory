@@ -6,6 +6,9 @@ var valign, stacked, articlesScope, aligned = true;
 
     thelawfactory.articles = function () {
 
+        // TODO url parsing here and when building the url
+        aligned = window.location.search.indexOf('&compact') === -1;
+
         articlesScope = $(".articles").scope();
         var textArticles = {};
         var liensArticles = {};
@@ -138,6 +141,14 @@ var valign, stacked, articlesScope, aligned = true;
                 });
             }
             return alinea
+        }
+
+        function update_location_url() {
+            var url = window.location.toString().replace('&compact', '');
+            if (!aligned) {
+                url += '&compact';
+            }
+            window.history.replaceState(null, null, url);
         }
 
         function vis(data, APIRootUrl, loi, currentstep, helpText) {
@@ -683,6 +694,7 @@ var valign, stacked, articlesScope, aligned = true;
                 var has_echec = sections.indexOf('echec') >= 0;
                 valign = function () {
                     aligned = true;
+                    update_location_url();
                     $("#display_menu .chosen").removeClass('chosen');
                     $("#display_menu #dm-aligned").addClass('chosen');
                     $("#menu-display .selectedchoice").text('alignée');
@@ -743,6 +755,7 @@ var valign, stacked, articlesScope, aligned = true;
                 //function for stacked layout
                 stacked = function () {
                     aligned = false;
+                    update_location_url();
                     $("#display_menu .chosen").removeClass('chosen');
                     $("#display_menu #dm-stacked").addClass('chosen');
                     $("#menu-display .selectedchoice").text('compacte');
