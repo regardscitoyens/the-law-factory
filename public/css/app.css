@@ -106,6 +106,9 @@ a:active {
   background-color: #e6ffe6;
   text-decoration-color: rgba(0, 0, 0, 0.3);
 }
+.textdiff del:hover, .textdiff ins:hover, .originaltext del:hover, .originaltext ins:hover {
+  text-decoration: none;
+}
 .originaltext a, .textdiff a {
   background-color: inherit;
   font-style: italic;
