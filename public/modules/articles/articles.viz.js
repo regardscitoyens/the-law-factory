@@ -6,8 +6,7 @@ var valign, stacked, articlesScope, aligned = true;
 
     thelawfactory.articles = function () {
 
-        // TODO url parsing here and when building the url
-        aligned = window.location.search.indexOf('&compact') === -1;
+        aligned = thelawfactory.utils.getParameterByName('compacte') === null;
 
         articlesScope = $(".articles").scope();
         var textArticles = {};
@@ -143,14 +142,6 @@ var valign, stacked, articlesScope, aligned = true;
             return alinea
         }
 
-        function update_location_url() {
-            var url = window.location.toString().replace('&compact', '');
-            if (!aligned) {
-                url += '&compact';
-            }
-            window.history.replaceState(null, null, url);
-        }
-
         function vis(data, APIRootUrl, loi, currentstep, helpText) {
             var drawing = false,
                 bigList = [],
@@ -179,6 +170,43 @@ var valign, stacked, articlesScope, aligned = true;
                         left_to_load -= 1;
                     });
                 });
+            }
+
+            function update_location_url() {
+                var url = window.location;
+                // reset search args
+                var search = url.search.replace('&compacte', '');
+                // add arg back
+                if (!aligned) {
+                    search += '&compacte';
+                }
+                var new_url = url.protocol + '//' + url.host + url.pathname + search;
+
+                // TODO: use $timeout
+                setTimeout(function() {
+                    window.history.replaceState(null, null, new_url);
+                }, 0);
+            }
+
+            function update_location_url_for_articles(d) {
+                var url = window.location;
+                // reset search args
+                var args = url.search.slice(1).split('&');
+                args = args.filter(function(arg) {
+                    var splitted = arg.split('=');
+                    return splitted[0] !== 'article' && splitted[0] !== 'etape';
+                });
+                // add arg back
+                if (d) {
+                    args.push('article=' + d.article);
+                    args.push('etape=' + d.directory);
+                }
+                var new_url = url.protocol + '//' + url.host + url.pathname + '?' + args.join('&');
+
+                // TODO: use $timeout
+                setTimeout(function() {
+                    window.history.replaceState(null, null, new_url);
+                }, 0);
             }
 
             //Utility functions
@@ -777,6 +805,7 @@ var valign, stacked, articlesScope, aligned = true;
 
                 //on click behaviour
                 function onclick(d) {
+                    update_location_url_for_articles(d);
                     d3.selectAll("line").style("stroke", "#d0d0e0")
                         .style("stroke-dasharray", "none");
                     //STYLE OF CLICKED ELEMENT AND ROW
@@ -884,6 +913,13 @@ var valign, stacked, articlesScope, aligned = true;
                 else stacked();
                 $('.readMode').tooltip({animated: 'fade', placement: 'bottom', container: 'body'});
                 $('.revsMode').tooltip({animated: 'fade', placement: 'bottom', container: 'body'});
+
+                // open article if in url
+                if (articlesScope.article && articlesScope.etape) {
+                    d3.selectAll("#viz .article").filter(function (e) {
+                        return e.article == articlesScope.article && e.directory == articlesScope.etape
+                    }).each(onclick);
+                }
             };
 
             $(document).ready(function () {

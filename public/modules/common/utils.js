@@ -267,4 +267,9 @@
     utils.upperFirst = function (s) {
         return (!s ? "" : s.charAt(0).toUpperCase() + s.substring(1));
     };
+
+    // https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+    utils.getParameterByName = function(name) {
+        return (new URL(window.location)).searchParams.get(name);
+    };
 })();
