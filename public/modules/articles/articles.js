@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('theLawFactory')
-.directive('articles', ['$rootScope', 'api',
-function ($rootScope, api) {
+.directive('articles', ['$rootScope', '$location', 'api',
+function ($rootScope, $location, api) {
     return {
         restrict: 'A',
         replace: false,
@@ -187,6 +187,19 @@ function ($rootScope, api) {
 
             $textContainer.on("scroll", updateCursor);
             $(window).on("resize", updateCursor);
+
+            $scope.$on('$locationChangeSuccess', function(event, newUrl, oldUrl){
+                var parser = document.createElement('a');
+                parser.href = newUrl;
+                if (parser.pathname.endsWith('/articles.html')) {
+                    // TODO watch variable / update $scope in different loop
+                    $scope.etape = $location.search()['etape'];
+                    $scope.article = $location.search()['article'];
+                    $scope.compacte = $location.search()['compacte'] === true;
+
+                    thelawfactory.articles.update();
+                }
+            });
 
             $scope.$watch("read", function() {
                 setTimeout(updateCursor, 500);

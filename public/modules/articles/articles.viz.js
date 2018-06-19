@@ -1,4 +1,4 @@
-var valign, stacked, articlesScope, aligned = true;
+var click_valign, click_stacked, articlesScope, aligned = true;
 
 (function () {
 
@@ -6,9 +6,8 @@ var valign, stacked, articlesScope, aligned = true;
 
     thelawfactory.articles = function () {
 
-        aligned = thelawfactory.utils.getParameterByName('compacte') === null;
-
         articlesScope = $(".articles").scope();
+        var aligned = null;
         var textArticles = {};
         var liensArticles = {};
 
@@ -172,41 +171,37 @@ var valign, stacked, articlesScope, aligned = true;
                 });
             }
 
-            function update_location_url() {
+            function update_url() {
                 var url = window.location;
-                // reset search args
-                var search = url.search.replace('&compacte', '');
-                // add arg back
-                if (!aligned) {
-                    search += '&compacte';
-                }
-                var new_url = url.protocol + '//' + url.host + url.pathname + search;
 
-                // TODO: use $timeout
-                setTimeout(function() {
-                    window.history.replaceState(null, null, new_url);
-                }, 0);
-            }
-
-            function update_location_url_for_articles(d) {
-                var url = window.location;
                 // reset search args
+                // TODO: use $search
                 var args = url.search.slice(1).split('&');
                 args = args.filter(function(arg) {
                     var splitted = arg.split('=');
-                    return splitted[0] !== 'article' && splitted[0] !== 'etape';
+                    return splitted[0] !== 'article' && splitted[0] !== 'etape' && splitted[0] !== 'compacte';
                 });
-                // add arg back
-                if (d) {
+
+                // add args back
+                var selected_art = d3.selectAll(".curr");
+                if (selected_art.data().length > 0) {
+                    var d = selected_art.data()[0];
                     args.push('article=' + d.article);
                     args.push('etape=' + d.directory);
                 }
+
+                if (!aligned) {
+                    args.push('compacte');
+                }
+
                 var new_url = url.protocol + '//' + url.host + url.pathname + '?' + args.join('&');
 
-                // TODO: use $timeout
-                setTimeout(function() {
-                    window.history.replaceState(null, null, new_url);
-                }, 0);
+                if (url.toString() != new_url) {
+                    // TODO: use $timeout
+                    setTimeout(function() {
+                        window.history.pushState(null, null, new_url);
+                    }, 0);
+                }
             }
 
             //Utility functions
@@ -720,9 +715,14 @@ var valign, stacked, articlesScope, aligned = true;
 
                 //functions for aligned layout
                 var has_echec = sections.indexOf('echec') >= 0;
-                valign = function () {
+
+                click_valign = function () {
                     aligned = true;
-                    update_location_url();
+                    update_url();
+                    valign.bind(this)();
+                };
+
+                var valign = function () {
                     $("#display_menu .chosen").removeClass('chosen');
                     $("#display_menu #dm-aligned").addClass('chosen');
                     $("#menu-display .selectedchoice").text('alignée');
@@ -781,9 +781,14 @@ var valign, stacked, articlesScope, aligned = true;
 
 
                 //function for stacked layout
-                stacked = function () {
+
+                click_stacked = function () {
                     aligned = false;
-                    update_location_url();
+                    update_url();
+                    stacked.bind(this)();
+                };
+
+                var stacked = function () {
                     $("#display_menu .chosen").removeClass('chosen');
                     $("#display_menu #dm-stacked").addClass('chosen');
                     $("#menu-display .selectedchoice").text('compacte');
@@ -805,7 +810,11 @@ var valign, stacked, articlesScope, aligned = true;
 
                 //on click behaviour
                 function onclick(d) {
-                    update_location_url_for_articles(d);
+                    choose_article.bind(this)(d);
+                    update_url();
+                }
+
+                function choose_article(d) {
                     d3.selectAll("line").style("stroke", "#d0d0e0")
                         .style("stroke-dasharray", "none");
                     //STYLE OF CLICKED ELEMENT AND ROW
@@ -909,17 +918,53 @@ var valign, stacked, articlesScope, aligned = true;
                     });
                 }
 
-                if (aligned) valign();
-                else stacked();
+                thelawfactory.articles.update = function() {
+                    // update the view based on the URL
+
+                    // update selected article
+                    if (articlesScope.article && articlesScope.etape) {
+                        var selected_art = d3.selectAll(".curr").data();
+                        if (selected_art.length) {
+                            selected_art = selected_art[0];
+                        } else {
+                            selected_art = null;
+                        }
+
+                        var filtered = d3.selectAll("#viz .article").filter(function (e) {
+                            // ignore already selected article
+                            if (selected_art && selected_art.article == e.article && selected_art.directory == e.directory) {
+                                return false;
+                            }
+
+                            return e.article == articlesScope.article && e.directory == articlesScope.etape;
+                        }).each(choose_article);
+                    } else {
+                        // TODO copy pasted !
+                        d3.selectAll("line").style("stroke", "#d0d0e0")
+                            .style("stroke-dasharray", "none");
+                        d3.selectAll("#viz .article").call(styleRect);
+                        d3.selectAll(".curr").classed("curr", false);
+
+                        $("#readMode").hide();
+                        $("#revsMode").hide();
+                        $("#text-title").html('ARTICLES');
+                        $(".art-meta").empty();
+                        $(".art-txt").empty().html(helpText);
+                    }
+
+                    // update aligned/compact
+                    aligned = !articlesScope.compacte;
+                    if (aligned) {
+                        valign();
+                    } else {
+                        stacked();
+                    }
+                }
+
                 $('.readMode').tooltip({animated: 'fade', placement: 'bottom', container: 'body'});
                 $('.revsMode').tooltip({animated: 'fade', placement: 'bottom', container: 'body'});
 
-                // open article if in url
-                if (articlesScope.article && articlesScope.etape) {
-                    d3.selectAll("#viz .article").filter(function (e) {
-                        return e.article == articlesScope.article && e.directory == articlesScope.etape
-                    }).each(onclick);
-                }
+                thelawfactory.articles.update();
             };
 
             $(document).ready(function () {
