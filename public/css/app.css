@@ -98,11 +98,11 @@ a:active {
   text-decoration: none;
   font-size: 1.2em;
 }
-.textdiff del {
+.textdiff del, .originaltext del {
   background-color: #ffe6e6;
   text-decoration-color: rgba(0, 0, 0, 0.3);
 }
-.textdiff ins {
+.textdiff ins, .originaltext ins {
   background-color: #e6ffe6;
   text-decoration-color: rgba(0, 0, 0, 0.3);
 }
