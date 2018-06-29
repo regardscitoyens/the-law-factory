@@ -20,6 +20,7 @@ var drawGantt, navettesScope,
         active_filters = {
             year: 2018,
             theme: "",
+            code: "",
             length: '',
             amendments: allAmendments[3]
         };
@@ -37,7 +38,7 @@ var drawGantt, navettesScope,
         addBillsFilter(filtype, "");
     },
     cleanBillsFilter = function () {
-        active_filters = {year: "", theme: "", length: "", amendments: ""};
+        active_filters = {year: "", theme: "", code: "", length: "", amendments: ""};
         refreshLengthFilter();
     };
 reset_filters();
@@ -64,6 +65,7 @@ reset_filters();
                 steps, laws,
                 gridrects, gridlines,
                 allThemes = [], allYears = [],
+                allCodes = [],
                 dossiers = [], smallset = [],
                 stats = {},
                 mindate, maxdate, maxduration,
@@ -315,6 +317,9 @@ reset_filters();
                 if (active_filters['theme'])
                     $("#menu-themes .selectedchoice").text("Thème : " + active_filters['theme']);
                 else $("#menu-themes .selectedchoice").text("Tous les thèmes");
+                if (active_filters['code'])
+                    $("#menu-codes .selectedchoice").text("Code : " + active_filters['code']);
+                else $("#menu-codes .selectedchoice").text("Tous les codes");
                 drawLaws();
                 if (resize && selected_bill) onclick(selected_bill);
                 drawAxis();
@@ -420,12 +425,13 @@ reset_filters();
                 })
             }
 
-            // Populate themes, years and amendments in filter menu
+            // Populate codes, themes, years and amendments in filter menu
             function computeFilters() {
                 var y1, hashYears = {};
                 if (!allYears.length) {
                     dossiers.forEach(function (l) {
                         allThemes = allThemes.concat(l.themes);
+                        allCodes = allCodes.concat(l.textes_cites || []);
                         y1 = l.beginning.substr(0, 4);
                         hashYears[y1] = true;
                         y1 = l.end.substr(0, 4);
@@ -437,6 +443,8 @@ reset_filters();
                     }
                     allYears.sort();
                     allYears.reverse();
+
+                    // themes
                     allThemes = allThemes.filter(function (itm, i, a) {
                         return itm && i == a.indexOf(itm);   // unify
                     });
@@ -446,19 +454,43 @@ reset_filters();
                         return (ac === bc ? 0 : (ac < bc ? -1 : 1))
                     });
                     allThemes.unshift('Tous les thèmes');
+
+                    // codes
+                    allCodes = allCodes.filter(function (itm, i, a) {
+                        return itm && i == a.indexOf(itm);   // unify
+                    });
+                    allCodes.sort(function (a, b) {
+                        var ac = thelawfactory.utils.clean_accents(a),
+                            bc = thelawfactory.utils.clean_accents(b);
+                        return (ac === bc ? 0 : (ac < bc ? -1 : 1))
+                    });
+                    allCodes.unshift('Tous les codes');
                 }
-                var construct_menu_filter = function (filter, cssid, d, i) {
-                    if (!i) {
-                        if (active_filters[filter] == d || !active_filters[filter]) {
-                            $(cssid).append("<li><a class='chosen' onclick=\"rmBillsFilter('" + filter + "','')\">" + d.toLowerCase() + '</a></li>');
-                        } else {
-                            $(cssid).append("<li><a onclick=\"rmBillsFilter('" + filter + "','" + active_filters[filter] + "')\">" + d.toLowerCase() + '</a></li>');
+                var construct_menu_filter = function (filter, cssid, value, index) {
+                    var li = document.createElement('li');
+
+                    var a = document.createElement('a');
+                    a.textContent = value.toLowerCase();
+                    li.appendChild(a);
+
+                    if (!index) {
+                        a.addEventListener("click", function() {
+                            rmBillsFilter(filter);
+                        }, true);
+                        if (active_filters[filter] == value || !active_filters[filter]) {
+                            a.setAttribute("class", "chosen");
                         }
-                    } else if (active_filters[filter] == d) {
-                        $(cssid).append("<li><a class='chosen' onclick=\"rmBillsFilter('" + filter + "','" + d + "')\">" + d.toLowerCase() + '</a></li>');
+                    } else if (active_filters[filter] == value) {
+                        a.setAttribute("class", "chosen");
+                        a.addEventListener("click", function() {
+                            rmBillsFilter(filter, value);
+                        }, true);
                     } else {
-                        $(cssid).append("<li><a onclick=\"addBillsFilter('" + filter + "','" + d + "')\">" + d.toLowerCase() + '</a></li>');
+                        a.addEventListener("click", function() {
+                            addBillsFilter(filter, value);
+                        }, true);
                     }
+                    $(cssid)[0].appendChild(li);
                 };
                 $("#years").empty();
                 allYears.forEach(function (d, i) {
@@ -467,6 +499,10 @@ reset_filters();
                 $("#themes").empty();
                 allThemes.forEach(function (d, i) {
                     construct_menu_filter('theme', '#themes', d, i);
+                });
+                $("#codes").empty();
+                allCodes.forEach(function (d, i) {
+                    construct_menu_filter('code', '#codes', d, i);
                 });
                 $("#amendments").empty();
                 allAmendments.forEach(function (d, i) {
@@ -544,6 +580,10 @@ reset_filters();
                         .filter(function (d) {
                             if (!active_filters['theme']) return true;
                             return (d.themes.join(',').indexOf(active_filters['theme'])) != -1;
+                        })
+                        .filter(function (d) {
+                            if (!active_filters['code']) return true;
+                            return ((d.textes_cites || []).join(',').indexOf(active_filters['code'])) != -1;
                         })
                         .filter(function (d) {
                             if (!active_filters['year']) return true;
