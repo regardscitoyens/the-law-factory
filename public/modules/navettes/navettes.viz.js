@@ -391,7 +391,7 @@ reset_filters();
                     if (!d.timesteps) {
                         d.steps.forEach(function(s) {
                             if (s.date) {
-                                d.steps_maxdate = s.date || s.enddate;
+                                d.steps_maxdate =  s.enddate || s.date;
                             }
                         });
 
