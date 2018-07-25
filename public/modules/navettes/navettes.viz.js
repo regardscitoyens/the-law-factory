@@ -88,7 +88,7 @@ reset_filters();
                     return b.stats.total_amendements - a.stats.total_amendements
                 },
                 sortByDate = function (a, b) {
-                    return Date.parse(b.end) - Date.parse(a.end)
+                    return Date.parse(b.steps_maxdate) - Date.parse(a.steps_maxdate)
                 },
                 sort_function = sortByDate,
                 format = d3.time.format("%Y-%m-%d"),
@@ -389,6 +389,12 @@ reset_filters();
             function prepareData() {
                 data.dossiers.forEach(function (d) {
                     if (!d.timesteps) {
+                        d.steps.forEach(function(s) {
+                            if (s.date) {
+                                d.steps_maxdate = s.date;
+                            }
+                        });
+
                         d.timesteps = angular.copy(d.steps);
                         d.quantisteps = angular.copy(d.steps);
 
@@ -434,7 +440,7 @@ reset_filters();
                         allCodes = allCodes.concat(l.textes_cites || []);
                         y1 = l.beginning.substr(0, 4);
                         hashYears[y1] = true;
-                        y1 = l.end.substr(0, 4);
+                        y1 = l.steps_maxdate.substr(0, 4);
                         hashYears[y1] = true;
                     });
                     allYears[0] = "Toutes années";
@@ -587,7 +593,7 @@ reset_filters();
                         })
                         .filter(function (d) {
                             if (!active_filters['year']) return true;
-                            return d.beginning.substr(0, 4) <= active_filters['year'] && d.end.substr(0, 4) >= active_filters['year'];
+                            return d.beginning.substr(0, 4) <= active_filters['year'] && d.steps_maxdate.substr(0, 4) >= active_filters['year'];
                         })
                         .filter(function (d) {
                             if (!active_filters['length']) return true;
@@ -617,7 +623,7 @@ reset_filters();
                 maxduration = 0;
                 smallset.forEach(function (d) {
                     mindate = (mindate && mindate < d.beginning ? mindate : d.beginning);
-                    maxdate = (maxdate && maxdate > d.end ? maxdate : d.end);
+                    maxdate = (maxdate && maxdate > d.steps_maxdate ? maxdate : d.steps_maxdate);
                     maxduration = Math.max(maxduration, d.stats.total_days);
                     stats[get_stat_bin(d.stats.total_days)]++;
                 });
@@ -689,7 +695,7 @@ reset_filters();
                     })
                     .attr("y", 28)
                     .attr("width", function (d) {
-                        return Math.max(0, tscale(format.parse(d.end)) - tscale(format.parse(d.beginning)));
+                        return Math.max(0, tscale(format.parse(d.steps_maxdate)) - tscale(format.parse(d.beginning)));
                     })
                     .attr("class", "law-bg")
                     .attr("height", steph)
@@ -896,7 +902,13 @@ reset_filters();
                 $("#text-title").attr('data-original-title', d.long_title).tooltip('fixTitle');
 
                 var textContent = '';
-                textContent += '<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning) + " →  " + french_date(d.end) + '</p>';
+                textContent += '<p><span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;' + french_date(d.beginning);
+                if (d.end) {
+                    textContent += " →  " + french_date(d.end);
+                } else {
+                    textContent += " → en cours";
+                }
+                textContent += '</p>';
                 textContent += '<div class="gotomod"><a id="explore" class="button" href="articles.html?loi=' + d.id + '">Explorer les articles</a></div>';
                 if (d.urgence) textContent += '<p>(procédure accélérée)</p>';
                 d.steps.forEach(function (e) {
