@@ -418,7 +418,12 @@ reset_filters();
                         prepareSteps(d.quantisteps, d.id);
                     }
                 });
-                dossiers = dossiers.concat(data.dossiers)
+                dossiers = dossiers.concat(data.dossiers.filter(function(d) {
+                    if (window.location.search.indexOf('encours') !== -1) {
+                        return !d.end;
+                    }
+                    return d.end;
+                }));
             }
 
             // function used for multiple data files - progressive loading
