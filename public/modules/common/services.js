@@ -24,7 +24,7 @@ angular.module('theLawFactory')
     if (API_ROOT_URL.substr(-1) != "/") API_ROOT_URL += "/";
     var api = {
         getLawlist: function () {
-            return apiService.getDataSample(API_ROOT_URL + 'dossiers_promulgues.csv')
+            return apiService.getDataSample(API_ROOT_URL + 'dossiers.csv')
                 .then(function(data) {
                     $log.debug('law list loaded');
                     return data;
