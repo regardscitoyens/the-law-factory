@@ -408,7 +408,6 @@ reset_filters();
                                     d.timesteps[j - 1].step = s.institution;
                                 }
                             }
-
                         });
                         remove.forEach(function (id) {
                             d.timesteps.splice(id, 1);
@@ -642,7 +641,7 @@ reset_filters();
                 if (layout == "q") {
                     maxdate = format.parse(mindate > data.min_date ? data.min_date : mindate);
                     maxdate.setDate(maxdate.getDate() + maxduration + 50);
-                } else maxdate = format.parse(maxdate > data.max_date ? data.max_date : maxdate);
+                } else maxdate = format.parse(maxdate);
                 mindate = format.parse(mindate < data.min_date ? data.min_date : mindate);
                 maxdate.setDate(maxdate.getDate() + 10);
 
