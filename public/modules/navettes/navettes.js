@@ -32,7 +32,7 @@ function (api, $rootScope) {
                 var navettes = thelawfactory.navettes();
                 thelawfactory.utils.spinner.start();
                 api.getDossiers().then(function (data) {
-                    navettes(data, $scope.APIRootUrl, $scope.vizTitle, $scope.helpText);
+                    navettes(data, $scope.APIRootUrl, $scope.vizTitle, $scope.helpText, $scope.encours);
                 }, function () {
                     $scope.display_error("impossible de trouver les données relatives aux textes");
                 })

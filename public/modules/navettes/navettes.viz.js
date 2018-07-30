@@ -55,7 +55,7 @@ reset_filters();
 
     thelawfactory.navettes = function () {
 
-        function vis(data, APIRootUrl, vizTitle, helpText) {
+        function vis(data, APIRootUrl, vizTitle, helpText, displayLiveTexts) {
             navettesScope = $('.navettes').scope();
             var drawing = false,
                 legendcontainer = d3.select("#timeline").append("svg"),
@@ -418,7 +418,7 @@ reset_filters();
                     }
                 });
                 dossiers = dossiers.concat(data.dossiers.filter(function(d) {
-                    if (window.location.search.indexOf('encours') !== -1) {
+                    if (displayLiveTexts) {
                         return !d.end;
                     }
                     return d.end;

@@ -20,6 +20,7 @@ function ($timeout, $scope, $http, apiService, api, $rootScope, $location) {
     $scope.loi = $location.search()['loi'];
     $scope.etape = $location.search()['etape'];
     $scope.article = $location.search()['article'];
+    $scope.encours = $location.search()['encours'] === true;
     $scope.compacte = $location.search()['compacte'] === true;
     $scope.action = $location.search()['action'];
     $scope.vizTitle = "";
