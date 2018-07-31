@@ -638,11 +638,10 @@ reset_filters();
                     return;
                 }
 
-                if (layout == "q") {
-                    maxdate = format.parse(mindate > data.min_date ? data.min_date : mindate);
-                    maxdate.setDate(maxdate.getDate() + maxduration + 50);
-                } else maxdate = format.parse(maxdate);
-                mindate = format.parse(mindate < data.min_date ? data.min_date : mindate);
+                mindate = format.parse(mindate);
+                if (layout == "q")
+                    maxdate.setDate(mindate.getDate() + maxduration + 50);
+                else maxdate = format.parse(maxdate);
                 maxdate.setDate(maxdate.getDate() + 10);
 
                 //update svg size
