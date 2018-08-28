@@ -387,7 +387,14 @@ reset_filters();
             }
 
             function prepareData() {
-                data.dossiers.forEach(function (d) {
+                var dossiers_to_add = data.dossiers.filter(function(d) {
+                    if (displayLiveTexts) {
+                        return !d.url_jo;
+                    }
+                    return d.url_jo;
+                });
+
+                dossiers_to_add.forEach(function (d) {
                     if (!d.timesteps) {
                         d.steps.forEach(function(s) {
                             if (s.date) {
@@ -417,12 +424,8 @@ reset_filters();
                         prepareSteps(d.quantisteps, d.id);
                     }
                 });
-                dossiers = dossiers.concat(data.dossiers.filter(function(d) {
-                    if (displayLiveTexts) {
-                        return !d.end;
-                    }
-                    return d.end;
-                }));
+
+                dossiers = dossiers.concat(dossiers_to_add);
             }
 
             // function used for multiple data files - progressive loading
