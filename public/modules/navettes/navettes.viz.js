@@ -318,7 +318,7 @@ reset_filters();
                     $("#menu-themes .selectedchoice").text("Thème : " + active_filters['theme']);
                 else $("#menu-themes .selectedchoice").text("Tous les thèmes");
                 if (active_filters['code'])
-                    $("#menu-codes .selectedchoice").text("Code : " + active_filters['code']);
+                    $("#menu-codes .selectedchoice").text(thelawfactory.utils.upperFirst(active_filters['code']));
                 else $("#menu-codes .selectedchoice").text("Tous les codes");
                 drawLaws();
                 if (resize && selected_bill) onclick(selected_bill);
