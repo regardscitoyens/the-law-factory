@@ -344,6 +344,7 @@ reset_filters();
             };
 
             function prepareSteps(steps, id) {
+                var last_known_date = null;
                 steps.forEach(function (e, j) {
                     if (e.stage === "constitutionnalité" || e.institution === "conseil constitutionnel")
                         e.stepname = "CC";
@@ -358,8 +359,14 @@ reset_filters();
                     else if (e.institution === "CMP")
                         e.stepname = "CMP";
 
-                    if (e.date && e.date != "" && e.enddate < e.date) e.enddate = e.date;
-                    if (!e.date || e.date === "") e.date = e.enddate;
+                    if (!e.date && !e.enddate) {
+                        e.date = last_known_date;
+                        e.enddate = last_known_date;
+                    }
+                    if (!e.date) e.date = e.enddate;
+                    if (!e.enddate) e.enddate = e.date;
+                    if (e.enddate < e.date) e.enddate = e.date;
+                    last_known_date = e.date;
 
                     if (j > 0 && steps[j - 1].enddate == e.date) {
                         if (steps[j - 1].overlap) e.overlap = steps[j - 1].overlap + 1;
