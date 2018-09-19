@@ -366,7 +366,7 @@ reset_filters();
                     if (!e.date) e.date = e.enddate;
                     if (!e.enddate) e.enddate = e.date;
                     if (e.enddate < e.date) e.enddate = e.date;
-                    last_known_date = e.date;
+                    last_known_date = e.enddate;
 
                     if (j > 0 && steps[j - 1].enddate == e.date) {
                         if (steps[j - 1].overlap) e.overlap = steps[j - 1].overlap + 1;
