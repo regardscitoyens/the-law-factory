@@ -412,6 +412,8 @@ reset_filters();
                         d.timesteps = angular.copy(d.steps);
                         d.quantisteps = angular.copy(d.steps);
 
+                        d.themes = d.themes || [];
+
                         var remove = [];
                         d.timesteps.forEach(function (s, j) {
                             if ((s.step === 'hemicycle' && d.timesteps[j-1].stage !== 'l. définitive' && s.stage !== 'congrès') || (s.step === 'depot' && j)) {
@@ -910,7 +912,7 @@ reset_filters();
                 if (d3.event) d3.event.stopPropagation();
                 selected_bill = d;
                 d3.selectAll(".g-law").style("opacity", 0.2);
-                d3.select(".g-law." + d.id).style("opacity", 1);
+                d3.select(".g-law." + CSS.escape(d.id)).style("opacity", 1);
 
                 $("#text-title").text(thelawfactory.utils.niceLawName(d));
                 $("#text-title").attr('data-original-title', d.long_title).tooltip('fixTitle');
