@@ -4,7 +4,7 @@
     <div ng-cloak class="stb-stage {{ i.name | slug }}" id="stage_{{$index}}" style="width:{{(i.num/total)*100}}%" ng-repeat="i in stages">
       <div>
       <span class="short-label" data-toggle="tooltip" data-placement="bottom" title="{{i.long_name}}" ng-bind-html="i.short_name"></span>
-      <span class="long-label" ng-bind-html="i.long_name + (i.urgence ? ' (urgence)' : '')"></span>
+      <span class="long-label" ng-bind-html="i.long_name + (i.urgence ? ' (procédure accélérée)' : '')"></span>
       <span ng-show="i.urgence" class="stb-link stb-special glyphicon glyphicon-flash" data-toggle="tooltip" data-placement="bottom" title="Procédure accélérée"></span>
       </div>
     </div>
