@@ -15,7 +15,10 @@ function ($timeout, $rootScope, api) {
                     leg = "";
                 if (tit.length > 60) {
                     leg = ' data-toggle="tooltip" data-placement="top" title="' + tit + '"';
-                    tit = scope.loi.substr(0, 3).toUpperCase() + " " + thelawfactory.utils.niceLawName(data);
+                    tit = thelawfactory.utils.niceLawName(data);
+                    if (data.proposal_type) {
+                        tit = data.proposal_type + " " + tit;
+                    }
                 }
                 $(".title").html(
                     '<h4 class="law-title"' + leg + '>' +
