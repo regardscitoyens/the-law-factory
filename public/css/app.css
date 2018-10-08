@@ -1247,6 +1247,9 @@ nav .tutorial-button {
 .navettes a.badge:hover {
   opacity: 0.55;
 }
+.navettes #explore {
+  font-size: 1.4em;
+}
 .navettes-popover.CMP h3 {
   border-bottom: 7px solid #e7dd9e;
 }
