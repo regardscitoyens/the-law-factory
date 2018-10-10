@@ -1,5 +1,5 @@
 <nav ng-cloak role="navigation">
-  <a class="nav-item button" ng-hide="chronomissing" ng-href="lois.html?loi={{loi}}">&lt; Voir la chronologie du texte</a>
+  <a class="nav-item button" ng-href="lois.html?loi={{loi}}{{livetext ? '&encours' : ''}}">&lt; Voir la chronologie du texte</a>
 
   <span class="nav-item dropdown">
     <span id="menu-display" class="dropdown-toggle" data-toggle="dropdown">Vue <span class="selectedchoice">alignée</span> <b class="caret"></b></span>
