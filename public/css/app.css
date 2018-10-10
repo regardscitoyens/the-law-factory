@@ -765,6 +765,14 @@ nav .tutorial-button {
   margin: 0 26px;
   flex-grow: 1;
 }
+.module-title .badge-livetext{
+  background: #a29893;
+  color: #fff;
+  padding: 6px;
+  display: inline-block;
+  margin: 23px;
+  border-radius: 2px;
+}
 .module-title .urgence {
   margin-left: -5px;
   margin-right: 10px;

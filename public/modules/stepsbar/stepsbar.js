@@ -23,6 +23,7 @@ function ($timeout, $rootScope, api) {
                 $(".title").html(
                     '<h4 class="law-title"' + leg + '>' +
                     tit + '</h4>' +
+                    (data.url_jo ? '' : '<span class="badge-livetext">en cours</span>') +
                     '<span class="allinks"><span class="links darkonintrojs">' +
                     (data.url_dossier_senat ? '<a href="'+data.url_dossier_senat+'" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Sénat</a><br/>' : '&nbsp;<br/>') +
                     (data.url_dossier_assemblee ? '<a href="' + data.url_dossier_assemblee + '" target="_blank" class="darkonintrojs"><span class="glyphicon glyphicon-link"></span> Dossier Assemblée</a>' : '') +
