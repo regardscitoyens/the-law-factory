@@ -27,6 +27,11 @@ angular.module('theLawFactory', [
             templateUrl: 'modules/about/about.html',
             controller: 'mainCtrl'
         })
+        .state('metrics', {
+            url: '/metrics.html',
+            template: '<div metrics></div>',
+            controller: 'mainCtrl'
+        })
         .state('laws', {
             url: '/lois.html?loi',
             template: '<div navettes class="module navettes"></div>',

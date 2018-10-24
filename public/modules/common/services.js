@@ -85,7 +85,18 @@ angular.module('theLawFactory')
                     $log.debug('home loaded', data);
                     return data;
                 });
-        }
+        },
+        getMetrics: function() {
+            return apiService.getDataSample(API_ROOT_URL + 'metrics.csv')
+                .then(function(raw_data) {
+                    var data = Papa.parse(raw_data, {
+                        "header": true,
+                        "dynamicTyping": true,
+                    });
+                    $log.debug('metrics loaded', data);
+                    return data;
+                });
+        },
     };
     return api;
 });
