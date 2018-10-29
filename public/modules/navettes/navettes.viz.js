@@ -64,6 +64,7 @@ reset_filters();
 
         function vis(data, APIRootUrl, vizTitle, helpText) {
             navettesScope = $('.navettes').scope();
+            updateTitle();
             var drawing = false,
                 legendcontainer = d3.select("#timeline").append("svg"),
                 ganttcontainer = d3.select("#viz").append("svg").attr("id", "modOsvg"),
