@@ -12,7 +12,7 @@ function ($rootScope, api) {
             api.getHome().then(function (data) {
                 $scope.total = data.total;
                 $scope.maximum = data.maximum;
-                $scope.colonnes = [data.recent, data.focus];
+                $scope.colonnes = [data.live, data.recent, data.focus];
             });
         }
     };
