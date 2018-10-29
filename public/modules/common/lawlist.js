@@ -45,7 +45,7 @@ function ($location, $rootScope, api) {
                                     "themes": n["Thèmes"],
                                     "amendements": n.total_amendements,
                                     "words": n.total_mots,
-                                    "dates": n["Date initiale"] + (n["Date de promulgation"] ? " → " + n["Date de promulgation"] : "")
+                                    "dates": n["Date initiale"] + (n["Date de promulgation"] ? " → " : " → en cours")
                                 }
                             }));
                         },
