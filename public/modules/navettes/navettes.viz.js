@@ -55,7 +55,7 @@ reset_filters();
 
     thelawfactory.navettes = function () {
 
-        function vis(data, APIRootUrl, vizTitle, helpText, displayLiveTexts) {
+        function vis(data, APIRootUrl, vizTitle, helpText) {
             navettesScope = $('.navettes').scope();
             var drawing = false,
                 legendcontainer = d3.select("#timeline").append("svg"),
@@ -231,6 +231,7 @@ reset_filters();
                 }
                 if (action == 'reset') {
                     navettesScope.loi = null;
+                    navettesScope.encours = smallset.length && !smallset[0].url_jo;
                     reset_filters();
                     action = 'filter';
                 }
@@ -394,14 +395,7 @@ reset_filters();
             }
 
             function prepareData() {
-                var dossiers_to_add = data.dossiers.filter(function(d) {
-                    if (displayLiveTexts) {
-                        return !d.url_jo;
-                    }
-                    return d.url_jo;
-                });
-
-                dossiers_to_add.forEach(function (d) {
+                data.dossiers.forEach(function (d) {
                     if (!d.timesteps) {
                         d.steps.forEach(function(s) {
                             if (s.date) {
@@ -434,7 +428,7 @@ reset_filters();
                     }
                 });
 
-                dossiers = dossiers.concat(dossiers_to_add);
+                dossiers = dossiers.concat(data.dossiers);
             }
 
             // function used for multiple data files - progressive loading
@@ -585,7 +579,7 @@ reset_filters();
                     $('.viewonelaw').show();
                     $('.noviewonelaw').hide();
                     cleanBillsFilter();
-                    smallset = dossiers.filter(function (d) {
+                    smallset = data.dossiers.filter(function (d) {
                         return d.id == navettesScope.loi;
                     });
                     if (!smallset.length) {
@@ -599,6 +593,12 @@ reset_filters();
                     $('.viewonelaw').hide();
                     $('.noviewonelaw').show();
                     smallset = dossiers
+                        .filter(function(d) {
+                            if (navettesScope.encours) {
+                                return !d.url_jo;
+                            }
+                            return d.url_jo;
+                        })
                         .filter(function (d) {
                             if (!active_filters['theme']) return true;
                             return (d.themes.join(',').indexOf(active_filters['theme'])) != -1;
