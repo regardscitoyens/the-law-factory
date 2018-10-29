@@ -17,18 +17,6 @@ function ($rootScope, $location, api) {
             $scope.setHelpText("Chaque boîte représente un article dont la taille indique la longueur du texte et la couleur le degré de modifications à cette étape. Cliquez sur un article pour lire le texte et voir le détail des modifications.");
             $scope.vizTitle = "ARTICLES";
 
-            // Hack pour régler l'url du bouton retour chrono sur les textes en cours
-            $rootScope.lawlist = $rootScope.lawlist || [];
-            $rootScope.$watch('lawlist', function(value) {
-                if (!value) return;
-                for (var i = 0; i < $rootScope.lawlist.length; i++) {
-                    if ($rootScope.lawlist[i].id === $scope.loi && !$rootScope.lawlist[i]["Date de promulgation"]) {
-                        $scope.livetext = true;
-                        break;
-                    }
-                }
-            });
-
             thelawfactory.utils.spinner.start();
 
             api.getArticle($scope.loi).then(function (data) {
