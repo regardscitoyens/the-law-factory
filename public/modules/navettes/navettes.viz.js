@@ -433,7 +433,8 @@ reset_filters();
 
             // function used for multiple data files - progressive loading
             function dynamicLoad() {
-                d3.json(APIRootUrl + currFile, function (error, json) {
+                var today_date = new Date().toJSON().split('T')[0];
+                d3.json(APIRootUrl + currFile + '?date+' + today_date, function (error, json) {
                     data = json;
                     prepareData();
                     currFile = json.next_page;
