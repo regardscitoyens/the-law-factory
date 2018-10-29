@@ -37,6 +37,13 @@ var drawGantt, navettesScope,
     rmBillsFilter = function (filtype) {
         addBillsFilter(filtype, "");
     },
+    updateTitle = function() {
+        if (navettesScope.encours) {
+            $(".title").html('<h4 class="law-title">Explorer les textes en cours d\'élaboration</h4>');
+        } else {
+            $(".title").html('<h4 class="law-title">Explorer les textes promulgués depuis 2008</h4>');
+        }
+    },
     cleanBillsFilter = function () {
         active_filters = {year: "", theme: "", code: "", length: "", amendments: ""};
         refreshLengthFilter();
@@ -231,7 +238,6 @@ reset_filters();
                 }
                 if (action == 'reset') {
                     navettesScope.loi = null;
-                    navettesScope.encours = smallset.length && !smallset[0].url_jo;
                     reset_filters();
                     action = 'filter';
                 }
@@ -589,6 +595,10 @@ reset_filters();
                             value = thelawfactory.utils.searchableLaw(value);
                             return matcher.test(thelawfactory.utils.clean_accents(value));
                         });
+                    }
+                    if (smallset.length) {
+                        navettesScope.encours = smallset.length && !smallset[0].url_jo;
+                        updateTitle();
                     }
                 } else {
                     $('.viewonelaw').hide();
