@@ -525,6 +525,7 @@ noscript span {
 #home #homelinks > .laws,
 #home .disclaimer > div {
   width: 30%;
+  max-width: 500px;
 }
 @media (max-width: 1280px) {
   #home #homelinks > .laws,
