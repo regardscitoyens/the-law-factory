@@ -87,7 +87,7 @@ angular.module('theLawFactory')
                 });
         },
         getMetrics: function() {
-            return apiService.getDataSample(API_ROOT_URL + 'metrics.csv')
+            return apiService.getDataSample(API_ROOT_URL + 'stats/metrics.csv')
                 .then(function(raw_data) {
                     var data = Papa.parse(raw_data, {
                         "header": true,

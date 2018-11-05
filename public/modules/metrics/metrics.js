@@ -6,7 +6,7 @@ function ($rootScope, api) {
     return {
         restrict: 'A',
         replace: false,
-        templateUrl: 'modules/mettrics/metrics.html',
+        templateUrl: 'modules/metrics/metrics.html',
         controller: function ($scope) {
             $rootScope.pageTitle = "Statistiques | ";
             $scope.mod = "metrics";
