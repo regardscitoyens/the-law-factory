@@ -1,15 +1,15 @@
 'use strict';
 
 angular.module('theLawFactory')
-.directive('metrics', ['$rootScope', 'api',
+.directive('stats', ['$rootScope', 'api',
 function ($rootScope, api) {
     return {
         restrict: 'A',
         replace: false,
-        templateUrl: 'modules/metrics/metrics.html',
+        templateUrl: 'modules/stats/stats.html',
         controller: function ($scope) {
             $rootScope.pageTitle = "Statistiques | ";
-            $scope.mod = "metrics";
+            $scope.mod = "stats";
             api.getMetrics().then(function (results) {
                 $('#stats-table').dataTable({
                     fixedHeader: {
