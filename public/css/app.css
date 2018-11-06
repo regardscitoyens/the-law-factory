@@ -167,6 +167,7 @@ a:active {
 .dropdown-menu > li > a:hover {
   background-color: #716259;
   cursor: pointer;
+  color: white;
 }
 .dropdown-menu li:hover .chosen:before {
   color: white;
