@@ -507,7 +507,7 @@ reset_filters();
                     } else if (active_filters[filter] == value) {
                         a.setAttribute("class", "chosen");
                         a.addEventListener("click", function() {
-                            rmBillsFilter(filter, value);
+                            rmBillsFilter(filter);
                         }, true);
                     } else {
                         a.addEventListener("click", function() {
