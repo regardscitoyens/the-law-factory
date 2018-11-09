@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/introjs.min.css">
     <link rel="stylesheet" href="css/introjs-rtl.min.css">
+    <link rel="stylesheet" href="css/datatables.min.css">
+    <link rel="stylesheet" href="css/datatables.fixedHeader.min.css">
     <link rel="stylesheet" href="css/app.css">
 
     <!-- Twitter metas -->
@@ -62,7 +64,7 @@
       <p>Erreur : {{error}}. N'hésitez pas à <a href="http://github.com/regardscitoyens/the-law-factory/issues" target="_blank">nous le signaler</a>&nbsp;! Ou <a href="#" ng-click="back()">cliquez ici</a> pour revenir à la page précédente.</p>
     </div>
 
-    <div ng-cloak ng-hide="$state.includes('home') || $state.includes('about')" class="module-title">
+    <div ng-cloak ng-hide="$state.includes('home') || $state.includes('about') || $state.includes('stats')" class="module-title">
       <div class="title"></div>
     </div>
 
@@ -85,6 +87,9 @@
     <!-- Library JS-->
     <script type="text/javascript" src="lib/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="lib/jquery-ui-1.11.4.custom.min.js"></script>
+    <script type="text/javascript" src="lib/datatables-1.10.19.min.js">
+    <script type="text/javascript" src="lib/datatables.fixedHeader-3.1.5.min.js">
+    <script type="text/javascript" src="lib/papaparse.min.js"></script>
     <script type="text/javascript" src="lib/bootstrap-3.3.6.min.js"></script>
     <script type="text/javascript" src="lib/d3-3.4.13.min.js"></script>
     <script type="text/javascript" src="lib/d3-bootstrap-plugins.js"></script>
@@ -108,6 +113,7 @@
     <script type="text/javascript" src="modules/home/home.js"></script>
     <script type="text/javascript" src="modules/stepsbar/stepsbar.js"></script>
     <script type="text/javascript" src="modules/about/about.js"></script>
+    <script type="text/javascript" src="modules/stats/stats.js"></script>
     <script type="text/javascript" src="modules/navettes/navettes.js"></script>
     <script type="text/javascript" src="modules/articles/articles.js"></script>
     <script type="text/javascript" src="modules/amendements/amendements.js"></script>
