@@ -587,7 +587,7 @@ reset_filters();
                     $('.viewonelaw').show();
                     $('.noviewonelaw').hide();
                     cleanBillsFilter();
-                    smallset = data.dossiers.filter(function (d) {
+                    smallset = dossiers.filter(function (d) {
                         return d.id == navettesScope.loi;
                     });
                     if (!smallset.length) {
