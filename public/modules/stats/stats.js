@@ -12,12 +12,14 @@ function ($rootScope, api) {
             $scope.mod = "stats";
             api.getMetrics().then(function (results) {
                 $('#stats-table').dataTable({
+                    data: results.data,
                     fixedHeader: {
-                        header: false,
+                        header: true,
                         footer: false
                     },
-                    lengthChange: false,
-                    pageLength: 20,
+                    //lengthChange: false,
+                    info: "",
+                    paging: false,
                     "columns": results.meta.fields.map(c => ({
                         "title": c,
                         "data": c,
@@ -33,7 +35,10 @@ function ($rootScope, api) {
                         "default": "",
                     })),
                     scrollY: '30vh',
-                    data: results.data
+                    language: {
+                        decimal: ",",
+                        search: "Chercher une loi"
+                    }
                 });
              });
         }
