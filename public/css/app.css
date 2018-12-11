@@ -572,7 +572,7 @@ noscript span {
 #home #homelinks li {
   background-color: #fff;
   margin: 13px;
-  height: 94px;
+  min-height: 94px;
   display: flex;
   align-items: stretch;
   flex-flow: column nowrap;
