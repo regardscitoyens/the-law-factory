@@ -47,6 +47,12 @@ function ($location, $rootScope, api) {
                                     "words": n.total_mots,
                                     "dates": n["Date initiale"] + (n["Date de promulgation"] ? (" → " + n["Date de promulgation"]) : " → en cours")
                                 }
+                            }).sort(function(l1, l2){
+                                if (l1.dates < l2.dates) return 1;
+                                if (l2.dates < l1.dates) return -1;
+                                if (l1.label.toLowerCase() < l2.label.toLowerCase()) return -1;
+                                if (l2.label.toLowerCase() < l1.label.toLowerCase()) return 1;
+                                return 0;
                             }));
                         },
                         focus: function (event, ui) {
