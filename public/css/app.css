@@ -777,6 +777,7 @@ nav .tutorial-button {
   display: inline-block;
   margin: 23px;
   border-radius: 2px;
+  min-width: 66px;
 }
 .module-title .urgence {
   margin-left: -5px;
@@ -906,28 +907,31 @@ nav .tutorial-button {
   padding: 6.5px 13px;
 }
 /************************ Amendements / Debats legend ************************/
+#legend {
+  padding: 5px;
+}
 #legend .leg-item {
-  width: 12%;
+  width: 110px;
   margin-top: 5px;
-  margin-left: 2%;
+  margin-left: 10px;
   cursor: pointer;
+  float: left
 }
 .amendements #legend .leg-empty {
   cursor: initial;
-}
-#legend .others .leg-item {
-  min-width: 12%;
-  width: auto;
 }
 #legend .leg-value {
   width: 18px;
   height: 18px;
   float: left;
 }
+#legend .colors {
+  clear: both;
+}
 #legend .colors,
 #legend .others {
-  display: flex;
   margin-top: 2px;
+  clear: both;
 }
 #legend .leg-key {
   float: left;
@@ -1672,7 +1676,6 @@ nav .tutorial-button {
     .amendements .amd-flex .expanded .amd-text-content {
 	display: block;
     }
-
 }
 
 .amendements .amd-flex .expanded .amd-fade {
