@@ -17,8 +17,10 @@ var drawGantt, navettesScope,
     allAmendments = ["Tout nb d'amendements", 'Aucun amendement', 'Moins de 50 amendements', 'Plus de 50 amendements'],
     active_filters,
     reset_filters = function () {
+        var date = new Date();
+        date.setMonth(date.getMonth() - 3);
         active_filters = {
-            year: new Date().getFullYear(),
+            year: date.getFullYear(),
             theme: "",
             code: "",
             length: '',
