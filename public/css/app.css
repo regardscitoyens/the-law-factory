@@ -1267,6 +1267,10 @@ nav .tutorial-button {
 .navettes #explore {
   font-size: 1.4em;
 }
+.navettes .law-name,
+.navettes .g-law {
+  cursor: pointer;
+}
 .navettes-popover.CMP h3 {
   border-bottom: 7px solid #e7dd9e;
 }
