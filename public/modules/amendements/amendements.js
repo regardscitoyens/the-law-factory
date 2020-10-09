@@ -43,6 +43,16 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 firstDraw = true,
                 refreshInterval = 60000;
 
+            function getFirstAmendement(sujets) {
+                var firstAmdt = null;
+                Object.keys(sujets).forEach(function (sujet) {
+                    if (sujets[sujet].order == 0) {
+                        firstAmdt = sujets[sujet].amendements[0];
+                    }
+                });
+                return firstAmdt;
+            }
+
             // Redessine les dernières données de l'API (à appeler sur changement de tri/groupement)
             function redraw() {
                 if (!$scope.apiData) return;
@@ -87,7 +97,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
                                 scrollTop: $sujet.offset().top - $viz.offset().top
                             });
                         } else {
-                            $scope.apiData.sujets[Object.keys($scope.apiData.sujets)[0]].amendements[0].tutorial = true;
+                            getFirstAmendement($scope.apiData.sujets).tutorial = true;
                         }
 
                         firstDraw = false;
@@ -150,7 +160,7 @@ function ($rootScope, $timeout, $sce, $location, api) {
             // Affichage du contenu d'un amendement
             $scope.selectAmdt = function(amdt) {
                 $('.amendements .amendement.selected').removeClass('selected');
-                $scope.apiData.sujets[Object.keys($scope.apiData.sujets)[0]].amendements[0].tutorial = false;
+                getFirstAmendement($scope.apiData.sujets).tutorial = false;
                 if ($scope.selectedAmdt) {
                     $scope.selectedAmdt.tutorial = false;
                 }
