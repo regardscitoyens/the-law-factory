@@ -44,13 +44,15 @@ function ($rootScope, $timeout, $sce, $location, api) {
                 refreshInterval = 60000;
 
             function getFirstAmendement(sujets) {
-                var firstAmdt = null;
+                var currentMinimumOrder = null;
+                var currentFirstSujet = null;
                 Object.keys(sujets).forEach(function (sujet) {
-                    if (sujets[sujet].order == 0) {
-                        firstAmdt = sujets[sujet].amendements[0];
+                    if (currentMinimumOrder === null || sujets[sujet].order < currentMinimumOrder) {
+                        currentMinimumOrder = sujets[sujet].order;
+                        currentFirstSujet = sujet;
                     }
                 });
-                return firstAmdt;
+                return sujets[currentFirstSujet].amendements[0];
             }
 
             // Redessine les dernières données de l'API (à appeler sur changement de tri/groupement)
