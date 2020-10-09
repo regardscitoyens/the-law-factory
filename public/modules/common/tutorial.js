@@ -36,7 +36,8 @@ angular.module('theLawFactory')
                             nextLabel: "➡",
                             prevLabel: "⬅",
                             skipLabel: "✖",
-                            doneLabel: "✖"
+                            doneLabel: "✖",
+                            scrollToElement: false,
                         });
                         introjs.onbeforechange(function (e) {
                             if ($(e).hasClass('div-over-svg'))
