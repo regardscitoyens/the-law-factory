@@ -139,7 +139,7 @@ var click_valign, click_stacked, articlesScope, aligned = true;
             if (liensArticles[article] && liensArticles[article][directory]) {
                 liensArticles[article][directory].forEach(function(lien) {
                     // TODO: find a more robust method, here a link can be replaced two times (<a><a>link</a></a>)
-                    alinea = alinea.replace(lien, '<a href="https://duckduckgo.com/?q=!ducky+' + encodeURIComponent(lien) + '" target="_blank">' + lien + '</a>');
+                    alinea = alinea.replace(lien.texte, '<a href="https://duckduckgo.com/?q=!ducky+' + encodeURIComponent(lien.texte_complet || lien.texte) + '" target="_blank">' + lien.texte + '</a>');
                 });
             }
             return alinea
